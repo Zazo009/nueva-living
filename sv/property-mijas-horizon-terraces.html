@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder finns det?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Mijas Horizon Terraces"
   data-project-message="Hej Nueva Living, jag vill gärna ha information om Mijas Horizon Terraces."
@@ -459,611 +396,159 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Mijas Horizon Terraces">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-mijas-horizon-terraces.html#top">Mijas Horizon Terraces<span>Från 320 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-mijas-horizon-terraces.html#overview">Översikt</a><a href="sv/property-mijas-horizon-terraces.html#availability">Priser</a><a href="sv/property-mijas-horizon-terraces.html#specs">Utförande</a><a href="sv/property-mijas-horizon-terraces.html#gallery">Galleri</a><a href="sv/property-mijas-horizon-terraces.html#location">Läge</a><a href="sv/property-mijas-horizon-terraces.html#onsite">I området</a><a href="sv/property-mijas-horizon-terraces.html#view">Vår bedömning</a><a href="sv/property-mijas-horizon-terraces.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Mijas Horizon Terraces">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg" alt="Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar" width="2000" height="1415" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg" alt="Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar" width="2000" height="1415" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">6 av de 19 listade bostäderna tillgängliga</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Mijas Horizon <em>Terraces</em></span>
-            <span class="hero-title-context">Lägenheter och takvåningar med terrasser i Mijas Costa</span>
-          </h1>
-          <p class="hero-positioning">Sex av de 19 bostäderna på prislistan för Mijas Horizon Terraces, ett projekt med 142 lägenheter och takvåningar med två och tre sovrum i Mijas Costa, är tillgängliga, från 320 000 € plus IVA. Betalningsvillkoren lägger köpebrevet till första kvartalet 2029.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-mijas-horizon-terraces.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=mijas-horizon-terraces">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-mijas-horizon-terraces.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Mijas Costa</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 320 000 € + IVA</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenheter och takvåningar</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Färdigställande K1 2029</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-mijas-horizon-terraces.html#media">Media</a>
-        <a href="sv/property-mijas-horizon-terraces.html#location">Läge</a>
-        <a href="sv/property-mijas-horizon-terraces.html#construction-timeline">Betalningsvillkor</a>
-        <a href="sv/property-mijas-horizon-terraces.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-mijas-horizon-terraces.html#overview">Översikt</a>
-          <a href="sv/property-mijas-horizon-terraces.html#residences">Bostäder</a>
-          <a href="sv/property-mijas-horizon-terraces.html#quality-specifications">Utförande</a>
-          <a href="sv/property-mijas-horizon-terraces.html#calculator">Finansiering</a>
-          <a href="sv/property-mijas-horizon-terraces.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-mijas-horizon-terraces.html#why-this-project">Varför</a>
-          <a href="sv/property-mijas-horizon-terraces.html#architecture">Arkitektur</a>
-          <a href="sv/property-mijas-horizon-terraces.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-mijas-horizon-terraces.html#lifestyle">Livsstil</a>
-          <a href="sv/property-mijas-horizon-terraces.html#faq">FAQ</a>
-          <a href="sv/property-mijas-horizon-terraces.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2-3 sovrum</strong></div>
-          <div class="quick-fact"><span>Bostäder</span><strong>142 lägenheter och takvåningar</strong></div>
-          <div class="quick-fact"><span>Invändig yta</span><strong>65,79 - 83,78 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>6 av de 19 listade bostäderna tillgängliga</strong></div>
-          <div class="quick-fact"><span>Projekt</span><strong>142 bostäder</strong></div>
-          <div class="quick-fact"><span>Till salu</span><strong>19 bostäder</strong></div>
-          <div class="quick-fact"><span>Tillgänglig</span><strong>6 bostäder</strong></div>
-          <div class="quick-fact"><span>Prisspann</span><strong>320 000 € - 480 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">142 bostäder, <em>sex tillgängliga just nu</em></h2>
-          <p class="project-lead">Mijas Horizon Terraces är ett projekt med 142 lägenheter och takvåningar med två och tre sovrum i Mijas Costa. Broschyren beskriver havsutsikt även från bottenvåningarna, en central pool med chill-out-yta, ett gym, ett spaområde, en socialklubb och en coworking-yta, i anlagda trädgårdar.</p>
-          <p class="project-lead">Prislistan nämner 19 av de 142 bostäderna. Sex har pris och är tillgängliga, från en bostad med två sovrum för 320 000 € till en takvåning med två sovrum för 480 000 €, allt före IVA (spansk moms), och de övriga 13 är markerade som reserverade. Betalningsvillkoren lägger köpebrevet till första kvartalet 2029.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bostäderna <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datorgenererade vyer över husen, poolen, de gemensamma ytorna och interiörerna, samt planritningarna för de sex bostäderna på prislistan.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 3 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg" alt="Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar" width="2000" height="1415" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>De två husen och den gemensamma poolen</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Visa 2 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon.jpg" alt="Datorgenererad vy över pooltrassen med loungestolar och havet i horisonten" width="2000" height="991" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>Pooltrassen och havet</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 2 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace.webp 1507w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace.jpg" alt="Datorgenererat vardagsrum med två fåtöljer och en soffa och en skjutdörr i glas mot en terrass med havet bortom" width="1507" height="859" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrum och terrass</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Visa 1 bilder i Sovrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door.webp 1515w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door.jpg" alt="Datorgenererat sovrum med en dubbelsäng, en flätad panel bakom sängen och en glasdörr mot en terrass" width="1515" height="854" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Sovrum</small>
-                <strong>Sovrum</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Visa 1 bilder i Badrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/bathroom-with-walk-in-shower-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/bathroom-with-walk-in-shower-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/bathroom-with-walk-in-shower.webp 1503w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-horizon-terraces/media/bathroom-with-walk-in-shower.jpg" alt="Datorgenererat badrum med en duschhörna utan kar, en rund spegel och ett väggmonterat badrumsskåp med handfat" width="1503" height="854" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badrum</small>
-                <strong>Badrum</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 4 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall.jpg" alt="Datorgenererat spaområde med en bassäng, en grön växtvägg och en dagbädd" width="2000" height="1416" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Spaområdet</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Visa 6 bilder i Planritningar">
-              <img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d.jpg" alt="Planritning för bostad B4-P8-1D" width="1009" height="1710" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planritningar</small>
-                <strong>Bostad B4-P8-1D</strong>
-                <span class="project-media-card-cta">6 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 19 bilder</button>
-          <p class="media-note">Alla bilder är datorgenererade och endast vägledande: broschyren anger att de bygger på ett ursprungligt projekt som kan ändras under arbetena och att de möbler, den inredning och den växtlighet som visas inte ingår i erbjudandet. Planritningarna är exploatörens egna för de sex bostäderna på prislistan; de anger att de kan ändras under arbetena av tekniska eller juridiska skäl, och rumsnamnen på dem är på engelska.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Mijas Costa, <em>mellan Marbella och Málaga</em></h2>
-          <p class="project-lead">Projektet ligger i Mijas Costa. Kartan i broschyren markerar köpcentret och handelsparken Miramar, en travbana, en padelklubb och två golfbanor inom några kilometer, med Fuengirola och La Cala de Mijas vid kusten, och anger 40 km till Marbella och 41 km till Málaga. Dokumenten anger varken adress eller koordinater för tomten, så kartan visar området Mijas Costa.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-mijas-horizon-terraces" data-locmap='{&quot;site&quot;:[36.5058,-4.687],&quot;sea&quot;:[36.4788,-4.687],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Cala&quot;,&quot;sub&quot;:&quot;7,3 km · 13 min&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;9,5 km · 14 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centrum&quot;,&quot;sub&quot;:&quot;9,1 km · 13 min&quot;},{&quot;ll&quot;:[36.49899,-4.68403],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;1,7 km · 4 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Mijas Horizon Terraces"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Mijas Horizon Terraces</h3>
-            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>1,7 km</bdi> <em><bdi>4 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>9,5 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Fuengirola centrum</span>
-              <span class="locmap-row-figure"><bdi>9,1 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan La Cala</span>
-              <span class="locmap-row-figure"><bdi>7,3 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Cabopino</span>
-              <span class="locmap-row-figure"><bdi>8,2 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga flygplats</span>
-              <span class="locmap-row-figure"><bdi>36 km</bdi> <em><bdi>34 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Betalningsvillkor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hur <em>betalningarna</em> är fördelade</h2>
-        </div>
-        <p class="project-lead timeline-intro">En bokning, ett privat kontrakt när bygglovet beviljas, tre delbetalningar med fasta datum och köpebrevet under första kvartalet 2029, allt plus IVA. Nueva Living bekräftar tidsplanen och tillträdesdatumet före varje reservation.</p>
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Bokning</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">Bokning</span>
-        </div>
-        <div class="timeline-point" style="transition-delay:0.09s">
-          <span class="timeline-label"></span>
-          <span class="timeline-marker"></span>
-          <span class="timeline-year">Privat kontrakt</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.18s">
-          <span class="timeline-label">Tillträde</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">K1 2029</span>
-        </div>
-      </div>
-      <div class="project-inner timeline-payment-terms reveal-soft">
-        <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">Betalningsvillkor</span>
-          <span class="timeline-payment-total">6 000 € + IVA bokning, plus 100% av priset fördelat på 3 betalningar</span>
-        </div>
-        <div class="timeline-payment-grid">
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">01</span>
-            <span class="timeline-payment-label">Bokning</span>
-            <strong class="timeline-payment-value">6 000 € + IVA</strong>
-            <span class="timeline-payment-note">6 600 € inklusive IVA</span>
-            
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">02</span>
-            <span class="timeline-payment-label">Vid privat köpekontrakt</span>
-            <strong class="timeline-payment-value">15% + IVA</strong>
-            <span class="timeline-payment-note">När bygglovet beviljas, minus bokningen</span>
-            <span class="timeline-payment-running">Löpande summa: 15%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">03</span>
-            <span class="timeline-payment-label">Efter det privata kontraktet</span>
-            <strong class="timeline-payment-value">15% + IVA</strong>
-            <span class="timeline-payment-note">Tre betalningar den 5 mars 2027, 5 september 2027 och 5 mars 2028</span>
-            <span class="timeline-payment-running">Löpande summa: 30%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">04</span>
-            <span class="timeline-payment-label">Vid köpebrevet</span>
-            <strong class="timeline-payment-value">70% + IVA</strong>
-            <span class="timeline-payment-note">Första kvartalet 2029, vid färdigställande och överlämnande av nycklarna</span>
-            <span class="timeline-payment-running">Löpande summa: 100%</span>
-          </div>
-        </div>
-        <p class="timeline-payment-disclaimer">Betalningsplan enligt exploatörens betalningsvillkor, som inte har något tryckt datum. Inget dokument vi har säger hur pengar som betalats före färdigställandet är säkrade. Nueva Living bekräftar de exakta villkoren direkt med er före varje reservation.</p>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Sex bostäder, <em>var och en med en terrass eller en trädgård</em></h2>
-          <p class="project-lead">Prislistan anger de sex tillgängliga bostäderna efter block, uppgång och våning. Tabellen nedan listar var och en med sitt pris.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Bostäderna med två sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-mijas-horizon-terraces.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bostäderna med tre sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-mijas-horizon-terraces.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-mijas-horizon-terraces.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen byggspecifikation, sammanfattad efter delar av bostaden.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Golv och väggar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Laminatgolv i vardagsrum, sovrum, kök, korridorer och hallar, med vita golvlister, och keramiska plattor på badrumsgolven.</li>
-              <li>Keramiska plattor enbart på väggarna i duschområdet, och slät plastfärg på övriga väggar och på gipsskivetaken.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dörrar och garderober<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Innerdörrar i vitlackerat trä med förkromade handtag, och modulgarderober med en övre hylla och en klädstång, med dörrar i samma färg som innerdörrarna.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kök<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Över- och underskåp i högtryckslaminat, en bänkskiva i Silestone eller liknande och en diskho enligt projektets utformning.</li>
-              <li>Ett kylskåp, en tvättmaskin, en diskmaskin, en induktionshäll, en ugn, en mikrovågsugn och en köksfläkt med utsug.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Vita sanitetsartiklar i förglasat porslin, duschbottnar i harts i båda badrummen och enhandsblandare.</li>
-              <li>Handfatet är inbyggt i badrumsskåpet i huvudbadrummet och väggmonterat i det andra badrummet.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och energi<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Varm och kall luft genom kanaler till vardagsrum, sovrum och kök, med ett värmepumpssystem enbart i köket.</li>
-              <li>Varmvatten från ett aerotermiskt system och individuell mekanisk ventilation i köken och badrummen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>El och telekom<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Tv- och ethernetuttag enligt telekommunikationsstandarden ICT 2 i vardagsrum, kök och sovrum.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Säkerhet<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En säkerhetsingångsdörr med titthål och säkerhetslås, och säkerhetsglas och -beslag på fönstren och dörrarna i bostäderna i bottenvåningen.</li>
-              <li>Ett slutet område med enbart privat tillträde, huvudnycklar till området, husets entré, bostäderna och garaget, och ett automatiskt videoporttelefonsystem vid områdets ingång och i husets entré.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gemensamma ytor<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Plaskpooler med saltklorering, ett fullt utrustat gym, en bastu och ett spaområde, ett coworking-rum och ett rum för socialklubben.</li>
-              <li>Trädgårdar med belysning och automatisk bevattning, och en bärbar hjärtstartare i de gemensamma utrymmena.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Garage och hissar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ett garage med automatisk infartsdörr och fjärröppning, en förinstallerad laddstation för elfordon och hissar anpassade för tillgänglighet, med automatiska dörrar.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: exploatörens materialbeskrivning, revision 02, daterad 8 april 2026. Den anger att materialen kan ändras efter projektledningens gottfinnande och ersättas med andra av likvärdig eller högre kvalitet.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">6 bostäder <em>tillgängliga just nu</em></h2>
-          <p class="project-lead">Priserna är de i exploatörens prislista, vars fil anger 23 oktober 2026, och vi bekräftar priser och tillgänglighet före varje reservation. Listan nämner 19 av de 142 bostäderna: sex har pris och är tillgängliga, och 13 är markerade som reserverade. Priserna är före IVA.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg" alt="Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>13 bilder</button>
+          <a class="chip" href="sv/property-mijas-horizon-terraces.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-mijas-horizon-terraces.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>6</strong></div>
-            <div><span>Pris från</span><strong>320 000 € + IVA</strong></div>
-            <div><span>Prisintervall</span><strong>320 000 € - 480 000 € + IVA</strong></div>
-            <div><span>Kontrollerad</span><strong>23 oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 6 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="320000">
-                <a class="unit-card-plan" href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-1D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d.jpg" alt="Planritning för B4-P8-1D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">B4-P8-1D</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Inomhus</dt><dd>67,61 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>11,06 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 4, uppgång 8, första våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">320 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Mijas%20Horizon%20Terraces%20-%20B4-P8-1D">Fråga om B4-P8-1D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="345000">
-                <a class="unit-card-plan" href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-0B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b.jpg" alt="Planritning för B4-P8-0B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">B4-P8-0B</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Inomhus</dt><dd>65,79 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>27,97 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 4, uppgång 8, bottenvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">345 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Mijas%20Horizon%20Terraces%20-%20B4-P8-0B">Fråga om B4-P8-0B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="425000">
-                <a class="unit-card-plan" href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P7-1D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d.jpg" alt="Planritning för B4-P7-1D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">B4-P7-1D</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Inomhus</dt><dd>83,78 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>21,92 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 4, uppgång 7, första våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">425 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Mijas%20Horizon%20Terraces%20-%20B4-P7-1D">Fråga om B4-P7-1D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="430000">
-                <a class="unit-card-plan" href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-2A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a.jpg" alt="Planritning för B4-P8-2A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">B4-P8-2A</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Inomhus</dt><dd>83,78 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>24,71 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 4, uppgång 8, andra våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">430 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Mijas%20Horizon%20Terraces%20-%20B4-P8-2A">Fråga om B4-P8-2A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="440000">
-                <a class="unit-card-plan" href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a.jpg" target="_blank" rel="noopener" aria-label="Planritning för B6-P11-0A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a.jpg" alt="Planritning för B6-P11-0A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">B6-P11-0A</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Inomhus</dt><dd>83,78 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>17,91 m²</dd></div>
-                    <div><dt>Trädgård</dt><dd>49,54 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 6, uppgång 11, bottenvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">440 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Mijas%20Horizon%20Terraces%20-%20B6-P11-0A">Fråga om B6-P11-0A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="480000">
-                <a class="unit-card-plan" href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-PH-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b.jpg" alt="Planritning för B4-P8-PH-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">B4-P8-PH-B</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Inomhus</dt><dd>77,05 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>36,96 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 4, uppgång 8, takvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">480 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Mijas%20Horizon%20Terraces%20-%20B4-P8-PH-B">Fråga om B4-P8-PH-B</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Priser och ytor är hämtade från exploatörens prislista, som inte har något tryckt datum; filen anger 23 oktober 2026. Listan nämner 19 bostäder och visar 13 av dem som reserverade, vilka inte är med här. Priserna för de övriga sex är före IVA (spansk moms), och 10 procent IVA och 1,20 procent stämpelskatt tillkommer, så att bostaden för 320 000 € kostar cirka 356 000 € och takvåningen för 480 000 € cirka 534 000 €, före notarie- och registreringsavgifter. Inomhus är den invändiga boytan från listan, och terrass är de överbyggda och öppna terrasserna tillsammans; bostaden i bottenvåningen B6-P11-0A har en trädgård framför på 49,54 m² i stället för en öppen terrass. De större invändiga byggda ytorna från listan har lämnats utanför tabellen. Varje bostad är listad med en garageplats och ett förråd med nummer; listan säger inte att de ingår i priset.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Horizon%20Terraces." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Horizon Terraces" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Mijas Horizon Terraces</span></h1>
+        <p class="hero-by">Sex av de 19 bostäderna på prislistan för Mijas Horizon Terraces, ett projekt med 142 lägenheter och takvåningar med två och tre sovrum i Mijas Costa, är tillgängliga, från 320 000 € plus IVA.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts has5"><div data-nl-price><dt>Pris</dt><dd class="num">Från 320 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2 till 3</dd><dd class="sub"><span>Lägenheter och takvåningar</span></dd></div><div><dt>Inflyttning</dt><dd>K1 2029</dd><dd class="sub">Bygglov: vi bekräftar det innan ni reserverar</dd></div><div><dt>Bostäder kvar</dt><dd>6 av 142</dd><dd class="sub">Kontrollerat 23 oktober 2026</dd></div><div><dt>Betalningar</dt><dd>70% · Vid köpebrevet</dd><dd class="sub">6 000 € för att reservera</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Horizon%20Terraces." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Horizon Terraces" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Mijas Horizon Terraces är ett projekt med 142 lägenheter och takvåningar med två och tre sovrum i Mijas Costa. Broschyren beskriver havsutsikt även från bottenvåningarna, en central pool med chill-out-yta, ett gym, ett spaområde, en socialklubb och en coworking-yta, i anlagda trädgårdar.</p>
+    <p class="lede-2">Prislistan nämner 19 av de 142 bostäderna. Sex har pris och är tillgängliga, från en bostad med två sovrum för 320 000 € till en takvåning med två sovrum för 480 000 €, allt före IVA (spansk moms), och de övriga 13 är markerade som reserverade. Betalningsvillkoren lägger köpebrevet till första kvartalet 2029.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Hus med terrasser, terrasser öppna mot utsikten</span></summary><p>På bilderna är husen långa och låga, med en djup terrass på varje våning, glasräcken och sandfärgade väggar ovanför den gemensamma poolen. Broschyren lovar havsutsikt även från bottenvåningarna och anger att alla bostäder har söderläge eller sydvästläge.</p><p>Planritningarna visar bostäderna i bottenvåningen med utgång till en terrass eller en trädgård framför, och takvåningen med en enda öppen terrass över hela bostadens bredd.</p><ul><li>Konstruktion: En grund av armerad betong enligt markens geotekniska undersökning och en stomme av armerad betong ovanpå.</li><li>Fasad: Håltegel, sprutad polyuretanisolering, en luftspalt och en gipsskiva med mineralull.</li><li>Fönster: PVC-fönster med dubbelglas och isolerande kammare, laminerat säkerhetsglas i terrassdörrarna och manuella rullgardiner med värmeisolering i sovrummen.</li><li>Terrasser: Halksäkra, frostbeständiga plattor på golven, med en kran, tv-uttag, eluttag och belysning på terrassen.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>320 000 € – 480 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>6 av 142 bostäder</span><small>Kontrollerat 23 oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenheter och takvåningar</span></dd></div><div><dt>Storlekar</dt><dd><span>66 – 84 m²</span><small>Inomhus</small></dd></div><div><dt>Inflyttning</dt><dd><span>K1 2029</span></dd></div><div><dt>Tillstånd</dt><dd><span>Ej angivet</span><small>Vi bekräftar det innan ni reserverar</small></dd></div><div><dt>Betalningar</dt><dd><span>4 delbetalningar</span><small>70% · Vid köpebrevet · <a href="sv/property-mijas-horizon-terraces.html#plan">betalplan</a></small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Parkering</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Priserna är de i exploatörens prislista, vars fil anger 23 oktober 2026, och vi bekräftar priser och tillgänglighet före varje reservation. Listan nämner 19 av de 142 bostäderna: sex har pris och är tillgängliga, och 13 är markerade som reserverade. Priserna är före IVA. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="6 av 142 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>6 av 142 till salu</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="320000" data-size="67.61" data-ppm="4733" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d-640.webp">
+            <th scope="row"><span class="u-name">B4-P8-1D</span><span class="u-loc">Hus 4, uppgång 8, första våningen</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">68 m²</td>
+            <td data-label="Pris" class="u-price num">320 000 €</td>
+            <td data-label="Per m²" class="num">4 733 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-1D"><img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="345000" data-size="65.79" data-ppm="5244" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b-640.webp">
+            <th scope="row"><span class="u-name">B4-P8-0B</span><span class="u-loc">Hus 4, uppgång 8, bottenvåning</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">66 m²</td>
+            <td data-label="Pris" class="u-price num">345 000 €</td>
+            <td data-label="Per m²" class="num">5 244 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-0B"><img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="425000" data-size="83.78" data-ppm="5073" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d-640.webp">
+            <th scope="row"><span class="u-name">B4-P7-1D</span><span class="u-loc">Hus 4, uppgång 7, första våningen</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">84 m²</td>
+            <td data-label="Pris" class="u-price num">425 000 €</td>
+            <td data-label="Per m²" class="num">5 073 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P7-1D"><img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="430000" data-size="83.78" data-ppm="5132" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a-640.webp">
+            <th scope="row"><span class="u-name">B4-P8-2A</span><span class="u-loc">Hus 4, uppgång 8, andra våningen</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">84 m²</td>
+            <td data-label="Pris" class="u-price num">430 000 €</td>
+            <td data-label="Per m²" class="num">5 132 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-2A"><img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="440000" data-size="83.78" data-ppm="5252" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a-640.webp">
+            <th scope="row"><span class="u-name">B6-P11-0A</span><span class="u-loc">Hus 6, uppgång 11, bottenvåning</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">84 m²</td>
+            <td data-label="Pris" class="u-price num">440 000 €</td>
+            <td data-label="Per m²" class="num">5 252 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a.jpg" target="_blank" rel="noopener" aria-label="Planritning för B6-P11-0A"><img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="480000" data-size="77.05" data-ppm="6230" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b-640.webp">
+            <th scope="row"><span class="u-name">B4-P8-PH-B</span><span class="u-loc">Hus 4, uppgång 8, takvåning</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">77 m²</td>
+            <td data-label="Pris" class="u-price num">480 000 €</td>
+            <td data-label="Per m²" class="num">6 230 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b.jpg" target="_blank" rel="noopener" aria-label="Planritning för B4-P8-PH-B"><img src="assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Sex bostäder, var och en med en terrass eller en trädgård</span></summary><p>Prislistan anger de sex tillgängliga bostäderna efter block, uppgång och våning. Tabellen nedan listar var och en med sitt pris.</p><div class="res-types"><div class="res-type"><h3>Bostäderna med två sovrum</h3><ul><li>B4-P8-1D på första våningen, B4-P8-0B i bottenvåningen och takvåningen B4-P8-PH-B: två sovrum och två badrum i var och en.</li><li>Inomhusytor på 67,61, 65,79 och 77,05 m², med terrasser på 11,06, 27,97 och 36,96 m².</li><li>En garageplats och ett förråd var, för 320 000 €, 345 000 € och 480 000 €.</li></ul></div><div class="res-type"><h3>Bostäderna med tre sovrum</h3><ul><li>B4-P7-1D på första våningen, B4-P8-2A på andra våningen och B6-P11-0A i bottenvåningen: tre sovrum och två badrum i var och en.</li><li>Var och en har 83,78 m² inomhusyta. De två övre bostäderna har terrasser på 21,92 och 24,71 m², och bostaden i bottenvåningen en överbyggd terrass på 17,91 m² och en trädgård framför på 49,54 m².</li><li>En garageplats och ett förråd var, för 425 000 €, 430 000 € och 440 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><table class="sched num"><caption>Betalplan för den här bostaden</caption><tbody id="v2-p-sched"></tbody></table>
+      <p class="caption">Betalningsplan enligt exploatörens betalningsvillkor, som inte har något tryckt datum. Inget dokument vi har säger hur pengar som betalats före färdigställandet är säkrade. Nueva Living bekräftar de exakta villkoren direkt med er före varje reservation.</p>
+      
+      <ol class="ct-strip" aria-label="Byggets milstolpar"><li class="is-mile"><b>Bokning</b><span>Bokning</span></li><li class=""><b>Privat kontrakt</b><span></span></li><li class="is-mile"><b>K1 2029</b><span>Tillträde</span></li></ol>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1123,467 +608,233 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Gemensam pool</h3>
-              <p class="amenity-note">Delas av de boende</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen byggspecifikation, sammanfattad efter delar av bostaden.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Golv och väggar</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Dörrar och garderober</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Kök</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Klimat och energi</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">El och telekom</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Säkerhet</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Gemensamma ytor</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-8">Garage och hissar</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Laminatgolv i vardagsrum, sovrum, kök, korridorer och hallar, med vita golvlister, och keramiska plattor på badrumsgolven.</li><li>Keramiska plattor enbart på väggarna i duschområdet, och slät plastfärg på övriga väggar och på gipsskivetaken.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Innerdörrar i vitlackerat trä med förkromade handtag, och modulgarderober med en övre hylla och en klädstång, med dörrar i samma färg som innerdörrarna.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Över- och underskåp i högtryckslaminat, en bänkskiva i Silestone eller liknande och en diskho enligt projektets utformning.</li><li>Ett kylskåp, en tvättmaskin, en diskmaskin, en induktionshäll, en ugn, en mikrovågsugn och en köksfläkt med utsug.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Vita sanitetsartiklar i förglasat porslin, duschbottnar i harts i båda badrummen och enhandsblandare.</li><li>Handfatet är inbyggt i badrumsskåpet i huvudbadrummet och väggmonterat i det andra badrummet.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Varm och kall luft genom kanaler till vardagsrum, sovrum och kök, med ett värmepumpssystem enbart i köket.</li><li>Varmvatten från ett aerotermiskt system och individuell mekanisk ventilation i köken och badrummen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Tv- och ethernetuttag enligt telekommunikationsstandarden ICT 2 i vardagsrum, kök och sovrum.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>En säkerhetsingångsdörr med titthål och säkerhetslås, och säkerhetsglas och -beslag på fönstren och dörrarna i bostäderna i bottenvåningen.</li><li>Ett slutet område med enbart privat tillträde, huvudnycklar till området, husets entré, bostäderna och garaget, och ett automatiskt videoporttelefonsystem vid områdets ingång och i husets entré.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Plaskpooler med saltklorering, ett fullt utrustat gym, en bastu och ett spaområde, ett coworking-rum och ett rum för socialklubben.</li><li>Trädgårdar med belysning och automatisk bevattning, och en bärbar hjärtstartare i de gemensamma utrymmena.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-8" role="tabpanel" hidden>
+      <ul><li>Ett garage med automatisk infartsdörr och fjärröppning, en förinstallerad laddstation för elfordon och hissar anpassade för tillgänglighet, med automatiska dörrar.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: exploatörens materialbeskrivning, revision 02, daterad 8 april 2026. Den anger att materialen kan ändras efter projektledningens gottfinnande och ersättas med andra av likvärdig eller högre kvalitet.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="De två husen och den gemensamma poolen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg" alt="Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Vardagsrum och terrass"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace.jpg" alt="Datorgenererat vardagsrum med två fåtöljer och en soffa och en skjutdörr i glas mot en terrass med havet bortom" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Pooltrassen och havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon.jpg" alt="Datorgenererad vy över pooltrassen med loungestolar och havet i horisonten" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Spaområdet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall.jpg" alt="Datorgenererat spaområde med en bassäng, en grön växtvägg och en dagbädd" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Sovrum"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door.jpg" alt="Datorgenererat sovrum med en dubbelsäng, en flätad panel bakom sängen och en glasdörr mot en terrass" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 13 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (3)</button><button type="button" data-open-cat="Terraces">Terrasser (2)</button><button type="button" data-open-cat="Interiors">Interiör (2)</button><button type="button" data-open-cat="Bedrooms">Sovrum (1)</button><button type="button" data-open-cat="Bathrooms">Badrum (1)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (4)</button></div>
+    
+    <p class="caption">Alla bilder är datorgenererade och endast vägledande: broschyren anger att de bygger på ett ursprungligt projekt som kan ändras under arbetena och att de möbler, den inredning och den växtlighet som visas inte ingår i erbjudandet. Planritningarna är exploatörens egna för de sex bostäderna på prislistan; de anger att de kan ändras under arbetena av tekniska eller juridiska skäl, och rumsnamnen på dem är på engelska.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Projektet ligger i Mijas Costa. Kartan i broschyren markerar köpcentret och handelsparken Miramar, en travbana, en padelklubb och två golfbanor inom några kilometer, med Fuengirola och La Cala de Mijas vid kusten, och anger 40 km till Marbella och 41 km till Málaga. Dokumenten anger varken adress eller koordinater för tomten, så kartan visar området Mijas Costa.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-mijas-horizon-terraces" data-locmap='{&quot;site&quot;:[36.5058,-4.687],&quot;sea&quot;:[36.4788,-4.687],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Cala&quot;,&quot;sub&quot;:&quot;7,3 km · 13 min&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;9,5 km · 14 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centrum&quot;,&quot;sub&quot;:&quot;9,1 km · 13 min&quot;},{&quot;ll&quot;:[36.49899,-4.68403],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;1,7 km · 4 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Mijas Horizon Terraces"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Mijas Horizon Terraces</h3>
+            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>1,7 km</bdi> <em><bdi>4 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>9,5 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Bastu</h3>
-              <p class="amenity-note">Rum med torr värme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Fuengirola centrum</span>
+              <span class="locmap-row-figure"><bdi>9,1 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Välmående</span>
-              <h3 class="amenity-name">Utrustat gym i gemensam yta</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan La Cala</span>
+              <span class="locmap-row-figure"><bdi>7,3 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda gemensamma trädgårdar</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Cabopino</span>
+              <span class="locmap-row-figure"><bdi>8,2 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Utomhus</span>
-              <h3 class="amenity-name">Havsutsikt</h3>
-              <p class="amenity-note">Mot Medelhavet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga flygplats</span>
+              <span class="locmap-row-figure"><bdi>36 km</bdi> <em><bdi>34 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Vardag</span>
-              <h3 class="amenity-name">Coworkingyta</h3>
-              <p class="amenity-note">Arbetsplatser utanför bostaden</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3s6 6.3 6 10a6 6 0 0 1-12 0c0-3.7 6-10 6-10Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Vardag</span>
-              <h3 class="amenity-name">Automatisk bevattning</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Vardag</span>
-              <h3 class="amenity-name">Parkering</h3>
-              <p class="amenity-note">En plats för bilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Vardag</span>
-              <h3 class="amenity-name">Förråd</h3>
-              <p class="amenity-note">Ett låsbart förråd</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Vardag</span>
-              <h3 class="amenity-name">Förberett för laddplats</h3>
-              <p class="amenity-note">En punkt för bilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Vardag</span>
-              <h3 class="amenity-name">Hiss</h3>
-              <p class="amenity-note">Alla våningsplan nås</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Vardag</span>
-              <h3 class="amenity-name">Varmvatten från värmepump</h3>
-              <p class="amenity-note">Varmvatten ur luften</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Vardag</span>
-              <h3 class="amenity-name">Utrustat kök</h3>
-              <p class="amenity-note">Inredd med vitvaror</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Service</span>
-              <h3 class="amenity-name">Klubblounge</h3>
-              <p class="amenity-note">Ett rum att samlas i</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">17 &middot; Service</span>
-              <h3 class="amenity-name">Hjärtstartare på området</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">18 &middot; Service</span>
-              <h3 class="amenity-name">Bevakad anläggning</h3>
-              <p class="amenity-note">Bevakad infart</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Marbella</th><td>40 km</td></tr><tr><th scope="row">Málaga</th><td>41 km</td></tr><tr><th scope="row">Stor park (under byggnad)</th><td>800 m</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Livet här levs utomhus och tillsammans: bostadens terrass eller trädgård, den centrala poolen med chill-out-ytan, och spat, gymmet, socialklubben och coworking-ytan.</p>
+    <div class="life-panels"><div><h3>Poolen och trädgårdarna</h3><p>En central pool med en chill-out-yta, i anlagda trädgårdar med automatisk bevattning, så som broschyren beskriver den. Specifikationen nämner plaskpooler med saltklorering.</p></div><div><h3>Välmående</h3><p>Ett spaområde med bastu och ett gym med utrustning för kondition, styrka och stretching.</p></div><div><h3>Arbeta och mötas</h3><p>En coworking-yta med ljusa, väl belysta zoner och ett rum för socialklubben där man kan träffa grannar och vänner.</p></div><div><h3>Parken</h3><p>Broschyren säger att en av Andalusiens största parker byggs 800 m från projektet, med en farbar sjö, klättringsväggar, en cykelväg och en utomhusamfiteater.</p></div></div>
+    <ul class="amen-top"><li>Gemensam pool</li><li>Spa</li><li>Bastu</li><li>Utrustat gym i gemensam yta</li><li>Klubblounge</li><li>Coworkingyta</li></ul>
+    <details class="amen-all"><summary>Visa alla 18</summary><div class="amen-groups"><div><h3>Välmående<span class="count">4</span></h3><ul><li>Gemensam pool</li><li>Spa</li><li>Bastu</li><li>Utrustat gym i gemensam yta</li></ul></div><div><h3>Utomhus<span class="count">2</span></h3><ul><li>Anlagda gemensamma trädgårdar</li><li>Havsutsikt</li></ul></div><div><h3>Vardag<span class="count">9</span></h3><ul><li>Coworkingyta</li><li>Automatisk bevattning</li><li>Parkering</li><li>Förråd</li><li>Förberett för laddplats</li><li>Hiss</li><li>Varmvatten från värmepump</li><li>Luftkonditionering</li><li>Utrustat kök</li></ul></div><div><h3>Service<span class="count">3</span></h3><ul><li>Klubblounge</li><li>Hjärtstartare på området</li><li>Bevakad anläggning</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en ny lägenhet eller takvåning med två eller tre sovrum och terrass eller trädgård i Mijas Costa, att bo i eller som andrabostad.</span></li><li><b>Vad som skiljer det från andra</b><span>De sex bostäderna på listan är två bostäder i bottenvåningen, tre lägenheter på första och andra våningen och en takvåning. En av bostäderna i bottenvåningen har en trädgård framför på 49,54 m², och takvåningen har en öppen terrass på 36,96 m². Var och en är listad med en garageplats och ett förråd.</span></li><li><b>Varför läget spelar roll</b><span>Broschyren placerar projektet i Mijas Costa, 40 km från Marbella och 41 km från Málaga, och anger att en stor park med en farbar sjö, en cykelväg och en utomhusamfiteater byggs 800 m bort.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>Prislistan nämner 19 av de 142 bostäderna, priserna är före IVA, och betalningsvillkoren knyter det privata avtalet till att bygglovet beviljas, men inget dokument anger dess status. Vi bekräftar bygglovet, tillträdesdatumet och den aktuella listan före varje reservation.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>IVA och skatter</b><span>Prislistan anger att IVA (spansk moms) inte ingår, och reservationen anges som 6 000 € plus IVA. Med 10 procent IVA och 1,20 procent stämpelskatt kostar bostaden för 320 000 € cirka 356 000 € och takvåningen för 480 000 € cirka 534 000 €, före notarie- och registreringsavgifter.</span></li><li><b>Betalningsvillkor</b><span>6 000 € plus IVA vid bokning; 15 procent plus IVA vid det privata kontraktet, minus bokningen; 15 procent plus IVA i tre betalningar den 5 mars 2027, 5 september 2027 och 5 mars 2028; och 70 procent plus IVA vid köpebrevet.</span></li><li><b>Garage och förråd</b><span>Prislistan anger en garageplats och ett förråd med nummer för varje bostad, och broschyren nämner parkering och ett förråd. Vi bekräftar att båda ingår i priset.</span></li><li><b>Delbetalningar med fasta datum</b><span>De tre delbetalningarna på 15 procent har fasta datum, och det privata kontraktet före dem förfaller när bygglovet beviljas. Vi frågar vad som händer med datumen om bygglovet försenas, och hur pengar som betalats före färdigställandet är säkrade.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bostäderna på listan</b><span>Prislistan nämner 19 av de 142 bostäderna: sex med pris och 13 markerade som reserverade. Den säger ingenting om de övriga 123, och den har inget tryckt datum; datumet på den här sidan är det som är registrerat i filen. Vi ber om den fullständiga listan och status för varje bostad.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bygglovet och tillträdesdatumet</b><span>Betalningsvillkoren lägger det privata kontraktet vid beviljandet av bygglovet och köpebrevet till första kvartalet 2029. Inget dokument anger bygglovets status eller byggstart. Vi ber om bygglovet, byggstarten och det avtalade tillträdesdatumet.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Orienteringen</b><span>Broschyren säger att alla bostäder har söderläge eller sydvästläge. Prislistan anger väster för 13 av de 19 bostäderna, däribland alla sex tillgängliga, och sydost för de andra sex. Vi bekräftar den valda bostadens väderstreck utifrån planritningen och på plats.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ytorna</b><span>Prislistan anger varje bostads invändiga boyta och en större invändig byggd yta, 83,78 och 99,26 m² för samma bostad. Planritningarna lägger till en bruttoyta med en andel av de gemensamma ytorna och ytorna enligt det andalusiska dekretet 218/2005. Tabellen visar den invändiga boytan, som listan och planritningarna är överens om, och vi bekräftar vilken siffra avtalet använder.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Poolerna</b><span>Broschyren beskriver en central pool med en chill-out-yta, och specifikationen nämner plaskpooler med saltklorering. Vi frågar efter antal, storlek och typ av pooler.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bilderna och planritningarna</b><span>Bilderna är datorgenererade och bygger, enligt broschyren, på ett första projekt som kan ändras under byggarbetena. Planritningarna säger detsamma. Möblerna, dekorationen och planteringen som visas ingår inte i erbjudandet.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Planritningarna för de bostäder som intresserar er, byggspecifikationen och prislistan.</p></li><li><h3>Jämför alternativen</h3><p>Se det tillsammans med de andra projekten i Mijas och Fuengirola som vi representerar.</p></li><li><h3>Privat visning</h3><p>Vi tittar på området tillsammans och går igenom planritningarna tillsammans.</p></li><li><h3>Boka</h3><p>Vi bekräftar reservationsbeloppet och betalningsplanen skriftligen, därefter följer köpeavtalet.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>6 av 6 bostäder</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Betalplan</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Mijas Horizon Terraces</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder finns det?</summary><p>Broschyren beskriver 142 lägenheter och takvåningar med två och tre sovrum. Prislistan nämner 19 av dem: sex är tillgängliga, från 320 000 € till 480 000 € före IVA (spansk moms), och 13 är markerade som reserverade.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Nej. Prislistan anger att IVA inte ingår. 10 procent IVA och 1,20 procent stämpelskatt tillkommer, tillsammans med notarie- och registreringsavgifter.</p></details><details class="segment-faq-item"><summary>Ingår en garageplats och ett förråd?</summary><p>Prislistan anger en garageplats och ett förråd med nummer för varje bostad, och broschyren nämner parkering och ett förråd. Den säger inte att de ingår i priset, så det bekräftar vi.</p></details><details class="segment-faq-item"><summary>När blir det färdigt?</summary><p>Betalningsvillkoren lägger köpebrevet, med färdigställande och överlämnande av nycklarna, till första kvartalet 2029. Inget dokument anger bygglovets status eller byggstart, så vi ber om bygglovet och det avtalade datumet.</p></details><details class="segment-faq-item"><summary>Hur ser betalningsplanen ut?</summary><p>6 000 € plus IVA vid bokning; 15 procent plus IVA vid det privata kontraktet, förfaller när bygglovet beviljas, minus bokningen; 15 procent plus IVA i tre betalningar den 5 mars 2027, 5 september 2027 och 5 mars 2028; och 70 procent plus IVA vid köpebrevet.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Vad delas?</summary><p>En central pool med en chill-out-yta, ett gym, ett spaområde med bastu, en socialklubb och en coworking-yta, i anlagda trädgårdar, så som broschyren och materialbeskrivningen beskriver dem.</p></details><details class="segment-faq-item"><summary>Åt vilket håll vetter bostäderna?</summary><p>Broschyren säger söder eller sydväst. Prislistan säger väster för de sex tillgängliga bostäderna. Vi bekräftar den valda bostadens väderstreck.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">320 000 €</p>
+      <p class="rail-note">Exkl. IVA. 6 av 142 bostäder kvar · Kontrollerat 23 oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Horizon%20Terraces." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Horizon Terraces" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Horizon%20Terraces." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Horizon Terraces" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Se området och var havet, golfbanorna och butikerna ligger.</li><li><b>Med bil.</b> Vi åker bil till Fuengirola, Marbella och Málaga tillsammans och tar tid på resan.</li><li><b>På papper.</b> Tillgänglighet, bygglov och avtal, innan något undertecknas.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Mijas Horizon Terraces">
+        <input type="hidden" id="f-project" name="project" value="Mijas Horizon Terraces">
+        <input type="hidden" name="preferred_area" value="Mijas Costa">
+        <input type="hidden" name="property_type_interest" value="Lägenheter och takvåningar">
+        <input type="hidden" name="budget_range" value="Från 320 000 € + IVA">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag vill gärna ha information om Mijas Horizon Terraces." data-base="Hej Nueva Living, jag vill gärna ha information om Mijas Horizon Terraces.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="B4-P8-1D">B4-P8-1D: 320 000 €</option><option value="B4-P8-0B">B4-P8-0B: 345 000 €</option><option value="B4-P7-1D">B4-P7-1D: 425 000 €</option><option value="B4-P8-2A">B4-P8-2A: 430 000 €</option><option value="B6-P11-0A">B6-P11-0A: 440 000 €</option><option value="B4-P8-PH-B">B4-P8-PH-B: 480 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Mijas Horizon Terraces.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">Nya bostäder med två och tre sovrum, terrass eller trädgård och utsikt mot havet, i ett projekt med pool, spa, gym och coworking-yta, där 70 procent av priset förfaller först vid köpebrevet.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en ny lägenhet eller takvåning med två eller tre sovrum och terrass eller trädgård i Mijas Costa, att bo i eller som andrabostad.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>De sex bostäderna på listan är två bostäder i bottenvåningen, tre lägenheter på första och andra våningen och en takvåning. En av bostäderna i bottenvåningen har en trädgård framför på 49,54 m², och takvåningen har en öppen terrass på 36,96 m². Var och en är listad med en garageplats och ett förråd.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Broschyren placerar projektet i Mijas Costa, 40 km från Marbella och 41 km från Málaga, och anger att en stor park med en farbar sjö, en cykelväg och en utomhusamfiteater byggs 800 m bort.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>Prislistan nämner 19 av de 142 bostäderna, priserna är före IVA, och betalningsvillkoren knyter det privata avtalet till att bygglovet beviljas, men inget dokument anger dess status. Vi bekräftar bygglovet, tillträdesdatumet och den aktuella listan före varje reservation.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">Prislistan anger ett pris för var och en av de sex bostäderna, före IVA (spansk moms), och betalningsvillkoren fastställer bokningen, det privata kontraktet, tre delbetalningar och köpebrevet.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>IVA och skatter</h3><p>Prislistan anger att IVA (spansk moms) inte ingår, och reservationen anges som 6 000 € plus IVA. Med 10 procent IVA och 1,20 procent stämpelskatt kostar bostaden för 320 000 € cirka 356 000 € och takvåningen för 480 000 € cirka 534 000 €, före notarie- och registreringsavgifter.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningsvillkor</h3><p>6 000 € plus IVA vid bokning; 15 procent plus IVA vid det privata kontraktet, minus bokningen; 15 procent plus IVA i tre betalningar den 5 mars 2027, 5 september 2027 och 5 mars 2028; och 70 procent plus IVA vid köpebrevet.</p></article>
-              <article class="why-point reveal-soft"><h3>Garage och förråd</h3><p>Prislistan anger en garageplats och ett förråd med nummer för varje bostad, och broschyren nämner parkering och ett förråd. Vi bekräftar att båda ingår i priset.</p></article>
-              <article class="why-point reveal-soft"><h3>Delbetalningar med fasta datum</h3><p>De tre delbetalningarna på 15 procent har fasta datum, och det privata kontraktet före dem förfaller när bygglovet beviljas. Vi frågar vad som händer med datumen om bygglovet försenas, och hur pengar som betalats före färdigställandet är säkrade.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bostäderna på listan</h3><p>Prislistan nämner 19 av de 142 bostäderna: sex med pris och 13 markerade som reserverade. Den säger ingenting om de övriga 123, och den har inget tryckt datum; datumet på den här sidan är det som är registrerat i filen. Vi ber om den fullständiga listan och status för varje bostad.</p></article>
-              <article class="why-point reveal-soft"><h3>Bygglovet och tillträdesdatumet</h3><p>Betalningsvillkoren lägger det privata kontraktet vid beviljandet av bygglovet och köpebrevet till första kvartalet 2029. Inget dokument anger bygglovets status eller byggstart. Vi ber om bygglovet, byggstarten och det avtalade tillträdesdatumet.</p></article>
-              <article class="why-point reveal-soft"><h3>Orienteringen</h3><p>Broschyren säger att alla bostäder har söderläge eller sydvästläge. Prislistan anger väster för 13 av de 19 bostäderna, däribland alla sex tillgängliga, och sydost för de andra sex. Vi bekräftar den valda bostadens väderstreck utifrån planritningen och på plats.</p></article>
-              <article class="why-point reveal-soft"><h3>Ytorna</h3><p>Prislistan anger varje bostads invändiga boyta och en större invändig byggd yta, 83,78 och 99,26 m² för samma bostad. Planritningarna lägger till en bruttoyta med en andel av de gemensamma ytorna och ytorna enligt det andalusiska dekretet 218/2005. Tabellen visar den invändiga boytan, som listan och planritningarna är överens om, och vi bekräftar vilken siffra avtalet använder.</p></article>
-              <article class="why-point reveal-soft"><h3>Poolerna</h3><p>Broschyren beskriver en central pool med en chill-out-yta, och specifikationen nämner plaskpooler med saltklorering. Vi frågar efter antal, storlek och typ av pooler.</p></article>
-              <article class="why-point reveal-soft"><h3>Bilderna och planritningarna</h3><p>Bilderna är datorgenererade och bygger, enligt broschyren, på ett första projekt som kan ändras under byggarbetena. Planritningarna säger detsamma. Möblerna, dekorationen och planteringen som visas ingår inte i erbjudandet.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren 23 oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Priser och ytor är hämtade från exploatörens prislista, som inte har något tryckt datum; filen anger 23 oktober 2026. Listan nämner 19 bostäder och visar 13 av dem som reserverade, vilka inte är med här. Priserna för de övriga sex är före IVA (spansk moms), och 10 procent IVA och 1,20 procent stämpelskatt tillkommer, så att bostaden för 320 000 € kostar cirka 356 000 € och takvåningen för 480 000 € cirka 534 000 €, före notarie- och registreringsavgifter. Inomhus är den invändiga boytan från listan, och terrass är de överbyggda och öppna terrasserna tillsammans; bostaden i bottenvåningen B6-P11-0A har en trädgård framför på 49,54 m² i stället för en öppen terrass. De större invändiga byggda ytorna från listan har lämnats utanför tabellen. Varje bostad är listad med en garageplats och ett förråd med nummer; listan säger inte att de ingår i priset.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/mijas-horizon-terraces/media/terraced-block-across-the-pool.jpg" alt="Datorgenererad vy över poolen mot ett hus med terrasser, glasräcken och en palm" width="2000" height="1218" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hus med terrasser, <em>terrasser öppna mot utsikten</em></h2>
-          <p>På bilderna är husen långa och låga, med en djup terrass på varje våning, glasräcken och sandfärgade väggar ovanför den gemensamma poolen. Broschyren lovar havsutsikt även från bottenvåningarna och anger att alla bostäder har söderläge eller sydvästläge.</p>
-<p>Planritningarna visar bostäderna i bottenvåningen med utgång till en terrass eller en trädgård framför, och takvåningen med en enda öppen terrass över hela bostadens bredd.</p>
-          <ul class="feature-list">
-            <li>Konstruktion — En grund av armerad betong enligt markens geotekniska undersökning och en stomme av armerad betong ovanpå.</li>
-            <li>Fasad — Håltegel, sprutad polyuretanisolering, en luftspalt och en gipsskiva med mineralull.</li>
-            <li>Fönster — PVC-fönster med dubbelglas och isolerande kammare, laminerat säkerhetsglas i terrassdörrarna och manuella rullgardiner med värmeisolering i sovrummen.</li>
-            <li>Terrasser — Halksäkra, frostbeständiga plattor på golven, med en kran, tv-uttag, eluttag och belysning på terrassen.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Horizon%20Terraces." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Horizon Terraces" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/mijas-horizon-terraces/media/terrace-with-sea-view.jpg" alt="Datorgenererad vy från en terrass med en soffa och ett matbord, över hustaken mot havet" width="2000" height="679" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>området och ritningarna</em></h2>
-            <p>Bostäderna är inte byggda än, så ett besök handlar om läget, planritningarna och tidsplanen.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Se området och var havet, golfbanorna och butikerna ligger.</p></div>
-              <div><span>Med bil</span><p>Vi åker bil till Fuengirola, Marbella och Málaga tillsammans och tar tid på resan.</p></div>
-              <div><span>På papper</span><p>Tillgänglighet, bygglov och avtal, innan något undertecknas.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=mijas-horizon-terraces">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Bedrooms">Sovrum</button><button type="button" data-cat="Bathrooms">Badrum</button><button type="button" data-cat="Amenities">Bekvämligheter</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon.jpg" alt="Datorgenererad vy över pooltrassen med loungestolar och havet i horisonten" width="2000" height="991" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Terrasser, <em>en pool</em> och ett spa</h2>
-            <p>Livet här levs utomhus och tillsammans: bostadens terrass eller trädgård, den centrala poolen med chill-out-ytan, och spat, gymmet, socialklubben och coworking-ytan.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Planritningarna för de bostäder som intresserar er, byggspecifikationen och prislistan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se det tillsammans med de andra projekten i Mijas och Fuengirola som vi representerar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Vi tittar på området tillsammans och går igenom planritningarna tillsammans.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>Vi bekräftar reservationsbeloppet och betalningsplanen skriftligen, därefter följer köpeavtalet.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder finns det?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Broschyren beskriver 142 lägenheter och takvåningar med två och tre sovrum. Prislistan nämner 19 av dem: sex är tillgängliga, från 320 000 € till 480 000 € före IVA (spansk moms), och 13 är markerade som reserverade.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Prislistan anger att IVA inte ingår. 10 procent IVA och 1,20 procent stämpelskatt tillkommer, tillsammans med notarie- och registreringsavgifter.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår en garageplats och ett förråd?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Prislistan anger en garageplats och ett förråd med nummer för varje bostad, och broschyren nämner parkering och ett förråd. Den säger inte att de ingår i priset, så det bekräftar vi.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När blir det färdigt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Betalningsvillkoren lägger köpebrevet, med färdigställande och överlämnande av nycklarna, till första kvartalet 2029. Inget dokument anger bygglovets status eller byggstart, så vi ber om bygglovet och det avtalade datumet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur ser betalningsplanen ut?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>6 000 € plus IVA vid bokning; 15 procent plus IVA vid det privata kontraktet, förfaller när bygglovet beviljas, minus bokningen; 15 procent plus IVA i tre betalningar den 5 mars 2027, 5 september 2027 och 5 mars 2028; och 70 procent plus IVA vid köpebrevet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad delas?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>En central pool med en chill-out-yta, ett gym, ett spaområde med bastu, en socialklubb och en coworking-yta, i anlagda trädgårdar, så som broschyren och materialbeskrivningen beskriver dem.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Åt vilket håll vetter bostäderna?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Broschyren säger söder eller sydväst. Prislistan säger väster för de sex tillgängliga bostäderna. Vi bekräftar den valda bostadens väderstreck.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Mijas Horizon Terraces</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, planritningarna och prislistan.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Horizon%20Terraces." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Horizon Terraces" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Mijas Horizon Terraces">
-
-          <input type="hidden" id="f-project" name="project" value="Mijas Horizon Terraces">
-          <input type="hidden" name="preferred_area" value="Mijas Costa">
-          <input type="hidden" name="property_type_interest" value="Lägenheter och takvåningar">
-          <input type="hidden" name="budget_range" value="Från 320 000 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag vill gärna ha information om Mijas Horizon Terraces.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"B4-P8-1D","title":"B4-P8-1D · Hus 4, uppgång 8, första våningen","sub":"2 sovrum · 68 m²","price":320000,"plans":[{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d.jpg","label":""}]},{"id":"u1","ref":"B4-P8-0B","title":"B4-P8-0B · Hus 4, uppgång 8, bottenvåning","sub":"2 sovrum · 66 m²","price":345000,"plans":[{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b.jpg","label":""}]},{"id":"u2","ref":"B4-P7-1D","title":"B4-P7-1D · Hus 4, uppgång 7, första våningen","sub":"3 sovrum · 84 m²","price":425000,"plans":[{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d.jpg","label":""}]},{"id":"u3","ref":"B4-P8-2A","title":"B4-P8-2A · Hus 4, uppgång 8, andra våningen","sub":"3 sovrum · 84 m²","price":430000,"plans":[{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a.jpg","label":""}]},{"id":"u4","ref":"B6-P11-0A","title":"B6-P11-0A · Hus 6, uppgång 11, bottenvåning","sub":"3 sovrum · 84 m²","price":440000,"plans":[{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a.jpg","label":""}]},{"id":"u5","ref":"B4-P8-PH-B","title":"B4-P8-PH-B · Hus 4, uppgång 8, takvåning","sub":"2 sovrum · 77 m²","price":480000,"plans":[{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b.jpg","label":""}]}],"stages":[{"label":"Bokning","when":"6 600 € inklusive IVA","amountLabel":"6 000 €","fixed":6000},{"label":"Vid privat köpekontrakt","when":"När bygglovet beviljas, minus bokningen, minus reservationen","amountLabel":"15%","pct":0.15,"less":6000},{"label":"Efter det privata kontraktet","when":"Tre betalningar den 5 mars 2027, 5 september 2027 och 5 mars 2028","amountLabel":"15%","pct":0.15},{"label":"Vid köpebrevet","when":"Första kvartalet 2029, vid färdigställande och överlämnande av nycklarna","amountLabel":"70%","pct":0.7}],"stageLabels":null,"gallery":[{"src":"assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.webp","alt":"Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar","caption":"De två husen och den gemensamma poolen","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/terraced-block-across-the-pool.webp","alt":"Datorgenererad vy över poolen mot ett hus med terrasser, glasräcken och en palm","caption":"Huset på andra sidan poolen","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/terraced-block-behind-the-pool.webp","alt":"Datorgenererad vy över ett långt hus med terrasser bakom poolen, med solstolar och palmer","caption":"Ett långt hus bakom poolen","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon.webp","alt":"Datorgenererad vy över pooltrassen med loungestolar och havet i horisonten","caption":"Pooltrassen och havet","cat":"Terraces"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/terrace-with-sea-view.webp","alt":"Datorgenererad vy från en terrass med en soffa och ett matbord, över hustaken mot havet","caption":"En terrass med utsikt mot havet","cat":"Terraces"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace.webp","alt":"Datorgenererat vardagsrum med två fåtöljer och en soffa och en skjutdörr i glas mot en terrass med havet bortom","caption":"Vardagsrum och terrass","cat":"Interiors"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/kitchen-and-dining-area.webp","alt":"Datorgenererat vitt kök med en köksfläkt och ett ovalt matbord med stolar","caption":"Kök- och matplatsyta","cat":"Interiors"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door.webp","alt":"Datorgenererat sovrum med en dubbelsäng, en flätad panel bakom sängen och en glasdörr mot en terrass","caption":"Sovrum","cat":"Bedrooms"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/bathroom-with-walk-in-shower.webp","alt":"Datorgenererat badrum med en duschhörna utan kar, en rund spegel och ett väggmonterat badrumsskåp med handfat","caption":"Badrum","cat":"Bathrooms"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall.webp","alt":"Datorgenererat spaområde med en bassäng, en grön växtvägg och en dagbädd","caption":"Spaområdet","cat":"Amenities"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/equipped-gym.webp","alt":"Datorgenererat gym med löpband, crosstrainers, vikter och en stretchyta","caption":"Gymmet","cat":"Amenities"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/coworking-room.webp","alt":"Datorgenererat coworking-rum med skrivbord, stolar, en bokhylla och en bardisk med pallar","caption":"Coworkingytan","cat":"Amenities"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/social-club-lounge.webp","alt":"Datorgenererad lounge i socialklubben med sittplatser, matbord och skjutdörrar mot terrassen","caption":"Klubblokalen","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Mijas Horizon Terraces media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-960.webp","alt":"Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar","width":2000,"height":1415,"caption":"De två husen och den gemensamma poolen","category":"Exteriör"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/terraced-block-across-the-pool.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/terraced-block-across-the-pool-960.webp","alt":"Datorgenererad vy över poolen mot ett hus med terrasser, glasräcken och en palm","width":2000,"height":1218,"caption":"Huset på andra sidan poolen","category":"Exteriör"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/terraced-block-behind-the-pool.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/terraced-block-behind-the-pool-960.webp","alt":"Datorgenererad vy över ett långt hus med terrasser bakom poolen, med solstolar och palmer","width":1519,"height":857,"caption":"Ett långt hus bakom poolen","category":"Exteriör"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/pool-terrace-with-sea-horizon-960.webp","alt":"Datorgenererad vy över pooltrassen med loungestolar och havet i horisonten","width":2000,"height":991,"caption":"Pooltrassen och havet","category":"Terrasser"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/terrace-with-sea-view.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/terrace-with-sea-view-960.webp","alt":"Datorgenererad vy från en terrass med en soffa och ett matbord, över hustaken mot havet","width":2000,"height":679,"caption":"En terrass med utsikt mot havet","category":"Terrasser"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/living-room-onto-terrace-960.webp","alt":"Datorgenererat vardagsrum med två fåtöljer och en soffa och en skjutdörr i glas mot en terrass med havet bortom","width":1507,"height":859,"caption":"Vardagsrum och terrass","category":"Interiör"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/kitchen-and-dining-area.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/kitchen-and-dining-area-960.webp","alt":"Datorgenererat vitt kök med en köksfläkt och ett ovalt matbord med stolar","width":1502,"height":857,"caption":"Kök- och matplatsyta","category":"Interiör"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/bedroom-with-terrace-door-960.webp","alt":"Datorgenererat sovrum med en dubbelsäng, en flätad panel bakom sängen och en glasdörr mot en terrass","width":1515,"height":854,"caption":"Sovrum","category":"Sovrum"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/bathroom-with-walk-in-shower.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/bathroom-with-walk-in-shower-960.webp","alt":"Datorgenererat badrum med en duschhörna utan kar, en rund spegel och ett väggmonterat badrumsskåp med handfat","width":1503,"height":854,"caption":"Badrum","category":"Badrum"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/spa-pool-with-green-wall-960.webp","alt":"Datorgenererat spaområde med en bassäng, en grön växtvägg och en dagbädd","width":2000,"height":1416,"caption":"Spaområdet","category":"Bekvämligheter"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/equipped-gym.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/equipped-gym-960.webp","alt":"Datorgenererat gym med löpband, crosstrainers, vikter och en stretchyta","width":2000,"height":984,"caption":"Gymmet","category":"Bekvämligheter"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/coworking-room.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/coworking-room-960.webp","alt":"Datorgenererat coworking-rum med skrivbord, stolar, en bokhylla och en bardisk med pallar","width":1500,"height":844,"caption":"Coworkingytan","category":"Bekvämligheter"},{"src":"assets/liora/projects/mijas-horizon-terraces/media/social-club-lounge.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/media/social-club-lounge-960.webp","alt":"Datorgenererad lounge i socialklubben med sittplatser, matbord och skjutdörrar mot terrassen","width":2000,"height":695,"caption":"Klubblokalen","category":"Bekvämligheter"},{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-1d-960.webp","alt":"Planritning för bostad B4-P8-1D","width":1009,"height":1710,"caption":"Bostad B4-P8-1D","category":"Planritningar"},{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-0b-960.webp","alt":"Planritning för bostad B4-P8-0B","width":1077,"height":1216,"caption":"Bostad B4-P8-0B","category":"Planritningar"},{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p7-1d-960.webp","alt":"Planritning för bostad B4-P7-1D","width":1764,"height":1923,"caption":"Bostad B4-P7-1D","category":"Planritningar"},{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-2a-960.webp","alt":"Planritning för bostad B4-P8-2A","width":1773,"height":1789,"caption":"Bostad B4-P8-2A","category":"Planritningar"},{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b6-p11-0a-960.webp","alt":"Planritning för bostad B6-P11-0A","width":1999,"height":1604,"caption":"Bostad B6-P11-0A","category":"Planritningar"},{"src":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b.jpg","webp":"assets/liora/projects/mijas-horizon-terraces/floorplans/home-b4-p8-penthouse-b-960.webp","alt":"Planritning för bostad B4-P8-PH-B","width":1814,"height":1045,"caption":"Bostad B4-P8-PH-B","category":"Planritningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-mijas-horizon-terraces.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Horizon%20Terraces." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Horizon Terraces" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

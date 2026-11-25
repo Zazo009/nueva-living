@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder är tillgängliga?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Dunique Marbella"
   data-project-message="Hej Nueva Living, jag skulle vilja få information om Dunique Marbella."
@@ -459,445 +396,124 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Dunique Marbella">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-dunique-marbella.html#top">Dunique Marbella<span>Från 5 200 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-dunique-marbella.html#overview">Översikt</a><a href="sv/property-dunique-marbella.html#availability">Priser</a><a href="sv/property-dunique-marbella.html#specs">Utförande</a><a href="sv/property-dunique-marbella.html#gallery">Galleri</a><a href="sv/property-dunique-marbella.html#location">Läge</a><a href="sv/property-dunique-marbella.html#onsite">I området</a><a href="sv/property-dunique-marbella.html#view">Vår bedömning</a><a href="sv/property-dunique-marbella.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-dunique-marbella.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Dunique Marbella">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk-640.webp 640w, assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk-960.webp 960w, assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.jpg" alt="Fotografi i skymningen av en böjd vit terrass med upplysta glasdörrar och takterrassen ovanför med en soffgrupp och en jacuzzi, med berg i bakgrunden" width="2000" height="1124" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.jpg" alt="Fotografi i skymningen av en böjd vit terrass med upplysta glasdörrar och takterrassen ovanför med en soffgrupp och en jacuzzi, med berg i bakgrunden" width="2000" height="1124" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">2 bostäder tillgängliga</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Dunique <em>Marbella</em></span>
-            <span class="hero-title-context">Villa och lägenhet med egna pooler i Marbella</span>
-          </h1>
-          <p class="hero-positioning">Två lediga bostäder i Dunique Marbella, ett område vid stranden i Marbella intill ett skyddat dynsystem: ett parhus med fyra sovrum och en lägenhet på bottenvåningen med tre sovrum, båda med egen pool och trädgård. Inget tillträdesdatum anges. Från 5 200 000 € plus IVA (spansk moms).</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-dunique-marbella.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=dunique-marbella">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-dunique-marbella.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Marbella</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 5 200 000 € + IVA</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Villor och lägenheter</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Färdigställande ej bekräftat</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-dunique-marbella.html#media">Media</a>
-        <a href="sv/property-dunique-marbella.html#location">Läge</a>
-        <a href="sv/property-dunique-marbella.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-dunique-marbella.html#overview">Översikt</a>
-          <a href="sv/property-dunique-marbella.html#residences">Bostäder</a>
-          <a href="sv/property-dunique-marbella.html#quality-specifications">Utförande</a>
-          <a href="sv/property-dunique-marbella.html#calculator">Finansiering</a>
-          <a href="sv/property-dunique-marbella.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-dunique-marbella.html#why-this-project">Varför</a>
-          <a href="sv/property-dunique-marbella.html#architecture">Arkitektur</a>
-          <a href="sv/property-dunique-marbella.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-dunique-marbella.html#lifestyle">Livsstil</a>
-          <a href="sv/property-dunique-marbella.html#faq">FAQ</a>
-          <a href="sv/property-dunique-marbella.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>3-4 sovrum</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>447,13 - 483,98 m² byggyta</strong></div>
-          <div class="quick-fact"><span>Privat trädgård</span><strong>115,26 - 135,64 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>2 bostäder tillgängliga</strong></div>
-          <div class="quick-fact"><span>Projekt</span><strong>96 bostäder enligt broschyren från 2024</strong></div>
-          <div class="quick-fact"><span>Tillgänglig</span><strong>2 bostäder</strong></div>
-          <div class="quick-fact"><span>Prisspann</span><strong>5 200 000 € - 5 400 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-dunique-marbella.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Två <em>lediga</em> bostäder intill dynerna</h2>
-          <p class="project-lead">Dunique Marbella är ett bostadsområde med parhus och lägenheter i Marbella, intill det skyddade dynsystemet El Barronal de la Morena. Exploatörens broschyr, daterad augusti 2024, beskriver 32 parhus och 64 lägenheter, ett socialt centrum med spa, gym, en coworkingyta och en lounge på taket, och terrasserade trädgårdar med inhemsk växtlighet. Siffrorna är broschyrens, inte aktuella: den försäljningslista vi har anger två bostäder.</p>
-          <p class="project-lead">De två bostäder som är listade är villa nr 04 med fyra sovrum och lägenhet nr 202 på bottenvåningen med tre sovrum, båda med egen pool och trädgård. Inget av dokumenten anger ett leveransdatum, och försäljningslistan visar projektet som under byggnation.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Området <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Bilder av en möblerad bostad i området, en flygbild av tomten och planritningarna för de två bostäder som är listade.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 3 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk-640.webp 640w, assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk-960.webp 960w, assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.jpg" alt="Fotografi i skymningen av en böjd vit terrass med upplysta glasdörrar och takterrassen ovanför med en soffgrupp och en jacuzzi, med berg i bakgrunden" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Terrasserna i skymningen</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Visa 1 bilder i Omgivningar">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site-640.webp 640w, assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site-960.webp 960w, assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site.jpg" alt="Flygbild från exploatörens generalplan som visar området som det är planerat intill stranden, med omgivande gator och hus" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Omgivningar</small>
-                <strong>Tomten från luften</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Visa 12 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/roof-deck-from-above-640.webp 640w, assets/liora/projects/dunique-marbella/media/roof-deck-from-above-960.webp 960w, assets/liora/projects/dunique-marbella/media/roof-deck-from-above.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/dunique-marbella/media/roof-deck-from-above.jpg" alt="Fotografi uppifrån av ett takdäck med en lång pool, en gräsmatta, en jacuzzi, ett matbord och en pergola" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>Takdäcket uppifrån</strong>
-                <span class="project-media-card-cta">12 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 6 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling-640.webp 640w, assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling-960.webp 960w, assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling.jpg" alt="Fotografi av ett vardagsrum med ett undertak av trälameller, en soffa, fåtöljer och en mediavägg, med glaspartier mot en terrass" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrummet</strong>
-                <span class="project-media-card-cta">6 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Visa 3 bilder i Sovrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard-640.webp 640w, assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard-960.webp 960w, assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard.jpg" alt="Fotografi av ett sovrum med en sänggavel av lameller, en vägg med bambumotiv och ett fönster mot trädgården" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Sovrum</small>
-                <strong>Ett sovrum med sänggavel av lameller</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Visa 1 bilder i Badrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/bathroom-with-double-basin-640.webp 640w, assets/liora/projects/dunique-marbella/media/bathroom-with-double-basin-960.webp 960w, assets/liora/projects/dunique-marbella/media/bathroom-with-double-basin.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/dunique-marbella/media/bathroom-with-double-basin.jpg" alt="Fotografi av ett badrum med ett dubbelt handfat på ett hängande underskåp, väggar i travertinlook och glasdörrar med svart ram" width="2000" height="1380" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badrum</small>
-                <strong>Ett badrum med dubbelt handfat</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Visa 3 bilder i Planritningar">
-              <img src="assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor.jpg" alt="Planritning för villa nr 04, källare och bottenvåning" width="1868" height="2000" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planritningar</small>
-                <strong>Villa nr 04, källare och bottenvåning</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 29 bilder</button>
-          <p class="media-note">Bilderna visar en möblerad bostad i området. Galleriet anger inte vilken bostad eller vilken typ det är, så det är inte fotografier av de två bostäder som är listade, och möblerna och inredningen på dem ingår inte. Flygbilden kommer från exploatörens generalplan och visar området som det är planerat. Planritningarna är exploatörens försäljningsritningar: de är inte avtalsbindande, rumsnamnen på dem är på spanska och areorna på dem är ungefärliga.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Marbella, <em>intill dynerna</em></h2>
-          <p class="project-lead">Broschyren placerar området i Marbella, intill det skyddade dynsystemet El Barronal de la Morena, som den placerar i området El Rosario - Las Chapas, och presenterar projektet som boende vid stranden. Lägeskartan visar Marbellas centrum, marinan i Marbella, marinan i Cabopino, Puerto Banús, Nueva Andalucía och flera golfklubbar, utan avstånd. Dokumenten anger varken adress eller koordinater för tomten, så kartan visar området El Rosario.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-dunique-marbella" data-locmap='{&quot;site&quot;:[36.5081,-4.8057],&quot;sea&quot;:[36.4811,-4.8057],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella centrum&quot;,&quot;sub&quot;:&quot;8,2 km · 12 min&quot;},{&quot;ll&quot;:[36.50641,-4.82042],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Santa Clara&quot;,&quot;sub&quot;:&quot;2,2 km · 4 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;9,4 km · 16 min&quot;},{&quot;ll&quot;:[36.49743,-4.8099],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,4 km · 6 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Dunique Marbella"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Dunique Marbella</h3>
-            <p class="locmap-place">Dunique Marbella</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>2,4 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
-              <span class="locmap-row-figure"><bdi>9,4 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Marbella centrum</span>
-              <span class="locmap-row-figure"><bdi>8,2 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Santa Clara</span>
-              <span class="locmap-row-figure"><bdi>2,2 km</bdi> <em><bdi>4 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Río Real</span>
-              <span class="locmap-row-figure"><bdi>5,0 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga flygplats</span>
-              <span class="locmap-row-figure"><bdi>48 km</bdi> <em><bdi>45 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Två bostäder, <em>en villa och en lägenhet</em></h2>
-          <p class="project-lead">De två bostäder som har ett pris är av olika typ, och tabellen nedan visar var och en med dess pris. Areorna är de från exploatörens planritningar.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Villa nr 04, fyra sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-dunique-marbella.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Lägenhet nr 202, tre sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-dunique-marbella.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-dunique-marbella.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Golv och tak<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Porslinsplattor i stort format på 120 x 120 cm i hela bostaden och källaren, med en antracitfärgad golvlist av aluminium som är infälld i väggen, och rektifierat porslin på 60 x 60 cm eller polerad betong i det privata garaget, beroende på typ.</li>
-              <li>Undertak av gipsskivor i hela bostaden, undertak med nedsänkt fält och rundade hörn i vardagsrummet och huvudsovrummet, och gardinkappor vid fönstren mot utsidan.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fönster och solskydd<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Aluminiumbågar från Cortizo med köldbrygga och dubbla glas med solskydd, från golv till tak, i vardagsrummen med bågar i nivå med golvet, och automatiska säkerhetsrullgardiner i sovrummen på baksidan.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dörrar och garderober<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En ytterdörr i vitek på minst 2,50 m i höjd, med öppning med fingeravtrycksläsare, och innerdörrar ända upp till taket, minst 2,50 m höga på de övre våningarna.</li>
-              <li>Garderober klädda invändigt, med lådor, hyllor, klädstång och LED-belysning med öppningssensor, och rökglasdörrar i huvudsovrummet.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>I huvudbadrummet porslinsplattor i stort format från golv till tak; i det andra badrummet plattor från golv till tak i de våta zonerna och plattor till halv höjd med tapet eller färg på övriga väggar.</li>
-              <li>Ett fristående badkar i solid surface, hängande toaletter och bidéer från Duravit, med en Sensowash-toalett bara i huvudbadrummen, dubbla handfat i mineralharts i huvudbadrummen, matt svarta blandare med termostatdusch och handdusch, och en spegel med bakgrundsbelysning mot imma.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kök<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Köksluckor och skåp i melamin av klass E1 med mattlackerade fronter på 20 mm och Gaggenau-apparater i serie 200: en ugn, en mikrovågsugn, en induktionshäll med inbyggd fläkt beroende på typ, en diskmaskin, ett kylskåp och en frys, med ett vinkylskåp.</li>
-              <li>Utekök med bänkskiva i porslin, en diskho i rostfritt stål och vatten- och eluttag, och ett tvättrum med en värmepumpstork och en tvättmaskin.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Hemautomation<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ett Iddero-system på KNX-standard som styr belysning, solskydd och klimat, med en pekpanel på 10,1 tum vid entrén som också fungerar som skärm för videodörrtelefonen, en panel på 4,3 tum i varje rum och vattenlarm med allmän vattenavstängning.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och energi<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Mitsubishi luftkonditionering med temperaturzoner och dolda linjära don, golvvärme i hela bostaden utom källaren, och varmvatten från en aerotermisk värmepump.</li>
-              <li>Ventilation med värmeåtervinning, en elektronisk vattenavhärdare, ett system som renar gråvatten till cisternerna och en laddpunkt för elbilar i garaget.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Säkerhet, garage och hissar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ett perimeterskydd med kameror och värmesensorer, övervakat av områdets säkerhetsteam, och kameraövervakning i de gemensamma ytorna, garagen och hissarna.</li>
-              <li>Ett garage i källaren med fjärrstyrda portar, ett polerat betonggolv som är tätat för högtryckstvätt och en direkt gångentré till bostaden, och eldrivna hissar med fyra stopp: för sex personer i villorna, beroende på typ, och för åtta i lägenheterna.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: kvalitetsbeskrivningen i exploatörens dokument, daterad den 7 augusti 2024. Den anger att beskrivningen och bilderna är vägledande, att exploatören av tekniska eller juridiska skäl får ändra delar och ersätta dem med likvärdiga, och att möbler, inredning och vitvaror som den inte beskriver inte ingår. Den gäller villor och lägenheter, och vissa delar beror på typen, så vi bekräftar vilka som gäller för bostaden ni väljer.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Två bostäder <em>tillgängliga just nu</em></h2>
-          <p class="project-lead">Två bostäder är listade med pris: villa nr 04 med fyra sovrum och lägenhet nr 202 med tre. Priserna är de från listan från den 29 oktober 2026 och inkluderar inte IVA; tillgänglighet och pris bekräftar vi före varje reservation. Prislistan från den 1 juli 2026 visade nr 04 som reserverad.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/dunique-marbella/media/terrace-with-sea-view.jpg" alt="Fotografi av en övertäckt terrass med soffor, ett runt soffbord, ett olivträd i en kruka och havet i fjärran" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>26 bilder</button>
+          <a class="chip" href="sv/property-dunique-marbella.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-dunique-marbella.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>2</strong></div>
-            <div><span>Pris från</span><strong>5 200 000 € + IVA</strong></div>
-            <div><span>Prisintervall</span><strong>5 200 000 € - 5 400 000 € + IVA</strong></div>
-            <div><span>Kontrollerad</span><strong>29 oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 2 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="5400000">
-                <a class="unit-card-plan" href="assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för nr 04">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor-640.webp 640w, assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor.jpg" alt="Planritning för nr 04" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">nr 04</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>4 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>447,13 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>134,10 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Parhus</dd></div>
-                  </dl>
-                  <p class="unit-card-price">5 400 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Dunique%20Marbella%20-%20nr%2004">Fråga om nr 04</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="5200000">
-                <a class="unit-card-plan" href="assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för nr 202">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor-640.webp 640w, assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor.jpg" alt="Planritning för nr 202" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">nr 202</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>483,98 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>97,04 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 2, bottenvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">5 200 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Dunique%20Marbella%20-%20nr%20202">Fråga om nr 202</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Tillgänglighet, priser och sovrum är hämtade från försäljningslistan från den 29 oktober 2026, som har två bostäder. Byggytorna, terrasserna och rummen är hämtade från exploatörens planritningar, som stämmer med prislistan från den 1 juli 2026; försäljningslistan anger mindre byggytor för båda bostäderna. Den prislistan anger att priserna är nettopriser och inte inkluderar IVA, och markerar nr 04 som reserverad.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-dunique-marbella.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Dunique%20Marbella." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Dunique Marbella" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Dunique Marbella</span></h1>
+        <p class="hero-by">Två lediga bostäder i Dunique Marbella, ett område vid stranden i Marbella intill ett skyddat dynsystem: ett parhus med fyra sovrum och en lägenhet på bottenvåningen med tre sovrum, båda med egen pool och trädgård.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 5 200 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>3 till 4</dd><dd class="sub"><span>Villor och lägenheter</span></dd></div><div><dt>Inflyttning</dt><dd>ej bekräftat</dd><dd class="sub">Bygglov: vi bekräftar det innan ni reserverar</dd></div><div><dt>Bostäder kvar</dt><dd>2 listade</dd><dd class="sub">Kontrollerat 29 oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-dunique-marbella.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Dunique%20Marbella." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Dunique Marbella" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Dunique Marbella är ett bostadsområde med parhus och lägenheter i Marbella, intill det skyddade dynsystemet El Barronal de la Morena. Exploatörens broschyr, daterad augusti 2024, beskriver 32 parhus och 64 lägenheter, ett socialt centrum med spa, gym, en coworkingyta och en lounge på taket, och terrasserade trädgårdar med inhemsk växtlighet. Siffrorna är broschyrens, inte aktuella: den försäljningslista vi har anger två bostäder.</p>
+    <p class="lede-2">De två bostäder som är listade är villa nr 04 med fyra sovrum och lägenhet nr 202 på bottenvåningen med tre sovrum, båda med egen pool och trädgård. Inget av dokumenten anger ett leveransdatum, och försäljningslistan visar projektet som under byggnation.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Moderna linjer, intill havet</span></summary><p>Broschyren beskriver ett modernt område med parhus och lägenheter med stora terrasser, i terrasserade trädgårdar som sluttar ned mot havet, med inhemsk, vattensnål växtlighet, dammar och små vattenfall.</p><p>Enligt planritningarna har villa nr 04 fyra plan: en källare, en bottenvåning, en första våning och en solterrass med en pool på 23,18 m². Lägenhet nr 202 har en källare och en bottenvåning, med en terrass på 146,70 m², en trädgård på 79,46 m² och en pool på 34,84 m².</p><ul><li>Fasad: Utvändig puts på ett system för värme- och ljudisolering med målad murbruksyta, kompositbeklädnad på de lodräta ytorna på första våningarna och takutsprång klädda med prefabricerade mineralhartspaneler.</li><li>Fönster: Aluminiumbågar med köldbrygga, dubbla glas med solskydd och låg emissivitet och fönster från golv till tak, med bågar i nivå med golvet i vardagsrummen.</li><li>Terrasser: Halksäkra porslinsplattor i stort format som matchar interiören, pergolor och tak i aluminium eller kompositmaterial i trälook och räcken i laminerat säkerhetsglas.</li><li>Pooler: Saltklorering i poolerna och jacuzzierna, tekniskt däck på pool- och jacuzziplattformarna och porslinsplattor i poolbassängen.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>5 200 000 € – 5 400 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>2 listade</span><small>Kontrollerat 29 oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Villor och lägenheter</span></dd></div><div><dt>Storlekar</dt><dd><span>447 – 484 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>ej bekräftat</span></dd></div><div><dt>Tillstånd</dt><dd><span>Ej angivet</span><small>Vi bekräftar det innan ni reserverar</small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Eget garage</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Två bostäder är listade med pris: villa nr 04 med fyra sovrum och lägenhet nr 202 med tre. Priserna är de från listan från den 29 oktober 2026 och inkluderar inte IVA; tillgänglighet och pris bekräftar vi före varje reservation. Prislistan från den 1 juli 2026 visade nr 04 som reserverad. Välj en bostad för att se betalplan och totalkostnad.</p>
+    
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="4" data-price="5400000" data-size="447.13" data-ppm="12077" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor-640.webp">
+            <th scope="row"><span class="u-name">DU-04</span><span class="u-loc">Parhus</span></th>
+            <td data-label="Sovrum">4 sovrum</td>
+            <td data-label="Storlek" class="num">447 m²</td>
+            <td data-label="Pris" class="u-price num">5 400 000 €</td>
+            <td data-label="Per m²" class="num">12 077 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för DU-04"><img src="assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="5200000" data-size="483.98" data-ppm="10744" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor-640.webp">
+            <th scope="row"><span class="u-name">DU-202</span><span class="u-loc">Hus 2, bottenvåning</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">484 m²</td>
+            <td data-label="Pris" class="u-price num">5 200 000 €</td>
+            <td data-label="Per m²" class="num">10 744 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för DU-202"><img src="assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Två bostäder, en villa och en lägenhet</span></summary><p>De två bostäder som har ett pris är av olika typ, och tabellen nedan visar var och en med dess pris. Areorna är de från exploatörens planritningar.</p><div class="res-types"><div class="res-type"><h3>Villa nr 04, fyra sovrum</h3><ul><li>Ett parhus av typ A2 på tomt R2, med fyra sovrum. Planritningarna anger 447,13 m² byggyta, varav 168,15 m² i källaren, 354,43 m² boarea och 280,89 m² användbar yta utomhus.</li><li>Källaren har ett garage på 46,54 m² för två bilar och ett flerfunktionsrum på 50,46 m². Bottenvåningen har en yta med vardagsrum, matrum och kök på 79,96 m², ett sovrum på 12,10 m² och en terrass på 89,36 m² med jacuzzi.</li><li>Första våningen har huvudsovrummet på 30,33 m² och två sovrum till, och solterrassen har en terrass på 81,72 m² och en pool på 23,18 m². Priset är 5 400 000 €, enligt listan från den 29 oktober 2026.</li></ul></div><div class="res-type"><h3>Lägenhet nr 202, tre sovrum</h3><ul><li>En lägenhet på bottenvåningen av typ B2, i block 2, port 2, med tre sovrum, egen trädgård och egen pool. Planritningarna anger 483,98 m² byggyta, som inkluderar 198,29 m² källare och 40,81 m² gemensamma ytor, 378,22 m² boarea och 261,00 m² användbar yta utomhus.</li><li>Vardagsrum, kök och matrum mäter 72,30 m², huvudsovrummet 46,35 m² och de två andra sovrummen 22,40 och 20,03 m². Terrassen mäter 146,70 m², trädgården 79,46 m² och poolen 34,84 m².</li><li>Källaren har ett privat garage på 38,00 m² för två bilar och ett flerfunktionsrum på 93,35 m². Priset är 5 200 000 €, enligt listan från den 29 oktober 2026 och prislistan från den 1 juli 2026.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-dunique-marbella.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -957,501 +573,230 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Privat pool</h3>
-              <p class="amenity-note">Hör till bostaden</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Golv och tak</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Fönster och solskydd</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Dörrar och garderober</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Kök</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Hemautomation</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Klimat och energi</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Säkerhet, garage och hissar</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Porslinsplattor i stort format på 120 x 120 cm i hela bostaden och källaren, med en antracitfärgad golvlist av aluminium som är infälld i väggen, och rektifierat porslin på 60 x 60 cm eller polerad betong i det privata garaget, beroende på typ.</li><li>Undertak av gipsskivor i hela bostaden, undertak med nedsänkt fält och rundade hörn i vardagsrummet och huvudsovrummet, och gardinkappor vid fönstren mot utsidan.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Aluminiumbågar från Cortizo med köldbrygga och dubbla glas med solskydd, från golv till tak, i vardagsrummen med bågar i nivå med golvet, och automatiska säkerhetsrullgardiner i sovrummen på baksidan.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>En ytterdörr i vitek på minst 2,50 m i höjd, med öppning med fingeravtrycksläsare, och innerdörrar ända upp till taket, minst 2,50 m höga på de övre våningarna.</li><li>Garderober klädda invändigt, med lådor, hyllor, klädstång och LED-belysning med öppningssensor, och rökglasdörrar i huvudsovrummet.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>I huvudbadrummet porslinsplattor i stort format från golv till tak; i det andra badrummet plattor från golv till tak i de våta zonerna och plattor till halv höjd med tapet eller färg på övriga väggar.</li><li>Ett fristående badkar i solid surface, hängande toaletter och bidéer från Duravit, med en Sensowash-toalett bara i huvudbadrummen, dubbla handfat i mineralharts i huvudbadrummen, matt svarta blandare med termostatdusch och handdusch, och en spegel med bakgrundsbelysning mot imma.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Köksluckor och skåp i melamin av klass E1 med mattlackerade fronter på 20 mm och Gaggenau-apparater i serie 200: en ugn, en mikrovågsugn, en induktionshäll med inbyggd fläkt beroende på typ, en diskmaskin, ett kylskåp och en frys, med ett vinkylskåp.</li><li>Utekök med bänkskiva i porslin, en diskho i rostfritt stål och vatten- och eluttag, och ett tvättrum med en värmepumpstork och en tvättmaskin.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Ett Iddero-system på KNX-standard som styr belysning, solskydd och klimat, med en pekpanel på 10,1 tum vid entrén som också fungerar som skärm för videodörrtelefonen, en panel på 4,3 tum i varje rum och vattenlarm med allmän vattenavstängning.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Mitsubishi luftkonditionering med temperaturzoner och dolda linjära don, golvvärme i hela bostaden utom källaren, och varmvatten från en aerotermisk värmepump.</li><li>Ventilation med värmeåtervinning, en elektronisk vattenavhärdare, ett system som renar gråvatten till cisternerna och en laddpunkt för elbilar i garaget.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Ett perimeterskydd med kameror och värmesensorer, övervakat av områdets säkerhetsteam, och kameraövervakning i de gemensamma ytorna, garagen och hissarna.</li><li>Ett garage i källaren med fjärrstyrda portar, ett polerat betonggolv som är tätat för högtryckstvätt och en direkt gångentré till bostaden, och eldrivna hissar med fyra stopp: för sex personer i villorna, beroende på typ, och för åtta i lägenheterna.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: kvalitetsbeskrivningen i exploatörens dokument, daterad den 7 augusti 2024. Den anger att beskrivningen och bilderna är vägledande, att exploatören av tekniska eller juridiska skäl får ändra delar och ersätta dem med likvärdiga, och att möbler, inredning och vitvaror som den inte beskriver inte ingår. Den gäller villor och lägenheter, och vissa delar beror på typen, så vi bekräftar vilka som gäller för bostaden ni väljer.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Terrasserna i skymningen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk-640.webp 640w, assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk-960.webp 960w, assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.jpg" alt="Fotografi i skymningen av en böjd vit terrass med upplysta glasdörrar och takterrassen ovanför med en soffgrupp och en jacuzzi, med berg i bakgrunden" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="16" aria-label="Vardagsrummet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling-640.webp 640w, assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling-960.webp 960w, assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling.jpg" alt="Fotografi av ett vardagsrum med ett undertak av trälameller, en soffa, fåtöljer och en mediavägg, med glaspartier mot en terrass" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Takdäcket uppifrån"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/roof-deck-from-above-640.webp 640w, assets/liora/projects/dunique-marbella/media/roof-deck-from-above-960.webp 960w, assets/liora/projects/dunique-marbella/media/roof-deck-from-above.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/dunique-marbella/media/roof-deck-from-above.jpg" alt="Fotografi uppifrån av ett takdäck med en lång pool, en gräsmatta, en jacuzzi, ett matbord och en pergola" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="21" aria-label="Ett sovrum med sänggavel av lameller"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard-640.webp 640w, assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard-960.webp 960w, assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard.jpg" alt="Fotografi av ett sovrum med en sänggavel av lameller, en vägg med bambumotiv och ett fönster mot trädgården" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Tomten från luften"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site-640.webp 640w, assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site-960.webp 960w, assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site.jpg" alt="Flygbild från exploatörens generalplan som visar området som det är planerat intill stranden, med omgivande gator och hus" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 26 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (3)</button><button type="button" data-open-cat="Location">Omgivningar (1)</button><button type="button" data-open-cat="Terraces">Terrasser (12)</button><button type="button" data-open-cat="Interiors">Interiör (6)</button><button type="button" data-open-cat="Bedrooms">Sovrum (3)</button><button type="button" data-open-cat="Bathrooms">Badrum (1)</button></div>
+    
+    <p class="caption">Bilderna visar en möblerad bostad i området. Galleriet anger inte vilken bostad eller vilken typ det är, så det är inte fotografier av de två bostäder som är listade, och möblerna och inredningen på dem ingår inte. Flygbilden kommer från exploatörens generalplan och visar området som det är planerat. Planritningarna är exploatörens försäljningsritningar: de är inte avtalsbindande, rumsnamnen på dem är på spanska och areorna på dem är ungefärliga.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Broschyren placerar området i Marbella, intill det skyddade dynsystemet El Barronal de la Morena, som den placerar i området El Rosario - Las Chapas, och presenterar projektet som boende vid stranden. Lägeskartan visar Marbellas centrum, marinan i Marbella, marinan i Cabopino, Puerto Banús, Nueva Andalucía och flera golfklubbar, utan avstånd. Dokumenten anger varken adress eller koordinater för tomten, så kartan visar området El Rosario.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-dunique-marbella" data-locmap='{&quot;site&quot;:[36.5081,-4.8057],&quot;sea&quot;:[36.4811,-4.8057],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella centrum&quot;,&quot;sub&quot;:&quot;8,2 km · 12 min&quot;},{&quot;ll&quot;:[36.50641,-4.82042],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Santa Clara&quot;,&quot;sub&quot;:&quot;2,2 km · 4 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;9,4 km · 16 min&quot;},{&quot;ll&quot;:[36.49743,-4.8099],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,4 km · 6 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Dunique Marbella"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Dunique Marbella</h3>
+            <p class="locmap-place">Dunique Marbella</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>2,4 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Jacuzzi</h3>
-              <p class="amenity-note">Varmt vatten med jetstrålar</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
+              <span class="locmap-row-figure"><bdi>9,4 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Marbella centrum</span>
+              <span class="locmap-row-figure"><bdi>8,2 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Välmående</span>
-              <h3 class="amenity-name">Bastu och hammam</h3>
-              <p class="amenity-note">Rum med torr värme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Santa Clara</span>
+              <span class="locmap-row-figure"><bdi>2,2 km</bdi> <em><bdi>4 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Välmående</span>
-              <h3 class="amenity-name">Uppvärmd inomhuspool</h3>
-              <p class="amenity-note">Varmt vatten under tak</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Río Real</span>
+              <span class="locmap-row-figure"><bdi>5,0 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Välmående</span>
-              <h3 class="amenity-name">Infinitypool</h3>
-              <p class="amenity-note">En kant som försvinner</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga flygplats</span>
+              <span class="locmap-row-figure"><bdi>48 km</bdi> <em><bdi>45 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Välmående</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inom området</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Välmående</span>
-              <h3 class="amenity-name">Utegym</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Välmående</span>
-              <h3 class="amenity-name">Meditationsyta</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Utomhus</span>
-              <h3 class="amenity-name">Egen trädgård</h3>
-              <p class="amenity-note">Inhägnad och bostadens egen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Utomhus</span>
-              <h3 class="amenity-name">Solterrass på taket</h3>
-              <p class="amenity-note">Sol på översta planet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda trädgårdar med inhemska, vattensnåla växter</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Vardag</span>
-              <h3 class="amenity-name">Eget garage</h3>
-              <p class="amenity-note">Under huset</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Vardag</span>
-              <h3 class="amenity-name">Utekök</h3>
-              <p class="amenity-note">Matlagning på terrassen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Vardag</span>
-              <h3 class="amenity-name">Coworkingyta</h3>
-              <p class="amenity-note">Arbetsplatser utanför bostaden</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Vardag</span>
-              <h3 class="amenity-name">Golvvärme</h3>
-              <p class="amenity-note">Värme underifrån</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">17 &middot; Vardag</span>
-              <h3 class="amenity-name">Hemautomation</h3>
-              <p class="amenity-note">Ljus och klimat från mobilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">18 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">19 &middot; Vardag</span>
-              <h3 class="amenity-name">Varmvatten från värmepump</h3>
-              <p class="amenity-note">Varmvatten ur luften</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">20 &middot; Vardag</span>
-              <h3 class="amenity-name">Laddplats</h3>
-              <p class="amenity-note">En punkt för bilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">21 &middot; Vardag</span>
-              <h3 class="amenity-name">Förråd</h3>
-              <p class="amenity-note">Ett låsbart förråd</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">22 &middot; Vardag</span>
-              <h3 class="amenity-name">Hiss</h3>
-              <p class="amenity-note">Alla våningsplan nås</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Broschyren beskriver de gemensamma ytorna och omgivningen.</p>
+    <div class="life-panels"><div><h3>Det sociala centret</h3><p>Ett välmåendecenter med turkiskt bad och bastu, en uppvärmd inomhuspool, ett gym inomhus och ett utomhus, en yta för meditation och yoga, en coworkingyta och en loungebar på taket.</p></div><div><h3>Spat</h3><p>Broschyren beskriver ett professionellt spa några steg från bostäderna, med omklädningsrum, geotermisk terapi, aromaterapi, en bastu, ett turkiskt bad och en inomhuspool med nästan olympiska mått.</p></div><div><h3>Loungen på taket</h3><p>En lounge med bar på taket av det sociala centret, med en infinitypool som hänger mer än 8 m över marken och balinesiska bäddar.</p></div><div><h3>Trädgårdarna</h3><p>Terrasserade trädgårdar som sluttar ned mot havet, med inhemsk, vattensnål växtlighet, en äng, skuggiga ytor, utsiktspunkter och vatten som rinner mellan nivåerna i dammar, små vattenfall och tjärnar.</p></div><div><h3>Dynerna</h3><p>El Barronal de la Morena, ett skyddat dynsystem på cirka 36 000 m² och 200 m långt, parallellt med stranden, rikt på djur- och växtarter, som området enligt broschyren är integrerat med.</p></div></div>
+    <ul class="amen-top"><li>Privat pool</li><li>Egen trädgård</li><li>Eget garage</li><li>Jacuzzi</li><li>Solterrass på taket</li><li>Utekök</li></ul>
+    <details class="amen-all"><summary>Visa alla 22</summary><div class="amen-groups"><div><h3>Välmående<span class="count">9</span></h3><ul><li>Privat pool</li><li>Jacuzzi</li><li>Spa</li><li>Bastu och hammam</li><li>Uppvärmd inomhuspool</li><li>Infinitypool</li><li>Gym</li><li>Utegym</li><li>Meditationsyta</li></ul></div><div><h3>Utomhus<span class="count">3</span></h3><ul><li>Egen trädgård</li><li>Solterrass på taket</li><li>Anlagda trädgårdar med inhemska, vattensnåla växter</li></ul></div><div><h3>Vardag<span class="count">10</span></h3><ul><li>Eget garage</li><li>Utekök</li><li>Coworkingyta</li><li>Golvvärme</li><li>Hemautomation</li><li>Luftkonditionering</li><li>Varmvatten från värmepump</li><li>Laddplats</li><li>Förråd</li><li>Hiss</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en stor ny bostad i Marbella med egen pool och trädgård, intill ett skyddat dynsystem och stranden, för att bo i eller som andra bostad.</span></li><li><b>Vad som skiljer det från andra</b><span>Bostäder på 447,13 och 483,98 m² byggyta, båda med källare, privat garage för två bilar, ett flerfunktionsrum och egen pool, i ett område som broschyren beskriver med spa, gym, en coworkingyta och en lounge på taket.</span></li><li><b>Varför läget spelar roll</b><span>Broschyren placerar området intill El Barronal de la Morena, ett dynsystem på cirka 36 000 m² och 200 m långt, parallellt med stranden, och visar Marbellas centrum, Puerto Banús och golfbanor på en lägeskarta. Den anger inga avstånd.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>Listan från den 29 oktober 2026 visar båda bostäderna som lediga, men prislistan från den 1 juli 2026 markerade nr 04 som reserverad. Broschyren är från 2024 och inget dokument anger ett leveransdatum, så vi bekräftar tillgänglighet, byggstadium och datum före varje reservation.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Tillgänglighet</b><span>Två bostäder är listade: villa nr 04 för 5 400 000 € och lägenhet nr 202 för 5 200 000 €, båda plus IVA. Prislistan från den 1 juli 2026 markerade nr 04 som reserverad, så vi bekräftar att den fortfarande är ledig.</span></li><li><b>IVA</b><span>Prislistan anger att priserna är nettopriser och inte inkluderar IVA (spansk moms) eller skatter vid överlåtelse av fastigheten. Nueva Living bekräftar skattesatsen och köpkostnaderna skriftligen.</span></li><li><b>Betalningsvillkor</b><span>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan, så vi begär dem skriftligen före varje reservation.</span></li><li><b>Garage och förråd</b><span>Prislistan anger 2 parkeringsplatser för nr 04 och 2+1 för nr 202, med förråd för båda. Planritningen för nr 202 visar en öppen parkeringsplats och ett utvändigt förråd som är markerade som extra, så vi bekräftar vad priset omfattar.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Dokumentens ålder</b><span>Broschyren och kvalitetsbeskrivningen är från augusti 2024. Vi använder dem för att beskriva projektet och inte som bevis på vad som är tillgängligt eller byggt i dag, och vi begär de aktuella dokumenten.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Färdigställandedatumet</b><span>Inget av exploatörens dokument anger ett leveransdatum. Försäljningslistan visar projektet som under byggnation, så vi begär det avtalade datumet, bygglovets status och byggstadiet.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Är nr 04 ledig?</b><span>Listan från den 29 oktober 2026 visar nr 04 för 5 400 000 € som ledig. Prislistan från den 1 juli 2026 markerar den som reserverad och anger inget pris. Den här sidan följer den senare listan, och vi bekräftar statusen före varje reservation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ytorna</b><span>Listan från den 29 oktober 2026 anger 397,7 m² byggyta för nr 04 och 285,69 m² för nr 202. Planritningarna och prislistan från den 1 juli 2026 anger 447,13 och 483,98 m², och broschyren från 2024 anger 436,96 m² för sin villatyp A2 och 487,08 m² för sin trädgårdslägenhetstyp B2. Den här sidan använder planritningarna, som stämmer med prislistan, och vi bekräftar vilka siffror avtalet utgår från. För nr 04 anger prislistan 355,90 m² boarea och 320,34 m² användbar yta utomhus, och planritningen 354,43 och 280,89 m².</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Fotografierna</b><span>Bilderna visar en möblerad bostad med takterrass och pool. Galleriet anger inte vilken bostad eller vilken typ det är, så vi utgår inte från att de visar nr 04 eller nr 202, och vi bekräftar finishen i bostaden ni väljer mot kvalitetsbeskrivningen.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ändring av planlösningen</b><span>Broschyren säger att köpare i den första fasen kan välja fördelningen av utrymmena. Den säger inte om det gäller för dessa två bostäder, så vi frågar.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Kvalitetsbeskrivningen och certifieringen</b><span>Kvalitetsbeskrivningen inleds med en sida som förklarar BREEAM-certifiering. Den anger varken ett betyg eller ett certifikat för det här projektet, så den här sidan listar inget.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Kartan</b><span>Dokumenten anger varken adress eller koordinater, så markören på kartan ligger efter område i El Rosario och inte på tomten, och vägavstånden bredvid kartan är mätta från den markören. Broschyren beskriver projektet som beläget vid stranden, så särskilt avståndet till stranden är inte avståndet från tomten, och broschyren anger inga egna avstånd. Dem bekräftar vi vid ett besök.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Planritningarna för de bostäder som intresserar er, kvalitetsspecifikationen och prislistan.</p></li><li><h3>Jämför alternativen</h3><p>Se det tillsammans med de andra projekten i Marbella som vi har.</p></li><li><h3>Privat visning</h3><p>Se området tillsammans med oss och jämför planritningarna med byggstadiet.</p></li><li><h3>Boka</h3><p>Vi bekräftar reservationsbeloppet och betalningsplanen skriftligen, därefter följer köpeavtalet.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>2 av 2 bostäder</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-dunique-marbella.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Dunique Marbella</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder är tillgängliga?</summary><p>Två är listade: villa nr 04 med fyra sovrum för 5 400 000 € och lägenhet nr 202 med tre sovrum för 5 200 000 €, båda plus IVA. Broschyren från 2024 beskriver sammanlagt 32 villor och 64 lägenheter.</p></details><details class="segment-faq-item"><summary>Är nr 04 fortfarande ledig?</summary><p>Listan från den 29 oktober 2026 visar den som ledig, men prislistan från den 1 juli 2026 markerade den som reserverad. Vi bekräftar statusen före varje reservation.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Nej. Prislistan anger att priserna är nettopriser och inte inkluderar IVA (spansk moms) eller skatter vid överlåtelse av fastigheten. Vi bekräftar skatterna och köpkostnaderna skriftligen.</p></details><details class="segment-faq-item"><summary>Finns det parkering och förråd?</summary><p>Enligt planritningarna har båda bostäderna ett privat garage i källaren för två bilar, och prislistan anger ett förråd för båda. nr 202 har dessutom en öppen parkeringsplats och ett utvändigt förråd som dess planritning markerar som extra, så vi bekräftar vad priset omfattar.</p></details><details class="segment-faq-item"><summary>Ingår möbler?</summary><p>Nej. Möblerna och inredningen som visas på bilderna ingår inte. Köken levereras med de vitvaror som anges i kvalitetsbeskrivningen.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>När blir det färdigt?</summary><p>Inget av exploatörens dokument anger ett slutdatum. Vi ber om det avtalade datumet, bygglovets status och byggstadiet.</p></details><details class="segment-faq-item"><summary>Hur ser betalningsplanen ut?</summary><p>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan. Vi begär dem och sätter dem skriftligen.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">5 200 000 €</p>
+      <p class="rail-note">Exkl. IVA. · Kontrollerat 29 oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-dunique-marbella.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Dunique%20Marbella." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Dunique Marbella" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Dunique%20Marbella." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Dunique Marbella" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Besök tomten och omgivningarna tillsammans med oss.</li><li><b>På papper.</b> Bygglov, tillträdesdatum och avtal, innan något skrivs under.</li><li><b>På ritningarna.</b> Vi går igenom den bostad ni väljer, rum för rum, med planritningen i handen.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Dunique Marbella">
+        <input type="hidden" id="f-project" name="project" value="Dunique Marbella">
+        <input type="hidden" name="preferred_area" value="Marbella">
+        <input type="hidden" name="property_type_interest" value="Villor och lägenheter">
+        <input type="hidden" name="budget_range" value="Från 5 200 000 € + IVA">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag skulle vilja få information om Dunique Marbella." data-base="Hej Nueva Living, jag skulle vilja få information om Dunique Marbella.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="DU-04">DU-04: 5 400 000 €</option><option value="DU-202">DU-202: 5 200 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Dunique Marbella.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">Stora bostäder med egen pool och trädgård, intill ett skyddat dynsystem vid Marbellas kust.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en stor ny bostad i Marbella med egen pool och trädgård, intill ett skyddat dynsystem och stranden, för att bo i eller som andra bostad.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Bostäder på 447,13 och 483,98 m² byggyta, båda med källare, privat garage för två bilar, ett flerfunktionsrum och egen pool, i ett område som broschyren beskriver med spa, gym, en coworkingyta och en lounge på taket.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Broschyren placerar området intill El Barronal de la Morena, ett dynsystem på cirka 36 000 m² och 200 m långt, parallellt med stranden, och visar Marbellas centrum, Puerto Banús och golfbanor på en lägeskarta. Den anger inga avstånd.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>Listan från den 29 oktober 2026 visar båda bostäderna som lediga, men prislistan från den 1 juli 2026 markerade nr 04 som reserverad. Broschyren är från 2024 och inget dokument anger ett leveransdatum, så vi bekräftar tillgänglighet, byggstadium och datum före varje reservation.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">En saklig anmärkning om vad dokumenten säger och inte säger; Nueva Living lovar varken hyresavkastning eller prisuppgång.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillgänglighet</h3><p>Två bostäder är listade: villa nr 04 för 5 400 000 € och lägenhet nr 202 för 5 200 000 €, båda plus IVA. Prislistan från den 1 juli 2026 markerade nr 04 som reserverad, så vi bekräftar att den fortfarande är ledig.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA</h3><p>Prislistan anger att priserna är nettopriser och inte inkluderar IVA (spansk moms) eller skatter vid överlåtelse av fastigheten. Nueva Living bekräftar skattesatsen och köpkostnaderna skriftligen.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningsvillkor</h3><p>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan, så vi begär dem skriftligen före varje reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Garage och förråd</h3><p>Prislistan anger 2 parkeringsplatser för nr 04 och 2+1 för nr 202, med förråd för båda. Planritningen för nr 202 visar en öppen parkeringsplats och ett utvändigt förråd som är markerade som extra, så vi bekräftar vad priset omfattar.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Dokumentens ålder</h3><p>Broschyren och kvalitetsbeskrivningen är från augusti 2024. Vi använder dem för att beskriva projektet och inte som bevis på vad som är tillgängligt eller byggt i dag, och vi begär de aktuella dokumenten.</p></article>
-              <article class="why-point reveal-soft"><h3>Färdigställandedatumet</h3><p>Inget av exploatörens dokument anger ett leveransdatum. Försäljningslistan visar projektet som under byggnation, så vi begär det avtalade datumet, bygglovets status och byggstadiet.</p></article>
-              <article class="why-point reveal-soft"><h3>Är nr 04 ledig?</h3><p>Listan från den 29 oktober 2026 visar nr 04 för 5 400 000 € som ledig. Prislistan från den 1 juli 2026 markerar den som reserverad och anger inget pris. Den här sidan följer den senare listan, och vi bekräftar statusen före varje reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Ytorna</h3><p>Listan från den 29 oktober 2026 anger 397,7 m² byggyta för nr 04 och 285,69 m² för nr 202. Planritningarna och prislistan från den 1 juli 2026 anger 447,13 och 483,98 m², och broschyren från 2024 anger 436,96 m² för sin villatyp A2 och 487,08 m² för sin trädgårdslägenhetstyp B2. Den här sidan använder planritningarna, som stämmer med prislistan, och vi bekräftar vilka siffror avtalet utgår från. För nr 04 anger prislistan 355,90 m² boarea och 320,34 m² användbar yta utomhus, och planritningen 354,43 och 280,89 m².</p></article>
-              <article class="why-point reveal-soft"><h3>Fotografierna</h3><p>Bilderna visar en möblerad bostad med takterrass och pool. Galleriet anger inte vilken bostad eller vilken typ det är, så vi utgår inte från att de visar nr 04 eller nr 202, och vi bekräftar finishen i bostaden ni väljer mot kvalitetsbeskrivningen.</p></article>
-              <article class="why-point reveal-soft"><h3>Ändring av planlösningen</h3><p>Broschyren säger att köpare i den första fasen kan välja fördelningen av utrymmena. Den säger inte om det gäller för dessa två bostäder, så vi frågar.</p></article>
-              <article class="why-point reveal-soft"><h3>Kvalitetsbeskrivningen och certifieringen</h3><p>Kvalitetsbeskrivningen inleds med en sida som förklarar BREEAM-certifiering. Den anger varken ett betyg eller ett certifikat för det här projektet, så den här sidan listar inget.</p></article>
-              <article class="why-point reveal-soft"><h3>Kartan</h3><p>Dokumenten anger varken adress eller koordinater, så markören på kartan ligger efter område i El Rosario och inte på tomten, och vägavstånden bredvid kartan är mätta från den markören. Broschyren beskriver projektet som beläget vid stranden, så särskilt avståndet till stranden är inte avståndet från tomten, och broschyren anger inga egna avstånd. Dem bekräftar vi vid ett besök.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren 29 oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Tillgänglighet, priser och sovrum är hämtade från försäljningslistan från den 29 oktober 2026, som har två bostäder. Byggytorna, terrasserna och rummen är hämtade från exploatörens planritningar, som stämmer med prislistan från den 1 juli 2026; försäljningslistan anger mindre byggytor för båda bostäderna. Den prislistan anger att priserna är nettopriser och inte inkluderar IVA, och markerar nr 04 som reserverad.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/dunique-marbella/media/curved-terrace-facade-by-day.jpg" alt="Fotografi på dagen av en böjd vit terrass med pergola, skjutdörrar av glas och ett matbord, med takterrassen ovanför" width="2000" height="1124" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Moderna linjer, <em>intill havet</em></h2>
-          <p>Broschyren beskriver ett modernt område med parhus och lägenheter med stora terrasser, i terrasserade trädgårdar som sluttar ned mot havet, med inhemsk, vattensnål växtlighet, dammar och små vattenfall.</p>
-<p>Enligt planritningarna har villa nr 04 fyra plan: en källare, en bottenvåning, en första våning och en solterrass med en pool på 23,18 m². Lägenhet nr 202 har en källare och en bottenvåning, med en terrass på 146,70 m², en trädgård på 79,46 m² och en pool på 34,84 m².</p>
-          <ul class="feature-list">
-            <li>Fasad — Utvändig puts på ett system för värme- och ljudisolering med målad murbruksyta, kompositbeklädnad på de lodräta ytorna på första våningarna och takutsprång klädda med prefabricerade mineralhartspaneler.</li>
-            <li>Fönster — Aluminiumbågar med köldbrygga, dubbla glas med solskydd och låg emissivitet och fönster från golv till tak, med bågar i nivå med golvet i vardagsrummen.</li>
-            <li>Terrasser — Halksäkra porslinsplattor i stort format som matchar interiören, pergolor och tak i aluminium eller kompositmaterial i trälook och räcken i laminerat säkerhetsglas.</li>
-            <li>Pooler — Saltklorering i poolerna och jacuzzierna, tekniskt däck på pool- och jacuzziplattformarna och porslinsplattor i poolbassängen.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Dunique%20Marbella." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Dunique Marbella" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-dunique-marbella.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling.jpg" alt="Fotografi av ett vardagsrum med ett undertak av trälameller, en soffa, fåtöljer och en mediavägg, med glaspartier mot en terrass" width="2000" height="1333" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>området och ritningarna</em></h2>
-            <p>Ett besök handlar om läget, ritningarna och hur långt arbetena har kommit.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Besök tomten och omgivningarna tillsammans med oss.</p></div>
-              <div><span>På papper</span><p>Bygglov, tillträdesdatum och avtal, innan något skrivs under.</p></div>
-              <div><span>På ritningarna</span><p>Vi går igenom den bostad ni väljer, rum för rum, med planritningen i handen.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=dunique-marbella">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-dunique-marbella.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Location">Omgivningar</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Bedrooms">Sovrum</button><button type="button" data-cat="Bathrooms">Badrum</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/dunique-marbella/media/rooftop-infinity-pool-and-sea.jpg" alt="Fotografi av en takterrass med en pool med glaskant och havet vid horisonten" width="2000" height="1124" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Ett spa, <em>trädgårdar</em> och dynerna</h2>
-            <p>Broschyren beskriver de gemensamma ytorna och omgivningen. Den är daterad augusti 2024, så vi bekräftar vad som är byggt och öppet före varje reservation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Planritningarna för de bostäder som intresserar er, kvalitetsspecifikationen och prislistan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se det tillsammans med de andra projekten i Marbella som vi har.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se området tillsammans med oss och jämför planritningarna med byggstadiet.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>Vi bekräftar reservationsbeloppet och betalningsplanen skriftligen, därefter följer köpeavtalet.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder är tillgängliga?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Två är listade: villa nr 04 med fyra sovrum för 5 400 000 € och lägenhet nr 202 med tre sovrum för 5 200 000 €, båda plus IVA. Broschyren från 2024 beskriver sammanlagt 32 villor och 64 lägenheter.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är nr 04 fortfarande ledig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Listan från den 29 oktober 2026 visar den som ledig, men prislistan från den 1 juli 2026 markerade den som reserverad. Vi bekräftar statusen före varje reservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Prislistan anger att priserna är nettopriser och inte inkluderar IVA (spansk moms) eller skatter vid överlåtelse av fastigheten. Vi bekräftar skatterna och köpkostnaderna skriftligen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Finns det parkering och förråd?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Enligt planritningarna har båda bostäderna ett privat garage i källaren för två bilar, och prislistan anger ett förråd för båda. nr 202 har dessutom en öppen parkeringsplats och ett utvändigt förråd som dess planritning markerar som extra, så vi bekräftar vad priset omfattar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår möbler?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Möblerna och inredningen som visas på bilderna ingår inte. Köken levereras med de vitvaror som anges i kvalitetsbeskrivningen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När blir det färdigt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Inget av exploatörens dokument anger ett slutdatum. Vi ber om det avtalade datumet, bygglovets status och byggstadiet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur ser betalningsplanen ut?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan. Vi begär dem och sätter dem skriftligen.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Dunique Marbella</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, planritningarna och prislistan.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Dunique%20Marbella." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Dunique Marbella" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Dunique Marbella">
-
-          <input type="hidden" id="f-project" name="project" value="Dunique Marbella">
-          <input type="hidden" name="preferred_area" value="Marbella">
-          <input type="hidden" name="property_type_interest" value="Villor och lägenheter">
-          <input type="hidden" name="budget_range" value="Från 5 200 000 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag skulle vilja få information om Dunique Marbella.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"DU-04","title":"DU-04 · Parhus","sub":"4 sovrum · 447 m²","price":5400000,"plans":[{"src":"assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor.jpg","label":""}]},{"id":"u1","ref":"DU-202","title":"DU-202 · Hus 2, bottenvåning","sub":"3 sovrum · 484 m²","price":5200000,"plans":[{"src":"assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.webp","alt":"Fotografi i skymningen av en böjd vit terrass med upplysta glasdörrar och takterrassen ovanför med en soffgrupp och en jacuzzi, med berg i bakgrunden","caption":"Terrasserna i skymningen","cat":"Exteriors"},{"src":"assets/liora/projects/dunique-marbella/media/curved-terrace-facade-at-dusk.webp","alt":"Fotografi i skymningen av den böjda vita terrassen och det upplysta vardagsrummet bakom glasdörrarna","caption":"En terrass och vardagsrummet i skymningen","cat":"Exteriors"},{"src":"assets/liora/projects/dunique-marbella/media/curved-terrace-facade-by-day.webp","alt":"Fotografi på dagen av en böjd vit terrass med pergola, skjutdörrar av glas och ett matbord, med takterrassen ovanför","caption":"Den böjda terrassen på dagen","cat":"Exteriors"},{"src":"assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site.webp","alt":"Flygbild från exploatörens generalplan som visar området som det är planerat intill stranden, med omgivande gator och hus","caption":"Tomten från luften","cat":"Location"},{"src":"assets/liora/projects/dunique-marbella/media/roof-deck-from-above.webp","alt":"Fotografi uppifrån av ett takdäck med en lång pool, en gräsmatta, en jacuzzi, ett matbord och en pergola","caption":"Takdäcket uppifrån","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-terrace-and-jacuzzi.webp","alt":"Fotografi av en takterrass med en träklädd paviljong, en jacuzzi på ett upphöjt däck, en orange dagbädd och berg i bakgrunden","caption":"En takterrass med jacuzzi","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-infinity-pool-and-sea.webp","alt":"Fotografi av en takterrass med en pool med glaskant och havet vid horisonten","caption":"En takpool mot havet","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-pool-and-deck.webp","alt":"Fotografi av en takpool med trädäck, solstolar och parasoller","caption":"En takpool och trädäcket","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-pool-at-dusk.webp","alt":"Fotografi i skymningen av en upplyst takpool, ett trädäck, solstolar och ett parasoll","caption":"En takpool i skymningen","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/terrace-with-sea-view.webp","alt":"Fotografi av en övertäckt terrass med soffor, ett runt soffbord, ett olivträd i en kruka och havet i fjärran","caption":"En övertäckt terrass med havsutsikt","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/terrace-seating-and-olive-tree.webp","alt":"Fotografi av en terrass med en soffa, ett soffbord i sten, ett olivträd och ett glasräcke, med havet bakom","caption":"En terrass ovanför kusten","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-lounge-by-day.webp","alt":"Fotografi av en takterrass med en vit dagbäddssoffa, ett matbord och havet vid horisonten","caption":"En soffgrupp på taket","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-dining-table.webp","alt":"Fotografi av en takterrass med ett dukat matbord, en bardisk med barstolar och havet bakom","caption":"Middag på takterrassen","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-jacuzzi-and-daybed.webp","alt":"Fotografi av en jacuzzi på ett upphöjt trädäck med en orange dagbädd och en stenklädd vägg","caption":"En jacuzzi på solterrassen","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/outdoor-kitchen-under-pergola.webp","alt":"Fotografi av ett utekök under en pergola av trä, med en bänkskiva i sten, en spishäll och utsikt över havet","caption":"Ett utekök","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/terrace-lounge-at-sunset.webp","alt":"Fotografi vid solnedgången av en övertäckt terrass med ett runt matbord och en soffgrupp, med havet vid horisonten","caption":"En övertäckt terrass vid solnedgången","cat":"Terraces"},{"src":"assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling.webp","alt":"Fotografi av ett vardagsrum med ett undertak av trälameller, en soffa, fåtöljer och en mediavägg, med glaspartier mot en terrass","caption":"Vardagsrummet","cat":"Interiors"},{"src":"assets/liora/projects/dunique-marbella/media/kitchen-and-dining-table.webp","alt":"Fotografi av ett kök med en lång köksö, inbyggda ugnar och ett runt matbord, öppet mot en terrass","caption":"Köket och matbordet","cat":"Interiors"},{"src":"assets/liora/projects/dunique-marbella/media/living-and-dining-open-to-terrace.webp","alt":"Fotografi av ett öppet vardagsrum och matrum med en bred skjutbar glasvägg mot terrassen","caption":"Vardagsrum och matrum öppna mot terrassen","cat":"Interiors"},{"src":"assets/liora/projects/dunique-marbella/media/kitchen-island-in-the-evening.webp","alt":"Fotografi på kvällen av en köksö med en inbyggd hylla och ett speglat stänkskydd","caption":"Köksön på kvällen","cat":"Interiors"},{"src":"assets/liora/projects/dunique-marbella/media/staircase-with-glass-balustrade.webp","alt":"Fotografi av en trappa med svarta steg och ett glasräcke framför en vägg av trälameller","caption":"Trappan","cat":"Interiors"},{"src":"assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard.webp","alt":"Fotografi av ett sovrum med en sänggavel av lameller, en vägg med bambumotiv och ett fönster mot trädgården","caption":"Ett sovrum med sänggavel av lameller","cat":"Bedrooms"},{"src":"assets/liora/projects/dunique-marbella/media/bedroom-with-leather-headboard.webp","alt":"Fotografi av ett sovrum med en sänggavel i läder, en bänk och ett fönster med utsikt över palmer","caption":"Ett sovrum med sänggavel i läder","cat":"Bedrooms"},{"src":"assets/liora/projects/dunique-marbella/media/bedroom-with-upholstered-wall.webp","alt":"Fotografi av ett sovrum med en klädd vägg bakom sängen, ett skrivbord och ett fönster","caption":"Ett sovrum med klädd vägg","cat":"Bedrooms"},{"src":"assets/liora/projects/dunique-marbella/media/walk-in-dressing-room.webp","alt":"Fotografi av ett walk-in-closet med rökglasdörrar och inredning i trä","caption":"En garderob","cat":"Interiors"},{"src":"assets/liora/projects/dunique-marbella/media/bathroom-with-double-basin.webp","alt":"Fotografi av ett badrum med ett dubbelt handfat på ett hängande underskåp, väggar i travertinlook och glasdörrar med svart ram","caption":"Ett badrum med dubbelt handfat","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Dunique Marbella media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk.jpg","webp":"assets/liora/projects/dunique-marbella/media/terraced-block-at-dusk-960.webp","alt":"Fotografi i skymningen av en böjd vit terrass med upplysta glasdörrar och takterrassen ovanför med en soffgrupp och en jacuzzi, med berg i bakgrunden","width":2000,"height":1124,"caption":"Terrasserna i skymningen","category":"Exteriör"},{"src":"assets/liora/projects/dunique-marbella/media/curved-terrace-facade-at-dusk.jpg","webp":"assets/liora/projects/dunique-marbella/media/curved-terrace-facade-at-dusk-960.webp","alt":"Fotografi i skymningen av den böjda vita terrassen och det upplysta vardagsrummet bakom glasdörrarna","width":2000,"height":1124,"caption":"En terrass och vardagsrummet i skymningen","category":"Exteriör"},{"src":"assets/liora/projects/dunique-marbella/media/curved-terrace-facade-by-day.jpg","webp":"assets/liora/projects/dunique-marbella/media/curved-terrace-facade-by-day-960.webp","alt":"Fotografi på dagen av en böjd vit terrass med pergola, skjutdörrar av glas och ett matbord, med takterrassen ovanför","width":2000,"height":1124,"caption":"Den böjda terrassen på dagen","category":"Exteriör"},{"src":"assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site.jpg","webp":"assets/liora/projects/dunique-marbella/media/aerial-view-of-the-site-960.webp","alt":"Flygbild från exploatörens generalplan som visar området som det är planerat intill stranden, med omgivande gator och hus","width":2000,"height":1124,"caption":"Tomten från luften","category":"Omgivningar"},{"src":"assets/liora/projects/dunique-marbella/media/roof-deck-from-above.jpg","webp":"assets/liora/projects/dunique-marbella/media/roof-deck-from-above-960.webp","alt":"Fotografi uppifrån av ett takdäck med en lång pool, en gräsmatta, en jacuzzi, ett matbord och en pergola","width":2000,"height":1124,"caption":"Takdäcket uppifrån","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-terrace-and-jacuzzi.jpg","webp":"assets/liora/projects/dunique-marbella/media/rooftop-terrace-and-jacuzzi-960.webp","alt":"Fotografi av en takterrass med en träklädd paviljong, en jacuzzi på ett upphöjt däck, en orange dagbädd och berg i bakgrunden","width":2000,"height":1124,"caption":"En takterrass med jacuzzi","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-infinity-pool-and-sea.jpg","webp":"assets/liora/projects/dunique-marbella/media/rooftop-infinity-pool-and-sea-960.webp","alt":"Fotografi av en takterrass med en pool med glaskant och havet vid horisonten","width":2000,"height":1124,"caption":"En takpool mot havet","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-pool-and-deck.jpg","webp":"assets/liora/projects/dunique-marbella/media/rooftop-pool-and-deck-960.webp","alt":"Fotografi av en takpool med trädäck, solstolar och parasoller","width":2000,"height":1333,"caption":"En takpool och trädäcket","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-pool-at-dusk.jpg","webp":"assets/liora/projects/dunique-marbella/media/rooftop-pool-at-dusk-960.webp","alt":"Fotografi i skymningen av en upplyst takpool, ett trädäck, solstolar och ett parasoll","width":2000,"height":1333,"caption":"En takpool i skymningen","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/terrace-with-sea-view.jpg","webp":"assets/liora/projects/dunique-marbella/media/terrace-with-sea-view-960.webp","alt":"Fotografi av en övertäckt terrass med soffor, ett runt soffbord, ett olivträd i en kruka och havet i fjärran","width":2000,"height":1333,"caption":"En övertäckt terrass med havsutsikt","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/terrace-seating-and-olive-tree.jpg","webp":"assets/liora/projects/dunique-marbella/media/terrace-seating-and-olive-tree-960.webp","alt":"Fotografi av en terrass med en soffa, ett soffbord i sten, ett olivträd och ett glasräcke, med havet bakom","width":2000,"height":1333,"caption":"En terrass ovanför kusten","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-lounge-by-day.jpg","webp":"assets/liora/projects/dunique-marbella/media/rooftop-lounge-by-day-960.webp","alt":"Fotografi av en takterrass med en vit dagbäddssoffa, ett matbord och havet vid horisonten","width":2000,"height":1333,"caption":"En soffgrupp på taket","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-dining-table.jpg","webp":"assets/liora/projects/dunique-marbella/media/rooftop-dining-table-960.webp","alt":"Fotografi av en takterrass med ett dukat matbord, en bardisk med barstolar och havet bakom","width":2000,"height":1333,"caption":"Middag på takterrassen","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/rooftop-jacuzzi-and-daybed.jpg","webp":"assets/liora/projects/dunique-marbella/media/rooftop-jacuzzi-and-daybed-960.webp","alt":"Fotografi av en jacuzzi på ett upphöjt trädäck med en orange dagbädd och en stenklädd vägg","width":2000,"height":1333,"caption":"En jacuzzi på solterrassen","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/outdoor-kitchen-under-pergola.jpg","webp":"assets/liora/projects/dunique-marbella/media/outdoor-kitchen-under-pergola-960.webp","alt":"Fotografi av ett utekök under en pergola av trä, med en bänkskiva i sten, en spishäll och utsikt över havet","width":2000,"height":1333,"caption":"Ett utekök","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/terrace-lounge-at-sunset.jpg","webp":"assets/liora/projects/dunique-marbella/media/terrace-lounge-at-sunset-960.webp","alt":"Fotografi vid solnedgången av en övertäckt terrass med ett runt matbord och en soffgrupp, med havet vid horisonten","width":2000,"height":1333,"caption":"En övertäckt terrass vid solnedgången","category":"Terrasser"},{"src":"assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling.jpg","webp":"assets/liora/projects/dunique-marbella/media/living-room-with-timber-ceiling-960.webp","alt":"Fotografi av ett vardagsrum med ett undertak av trälameller, en soffa, fåtöljer och en mediavägg, med glaspartier mot en terrass","width":2000,"height":1333,"caption":"Vardagsrummet","category":"Interiör"},{"src":"assets/liora/projects/dunique-marbella/media/kitchen-and-dining-table.jpg","webp":"assets/liora/projects/dunique-marbella/media/kitchen-and-dining-table-960.webp","alt":"Fotografi av ett kök med en lång köksö, inbyggda ugnar och ett runt matbord, öppet mot en terrass","width":2000,"height":1333,"caption":"Köket och matbordet","category":"Interiör"},{"src":"assets/liora/projects/dunique-marbella/media/living-and-dining-open-to-terrace.jpg","webp":"assets/liora/projects/dunique-marbella/media/living-and-dining-open-to-terrace-960.webp","alt":"Fotografi av ett öppet vardagsrum och matrum med en bred skjutbar glasvägg mot terrassen","width":2000,"height":1333,"caption":"Vardagsrum och matrum öppna mot terrassen","category":"Interiör"},{"src":"assets/liora/projects/dunique-marbella/media/kitchen-island-in-the-evening.jpg","webp":"assets/liora/projects/dunique-marbella/media/kitchen-island-in-the-evening-960.webp","alt":"Fotografi på kvällen av en köksö med en inbyggd hylla och ett speglat stänkskydd","width":2000,"height":1333,"caption":"Köksön på kvällen","category":"Interiör"},{"src":"assets/liora/projects/dunique-marbella/media/staircase-with-glass-balustrade.jpg","webp":"assets/liora/projects/dunique-marbella/media/staircase-with-glass-balustrade-960.webp","alt":"Fotografi av en trappa med svarta steg och ett glasräcke framför en vägg av trälameller","width":2000,"height":1333,"caption":"Trappan","category":"Interiör"},{"src":"assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard.jpg","webp":"assets/liora/projects/dunique-marbella/media/bedroom-with-slatted-headboard-960.webp","alt":"Fotografi av ett sovrum med en sänggavel av lameller, en vägg med bambumotiv och ett fönster mot trädgården","width":2000,"height":1333,"caption":"Ett sovrum med sänggavel av lameller","category":"Sovrum"},{"src":"assets/liora/projects/dunique-marbella/media/bedroom-with-leather-headboard.jpg","webp":"assets/liora/projects/dunique-marbella/media/bedroom-with-leather-headboard-960.webp","alt":"Fotografi av ett sovrum med en sänggavel i läder, en bänk och ett fönster med utsikt över palmer","width":2000,"height":1380,"caption":"Ett sovrum med sänggavel i läder","category":"Sovrum"},{"src":"assets/liora/projects/dunique-marbella/media/bedroom-with-upholstered-wall.jpg","webp":"assets/liora/projects/dunique-marbella/media/bedroom-with-upholstered-wall-960.webp","alt":"Fotografi av ett sovrum med en klädd vägg bakom sängen, ett skrivbord och ett fönster","width":2000,"height":1333,"caption":"Ett sovrum med klädd vägg","category":"Sovrum"},{"src":"assets/liora/projects/dunique-marbella/media/walk-in-dressing-room.jpg","webp":"assets/liora/projects/dunique-marbella/media/walk-in-dressing-room-960.webp","alt":"Fotografi av ett walk-in-closet med rökglasdörrar och inredning i trä","width":2000,"height":1333,"caption":"En garderob","category":"Interiör"},{"src":"assets/liora/projects/dunique-marbella/media/bathroom-with-double-basin.jpg","webp":"assets/liora/projects/dunique-marbella/media/bathroom-with-double-basin-960.webp","alt":"Fotografi av ett badrum med ett dubbelt handfat på ett hängande underskåp, väggar i travertinlook och glasdörrar med svart ram","width":2000,"height":1380,"caption":"Ett badrum med dubbelt handfat","category":"Badrum"},{"src":"assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor.jpg","webp":"assets/liora/projects/dunique-marbella/floorplans/villa-du-04-basement-and-ground-floor-960.webp","alt":"Planritning för villa nr 04, källare och bottenvåning","width":1868,"height":2000,"caption":"Villa nr 04, källare och bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/dunique-marbella/floorplans/villa-du-04-first-floor-and-solarium.jpg","webp":"assets/liora/projects/dunique-marbella/floorplans/villa-du-04-first-floor-and-solarium-960.webp","alt":"Planritning för villa nr 04, första våningen och solterrass","width":1938,"height":1417,"caption":"Villa nr 04, första våningen och solterrass","category":"Planritningar"},{"src":"assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor.jpg","webp":"assets/liora/projects/dunique-marbella/floorplans/apartment-du-202-basement-and-ground-floor-960.webp","alt":"Planritning för lägenhet nr 202, källare och bottenvåning","width":2000,"height":1989,"caption":"Lägenhet nr 202, källare och bottenvåning","category":"Planritningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-dunique-marbella.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Dunique%20Marbella." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Dunique Marbella" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

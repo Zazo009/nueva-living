@@ -738,6 +738,9 @@ const assetFiles = [
   'assets/liora/liora-property.css',
   'assets/liora/liora-rtl.css',
   'assets/liora/liora-property.js',
+  // The property template's stylesheet (generated, scoped to .v2) and script.
+  'assets/liora/nueva-property-v2.css',
+  'assets/liora/nueva-property-v2.js',
   'assets/liora/liora-calculator.js',
   'assets/liora/nueva-newsletter.css',
   'assets/liora/nueva-nav-interactions.css',

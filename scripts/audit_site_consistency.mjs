@@ -2882,12 +2882,15 @@ let blockingCssChecked = 0;
         // the page layout itself and block by design, so a stylesheet that is
         // not one of them has been added to the critical path and should
         // either join this list deliberately or be inlined.
+        // nueva-property-v2.css is the template project page's own stylesheet; it takes
+        // liora-property.css's place on those pages and blocks for the same reason.
         // nueva-signature.css is the whole look of a signature project page (its
         // hero, its palette, its type); unstyled for a frame, that page is a
         // different page, so it blocks like the project stylesheet does.
         const BLOCKING_BY_DESIGN = ['liora-pages.css', 'liora-property.css',
           'nueva-location-map.css', 'liora-rtl.css', 'liora-compare.css', 'nueva-signature.css',
-          'nueva-majolica.css', 'nueva-tyrian.css', 'nueva-versace.css', 'nueva-bentley.css'];
+          'nueva-majolica.css', 'nueva-tyrian.css', 'nueva-versace.css', 'nueva-bentley.css',
+          'nueva-property-v2.css'];
         const name = href.split('?')[0].split('/').pop();
         if (name && !BLOCKING_BY_DESIGN.includes(name)) {
           firstPartyOffenders.push(`${path.relative(dist, full)}: ${name}`);
@@ -4241,7 +4244,7 @@ let registerPagesChecked = 0;
   };
   const ALLOWED = {
     pl: /^(nasz|Nasz|wasz|Wasz|Zapisz|zapisz|Napisz|napisz|Podpisz|podpisz|Opisz|opisz|Wpisz|wpisz)$/,
-    es: /^(parte|aparte|convierte|advierte|advierten|fuerte|reparte|arte|corte|norte|deporte|soporte|reporte|suerte|muerte|puente|frente)$/i,
+    es: /^(comparte|comparten|parte|aparte|convierte|advierte|advierten|fuerte|reparte|arte|corte|norte|deporte|soporte|reporte|suerte|muerte|puente|frente)$/i,
   };
   const offenders = [];
   for (const [locale, pattern] of Object.entries(INFORMAL)) {
@@ -4252,7 +4255,9 @@ let registerPagesChecked = 0;
       const main = html.match(/<main[\s\S]*?<\/main>/);
       if (!main) continue;
       registerPagesChecked += 1;
-      const text = main[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
+      // Unit references ("DU-04", "TU-2B") are codes, not the pronoun.
+      const text = main[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ')
+        .replace(/(?<!\p{L})\p{Lu}{1,4}-\d[\w-]*/gu, ' ');
       const allowed = ALLOWED[locale];
       const found = (text.match(pattern) || []).filter((w) => !allowed || !allowed.test(w));
       if (found.length) offenders.push(`${locale}/${file} ("${found[0]}", ${found.length}x)`);

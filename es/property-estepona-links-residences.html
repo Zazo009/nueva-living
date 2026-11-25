@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Pueden los extranjeros comprar propiedades en España?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué es el número de NIE y lo necesito?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué gastos adicionales debo prever además del precio de compra?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo conseguir una hipoteca en España siendo no residente?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo funciona el proceso de reserva y pago?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo alquilar la propiedad después de comprarla?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito un abogado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Cuántas viviendas hay disponibles?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="es"
   data-project-name="Estepona Links Residences"
   data-project-message="Hola Nueva Living, me gustaría recibir información sobre Estepona Links Residences."
@@ -459,711 +396,191 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Estepona Links Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="es/property-estepona-links-residences.html#top">Estepona Links Residences<span>Desde 320.000 € · Más IVA</span></a>
+      <nav class="hdr-proj" aria-label="Secciones del proyecto"><a href="es/property-estepona-links-residences.html#overview">Visión general</a><a href="es/property-estepona-links-residences.html#availability">Precios</a><a href="es/property-estepona-links-residences.html#specs">Calidades</a><a href="es/property-estepona-links-residences.html#gallery">Galería</a><a href="es/property-estepona-links-residences.html#location">Ubicación</a><a href="es/property-estepona-links-residences.html#onsite">En la promoción</a><a href="es/property-estepona-links-residences.html#view">Nuestra opinión</a><a href="es/property-estepona-links-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="es/property-estepona-links-residences.html#enquire" data-prefill>Reservar una visita privada</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Estepona Links Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-640.webp 640w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp 960w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Vista generada por ordenador de dos bloques con terrazas vistos a través de un césped bajo un cielo despejado" width="2000" height="1132" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Vista generada por ordenador de dos bloques con terrazas vistos a través de un césped bajo un cielo despejado" width="2000" height="1132" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">10 de 35 viviendas publicadas disponibles</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Estepona Links <em>Residences</em></span>
-            <span class="hero-title-context">Apartamentos en Estepona Golf, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Diez de las 35 viviendas puestas a la venta hasta ahora en Estepona Links Residences, una promoción de 111 apartamentos de uno, dos y tres dormitorios en Estepona Golf: desde 320.000 € más IVA. No se indica fecha de entrega.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="es/property-estepona-links-residences.html#availability">Ver viviendas disponibles</a>
-            <a class="btn project-btn ghost" href="es/index.html#private-viewing=1&amp;project=estepona-links-residences">Presentación cinemática</a>
-            <a class="btn project-btn ghost" href="es/property-estepona-links-residences.html#media">Todas las imágenes</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Datos clave del proyecto">
-          <div class="hero-fact"><span>Zona</span><strong>Estepona Golf, Estepona</strong></div>
-          <div class="hero-fact"><span>Precio desde</span><strong>Desde 320.000 € + IVA</strong></div>
-          <div class="hero-fact"><span>Tipo de vivienda</span><strong>Apartamentos</strong></div>
-          <div class="hero-fact"><span>Entrega</span><strong>Entrega por confirmar</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Secciones del proyecto">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ir a</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="es/property-estepona-links-residences.html#media">Galería</a>
-        <a href="es/property-estepona-links-residences.html#location">Ubicación</a>
-        <a href="es/property-estepona-links-residences.html#construction-timeline">Condiciones de pago</a>
-        <a href="es/property-estepona-links-residences.html#availability">Disponibilidad</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Más</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="es/property-estepona-links-residences.html#overview">Visión general</a>
-          <a href="es/property-estepona-links-residences.html#residences">Viviendas</a>
-          <a href="es/property-estepona-links-residences.html#quality-specifications">Calidades</a>
-          <a href="es/property-estepona-links-residences.html#calculator">Financiación</a>
-          <a href="es/property-estepona-links-residences.html#amenities">Servicios y extras</a>
-          <a href="es/property-estepona-links-residences.html#why-this-project">Por qué</a>
-          <a href="es/property-estepona-links-residences.html#architecture">Arquitectura</a>
-          <a href="es/property-estepona-links-residences.html#private-viewing">Presentación cinemática</a>
-          <a href="es/property-estepona-links-residences.html#lifestyle">Estilo de vida</a>
-          <a href="es/property-estepona-links-residences.html#faq">FAQ</a>
-          <a href="es/property-estepona-links-residences.html#enquire">Consultar</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Datos rápidos del proyecto">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Dormitorios</span><strong>1-3 dormitorios</strong></div>
-          <div class="quick-fact"><span>Superficie construida</span><strong>51,14 - 111,48 m² construido</strong></div>
-          <div class="quick-fact"><span>Disponibilidad</span><strong>10 de 35 viviendas disponibles</strong></div>
-          <div class="quick-fact"><span>Promoción</span><strong>111 viviendas</strong></div>
-          <div class="quick-fact"><span>Disponible</span><strong>10 viviendas</strong></div>
-          <div class="quick-fact"><span>Rango de precios</span><strong>320.000 € - 495.000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="es/property-estepona-links-residences.html#enquire" data-prefill>Solicitar información</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Visión general</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">10 viviendas <em>disponibles</em>, en dos bloques</h2>
-          <p class="project-lead">Estepona Links Residences es una promoción de 111 viviendas de uno, dos y tres dormitorios en Estepona Golf, que el dosier del promotor describe como un enclave donde naturaleza, tranquilidad y estilo de vida se unen alrededor del green. Habla de una arquitectura contemporánea de inspiración mediterránea, vistas abiertas al campo de golf y zonas comunes pensadas para disfrutarse durante todo el año.</p>
-          <p class="project-lead">La lista de precios del 3 de noviembre de 2026 recoge 35 viviendas en dos bloques y marca 25 de ellas como reservadas. Diez figuran con precio: un apartamento de un dormitorio, ocho de dos y uno de tres. Ningún documento indica fecha de entrega.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Galería</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">La promoción <em>en imágenes</em></h2>
-          </div>
-          <p class="project-lead">Vistas generadas por ordenador de los bloques, las terrazas, las zonas comunes y los interiores, tres fotografías de la zona y los planos de las 10 viviendas listadas.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Ver 3 imágenes de Exteriores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-640.webp 640w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp 960w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Vista generada por ordenador de dos bloques con terrazas vistos a través de un césped bajo un cielo despejado" width="2000" height="1132" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriores</small>
-                <strong>Dos bloques con terrazas frente al césped</strong>
-                <span class="project-media-card-cta">3 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Ver 1 imágenes de Terrazas">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-640.webp 640w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-960.webp 960w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.jpg" alt="Vista generada por ordenador de una terraza de planta baja con asientos, un seto a lo largo del borde y colinas boscosas al fondo" width="2000" height="1416" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrazas</small>
-                <strong>Una terraza en planta baja</strong>
-                <span class="project-media-card-cta">1 imagen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Ver 5 imágenes de Zonas comunes">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-640.webp 640w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-960.webp 960w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg" alt="Vista generada por ordenador de una terraza con piscina, tumbonas con dosel, velas de sombra y la costa en el horizonte" width="2000" height="1545" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Zonas comunes</small>
-                <strong>Una terraza con piscina</strong>
-                <span class="project-media-card-cta">5 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Ver 1 imágenes de Interiores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-640.webp 640w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-960.webp 960w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Vista generada por ordenador de un salón y una cocina abiertos, con una puerta corredera de vidrio hacia la terraza" width="2000" height="807" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiores</small>
-                <strong>Salón y cocina</strong>
-                <span class="project-media-card-cta">1 imagen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Ver 2 imágenes de Dormitorios">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/estepona-links-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/estepona-links-residences/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/main-bedroom.jpg" alt="Vista generada por ordenador de un dormitorio principal con un cabecero tapizado y una puerta corredera de vidrio hacia la terraza" width="2000" height="1476" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Dormitorios</small>
-                <strong>Un dormitorio principal</strong>
-                <span class="project-media-card-cta">2 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Ver 1 imágenes de Baños">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower-640.webp 640w, assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower-960.webp 960w, assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.jpg" alt="Vista generada por ordenador de un baño con ducha a ras de suelo, un mueble de lavabo suspendido y revestimiento beige de aspecto pétreo" width="2000" height="1489" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Baños</small>
-                <strong>Un baño</strong>
-                <span class="project-media-card-cta">1 imagen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Ver 3 imágenes de Ubicación">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air-640.webp 640w, assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air-960.webp 960w, assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.webp 1408w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.jpg" alt="Fotografía aérea de un campo de golf con lagos y árboles, y la costa y el mar al fondo" width="1408" height="1138" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Ubicación</small>
-                <strong>Un campo de golf y la costa desde el aire</strong>
-                <span class="project-media-card-cta">3 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Ver 10 imágenes de Planos">
-              <img src="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" alt="Plano del apartamento 15G" width="833" height="1092" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planos</small>
-                <strong>Apartamento 15G</strong>
-                <span class="project-media-card-cta">10 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Ver las 26 imágenes</button>
-          <p class="media-note">Las imágenes son ilustraciones generadas por ordenador y no fotografías de los edificios terminados, salvo las tres fotografías de la zona. El mobiliario y la decoración que aparecen en ellas son ilustrativos y no están incluidos. Los planos son los planos comerciales del promotor, recortados al dibujo: los nombres de las estancias están en español y algunas superficies difieren de la lista de precios, como indican las notas siguientes.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Ubicación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona Golf, <em>Estepona</em></h2>
-          <p class="project-lead">El dosier sitúa la promoción dentro de Estepona Golf, en el término municipal de Estepona. Indica que Marbella está a 25 minutos y el aeropuerto de Málaga a menos de una hora, y que Puerto Banús, Sotogrande y varios pueblos blancos del interior están a pocos minutos. Su plano de situación nombra Finca Cortesín y el Valle Romano Golf Club, un nuevo hospital, una zona comercial, las playas de Bahía Dorada y La Rada, el puerto, el centro de la ciudad y un paseo costero, sin distancias. Los documentos no dan dirección postal ni coordenadas de la parcela, por lo que el marcador del mapa está en Estepona Golf y no sobre la parcela.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="es">
-          <div class="locmap-map" id="locmap-estepona-links-residences" data-locmap='{&quot;site&quot;:[36.41297,-5.21219],&quot;sea&quot;:[36.38597,-5.21219],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 14 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;6,8 km · 11 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;2,9 km · 7 min&quot;},{&quot;ll&quot;:[36.39646,-5.22386],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Finca Cortesín&quot;,&quot;sub&quot;:&quot;7,9 km · 12 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Estepona Links Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ubicación indicativa</span>
-            <h3 class="locmap-name">Estepona Links Residences</h3>
-            <p class="locmap-place">Estepona Golf</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Playa</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>6,8 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centro de Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>7,9 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>40 km</bdi> <em><bdi>44 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Cronograma</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Calendario <em>de pagos</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Contrato privado</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">Licencia de obras</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">Escritura y llaves</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">Entrega</span>
-        </div>
-      </div>
-      <div class="project-inner timeline-payment-terms reveal-soft">
-        <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">Condiciones de pago</span>
-          <span class="timeline-payment-total">12.000 € + IVA de reserva, más el 100% del precio en 4 pagos</span>
-        </div>
-        <div class="timeline-payment-grid">
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">01</span>
-            <span class="timeline-payment-label">Reserva</span>
-            <strong class="timeline-payment-value">12.000 € + IVA</strong>
-            <span class="timeline-payment-note">13.200 € con IVA</span>
-            
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">02</span>
-            <span class="timeline-payment-label">Al firmar el Contrato Privado</span>
-            <strong class="timeline-payment-value">20% + IVA</strong>
-            <span class="timeline-payment-note">Al obtener la licencia de obras, menos la reserva</span>
-            <span class="timeline-payment-running">Total acumulado: 20%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">03</span>
-            <span class="timeline-payment-label">A los 6 meses</span>
-            <strong class="timeline-payment-value">10% + IVA</strong>
-            <span class="timeline-payment-note">Contado desde el contrato privado, no desde un hito de obra</span>
-            <span class="timeline-payment-running">Total acumulado: 30%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">04</span>
-            <span class="timeline-payment-label">A los 12 meses</span>
-            <strong class="timeline-payment-value">10% + IVA</strong>
-            <span class="timeline-payment-note">Contado desde el contrato privado, no desde un hito de obra</span>
-            <span class="timeline-payment-running">Total acumulado: 40%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">05</span>
-            <span class="timeline-payment-label">A la Entrega</span>
-            <strong class="timeline-payment-value">60% + IVA</strong>
-            <span class="timeline-payment-note">Se paga a la entrega, con la entrega de llaves</span>
-            <span class="timeline-payment-running">Total acumulado: 100%</span>
-          </div>
-        </div>
-        <p class="timeline-payment-disclaimer">Este es el calendario del propio promotor, tomado de sus condiciones de pago. No dice cómo se garantizan los pagos a cuenta, por lo que Nueva Living lo pide y confirma todo el calendario en el contrato de reserva antes de que usted se comprometa.</p>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Viviendas</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Uno, dos y <em>tres dormitorios</em></h2>
-          <p class="project-lead">Las diez viviendas con precio son apartamentos en dos bloques. La tabla siguiente recoge cada una con su precio y su plano, y la lista asigna a cada vivienda una plaza de aparcamiento y un trastero.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Ocho apartamentos de dos dormitorios</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-estepona-links-residences.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Un apartamento de un dormitorio</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-estepona-links-residences.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Un apartamento de tres dormitorios</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-estepona-links-residences.html#availability">Ver planos</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Material privado</span>
-            <p>Los planos, orientaciones y disponibilidad actuales deben confirmarse con el último dossier de la promotora antes de preseleccionar una vivienda.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="es/property-estepona-links-residences.html#availability">Ver planos</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Memoria de calidades</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Con qué están <em>construidas</em></h2>
-          <p class="project-lead">La memoria de calidades del propio promotor, resumida por partes de la vivienda.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Suelos y paredes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Suelos de gres cerámico de calidad superior de 60 x 60 cm en toda la vivienda y revestimiento de gres cerámico de 30 x 90 cm en la zona de ducha y en la pared tras el lavabo.</li>
-              <li>Baldosas cerámicas de exterior antideslizantes y resistentes a las heladas en terrazas y patios, y pavimento antideslizante en las zonas comunes.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cocina<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Totalmente equipada, con muebles altos y bajos laminados a presión, encimera tipo Silestone y frigorífico panelado a juego.</li>
-              <li>Placa cerámica, horno microondas, campana extractora, frigorífico, lavavajillas y lavadora, de Bosch o similar.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Baños<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Sanitarios de porcelana vitrificada blanca, platos de ducha de resina en el baño principal y en el segundo baño y columna de ducha con monomando, de Grohe o similar.</li>
-              <li>En el baño principal, mueble de lavabo y mampara de ducha.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Puertas, ventanas y armarios<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Puertas interiores de madera lacadas en blanco con tiradores cromados o sistemas correderos, y armarios empotrados con balda separadora, barra de colgar y puertas a juego con las de paso.</li>
-              <li>Carpintería de PVC o aluminio con doble acristalamiento tipo Climalit, vidrio laminado de seguridad en las puertas de terraza y persianas de aluminio aislante en los dormitorios.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatización y energía<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Agua caliente mediante aerotermia y paneles fotovoltaicos en las cubiertas, según exige el Código Técnico de la Edificación.</li>
-              <li>Aire acondicionado de frío y calor por conductos en el salón y los dormitorios, con solo impulsión de aire en la cocina, y ventilación mecánica individual en los baños y la cocina.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Tecnología y seguridad<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Tomas de TV y de ethernet según la norma ICT-2 en el salón, la cocina y los dormitorios, iluminación exterior y toma de agua en las terrazas, y preinstalación de punto de recarga para vehículos eléctricos.</li>
-              <li>Puerta de entrada blindada con mirilla y cerradura de seguridad, vidrio resistente a la intrusión en la carpintería exterior de planta baja y sistema de llave maestra para la urbanización, el edificio, las viviendas y el garaje.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Zonas comunes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Una piscina de adultos exterior y en cubierta con cloración salina, una piscina interior climatizada con sauna, un gimnasio totalmente equipado y un club social.</li>
-              <li>Jardines comunitarios ajardinados con iluminación y riego automático, aparcamiento de buggies de golf a pie de campo, ascensores con puertas automáticas y acceso para personas con discapacidad, y trasteros con punto de luz.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Fuente: la memoria de calidades del promotor, revisión 01, fechada el 14 de abril de 2026 en el pie y el 13 de abril de 2026 en la última página. Indica que la dirección facultativa puede modificar las especificaciones y sustituir elementos por otros similares sin merma de la calidad prevista, y que la piedra natural y la madera varían en tono, color y textura. Las marcas con «o similar» pueden cambiar.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilidad</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">10 viviendas <em>disponibles actualmente</em></h2>
-          <p class="project-lead">Diez de las 35 viviendas de la lista de precios del promotor del 3 de noviembre de 2026 figuran con precio: un apartamento de un dormitorio, ocho de dos y uno de tres. Las otras 25 figuran como reservadas y no están disponibles. La lista indica que sus precios son válidos durante dos días tras su descarga, por lo que confirmamos cada precio y la disponibilidad antes de cualquier reserva.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Vista generada por ordenador de un salón y una cocina abiertos, con una puerta corredera de vidrio hacia la terraza" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>16 fotos</button>
+          <a class="chip" href="es/property-estepona-links-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planos</a>
+          <a class="chip" href="es/property-estepona-links-residences.html#location"><svg><use href="#v2-pin"/></svg>Mapa</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Resumen de la fase actual">
-            <div><span>Viviendas disponibles</span><strong>10</strong></div>
-            <div><span>Precio desde</span><strong>320.000 € + IVA</strong></div>
-            <div><span>Rango de precios</span><strong>320.000 € - 495.000 € + IVA</strong></div>
-            <div><span>Verificado</span><strong>3 de noviembre de 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Ver las 10 viviendas disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Viviendas disponibles">
-              <article class="unit-card" data-unit data-price="320000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" target="_blank" rel="noopener" aria-label="Plano de 15G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/15G-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/15G-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" alt="Plano de 15G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">15G</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>1 dormitorio</dd></div>
-                    <div><dt>Construidos</dt><dd>51,14 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>13,94 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 1, segunda planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">320.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2015G">Consultar sobre 15G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="355000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/23H.jpg" target="_blank" rel="noopener" aria-label="Plano de 23H">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/23H-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/23H-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/23H.jpg" alt="Plano de 23H" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">23H</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>66,13 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>18,79 m²</dd></div>
-                    <div><dt>De jardín</dt><dd>31,21 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">355.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2023H">Consultar sobre 23H</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="370000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/13E.jpg" target="_blank" rel="noopener" aria-label="Plano de 13E">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/13E-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/13E-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/13E.jpg" alt="Plano de 13E" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">13E</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>72,22 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>19,65 m²</dd></div>
-                    <div><dt>De jardín</dt><dd>28,98 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 1, planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">370.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2013E">Consultar sobre 13E</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="375000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/24E.jpg" target="_blank" rel="noopener" aria-label="Plano de 24E">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/24E-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/24E-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/24E.jpg" alt="Plano de 24E" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">24E</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>72,22 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>19,43 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">375.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2024E">Consultar sobre 24E</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="385000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/22B.jpg" target="_blank" rel="noopener" aria-label="Plano de 22B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/22B-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/22B-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/22B.jpg" alt="Plano de 22B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">22B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>79,04 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>24,06 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, segunda planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">385.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2022B">Consultar sobre 22B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="395000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/21B.jpg" target="_blank" rel="noopener" aria-label="Plano de 21B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/21B-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/21B-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/21B.jpg" alt="Plano de 21B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">21B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>79,04 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>24,06 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">395.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2021B">Consultar sobre 21B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="410000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/14G.jpg" target="_blank" rel="noopener" aria-label="Plano de 14G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/14G-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/14G-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/14G.jpg" alt="Plano de 14G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">14G</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>79,11 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>23,23 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 1, primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">410.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2014G">Consultar sobre 14G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="460000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/20D.jpg" target="_blank" rel="noopener" aria-label="Plano de 20D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/20D-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/20D-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/20D.jpg" alt="Plano de 20D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">20D</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>111,48 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>35,07 m²</dd></div>
-                    <div><dt>De jardín</dt><dd>35,67 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">460.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2020D">Consultar sobre 20D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="465000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/25B.jpg" target="_blank" rel="noopener" aria-label="Plano de 25B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/25B-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/25B-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/25B.jpg" alt="Plano de 25B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">25B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>79,64 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>30,17 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, quinta planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">465.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2025B">Consultar sobre 25B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="495000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/13C.jpg" target="_blank" rel="noopener" aria-label="Plano de 13C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/13C-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/13C-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/13C.jpg" alt="Plano de 13C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">13C</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>79,66 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>105,50 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 1, tercera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">495.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2013C">Consultar sobre 13C</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Los precios, dormitorios y superficies están transcritos de la lista de precios del promotor del 3 de noviembre de 2026, que tiene 35 filas en los bloques 1 y 2: 10 con precio y 25 marcadas como reservadas. La lista indica que el IVA no está incluido y que cada vivienda tiene una plaza de aparcamiento y un trastero. La superficie construida es la superficie interior construida de la lista, que es la superficie construida de cada plano; la superficie útil interior del plano es menor, 68,14 frente a 79,66 m² en la 13C. La terraza es la suma de las terrazas cubiertas y abiertas de la lista. Los precios no incluyen impuestos. El IVA es del 10 por ciento y el impuesto de actos jurídicos documentados del 1,20 por ciento, de modo que el apartamento de 320.000 € cuesta unos 356.000 € y el de 495.000 € unos 550.000 € antes de notaría y registro.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="es/property-estepona-links-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Calcule su <em>cuota mensual</em></h2>
-          <p class="body-copy">Se trata de una estimación orientativa. Confirme las condiciones exactas con su entidad financiera antes de tomar cualquier decisión.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Estepona Links</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Diez de las 35 viviendas puestas a la venta hasta ahora en Estepona Links Residences, una promoción de 111 apartamentos de uno, dos y tres dormitorios en Estepona Golf: desde 320.000 € más IVA.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts has5"><div data-nl-price><dt>Precio</dt><dd class="num">Desde 320.000 €</dd><dd class="sub">Más IVA</dd></div><div><dt>Dormitorios</dt><dd>1 a 3</dd><dd class="sub"><span>Apartamentos</span></dd></div><div><dt>Entrega</dt><dd>por confirmar</dd><dd class="sub">Licencia: la confirmamos antes de que reserve</dd></div><div><dt>Viviendas disponibles</dt><dd>10 de 111</dd><dd class="sub">Comprobado el 3 de noviembre de 2026</dd></div><div><dt>Pagos</dt><dd>60% · A la Entrega</dd><dd class="sub">12.000 € para reservar</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="es/property-estepona-links-residences.html#enquire" data-prefill>Reservar una visita privada</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">La promoción</h2>
+    <p class="lede">Estepona Links Residences es una promoción de 111 viviendas de uno, dos y tres dormitorios en Estepona Golf, que el dosier del promotor describe como un enclave donde naturaleza, tranquilidad y estilo de vida se unen alrededor del green. Habla de una arquitectura contemporánea de inspiración mediterránea, vistas abiertas al campo de golf y zonas comunes pensadas para disfrutarse durante todo el año.</p>
+    <p class="lede-2">La lista de precios del 3 de noviembre de 2026 recoge 35 viviendas en dos bloques y marca 25 de ellas como reservadas. Diez figuran con precio: un apartamento de un dormitorio, ocho de dos y uno de tres. Ningún documento indica fecha de entrega.</p>
+    <details class="fold" id="architecture"><summary>Arquitectura · <span>Diseño contemporáneo, junto al campo</span></summary><p>El dosier habla de una arquitectura contemporánea de inspiración mediterránea, con vistas abiertas al campo de golf. En las imágenes generadas por ordenador del promotor, los bloques son largos y bajos, con balcones profundos, barandillas de vidrio y un césped a lo largo del frente.</p><p>En los planos de las diez viviendas listadas, el salón, el comedor y la cocina forman una sola estancia abierta con salida a una terraza, con un dormitorio principal y un segundo dormitorio, cada uno con baño, y un tercer dormitorio en la vivienda de tres. El dosier indica que las terrazas se orientan al sureste y al este.</p><ul><li>Estructura: Cimentación de hormigón armado según el estudio geotécnico del solar y estructura de forjados de hormigón armado en todas las plantas.</li><li>Fachada: Fachada de doble hoja de ladrillo perforado con revoco exterior, aislamiento de poliuretano proyectado, cámara de aire y trasdosado interior con aislamiento de lana mineral.</li><li>Carpintería exterior: Carpintería de PVC o aluminio con doble acristalamiento, vidrio laminado de seguridad en las puertas de terraza y persianas de aluminio aislante en los dormitorios.</li><li>Seguridad: Puerta de entrada blindada, videoportero en el acceso principal y en el edificio, sistema de llave maestra y un conjunto cerrado con acceso privado.</li></ul></details>
+    <dl class="kfacts"><div><dt>Precio</dt><dd><span>320.000 € – 495.000 €</span><small>Más IVA</small></dd></div><div><dt>Disponibles</dt><dd><span>10 de 111 viviendas</span><small>Comprobado el 3 de noviembre de 2026</small></dd></div><div><dt>Viviendas</dt><dd><span>Apartamentos</span></dd></div><div><dt>Superficies</dt><dd><span>51 – 111 m²</span><small>Superficie construida</small></dd></div><div><dt>Entrega</dt><dd><span>por confirmar</span></dd></div><div><dt>Licencia</dt><dd><span>No indicada</span><small>La confirmamos antes de que reserve</small></dd></div><div><dt>Pagos</dt><dd><span>5 plazos</span><small>60% · A la Entrega · <a href="es/property-estepona-links-residences.html#plan">calendario</a></small></dd></div><div><dt>Anticipos</dt><dd><span>Aval bancario</span><small>Obligatorio por ley</small></dd></div><div><dt>Aparcamiento</dt><dd><span>Plaza de aparcamiento y trastero incluidos con cada vivienda</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Viviendas y precios</h2>
+    <p class="sec-sub">Diez de las 35 viviendas de la lista de precios del promotor del 3 de noviembre de 2026 figuran con precio: un apartamento de un dormitorio, ocho de dos y uno de tres. Las otras 25 figuran como reservadas y no están disponibles. La lista indica que sus precios son válidos durante dos días tras su descarga, por lo que confirmamos cada precio y la disponibilidad antes de cualquier reserva. Seleccione una vivienda para ver su calendario de pagos y su coste total.</p>
+    <div class="scarcity" role="img" aria-label="10 de 111 aún a la venta"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>10 de 111 aún a la venta</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrar por dormitorios"><button type="button" aria-pressed="true" data-beds="">Todas <span>10</span></button><button type="button" aria-pressed="false" data-beds="1">1 dorm. <span>1</span></button><button type="button" aria-pressed="false" data-beds="2">2 dorm. <span>8</span></button><button type="button" aria-pressed="false" data-beds="3">3 dorm. <span>1</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Viviendas a la venta, con superficie y precio. Seleccione una fila para ver el calendario de pagos.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Vivienda</th>
+          <th scope="col" data-sort="beds">Dormitorios</th>
+          <th scope="col" data-sort="size">Superficie</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Precio</th>
+          <th scope="col" data-sort="ppm">Por m²</th>
+          <th scope="col">Plano</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="1" data-price="320000" data-size="51.14" data-ppm="6257" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/15G-640.webp">
+            <th scope="row"><span class="u-name">15G</span><span class="u-loc">Apartamento · Bloque 1, segunda planta</span></th>
+            <td data-label="Dormitorios">1 dorm.</td>
+            <td data-label="Superficie" class="num">51 m²</td>
+            <td data-label="Precio" class="u-price num">320.000 €</td>
+            <td data-label="Por m²" class="num">6.257 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" target="_blank" rel="noopener" aria-label="Plano de 15G"><img src="assets/liora/projects/estepona-links-residences/floorplans/15G-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="355000" data-size="66.13" data-ppm="5368" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/23H-640.webp">
+            <th scope="row"><span class="u-name">23H</span><span class="u-loc">Apartamento · Bloque 2, planta baja</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">66 m²</td>
+            <td data-label="Precio" class="u-price num">355.000 €</td>
+            <td data-label="Por m²" class="num">5.368 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/23H.jpg" target="_blank" rel="noopener" aria-label="Plano de 23H"><img src="assets/liora/projects/estepona-links-residences/floorplans/23H-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="370000" data-size="72.22" data-ppm="5123" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/13E-640.webp">
+            <th scope="row"><span class="u-name">13E</span><span class="u-loc">Apartamento · Bloque 1, planta baja</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">72 m²</td>
+            <td data-label="Precio" class="u-price num">370.000 €</td>
+            <td data-label="Por m²" class="num">5.123 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/13E.jpg" target="_blank" rel="noopener" aria-label="Plano de 13E"><img src="assets/liora/projects/estepona-links-residences/floorplans/13E-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="375000" data-size="72.22" data-ppm="5192" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/24E-640.webp">
+            <th scope="row"><span class="u-name">24E</span><span class="u-loc">Apartamento · Bloque 2, primera planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">72 m²</td>
+            <td data-label="Precio" class="u-price num">375.000 €</td>
+            <td data-label="Por m²" class="num">5.192 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/24E.jpg" target="_blank" rel="noopener" aria-label="Plano de 24E"><img src="assets/liora/projects/estepona-links-residences/floorplans/24E-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="385000" data-size="79.04" data-ppm="4871" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/22B-640.webp">
+            <th scope="row"><span class="u-name">22B</span><span class="u-loc">Apartamento · Bloque 2, segunda planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">79 m²</td>
+            <td data-label="Precio" class="u-price num">385.000 €</td>
+            <td data-label="Por m²" class="num">4.871 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/22B.jpg" target="_blank" rel="noopener" aria-label="Plano de 22B"><img src="assets/liora/projects/estepona-links-residences/floorplans/22B-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="395000" data-size="79.04" data-ppm="4997" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/21B-640.webp">
+            <th scope="row"><span class="u-name">21B</span><span class="u-loc">Apartamento · Bloque 2, primera planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">79 m²</td>
+            <td data-label="Precio" class="u-price num">395.000 €</td>
+            <td data-label="Por m²" class="num">4.997 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/21B.jpg" target="_blank" rel="noopener" aria-label="Plano de 21B"><img src="assets/liora/projects/estepona-links-residences/floorplans/21B-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="410000" data-size="79.11" data-ppm="5183" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/14G-640.webp">
+            <th scope="row"><span class="u-name">14G</span><span class="u-loc">Apartamento · Bloque 1, primera planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">79 m²</td>
+            <td data-label="Precio" class="u-price num">410.000 €</td>
+            <td data-label="Por m²" class="num">5.183 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/14G.jpg" target="_blank" rel="noopener" aria-label="Plano de 14G"><img src="assets/liora/projects/estepona-links-residences/floorplans/14G-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="460000" data-size="111.48" data-ppm="4126" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/20D-640.webp">
+            <th scope="row"><span class="u-name">20D</span><span class="u-loc">Apartamento · Bloque 2, planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">111 m²</td>
+            <td data-label="Precio" class="u-price num">460.000 €</td>
+            <td data-label="Por m²" class="num">4.126 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/20D.jpg" target="_blank" rel="noopener" aria-label="Plano de 20D"><img src="assets/liora/projects/estepona-links-residences/floorplans/20D-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="2" data-price="465000" data-size="79.64" data-ppm="5839" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/25B-640.webp">
+            <th scope="row"><span class="u-name">25B</span><span class="u-loc">Apartamento · Bloque 2, quinta planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">80 m²</td>
+            <td data-label="Precio" class="u-price num">465.000 €</td>
+            <td data-label="Por m²" class="num">5.839 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/25B.jpg" target="_blank" rel="noopener" aria-label="Plano de 25B"><img src="assets/liora/projects/estepona-links-residences/floorplans/25B-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="495000" data-size="79.66" data-ppm="6214" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/13C-640.webp">
+            <th scope="row"><span class="u-name">13C</span><span class="u-loc">Apartamento · Bloque 1, tercera planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">80 m²</td>
+            <td data-label="Precio" class="u-price num">495.000 €</td>
+            <td data-label="Por m²" class="num">6.214 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/13C.jpg" target="_blank" rel="noopener" aria-label="Plano de 13C"><img src="assets/liora/projects/estepona-links-residences/floorplans/13C-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Viviendas · <span>Uno, dos y tres dormitorios</span></summary><p>Las diez viviendas con precio son apartamentos en dos bloques. La tabla siguiente recoge cada una con su precio y su plano, y la lista asigna a cada vivienda una plaza de aparcamiento y un trastero.</p><div class="res-types"><div class="res-type"><h3>Ocho apartamentos de dos dormitorios</h3><ul><li>Precios desde 355.000 € para la 23H hasta 495.000 € para la 13C, en los bloques 1 y 2, en plantas desde la baja hasta la quinta.</li><li>Superficies construidas de 66,13 a 79,66 m², con terrazas de 18,79 a 105,50 m² según la lista.</li><li>La 13E y la 23H, en planta baja, tienen además jardines de 28,98 y 31,21 m².</li><li>En los planos, cada una tiene dos dormitorios, dos baños y un salón-comedor-cocina abierto.</li></ul></div><div class="res-type"><h3>Un apartamento de un dormitorio</h3><ul><li>La 15G, en el bloque 1, figura en la segunda planta por 320.000 €.</li><li>Tiene 51,14 m² construidos y una terraza abierta de 13,94 m², y su plano muestra un dormitorio y un baño.</li></ul></div><div class="res-type"><h3>Un apartamento de tres dormitorios</h3><ul><li>La 20D, en la planta baja del bloque 2, figura por 460.000 €.</li><li>Tiene 111,48 m² construidos, una terraza cubierta de 35,07 m² y un jardín de 35,67 m², y su plano muestra tres dormitorios y dos baños.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><table class="sched num"><caption>Calendario de pagos de esta vivienda</caption><tbody id="v2-p-sched"></tbody></table>
+      <p class="caption">Este es el calendario del propio promotor, tomado de sus condiciones de pago. No dice cómo se garantizan los pagos a cuenta, por lo que Nueva Living lo pide y confirma todo el calendario en el contrato de reserva antes de que usted se comprometa.</p>
+      
+      <ol class="ct-strip" aria-label="Hitos de la obra"><li class="is-mile"><b>Licencia de obras</b><span>Contrato privado</span></li><li class="is-mile"><b>Entrega</b><span>Escritura y llaves</span></li></ol>
+      <p class="ct-note">El promotor no da ninguna fecha para la licencia, el inicio de las obras ni la entrega. Su calendario vincula el contrato privado a la obtención de la licencia de obras y la escritura a la finalización y la entrega de llaves. Nueva Living pide las fechas por escrito y las hace constar en el contrato.</p></div>
+      <div class="cost-wrap"><p class="cap">Lo que cuesta en total</p>
+      <dl class="cost-lines num">
+        <div><dt>Precio</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>AJD (actos jurídicos documentados), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total antes de notaría, registro y abogado</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="es/property-estepona-links-residences.html#enquire" data-prefill>Consultar sobre esta vivienda</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plano"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>¿Financiación? Calculadora de hipoteca</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Precio de compra</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1223,436 +640,223 @@
               <div class="calculator-result"><span>Impuestos y gastos de compra</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Servicios y extras</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Lo que la promoción <em>le ofrece</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina exterior comunitaria</h3>
-              <p class="amenity-note">Al aire libre</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Calidades</h2>
+    <p class="sec-sub">La memoria de calidades del propio promotor, resumida por partes de la vivienda.</p>
+    <div class="tabs" role="tablist" aria-label="Calidades"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Suelos y paredes</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Cocina</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Baños</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Puertas, ventanas y armarios</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Climatización y energía</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Tecnología y seguridad</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Zonas comunes</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Suelos de gres cerámico de calidad superior de 60 x 60 cm en toda la vivienda y revestimiento de gres cerámico de 30 x 90 cm en la zona de ducha y en la pared tras el lavabo.</li><li>Baldosas cerámicas de exterior antideslizantes y resistentes a las heladas en terrazas y patios, y pavimento antideslizante en las zonas comunes.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Totalmente equipada, con muebles altos y bajos laminados a presión, encimera tipo Silestone y frigorífico panelado a juego.</li><li>Placa cerámica, horno microondas, campana extractora, frigorífico, lavavajillas y lavadora, de Bosch o similar.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Sanitarios de porcelana vitrificada blanca, platos de ducha de resina en el baño principal y en el segundo baño y columna de ducha con monomando, de Grohe o similar.</li><li>En el baño principal, mueble de lavabo y mampara de ducha.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Puertas interiores de madera lacadas en blanco con tiradores cromados o sistemas correderos, y armarios empotrados con balda separadora, barra de colgar y puertas a juego con las de paso.</li><li>Carpintería de PVC o aluminio con doble acristalamiento tipo Climalit, vidrio laminado de seguridad en las puertas de terraza y persianas de aluminio aislante en los dormitorios.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Agua caliente mediante aerotermia y paneles fotovoltaicos en las cubiertas, según exige el Código Técnico de la Edificación.</li><li>Aire acondicionado de frío y calor por conductos en el salón y los dormitorios, con solo impulsión de aire en la cocina, y ventilación mecánica individual en los baños y la cocina.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Tomas de TV y de ethernet según la norma ICT-2 en el salón, la cocina y los dormitorios, iluminación exterior y toma de agua en las terrazas, y preinstalación de punto de recarga para vehículos eléctricos.</li><li>Puerta de entrada blindada con mirilla y cerradura de seguridad, vidrio resistente a la intrusión en la carpintería exterior de planta baja y sistema de llave maestra para la urbanización, el edificio, las viviendas y el garaje.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Una piscina de adultos exterior y en cubierta con cloración salina, una piscina interior climatizada con sauna, un gimnasio totalmente equipado y un club social.</li><li>Jardines comunitarios ajardinados con iluminación y riego automático, aparcamiento de buggies de golf a pie de campo, ascensores con puertas automáticas y acceso para personas con discapacidad, y trasteros con punto de luz.</li></ul>
+      
+    </div>
+    <p class="caption">Fuente: la memoria de calidades del promotor, revisión 01, fechada el 14 de abril de 2026 en el pie y el 13 de abril de 2026 en la última página. Indica que la dirección facultativa puede modificar las especificaciones y sustituir elementos por otros similares sin merma de la calidad prevista, y que la piedra natural y la madera varían en tono, color y textura. Las marcas con «o similar» pueden cambiar.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galería</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Dos bloques con terrazas frente al césped"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-640.webp 640w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp 960w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Vista generada por ordenador de dos bloques con terrazas vistos a través de un césped bajo un cielo despejado" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Salón y cocina"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-640.webp 640w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-960.webp 960w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Vista generada por ordenador de un salón y una cocina abiertos, con una puerta corredera de vidrio hacia la terraza" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Una terraza en planta baja"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-640.webp 640w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-960.webp 960w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.jpg" alt="Vista generada por ordenador de una terraza de planta baja con asientos, un seto a lo largo del borde y colinas boscosas al fondo" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Una terraza con piscina"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-640.webp 640w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-960.webp 960w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg" alt="Vista generada por ordenador de una terraza con piscina, tumbonas con dosel, velas de sombra y la costa en el horizonte" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Un dormitorio principal"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/estepona-links-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/estepona-links-residences/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/main-bedroom.jpg" alt="Vista generada por ordenador de un dormitorio principal con un cabecero tapizado y una puerta corredera de vidrio hacia la terraza" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Ver las 16 fotos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriores (3)</button><button type="button" data-open-cat="Terraces">Terrazas (1)</button><button type="button" data-open-cat="Amenities">Zonas comunes (5)</button><button type="button" data-open-cat="Interiors">Interiores (1)</button><button type="button" data-open-cat="Bedrooms">Dormitorios (2)</button><button type="button" data-open-cat="Bathrooms">Baños (1)</button><button type="button" data-open-cat="Location">Ubicación (3)</button></div>
+    
+    <p class="caption">Las imágenes son ilustraciones generadas por ordenador y no fotografías de los edificios terminados, salvo las tres fotografías de la zona. El mobiliario y la decoración que aparecen en ellas son ilustrativos y no están incluidos. Los planos son los planos comerciales del promotor, recortados al dibujo: los nombres de las estancias están en español y algunas superficies difieren de la lista de precios, como indican las notas siguientes.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Ubicación</h2>
+    <p class="sec-sub">El dosier sitúa la promoción dentro de Estepona Golf, en el término municipal de Estepona. Indica que Marbella está a 25 minutos y el aeropuerto de Málaga a menos de una hora, y que Puerto Banús, Sotogrande y varios pueblos blancos del interior están a pocos minutos. Su plano de situación nombra Finca Cortesín y el Valle Romano Golf Club, un nuevo hospital, una zona comercial, las playas de Bahía Dorada y La Rada, el puerto, el centro de la ciudad y un paseo costero, sin distancias. Los documentos no dan dirección postal ni coordenadas de la parcela, por lo que el marcador del mapa está en Estepona Golf y no sobre la parcela.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="es">
+          <div class="locmap-map" id="locmap-estepona-links-residences" data-locmap='{&quot;site&quot;:[36.41297,-5.21219],&quot;sea&quot;:[36.38597,-5.21219],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 14 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;6,8 km · 11 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;2,9 km · 7 min&quot;},{&quot;ll&quot;:[36.39646,-5.22386],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Finca Cortesín&quot;,&quot;sub&quot;:&quot;7,9 km · 12 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Estepona Links Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ubicación indicativa</span>
+            <h3 class="locmap-name">Estepona Links Residences</h3>
+            <p class="locmap-place">Estepona Golf</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Playa</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina interior climatizada</h3>
-              <p class="amenity-note">Agua templada a cubierto</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>6,8 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bienestar</span>
-              <h3 class="amenity-name">Sauna</h3>
-              <p class="amenity-note">Sala de calor seco</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centro de Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Bienestar</span>
-              <h3 class="amenity-name">Gimnasio totalmente equipado</h3>
-              <p class="amenity-note">Cardio y pesas</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>7,9 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Exteriores</span>
-              <h3 class="amenity-name">Jardines comunitarios paisajísticos</h3>
-              <p class="amenity-note">Zonas comunes ajardinadas</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>40 km</bdi> <em><bdi>44 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Exteriores</span>
-              <h3 class="amenity-name">Vistas al golf</h3>
-              <p class="amenity-note">Sobre la calle de golf</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Día a día</span>
-              <h3 class="amenity-name">Zona social y de coworking</h3>
-              <p class="amenity-note">Puestos de trabajo fuera de casa</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Día a día</span>
-              <h3 class="amenity-name">Plaza de aparcamiento y trastero incluidos con cada vivienda</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Día a día</span>
-              <h3 class="amenity-name">Preinstalación de punto de recarga</h3>
-              <p class="amenity-note">Un punto para el coche</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Día a día</span>
-              <h3 class="amenity-name">Ascensor</h3>
-              <p class="amenity-note">Acceso a todas las plantas</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Día a día</span>
-              <h3 class="amenity-name">Agua caliente por aerotermia</h3>
-              <p class="amenity-note">Agua caliente a partir del aire</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Día a día</span>
-              <h3 class="amenity-name">Placas solares</h3>
-              <p class="amenity-note">Energía desde la cubierta</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Día a día</span>
-              <h3 class="amenity-name">Aire acondicionado</h3>
-              <p class="amenity-note">Frío y calor por conductos</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Servicios</span>
-              <h3 class="amenity-name">Urbanización cerrada</h3>
-              <p class="amenity-note">Acceso controlado</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Marbella</th><td>25 minutos, según el promotor</td></tr><tr><th scope="row">Aeropuerto de Málaga</th><td>Menos de una hora, según el promotor</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">En la promoción</h2>
+    <p class="sec-sub">El dosier y la memoria de calidades describen las zonas comunes sin indicar sus dimensiones, por lo que confirmamos lo que está construido y abierto antes de cualquier reserva.</p>
+    <div class="life-panels"><div><h3>Piscinas</h3><p>El dosier cita una piscina exterior, una piscina solárium con vistas elevadas del entorno y una piscina climatizada para todo el año. La memoria de calidades cita una piscina de adultos exterior y en cubierta con cloración salina y una piscina interior climatizada con sauna.</p></div><div><h3>Gimnasio y club social</h3><p>Un gimnasio totalmente equipado y un club social con zona de coworking, que el dosier describe como un punto de encuentro para reunirse, trabajar o hacer una pausa.</p></div><div><h3>Jardines</h3><p>Jardines comunitarios ajardinados con caminos y espacios exteriores, con iluminación y riego automático según la memoria de calidades.</p></div><div><h3>Golf</h3><p>Según el dosier, Estepona Golf tiene 18 hoyos entre vegetación autóctona y suaves colinas, con vistas al Mediterráneo, y una casa club con restaurante y terraza. La promoción tiene plazas para buggies de golf a pie de campo. Ningún documento indica si el golf está incluido, así que lo preguntamos.</p></div></div>
+    <ul class="amen-top"><li>Piscina exterior comunitaria</li><li>Piscina interior climatizada</li><li>Sauna</li><li>Gimnasio totalmente equipado</li><li>Zona social y de coworking</li><li>Jardines comunitarios paisajísticos</li></ul>
+    <details class="amen-all"><summary>Ver las 14</summary><div class="amen-groups"><div><h3>Bienestar<span class="count">4</span></h3><ul><li>Piscina exterior comunitaria</li><li>Piscina interior climatizada</li><li>Sauna</li><li>Gimnasio totalmente equipado</li></ul></div><div><h3>Exteriores<span class="count">2</span></h3><ul><li>Jardines comunitarios paisajísticos</li><li>Vistas al golf</li></ul></div><div><h3>Día a día<span class="count">7</span></h3><ul><li>Zona social y de coworking</li><li>Plaza de aparcamiento y trastero incluidos con cada vivienda</li><li>Preinstalación de punto de recarga</li><li>Ascensor</li><li>Agua caliente por aerotermia</li><li>Placas solares</li><li>Aire acondicionado</li></ul></div><div><h3>Servicios<span class="count">1</span></h3><ul><li>Urbanización cerrada</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Nuestra opinión</h2>
+    <p class="sec-sub">Lo que tendríamos en cuenta antes de reservar aquí, y las comprobaciones que hacemos por usted.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Nuestra opinión">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Destaca</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">A prever</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Comprobaciones</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Por qué destaca</h3><ul class="points"><li><b>Para quién es</b><span>Compradores que buscan un apartamento nuevo de uno, dos o tres dormitorios en Estepona Golf, con terraza, plaza de aparcamiento y trastero, para vivir o como segunda residencia.</span></li><li><b>Qué la diferencia</b><span>Tres piscinas, un gimnasio y un club social con zona de coworking, además de plazas para buggies de golf a pie de campo, entre las zonas comunes que enumera el promotor.</span></li><li><b>Por qué importa la ubicación</b><span>La promoción está dentro de Estepona Golf, un campo de 18 hoyos con restaurante en la casa club. El dosier sitúa Marbella a 25 minutos y el aeropuerto de Málaga a menos de una hora.</span></li><li><b>Por qué comprobar la disponibilidad</b><span>25 de las 35 viviendas de la lista de precios figuran como reservadas y diez tienen precio. Los documentos no dan fecha de entrega, así que la confirmamos antes de cualquier reserva.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Qué prever</h3><ul class="points"><li><b>Disponibilidad</b><span>25 de las 35 viviendas de la lista figuran como reservadas. Diez tienen precio, de 320.000 € a 495.000 € más IVA, y las otras 76 de las 111 viviendas no figuran en la lista.</span></li><li><b>Impuesto</b><span>La lista indica que el IVA no está incluido. Con un IVA del 10 por ciento y un impuesto de actos jurídicos documentados del 1,20 por ciento, la vivienda más barata de la lista sale por unos 356.000 € y la más cara por unos 550.000 €, antes de notaría y registro.</span></li><li><b>Forma de pago</b><span>12.000 € más IVA en la reserva; luego el 20 por ciento más IVA, menos la reserva, al obtener la licencia de obras; el 10 por ciento a los seis meses y el 10 por ciento a los doce meses de ese contrato, y el 60 por ciento a la entrega. Los dos pagos intermedios cuentan desde el contrato, no desde la obra.</span></li><li><b>Licencia y entrega</b><span>El calendario condiciona el contrato privado a la obtención de la licencia de obras. Ningún documento dice si ya se ha concedido, cuándo empiezan las obras ni cuándo se entregan las viviendas, por lo que pedimos las tres cosas por escrito.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Comprobaciones antes de cualquier pago</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>La fecha de finalización</b><span>Ninguno de los documentos que tenemos da una fecha de entrega, un inicio de obras ni el estado de la licencia, por lo que esta página solo dice que la entrega está por confirmar. Pedimos la fecha contractual y el estado de la licencia antes de cualquier reserva.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Los documentos</b><span>La lista de precios tiene fecha del 3 de noviembre de 2026 y las condiciones de pago no llevan fecha. Las hojas de planos están fechadas el 16 de marzo de 2026, aunque su carpeta se llama 13 de octubre de 2026, y el dosier comercial lleva 260618 en el nombre del archivo. Usamos la lista de precios para precios y disponibilidad y los demás documentos para describir el proyecto.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Las superficies</b><span>La lista y los planos difieren en algunas cifras. La 14G tiene 79,11 m² construidos en la lista y 78,11 en su plano, y la 15G 51,14 y 51,17. En la 13C, la 13E, la 15G y la 24E, las terrazas y jardines de la lista son mayores que las superficies exteriores útiles del plano: 105,50 frente a 99,12 m², 19,65 y 28,98 frente a 18,88 y 23,43, 13,94 frente a 12,50, y 19,43 frente a 17,62. La tabla sigue la lista, y confirmamos qué cifras usa el contrato.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Las plantas</b><span>La lista asigna a cada vivienda una planta de 0 a 5 y las hojas de planos un nivel de P00 a P05. Coinciden en la 13C, la 20D, la 21B, la 22B y la 25B. En la 13E, la 14G, la 15G, la 23H y la 24E, los planos indican los niveles 3, 4, 5, 3 y 4 donde la lista indica las plantas 0, 1, 2, 0 y 1. La tabla sigue la lista, y confirmamos la planta de cada vivienda sobre el terreno.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Las imágenes</b><span>Las imágenes están generadas por ordenador, salvo las tres fotografías de la zona. El mobiliario y la decoración no están incluidos, y el dosier dice que las imágenes proceden de un proyecto inicial y pueden cambiar durante la obra.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>El mapa</b><span>Los documentos no dan dirección ni coordenadas, por lo que el marcador del mapa está en Estepona Golf y no sobre la parcela, y las distancias por carretera junto al mapa se miden desde ese marcador. El dosier da dos tiempos de trayecto sin decir cómo se hacen. Confirmamos las distancias en una visita.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Solicite la información</h3><p>Los planos de las viviendas que le interesen, la especificación de calidades y la lista de precios.</p></li><li><h3>Compare las opciones</h3><p>Compárelo con los demás proyectos de Estepona que tenemos en cartera.</p></li><li><h3>Visita privada</h3><p>Vea la zona con nosotros y los planos frente al estado de las obras.</p></li><li><h3>Reserva</h3><p>Confirmamos por escrito el importe de la reserva y el calendario de pagos, y después el contrato de compraventa.</p></li></ol>
+      <div class="docs card"><h3>Documentos que recibirá</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Lista de precios</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planos<small>10 de 10 viviendas</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Calendario de pagos</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Memoria de calidades</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>El resumen oficial al que tiene derecho todo comprador en Andalucía</small></span></li></ul><a class="btn btn-primary" href="es/property-estepona-links-residences.html#enquire" data-prefill>Recibir el dosier del proyecto</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Preguntas sobre Estepona Links</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>¿Cuántas viviendas hay disponibles?</summary><p>Diez de las 35 de la lista de precios del 3 de noviembre de 2026: un apartamento de un dormitorio, ocho de dos y uno de tres, de 320.000 € a 495.000 € más IVA. Las otras 25 figuran como reservadas. La promoción tiene 111 viviendas en total.</p></details><details class="segment-faq-item"><summary>¿El IVA está incluido?</summary><p>No. La lista indica que el IVA no está incluido. El IVA de una vivienda nueva es del 10 por ciento y el impuesto de actos jurídicos documentados en Andalucía es del 1,20 por ciento. Confirmamos por escrito los impuestos y los gastos de compra.</p></details><details class="segment-faq-item"><summary>¿Hay aparcamiento y trastero?</summary><p>La lista asigna a cada vivienda una plaza de aparcamiento y un trastero. La memoria de calidades añade una puerta de garaje motorizada, una preinstalación de punto de recarga para vehículos eléctricos y aparcamiento para buggies de golf a pie de campo.</p></details><details class="segment-faq-item"><summary>¿Incluye mobiliario?</summary><p>No. El mobiliario y la decoración que aparecen en las imágenes no están incluidos. Las cocinas se entregan con los electrodomésticos que indica la memoria de calidades.</p></details><details class="segment-faq-item"><summary>¿Cuál es el calendario de pagos?</summary><p>12.000 € más IVA en la reserva; el 20 por ciento más IVA, menos la reserva, al obtener la licencia de obras; el 10 por ciento a los seis meses y el 10 por ciento a los doce meses del contrato privado, y el 60 por ciento a la entrega. Confirmamos el calendario por escrito.</p></details></div>
+    <details class="faq2-more"><summary>Ver todas las preguntas (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>¿Cuándo estará terminado?</summary><p>Ninguno de los documentos del promotor da una fecha de finalización. Pedimos la fecha contractual, el estado de la licencia y la fase de las obras.</p></details><details class="segment-faq-item"><summary>¿Está incluido el golf?</summary><p>La promoción está dentro de Estepona Golf, un campo de 18 hoyos, y tiene aparcamiento para buggies de golf a pie de campo. Ningún documento indica si la cuota de socio o el green fee están incluidos, así que lo preguntamos.</p></details></div></details>
+    <p class="faq2-guide">Más sobre comprar obra nueva en España → <a class="textlink" href="es/guide-how-buying-works.html">Guía de compra</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Reservar una visita privada">
+    <div class="card">
+      <p class="rail-price-label">Precio desde</p>
+      <p class="rail-price num">320.000 €</p>
+      <p class="rail-note">Más IVA. Quedan 10 de 111 viviendas · Comprobado el 3 de noviembre de 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="es/property-estepona-links-residences.html#enquire" data-prefill>Reservar una visita privada</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Escríbanos por WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador</strong>Respondemos personalmente a cada consulta.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Reservar una visita privada</h2>
+        <p>Díganos qué vivienda le interesa. Le enviamos el dosier del proyecto y después recorremos la promoción con usted.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador de Nueva Living</strong>Respondemos personalmente a cada consulta.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Escríbanos</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Correo<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>En la visita comprobamos con usted</h3><ul><li><b>Sobre el terreno.</b> Visite con nosotros la parcela y sus alrededores.</li><li><b>Sobre papel.</b> Licencia, fecha de entrega y contrato, antes de firmar nada.</li><li><b>Sobre los planos.</b> Recorremos con usted la vivienda que elija, estancia por estancia, con su plano en la mano.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Enviando…" data-success-label="Reservar una visita privada ✓" data-submitting-message="Enviando…" data-success-message="Solicitud recibida. Le enviaremos el dosier del proyecto y le propondremos horarios de visita." data-error-message="No se ha podido enviar. Inténtelo de nuevo o escríbanos por WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Links Residences">
+        <input type="hidden" id="f-project" name="project" value="Estepona Links Residences">
+        <input type="hidden" name="preferred_area" value="Estepona Golf, Estepona">
+        <input type="hidden" name="property_type_interest" value="Apartamentos">
+        <input type="hidden" name="budget_range" value="Desde 320.000 € + IVA">
+        <input type="hidden" name="consent_text" value="Acepto que Nueva Living guarde estos datos para responder a mi solicitud.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hola Nueva Living, me gustaría recibir información sobre Estepona Links Residences." data-base="Hola Nueva Living, me gustaría recibir información sobre Estepona Links Residences.">
+        <h3>Sus datos</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Nombre</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Apellidos</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Correo electrónico</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Teléfono (opcional, para WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">¿Qué vivienda?</label><select id="v2-f-unit" name="unit_interest"><option value="">Aún no lo sé, envíenme todo</option><option value="15G">15G: 320.000 €</option><option value="23H">23H: 355.000 €</option><option value="13E">13E: 370.000 €</option><option value="24E">24E: 375.000 €</option><option value="22B">22B: 385.000 €</option><option value="21B">21B: 395.000 €</option><option value="14G">14G: 410.000 €</option><option value="20D">20D: 460.000 €</option><option value="25B">25B: 465.000 €</option><option value="13C">13C: 495.000 €</option></select></div>
+        <fieldset class="field"><legend>La vivienda sería</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Para vivir</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Una segunda residencia</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Una inversión</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>¿Cómo le respondemos?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Llamada</label>
+          <label><input type="radio" name="preferred_contact" value="email">Correo</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Acepto que Nueva Living guarde estos datos para responder a mi solicitud. <a href="es/privacy-policy.html">Política de privacidad</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Avísenme también si cambia la disponibilidad o los precios en Estepona Links.</label>
+        <button class="btn btn-primary btn-block" type="submit">Reservar una visita privada</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Por qué este proyecto</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Por qué este proyecto <em>importa</em></h2>
-          <p class="project-lead">Apartamentos con terraza dentro de un resort de golf, con tres piscinas, gimnasio y club social para los residentes.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Por qué encaja</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Para quién es</h3><p>Compradores que buscan un apartamento nuevo de uno, dos o tres dormitorios en Estepona Golf, con terraza, plaza de aparcamiento y trastero, para vivir o como segunda residencia.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué la diferencia</h3><p>Tres piscinas, un gimnasio y un club social con zona de coworking, además de plazas para buggies de golf a pie de campo, entre las zonas comunes que enumera el promotor.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué importa la ubicación</h3><p>La promoción está dentro de Estepona Golf, un campo de 18 hoyos con restaurante en la casa club. El dosier sitúa Marbella a 25 minutos y el aeropuerto de Málaga a menos de una hora.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué comprobar la disponibilidad</h3><p>25 de las 35 viviendas de la lista de precios figuran como reservadas y diez tienen precio. Los documentos no dan fecha de entrega, así que la confirmamos antes de cualquier reserva.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argumento de inversión</h3></div>
-            <p class="why-group-note">Una nota objetiva sobre lo que los documentos dicen y no dicen; Nueva Living no promete rentabilidad por alquiler ni revalorización.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Disponibilidad</h3><p>25 de las 35 viviendas de la lista figuran como reservadas. Diez tienen precio, de 320.000 € a 495.000 € más IVA, y las otras 76 de las 111 viviendas no figuran en la lista.</p></article>
-              <article class="why-point reveal-soft"><h3>Impuesto</h3><p>La lista indica que el IVA no está incluido. Con un IVA del 10 por ciento y un impuesto de actos jurídicos documentados del 1,20 por ciento, la vivienda más barata de la lista sale por unos 356.000 € y la más cara por unos 550.000 €, antes de notaría y registro.</p></article>
-              <article class="why-point reveal-soft"><h3>Forma de pago</h3><p>12.000 € más IVA en la reserva; luego el 20 por ciento más IVA, menos la reserva, al obtener la licencia de obras; el 10 por ciento a los seis meses y el 10 por ciento a los doce meses de ese contrato, y el 60 por ciento a la entrega. Los dos pagos intermedios cuentan desde el contrato, no desde la obra.</p></article>
-              <article class="why-point reveal-soft"><h3>Licencia y entrega</h3><p>El calendario condiciona el contrato privado a la obtención de la licencia de obras. Ningún documento dice si ya se ha concedido, cuándo empiezan las obras ni cuándo se entregan las viviendas, por lo que pedimos las tres cosas por escrito.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confianza y diligencia</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>La fecha de finalización</h3><p>Ninguno de los documentos que tenemos da una fecha de entrega, un inicio de obras ni el estado de la licencia, por lo que esta página solo dice que la entrega está por confirmar. Pedimos la fecha contractual y el estado de la licencia antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Los documentos</h3><p>La lista de precios tiene fecha del 3 de noviembre de 2026 y las condiciones de pago no llevan fecha. Las hojas de planos están fechadas el 16 de marzo de 2026, aunque su carpeta se llama 13 de octubre de 2026, y el dosier comercial lleva 260618 en el nombre del archivo. Usamos la lista de precios para precios y disponibilidad y los demás documentos para describir el proyecto.</p></article>
-              <article class="why-point reveal-soft"><h3>Las superficies</h3><p>La lista y los planos difieren en algunas cifras. La 14G tiene 79,11 m² construidos en la lista y 78,11 en su plano, y la 15G 51,14 y 51,17. En la 13C, la 13E, la 15G y la 24E, las terrazas y jardines de la lista son mayores que las superficies exteriores útiles del plano: 105,50 frente a 99,12 m², 19,65 y 28,98 frente a 18,88 y 23,43, 13,94 frente a 12,50, y 19,43 frente a 17,62. La tabla sigue la lista, y confirmamos qué cifras usa el contrato.</p></article>
-              <article class="why-point reveal-soft"><h3>Las plantas</h3><p>La lista asigna a cada vivienda una planta de 0 a 5 y las hojas de planos un nivel de P00 a P05. Coinciden en la 13C, la 20D, la 21B, la 22B y la 25B. En la 13E, la 14G, la 15G, la 23H y la 24E, los planos indican los niveles 3, 4, 5, 3 y 4 donde la lista indica las plantas 0, 1, 2, 0 y 1. La tabla sigue la lista, y confirmamos la planta de cada vivienda sobre el terreno.</p></article>
-              <article class="why-point reveal-soft"><h3>Las imágenes</h3><p>Las imágenes están generadas por ordenador, salvo las tres fotografías de la zona. El mobiliario y la decoración no están incluidos, y el dosier dice que las imágenes proceden de un proyecto inicial y pueden cambiar durante la obra.</p></article>
-              <article class="why-point reveal-soft"><h3>El mapa</h3><p>Los documentos no dan dirección ni coordenadas, por lo que el marcador del mapa está en Estepona Golf y no sobre la parcela, y las distancias por carretera junto al mapa se miden desde ese marcador. El dosier da dos tiempos de trayecto sin decir cómo se hacen. Confirmamos las distancias en una visita.</p></article>
-            </div>
-            <p class="why-group-note">¿Es su primera compra sobre plano en España? <a href="es/guide-how-buying-works.html">Cómo funciona comprar obra nueva</a> explica los siete pasos, y <a href="es/guide-off-plan-vs-resale.html">sobre plano frente a segunda mano</a> detalla las señales, las garantías y los plazos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Las imágenes las facilita el promotor y pueden ser infografías">
+    <p>Las imágenes las facilita el promotor y pueden ser infografías; el diseño final, los acabados, el paisajismo y las vistas pueden variar. Tiene derecho a una copia del Documento Informativo Abreviado (DIA) de cualquier vivienda de esta página; Nueva Living se la facilita bajo petición.</p>
+    <p>Disponibilidad comprobada con el vendedor el 3 de noviembre de 2026; la volvemos a confirmar antes de cualquier reserva.</p>
+    <p>Los precios, dormitorios y superficies están transcritos de la lista de precios del promotor del 3 de noviembre de 2026, que tiene 35 filas en los bloques 1 y 2: 10 con precio y 25 marcadas como reservadas. La lista indica que el IVA no está incluido y que cada vivienda tiene una plaza de aparcamiento y un trastero. La superficie construida es la superficie interior construida de la lista, que es la superficie construida de cada plano; la superficie útil interior del plano es menor, 68,14 frente a 79,66 m² en la 13C. La terraza es la suma de las terrazas cubiertas y abiertas de la lista. Los precios no incluyen impuestos. El IVA es del 10 por ciento y el impuesto de actos jurídicos documentados del 1,20 por ciento, de modo que el apartamento de 320.000 € cuesta unos 356.000 € y el de 495.000 € unos 550.000 € antes de notaría y registro.</p>
+    <p>La información de esta página tiene fines comerciales generales y no constituye asesoramiento legal, financiero ni de inversión. Los precios, la disponibilidad y las fechas de entrega pueden cambiar sin previo aviso.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk.jpg" alt="Vista generada por ordenador de los bloques con terrazas al anochecer, con balcones iluminados, palmeras y un césped delante" width="2000" height="1399" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Vista previa de arquitectura</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arquitectura</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Diseño contemporáneo, <em>junto al campo</em></h2>
-          <p>El dosier habla de una arquitectura contemporánea de inspiración mediterránea, con vistas abiertas al campo de golf. En las imágenes generadas por ordenador del promotor, los bloques son largos y bajos, con balcones profundos, barandillas de vidrio y un césped a lo largo del frente.</p>
-<p>En los planos de las diez viviendas listadas, el salón, el comedor y la cocina forman una sola estancia abierta con salida a una terraza, con un dormitorio principal y un segundo dormitorio, cada uno con baño, y un tercer dormitorio en la vivienda de tres. El dosier indica que las terrazas se orientan al sureste y al este.</p>
-          <ul class="feature-list">
-            <li>Estructura — Cimentación de hormigón armado según el estudio geotécnico del solar y estructura de forjados de hormigón armado en todas las plantas.</li>
-            <li>Fachada — Fachada de doble hoja de ladrillo perforado con revoco exterior, aislamiento de poliuretano proyectado, cámara de aire y trasdosado interior con aislamiento de lana mineral.</li>
-            <li>Carpintería exterior — Carpintería de PVC o aluminio con doble acristalamiento, vidrio laminado de seguridad en las puertas de terraza y persianas de aluminio aislante en los dormitorios.</li>
-            <li>Seguridad — Puerta de entrada blindada, videoportero en el acceso principal y en el edificio, sistema de llave maestra y un conjunto cerrado con acceso privado.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Acciones de solicitud del proyecto">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar</a>
+    <a class="ab-btn ab-primary" href="es/property-estepona-links-residences.html#enquire" data-prefill>Reservar visita</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Vista generada por ordenador de un salón y una cocina abiertos, con una puerta corredera de vidrio hacia la terraza" width="2000" height="807" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Presentación cinemática</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Conozca <em>la zona y los planos</em></h2>
-            <p>Una visita trata de la ubicación, los planos y el estado de las obras.</p>
-            <div class="viewing-insights">
-              <div><span>Sobre el terreno</span><p>Visite con nosotros la parcela y sus alrededores.</p></div>
-              <div><span>Sobre papel</span><p>Licencia, fecha de entrega y contrato, antes de firmar nada.</p></div>
-              <div><span>Sobre los planos</span><p>Recorremos con usted la vivienda que elija, estancia por estancia, con su plano en la mano.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="es/index.html#private-viewing=1&amp;project=estepona-links-residences">Presentación cinemática</a>
-              <a class="btn project-btn ghost" href="es/property-estepona-links-residences.html#enquire" data-prefill>Solicitar información</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galería" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Cerrar">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Siguiente imagen">›</button>
+    <div class="lb-cats" role="group" aria-label="Galería"><button type="button" data-cat="Exteriors">Exteriores</button><button type="button" data-cat="Terraces">Terrazas</button><button type="button" data-cat="Amenities">Zonas comunes</button><button type="button" data-cat="Interiors">Interiores</button><button type="button" data-cat="Bedrooms">Dormitorios</button><button type="button" data-cat="Bathrooms">Baños</button><button type="button" data-cat="Location">Ubicación</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg" alt="Vista generada por ordenador de una terraza con piscina, tumbonas con dosel, velas de sombra y la costa en el horizonte" width="2000" height="1545" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Estilo de vida</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Tres piscinas, un gimnasio <em>y el campo</em></h2>
-            <p>El dosier y la memoria de calidades describen las zonas comunes sin indicar sus dimensiones, por lo que confirmamos lo que está construido y abierto antes de cualquier reserva.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Próximos pasos</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Qué ocurre <em>a continuación</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Solicite la información</h3>
-            <p>Los planos de las viviendas que le interesen, la especificación de calidades y la lista de precios.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare las opciones</h3>
-            <p>Compárelo con los demás proyectos de Estepona que tenemos en cartera.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visita privada</h3>
-            <p>Vea la zona con nosotros y los planos frente al estado de las obras.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserva</h3>
-            <p>Confirmamos por escrito el importe de la reserva y el calendario de pagos, y después el contrato de compraventa.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Preguntas frecuentes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Preguntas <em>frecuentes de compradores</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>¿Pueden los extranjeros comprar propiedades en España?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué es el número de NIE y lo necesito?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué gastos adicionales debo prever además del precio de compra?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo conseguir una hipoteca en España siendo no residente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cómo funciona el proceso de reserva y pago?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo alquilar la propiedad después de comprarla?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Necesito un abogado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuántas viviendas hay disponibles?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Diez de las 35 de la lista de precios del 3 de noviembre de 2026: un apartamento de un dormitorio, ocho de dos y uno de tres, de 320.000 € a 495.000 € más IVA. Las otras 25 figuran como reservadas. La promoción tiene 111 viviendas en total.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿El IVA está incluido?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. La lista indica que el IVA no está incluido. El IVA de una vivienda nueva es del 10 por ciento y el impuesto de actos jurídicos documentados en Andalucía es del 1,20 por ciento. Confirmamos por escrito los impuestos y los gastos de compra.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Hay aparcamiento y trastero?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La lista asigna a cada vivienda una plaza de aparcamiento y un trastero. La memoria de calidades añade una puerta de garaje motorizada, una preinstalación de punto de recarga para vehículos eléctricos y aparcamiento para buggies de golf a pie de campo.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Incluye mobiliario?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. El mobiliario y la decoración que aparecen en las imágenes no están incluidos. Las cocinas se entregan con los electrodomésticos que indica la memoria de calidades.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es el calendario de pagos?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>12.000 € más IVA en la reserva; el 20 por ciento más IVA, menos la reserva, al obtener la licencia de obras; el 10 por ciento a los seis meses y el 10 por ciento a los doce meses del contrato privado, y el 60 por ciento a la entrega. Confirmamos el calendario por escrito.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuándo estará terminado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ninguno de los documentos del promotor da una fecha de finalización. Pedimos la fecha contractual, el estado de la licencia y la fase de las obras.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Está incluido el golf?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La promoción está dentro de Estepona Golf, un campo de 18 hoyos, y tiene aparcamiento para buggies de golf a pie de campo. Ningún documento indica si la cuota de socio o el green fee están incluidos, así que lo preguntamos.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Consultar</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Pregunte por <em>Estepona Links Residences</em></h2>
-          <p class="body-copy">Díganos lo que necesita y volveremos con la disponibilidad actual, los planos y la lista de precios.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fundador de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fundador, Nueva Living</p>
-            <h3 id="advisor-heading">¿Prefiere comentarlo en persona?</h3>
-            <p class="advisor-copy">Elija lo que le encaje y escríbame por WhatsApp. Empezaré desde ahí.</p>
-            <div class="advisor-group" role="group" aria-label="Busco">
-              <span class="advisor-group-label">Busco</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Una vivienda para vivir</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Una casa de vacaciones</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Una inversión</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Presupuesto">
-              <span class="advisor-group-label">Presupuesto</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Menos de 500.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500.000 – 1.000.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Más de 1.000.000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor">Escríbame por WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Links Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Estepona Links Residences">
-          <input type="hidden" name="preferred_area" value="Estepona Golf, Estepona">
-          <input type="hidden" name="property_type_interest" value="Apartamentos">
-          <input type="hidden" name="budget_range" value="Desde 320.000 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Nombre</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Nombre" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Apellidos</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Apellidos" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Correo electrónico</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Teléfono</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 o internacional">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Mensaje</label>
-              <textarea id="f-msg" name="message">Hola Nueva Living, me gustaría recibir información sobre Estepona Links Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Acepto ser contactado/a y que mis datos sean almacenados.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>También me gustaría recibir novedades ocasionales de proyectos por parte de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Enviar solicitud</button>
-            <span class="form-note">Respondemos personalmente, normalmente el mismo día.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"15G","title":"15G · Apartamento · Bloque 1, segunda planta","sub":"1 dorm. · 51 m²","price":320000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/15G.jpg","label":""}]},{"id":"u1","ref":"23H","title":"23H · Apartamento · Bloque 2, planta baja","sub":"2 dorm. · 66 m²","price":355000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/23H.jpg","label":""}]},{"id":"u2","ref":"13E","title":"13E · Apartamento · Bloque 1, planta baja","sub":"2 dorm. · 72 m²","price":370000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/13E.jpg","label":""}]},{"id":"u3","ref":"24E","title":"24E · Apartamento · Bloque 2, primera planta","sub":"2 dorm. · 72 m²","price":375000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/24E.jpg","label":""}]},{"id":"u4","ref":"22B","title":"22B · Apartamento · Bloque 2, segunda planta","sub":"2 dorm. · 79 m²","price":385000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/22B.jpg","label":""}]},{"id":"u5","ref":"21B","title":"21B · Apartamento · Bloque 2, primera planta","sub":"2 dorm. · 79 m²","price":395000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/21B.jpg","label":""}]},{"id":"u6","ref":"14G","title":"14G · Apartamento · Bloque 1, primera planta","sub":"2 dorm. · 79 m²","price":410000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/14G.jpg","label":""}]},{"id":"u7","ref":"20D","title":"20D · Apartamento · Bloque 2, planta baja","sub":"3 dorm. · 111 m²","price":460000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/20D.jpg","label":""}]},{"id":"u8","ref":"25B","title":"25B · Apartamento · Bloque 2, quinta planta","sub":"2 dorm. · 80 m²","price":465000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/25B.jpg","label":""}]},{"id":"u9","ref":"13C","title":"13C · Apartamento · Bloque 1, tercera planta","sub":"2 dorm. · 80 m²","price":495000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/13C.jpg","label":""}]}],"stages":[{"label":"Reserva","when":"13.200 € con IVA","amountLabel":"12.000 €","fixed":12000},{"label":"Al firmar el Contrato Privado","when":"Al obtener la licencia de obras, menos la reserva, menos la reserva","amountLabel":"20%","pct":0.2,"less":12000},{"label":"A los 6 meses","when":"Contado desde el contrato privado, no desde un hito de obra","amountLabel":"10%","pct":0.1},{"label":"A los 12 meses","when":"Contado desde el contrato privado, no desde un hito de obra","amountLabel":"10%","pct":0.1},{"label":"A la Entrega","when":"Se paga a la entrega, con la entrega de llaves","amountLabel":"60%","pct":0.6}],"stageLabels":null,"gallery":[{"src":"assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp","alt":"Vista generada por ordenador de dos bloques con terrazas vistos a través de un césped bajo un cielo despejado","caption":"Dos bloques con terrazas frente al césped","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-links-residences/media/blocks-at-dusk-above-the-lawn.webp","alt":"Vista generada por ordenador de los largos bloques con terrazas al anochecer, con palmeras y una valla baja junto al césped","caption":"Los bloques al anochecer","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk.webp","alt":"Vista generada por ordenador de los bloques con terrazas al anochecer, con balcones iluminados, palmeras y un césped delante","caption":"Las terrazas iluminadas al anochecer","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.webp","alt":"Vista generada por ordenador de una terraza de planta baja con asientos, un seto a lo largo del borde y colinas boscosas al fondo","caption":"Una terraza en planta baja","cat":"Terraces"},{"src":"assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.webp","alt":"Vista generada por ordenador de una terraza con piscina, tumbonas con dosel, velas de sombra y la costa en el horizonte","caption":"Una terraza con piscina","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/daybed-under-a-canopy-by-the-pool.webp","alt":"Vista generada por ordenador de una tumbona con dosel junto a una piscina, con una barandilla y colinas boscosas detrás","caption":"Una tumbona junto a la piscina","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/heated-indoor-pool.webp","alt":"Vista generada por ordenador de una piscina interior con tumbonas, una pared de listones de madera y una pared acristalada que se abre a una terraza","caption":"La piscina interior climatizada","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/gym.webp","alt":"Vista generada por ordenador de un gimnasio con máquinas de cardio, un soporte de pesas y una espaldera, bajo un techo iluminado","caption":"El gimnasio","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/social-club-lounge.webp","alt":"Vista generada por ordenador de un salón con sofás, un televisor y una barra con taburetes","caption":"El club social","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.webp","alt":"Vista generada por ordenador de un salón y una cocina abiertos, con una puerta corredera de vidrio hacia la terraza","caption":"Salón y cocina","cat":"Interiors"},{"src":"assets/liora/projects/estepona-links-residences/media/main-bedroom.webp","alt":"Vista generada por ordenador de un dormitorio principal con un cabecero tapizado y una puerta corredera de vidrio hacia la terraza","caption":"Un dormitorio principal","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-links-residences/media/second-bedroom-with-desk.webp","alt":"Vista generada por ordenador de un segundo dormitorio con una cama individual, un escritorio empotrado con estanterías y una puerta de vidrio hacia la terraza","caption":"Un segundo dormitorio","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.webp","alt":"Vista generada por ordenador de un baño con ducha a ras de suelo, un mueble de lavabo suspendido y revestimiento beige de aspecto pétreo","caption":"Un baño","cat":"Bathrooms"},{"src":"assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.webp","alt":"Fotografía aérea de un campo de golf con lagos y árboles, y la costa y el mar al fondo","caption":"Un campo de golf y la costa desde el aire","cat":"Location"},{"src":"assets/liora/projects/estepona-links-residences/media/harbour-and-lighthouse.webp","alt":"Fotografía desde lo alto de un puerto con un faro, un bloque de apartamentos blanco y el mar","caption":"Un puerto y un faro","cat":"Location"},{"src":"assets/liora/projects/estepona-links-residences/media/coastal-path-at-sunset.webp","alt":"Fotografía de un camino pavimentado a lo largo de una ladera de hierba sobre la orilla, al atardecer","caption":"Un paseo costero","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":".","post":" €"},"i18n":{"askAbout":"Consultar sobre {ref}","plusVat":"Más IVA","totalPrice":"Precio total","vatOnStages":"Más IVA sobre cada pago","onRequest":"A consultar","imageOf":"{i} de {n}","floorPlan":"Plano"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Estepona Links Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Cerrar">Cerrar</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Imagen anterior">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Siguiente imagen">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg","webp":"assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp","alt":"Vista generada por ordenador de dos bloques con terrazas vistos a través de un césped bajo un cielo despejado","width":2000,"height":1132,"caption":"Dos bloques con terrazas frente al césped","category":"Exteriores"},{"src":"assets/liora/projects/estepona-links-residences/media/blocks-at-dusk-above-the-lawn.jpg","webp":"assets/liora/projects/estepona-links-residences/media/blocks-at-dusk-above-the-lawn-960.webp","alt":"Vista generada por ordenador de los largos bloques con terrazas al anochecer, con palmeras y una valla baja junto al césped","width":1661,"height":1407,"caption":"Los bloques al anochecer","category":"Exteriores"},{"src":"assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk.jpg","webp":"assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk-960.webp","alt":"Vista generada por ordenador de los bloques con terrazas al anochecer, con balcones iluminados, palmeras y un césped delante","width":2000,"height":1399,"caption":"Las terrazas iluminadas al anochecer","category":"Exteriores"},{"src":"assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.jpg","webp":"assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-960.webp","alt":"Vista generada por ordenador de una terraza de planta baja con asientos, un seto a lo largo del borde y colinas boscosas al fondo","width":2000,"height":1416,"caption":"Una terraza en planta baja","category":"Terrazas"},{"src":"assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg","webp":"assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-960.webp","alt":"Vista generada por ordenador de una terraza con piscina, tumbonas con dosel, velas de sombra y la costa en el horizonte","width":2000,"height":1545,"caption":"Una terraza con piscina","category":"Zonas comunes"},{"src":"assets/liora/projects/estepona-links-residences/media/daybed-under-a-canopy-by-the-pool.jpg","webp":"assets/liora/projects/estepona-links-residences/media/daybed-under-a-canopy-by-the-pool-960.webp","alt":"Vista generada por ordenador de una tumbona con dosel junto a una piscina, con una barandilla y colinas boscosas detrás","width":1932,"height":1826,"caption":"Una tumbona junto a la piscina","category":"Zonas comunes"},{"src":"assets/liora/projects/estepona-links-residences/media/heated-indoor-pool.jpg","webp":"assets/liora/projects/estepona-links-residences/media/heated-indoor-pool-960.webp","alt":"Vista generada por ordenador de una piscina interior con tumbonas, una pared de listones de madera y una pared acristalada que se abre a una terraza","width":2000,"height":1416,"caption":"La piscina interior climatizada","category":"Zonas comunes"},{"src":"assets/liora/projects/estepona-links-residences/media/gym.jpg","webp":"assets/liora/projects/estepona-links-residences/media/gym-960.webp","alt":"Vista generada por ordenador de un gimnasio con máquinas de cardio, un soporte de pesas y una espaldera, bajo un techo iluminado","width":2000,"height":1533,"caption":"El gimnasio","category":"Zonas comunes"},{"src":"assets/liora/projects/estepona-links-residences/media/social-club-lounge.jpg","webp":"assets/liora/projects/estepona-links-residences/media/social-club-lounge-960.webp","alt":"Vista generada por ordenador de un salón con sofás, un televisor y una barra con taburetes","width":2000,"height":832,"caption":"El club social","category":"Zonas comunes"},{"src":"assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg","webp":"assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-960.webp","alt":"Vista generada por ordenador de un salón y una cocina abiertos, con una puerta corredera de vidrio hacia la terraza","width":2000,"height":807,"caption":"Salón y cocina","category":"Interiores"},{"src":"assets/liora/projects/estepona-links-residences/media/main-bedroom.jpg","webp":"assets/liora/projects/estepona-links-residences/media/main-bedroom-960.webp","alt":"Vista generada por ordenador de un dormitorio principal con un cabecero tapizado y una puerta corredera de vidrio hacia la terraza","width":2000,"height":1476,"caption":"Un dormitorio principal","category":"Dormitorios"},{"src":"assets/liora/projects/estepona-links-residences/media/second-bedroom-with-desk.jpg","webp":"assets/liora/projects/estepona-links-residences/media/second-bedroom-with-desk-960.webp","alt":"Vista generada por ordenador de un segundo dormitorio con una cama individual, un escritorio empotrado con estanterías y una puerta de vidrio hacia la terraza","width":912,"height":751,"caption":"Un segundo dormitorio","category":"Dormitorios"},{"src":"assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.jpg","webp":"assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower-960.webp","alt":"Vista generada por ordenador de un baño con ducha a ras de suelo, un mueble de lavabo suspendido y revestimiento beige de aspecto pétreo","width":2000,"height":1489,"caption":"Un baño","category":"Baños"},{"src":"assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.jpg","webp":"assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air-960.webp","alt":"Fotografía aérea de un campo de golf con lagos y árboles, y la costa y el mar al fondo","width":1408,"height":1138,"caption":"Un campo de golf y la costa desde el aire","category":"Ubicación"},{"src":"assets/liora/projects/estepona-links-residences/media/harbour-and-lighthouse.jpg","webp":"assets/liora/projects/estepona-links-residences/media/harbour-and-lighthouse-960.webp","alt":"Fotografía desde lo alto de un puerto con un faro, un bloque de apartamentos blanco y el mar","width":1444,"height":1452,"caption":"Un puerto y un faro","category":"Ubicación"},{"src":"assets/liora/projects/estepona-links-residences/media/coastal-path-at-sunset.jpg","webp":"assets/liora/projects/estepona-links-residences/media/coastal-path-at-sunset-960.webp","alt":"Fotografía de un camino pavimentado a lo largo de una ladera de hierba sobre la orilla, al atardecer","width":774,"height":952,"caption":"Un paseo costero","category":"Ubicación"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/15G.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/15G-960.webp","alt":"Plano del apartamento 15G","width":833,"height":1092,"caption":"Apartamento 15G","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/23H.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/23H-960.webp","alt":"Plano del apartamento 23H","width":1137,"height":1472,"caption":"Apartamento 23H","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/13E.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/13E-960.webp","alt":"Plano del apartamento 13E","width":1151,"height":1414,"caption":"Apartamento 13E","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/24E.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/24E-960.webp","alt":"Plano del apartamento 24E","width":1132,"height":1093,"caption":"Apartamento 24E","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/22B.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/22B-960.webp","alt":"Plano del apartamento 22B","width":1229,"height":1177,"caption":"Apartamento 22B","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/21B.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/21B-960.webp","alt":"Plano del apartamento 21B","width":1229,"height":1177,"caption":"Apartamento 21B","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/14G.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/14G-960.webp","alt":"Plano del apartamento 14G","width":1261,"height":1092,"caption":"Apartamento 14G","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/20D.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/20D-960.webp","alt":"Plano del apartamento 20D","width":1466,"height":1680,"caption":"Apartamento 20D","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/25B.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/25B-960.webp","alt":"Plano del apartamento 25B","width":1235,"height":1198,"caption":"Apartamento 25B","category":"Planos"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/13C.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/13C-960.webp","alt":"Plano del apartamento 13C","width":1670,"height":1589,"caption":"Apartamento 13C","category":"Planos"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Acciones de solicitud del proyecto">
-    <a href="es/property-estepona-links-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

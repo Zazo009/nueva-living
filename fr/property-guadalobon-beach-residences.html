@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien de logements au total ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Guadalobon Beach Residences"
   data-project-message="Je souhaite recevoir les dernières informations du projet Guadalobon Beach Residences."
@@ -451,408 +388,196 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Guadalobon Beach Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-guadalobon-beach-residences.html#top">Guadalobon Beach Residences<span>À partir de 450 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-guadalobon-beach-residences.html#overview">Aperçu</a><a href="fr/property-guadalobon-beach-residences.html#availability">Prix</a><a href="fr/property-guadalobon-beach-residences.html#gallery">Galerie</a><a href="fr/property-guadalobon-beach-residences.html#location">Emplacement</a><a href="fr/property-guadalobon-beach-residences.html#onsite">Sur place</a><a href="fr/property-guadalobon-beach-residences.html#view">Notre avis</a><a href="fr/property-guadalobon-beach-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Guadalobon Beach Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight.jpg" alt="Communal pool and building exterior at twilight" width="1920" height="1123" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight.jpg" alt="Communal pool and building exterior at twilight" width="1920" height="1123" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Nouvelle promotion / résidence fermée</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Guadalobon Beach <em>Residences</em></span>
-            <span class="hero-title-context">Appartement / Maison mitoyenne · Estepona, Costa del Sol</span>
-          </h1>
-          <p class="hero-positioning">Une collection de 87 logements à Estepona, associant 74 appartements répartis dans deux bâtiments à un ensemble indépendant de 13 maisons mitoyennes, près de la plage de Guadalobon et du golf de Valle Romano, avec piscine commune et jardins.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-guadalobon-beach-residences.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=guadalobon-beach-residences">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-guadalobon-beach-residences.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>Estepona, Costa del Sol</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 450 000 €</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Appartement / Maison mitoyenne</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Estimée T3 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-guadalobon-beach-residences.html#media">Galerie</a>
-        <a href="fr/property-guadalobon-beach-residences.html#location">Emplacement</a>
-        <a href="fr/property-guadalobon-beach-residences.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-guadalobon-beach-residences.html#overview">Aperçu</a>
-          <a href="fr/property-guadalobon-beach-residences.html#residences">Résidences</a>
-          <a href="fr/property-guadalobon-beach-residences.html#calculator">Financement</a>
-          <a href="fr/property-guadalobon-beach-residences.html#amenities">Équipements</a>
-          <a href="fr/property-guadalobon-beach-residences.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-guadalobon-beach-residences.html#architecture">Architecture</a>
-          <a href="fr/property-guadalobon-beach-residences.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-guadalobon-beach-residences.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-guadalobon-beach-residences.html#faq">FAQ</a>
-          <a href="fr/property-guadalobon-beach-residences.html#enquire">Nous contacter</a>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>11 photos</button>
+          <a class="chip" href="fr/property-guadalobon-beach-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plans</a>
+          <a class="chip" href="fr/property-guadalobon-beach-residences.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
+          
         </div>
       </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>2-4 chambres</strong></div>
-          <div class="quick-fact"><span>Surface construite</span><strong>83,47 - 249,18 m²</strong></div>
-          <div class="quick-fact"><span>Parking et rangement</span><strong>Inclus avec chaque logement</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>87 logements : 74 appartements, 13 maisons mitoyennes</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Demander la documentation</a>
+      <div class="hero-title">
+        <h1><span class="h1-a">Guadalobon Beach</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Une collection de 87 logements à Estepona, associant 74 appartements répartis dans deux bâtiments à un ensemble indépendant de 13 maisons mitoyennes, près de la plage de Guadalobon et du golf de Valle Romano, avec piscine commune et jardins.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 450 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>2 à 4</dd><dd class="sub"><span>Appartement / Maison mitoyenne</span></dd></div><div><dt>Livraison</dt><dd>Estimée T3 2028</dd><dd class="sub">Permis de construire demandé, pas encore délivré</dd></div><div><dt>Biens restants</dt><dd>11 sur 87</dd><dd class="sub">Vérifié le septembre 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Guadalobon%20Beach%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Guadalobon Beach Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">87 logements, <em>deux facons de vivre</em></h2>
-          <p class="project-lead">Guadalobon Beach Residences est une collection de 87 logements à Estepona, près de la plage de Guadalobon et du golf de Valle Romano : 74 appartements répartis dans deux bâtiments, et un ensemble indépendant de 13 maisons mitoyennes de quatre chambres.</p>
-          <p class="project-lead">Les appartements de 2 et 3 chambres vont de 77 à 155 m² en intérieur, avec des terrasses allant jusqu'à 55 m², tandis que chaque maison mitoyenne depasse 160 m² en intérieur répartis sur un sous-sol, un rez-de-chaussée et un premier étage, avec un solarium privé en toiture et un jardin. Chaque logement, appartement ou maison mitoyenne, inclut une place de parking et un box de rangement dans le parking souterrain sur deux niveaux de la promotion.</p>
-        </div>
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">Guadalobon Beach Residences est une collection de 87 logements à Estepona, près de la plage de Guadalobon et du golf de Valle Romano : 74 appartements répartis dans deux bâtiments, et un ensemble indépendant de 13 maisons mitoyennes de quatre chambres.</p>
+    <p class="lede-2">Les appartements de 2 et 3 chambres vont de 77 à 155 m² en intérieur, avec des terrasses allant jusqu'à 55 m², tandis que chaque maison mitoyenne depasse 160 m² en intérieur répartis sur un sous-sol, un rez-de-chaussée et un premier étage, avec un solarium privé en toiture et un jardin. Chaque logement, appartement ou maison mitoyenne, inclut une place de parking et un box de rangement dans le parking souterrain sur deux niveaux de la promotion.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Beton arme, construit pour durer</span></summary><p>Les fondations et la structure du bâtiment sont en béton armé, avec un système structurel à dalle réticulaire et des façades en maçonnerie de brique enduites de mortier monocouche. Les cloisons intérieures utilisent un système Pladur avec isolation thermique, et une membrane anti-impact sous le revêtement de sol assure l'isolation acoustique entre les étages.</p><p>La menuiserie extérieure est en aluminium blanc avec double vitrage et isolation thermo-acoustique, avec volets roulants dans toutes les chambres. Chaque logement dispose de son propre système de climatisation individuel avec eau chaude par aérothermie, et les salles de bain combinent carrelage mural et grès, tandis que les cuisines sont équipées d'un plan de travail en quartz naturel et d'un évier en acier inoxydable.</p><ul><li>Climatisation individuelle par logement, avec alimentation en eau chaude par aerothermie.</li><li>Double vitrage avec isolation thermo-acoustique et menuiserie extérieure en aluminium blanc.</li><li>Plan de travail de cuisine en quartz naturel, avec four, plaque à induction, hotte, refrigerateur et lave-vaisselle inclus.</li><li>Porte d'entrée blindée avec serrure de sécurité trois points.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>450 000 € – 865 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>11 biens sur 87</span><small>Vérifié le septembre 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartement / Maison mitoyenne</span></dd></div><div><dt>Surfaces</dt><dd><span>105 – 202 m²</span><small>Surface construite</small></dd></div><div><dt>Livraison</dt><dd><span>Estimée T3 2028</span></dd></div><div><dt>Permis</dt><dd><span>Demandé</span><small>Pas encore délivré</small></dd></div><div><dt>Acomptes</dt><dd><span>Garantie bancaire</span><small>Exigée par la loi espagnole</small></dd></div><div><dt>Stationnement</dt><dd><span>Garage souterrain sur deux niveaux</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">Les 11 références ci-dessous constituent la commercialisation actuelle du promoteur, vérifiée en septembre 2026 : six maisons de ville et cinq appartements, chacune avec un prix. Le promoteur ne donne pour quatre des maisons de ville que la surface intérieure ; les surfaces construites et de terrasse suivront à la publication de ces plans. Nueva Living reconfirme le prix et la disponibilité avant toute visite ou réservation. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    <div class="scarcity" role="img" aria-label="11 sur 87 encore en vente"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>11 sur 87 encore en vente</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrer par chambres"><button type="button" aria-pressed="true" data-beds="">Toutes <span>11</span></button><button type="button" aria-pressed="false" data-beds="2">2 ch. <span>2</span></button><button type="button" aria-pressed="false" data-beds="3">3 ch. <span>3</span></button><button type="button" aria-pressed="false" data-beds="4">4 ch. <span>6</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="4" data-price="795000" data-size="152.28" data-ppm="5221" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AN-2</span><span class="u-loc">Maison mitoyenne No. 2, ensemble de maisons mitoyennes</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">152 m²</td>
+            <td data-label="Prix" class="u-price num">795 000 €</td>
+            <td data-label="Par m²" class="num">5 221 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="4" data-price="795000" data-size="153.12" data-ppm="5192" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AN-3</span><span class="u-loc">Maison mitoyenne No. 3, ensemble de maisons mitoyennes</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">153 m²</td>
+            <td data-label="Prix" class="u-price num">795 000 €</td>
+            <td data-label="Par m²" class="num">5 192 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="4" data-price="795000" data-size="200.54" data-ppm="3964" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-9-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">AN-9</span><span class="u-loc">Maison mitoyenne No. 9, ensemble de maisons mitoyennes</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">201 m²</td>
+            <td data-label="Prix" class="u-price num">795 000 €</td>
+            <td data-label="Par m²" class="num">3 964 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-9-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de AN-9"><img src="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-9-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="4" data-price="795000" data-size="202.04" data-ppm="3935" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-10-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">AN-10</span><span class="u-loc">Maison mitoyenne No. 10, ensemble de maisons mitoyennes</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">202 m²</td>
+            <td data-label="Prix" class="u-price num">795 000 €</td>
+            <td data-label="Par m²" class="num">3 935 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-10-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de AN-10"><img src="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-10-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="4" data-price="795000" data-size="154.84" data-ppm="5134" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AN-12</span><span class="u-loc">Maison mitoyenne No. 12, ensemble de maisons mitoyennes</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">155 m²</td>
+            <td data-label="Prix" class="u-price num">795 000 €</td>
+            <td data-label="Par m²" class="num">5 134 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="4" data-price="825000" data-size="146.48" data-ppm="5632" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AN-13</span><span class="u-loc">Maison mitoyenne No. 13, ensemble de maisons mitoyennes</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">146 m²</td>
+            <td data-label="Prix" class="u-price num">825 000 €</td>
+            <td data-label="Par m²" class="num">5 632 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="865000" data-size="170.91" data-ppm="5061" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-24a-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">AN-24A</span><span class="u-loc">Niveau 4, portail 2, bâtiment A (Attique)</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">171 m²</td>
+            <td data-label="Prix" class="u-price num">865 000 €</td>
+            <td data-label="Par m²" class="num">5 061 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-24a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de AN-24A"><img src="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-24a-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="450000" data-size="113.04" data-ppm="3981" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-54c-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">AN-54C</span><span class="u-loc">Niveau 4, portail 5, bâtiment B</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">113 m²</td>
+            <td data-label="Prix" class="u-price num">450 000 €</td>
+            <td data-label="Par m²" class="num">3 981 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-54c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de AN-54C"><img src="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-54c-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="625000" data-size="143.34" data-ppm="4360" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-55a-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">AN-55A</span><span class="u-loc">Niveau 5, portail 5, bâtiment B (Attique)</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">143 m²</td>
+            <td data-label="Prix" class="u-price num">625 000 €</td>
+            <td data-label="Par m²" class="num">4 360 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-55a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de AN-55A"><img src="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-55a-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="450000" data-size="105.41" data-ppm="4269" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-64c-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">AN-64C</span><span class="u-loc">Niveau 4, portail 6, bâtiment B</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">105 m²</td>
+            <td data-label="Prix" class="u-price num">450 000 €</td>
+            <td data-label="Par m²" class="num">4 269 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-64c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de AN-64C"><img src="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-64c-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="656000" data-size="138.43" data-ppm="4739" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-65a-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">AN-65A</span><span class="u-loc">Niveau 5, portail 6, bâtiment B (Attique)</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">138 m²</td>
+            <td data-label="Prix" class="u-price num">656 000 €</td>
+            <td data-label="Par m²" class="num">4 739 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-65a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de AN-65A"><img src="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-65a-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>Appartements et maisons mitoyennes</span></summary><p>Les appartements de 2 et 3 chambres vont de 77 à 155 m² en intérieur, avec des terrasses allant jusqu'à 55 m². Les 13 maisons mitoyennes ont toutes 4 chambres, plus de 160 m² en intérieur, et un solarium privé en toiture et un jardin. Le promoteur n'a pas encore publie de prix individuels.</p><div class="res-types"><div class="res-type"><h3>Appartement</h3><dl class="res-meta"><div><dt>Chambres</dt><dd>2-3 chambres</dd></div><div><dt>Surface construite</dt><dd>83,47 - 170,91 m²</dd></div></dl><ul><li>Séjour, salle à manger et cuisine en plan ouvert avec accès à une terrasse.</li><li>Appartements en rez-de-chaussée avec jardin privé ; étages supérieurs et attiques avec solarium en toiture.</li><li>Place de parking et box de rangement inclus dans le parking souterrain partage.</li></ul></div><div class="res-type"><h3>Maison de ville</h3><dl class="res-meta"><div><dt>Chambres</dt><dd>4 chambres</dd></div><div><dt>Surface construite</dt><dd>200,54 - 202,04 m²</dd></div></dl><ul><li>Sous-sol, rez-de-chaussée et premier étage, avec un solarium privé en toiture au-dessus.</li><li>Jardin avant et arrière privé, avec terrasse couverte et patio.</li><li>Place de parking et box de rangement inclus dans le parking souterrain partage.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">L’échéancier du promoteur est disponible sur demande ; nous vous l’envoyons avec la grille de prix.</p>
       </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Les logements en <em>détail</em></h2>
-          </div>
-          <p class="project-lead">Images de synthèse fournies par le promoteur. Le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 8 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.jpg" alt="Vue aérienne de la promotion en construction, avec le littoral d'Estepona au loin" width="1920" height="1539" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>Vue aérienne avec le littoral d'Estepona au loin</strong>
-                <span class="project-media-card-cta">8 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 3 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view.jpg" alt="Séjour avec grandes fenêtres ouvrant sur une terrasse avec vue sur la mer" width="1920" height="1121" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Séjour avec terrasse et vue sur la mer</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 11 images</button>
-          <p class="media-note">Images fournies par le promoteur, qui peuvent être des images de synthèse. La conception finale, les finitions, les aménagements paysagers et les vues peuvent varier, et le mobilier n'est pas inclus.</p>
-        </div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
       </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>près de la plage</em></h2>
-          <p class="project-lead">Guadalobon Beach Residences se situe à Estepona, entre la Méditerranée et la Sierra Bermeja, près de la plage de Guadalobon et du golf de Valle Romano, avec Marbella à environ 20-25 minutes.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-guadalobon-beach-residences" data-locmap='{&quot;site&quot;:[36.4335,-5.15568],&quot;sea&quot;:[36.4065,-5.15568],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;2,1 km · 5 min&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;1,9 km · 3 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 4 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 12 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Guadalobon Beach Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Guadalobon Beach Residences</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>1,9 km</bdi> <em><bdi>3 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>4 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centre de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>45 km</bdi> <em><bdi>40 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Appartements <em>et maisons mitoyennes</em></h2>
-          <p class="project-lead">Les appartements de 2 et 3 chambres vont de 77 à 155 m² en intérieur, avec des terrasses allant jusqu'à 55 m². Les 13 maisons mitoyennes ont toutes 4 chambres, plus de 160 m² en intérieur, et un solarium privé en toiture et un jardin. Le promoteur n'a pas encore publie de prix individuels.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Appartement</h3>
-            <div class="res-meta">
-              <div><span>Chambres</span><strong>2-3 chambres</strong></div>
-<div><span>Surface construite</span><strong>83,47 - 170,91 m²</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Séjour, salle à manger et cuisine en plan ouvert avec accès à une terrasse.</li>
-            <li>Appartements en rez-de-chaussée avec jardin privé ; étages supérieurs et attiques avec solarium en toiture.</li>
-            <li>Place de parking et box de rangement inclus dans le parking souterrain partage.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-guadalobon-beach-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Maison de ville</h3>
-            <div class="res-meta">
-              <div><span>Chambres</span><strong>4 chambres</strong></div>
-<div><span>Surface construite</span><strong>200,54 - 202,04 m²</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Sous-sol, rez-de-chaussée et premier étage, avec un solarium privé en toiture au-dessus.</li>
-            <li>Jardin avant et arrière privé, avec terrasse couverte et patio.</li>
-            <li>Place de parking et box de rangement inclus dans le parking souterrain partage.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-guadalobon-beach-residences.html#availability">Voir les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-guadalobon-beach-residences.html#availability">Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">87 logements <em>dans deux bâtiments et un ensemble de maisons mitoyennes</em></h2>
-          <p class="project-lead">Les 11 références ci-dessous constituent la commercialisation actuelle du promoteur, vérifiée en septembre 2026 : six maisons de ville et cinq appartements, chacune avec un prix. Le promoteur ne donne pour quatre des maisons de ville que la surface intérieure ; les surfaces construites et de terrasse suivront à la publication de ces plans. Nueva Living reconfirme le prix et la disponibilité avant toute visite ou réservation.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>11</strong></div>
-            <div><span>Prix à partir de</span><strong>450 000 €</strong></div>
-            <div><span>Fourchette de prix</span><strong>450 000 € - 865 000 €</strong></div>
-            <div><span>Vérifié</span><strong>septembre 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 11 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Logements disponibles à Guadalobon Beach Residences</caption>
-                <thead><tr><th scope="col">Référence</th><th scope="col">Étage</th><th scope="col">Chambres</th><th scope="col">Surface</th><th scope="col">Prix</th><th scope="col">Statut</th><th scope="col">Plan</th></tr></thead>
-                <tbody>
-              <tr data-price="795000">
-                <td data-label="Référence"><strong>AN-2</strong></td>
-                <td data-label="Étage">Maison mitoyenne No. 2, ensemble de maisons mitoyennes</td>
-                <td data-label="Chambres">4 chambres</td>
-                <td data-label="Surface">152,28 m² intérieurs</td>
-                <td data-label="Prix"><strong>795 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="795000">
-                <td data-label="Référence"><strong>AN-3</strong></td>
-                <td data-label="Étage">Maison mitoyenne No. 3, ensemble de maisons mitoyennes</td>
-                <td data-label="Chambres">4 chambres</td>
-                <td data-label="Surface">153,12 m² intérieurs</td>
-                <td data-label="Prix"><strong>795 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="795000">
-                <td data-label="Référence"><strong>AN-9</strong></td>
-                <td data-label="Étage">Maison mitoyenne No. 9, ensemble de maisons mitoyennes</td>
-                <td data-label="Chambres">4 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>200,54 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>94,65 m²</strong> <em>Terrasse et jardin</em></span></td>
-                <td data-label="Prix"><strong>795 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-9-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="795000">
-                <td data-label="Référence"><strong>AN-10</strong></td>
-                <td data-label="Étage">Maison mitoyenne No. 10, ensemble de maisons mitoyennes</td>
-                <td data-label="Chambres">4 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>202,04 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>95,08 m²</strong> <em>Terrasse et jardin</em></span></td>
-                <td data-label="Prix"><strong>795 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-10-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="795000">
-                <td data-label="Référence"><strong>AN-12</strong></td>
-                <td data-label="Étage">Maison mitoyenne No. 12, ensemble de maisons mitoyennes</td>
-                <td data-label="Chambres">4 chambres</td>
-                <td data-label="Surface">154,84 m² intérieurs</td>
-                <td data-label="Prix"><strong>795 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="825000">
-                <td data-label="Référence"><strong>AN-13</strong></td>
-                <td data-label="Étage">Maison mitoyenne No. 13, ensemble de maisons mitoyennes</td>
-                <td data-label="Chambres">4 chambres</td>
-                <td data-label="Surface">146,48 m² intérieurs</td>
-                <td data-label="Prix"><strong>825 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="865000">
-                <td data-label="Référence"><strong>AN-24A</strong></td>
-                <td data-label="Étage">Niveau 4, portail 2, bâtiment A (Attique)</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>170,91 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>164,39 m²</strong> <em>Terrasse et solarium</em></span></td>
-                <td data-label="Prix"><strong>865 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-24a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="450000">
-                <td data-label="Référence"><strong>AN-54C</strong></td>
-                <td data-label="Étage">Niveau 4, portail 5, bâtiment B</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>113,04 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>11,63 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>450 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-54c-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="625000">
-                <td data-label="Référence"><strong>AN-55A</strong></td>
-                <td data-label="Étage">Niveau 5, portail 5, bâtiment B (Attique)</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>143,34 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>131,76 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>625 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-55a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="450000">
-                <td data-label="Référence"><strong>AN-64C</strong></td>
-                <td data-label="Étage">Niveau 4, portail 6, bâtiment B</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>105,41 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>16,21 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>450 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-64c-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="656000">
-                <td data-label="Référence"><strong>AN-65A</strong></td>
-                <td data-label="Étage">Niveau 5, portail 6, bâtiment B (Attique)</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>138,43 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>76,24 m²</strong> <em>Terrasse et solarium</em></span></td>
-                <td data-label="Prix"><strong>656 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-65a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          <div class="availability-sitemaps reveal-soft">
-            <h3 class="availability-sitemaps-title">Plans de situation</h3>
-            <div class="availability-sitemap-grid">
-            <a class="availability-sitemap-tile" href="assets/liora/projects/guadalobon-beach-residences/media/site-plan-townhouses.jpg" target="_blank" rel="noopener" aria-label="Rangée de maisons mitoyennes -- logements réservés et disponibles">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/site-plan-townhouses-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/site-plan-townhouses-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/site-plan-townhouses.webp 1920w" sizes="(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 30vw">
-        <img src="assets/liora/projects/guadalobon-beach-residences/media/site-plan-townhouses.jpg" alt="Plan de situation de la rangée de maisons mitoyennes avec logements réservés et disponibles" width="1920" height="885" loading="lazy" decoding="async">
-      </picture>
-              <span class="availability-sitemap-caption">Rangée de maisons mitoyennes -- logements réservés et disponibles</span>
-            </a>
-            <a class="availability-sitemap-tile" href="assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-4.jpg" target="_blank" rel="noopener" aria-label="Immeuble d'appartements, niveau 4">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-4-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-4-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-4.webp 1920w" sizes="(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 30vw">
-        <img src="assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-4.jpg" alt="Plan de situation de l'immeuble d'appartements, niveau 4, avec logements réservés et disponibles" width="1920" height="1330" loading="lazy" decoding="async">
-      </picture>
-              <span class="availability-sitemap-caption">Immeuble d'appartements, niveau 4</span>
-            </a>
-            <a class="availability-sitemap-tile" href="assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-5.jpg" target="_blank" rel="noopener" aria-label="Immeuble d'appartements, niveau 5">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-5-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-5-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-5.webp 1920w" sizes="(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 30vw">
-        <img src="assets/liora/projects/guadalobon-beach-residences/media/site-plan-apartments-level-5.jpg" alt="Plan de situation de l'immeuble d'appartements, niveau 5, avec logements réservés et disponibles" width="1920" height="1221" loading="lazy" decoding="async">
-      </picture>
-              <span class="availability-sitemap-caption">Immeuble d'appartements, niveau 5</span>
-            </a>
-            </div>
-            <p class="availability-source-note">Plans de situation fournis par le promoteur, indiquant les logements réservés et disponibles au moment de la publication. Nueva Living reconfirme la disponibilité actuelle avant toute visite ou réservation.</p>
-          </div>
-          <p class="availability-source-note">Typologies et surfaces transcrites des plans publiés par le promoteur ; prix et disponibilité issus de la liste de commercialisation du promoteur, vérifiée en septembre 2026. Quatre maisons de ville portent la surface intérieure indiquée par le promoteur, car leurs plans ne sont pas encore publiés. Les prix s'entendent hors TVA et hors frais d'acquisition applicables et peuvent changer sans préavis. Nueva Living reconfirme le prix, le statut et la commercialisation avant toute visite.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Guadalobon%20Beach%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Guadalobon Beach Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
-        </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -912,428 +637,199 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine extérieure commune avec espace détente</h3>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Vue aérienne avec le littoral d'Estepona au loin"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.jpg" alt="Vue aérienne de la promotion en construction, avec le littoral d'Estepona au loin" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Séjour avec terrasse et vue sur la mer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view.jpg" alt="Séjour avec grandes fenêtres ouvrant sur une terrasse avec vue sur la mer" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Vue aérienne de l'ensemble de la promotion"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-massing-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-massing-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-massing.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-massing.jpg" alt="Vue aérienne du volume de la promotion terminée, avec piscine commune et jardins au centre" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Extérieur du bâtiment de nuit"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/building-exterior-night-view-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/building-exterior-night-view-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/building-exterior-night-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/guadalobon-beach-residences/media/building-exterior-night-view.jpg" alt="Extérieur du bâtiment d'appartements de nuit avec palmiers" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Extérieur du bâtiment et jardin paysager"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade-640.webp 640w, assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade-960.webp 960w, assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade.jpg" alt="Extérieur du bâtiment d'appartements avec jardin paysager et palmiers" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 11 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Extérieurs (8)</button><button type="button" data-open-cat="Interiors">Intérieurs (3)</button></div>
+    
+    <p class="caption">Images fournies par le promoteur, qui peuvent être des images de synthèse. La conception finale, les finitions, les aménagements paysagers et les vues peuvent varier, et le mobilier n'est pas inclus.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">Guadalobon Beach Residences se situe à Estepona, entre la Méditerranée et la Sierra Bermeja, près de la plage de Guadalobon et du golf de Valle Romano, avec Marbella à environ 20-25 minutes.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-guadalobon-beach-residences" data-locmap='{&quot;site&quot;:[36.4335,-5.15568],&quot;sea&quot;:[36.4065,-5.15568],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;2,1 km · 5 min&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;1,9 km · 3 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 4 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 12 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Guadalobon Beach Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Guadalobon Beach Residences</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>1,9 km</bdi> <em><bdi>3 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bien-être</span>
-              <h3 class="amenity-name">Salle de sport équipée en espace commun</h3>
-              <p class="amenity-note">Au sein du programme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>4 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine commune</h3>
-              <p class="amenity-note">Partagée par les résidents</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardins communs paysagers</h3>
-              <p class="amenity-note">Espaces communs paysagers</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Solarium</h3>
-              <p class="amenity-note">Terrasse de toit ouverte au soleil</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Vue sur la mer</h3>
-              <p class="amenity-note">Vers la Méditerranée</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>45 km</bdi> <em><bdi>40 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Garage souterrain sur deux niveaux</h3>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Place de stationnement et cave incluses avec chaque logement</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Porte de garage automatique et contrôle d'accès à l'immeuble</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Système aérothermique</h3>
-              <p class="amenity-note">Chauffage, climatisation et eau chaude</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Climatisation</h3>
-              <p class="amenity-note">Froid et chaud par gaines</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Cuisine extérieure</h3>
-              <p class="amenity-note">Cuisiner sur la terrasse</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Services</span>
-              <h3 class="amenity-name">Interphone électronique</h3>
-              <p class="amenity-note">Vidéo à la porte</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Services</span>
-              <h3 class="amenity-name">Résidence sécurisée</h3>
-              <p class="amenity-note">Accès contrôlé</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Centre-ville d'Estepona</th><td>Environ 5 minutes</td></tr><tr><th scope="row">Plage de Guadalobon</th><td>Env. 8 minutes</td></tr><tr><th scope="row">Valle Romano Golf</th><td>Env. 12 minutes</td></tr><tr><th scope="row">San Pedro de Alcantara</th><td>Env. 16 minutes</td></tr><tr><th scope="row">Marbella</th><td>Env. 25 minutes</td></tr><tr><th scope="row">Aéroport de Malaga</th><td>Env. 70 minutes</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">Au-delà de la terrasse, du jardin ou du solarium propres à chaque logement, les résidents de Guadalobon Beach partagent une piscine commune, des jardins paysagers et une salle de sport.</p>
+    <div class="life-panels"><div><h3>Vie extérieure</h3><p>Une piscine extérieure commune entourée de jardins paysagers, avec une zone de repos dédiée.</p></div><div><h3>Fitness</h3><p>Une salle de sport équipée dans l'espace commun de la promotion.</p></div><div><h3>Praticité</h3><p>Un parking souterrain sur deux niveaux reliant les deux bâtiments d'appartements et l'ensemble de maisons mitoyennes, avec place de parking et box de rangement inclus dans chaque logement.</p></div></div>
+    <ul class="amen-top"><li>Piscine extérieure commune avec espace détente</li><li>Jardins communs paysagers</li><li>Salle de sport équipée en espace commun</li><li>Garage souterrain sur deux niveaux</li><li>Place de stationnement et cave incluses avec chaque logement</li><li>Porte de garage automatique et contrôle d'accès à l'immeuble</li></ul>
+    <details class="amen-all"><summary>Tout afficher (14)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">3</span></h3><ul><li>Piscine extérieure commune avec espace détente</li><li>Salle de sport équipée en espace commun</li><li>Piscine commune</li></ul></div><div><h3>Extérieurs<span class="count">3</span></h3><ul><li>Jardins communs paysagers</li><li>Solarium</li><li>Vue sur la mer</li></ul></div><div><h3>Au quotidien<span class="count">6</span></h3><ul><li>Garage souterrain sur deux niveaux</li><li>Place de stationnement et cave incluses avec chaque logement</li><li>Porte de garage automatique et contrôle d'accès à l'immeuble</li><li>Système aérothermique</li><li>Climatisation</li><li>Cuisine extérieure</li></ul></div><div><h3>Services<span class="count">2</span></h3><ul><li>Interphone électronique</li><li>Résidence sécurisée</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>À qui s'adresse ce projet</b><span>Aux acheteurs qui veulent soit un appartement facile à entretenir, soit l'espace supplémentaire d'une maison mitoyenne avec jardin privé, sur la même promotion.</span></li><li><b>Ce qui le distingue</b><span>Chaque logement, pas seulement les maisons mitoyennes, inclut une place de parking et un box de rangement dans un parking souterrain partage sur deux niveaux.</span></li><li><b>Pourquoi l'emplacement compte</b><span>Estepona se situe entre la Méditerranée et la Sierra Bermeja, près de la plage de Guadalobon et du golf de Valle Romano, avec Marbella à environ 20-25 minutes.</span></li><li><b>Pourquoi vérifier la disponibilité</b><span>Le promoteur n'a pas encore publie de prix individuels ni de liste de disponibilité publique ; Nueva Living reconfirme la disponibilité actuelle avant toute visite.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Pourquoi le moment compte</b><span>Il s'agit d'une promotion sur plan à un stade precoce ; le promoteur n'a pas encore publie de prix individuels ni de liste de disponibilité publique.</span></li><li><b>Information actuelle</b><span>Nueva Living reconfirme le prix, la disponibilité et les spécifications directement auprès du promoteur avant toute visite ou réservation.</span></li><li><b>Attrait à long terme</b><span>Pouvoir choisir entre appartements et maisons mitoyennes avec jardin privé sur la même promotion, tous avec parking et rangement inclus, est rare à cette échelle.</span></li><li><b>Usage personnel et location</b><span>Les acheteurs doivent confirmer les règles de location en vigueur pour ce projet directement auprès du promoteur avant d'envisager un plan de rentabilité locative.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Informations sur le promoteur</b><span>Nueva Living dispose de l'identité et des informations de licence du promoteur et les fournit par écrit avant toute réservation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Comment se déroule l'achat</b><span>Un processus d'achat privé en anglais avec un avocat espagnol de votre choix ; Nueva Living coordonne les visites et les documents.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Livraison et garantie</b><span>Permis de construire demandé ; la construction devrait démarrer au troisième trimestre 2026, avec un achèvement estimé au troisième trimestre 2028. Conditions de paiement : 6 000 € de réservation, 30% + TVA à la signature du contrat privé de vente, 10% + TVA en novembre 2026, et 60% + TVA à la livraison.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Autres options</b><span>Nueva Living peut comparer Guadalobon Beach avec d'autres promotions d'Estepona sur demande.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Demandez l'information du projet</h3><p>Demandez la liste de prix actuelle pour la typologie d'appartement ou de maison mitoyenne qui vous intéresse.</p></li><li><h3>Comparez les typologies</h3><p>Comparez les typologies d'appartement et de maison mitoyenne selon votre budget et vos besoins d'espace.</p></li><li><h3>Visite privée</h3><p>Découvrez le cadre d'Estepona et la piscine commune et les jardins en personne avant de décider.</p></li><li><h3>Vérification avant réservation</h3><p>Confirmez par écrit le prix, la disponibilité et la structure de paiement actuels avant toute réservation.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plans<small>7 biens sur 11</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Échéancier<small>Pas encore fourni</small><small>En attente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Guadalobon Beach</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien de logements au total ?</summary><p>87 logements : 74 appartements répartis dans deux bâtiments et 13 maisons mitoyennes dans un ensemble indépendant.</p></details><details class="segment-faq-item"><summary>Combien sont disponibles actuellement ?</summary><p>Onze logements sont actuellement listés : six maisons de ville et cinq appartements, chacun avec un prix. Quatre des maisons de ville ne portent que la surface intérieure, le promoteur n'ayant pas encore publié leurs plans. Nueva Living reconfirme la disponibilité et le prix avant toute visite.</p></details><details class="segment-faq-item"><summary>Le parking est-il inclus ?</summary><p>Oui. Chaque logement, appartement ou maison mitoyenne, inclut une place de parking et un box de rangement dans le parking souterrain sur deux niveaux de la promotion.</p></details><details class="segment-faq-item"><summary>Le prix inclut-il la TVA ?</summary><p>Le promoteur n'a pas encore publie de structure de paiement pour cette promotion ; Nueva Living confirme si la TVA est incluse avant toute réservation.</p></details><details class="segment-faq-item"><summary>Le mobilier est-il inclus ?</summary><p>Non. Les images présentées sont des visuels numeriques ; le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente.</p></details></div>
+    <details class="faq2-more"><summary>Voir toutes les questions (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Quand à lieu la livraison ?</summary><p>Le permis de construire a été demandé. La construction devrait démarrer au troisième trimestre 2026, avec un achèvement estimé au troisième trimestre 2028.</p></details></div></details>
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">450 000 €</p>
+      <p class="rail-note">Hors TVA. Il reste 11 biens sur 87 · Vérifié le septembre 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Guadalobon%20Beach%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Guadalobon Beach Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Guadalobon%20Beach%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Guadalobon Beach Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Architecture.</b> Deux bâtiments d'appartements et un ensemble indépendant de maisons mitoyennes, partageant un parking souterrain sur deux niveaux.</li><li><b>Types de résidences.</b> Appartements de 2 et 3 chambres et maisons mitoyennes de 4 chambres, tous avec parking et rangement inclus.</li><li><b>Art de vivre.</b> Une piscine commune avec zone de repos et jardins paysagers, près de la plage de Guadalobon.</li><li><b>Prochaine étape.</b> Demandez la liste de prix actuelle et les plans de la typologie qui vous intéresse.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Guadalobon Beach Residences">
+        <input type="hidden" id="f-project" name="project" value="Guadalobon Beach Residences">
+        <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
+        <input type="hidden" name="property_type_interest" value="Appartement / Maison mitoyenne">
+        <input type="hidden" name="budget_range" value="À partir de 450 000 €">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Je souhaite recevoir les dernières informations du projet Guadalobon Beach Residences." data-base="Je souhaite recevoir les dernières informations du projet Guadalobon Beach Residences.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="AN-2">AN-2: 795 000 €</option><option value="AN-3">AN-3: 795 000 €</option><option value="AN-9">AN-9: 795 000 €</option><option value="AN-10">AN-10: 795 000 €</option><option value="AN-12">AN-12: 795 000 €</option><option value="AN-13">AN-13: 825 000 €</option><option value="AN-24A">AN-24A: 865 000 €</option><option value="AN-54C">AN-54C: 450 000 €</option><option value="AN-55A">AN-55A: 625 000 €</option><option value="AN-64C">AN-64C: 450 000 €</option><option value="AN-65A">AN-65A: 656 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Guadalobon Beach.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Une collection mixte d'appartements et de maisons mitoyennes pour les acheteurs qui veulent une adresse à Estepona près de la plage, avec la flexibilité de choisir entre les deux.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Aux acheteurs qui veulent soit un appartement facile à entretenir, soit l'espace supplémentaire d'une maison mitoyenne avec jardin privé, sur la même promotion.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce qui le distingue</h3><p>Chaque logement, pas seulement les maisons mitoyennes, inclut une place de parking et un box de rangement dans un parking souterrain partage sur deux niveaux.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi l'emplacement compte</h3><p>Estepona se situe entre la Méditerranée et la Sierra Bermeja, près de la plage de Guadalobon et du golf de Valle Romano, avec Marbella à environ 20-25 minutes.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi vérifier la disponibilité</h3><p>Le promoteur n'a pas encore publie de prix individuels ni de liste de disponibilité publique ; Nueva Living reconfirme la disponibilité actuelle avant toute visite.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Une note factuelle sur les délais et la propriété ; Nueva Living ne promet ni rendement locatif ni plus-value.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Pourquoi le moment compte</h3><p>Il s'agit d'une promotion sur plan à un stade precoce ; le promoteur n'a pas encore publie de prix individuels ni de liste de disponibilité publique.</p></article>
-              <article class="why-point reveal-soft"><h3>Information actuelle</h3><p>Nueva Living reconfirme le prix, la disponibilité et les spécifications directement auprès du promoteur avant toute visite ou réservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Attrait à long terme</h3><p>Pouvoir choisir entre appartements et maisons mitoyennes avec jardin privé sur la même promotion, tous avec parking et rangement inclus, est rare à cette échelle.</p></article>
-              <article class="why-point reveal-soft"><h3>Usage personnel et location</h3><p>Les acheteurs doivent confirmer les règles de location en vigueur pour ce projet directement auprès du promoteur avant d'envisager un plan de rentabilité locative.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Informations sur le promoteur</h3><p>Nueva Living dispose de l'identité et des informations de licence du promoteur et les fournit par écrit avant toute réservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Comment se déroule l'achat</h3><p>Un processus d'achat privé en anglais avec un avocat espagnol de votre choix ; Nueva Living coordonne les visites et les documents.</p></article>
-              <article class="why-point reveal-soft"><h3>Livraison et garantie</h3><p>Permis de construire demandé ; la construction devrait démarrer au troisième trimestre 2026, avec un achèvement estimé au troisième trimestre 2028. Conditions de paiement : 6 000 € de réservation, 30% + TVA à la signature du contrat privé de vente, 10% + TVA en novembre 2026, et 60% + TVA à la livraison.</p></article>
-              <article class="why-point reveal-soft"><h3>Autres options</h3><p>Nueva Living peut comparer Guadalobon Beach avec d'autres promotions d'Estepona sur demande.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le septembre 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Typologies et surfaces transcrites des plans publiés par le promoteur ; prix et disponibilité issus de la liste de commercialisation du promoteur, vérifiée en septembre 2026. Quatre maisons de ville portent la surface intérieure indiquée par le promoteur, car leurs plans ne sont pas encore publiés. Les prix s'entendent hors TVA et hors frais d'acquisition applicables et peuvent changer sans préavis. Nueva Living reconfirme le prix, le statut et la commercialisation avant toute visite.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade.jpg" alt="Apartment building exterior with landscaped garden" width="1920" height="1539" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Extérieur du bâtiment et jardin commun</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beton arme, <em>construit pour durer</em></h2>
-          <p>Les fondations et la structure du bâtiment sont en béton armé, avec un système structurel à dalle réticulaire et des façades en maçonnerie de brique enduites de mortier monocouche. Les cloisons intérieures utilisent un système Pladur avec isolation thermique, et une membrane anti-impact sous le revêtement de sol assure l'isolation acoustique entre les étages.</p>
-<p>La menuiserie extérieure est en aluminium blanc avec double vitrage et isolation thermo-acoustique, avec volets roulants dans toutes les chambres. Chaque logement dispose de son propre système de climatisation individuel avec eau chaude par aérothermie, et les salles de bain combinent carrelage mural et grès, tandis que les cuisines sont équipées d'un plan de travail en quartz naturel et d'un évier en acier inoxydable.</p>
-          <ul class="feature-list">
-            <li>Climatisation individuelle par logement, avec alimentation en eau chaude par aerothermie.</li>
-            <li>Double vitrage avec isolation thermo-acoustique et menuiserie extérieure en aluminium blanc.</li>
-            <li>Plan de travail de cuisine en quartz naturel, avec four, plaque à induction, hotte, refrigerateur et lave-vaisselle inclus.</li>
-            <li>Porte d'entrée blindée avec serrure de sécurité trois points.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Guadalobon%20Beach%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Guadalobon Beach Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/guadalobon-beach-residences/media/living-dining-terrace-view.jpg" alt="Open-plan living and dining area opening onto a terrace with sea views" width="1920" height="1122" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Découvrez de plus près <em>Guadalobon Beach</em></h2>
-            <p>Explorez le cadre d'Estepona, la piscine commune et les jardins, et les typologies d'appartement et de maison mitoyenne avant de demander l'information complète du projet.</p>
-            <div class="viewing-insights">
-              <div><span>Architecture</span><p>Deux bâtiments d'appartements et un ensemble indépendant de maisons mitoyennes, partageant un parking souterrain sur deux niveaux.</p></div>
-              <div><span>Types de résidences</span><p>Appartements de 2 et 3 chambres et maisons mitoyennes de 4 chambres, tous avec parking et rangement inclus.</p></div>
-              <div><span>Art de vivre</span><p>Une piscine commune avec zone de repos et jardins paysagers, près de la plage de Guadalobon.</p></div>
-              <div><span>Prochaine étape</span><p>Demandez la liste de prix actuelle et les plans de la typologie qui vous intéresse.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=guadalobon-beach-residences">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Interiors">Intérieurs</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-sea-view.jpg" alt="Communal pool with sea views over Estepona" width="1920" height="824" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Vivre autour <em>de la piscine et des jardins</em></h2>
-            <p>Au-delà de la terrasse, du jardin ou du solarium propres à chaque logement, les résidents de Guadalobon Beach partagent une piscine commune, des jardins paysagers et une salle de sport.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Demandez l'information du projet</h3>
-            <p>Demandez la liste de prix actuelle pour la typologie d'appartement ou de maison mitoyenne qui vous intéresse.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Comparez les typologies</h3>
-            <p>Comparez les typologies d'appartement et de maison mitoyenne selon votre budget et vos besoins d'espace.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visite privée</h3>
-            <p>Découvrez le cadre d'Estepona et la piscine commune et les jardins en personne avant de décider.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Vérification avant réservation</h3>
-            <p>Confirmez par écrit le prix, la disponibilité et la structure de paiement actuels avant toute réservation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien de logements au total ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>87 logements : 74 appartements répartis dans deux bâtiments et 13 maisons mitoyennes dans un ensemble indépendant.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien sont disponibles actuellement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Onze logements sont actuellement listés : six maisons de ville et cinq appartements, chacun avec un prix. Quatre des maisons de ville ne portent que la surface intérieure, le promoteur n'ayant pas encore publié leurs plans. Nueva Living reconfirme la disponibilité et le prix avant toute visite.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le parking est-il inclus ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Chaque logement, appartement ou maison mitoyenne, inclut une place de parking et un box de rangement dans le parking souterrain sur deux niveaux de la promotion.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le prix inclut-il la TVA ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le promoteur n'a pas encore publie de structure de paiement pour cette promotion ; Nueva Living confirme si la TVA est incluse avant toute réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le mobilier est-il inclus ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Non. Les images présentées sont des visuels numeriques ; le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quand à lieu la livraison ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le permis de construire a été demandé. La construction devrait démarrer au troisième trimestre 2026, avec un achèvement estimé au troisième trimestre 2028.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Renseignez-vous sur <em>Guadalobon Beach Residences</em></h2>
-          <p class="body-copy">Dites-nous quelle typologie d'appartement ou de maison mitoyenne vous intéresse et nous vous enverrons la liste de prix et les spécifications actuelles.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Guadalobon%20Beach%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Guadalobon Beach Residences" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Guadalobon Beach Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Guadalobon Beach Residences">
-          <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
-          <input type="hidden" name="property_type_interest" value="Appartement / Maison mitoyenne">
-          <input type="hidden" name="budget_range" value="À partir de 450 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Je souhaite recevoir les dernières informations du projet Guadalobon Beach Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Contexte du projet : Guadalobon Beach Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"AN-2","title":"AN-2 · Maison mitoyenne No. 2, ensemble de maisons mitoyennes","sub":"4 ch. · 152 m²","price":795000,"plans":[]},{"id":"u1","ref":"AN-3","title":"AN-3 · Maison mitoyenne No. 3, ensemble de maisons mitoyennes","sub":"4 ch. · 153 m²","price":795000,"plans":[]},{"id":"u2","ref":"AN-9","title":"AN-9 · Maison mitoyenne No. 9, ensemble de maisons mitoyennes","sub":"4 ch. · 201 m²","price":795000,"plans":[{"src":"assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-9-floorplans.pdf","label":""}]},{"id":"u3","ref":"AN-10","title":"AN-10 · Maison mitoyenne No. 10, ensemble de maisons mitoyennes","sub":"4 ch. · 202 m²","price":795000,"plans":[{"src":"assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-10-floorplans.pdf","label":""}]},{"id":"u4","ref":"AN-12","title":"AN-12 · Maison mitoyenne No. 12, ensemble de maisons mitoyennes","sub":"4 ch. · 155 m²","price":795000,"plans":[]},{"id":"u5","ref":"AN-13","title":"AN-13 · Maison mitoyenne No. 13, ensemble de maisons mitoyennes","sub":"4 ch. · 146 m²","price":825000,"plans":[]},{"id":"u6","ref":"AN-24A","title":"AN-24A · Niveau 4, portail 2, bâtiment A (Attique)","sub":"3 ch. · 171 m²","price":865000,"plans":[{"src":"assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-24a-floorplans.pdf","label":""}]},{"id":"u7","ref":"AN-54C","title":"AN-54C · Niveau 4, portail 5, bâtiment B","sub":"2 ch. · 113 m²","price":450000,"plans":[{"src":"assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-54c-floorplans.pdf","label":""}]},{"id":"u8","ref":"AN-55A","title":"AN-55A · Niveau 5, portail 5, bâtiment B (Attique)","sub":"3 ch. · 143 m²","price":625000,"plans":[{"src":"assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-55a-floorplans.pdf","label":""}]},{"id":"u9","ref":"AN-64C","title":"AN-64C · Niveau 4, portail 6, bâtiment B","sub":"2 ch. · 105 m²","price":450000,"plans":[{"src":"assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-64c-floorplans.pdf","label":""}]},{"id":"u10","ref":"AN-65A","title":"AN-65A · Niveau 5, portail 6, bâtiment B (Attique)","sub":"3 ch. · 138 m²","price":656000,"plans":[{"src":"assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-65a-floorplans.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.webp","alt":"Vue aérienne de la promotion en construction, avec le littoral d\u0027Estepona au loin","caption":"Vue aérienne avec le littoral d\u0027Estepona au loin","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-massing.webp","alt":"Vue aérienne du volume de la promotion terminée, avec piscine commune et jardins au centre","caption":"Vue aérienne de l\u0027ensemble de la promotion","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/building-exterior-night-view.webp","alt":"Extérieur du bâtiment d\u0027appartements de nuit avec palmiers","caption":"Extérieur du bâtiment de nuit","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade.webp","alt":"Extérieur du bâtiment d\u0027appartements avec jardin paysager et palmiers","caption":"Extérieur du bâtiment et jardin paysager","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-sea-view.webp","alt":"Piscine commune avec vue sur la mer au-dessus d\u0027Estepona","caption":"Piscine commune avec vue sur la mer","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight.webp","alt":"Piscine commune et extérieur du bâtiment illuminés au crépuscule","caption":"Piscine commune au crepuscule","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/rooftop-terrace-sea-view.webp","alt":"Terrasse solarium en toiture avec repas extérieur et vue sur Estepona et la mer","caption":"Solarium en toiture avec vue sur la mer","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/rooftop-terrace-outdoor-kitchen.webp","alt":"Terrasse en toiture avec cuisine extérieure, table à manger et coin salon","caption":"Terrasse en toiture avec cuisine extérieure","cat":"Exteriors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view.webp","alt":"Séjour avec grandes fenêtres ouvrant sur une terrasse avec vue sur la mer","caption":"Séjour avec terrasse et vue sur la mer","cat":"Interiors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/living-dining-terrace-view.webp","alt":"Séjour et salle à manger en plan ouvert ouvrant sur une terrasse avec vue sur le jardin","caption":"Séjour et salle à manger ouvrant sur la terrasse","cat":"Interiors"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/bedroom-interior.webp","alt":"Chambre avec tête de lit habillée de bois et balcon donnant sur la promotion","caption":"Chambre","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Guadalobon Beach Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline-960.webp","alt":"Vue aérienne de la promotion en construction, avec le littoral d'Estepona au loin","width":1920,"height":1539,"caption":"Vue aérienne avec le littoral d'Estepona au loin","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-massing.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-massing-960.webp","alt":"Vue aérienne du volume de la promotion terminée, avec piscine commune et jardins au centre","width":1920,"height":1120,"caption":"Vue aérienne de l'ensemble de la promotion","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/building-exterior-night-view.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/building-exterior-night-view-960.webp","alt":"Extérieur du bâtiment d'appartements de nuit avec palmiers","width":1920,"height":1122,"caption":"Extérieur du bâtiment de nuit","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/building-exterior-garden-facade-960.webp","alt":"Extérieur du bâtiment d'appartements avec jardin paysager et palmiers","width":1920,"height":1539,"caption":"Extérieur du bâtiment et jardin paysager","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-sea-view.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-sea-view-960.webp","alt":"Piscine commune avec vue sur la mer au-dessus d'Estepona","width":1920,"height":824,"caption":"Piscine commune avec vue sur la mer","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/pool-exterior-twilight-960.webp","alt":"Piscine commune et extérieur du bâtiment illuminés au crépuscule","width":1920,"height":1123,"caption":"Piscine commune au crepuscule","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/rooftop-terrace-sea-view.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/rooftop-terrace-sea-view-960.webp","alt":"Terrasse solarium en toiture avec repas extérieur et vue sur Estepona et la mer","width":1920,"height":1122,"caption":"Solarium en toiture avec vue sur la mer","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/rooftop-terrace-outdoor-kitchen.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/rooftop-terrace-outdoor-kitchen-960.webp","alt":"Terrasse en toiture avec cuisine extérieure, table à manger et coin salon","width":1920,"height":1121,"caption":"Terrasse en toiture avec cuisine extérieure","category":"Extérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/living-room-sea-view-960.webp","alt":"Séjour avec grandes fenêtres ouvrant sur une terrasse avec vue sur la mer","width":1920,"height":1121,"caption":"Séjour avec terrasse et vue sur la mer","category":"Intérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/living-dining-terrace-view.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/living-dining-terrace-view-960.webp","alt":"Séjour et salle à manger en plan ouvert ouvrant sur une terrasse avec vue sur le jardin","width":1920,"height":1122,"caption":"Séjour et salle à manger ouvrant sur la terrasse","category":"Intérieurs"},{"src":"assets/liora/projects/guadalobon-beach-residences/media/bedroom-interior.jpg","webp":"assets/liora/projects/guadalobon-beach-residences/media/bedroom-interior-960.webp","alt":"Chambre avec tête de lit habillée de bois et balcon donnant sur la promotion","width":1920,"height":1539,"caption":"Chambre","category":"Intérieurs"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-guadalobon-beach-residences.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Guadalobon%20Beach%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Guadalobon Beach Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

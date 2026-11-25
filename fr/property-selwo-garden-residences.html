@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien coûtent les logements ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Selwo Garden Residences"
   data-project-message="Je souhaite recevoir les dernières informations sur le projet Selwo Garden Residences."
@@ -459,634 +396,318 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Selwo Garden Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-selwo-garden-residences.html#top">Selwo Garden Residences<span>À partir de 338 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-selwo-garden-residences.html#overview">Aperçu</a><a href="fr/property-selwo-garden-residences.html#availability">Prix</a><a href="fr/property-selwo-garden-residences.html#specs">Finitions</a><a href="fr/property-selwo-garden-residences.html#gallery">Galerie</a><a href="fr/property-selwo-garden-residences.html#location">Emplacement</a><a href="fr/property-selwo-garden-residences.html#onsite">Sur place</a><a href="fr/property-selwo-garden-residences.html#view">Notre avis</a><a href="fr/property-selwo-garden-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Selwo Garden Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.jpg" alt="Image de la brochure de la résidence : des immeubles blancs en terrasses au-dessus d’une piscine commune avec deux parasols en paille" width="2000" height="1501" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.jpg" alt="Image de la brochure de la résidence : des immeubles blancs en terrasses au-dessus d’une piscine commune avec deux parasols en paille" width="2000" height="1501" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Vingt-six logements disponibles / résidence fermée</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Selwo Garden <em>Residences</em></span>
-            <span class="hero-title-context">Vingt-six logements, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Vingt-six appartements disponibles dans une résidence fermée à côté de Selwo Aventura, à Estepona, d’une, deux ou trois chambres et de 87,89 à 148,27 m² construits, tous avec terrasse et cinq logements en rez-de-chaussée avec jardin sur leur plan, avec piscines, spa, salle de sport et espace de coworking, à partir de 338 000 € + TVA.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-selwo-garden-residences.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=selwo-garden-residences">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-selwo-garden-residences.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>Selwo, Estepona</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 338 000 € + TVA</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Appartements</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Livraison à confirmer</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-selwo-garden-residences.html#media">Galerie</a>
-        <a href="fr/property-selwo-garden-residences.html#location">Emplacement</a>
-        <a href="fr/property-selwo-garden-residences.html#construction-timeline">Modalités de paiement</a>
-        <a href="fr/property-selwo-garden-residences.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-selwo-garden-residences.html#overview">Aperçu</a>
-          <a href="fr/property-selwo-garden-residences.html#residences">Résidences</a>
-          <a href="fr/property-selwo-garden-residences.html#quality-specifications">Finitions</a>
-          <a href="fr/property-selwo-garden-residences.html#calculator">Financement</a>
-          <a href="fr/property-selwo-garden-residences.html#amenities">Équipements</a>
-          <a href="fr/property-selwo-garden-residences.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-selwo-garden-residences.html#architecture">Architecture</a>
-          <a href="fr/property-selwo-garden-residences.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-selwo-garden-residences.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-selwo-garden-residences.html#faq">FAQ</a>
-          <a href="fr/property-selwo-garden-residences.html#enquire">Nous contacter</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>1-3 chambres</strong></div>
-          <div class="quick-fact"><span>Surface construite</span><strong>87,89 - 148,27 m²</strong></div>
-          <div class="quick-fact"><span>Terrasses</span><strong>18,37 - 155,46 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>26 disponibles</strong></div>
-          <div class="quick-fact"><span>Disponible</span><strong>26 logements</strong></div>
-          <div class="quick-fact"><span>Surface utile</span><strong>63,20 - 105,52 m²</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Demander la documentation</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vingt-six logements, <em>six immeubles</em></h2>
-          <p class="project-lead">Selwo Garden Residences est le nom que nous donnons à deux phases ultérieures d’une résidence fermée plus vaste à Estepona, à côté du parc animalier Selwo Aventura, avec des immeubles blancs de faible hauteur autour de jardins et de piscines. Vingt-six appartements répartis dans six de ses immeubles figurent comme disponibles sur le portail agents du promoteur.</p>
-          <p class="project-lead">Les logements disponibles ont une, deux ou trois chambres et vont de 87,89 à 148,27 m² construits, pour 63,20 à 105,52 m² de surface utile. Tous ont une terrasse, de 18,37 à 155,46 m². Selon leur plan, cinq des logements en rez-de-chaussée y ajoutent un jardin privatif de 8,78 à 82,23 m².</p>
-          <p class="project-lead">Les documents du promoteur comptent parmi les espaces communs deux piscines extérieures pour adultes et enfants, un spa, une salle de sport, un espace de coworking, une salle de cinéma et un club pour les jeunes. Chaque logement est listé avec au moins une place de parking et une cave, chiffrées sur des lignes séparées.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">La résidence en <em>détail</em></h2>
-          </div>
-          <p class="project-lead">Images de la brochure et du descriptif technique du promoteur : les immeubles, les piscines et les jardins, le spa, les terrasses et les intérieurs.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 5 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.jpg" alt="Image de la brochure de la résidence : des immeubles blancs en terrasses au-dessus d’une piscine commune avec deux parasols en paille" width="2000" height="1501" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>La piscine et les immeubles</strong>
-                <span class="project-media-card-cta">5 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Voir 1 images dans Équipements">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/spa-pool-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/spa-pool-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/spa-pool.webp 1493w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-garden-residences/media/spa-pool.jpg" alt="Vue générée par ordinateur de la piscine intérieure du spa sous une verrière, avec un jacuzzi au premier plan" width="1493" height="829" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Équipements</small>
-                <strong>Le spa</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Voir 2 images dans Terrasses">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea.webp 1570w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea.jpg" alt="Vue générée par ordinateur d’une terrasse du dernier étage avec canapés d’extérieur et bougainvillier, la mer au loin" width="1570" height="714" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasses</small>
-                <strong>Une terrasse du dernier étage</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 5 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/living-room-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/living-room-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/living-room.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-garden-residences/media/living-room.jpg" alt="Vue générée par ordinateur d’un séjour ouvert sur la cuisine et la table à manger" width="2000" height="1430" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Le séjour</strong>
-                <span class="project-media-card-cta">5 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 13 images</button>
-          <p class="media-note">Les images proviennent de la brochure du promoteur pour l’ensemble de la résidence. Ce sont des illustrations, non des photographies des logements en vente, et la brochure précise que le mobilier n’est pas inclus et que les bâtiments achevés peuvent différer. Les plans sont les fiches provisoires du promoteur pour chaque logement, sans le logo ni le nom du projet ; les pièces y sont nommées en espagnol et ils ne sont pas contractuels.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Selwo, <em>Estepona</em></h2>
-          <p class="project-lead">La brochure situe la résidence à côté du parc animalier Selwo Aventura, à Estepona, avec La Resina Golf à proximité. La carte montre le terrain d’après le plan de situation de la brochure, et les distances sont celles de la brochure ; nous confirmons les temps de trajet lors de la visite.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-selwo-garden-residences" data-locmap='{&quot;site&quot;:[36.4625,-5.085],&quot;sea&quot;:[36.4355,-5.085],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Los Flamingos&quot;,&quot;sub&quot;:&quot;9,1 km · 14 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Resina&quot;,&quot;sub&quot;:&quot;2,8 km · 7 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;5,8 km · 8 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;12 km · 14 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Selwo Garden Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Selwo Garden Residences</h3>
-            <p class="locmap-place">Selwo, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>5,8 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centre de Estepona</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf La Resina</span>
-              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Los Flamingos</span>
-              <span class="locmap-row-figure"><bdi>9,1 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>53 km</bdi> <em><bdi>47 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Calendrier</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Où en est <em>le projet</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Vingt-six logements</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">Commercialisation</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">En cours</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M8 24V6" stroke-linecap="round"/><path d="M8 6 22 8" stroke-linecap="round"/><path d="M20 8v6" stroke-linecap="round"/><path d="M4 24h10" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">En construction</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.18s">
-          <span class="timeline-label">À confirmer</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">Livraison</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">D’une <em>à trois chambres</em></h2>
-          <p class="project-lead">Des appartements en rez-de-chaussée, au premier et au deuxième étage d’immeubles de trois niveaux, qui varient par la surface, la terrasse et l’orientation. Le tableau suit le portail agents du promoteur.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>L'appartement</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-selwo-garden-residences.html#availability">Voir les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-selwo-garden-residences.html#availability">Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Descriptif des prestations</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce qui compose <em>les logements</em></h2>
-          <p class="project-lead">Le descriptif du promoteur lui-même, résumé par partie du logement.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Sols et murs<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Sols en grès cérame dans l’entrée, le séjour, les chambres et le couloir, avec plinthes blanches assorties aux portes intérieures.</li>
-              <li>Peinture lisse sur les murs et faux plafonds dans tout le logement.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cuisine<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Équipée de meubles hauts et bas au design actuel, sol en grès cérame, plan de travail avec crédence entre les meubles et évier avec mitigeur.</li>
-              <li>Plaque à induction, hotte ou groupe filtrant, four électrique, lave-vaisselle intégré, réfrigérateur et lave-linge.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Salles de bain<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Murs en carrelage céramique et sols en grès cérame dans les deux salles de bains.</li>
-              <li>Robinetterie thermostatique avec colonne de douche, receveurs en résine avec paroi, sanitaires blancs et vasque en céramique sur meuble.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Terrasses et jardins<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Revêtement en grès antidérapant, avec point d’eau, évacuation, éclairage, prise électrique et prise TV sur chaque terrasse.</li>
-              <li>Le descriptif attribue aux logements du dernier étage une vaste terrasse-solarium.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fenêtres, portes et placards<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Menuiseries en aluminium à rupture de pont thermique avec double vitrage, et volets roulants motorisés à lames d’aluminium isolées dans les chambres.</li>
-              <li>Porte d’entrée blindée avec judas, portes intérieures laquées blanc avec poignées chromées et placards avec penderie, étagère et tiroirs.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatisation et installations<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Climatisation gainable chaud-froid avec thermostat, et eau chaude produite par une pompe à chaleur aérothermique à haut rendement.</li>
-              <li>Système de ventilation, visiophone relié aux halls et à l’entrée de la résidence, éclairage LED dans les salles de bains, la cuisine et les couloirs, et pré-installation pour la recharge de véhicules électriques.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>L’immeuble et la copropriété<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Résidence fermée, avec sols en grès cérame et éclairage à détecteurs de présence dans les parties communes intérieures, et ascenseurs à portes automatiques.</li>
-              <li>Parking souterrain à portes automatiques commandées à distance, et caves peintes avec porte métallique.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Source : le descriptif technique du promoteur, sans date imprimée, qui précise que ses images sont une approximation du résultat final, que des modifications peuvent intervenir pour des raisons techniques ou juridiques et que le mobilier n’est pas inclus. Le même document a été fourni pour les deux phases.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">26 logements <em>disponibles</em></h2>
-          <p class="project-lead">Disponibilités et prix tels qu’indiqués sur le portail agents du promoteur au 13 novembre 2026, reconfirmés avant toute réservation. Chaque logement est listé avec au moins une place de parking et une cave, chiffrées sur des lignes séparées.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>26</strong></div>
-            <div><span>Prix à partir de</span><strong>338 000 € + TVA</strong></div>
-            <div><span>Fourchette de prix</span><strong>338 000 € - 686 000 € + TVA</strong></div>
-            <div><span>Vérifié</span><strong>13 novembre 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 26 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrer les biens disponibles"
-              data-availability-filters
-              data-count-template="Affichage de {shown} sur {total}">
-              
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Prix</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Toutes</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-400000" aria-pressed="false">Moins de €400k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="400000-500000" aria-pressed="false">€400k – €500k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="500000-" aria-pressed="false">€500k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Effacer les filtres</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Aucun bien ne correspond à ces filtres.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Logements disponibles à Selwo Garden Residences</caption>
-                <thead><tr><th scope="col">Référence</th><th scope="col">Étage</th><th scope="col">Chambres</th><th scope="col">Surface</th><th scope="col">Prix</th><th scope="col">Statut</th><th scope="col">Plan</th></tr></thead>
-                <tbody>
-              <tr data-price="489000">
-                <td data-label="Référence"><strong>18-1-2-A</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 18, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>133,02 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>97,27 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>18,37 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>489 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-a-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="413000">
-                <td data-label="Référence"><strong>18-1-2-B</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 18, cage 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>110,15 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>80,59 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>22,97 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>413 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-b-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="660000">
-                <td data-label="Référence"><strong>18-2-2-B</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 18, cage 2</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>130,78 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>95,36 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>137,78 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>660 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-2-2-b-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="338000">
-                <td data-label="Référence"><strong>19-2-0-A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 19, cage 2</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>87,89 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>63,20 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>26,92 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>51,53 m²</strong> <em>Jardin</em></span></td>
-                <td data-label="Prix"><strong>338 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-0-a-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="563000">
-                <td data-label="Référence"><strong>19-2-2-A</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 19, cage 2</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>144,08 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>105,52 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>22,08 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>563 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-a-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="662000">
-                <td data-label="Référence"><strong>19-2-2-B</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 19, cage 2</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>130,90 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>95,00 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>137,81 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>662 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-b-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="447000">
-                <td data-label="Référence"><strong>23-1-0-B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 23, cage 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>105,11 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>77,47 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>29,98 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>82,23 m²</strong> <em>Jardin</em></span></td>
-                <td data-label="Prix"><strong>447 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-0-b-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="555000">
-                <td data-label="Référence"><strong>23-1-1-A</strong></td>
-                <td data-label="Étage">Premier étage, bloc 23, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>133,48 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>97,43 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>24,90 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>555 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-1-a-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="430000">
-                <td data-label="Référence"><strong>20-1-0-A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 20, cage 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>119,41 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>84,85 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>32,02 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>430 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="423000">
-                <td data-label="Référence"><strong>20-1-0-B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 20, cage 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>118,09 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>85,23 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>33,57 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>8,78 m²</strong> <em>Jardin</em></span></td>
-                <td data-label="Prix"><strong>423 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-1-0-b-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="418000">
-                <td data-label="Référence"><strong>20-2-0-A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 20, cage 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>118,09 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>85,22 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>33,69 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>418 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="421000">
-                <td data-label="Référence"><strong>20-2-0-B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 20, cage 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>119,46 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>84,91 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>34,57 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>16,75 m²</strong> <em>Jardin</em></span></td>
-                <td data-label="Prix"><strong>421 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-0-b-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="469000">
-                <td data-label="Référence"><strong>20-2-2-B</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 20, cage 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>120,37 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>84,81 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>29,84 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>469 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-2-b-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="429000">
-                <td data-label="Référence"><strong>21-1-0-A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 21, cage 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>119,45 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>84,86 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>32,02 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>29,50 m²</strong> <em>Jardin</em></span></td>
-                <td data-label="Prix"><strong>429 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-1-0-a-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="411000">
-                <td data-label="Référence"><strong>21-1-0-B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 21, cage 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>118,09 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>85,24 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>33,57 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>411 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="425000">
-                <td data-label="Référence"><strong>21-2-0-B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 21, cage 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>119,45 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>84,87 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>34,57 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>425 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="425000">
-                <td data-label="Référence"><strong>21-2-1-A</strong></td>
-                <td data-label="Étage">Premier étage, bloc 21, cage 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>118,06 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>85,10 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>28,51 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>425 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-2-1-a-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="655000">
-                <td data-label="Référence"><strong>21-2-2-A</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 21, cage 2</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>140,46 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>97,75 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>155,46 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>655 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="483000">
-                <td data-label="Référence"><strong>21-2-2-B</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 21, cage 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>120,39 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>84,93 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>29,93 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>483 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="559000">
-                <td data-label="Référence"><strong>22-1-0-A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 22, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>137,67 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>97,55 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>28,62 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>559 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="532000">
-                <td data-label="Référence"><strong>22-1-0-C</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 22, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>147,21 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>104,60 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>30,51 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>532 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="545000">
-                <td data-label="Référence"><strong>22-1-1-A</strong></td>
-                <td data-label="Étage">Premier étage, bloc 22, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>137,64 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>97,44 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>24,90 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>545 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="542000">
-                <td data-label="Référence"><strong>22-1-1-C</strong></td>
-                <td data-label="Étage">Premier étage, bloc 22, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>147,18 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>104,47 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>24,85 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>542 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/selwo-garden-residences/floorplans/unit-22-1-1-c-floorplan.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="686000">
-                <td data-label="Référence"><strong>22-1-2-A</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 22, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>134,89 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>95,33 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>137,78 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>686 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="572000">
-                <td data-label="Référence"><strong>22-1-2-B</strong></td>
-                <td data-label="Étage">Deuxième étage, bloc 22, cage 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>148,27 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>104,51 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>24,98 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>572 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-price="548000">
-                <td data-label="Référence"><strong>22-2-1-B</strong></td>
-                <td data-label="Étage">Premier étage, bloc 22, cage 2</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>137,41 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>97,29 m²</strong> <em>Surface utile</em></span><span class="unit-size-part"><strong>18,86 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>548 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>13 photos</button>
+          <a class="chip" href="fr/property-selwo-garden-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plans</a>
+          <a class="chip" href="fr/property-selwo-garden-residences.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
           
-          <p class="availability-source-note">Prix, étages, chambres et surfaces transcrits du portail agents du promoteur au 13 novembre 2026, qui liste 26 logements disponibles sur deux phases et précise que ses prix sont donnés à titre indicatif, sans valeur légale et sous réserve de disponibilité. Les prix indiqués sont ceux du logement seul, hors TVA. Le portail associe à chaque logement une ou deux places de parking à 15 000 € chacune et une ou deux caves à 6 000 € chacune, avec un sous-total de 359 000 € à 722 000 €. La terrasse est le chiffre du portail ; les jardins viennent des plans, le portail n’en donnant pas. Nous avons les plans de 14 des 26 logements, chacun la fiche provisoire du promoteur pour ce logement ; sur trois d’entre eux, la surface construite est inférieure de 0,01 m² à celle du portail (20-2-0-B, 20-2-2-B et 21-1-0-A), et le tableau reprend celle du portail. Les 12 autres logements n’ont pas de plan dans les documents dont nous disposons. Les prix s’entendent hors TVA et hors frais d’acquisition. Nueva Living reconfirme le prix, le statut et les conditions avant toute réservation.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Selwo%20Garden%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Garden Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Selwo Garden</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Vingt-six appartements disponibles dans une résidence fermée à côté de Selwo Aventura, à Estepona, d’une, deux ou trois chambres et de 87,89 à 148,27 m² construits, tous avec terrasse et cinq logements en rez-de-chaussée avec jardin sur leur plan, avec piscines, spa, salle de sport et espace de coworking, à partir de 338 000 € + TVA.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 338 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>1 à 3</dd><dd class="sub"><span>Appartements</span></dd></div><div><dt>Livraison</dt><dd>à confirmer</dd><dd class="sub">Permis : nous le vérifions avant votre réservation</dd></div><div><dt>Biens restants</dt><dd>26 proposés</dd><dd class="sub">Vérifié le 13 novembre 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Selwo%20Garden%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Garden Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">Selwo Garden Residences est le nom que nous donnons à deux phases ultérieures d’une résidence fermée plus vaste à Estepona, à côté du parc animalier Selwo Aventura, avec des immeubles blancs de faible hauteur autour de jardins et de piscines. Vingt-six appartements répartis dans six de ses immeubles figurent comme disponibles sur le portail agents du promoteur.</p>
+    <p class="lede-2">Les logements disponibles ont une, deux ou trois chambres et vont de 87,89 à 148,27 m² construits, pour 63,20 à 105,52 m² de surface utile. Tous ont une terrasse, de 18,37 à 155,46 m². Selon leur plan, cinq des logements en rez-de-chaussée y ajoutent un jardin privatif de 8,78 à 82,23 m².</p><p class="lede-2">Les documents du promoteur comptent parmi les espaces communs deux piscines extérieures pour adultes et enfants, un spa, une salle de sport, un espace de coworking, une salle de cinéma et un club pour les jeunes. Chaque logement est listé avec au moins une place de parking et une cave, chiffrées sur des lignes séparées.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Immeubles blancs, terrasses profondes</span></summary><p>Sur les images du promoteur, les immeubles sont bas et blancs, avec des terrasses profondes encadrées de blanc et de gris, des garde-corps en verre et des plantations sur les terrasses hautes, au-dessus des jardins et des piscines et de murs parés de pierre.</p><p>Les logements sont répartis dans des immeubles de trois niveaux sur un parking souterrain. Le promoteur les numérote par immeuble, cage, étage et porte, et c’est ainsi que le tableau les désigne.</p><ul><li>Les immeubles: Rez-de-chaussée et deux étages, avec ascenseurs, sur un parking souterrain avec caves.</li><li>Les terrasses: De 18,37 à 155,46 m², avec point d’eau, évacuation, éclairage, prise électrique et prise TV sur chacune.</li><li>Les jardins: Cinq des logements disponibles en rez-de-chaussée ont un jardin privatif sur leur plan, de 8,78 à 82,23 m².</li><li>Façades: Façades en brique à double paroi avec lame d’air isolée, enduites et peintes pour l’extérieur.</li><li>Menuiseries: Menuiseries en aluminium à rupture de pont thermique avec double vitrage, et volets motorisés dans les chambres.</li><li>Énergie: Eau chaude par pompe à chaleur aérothermique, façades isolées et grandes baies pour la lumière naturelle.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>338 000 € – 686 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>26 proposés</span><small>Vérifié le 13 novembre 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartements</span></dd></div><div><dt>Surfaces</dt><dd><span>88 – 148 m²</span><small>Surface construite</small></dd></div><div><dt>Livraison</dt><dd><span>à confirmer</span></dd></div><div><dt>Permis</dt><dd><span>Non précisé</span><small>Nous le vérifions avant votre réservation</small></dd></div><div><dt>Acomptes</dt><dd><span>Garantie bancaire</span><small>Exigée par la loi espagnole</small></dd></div><div><dt>Stationnement</dt><dd><span>Garage souterrain</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">Disponibilités et prix tels qu’indiqués sur le portail agents du promoteur au 13 novembre 2026, reconfirmés avant toute réservation. Chaque logement est listé avec au moins une place de parking et une cave, chiffrées sur des lignes séparées. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    
+    <div class="ufilter" role="group" aria-label="Filtrer par chambres"><button type="button" aria-pressed="true" data-beds="">Toutes <span>26</span></button><button type="button" aria-pressed="false" data-beds="1">1 ch. <span>1</span></button><button type="button" aria-pressed="false" data-beds="2">2 ch. <span>12</span></button><button type="button" aria-pressed="false" data-beds="3">3 ch. <span>13</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="489000" data-size="133.02" data-ppm="3676" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">18-1-2-A</span><span class="u-loc">Deuxième étage, bloc 18, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">133 m²</td>
+            <td data-label="Prix" class="u-price num">489 000 €</td>
+            <td data-label="Par m²" class="num">3 676 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 18-1-2-A"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="413000" data-size="110.15" data-ppm="3749" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">18-1-2-B</span><span class="u-loc">Deuxième étage, bloc 18, cage 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">110 m²</td>
+            <td data-label="Prix" class="u-price num">413 000 €</td>
+            <td data-label="Par m²" class="num">3 749 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 18-1-2-B"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="660000" data-size="130.78" data-ppm="5047" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-2-2-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">18-2-2-B</span><span class="u-loc">Deuxième étage, bloc 18, cage 2</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">131 m²</td>
+            <td data-label="Prix" class="u-price num">660 000 €</td>
+            <td data-label="Par m²" class="num">5 047 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-2-2-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 18-2-2-B"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-18-2-2-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="1" data-price="338000" data-size="87.89" data-ppm="3846" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-0-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">19-2-0-A</span><span class="u-loc">Rez-de-chaussée, bloc 19, cage 2</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">88 m²</td>
+            <td data-label="Prix" class="u-price num">338 000 €</td>
+            <td data-label="Par m²" class="num">3 846 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-0-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 19-2-0-A"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-0-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="563000" data-size="144.08" data-ppm="3908" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">19-2-2-A</span><span class="u-loc">Deuxième étage, bloc 19, cage 2</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">144 m²</td>
+            <td data-label="Prix" class="u-price num">563 000 €</td>
+            <td data-label="Par m²" class="num">3 908 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 19-2-2-A"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="662000" data-size="130.9" data-ppm="5057" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">19-2-2-B</span><span class="u-loc">Deuxième étage, bloc 19, cage 2</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">131 m²</td>
+            <td data-label="Prix" class="u-price num">662 000 €</td>
+            <td data-label="Par m²" class="num">5 057 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 19-2-2-B"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="447000" data-size="105.11" data-ppm="4253" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-0-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">23-1-0-B</span><span class="u-loc">Rez-de-chaussée, bloc 23, cage 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">105 m²</td>
+            <td data-label="Prix" class="u-price num">447 000 €</td>
+            <td data-label="Par m²" class="num">4 253 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-0-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 23-1-0-B"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-0-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="555000" data-size="133.48" data-ppm="4158" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-1-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">23-1-1-A</span><span class="u-loc">Premier étage, bloc 23, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">133 m²</td>
+            <td data-label="Prix" class="u-price num">555 000 €</td>
+            <td data-label="Par m²" class="num">4 158 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-1-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 23-1-1-A"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-1-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="2" data-price="430000" data-size="119.41" data-ppm="3601" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20-1-0-A</span><span class="u-loc">Rez-de-chaussée, bloc 20, cage 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">119 m²</td>
+            <td data-label="Prix" class="u-price num">430 000 €</td>
+            <td data-label="Par m²" class="num">3 601 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="423000" data-size="118.09" data-ppm="3582" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-1-0-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">20-1-0-B</span><span class="u-loc">Rez-de-chaussée, bloc 20, cage 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">118 m²</td>
+            <td data-label="Prix" class="u-price num">423 000 €</td>
+            <td data-label="Par m²" class="num">3 582 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-1-0-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 20-1-0-B"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-1-0-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="2" data-price="418000" data-size="118.09" data-ppm="3540" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20-2-0-A</span><span class="u-loc">Rez-de-chaussée, bloc 20, cage 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">118 m²</td>
+            <td data-label="Prix" class="u-price num">418 000 €</td>
+            <td data-label="Par m²" class="num">3 540 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u11" data-beds="2" data-price="421000" data-size="119.46" data-ppm="3524" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-0-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">20-2-0-B</span><span class="u-loc">Rez-de-chaussée, bloc 20, cage 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">119 m²</td>
+            <td data-label="Prix" class="u-price num">421 000 €</td>
+            <td data-label="Par m²" class="num">3 524 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-0-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 20-2-0-B"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-0-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u12" data-beds="2" data-price="469000" data-size="120.37" data-ppm="3896" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-2-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">20-2-2-B</span><span class="u-loc">Deuxième étage, bloc 20, cage 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">120 m²</td>
+            <td data-label="Prix" class="u-price num">469 000 €</td>
+            <td data-label="Par m²" class="num">3 896 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-2-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 20-2-2-B"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-2-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u13" data-beds="2" data-price="429000" data-size="119.45" data-ppm="3591" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-1-0-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">21-1-0-A</span><span class="u-loc">Rez-de-chaussée, bloc 21, cage 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">119 m²</td>
+            <td data-label="Prix" class="u-price num">429 000 €</td>
+            <td data-label="Par m²" class="num">3 591 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-1-0-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 21-1-0-A"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-1-0-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u14" data-beds="2" data-price="411000" data-size="118.09" data-ppm="3480" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">21-1-0-B</span><span class="u-loc">Rez-de-chaussée, bloc 21, cage 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">118 m²</td>
+            <td data-label="Prix" class="u-price num">411 000 €</td>
+            <td data-label="Par m²" class="num">3 480 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u15" data-beds="2" data-price="425000" data-size="119.45" data-ppm="3558" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">21-2-0-B</span><span class="u-loc">Rez-de-chaussée, bloc 21, cage 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">119 m²</td>
+            <td data-label="Prix" class="u-price num">425 000 €</td>
+            <td data-label="Par m²" class="num">3 558 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u16" data-beds="2" data-price="425000" data-size="118.06" data-ppm="3600" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-2-1-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">21-2-1-A</span><span class="u-loc">Premier étage, bloc 21, cage 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">118 m²</td>
+            <td data-label="Prix" class="u-price num">425 000 €</td>
+            <td data-label="Par m²" class="num">3 600 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-2-1-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 21-2-1-A"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-21-2-1-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u17" data-beds="3" data-price="655000" data-size="140.46" data-ppm="4663" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">21-2-2-A</span><span class="u-loc">Deuxième étage, bloc 21, cage 2</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">140 m²</td>
+            <td data-label="Prix" class="u-price num">655 000 €</td>
+            <td data-label="Par m²" class="num">4 663 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u18" data-beds="2" data-price="483000" data-size="120.39" data-ppm="4012" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">21-2-2-B</span><span class="u-loc">Deuxième étage, bloc 21, cage 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">120 m²</td>
+            <td data-label="Prix" class="u-price num">483 000 €</td>
+            <td data-label="Par m²" class="num">4 012 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u19" data-beds="3" data-price="559000" data-size="137.67" data-ppm="4060" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">22-1-0-A</span><span class="u-loc">Rez-de-chaussée, bloc 22, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">138 m²</td>
+            <td data-label="Prix" class="u-price num">559 000 €</td>
+            <td data-label="Par m²" class="num">4 060 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u20" data-beds="3" data-price="532000" data-size="147.21" data-ppm="3614" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">22-1-0-C</span><span class="u-loc">Rez-de-chaussée, bloc 22, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">147 m²</td>
+            <td data-label="Prix" class="u-price num">532 000 €</td>
+            <td data-label="Par m²" class="num">3 614 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u21" data-beds="3" data-price="545000" data-size="137.64" data-ppm="3960" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">22-1-1-A</span><span class="u-loc">Premier étage, bloc 22, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">138 m²</td>
+            <td data-label="Prix" class="u-price num">545 000 €</td>
+            <td data-label="Par m²" class="num">3 960 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u22" data-beds="3" data-price="542000" data-size="147.18" data-ppm="3683" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-garden-residences/floorplans/unit-22-1-1-c-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">22-1-1-C</span><span class="u-loc">Premier étage, bloc 22, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">147 m²</td>
+            <td data-label="Prix" class="u-price num">542 000 €</td>
+            <td data-label="Par m²" class="num">3 683 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-garden-residences/floorplans/unit-22-1-1-c-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 22-1-1-C"><img src="assets/liora/projects/selwo-garden-residences/floorplans/unit-22-1-1-c-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u23" data-beds="3" data-price="686000" data-size="134.89" data-ppm="5086" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">22-1-2-A</span><span class="u-loc">Deuxième étage, bloc 22, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">135 m²</td>
+            <td data-label="Prix" class="u-price num">686 000 €</td>
+            <td data-label="Par m²" class="num">5 086 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u24" data-beds="3" data-price="572000" data-size="148.27" data-ppm="3858" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">22-1-2-B</span><span class="u-loc">Deuxième étage, bloc 22, cage 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">148 m²</td>
+            <td data-label="Prix" class="u-price num">572 000 €</td>
+            <td data-label="Par m²" class="num">3 858 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u25" data-beds="3" data-price="548000" data-size="137.41" data-ppm="3988" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">22-2-1-B</span><span class="u-loc">Premier étage, bloc 22, cage 2</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">137 m²</td>
+            <td data-label="Prix" class="u-price num">548 000 €</td>
+            <td data-label="Par m²" class="num">3 988 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>D’une à trois chambres</span></summary><p>Des appartements en rez-de-chaussée, au premier et au deuxième étage d’immeubles de trois niveaux, qui varient par la surface, la terrasse et l’orientation. Le tableau suit le portail agents du promoteur.</p><div class="res-types"><div class="res-type"><h3>L'appartement</h3><ul><li>Un logement d’une chambre en rez-de-chaussée, douze de deux chambres et treize de trois. Celui d’une chambre a une salle d’eau et les autres deux ; quatre logements de trois chambres au deuxième étage en ajoutent une troisième, que les plans en notre possession montrent comme un WC invités.</li><li>Une terrasse pour chaque logement, de 18,37 à 155,46 m². Les plus grandes appartiennent à quatre logements de trois chambres au deuxième étage ; sur les deux dont nous avons le plan, il s’agit d’un toit-terrasse privatif d’environ 138 m².</li><li>Sur le plan de cinq logements en rez-de-chaussée, un jardin privatif de 8,78 à 82,23 m² au-delà de la terrasse.</li><li>La plupart des logements disponibles sont orientés est ou sud-est, selon la liste ; un est orienté sud et un nord-est.</li><li>Une cuisine équipée avec plaque à induction, four électrique, hotte, lave-vaisselle intégré, réfrigérateur et lave-linge.</li><li>Climatisation gainable chaud-froid, pompe à chaleur aérothermique pour l’eau chaude et volets roulants motorisés dans les chambres.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">L’échéancier du promoteur est disponible sur demande ; nous vous l’envoyons avec la grille de prix.</p>
+      
+      <ol class="ct-strip" aria-label="Étapes du chantier"><li class="is-mile"><b>Commercialisation</b><span>Vingt-six logements</span></li><li class="is-mile"><b>En construction</b><span>En cours</span></li><li class="is-mile"><b>Livraison</b><span>À confirmer</span></li></ol>
+      <p class="ct-note">Le portail du promoteur indique que la construction a commencé sur la première des deux phases et ne donne pas l’état de la seconde. Aucun document n’indique de permis de construire, de date de livraison ni d’échéancier de paiement. Nueva Living demande les trois par écrit avant tout versement, et ne vous annoncera pas une date qu’elle ne peut pas vous montrer.</p></div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1146,470 +767,223 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine extérieure commune</h3>
-              <p class="amenity-note">À ciel ouvert</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Finitions</h2>
+    <p class="sec-sub">Le descriptif du promoteur lui-même, résumé par partie du logement.</p>
+    <div class="tabs" role="tablist" aria-label="Finitions"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Sols et murs</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Cuisine</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Salles de bain</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Terrasses et jardins</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Fenêtres, portes et placards</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Climatisation et installations</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">L’immeuble et la copropriété</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Sols en grès cérame dans l’entrée, le séjour, les chambres et le couloir, avec plinthes blanches assorties aux portes intérieures.</li><li>Peinture lisse sur les murs et faux plafonds dans tout le logement.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Équipée de meubles hauts et bas au design actuel, sol en grès cérame, plan de travail avec crédence entre les meubles et évier avec mitigeur.</li><li>Plaque à induction, hotte ou groupe filtrant, four électrique, lave-vaisselle intégré, réfrigérateur et lave-linge.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Murs en carrelage céramique et sols en grès cérame dans les deux salles de bains.</li><li>Robinetterie thermostatique avec colonne de douche, receveurs en résine avec paroi, sanitaires blancs et vasque en céramique sur meuble.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Revêtement en grès antidérapant, avec point d’eau, évacuation, éclairage, prise électrique et prise TV sur chaque terrasse.</li><li>Le descriptif attribue aux logements du dernier étage une vaste terrasse-solarium.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Menuiseries en aluminium à rupture de pont thermique avec double vitrage, et volets roulants motorisés à lames d’aluminium isolées dans les chambres.</li><li>Porte d’entrée blindée avec judas, portes intérieures laquées blanc avec poignées chromées et placards avec penderie, étagère et tiroirs.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Climatisation gainable chaud-froid avec thermostat, et eau chaude produite par une pompe à chaleur aérothermique à haut rendement.</li><li>Système de ventilation, visiophone relié aux halls et à l’entrée de la résidence, éclairage LED dans les salles de bains, la cuisine et les couloirs, et pré-installation pour la recharge de véhicules électriques.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Résidence fermée, avec sols en grès cérame et éclairage à détecteurs de présence dans les parties communes intérieures, et ascenseurs à portes automatiques.</li><li>Parking souterrain à portes automatiques commandées à distance, et caves peintes avec porte métallique.</li></ul>
+      
+    </div>
+    <p class="caption">Source : le descriptif technique du promoteur, sans date imprimée, qui précise que ses images sont une approximation du résultat final, que des modifications peuvent intervenir pour des raisons techniques ou juridiques et que le mobilier n’est pas inclus. Le même document a été fourni pour les deux phases.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="La piscine et les immeubles"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.jpg" alt="Image de la brochure de la résidence : des immeubles blancs en terrasses au-dessus d’une piscine commune avec deux parasols en paille" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Le séjour"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/living-room-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/living-room-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/living-room.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-garden-residences/media/living-room.jpg" alt="Vue générée par ordinateur d’un séjour ouvert sur la cuisine et la table à manger" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Une terrasse du dernier étage"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea.jpg" alt="Vue générée par ordinateur d’une terrasse du dernier étage avec canapés d’extérieur et bougainvillier, la mer au loin" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Le spa"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/spa-pool-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/spa-pool-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/spa-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-garden-residences/media/spa-pool.jpg" alt="Vue générée par ordinateur de la piscine intérieure du spa sous une verrière, avec un jacuzzi au premier plan" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Vers la sierra"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-garden-residences/media/blocks-and-the-sierra-640.webp 640w, assets/liora/projects/selwo-garden-residences/media/blocks-and-the-sierra-960.webp 960w, assets/liora/projects/selwo-garden-residences/media/blocks-and-the-sierra.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-garden-residences/media/blocks-and-the-sierra.jpg" alt="Image de la brochure de la résidence : des immeubles autour des piscines et des jardins, la sierra au loin" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 13 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Extérieurs (5)</button><button type="button" data-open-cat="Amenities">Équipements (1)</button><button type="button" data-open-cat="Terraces">Terrasses (2)</button><button type="button" data-open-cat="Interiors">Intérieurs (5)</button></div>
+    
+    <p class="caption">Les images proviennent de la brochure du promoteur pour l’ensemble de la résidence. Ce sont des illustrations, non des photographies des logements en vente, et la brochure précise que le mobilier n’est pas inclus et que les bâtiments achevés peuvent différer. Les plans sont les fiches provisoires du promoteur pour chaque logement, sans le logo ni le nom du projet ; les pièces y sont nommées en espagnol et ils ne sont pas contractuels.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">La brochure situe la résidence à côté du parc animalier Selwo Aventura, à Estepona, avec La Resina Golf à proximité. La carte montre le terrain d’après le plan de situation de la brochure, et les distances sont celles de la brochure ; nous confirmons les temps de trajet lors de la visite.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-selwo-garden-residences" data-locmap='{&quot;site&quot;:[36.4625,-5.085],&quot;sea&quot;:[36.4355,-5.085],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Los Flamingos&quot;,&quot;sub&quot;:&quot;9,1 km · 14 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Resina&quot;,&quot;sub&quot;:&quot;2,8 km · 7 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;5,8 km · 8 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;12 km · 14 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Selwo Garden Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Selwo Garden Residences</h3>
+            <p class="locmap-place">Selwo, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>5,8 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bien-être</span>
-              <h3 class="amenity-name">Pataugeoire</h3>
-              <p class="amenity-note">Eau peu profonde pour les petits</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Estepona</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bien-être</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Espace humide de récupération</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf La Resina</span>
+              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine intérieure</h3>
-              <p class="amenity-note">Nager à l’abri</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>9,1 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Bien-être</span>
-              <h3 class="amenity-name">Sauna</h3>
-              <p class="amenity-note">Chaleur sèche</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>53 km</bdi> <em><bdi>47 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Bien-être</span>
-              <h3 class="amenity-name">Salle de sport</h3>
-              <p class="amenity-note">Au sein du programme</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/><path d="M8.5 14a4.5 4.5 0 0 0 7 0"/><path d="M9 9.5h.01"/><path d="M15 9.5h.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Club enfants</h3>
-              <p class="amenity-note">Aménagé pour jouer</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardins collectifs paysagers</h3>
-              <p class="amenity-note">Espaces communs paysagers</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Certains logements en rez-de-chaussée avec jardin privatif</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Espace de coworking</h3>
-              <p class="amenity-note">Des bureaux hors du logement</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Garage souterrain</h3>
-              <p class="amenity-note">Sous le bâtiment</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Cave de rangement</h3>
-              <p class="amenity-note">Un débarras fermant à clé</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Ascenseur</h3>
-              <p class="amenity-note">Tous les étages desservis</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Eau chaude aérothermique</h3>
-              <p class="amenity-note">Eau chaude tirée de l’air</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Climatisation</h3>
-              <p class="amenity-note">Froid et chaud par gaines</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Cuisine équipée</h3>
-              <p class="amenity-note">Équipée et électroménager inclus</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">17 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Pré-installation pour la recharge de véhicules électriques</h3>
-              <p class="amenity-note">Une borne pour la voiture</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">18 &middot; Services</span>
-              <h3 class="amenity-name">Salle de cinéma</h3>
-              <p class="amenity-note">Une salle de projection</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">19 &middot; Services</span>
-              <h3 class="amenity-name">Résidence sécurisée</h3>
-              <p class="amenity-note">Accès contrôlé</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Selwo Aventura</th><td>À côté de la résidence</td></tr><tr><th scope="row">Aéroports de Málaga et de Gibraltar</th><td>Environ 45 minutes</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">Les documents du promoteur énumèrent les espaces communs sans surfaces ni horaires ; nous confirmons donc ce qui est construit et ouvert avant toute réservation.</p>
+    <div class="life-panels"><div><h3>Les piscines et les jardins</h3><p>Des piscines extérieures pour adultes et enfants dans des jardins paysagers, avec transats et parasols en paille sur les images du promoteur.</p></div><div><h3>Le spa et la salle de sport</h3><p>Un spa avec piscine intérieure et une salle de sport, parmi les espaces communs listés par le promoteur.</p></div><div><h3>Travail et loisirs</h3><p>Un espace de coworking, une salle de cinéma et un club pour les plus jeunes, tels que la brochure les décrit.</p></div></div>
+    <ul class="amen-top"><li>Piscine extérieure commune</li><li>Pataugeoire</li><li>Spa</li><li>Piscine intérieure</li><li>Sauna</li><li>Salle de sport</li></ul>
+    <details class="amen-all"><summary>Tout afficher (19)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">6</span></h3><ul><li>Piscine extérieure commune</li><li>Pataugeoire</li><li>Spa</li><li>Piscine intérieure</li><li>Sauna</li><li>Salle de sport</li></ul></div><div><h3>Extérieurs<span class="count">3</span></h3><ul><li>Club enfants</li><li>Jardins collectifs paysagers</li><li>Certains logements en rez-de-chaussée avec jardin privatif</li></ul></div><div><h3>Au quotidien<span class="count">8</span></h3><ul><li>Espace de coworking</li><li>Garage souterrain</li><li>Cave de rangement</li><li>Ascenseur</li><li>Eau chaude aérothermique</li><li>Climatisation</li><li>Cuisine équipée</li><li>Pré-installation pour la recharge de véhicules électriques</li></ul></div><div><h3>Services<span class="count">2</span></h3><ul><li>Salle de cinéma</li><li>Résidence sécurisée</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>Ce que c'est</b><span>Vingt-six appartements disponibles dans deux phases ultérieures d’une résidence fermée plus vaste à Estepona.</span></li><li><b>À qui s'adresse ce projet</b><span>Les acquéreurs qui cherchent un appartement neuf avec terrasse, piscines, spa et salle de sport partagés, pour y vivre ou en résidence secondaire.</span></li><li><b>Ce qui le distingue</b><span>Les espaces communs sont ceux d’une grande résidence, avec spa, salle de sport, coworking, salle de cinéma et club pour les jeunes, et certains rez-de-chaussée ont leur propre jardin.</span></li><li><b>Pourquoi l'emplacement compte</b><span>La résidence se trouve à côté de Selwo Aventura, à Estepona, avec La Resina Golf à proximité et la côte en contrebas.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Disponibilité</b><span>Le portail liste vingt-six logements : un d’une chambre à 338 000 €, douze de deux chambres de 411 000 € à 483 000 € et treize de trois chambres de 489 000 € à 686 000 €, plus TVA.</span></li><li><b>Parking et cave</b><span>Le portail associe à chaque logement une ou deux places de parking à 15 000 € chacune et une ou deux caves à 6 000 € chacune, si bien que le total va de 359 000 € à 722 000 € hors TVA.</span></li><li><b>Pas encore de date</b><span>Aucun document n’indique de date de livraison ni d’échéancier de paiement. Nous demandons les deux par écrit et faisons inscrire la date au contrat.</span></li><li><b>Usage personnel et location</b><span>Convient comme résidence principale ou secondaire ; la location dépend du règlement de copropriété et de la licence locale, que nous vérifions.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Le permis et les travaux</b><span>Le permis de construire, l’avancement des travaux de chaque phase et la date de livraison, par écrit avant tout versement.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les plans</b><span>Nous avons les plans provisoires du promoteur pour 14 des 26 logements et demandons les autres. Sur trois d’entre eux, la surface construite diffère de 0,01 m² de celle du portail.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Parking et cave</b><span>Quelle place de parking et quelle cave vont avec le logement, et qu’elles sont enregistrées comme décrit.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Modalités de paiement</b><span>La réservation, le contrat privé et le solde, ainsi que la garantie bancaire des sommes versées d’avance, confirmés avant la réservation.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Demandez le dossier</h3><p>La liste de prix, les plans dont nous disposons pour les logements qui vous intéressent et le descriptif technique.</p></li><li><h3>Voyez le terrain</h3><p>Nous organisons la visite et parcourons avec vous les jardins et les espaces communs.</p></li><li><h3>Réservez avec conseil</h3><p>Réservation, contrat et date de livraison examinés avant signature.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plans<small>14 biens sur 26</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Échéancier<small>Pas encore fourni</small><small>En attente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Descriptif des prestations</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Selwo Garden</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien coûtent les logements ?</summary><p>De 338 000 € à 686 000 € pour le logement, plus TVA et frais d’acquisition, selon le portail agents du promoteur au 13 novembre 2026.</p></details><details class="segment-faq-item"><summary>Combien sont disponibles ?</summary><p>Vingt-six : un d’une chambre, douze de deux et treize de trois.</p></details><details class="segment-faq-item"><summary>Quelle est la surface des logements ?</summary><p>De 87,89 à 148,27 m² construits, avec 63,20 à 105,52 m² de surface utile et des terrasses de 18,37 à 155,46 m².</p></details><details class="segment-faq-item"><summary>Certains ont-ils un jardin ?</summary><p>Oui. Selon leur plan, cinq des logements disponibles en rez-de-chaussée ont un jardin privatif de 8,78 à 82,23 m².</p></details><details class="segment-faq-item"><summary>Le parking est-il inclus ?</summary><p>Pas dans le prix indiqué. Chaque logement est listé avec une ou deux places de parking à 15 000 € chacune et une ou deux caves à 6 000 € chacune, chiffrées sur des lignes séparées en plus du logement.</p></details></div>
+    <details class="faq2-more"><summary>Voir toutes les questions (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Quand à lieu la livraison ?</summary><p>Le promoteur n’a pas publié de date. Son portail indique que la construction a commencé sur la première phase. Nous demandons la date par écrit avant toute réservation.</p></details><details class="segment-faq-item"><summary>Quelles sont les conditions de paiement ?</summary><p>Le promoteur ne les a pas publiées pour ces logements. Nous vous les confirmons par écrit avant tout engagement.</p></details></div></details>
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">338 000 €</p>
+      <p class="rail-note">Hors TVA. · Vérifié le 13 novembre 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Selwo%20Garden%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Garden Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Selwo%20Garden%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Garden Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Sur place.</b> Découvrez avec nous les immeubles, les jardins et l’avancement des travaux.</li><li><b>La vue.</b> Comparez ce que regardent les différents étages et orientations.</li><li><b>Les parties communes.</b> Parcourez les piscines, le spa, la salle de sport et l’espace de coworking.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Selwo Garden Residences">
+        <input type="hidden" id="f-project" name="project" value="Selwo Garden Residences">
+        <input type="hidden" name="preferred_area" value="Selwo, Estepona">
+        <input type="hidden" name="property_type_interest" value="Appartements">
+        <input type="hidden" name="budget_range" value="À partir de 338 000 € + TVA">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Je souhaite recevoir les dernières informations sur le projet Selwo Garden Residences." data-base="Je souhaite recevoir les dernières informations sur le projet Selwo Garden Residences.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="18-1-2-A">18-1-2-A: 489 000 €</option><option value="18-1-2-B">18-1-2-B: 413 000 €</option><option value="18-2-2-B">18-2-2-B: 660 000 €</option><option value="19-2-0-A">19-2-0-A: 338 000 €</option><option value="19-2-2-A">19-2-2-A: 563 000 €</option><option value="19-2-2-B">19-2-2-B: 662 000 €</option><option value="23-1-0-B">23-1-0-B: 447 000 €</option><option value="23-1-1-A">23-1-1-A: 555 000 €</option><option value="20-1-0-A">20-1-0-A: 430 000 €</option><option value="20-1-0-B">20-1-0-B: 423 000 €</option><option value="20-2-0-A">20-2-0-A: 418 000 €</option><option value="20-2-0-B">20-2-0-B: 421 000 €</option><option value="20-2-2-B">20-2-2-B: 469 000 €</option><option value="21-1-0-A">21-1-0-A: 429 000 €</option><option value="21-1-0-B">21-1-0-B: 411 000 €</option><option value="21-2-0-B">21-2-0-B: 425 000 €</option><option value="21-2-1-A">21-2-1-A: 425 000 €</option><option value="21-2-2-A">21-2-2-A: 655 000 €</option><option value="21-2-2-B">21-2-2-B: 483 000 €</option><option value="22-1-0-A">22-1-0-A: 559 000 €</option><option value="22-1-0-C">22-1-0-C: 532 000 €</option><option value="22-1-1-A">22-1-1-A: 545 000 €</option><option value="22-1-1-C">22-1-1-C: 542 000 €</option><option value="22-1-2-A">22-1-2-A: 686 000 €</option><option value="22-1-2-B">22-1-2-B: 572 000 €</option><option value="22-2-1-B">22-2-1-B: 548 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Selwo Garden.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Un regard factuel sur ce qui rend ces logements pertinents aujourd'hui, sans aucune promesse de rendement futur.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Ce que c'est</h3><p>Vingt-six appartements disponibles dans deux phases ultérieures d’une résidence fermée plus vaste à Estepona.</p></article>
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Les acquéreurs qui cherchent un appartement neuf avec terrasse, piscines, spa et salle de sport partagés, pour y vivre ou en résidence secondaire.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce qui le distingue</h3><p>Les espaces communs sont ceux d’une grande résidence, avec spa, salle de sport, coworking, salle de cinéma et club pour les jeunes, et certains rez-de-chaussée ont leur propre jardin.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi l'emplacement compte</h3><p>La résidence se trouve à côté de Selwo Aventura, à Estepona, avec La Resina Golf à proximité et la côte en contrebas.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Une note factuelle sur ce que les documents disent et ne disent pas ; Nueva Living ne promet ni rendement locatif ni plus-value.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Disponibilité</h3><p>Le portail liste vingt-six logements : un d’une chambre à 338 000 €, douze de deux chambres de 411 000 € à 483 000 € et treize de trois chambres de 489 000 € à 686 000 €, plus TVA.</p></article>
-              <article class="why-point reveal-soft"><h3>Parking et cave</h3><p>Le portail associe à chaque logement une ou deux places de parking à 15 000 € chacune et une ou deux caves à 6 000 € chacune, si bien que le total va de 359 000 € à 722 000 € hors TVA.</p></article>
-              <article class="why-point reveal-soft"><h3>Pas encore de date</h3><p>Aucun document n’indique de date de livraison ni d’échéancier de paiement. Nous demandons les deux par écrit et faisons inscrire la date au contrat.</p></article>
-              <article class="why-point reveal-soft"><h3>Usage personnel et location</h3><p>Convient comme résidence principale ou secondaire ; la location dépend du règlement de copropriété et de la licence locale, que nous vérifions.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Le permis et les travaux</h3><p>Le permis de construire, l’avancement des travaux de chaque phase et la date de livraison, par écrit avant tout versement.</p></article>
-              <article class="why-point reveal-soft"><h3>Les plans</h3><p>Nous avons les plans provisoires du promoteur pour 14 des 26 logements et demandons les autres. Sur trois d’entre eux, la surface construite diffère de 0,01 m² de celle du portail.</p></article>
-              <article class="why-point reveal-soft"><h3>Parking et cave</h3><p>Quelle place de parking et quelle cave vont avec le logement, et qu’elles sont enregistrées comme décrit.</p></article>
-              <article class="why-point reveal-soft"><h3>Modalités de paiement</h3><p>La réservation, le contrat privé et le solde, ainsi que la garantie bancaire des sommes versées d’avance, confirmés avant la réservation.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le 13 novembre 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Prix, étages, chambres et surfaces transcrits du portail agents du promoteur au 13 novembre 2026, qui liste 26 logements disponibles sur deux phases et précise que ses prix sont donnés à titre indicatif, sans valeur légale et sous réserve de disponibilité. Les prix indiqués sont ceux du logement seul, hors TVA. Le portail associe à chaque logement une ou deux places de parking à 15 000 € chacune et une ou deux caves à 6 000 € chacune, avec un sous-total de 359 000 € à 722 000 €. La terrasse est le chiffre du portail ; les jardins viennent des plans, le portail n’en donnant pas. Nous avons les plans de 14 des 26 logements, chacun la fiche provisoire du promoteur pour ce logement ; sur trois d’entre eux, la surface construite est inférieure de 0,01 m² à celle du portail (20-2-0-B, 20-2-2-B et 21-1-0-A), et le tableau reprend celle du portail. Les 12 autres logements n’ont pas de plan dans les documents dont nous disposons. Les prix s’entendent hors TVA et hors frais d’acquisition. Nueva Living reconfirme le prix, le statut et les conditions avant toute réservation.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/selwo-garden-residences/media/blocks-above-the-pool.jpg" alt="Image de la brochure de la résidence : des immeubles blancs aux terrasses profondes au-dessus d’un petit bassin, les collines derrière" width="1402" height="2000" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Aperçu architectural</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Immeubles blancs, <em>terrasses profondes</em></h2>
-          <p>Sur les images du promoteur, les immeubles sont bas et blancs, avec des terrasses profondes encadrées de blanc et de gris, des garde-corps en verre et des plantations sur les terrasses hautes, au-dessus des jardins et des piscines et de murs parés de pierre.</p>
-<p>Les logements sont répartis dans des immeubles de trois niveaux sur un parking souterrain. Le promoteur les numérote par immeuble, cage, étage et porte, et c’est ainsi que le tableau les désigne.</p>
-          <ul class="feature-list">
-            <li>Les immeubles — Rez-de-chaussée et deux étages, avec ascenseurs, sur un parking souterrain avec caves.</li>
-            <li>Les terrasses — De 18,37 à 155,46 m², avec point d’eau, évacuation, éclairage, prise électrique et prise TV sur chacune.</li>
-            <li>Les jardins — Cinq des logements disponibles en rez-de-chaussée ont un jardin privatif sur leur plan, de 8,78 à 82,23 m².</li>
-            <li>Façades — Façades en brique à double paroi avec lame d’air isolée, enduites et peintes pour l’extérieur.</li>
-            <li>Menuiseries — Menuiseries en aluminium à rupture de pont thermique avec double vitrage, et volets motorisés dans les chambres.</li>
-            <li>Énergie — Eau chaude par pompe à chaleur aérothermique, façades isolées et grandes baies pour la lumière naturelle.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Selwo%20Garden%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Garden Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea.jpg" alt="Vue générée par ordinateur d’une terrasse du dernier étage avec canapés d’extérieur et bougainvillier, la mer au loin" width="1570" height="714" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Voyez le <em>terrain</em></h2>
-            <p>Une visite est le moyen le plus rapide de juger l’avancement des travaux et la vue de chaque terrasse.</p>
-            <div class="viewing-insights">
-              <div><span>Sur place</span><p>Découvrez avec nous les immeubles, les jardins et l’avancement des travaux.</p></div>
-              <div><span>La vue</span><p>Comparez ce que regardent les différents étages et orientations.</p></div>
-              <div><span>Les parties communes</span><p>Parcourez les piscines, le spa, la salle de sport et l’espace de coworking.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=selwo-garden-residences">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Amenities">Équipements</button><button type="button" data-cat="Terraces">Terrasses</button><button type="button" data-cat="Interiors">Intérieurs</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/selwo-garden-residences/media/porch-and-garden.jpg" alt="Vue générée par ordinateur du porche et de la pelouse privative d’un rez-de-chaussée, avec deux transats" width="1733" height="1302" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">À côté de <em>Selwo</em></h2>
-            <p>Les documents du promoteur énumèrent les espaces communs sans surfaces ni horaires ; nous confirmons donc ce qui est construit et ouvert avant toute réservation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Demandez le dossier</h3>
-            <p>La liste de prix, les plans dont nous disposons pour les logements qui vous intéressent et le descriptif technique.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Voyez le terrain</h3>
-            <p>Nous organisons la visite et parcourons avec vous les jardins et les espaces communs.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Réservez avec conseil</h3>
-            <p>Réservation, contrat et date de livraison examinés avant signature.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien coûtent les logements ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De 338 000 € à 686 000 € pour le logement, plus TVA et frais d’acquisition, selon le portail agents du promoteur au 13 novembre 2026.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien sont disponibles ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Vingt-six : un d’une chambre, douze de deux et treize de trois.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la surface des logements ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De 87,89 à 148,27 m² construits, avec 63,20 à 105,52 m² de surface utile et des terrasses de 18,37 à 155,46 m².</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Certains ont-ils un jardin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Selon leur plan, cinq des logements disponibles en rez-de-chaussée ont un jardin privatif de 8,78 à 82,23 m².</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le parking est-il inclus ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Pas dans le prix indiqué. Chaque logement est listé avec une ou deux places de parking à 15 000 € chacune et une ou deux caves à 6 000 € chacune, chiffrées sur des lignes séparées en plus du logement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quand à lieu la livraison ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le promoteur n’a pas publié de date. Son portail indique que la construction a commencé sur la première phase. Nous demandons la date par écrit avant toute réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelles sont les conditions de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le promoteur ne les a pas publiées pour ces logements. Nous vous les confirmons par écrit avant tout engagement.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Renseignez-vous sur <em>les logements</em></h2>
-          <p class="body-copy">Partagez vos coordonnées et nous vous enverrons les informations actuelles du projet.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Selwo%20Garden%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Garden Residences" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Selwo Garden Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Selwo Garden Residences">
-          <input type="hidden" name="preferred_area" value="Selwo, Estepona">
-          <input type="hidden" name="property_type_interest" value="Appartements">
-          <input type="hidden" name="budget_range" value="À partir de 338 000 € + TVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Je souhaite recevoir les dernières informations sur le projet Selwo Garden Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Contexte du projet : Selwo Garden Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"18-1-2-A","title":"18-1-2-A · Deuxième étage, bloc 18, cage 1","sub":"3 ch. · 133 m²","price":489000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-a-floorplan.pdf","label":""}]},{"id":"u1","ref":"18-1-2-B","title":"18-1-2-B · Deuxième étage, bloc 18, cage 1","sub":"2 ch. · 110 m²","price":413000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-18-1-2-b-floorplan.pdf","label":""}]},{"id":"u2","ref":"18-2-2-B","title":"18-2-2-B · Deuxième étage, bloc 18, cage 2","sub":"3 ch. · 131 m²","price":660000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-18-2-2-b-floorplan.pdf","label":""}]},{"id":"u3","ref":"19-2-0-A","title":"19-2-0-A · Rez-de-chaussée, bloc 19, cage 2","sub":"1 ch. · 88 m²","price":338000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-0-a-floorplan.pdf","label":""}]},{"id":"u4","ref":"19-2-2-A","title":"19-2-2-A · Deuxième étage, bloc 19, cage 2","sub":"3 ch. · 144 m²","price":563000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-a-floorplan.pdf","label":""}]},{"id":"u5","ref":"19-2-2-B","title":"19-2-2-B · Deuxième étage, bloc 19, cage 2","sub":"3 ch. · 131 m²","price":662000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-19-2-2-b-floorplan.pdf","label":""}]},{"id":"u6","ref":"23-1-0-B","title":"23-1-0-B · Rez-de-chaussée, bloc 23, cage 1","sub":"2 ch. · 105 m²","price":447000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-0-b-floorplan.pdf","label":""}]},{"id":"u7","ref":"23-1-1-A","title":"23-1-1-A · Premier étage, bloc 23, cage 1","sub":"3 ch. · 133 m²","price":555000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-23-1-1-a-floorplan.pdf","label":""}]},{"id":"u8","ref":"20-1-0-A","title":"20-1-0-A · Rez-de-chaussée, bloc 20, cage 1","sub":"2 ch. · 119 m²","price":430000,"plans":[]},{"id":"u9","ref":"20-1-0-B","title":"20-1-0-B · Rez-de-chaussée, bloc 20, cage 1","sub":"2 ch. · 118 m²","price":423000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-20-1-0-b-floorplan.pdf","label":""}]},{"id":"u10","ref":"20-2-0-A","title":"20-2-0-A · Rez-de-chaussée, bloc 20, cage 2","sub":"2 ch. · 118 m²","price":418000,"plans":[]},{"id":"u11","ref":"20-2-0-B","title":"20-2-0-B · Rez-de-chaussée, bloc 20, cage 2","sub":"2 ch. · 119 m²","price":421000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-0-b-floorplan.pdf","label":""}]},{"id":"u12","ref":"20-2-2-B","title":"20-2-2-B · Deuxième étage, bloc 20, cage 2","sub":"2 ch. · 120 m²","price":469000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-20-2-2-b-floorplan.pdf","label":""}]},{"id":"u13","ref":"21-1-0-A","title":"21-1-0-A · Rez-de-chaussée, bloc 21, cage 1","sub":"2 ch. · 119 m²","price":429000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-21-1-0-a-floorplan.pdf","label":""}]},{"id":"u14","ref":"21-1-0-B","title":"21-1-0-B · Rez-de-chaussée, bloc 21, cage 1","sub":"2 ch. · 118 m²","price":411000,"plans":[]},{"id":"u15","ref":"21-2-0-B","title":"21-2-0-B · Rez-de-chaussée, bloc 21, cage 2","sub":"2 ch. · 119 m²","price":425000,"plans":[]},{"id":"u16","ref":"21-2-1-A","title":"21-2-1-A · Premier étage, bloc 21, cage 2","sub":"2 ch. · 118 m²","price":425000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-21-2-1-a-floorplan.pdf","label":""}]},{"id":"u17","ref":"21-2-2-A","title":"21-2-2-A · Deuxième étage, bloc 21, cage 2","sub":"3 ch. · 140 m²","price":655000,"plans":[]},{"id":"u18","ref":"21-2-2-B","title":"21-2-2-B · Deuxième étage, bloc 21, cage 2","sub":"2 ch. · 120 m²","price":483000,"plans":[]},{"id":"u19","ref":"22-1-0-A","title":"22-1-0-A · Rez-de-chaussée, bloc 22, cage 1","sub":"3 ch. · 138 m²","price":559000,"plans":[]},{"id":"u20","ref":"22-1-0-C","title":"22-1-0-C · Rez-de-chaussée, bloc 22, cage 1","sub":"3 ch. · 147 m²","price":532000,"plans":[]},{"id":"u21","ref":"22-1-1-A","title":"22-1-1-A · Premier étage, bloc 22, cage 1","sub":"3 ch. · 138 m²","price":545000,"plans":[]},{"id":"u22","ref":"22-1-1-C","title":"22-1-1-C · Premier étage, bloc 22, cage 1","sub":"3 ch. · 147 m²","price":542000,"plans":[{"src":"assets/liora/projects/selwo-garden-residences/floorplans/unit-22-1-1-c-floorplan.pdf","label":""}]},{"id":"u23","ref":"22-1-2-A","title":"22-1-2-A · Deuxième étage, bloc 22, cage 1","sub":"3 ch. · 135 m²","price":686000,"plans":[]},{"id":"u24","ref":"22-1-2-B","title":"22-1-2-B · Deuxième étage, bloc 22, cage 1","sub":"3 ch. · 148 m²","price":572000,"plans":[]},{"id":"u25","ref":"22-2-1-B","title":"22-2-1-B · Premier étage, bloc 22, cage 2","sub":"3 ch. · 137 m²","price":548000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.webp","alt":"Image de la brochure de la résidence : des immeubles blancs en terrasses au-dessus d’une piscine commune avec deux parasols en paille","caption":"La piscine et les immeubles","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-garden-residences/media/blocks-and-the-sierra.webp","alt":"Image de la brochure de la résidence : des immeubles autour des piscines et des jardins, la sierra au loin","caption":"Vers la sierra","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-garden-residences/media/blocks-above-the-pool.webp","alt":"Image de la brochure de la résidence : des immeubles blancs aux terrasses profondes au-dessus d’un petit bassin, les collines derrière","caption":"Les immeubles","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-garden-residences/media/pool-and-planted-terraces.webp","alt":"Image de la brochure de la résidence : une piscine commune sous des terrasses plantées et des immeubles blancs","caption":"La piscine","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-garden-residences/media/pool-with-loungers.webp","alt":"Image de la brochure de la résidence : des transats et un parasol en paille au bord de la piscine","caption":"Au bord de la piscine","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-garden-residences/media/spa-pool.webp","alt":"Vue générée par ordinateur de la piscine intérieure du spa sous une verrière, avec un jacuzzi au premier plan","caption":"Le spa","cat":"Amenities"},{"src":"assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea.webp","alt":"Vue générée par ordinateur d’une terrasse du dernier étage avec canapés d’extérieur et bougainvillier, la mer au loin","caption":"Une terrasse du dernier étage","cat":"Terraces"},{"src":"assets/liora/projects/selwo-garden-residences/media/porch-and-garden.webp","alt":"Vue générée par ordinateur du porche et de la pelouse privative d’un rez-de-chaussée, avec deux transats","caption":"Un jardin en rez-de-chaussée","cat":"Terraces"},{"src":"assets/liora/projects/selwo-garden-residences/media/living-room.webp","alt":"Vue générée par ordinateur d’un séjour ouvert sur la cuisine et la table à manger","caption":"Le séjour","cat":"Interiors"},{"src":"assets/liora/projects/selwo-garden-residences/media/dining-area.webp","alt":"Vue générée par ordinateur de l’espace repas à côté de la cuisine ouverte","caption":"Le coin repas","cat":"Interiors"},{"src":"assets/liora/projects/selwo-garden-residences/media/kitchen.webp","alt":"Vue générée par ordinateur de la cuisine avec meubles hauts façon bois et bar","caption":"La cuisine","cat":"Interiors"},{"src":"assets/liora/projects/selwo-garden-residences/media/bedroom.webp","alt":"Vue générée par ordinateur d’une chambre avec porte coulissante sur la terrasse","caption":"Une chambre","cat":"Interiors"},{"src":"assets/liora/projects/selwo-garden-residences/media/bathroom.webp","alt":"Vue générée par ordinateur d’une salle de bains avec meuble vasque et douche à l’italienne","caption":"Une salle de bains","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Selwo Garden Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/pool-and-blocks-with-parasols-960.webp","alt":"Image de la brochure de la résidence : des immeubles blancs en terrasses au-dessus d’une piscine commune avec deux parasols en paille","width":2000,"height":1501,"caption":"La piscine et les immeubles","category":"Extérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/blocks-and-the-sierra.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/blocks-and-the-sierra-960.webp","alt":"Image de la brochure de la résidence : des immeubles autour des piscines et des jardins, la sierra au loin","width":1728,"height":1314,"caption":"Vers la sierra","category":"Extérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/blocks-above-the-pool.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/blocks-above-the-pool-960.webp","alt":"Image de la brochure de la résidence : des immeubles blancs aux terrasses profondes au-dessus d’un petit bassin, les collines derrière","width":1402,"height":2000,"caption":"Les immeubles","category":"Extérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/pool-and-planted-terraces.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/pool-and-planted-terraces-960.webp","alt":"Image de la brochure de la résidence : une piscine commune sous des terrasses plantées et des immeubles blancs","width":2000,"height":977,"caption":"La piscine","category":"Extérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/pool-with-loungers.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/pool-with-loungers-960.webp","alt":"Image de la brochure de la résidence : des transats et un parasol en paille au bord de la piscine","width":1158,"height":2000,"caption":"Au bord de la piscine","category":"Extérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/spa-pool.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/spa-pool-960.webp","alt":"Vue générée par ordinateur de la piscine intérieure du spa sous une verrière, avec un jacuzzi au premier plan","width":1493,"height":829,"caption":"Le spa","category":"Équipements"},{"src":"assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/terrace-to-the-sea-960.webp","alt":"Vue générée par ordinateur d’une terrasse du dernier étage avec canapés d’extérieur et bougainvillier, la mer au loin","width":1570,"height":714,"caption":"Une terrasse du dernier étage","category":"Terrasses"},{"src":"assets/liora/projects/selwo-garden-residences/media/porch-and-garden.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/porch-and-garden-960.webp","alt":"Vue générée par ordinateur du porche et de la pelouse privative d’un rez-de-chaussée, avec deux transats","width":1733,"height":1302,"caption":"Un jardin en rez-de-chaussée","category":"Terrasses"},{"src":"assets/liora/projects/selwo-garden-residences/media/living-room.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/living-room-960.webp","alt":"Vue générée par ordinateur d’un séjour ouvert sur la cuisine et la table à manger","width":2000,"height":1430,"caption":"Le séjour","category":"Intérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/dining-area.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/dining-area-960.webp","alt":"Vue générée par ordinateur de l’espace repas à côté de la cuisine ouverte","width":2000,"height":1929,"caption":"Le coin repas","category":"Intérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/kitchen.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/kitchen-960.webp","alt":"Vue générée par ordinateur de la cuisine avec meubles hauts façon bois et bar","width":1357,"height":1027,"caption":"La cuisine","category":"Intérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/bedroom.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/bedroom-960.webp","alt":"Vue générée par ordinateur d’une chambre avec porte coulissante sur la terrasse","width":1879,"height":1214,"caption":"Une chambre","category":"Intérieurs"},{"src":"assets/liora/projects/selwo-garden-residences/media/bathroom.jpg","webp":"assets/liora/projects/selwo-garden-residences/media/bathroom-960.webp","alt":"Vue générée par ordinateur d’une salle de bains avec meuble vasque et douche à l’italienne","width":1570,"height":1314,"caption":"Une salle de bains","category":"Intérieurs"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-selwo-garden-residences.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Selwo%20Garden%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Garden Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

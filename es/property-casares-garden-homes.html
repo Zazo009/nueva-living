@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Pueden los extranjeros comprar propiedades en España?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué es el número de NIE y lo necesito?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué gastos adicionales debo prever además del precio de compra?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo conseguir una hipoteca en España siendo no residente?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo funciona el proceso de reserva y pago?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo alquilar la propiedad después de comprarla?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito un abogado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Cuántas viviendas hay disponibles?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -310,7 +247,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="es"
   data-project-name="Casares Garden Homes"
   data-project-message="Hola, Nueva Living, me gustaría recibir información sobre Casares Garden Homes."
@@ -467,526 +404,220 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Casares Garden Homes">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="es/property-casares-garden-homes.html#top">Casares Garden Homes<span>Desde 395.000 € · Más IVA</span></a>
+      <nav class="hdr-proj" aria-label="Secciones del proyecto"><a href="es/property-casares-garden-homes.html#overview">Visión general</a><a href="es/property-casares-garden-homes.html#availability">Precios</a><a href="es/property-casares-garden-homes.html#specs">Calidades</a><a href="es/property-casares-garden-homes.html#gallery">Galería</a><a href="es/property-casares-garden-homes.html#location">Ubicación</a><a href="es/property-casares-garden-homes.html#onsite">En la promoción</a><a href="es/property-casares-garden-homes.html#view">Nuestra opinión</a><a href="es/property-casares-garden-homes.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="es/property-casares-garden-homes.html#enquire" data-prefill>Reservar una visita privada</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Casares Garden Homes">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.jpg" alt="Vista generada por ordenador, a través de un césped y una piscina comunitaria curva con tumbonas y sombrillas, de bloques escalonados de tres plantas, con una sala acristalada con bicicletas estáticas a la izquierda" width="1920" height="1214" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.jpg" alt="Vista generada por ordenador, a través de un césped y una piscina comunitaria curva con tumbonas y sombrillas, de bloques escalonados de tres plantas, con una sala acristalada con bicicletas estáticas a la izquierda" width="1920" height="1214" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">14 de 134 viviendas disponibles</span>
-          <h1 class="hero-title" style="--hero-title-run: 7">
-            <span class="hero-title-name">Casares Garden <em>Homes</em></span>
-            <span class="hero-title-context">Apartamentos de dos a cuatro dormitorios en Casares</span>
-          </h1>
-          <p class="hero-positioning">14 de los 134 apartamentos están a la venta en una promoción en construcción en Casares, de viviendas de dos, tres y cuatro dormitorios, con piscina comunitaria y gimnasio. La hoja informativa del promotor estima la finalización para el T4 2026. Desde 395.000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="es/property-casares-garden-homes.html#availability">Ver viviendas disponibles</a>
-            <a class="btn project-btn ghost" href="es/index.html#private-viewing=1&amp;project=casares-garden-homes">Presentación cinemática</a>
-            <a class="btn project-btn ghost" href="es/property-casares-garden-homes.html#media">Todas las imágenes</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Datos clave del proyecto">
-          <div class="hero-fact"><span>Zona</span><strong>Casares, Málaga</strong></div>
-          <div class="hero-fact"><span>Precio desde</span><strong>Desde 395.000 €</strong></div>
-          <div class="hero-fact"><span>Tipo de vivienda</span><strong>Apartamentos</strong></div>
-          <div class="hero-fact"><span>Entrega</span><strong>T4 2026</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Secciones del proyecto">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ir a</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="es/property-casares-garden-homes.html#media">Galería</a>
-        <a href="es/property-casares-garden-homes.html#location">Ubicación</a>
-        <a href="es/property-casares-garden-homes.html#availability">Disponibilidad</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Más</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="es/property-casares-garden-homes.html#overview">Visión general</a>
-          <a href="es/property-casares-garden-homes.html#residences">Viviendas</a>
-          <a href="es/property-casares-garden-homes.html#quality-specifications">Calidades</a>
-          <a href="es/property-casares-garden-homes.html#calculator">Financiación</a>
-          <a href="es/property-casares-garden-homes.html#amenities">Servicios y extras</a>
-          <a href="es/property-casares-garden-homes.html#why-this-project">Por qué</a>
-          <a href="es/property-casares-garden-homes.html#architecture">Arquitectura</a>
-          <a href="es/property-casares-garden-homes.html#private-viewing">Presentación cinemática</a>
-          <a href="es/property-casares-garden-homes.html#lifestyle">Estilo de vida</a>
-          <a href="es/property-casares-garden-homes.html#faq">FAQ</a>
-          <a href="es/property-casares-garden-homes.html#enquire">Consultar</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Datos rápidos del proyecto">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Dormitorios</span><strong>2-4 dormitorios</strong></div>
-          <div class="quick-fact"><span>Superficie indicada</span><strong>98,99 - 179,78 m²</strong></div>
-          <div class="quick-fact"><span>Estado</span><strong>En construcción</strong></div>
-          <div class="quick-fact"><span>Disponibilidad</span><strong>14 de 134 viviendas disponibles</strong></div>
-          <div class="quick-fact"><span>Promoción</span><strong>134 apartamentos</strong></div>
-          <div class="quick-fact"><span>Disponible</span><strong>14 viviendas</strong></div>
-          <div class="quick-fact"><span>Rango de precios</span><strong>395.000 € - 551.000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="es/property-casares-garden-homes.html#enquire" data-prefill>Solicitar información</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Visión general</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ciento treinta y cuatro apartamentos, <em>14 a la venta</em></h2>
-          <p class="project-lead">Se trata de una promoción de 134 apartamentos de dos, tres o cuatro dormitorios en Casares, en la provincia de Málaga, y está en construcción. Hay 14 viviendas a la venta, con superficie y precio. El plano general del promotor sitúa la promoción en la parcela 56 del sector UR-12 de Casares y muestra 9 bloques con 17 portales numerados, con una piscina comunitaria en el centro del plano.</p>
-          <p class="project-lead">La hoja informativa menciona una cocina de planta abierta totalmente equipada, aire acondicionado frío y calor, aparcamiento y trastero, piscina comunitaria, gimnasio, armarios empotrados y orientación sur y suroeste. La memoria de calidades recoge una urbanización ajardinada con especies vegetales locales, una piscina comunitaria y un local para gimnasio.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Galería</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">La promoción <em>al detalle</em></h2>
-          </div>
-          <p class="project-lead">Vistas generadas por ordenador de la piscina, los bloques y los interiores, y fotografías de una vivienda piloto amueblada. Los documentos que tenemos no incluyen planos de las viviendas.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Ver 4 imágenes de Exteriores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.jpg" alt="Vista generada por ordenador, a través de un césped y una piscina comunitaria curva con tumbonas y sombrillas, de bloques escalonados de tres plantas, con una sala acristalada con bicicletas estáticas a la izquierda" width="1920" height="1214" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriores</small>
-                <strong>La piscina comunitaria y los bloques</strong>
-                <span class="project-media-card-cta">4 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Ver 1 imágenes de Ubicación">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site-640.webp 640w, assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site-960.webp 960w, assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site.jpg" alt="Vista aérea de la parcela con los bloques mostrados como imágenes generadas por ordenador, entre una carretera y calles de golf verdes, con urbanizaciones blancas y de color terracota alrededor y el mar al fondo" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Ubicación</small>
-                <strong>La promoción desde el aire</strong>
-                <span class="project-media-card-cta">1 imagen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Ver 3 imágenes de Terrazas">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa-640.webp 640w, assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa-960.webp 960w, assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa.jpg" alt="Terraza generada por ordenador, con un gran sofá rinconero, una mesa de centro baja de madera y dos sillones de ratán, con una barandilla de cristal y colinas y una franja de mar al fondo" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrazas</small>
-                <strong>Una terraza con sofá rinconero</strong>
-                <span class="project-media-card-cta">3 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Ver 8 imágenes de Interiores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen-640.webp 640w, assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen-960.webp 960w, assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen.jpg" alt="Salón de planta abierta generado por ordenador, con un sofá, un sillón y una mesa de comedor, una cocina blanca detrás y puertas correderas de cristal hacia una terraza" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiores</small>
-                <strong>Salón y cocina</strong>
-                <span class="project-media-card-cta">8 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Ver 6 imágenes de Dormitorios">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard-640.webp 640w, assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard-960.webp 960w, assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard.jpg" alt="Dormitorio generado por ordenador, con una cama doble bajo un cabecero tapizado y acolchado en paneles, un revestimiento de pared botánico y una ventana a un césped" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Dormitorios</small>
-                <strong>Un dormitorio</strong>
-                <span class="project-media-card-cta">6 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Ver 2 imágenes de Baños">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/show-home-bathroom-with-walk-in-shower-640.webp 640w, assets/liora/projects/casares-garden-homes/media/show-home-bathroom-with-walk-in-shower-960.webp 960w, assets/liora/projects/casares-garden-homes/media/show-home-bathroom-with-walk-in-shower.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/casares-garden-homes/media/show-home-bathroom-with-walk-in-shower.jpg" alt="Fotografía de un baño de la vivienda piloto, con una ducha a ras de suelo tras una mampara de cristal, un lavabo suspendido y un espejo iluminado" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Baños</small>
-                <strong>Vivienda piloto: un baño</strong>
-                <span class="project-media-card-cta">2 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Ver las 24 imágenes</button>
-          <p class="media-note">Las imágenes generadas por ordenador y las fotografías de la vivienda piloto son ilustrativas: el promotor indica que el mobiliario que aparece es meramente ilustrativo, que sus imágenes son orientativas y sin carácter contractual, y que puede introducir los cambios que exijan razones técnicas o legales, sustituyendo los materiales por otros de calidad igual o superior. Las fotografías están en dos series, viviendas de planta baja y dúplex; los documentos no describen estos tipos y la tabla de disponibilidad no da ninguno.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Ubicación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">En Casares, <em>tierra adentro desde la costa</em></h2>
-          <p class="project-lead">El plano general del promotor sitúa la promoción en la parcela 56 del sector UR-12 de Casares, Málaga. El mapa de la hoja informativa la marca tierra adentro desde la costa, al noroeste de Casares del Sol y Casares Costa, con el puerto deportivo de Estepona en la parte superior del mapa, y su oficina de ventas está en Estepona. La hoja informativa menciona un paseo de 15 minutos a la playa sin decir a qué playa ni desde dónde, y no da otras distancias.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="es">
-          <div class="locmap-map" id="locmap-casares-garden-homes" data-locmap='{&quot;site&quot;:[36.3876,-5.2184],&quot;sea&quot;:[36.3606,-5.2184],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;11 km · 15 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;9,3 km · 11 min&quot;},{&quot;ll&quot;:[36.39646,-5.22386],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Finca Cortesín&quot;,&quot;sub&quot;:&quot;1,8 km · 3 min&quot;},{&quot;ll&quot;:[36.37988,-5.21323],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;1,2 km · 3 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Casares Garden Homes"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ubicación indicativa</span>
-            <h3 class="locmap-name">Casares Garden Homes</h3>
-            <p class="locmap-place">Casares, Málaga</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Playa</span>
-              <span class="locmap-row-figure"><bdi>1,2 km</bdi> <em><bdi>3 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>9,3 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centro de Estepona</span>
-              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>15 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>1,8 km</bdi> <em><bdi>3 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Estepona</span>
-              <span class="locmap-row-figure"><bdi>6,9 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>35 km</bdi> <em><bdi>38 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Viviendas</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tres tamaños de vivienda, <em>una urbanización</em></h2>
-          <p class="project-lead">La hoja informativa del promotor describe apartamentos de dos, tres y cuatro dormitorios. La tabla de disponibilidad lista 14 referencias con una superficie y un precio, pero sin plantas, planos ni tipos de vivienda, por lo que los grupos siguientes se ordenan solo por número de dormitorios. Las fotografías de la vivienda piloto están en dos series, viviendas de planta baja y dúplex, y los documentos no indican cuáles de las viviendas listadas son de cada tipo.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Apartamentos de dos dormitorios</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-casares-garden-homes.html#enquire" data-prefill>Solicitar planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Apartamentos de tres dormitorios</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-casares-garden-homes.html#enquire" data-prefill>Solicitar planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Apartamentos de cuatro dormitorios</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-casares-garden-homes.html#enquire" data-prefill>Solicitar planos</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Material privado</span>
-            <p>Los planos, orientaciones y disponibilidad actuales deben confirmarse con el último dossier de la promotora antes de preseleccionar una vivienda.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="es/property-casares-garden-homes.html#enquire" data-prefill>Ver planos</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Memoria de calidades</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Con qué están <em>construidas</em></h2>
-          <p class="project-lead">La memoria de calidades del propio promotor, resumida por partes de la vivienda.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Suelos y paredes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Pavimento de gres porcelánico de formato 60 por 60 cm en toda la vivienda, antideslizante en las terrazas, y pintura plástica mate en las paredes.</li>
-              <li>Alicatado de gres rectificado de formato 30 por 90 cm en los baños, las duchas y sobre los lavabos, y falsos techos de placa de yeso laminado en el distribuidor, la cocina y los baños.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Tabiquería y aislamiento<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Tabiquería seca de placas de yeso laminado sobre perfilería metálica, con lana mineral como aislamiento térmico y acústico y placas hidrófugas en las zonas húmedas.</li>
-              <li>Muros de ladrillo con trasdosado de yeso laminado y aislamiento entre viviendas, y entre las viviendas y las zonas comunes.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Carpintería y armarios<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Puerta de entrada blindada con cerradura de seguridad de tres puntos de anclaje, bisagras antipalanca y mirilla panorámica, y puertas interiores semimacizas lacadas con herrajes de acero inoxidable o cromados.</li>
-              <li>Armarios empotrados revestidos por dentro, con barra de colgar y puertas del mismo acabado que las puertas interiores.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cocina<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Cocinas entregadas amuebladas, con muebles altos y bajos de gran capacidad con acabado laminado, encimera Silestone y un fregadero grande de acero inoxidable.</li>
-              <li>Equipamiento: campana extractora integrada, horno de acero inoxidable y microondas integrado, placa de inducción de 3 zonas, frigorífico integrado, lavavajillas integrado, lavadora (de acero inoxidable o integrada, según el tipo de cocina) e iluminación LED en el mueble alto.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Baños<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Baños principales y secundarios con inodoro, lavabo y plato de ducha, y aseos con inodoro y lavabo. Lavabos suspendidos de porcelana vitrificada, un mueble con cajón y encimera a juego en el baño principal, platos de ducha rectangulares blancos antideslizantes y grifería cromada.</li>
-              <li>Espejo en el baño principal. Las mamparas de ducha se ofrecen como extra opcional con coste.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatización e instalaciones<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Aire acondicionado por bomba de calor, con conductos en el falso techo y rejillas en los salones y dormitorios, y agua caliente de una unidad aerotérmica individual.</li>
-              <li>Un grado de electrificación elevado, con tomas de teléfono en el salón, la cocina y los dormitorios y una antena colectiva de TV con tomas en el salón, la cocina, los dormitorios y las terrazas de planta baja.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Zonas comunes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Urbanización ajardinada con especies vegetales locales, una piscina comunitaria y un local para gimnasio.</li>
-              <li>Gres porcelánico en portales, pasillos y escaleras, iluminación de bajo consumo, un garaje con puerta mecanizada con mando a distancia, y ascensores con puertas automáticas, espejo y conexión telefónica.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Fuente: la memoria de calidades del promotor, fechada el 23 de septiembre de 2024. El promotor indica que es orientativa y que puede modificarse por razones técnicas o legales, o cuando el arquitecto lo considere necesario, en cuyo caso los materiales se sustituyen por otros de calidad igual o superior. Se nombran algunas marcas de revestimientos y sanitarios. La memoria no indica mobiliario suelto.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilidad</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">14 viviendas <em>disponibles actualmente</em></h2>
-          <p class="project-lead">Las superficies y los precios son los de la tabla de disponibilidad del portal de ventas, consultada el 18 de octubre de 2026. La tabla no da plantas, planos ni superficies de terraza, y no indica si los precios incluyen el IVA.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.jpg" alt="Vista generada por ordenador, a través de un césped y una piscina comunitaria curva con tumbonas y sombrillas, de bloques escalonados de tres plantas, con una sala acristalada con bicicletas estáticas a la izquierda" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>24 fotos</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Resumen de la fase actual">
-            <div><span>Viviendas disponibles</span><strong>14</strong></div>
-            <div><span>Precio desde</span><strong>395.000 €</strong></div>
-            <div><span>Rango de precios</span><strong>395.000 € - 551.000 €</strong></div>
-            <div><span>Verificado</span><strong>octubre de 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Ver las 14 viviendas disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrar viviendas disponibles"
-              data-availability-filters
-              data-count-template="Mostrando {shown} de {total}">
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Dormitorios</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">Todas</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 dorm.</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 dorm.</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="4" aria-pressed="false">4 dorm.</button>
-                </div>
-              </div>
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Precio</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Todas</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-500000" aria-pressed="false">Menos de €500k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="500000-" aria-pressed="false">€500k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Borrar filtros</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Ninguna vivienda coincide con estos filtros.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Viviendas disponibles en Casares Garden Homes</caption>
-                <thead><tr><th scope="col">Referencia</th><th scope="col">Dormitorios</th><th scope="col">Superficie</th><th scope="col">Precio</th><th scope="col">Estado</th></tr></thead>
-                <tbody>
-              <tr data-beds="4" data-price="516000">
-                <td data-label="Referencia"><strong>BSH-10A</strong></td>
-                <td data-label="Dormitorios">4 dormitorios</td>
-                <td data-label="Superficie">179,77 m²</td>
-                <td data-label="Precio"><strong>516.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="463000">
-                <td data-label="Referencia"><strong>BSH-10C</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">122,75 m²</td>
-                <td data-label="Precio"><strong>463.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="2" data-price="460000">
-                <td data-label="Referencia"><strong>BSH-12A</strong></td>
-                <td data-label="Dormitorios">2 dormitorios</td>
-                <td data-label="Superficie">101,12 m²</td>
-                <td data-label="Precio"><strong>460.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="2" data-price="395000">
-                <td data-label="Referencia"><strong>BSH-160B</strong></td>
-                <td data-label="Dormitorios">2 dormitorios</td>
-                <td data-label="Superficie">98,99 m²</td>
-                <td data-label="Precio"><strong>395.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="452000">
-                <td data-label="Referencia"><strong>BSH-160C</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">122,75 m²</td>
-                <td data-label="Precio"><strong>452.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="485000">
-                <td data-label="Referencia"><strong>BSH-160D</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">148,25 m²</td>
-                <td data-label="Precio"><strong>485.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="4" data-price="551000">
-                <td data-label="Referencia"><strong>BSH-170A</strong></td>
-                <td data-label="Dormitorios">4 dormitorios</td>
-                <td data-label="Superficie">179,78 m²</td>
-                <td data-label="Precio"><strong>551.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="550000">
-                <td data-label="Referencia"><strong>BSH-172B</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">125,15 m²</td>
-                <td data-label="Precio"><strong>550.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="521000">
-                <td data-label="Referencia"><strong>BSH-20C</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">122,75 m²</td>
-                <td data-label="Precio"><strong>521.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="518000">
-                <td data-label="Referencia"><strong>BSH-20D</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">148,25 m²</td>
-                <td data-label="Precio"><strong>518.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="549000">
-                <td data-label="Referencia"><strong>BSH-22B</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">125,15 m²</td>
-                <td data-label="Precio"><strong>549.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="535000">
-                <td data-label="Referencia"><strong>BSH-32B</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">125,15 m²</td>
-                <td data-label="Precio"><strong>535.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="2" data-price="435000">
-                <td data-label="Referencia"><strong>BSH-42A</strong></td>
-                <td data-label="Dormitorios">2 dormitorios</td>
-                <td data-label="Superficie">101,12 m²</td>
-                <td data-label="Precio"><strong>435.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="3" data-price="540000">
-                <td data-label="Referencia"><strong>BSH-52B</strong></td>
-                <td data-label="Dormitorios">3 dormitorios</td>
-                <td data-label="Superficie">125,15 m²</td>
-                <td data-label="Precio"><strong>540.000 €</strong></td>
-                <td data-label="Estado"><span class="availability-status">Disponible</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="es/property-casares-garden-homes.html#location"><svg><use href="#v2-pin"/></svg>Mapa</a>
           
-          <p class="availability-source-note">Las superficies y los precios están transcritos de la tabla de disponibilidad del portal de ventas, consultada el 18 de octubre de 2026. Lista 14 referencias y cada una se muestra una sola vez. La tabla da el número de dormitorios, una superficie y un precio de cada vivienda. No indica si la superficie es construida o interior, ni si el precio incluye el IVA; la hoja informativa expresa los pagos como más IVA, y el promotor dice que sus superficies son aproximadas. La promoción tiene 134 apartamentos en total, y los 14 que figuran son los que están listados.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="es/property-casares-garden-homes.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Casares%20Garden%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Casares Garden Homes" data-intent="speak with an advisor">Hablar con un asesor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Calcule su <em>cuota mensual</em></h2>
-          <p class="body-copy">Se trata de una estimación orientativa. Confirme las condiciones exactas con su entidad financiera antes de tomar cualquier decisión.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Casares Garden</span> <span class="h1-b">Homes</span></h1>
+        <p class="hero-by">14 de los 134 apartamentos están a la venta en una promoción en construcción en Casares, de viviendas de dos, tres y cuatro dormitorios, con piscina comunitaria y gimnasio.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Precio</dt><dd class="num">Desde 395.000 €</dd><dd class="sub">Más IVA</dd></div><div><dt>Dormitorios</dt><dd>2 a 4</dd><dd class="sub"><span>Apartamentos</span></dd></div><div><dt>Entrega</dt><dd>T4 2026</dd><dd class="sub">Licencia de obra concedida</dd></div><div><dt>Viviendas disponibles</dt><dd>14 de 134</dd><dd class="sub">Comprobado el octubre de 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="es/property-casares-garden-homes.html#enquire" data-prefill>Reservar una visita privada</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Casares%20Garden%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Casares Garden Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">La promoción</h2>
+    <p class="lede">Se trata de una promoción de 134 apartamentos de dos, tres o cuatro dormitorios en Casares, en la provincia de Málaga, y está en construcción. Hay 14 viviendas a la venta, con superficie y precio. El plano general del promotor sitúa la promoción en la parcela 56 del sector UR-12 de Casares y muestra 9 bloques con 17 portales numerados, con una piscina comunitaria en el centro del plano.</p>
+    <p class="lede-2">La hoja informativa menciona una cocina de planta abierta totalmente equipada, aire acondicionado frío y calor, aparcamiento y trastero, piscina comunitaria, gimnasio, armarios empotrados y orientación sur y suroeste. La memoria de calidades recoge una urbanización ajardinada con especies vegetales locales, una piscina comunitaria y un local para gimnasio.</p>
+    <details class="fold" id="architecture"><summary>Arquitectura · <span>Bloques escalonados, jardines y una piscina central</span></summary><p>Las infografías del promotor muestran bloques de terrazas escalonadas con patios y céspedes en planta baja, barandillas de cristal en las terrazas superiores y lamas que dan sombra, en torno a una piscina comunitaria curva y unas laderas plantadas.</p><p>El plano general es la versión 8, de enero de 2024. El promotor lo marca como no definitivo: responde al proyecto de ejecución, puede cambiar por razones técnicas o legales, y las superficies que figuran en él son aproximadas.</p><ul><li>Estructura: Cimentación de hormigón armado según el estudio geotécnico y estructura de hormigón armado, salvo algún pilar metálico, conforme al Código Técnico de la Edificación.</li><li>Fachada: Fachada multicapa con fábrica exterior de ladrillo, aislamiento y trasdosado interior, con acabado exterior enfoscado y pintado en varios colores.</li><li>Carpintería exterior: Carpintería exterior de PVC con doble acristalamiento tipo Climalit, tratado según la fachada, y persianas en los dormitorios.</li><li>Cubiertas: Cubiertas planas impermeabilizadas y aisladas con planchas rígidas, con acabado de grava en las zonas no transitables y de solado cerámico antideslizante en las transitables.</li></ul></details>
+    <dl class="kfacts"><div><dt>Precio</dt><dd><span>395.000 € – 551.000 €</span><small>Más IVA</small></dd></div><div><dt>Disponibles</dt><dd><span>14 de 134 viviendas</span><small>Comprobado el octubre de 2026</small></dd></div><div><dt>Viviendas</dt><dd><span>Apartamentos</span></dd></div><div><dt>Superficies</dt><dd><span>99 – 180 m²</span></dd></div><div><dt>Entrega</dt><dd><span>T4 2026</span></dd></div><div><dt>Licencia</dt><dd><span><span class="ok">Licencia de obra</span></span><small>Concedida</small></dd></div><div><dt>Anticipos</dt><dd><span>Aval bancario</span><small>Obligatorio por ley</small></dd></div><div><dt>Aparcamiento</dt><dd><span>Aparcamiento</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Viviendas y precios</h2>
+    <p class="sec-sub">Las superficies y los precios son los de la tabla de disponibilidad del portal de ventas, consultada el 18 de octubre de 2026. La tabla no da plantas, planos ni superficies de terraza, y no indica si los precios incluyen el IVA. Seleccione una vivienda para ver su calendario de pagos y su coste total.</p>
+    <div class="scarcity" role="img" aria-label="14 de 134 aún a la venta"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>14 de 134 aún a la venta</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrar por dormitorios"><button type="button" aria-pressed="true" data-beds="">Todas <span>14</span></button><button type="button" aria-pressed="false" data-beds="2">2 dorm. <span>3</span></button><button type="button" aria-pressed="false" data-beds="3">3 dorm. <span>9</span></button><button type="button" aria-pressed="false" data-beds="4">4 dorm. <span>2</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Viviendas a la venta, con superficie y precio. Seleccione una fila para ver el calendario de pagos.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Vivienda</th>
+          <th scope="col" data-sort="beds">Dormitorios</th>
+          <th scope="col" data-sort="size">Superficie</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Precio</th>
+          <th scope="col" data-sort="ppm">Por m²</th>
+          <th scope="col">Plano</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="4" data-price="516000" data-size="179.77" data-ppm="2870" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-10A</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">180 m²</td>
+            <td data-label="Precio" class="u-price num">516.000 €</td>
+            <td data-label="Por m²" class="num">2.870 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="463000" data-size="122.75" data-ppm="3772" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-10C</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">123 m²</td>
+            <td data-label="Precio" class="u-price num">463.000 €</td>
+            <td data-label="Por m²" class="num">3.772 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="460000" data-size="101.12" data-ppm="4549" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-12A</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">101 m²</td>
+            <td data-label="Precio" class="u-price num">460.000 €</td>
+            <td data-label="Por m²" class="num">4.549 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="395000" data-size="98.99" data-ppm="3990" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-160B</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">99 m²</td>
+            <td data-label="Precio" class="u-price num">395.000 €</td>
+            <td data-label="Por m²" class="num">3.990 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="452000" data-size="122.75" data-ppm="3682" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-160C</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">123 m²</td>
+            <td data-label="Precio" class="u-price num">452.000 €</td>
+            <td data-label="Por m²" class="num">3.682 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="485000" data-size="148.25" data-ppm="3272" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-160D</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">148 m²</td>
+            <td data-label="Precio" class="u-price num">485.000 €</td>
+            <td data-label="Por m²" class="num">3.272 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u6" data-beds="4" data-price="551000" data-size="179.78" data-ppm="3065" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-170A</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">180 m²</td>
+            <td data-label="Precio" class="u-price num">551.000 €</td>
+            <td data-label="Por m²" class="num">3.065 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="550000" data-size="125.15" data-ppm="4395" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-172B</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">125 m²</td>
+            <td data-label="Precio" class="u-price num">550.000 €</td>
+            <td data-label="Por m²" class="num">4.395 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="521000" data-size="122.75" data-ppm="4244" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-20C</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">123 m²</td>
+            <td data-label="Precio" class="u-price num">521.000 €</td>
+            <td data-label="Por m²" class="num">4.244 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="518000" data-size="148.25" data-ppm="3494" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-20D</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">148 m²</td>
+            <td data-label="Precio" class="u-price num">518.000 €</td>
+            <td data-label="Por m²" class="num">3.494 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="549000" data-size="125.15" data-ppm="4387" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-22B</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">125 m²</td>
+            <td data-label="Precio" class="u-price num">549.000 €</td>
+            <td data-label="Por m²" class="num">4.387 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u11" data-beds="3" data-price="535000" data-size="125.15" data-ppm="4275" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-32B</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">125 m²</td>
+            <td data-label="Precio" class="u-price num">535.000 €</td>
+            <td data-label="Por m²" class="num">4.275 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u12" data-beds="2" data-price="435000" data-size="101.12" data-ppm="4302" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-42A</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">101 m²</td>
+            <td data-label="Precio" class="u-price num">435.000 €</td>
+            <td data-label="Por m²" class="num">4.302 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u13" data-beds="3" data-price="540000" data-size="125.15" data-ppm="4315" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">BSH-52B</span><span class="u-loc"></span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">125 m²</td>
+            <td data-label="Precio" class="u-price num">540.000 €</td>
+            <td data-label="Por m²" class="num">4.315 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Viviendas · <span>Tres tamaños de vivienda, una urbanización</span></summary><p>La hoja informativa del promotor describe apartamentos de dos, tres y cuatro dormitorios. La tabla de disponibilidad lista 14 referencias con una superficie y un precio, pero sin plantas, planos ni tipos de vivienda, por lo que los grupos siguientes se ordenan solo por número de dormitorios. Las fotografías de la vivienda piloto están en dos series, viviendas de planta baja y dúplex, y los documentos no indican cuáles de las viviendas listadas son de cada tipo.</p><div class="res-types"><div class="res-type"><h3>Apartamentos de dos dormitorios</h3><ul><li>Figuran 3 viviendas de dos dormitorios, de 98,99 a 101,12 m².</li><li>Los precios van de 395.000 € a 460.000 €.</li></ul></div><div class="res-type"><h3>Apartamentos de tres dormitorios</h3><ul><li>Figuran 9 viviendas de tres dormitorios, de 122,75 a 148,25 m².</li><li>Los precios van de 452.000 € a 550.000 €.</li></ul></div><div class="res-type"><h3>Apartamentos de cuatro dormitorios</h3><ul><li>Figuran 2 viviendas de cuatro dormitorios, de 179,77 y 179,78 m².</li><li>Los precios son 516.000 € y 551.000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">El calendario de pagos del promotor se facilita bajo petición; se lo enviamos con la lista de precios.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Lo que cuesta en total</p>
+      <dl class="cost-lines num">
+        <div><dt>Precio</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>AJD (actos jurídicos documentados), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total antes de notaría, registro y abogado</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="es/property-casares-garden-homes.html#enquire" data-prefill>Consultar sobre esta vivienda</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plano"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>¿Financiación? Calculadora de hipoteca</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Precio de compra</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1046,391 +677,227 @@
               <div class="calculator-result"><span>Impuestos y gastos de compra</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Servicios y extras</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Lo que la promoción <em>le ofrece</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina comunitaria</h3>
-              <p class="amenity-note">Compartida por los residentes</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Calidades</h2>
+    <p class="sec-sub">La memoria de calidades del propio promotor, resumida por partes de la vivienda.</p>
+    <div class="tabs" role="tablist" aria-label="Calidades"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Suelos y paredes</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Tabiquería y aislamiento</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Carpintería y armarios</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Cocina</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Baños</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Climatización e instalaciones</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Zonas comunes</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Pavimento de gres porcelánico de formato 60 por 60 cm en toda la vivienda, antideslizante en las terrazas, y pintura plástica mate en las paredes.</li><li>Alicatado de gres rectificado de formato 30 por 90 cm en los baños, las duchas y sobre los lavabos, y falsos techos de placa de yeso laminado en el distribuidor, la cocina y los baños.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Tabiquería seca de placas de yeso laminado sobre perfilería metálica, con lana mineral como aislamiento térmico y acústico y placas hidrófugas en las zonas húmedas.</li><li>Muros de ladrillo con trasdosado de yeso laminado y aislamiento entre viviendas, y entre las viviendas y las zonas comunes.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Puerta de entrada blindada con cerradura de seguridad de tres puntos de anclaje, bisagras antipalanca y mirilla panorámica, y puertas interiores semimacizas lacadas con herrajes de acero inoxidable o cromados.</li><li>Armarios empotrados revestidos por dentro, con barra de colgar y puertas del mismo acabado que las puertas interiores.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Cocinas entregadas amuebladas, con muebles altos y bajos de gran capacidad con acabado laminado, encimera Silestone y un fregadero grande de acero inoxidable.</li><li>Equipamiento: campana extractora integrada, horno de acero inoxidable y microondas integrado, placa de inducción de 3 zonas, frigorífico integrado, lavavajillas integrado, lavadora (de acero inoxidable o integrada, según el tipo de cocina) e iluminación LED en el mueble alto.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Baños principales y secundarios con inodoro, lavabo y plato de ducha, y aseos con inodoro y lavabo. Lavabos suspendidos de porcelana vitrificada, un mueble con cajón y encimera a juego en el baño principal, platos de ducha rectangulares blancos antideslizantes y grifería cromada.</li><li>Espejo en el baño principal. Las mamparas de ducha se ofrecen como extra opcional con coste.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Aire acondicionado por bomba de calor, con conductos en el falso techo y rejillas en los salones y dormitorios, y agua caliente de una unidad aerotérmica individual.</li><li>Un grado de electrificación elevado, con tomas de teléfono en el salón, la cocina y los dormitorios y una antena colectiva de TV con tomas en el salón, la cocina, los dormitorios y las terrazas de planta baja.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Urbanización ajardinada con especies vegetales locales, una piscina comunitaria y un local para gimnasio.</li><li>Gres porcelánico en portales, pasillos y escaleras, iluminación de bajo consumo, un garaje con puerta mecanizada con mando a distancia, y ascensores con puertas automáticas, espejo y conexión telefónica.</li></ul>
+      
+    </div>
+    <p class="caption">Fuente: la memoria de calidades del promotor, fechada el 23 de septiembre de 2024. El promotor indica que es orientativa y que puede modificarse por razones técnicas o legales, o cuando el arquitecto lo considere necesario, en cuyo caso los materiales se sustituyen por otros de calidad igual o superior. Se nombran algunas marcas de revestimientos y sanitarios. La memoria no indica mobiliario suelto.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galería</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="La piscina comunitaria y los bloques"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.jpg" alt="Vista generada por ordenador, a través de un césped y una piscina comunitaria curva con tumbonas y sombrillas, de bloques escalonados de tres plantas, con una sala acristalada con bicicletas estáticas a la izquierda" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Salón y cocina"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen-640.webp 640w, assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen-960.webp 960w, assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen.jpg" alt="Salón de planta abierta generado por ordenador, con un sofá, un sillón y una mesa de comedor, una cocina blanca detrás y puertas correderas de cristal hacia una terraza" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Una terraza con sofá rinconero"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa-640.webp 640w, assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa-960.webp 960w, assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa.jpg" alt="Terraza generada por ordenador, con un gran sofá rinconero, una mesa de centro baja de madera y dos sillones de ratán, con una barandilla de cristal y colinas y una franja de mar al fondo" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Un dormitorio"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard-640.webp 640w, assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard-960.webp 960w, assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard.jpg" alt="Dormitorio generado por ordenador, con una cama doble bajo un cabecero tapizado y acolchado en paneles, un revestimiento de pared botánico y una ventana a un césped" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="La promoción desde el aire"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site-640.webp 640w, assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site-960.webp 960w, assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site.jpg" alt="Vista aérea de la parcela con los bloques mostrados como imágenes generadas por ordenador, entre una carretera y calles de golf verdes, con urbanizaciones blancas y de color terracota alrededor y el mar al fondo" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Ver las 24 fotos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriores (4)</button><button type="button" data-open-cat="Location">Ubicación (1)</button><button type="button" data-open-cat="Terraces">Terrazas (3)</button><button type="button" data-open-cat="Interiors">Interiores (8)</button><button type="button" data-open-cat="Bedrooms">Dormitorios (6)</button><button type="button" data-open-cat="Bathrooms">Baños (2)</button></div>
+    
+    <p class="caption">Las imágenes generadas por ordenador y las fotografías de la vivienda piloto son ilustrativas: el promotor indica que el mobiliario que aparece es meramente ilustrativo, que sus imágenes son orientativas y sin carácter contractual, y que puede introducir los cambios que exijan razones técnicas o legales, sustituyendo los materiales por otros de calidad igual o superior. Las fotografías están en dos series, viviendas de planta baja y dúplex; los documentos no describen estos tipos y la tabla de disponibilidad no da ninguno.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Ubicación</h2>
+    <p class="sec-sub">El plano general del promotor sitúa la promoción en la parcela 56 del sector UR-12 de Casares, Málaga. El mapa de la hoja informativa la marca tierra adentro desde la costa, al noroeste de Casares del Sol y Casares Costa, con el puerto deportivo de Estepona en la parte superior del mapa, y su oficina de ventas está en Estepona. La hoja informativa menciona un paseo de 15 minutos a la playa sin decir a qué playa ni desde dónde, y no da otras distancias.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="es">
+          <div class="locmap-map" id="locmap-casares-garden-homes" data-locmap='{&quot;site&quot;:[36.3876,-5.2184],&quot;sea&quot;:[36.3606,-5.2184],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;11 km · 15 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;9,3 km · 11 min&quot;},{&quot;ll&quot;:[36.39646,-5.22386],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Finca Cortesín&quot;,&quot;sub&quot;:&quot;1,8 km · 3 min&quot;},{&quot;ll&quot;:[36.37988,-5.21323],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;1,2 km · 3 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Casares Garden Homes"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ubicación indicativa</span>
+            <h3 class="locmap-name">Casares Garden Homes</h3>
+            <p class="locmap-place">Casares, Málaga</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Playa</span>
+              <span class="locmap-row-figure"><bdi>1,2 km</bdi> <em><bdi>3 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bienestar</span>
-              <h3 class="amenity-name">Gimnasio</h3>
-              <p class="amenity-note">Dentro de la promoción</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>9,3 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Exteriores</span>
-              <h3 class="amenity-name">Jardines paisajísticos</h3>
-              <p class="amenity-note">Zonas comunes ajardinadas</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centro de Estepona</span>
+              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>15 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Día a día</span>
-              <h3 class="amenity-name">Ascensor</h3>
-              <p class="amenity-note">Acceso a todas las plantas</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>1,8 km</bdi> <em><bdi>3 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Día a día</span>
-              <h3 class="amenity-name">Aparcamiento</h3>
-              <p class="amenity-note">Una plaza para el coche</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Estepona</span>
+              <span class="locmap-row-figure"><bdi>6,9 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Día a día</span>
-              <h3 class="amenity-name">Trastero</h3>
-              <p class="amenity-note">Trastero cerrado</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>35 km</bdi> <em><bdi>38 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Día a día</span>
-              <h3 class="amenity-name">Aire acondicionado</h3>
-              <p class="amenity-note">Frío y calor por conductos</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Día a día</span>
-              <h3 class="amenity-name">Sistema de aerotermia</h3>
-              <p class="amenity-note">Calefacción, refrigeración y agua caliente</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">La playa</th><td>Se indica un paseo de 15 minutos; no se indica qué playa</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">En la promoción</h2>
+    <p class="sec-sub">Las zonas comunes que recogen los documentos del promotor y lo que muestran las imágenes.</p>
+    <div class="life-panels"><div><h3>La piscina y los jardines</h3><p>Una piscina comunitaria, situada en el centro del plano general, y una urbanización ajardinada con especies vegetales locales. Las infografías muestran una piscina curva con borde en pendiente suave, un césped con tumbonas y laderas plantadas.</p></div><div><h3>El gimnasio</h3><p>La hoja informativa menciona un gimnasio. La memoria de calidades recoge un local para gimnasio y no indica qué equipamiento llevará. Una infografía muestra una sala acristalada con bicicletas estáticas junto a la piscina.</p></div><div><h3>Terrazas y orientación</h3><p>La hoja informativa menciona una orientación sur y suroeste. Las superficies de terraza y jardín de cada vivienda no figuran en los documentos que tenemos. Las fotografías de la vivienda piloto muestran un patio de planta baja con césped y una terraza superior con barandilla de cristal.</p></div><div><h3>Aparcamiento, trastero y ascensores</h3><p>La hoja informativa menciona aparcamiento y trastero. La memoria de calidades describe un garaje con puerta mecanizada y ascensores, y no menciona ningún trastero. No se indica si una plaza y un trastero van con cada vivienda.</p></div></div>
+    <ul class="amen-top"><li>Piscina comunitaria</li><li>Gimnasio</li><li>Jardines paisajísticos</li><li>Ascensor</li><li>Aparcamiento</li><li>Trastero</li></ul>
+    <details class="amen-all"><summary>Ver las 8</summary><div class="amen-groups"><div><h3>Bienestar<span class="count">2</span></h3><ul><li>Piscina comunitaria</li><li>Gimnasio</li></ul></div><div><h3>Exteriores<span class="count">1</span></h3><ul><li>Jardines paisajísticos</li></ul></div><div><h3>Día a día<span class="count">5</span></h3><ul><li>Ascensor</li><li>Aparcamiento</li><li>Trastero</li><li>Aire acondicionado</li><li>Sistema de aerotermia</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Nuestra opinión</h2>
+    <p class="sec-sub">Lo que tendríamos en cuenta antes de reservar aquí, y las comprobaciones que hacemos por usted.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Nuestra opinión">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Destaca</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">A prever</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Comprobaciones</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Por qué destaca</h3><ul class="points"><li><b>Para quién es</b><span>Compradores que quieren un apartamento de dos a cuatro dormitorios en Casares, en una promoción que ya está en construcción, con piscina comunitaria y gimnasio, y que aceptan que la fecha contractual aún está por confirmar.</span></li><li><b>Qué la diferencia</b><span>Una piscina comunitaria en el centro de un plano general de 9 bloques, una licencia de obras que la hoja informativa da como vigente y fotografías de viviendas piloto de planta baja y dúplex.</span></li><li><b>Por qué importa la ubicación</b><span>El plano general sitúa la promoción en la parcela 56 del sector UR-12 de Casares. La hoja informativa menciona un paseo de 15 minutos a la playa, y su mapa marca el terreno tierra adentro desde la costa, al noroeste de Casares del Sol y Casares Costa. No da otras distancias.</span></li><li><b>Por qué comprobar la disponibilidad</b><span>Actualmente figuran 14 de las 134 viviendas, y los precios difieren entre viviendas del mismo tamaño. Nueva Living reconfirma el precio y la disponibilidad con el promotor antes de cualquier visita.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Qué prever</h3><ul class="points"><li><b>Calendario de pagos</b><span>Para no residentes, el 30% más IVA a la firma del contrato privado de compraventa y el 70% más IVA a la finalización. Para residentes, el 20% más IVA a la firma y el 80% más IVA a la finalización. La hoja informativa no indica el importe de la reserva.</span></li><li><b>Garantía</b><span>La hoja informativa indica que las cantidades entregadas están cubiertas por un aval bancario. Pedimos el documento del aval antes de cualquier pago.</span></li><li><b>IVA</b><span>La hoja informativa expresa los pagos como más IVA, lo que indica que los precios indicados son sin IVA. La tabla de disponibilidad no lo dice, así que lo confirmamos por escrito.</span></li><li><b>Qué incluye el precio</b><span>La hoja informativa menciona aparcamiento y trastero y una cocina totalmente equipada. No indica si una plaza de aparcamiento y un trastero van con cada vivienda, ni en qué planta está cada una. La memoria de calidades ofrece las mamparas de ducha como extra opcional con coste.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Comprobaciones antes de cualquier pago</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Licencias y garantías</b><span>Licencia de obra concedida. La hoja informativa indica la licencia de obras como vigente y la licencia de primera ocupación como estimada para el T4 2026. Pedimos ambos documentos y la garantía que cubre las cantidades entregadas antes de la finalización.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Las fechas</b><span>La hoja informativa estima el fin de las obras para el T4 2026 y dice que prevalecerá la fecha de entrega del contrato privado de compraventa. Pedimos la fecha contractual.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Las superficies</b><span>La tabla de disponibilidad da una superficie por vivienda y no indica si es construida o interior, y el promotor dice que sus superficies son aproximadas. Confirmamos qué cifra utiliza el contrato, y las superficies de terraza y jardín, que la tabla no recoge.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Planos, plantas y aparcamiento</b><span>Pedimos el plano de cada vivienda, la planta en que está, las superficies de terraza y jardín y si se incluyen una plaza de aparcamiento y un trastero. Nada de esto figura en los documentos que tenemos, que solo traen un plano general.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Solicite la información</h3><p>Lo que tenemos: la hoja informativa, la memoria de calidades, el plano general, las imágenes y la tabla de disponibilidad.</p></li><li><h3>Compare las opciones</h3><p>Véalo junto a los demás proyectos de Casares que tenemos.</p></li><li><h3>Visita privada</h3><p>Vea con nosotros el entorno del terreno y pregunte si se puede visitar la vivienda piloto.</p></li><li><h3>Reserva</h3><p>Una reserva y luego el contrato privado de compraventa, una vez que hayamos confirmado por escrito las licencias, la fecha contractual y la garantía.</p></li></ol>
+      <div class="docs card"><h3>Documentos que recibirá</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Lista de precios</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Planos<small>Aún no facilitado</small><small>Pendiente</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Calendario de pagos<small>Aún no facilitado</small><small>Pendiente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Memoria de calidades</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>El resumen oficial al que tiene derecho todo comprador en Andalucía</small></span></li></ul><a class="btn btn-primary" href="es/property-casares-garden-homes.html#enquire" data-prefill>Recibir el dosier del proyecto</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Preguntas sobre Casares Garden</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>¿Cuántas viviendas hay disponibles?</summary><p>La promoción tiene 134 apartamentos y 14 figuran actualmente, de dos, tres o cuatro dormitorios, de 395.000 € a 551.000 €.</p></details><details class="segment-faq-item"><summary>¿El IVA está incluido?</summary><p>La tabla de disponibilidad no lo indica. La hoja informativa expresa los pagos como más IVA, lo que apunta a precios sin IVA. Confirmamos por escrito los impuestos y los gastos de compra.</p></details><details class="segment-faq-item"><summary>¿Cuándo estará terminado?</summary><p>La hoja informativa del promotor estima la licencia de primera ocupación y el fin de las obras para el T4 2026, y dice que prevalecerá la fecha de entrega del contrato privado de compraventa. Pedimos la fecha contractual.</p></details><details class="segment-faq-item"><summary>¿Cuál es el calendario de pagos?</summary><p>Para no residentes, el 30% más IVA a la firma del contrato privado de compraventa y el 70% más IVA a la finalización. Para residentes, el 20% más IVA a la firma y el 80% más IVA a la finalización.</p></details><details class="segment-faq-item"><summary>¿Dónde está exactamente?</summary><p>El plano general dice parcela 56 del sector UR-12 de Casares, Málaga. La oficina de ventas de la hoja informativa está en Estepona, y su mapa marca el terreno tierra adentro desde la costa, cerca de Casares del Sol y Casares Costa.</p></details></div>
+    <details class="faq2-more"><summary>Ver todas las preguntas (8)</summary><div class="faq2"><details class="segment-faq-item"><summary>¿Qué servicios figuran?</summary><p>Una piscina comunitaria, un gimnasio (la memoria de calidades recoge un local para él), una urbanización ajardinada con especies vegetales locales y ascensores.</p></details><details class="segment-faq-item"><summary>¿Están incluidos el garaje y el trastero?</summary><p>La hoja informativa menciona aparcamiento y trastero como características. No indica si una plaza y un trastero van con cada vivienda, así que lo preguntamos al promotor antes de cualquier reserva.</p></details><details class="segment-faq-item"><summary>¿Hay planos?</summary><p>No para las viviendas, en los documentos que tenemos: el plano general del promotor muestra los bloques pero no las viviendas. Pedimos el plano de cada vivienda que le interese.</p></details></div></details>
+    <p class="faq2-guide">Más sobre comprar obra nueva en España → <a class="textlink" href="es/guide-how-buying-works.html">Guía de compra</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Reservar una visita privada">
+    <div class="card">
+      <p class="rail-price-label">Precio desde</p>
+      <p class="rail-price num">395.000 €</p>
+      <p class="rail-note">Más IVA. Quedan 14 de 134 viviendas · Comprobado el octubre de 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="es/property-casares-garden-homes.html#enquire" data-prefill>Reservar una visita privada</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Casares%20Garden%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Casares Garden Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Escríbanos por WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador</strong>Respondemos personalmente a cada consulta.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Reservar una visita privada</h2>
+        <p>Díganos qué vivienda le interesa. Le enviamos el dosier del proyecto y después recorremos la promoción con usted.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador de Nueva Living</strong>Respondemos personalmente a cada consulta.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Casares%20Garden%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Casares Garden Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Escríbanos</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Correo<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>En la visita comprobamos con usted</h3><ul><li><b>Sobre el terreno.</b> Vea el entorno del terreno y cómo se conecta con la costa.</li><li><b>Sobre los planos.</b> El plan general y, cuando lo tengamos, el plano de la vivienda que le interese.</li><li><b>Sobre papel.</b> Las licencias, la garantía y el contrato, antes de firmar nada.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Enviando…" data-success-label="Reservar una visita privada ✓" data-submitting-message="Enviando…" data-success-message="Solicitud recibida. Le enviaremos el dosier del proyecto y le propondremos horarios de visita." data-error-message="No se ha podido enviar. Inténtelo de nuevo o escríbanos por WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Casares Garden Homes">
+        <input type="hidden" id="f-project" name="project" value="Casares Garden Homes">
+        <input type="hidden" name="preferred_area" value="Casares, Málaga">
+        <input type="hidden" name="property_type_interest" value="Apartamentos">
+        <input type="hidden" name="budget_range" value="Desde 395.000 €">
+        <input type="hidden" name="consent_text" value="Acepto que Nueva Living guarde estos datos para responder a mi solicitud.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hola, Nueva Living, me gustaría recibir información sobre Casares Garden Homes." data-base="Hola, Nueva Living, me gustaría recibir información sobre Casares Garden Homes.">
+        <h3>Sus datos</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Nombre</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Apellidos</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Correo electrónico</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Teléfono (opcional, para WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">¿Qué vivienda?</label><select id="v2-f-unit" name="unit_interest"><option value="">Aún no lo sé, envíenme todo</option><option value="BSH-10A">BSH-10A: 516.000 €</option><option value="BSH-10C">BSH-10C: 463.000 €</option><option value="BSH-12A">BSH-12A: 460.000 €</option><option value="BSH-160B">BSH-160B: 395.000 €</option><option value="BSH-160C">BSH-160C: 452.000 €</option><option value="BSH-160D">BSH-160D: 485.000 €</option><option value="BSH-170A">BSH-170A: 551.000 €</option><option value="BSH-172B">BSH-172B: 550.000 €</option><option value="BSH-20C">BSH-20C: 521.000 €</option><option value="BSH-20D">BSH-20D: 518.000 €</option><option value="BSH-22B">BSH-22B: 549.000 €</option><option value="BSH-32B">BSH-32B: 535.000 €</option><option value="BSH-42A">BSH-42A: 435.000 €</option><option value="BSH-52B">BSH-52B: 540.000 €</option></select></div>
+        <fieldset class="field"><legend>La vivienda sería</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Para vivir</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Una segunda residencia</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Una inversión</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>¿Cómo le respondemos?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Llamada</label>
+          <label><input type="radio" name="preferred_contact" value="email">Correo</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Acepto que Nueva Living guarde estos datos para responder a mi solicitud. <a href="es/privacy-policy.html">Política de privacidad</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Avísenme también si cambia la disponibilidad o los precios en Casares Garden.</label>
+        <button class="btn btn-primary btn-block" type="submit">Reservar una visita privada</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Por qué este proyecto</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Por qué este proyecto <em>importa</em></h2>
-          <p class="project-lead">Un apartamento de dos, tres o cuatro dormitorios en Casares, en una promoción con licencia de obras en vigor y cuya finalización el promotor estima para el T4 2026.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Por qué encaja</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Para quién es</h3><p>Compradores que quieren un apartamento de dos a cuatro dormitorios en Casares, en una promoción que ya está en construcción, con piscina comunitaria y gimnasio, y que aceptan que la fecha contractual aún está por confirmar.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué la diferencia</h3><p>Una piscina comunitaria en el centro de un plano general de 9 bloques, una licencia de obras que la hoja informativa da como vigente y fotografías de viviendas piloto de planta baja y dúplex.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué importa la ubicación</h3><p>El plano general sitúa la promoción en la parcela 56 del sector UR-12 de Casares. La hoja informativa menciona un paseo de 15 minutos a la playa, y su mapa marca el terreno tierra adentro desde la costa, al noroeste de Casares del Sol y Casares Costa. No da otras distancias.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué comprobar la disponibilidad</h3><p>Actualmente figuran 14 de las 134 viviendas, y los precios difieren entre viviendas del mismo tamaño. Nueva Living reconfirma el precio y la disponibilidad con el promotor antes de cualquier visita.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argumento de inversión</h3></div>
-            <p class="why-group-note">Las condiciones son las de la hoja informativa del promotor, que no lleva fecha. Confirmamos por escrito los importes y fechas actuales antes de que reserve.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Calendario de pagos</h3><p>Para no residentes, el 30% más IVA a la firma del contrato privado de compraventa y el 70% más IVA a la finalización. Para residentes, el 20% más IVA a la firma y el 80% más IVA a la finalización. La hoja informativa no indica el importe de la reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Garantía</h3><p>La hoja informativa indica que las cantidades entregadas están cubiertas por un aval bancario. Pedimos el documento del aval antes de cualquier pago.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA</h3><p>La hoja informativa expresa los pagos como más IVA, lo que indica que los precios indicados son sin IVA. La tabla de disponibilidad no lo dice, así que lo confirmamos por escrito.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué incluye el precio</h3><p>La hoja informativa menciona aparcamiento y trastero y una cocina totalmente equipada. No indica si una plaza de aparcamiento y un trastero van con cada vivienda, ni en qué planta está cada una. La memoria de calidades ofrece las mamparas de ducha como extra opcional con coste.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confianza y diligencia</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Licencias y garantías</h3><p>La hoja informativa indica la licencia de obras como vigente y la licencia de primera ocupación como estimada para el T4 2026. Pedimos ambos documentos y la garantía que cubre las cantidades entregadas antes de la finalización.</p></article>
-              <article class="why-point reveal-soft"><h3>Las fechas</h3><p>La hoja informativa estima el fin de las obras para el T4 2026 y dice que prevalecerá la fecha de entrega del contrato privado de compraventa. Pedimos la fecha contractual.</p></article>
-              <article class="why-point reveal-soft"><h3>Las superficies</h3><p>La tabla de disponibilidad da una superficie por vivienda y no indica si es construida o interior, y el promotor dice que sus superficies son aproximadas. Confirmamos qué cifra utiliza el contrato, y las superficies de terraza y jardín, que la tabla no recoge.</p></article>
-              <article class="why-point reveal-soft"><h3>Planos, plantas y aparcamiento</h3><p>Pedimos el plano de cada vivienda, la planta en que está, las superficies de terraza y jardín y si se incluyen una plaza de aparcamiento y un trastero. Nada de esto figura en los documentos que tenemos, que solo traen un plano general.</p></article>
-            </div>
-            <p class="why-group-note">¿Es su primera compra sobre plano en España? <a href="es/guide-how-buying-works.html">Cómo funciona comprar obra nueva</a> explica los siete pasos, y <a href="es/guide-off-plan-vs-resale.html">sobre plano frente a segunda mano</a> detalla las señales, las garantías y los plazos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Las imágenes las facilita el promotor y pueden ser infografías">
+    <p>Las imágenes las facilita el promotor y pueden ser infografías; el diseño final, los acabados, el paisajismo y las vistas pueden variar. Tiene derecho a una copia del Documento Informativo Abreviado (DIA) de cualquier vivienda de esta página; Nueva Living se la facilita bajo petición.</p>
+    <p>Disponibilidad comprobada con el vendedor el octubre de 2026; la volvemos a confirmar antes de cualquier reserva.</p>
+    <p>Las superficies y los precios están transcritos de la tabla de disponibilidad del portal de ventas, consultada el 18 de octubre de 2026. Lista 14 referencias y cada una se muestra una sola vez. La tabla da el número de dormitorios, una superficie y un precio de cada vivienda. No indica si la superficie es construida o interior, ni si el precio incluye el IVA; la hoja informativa expresa los pagos como más IVA, y el promotor dice que sus superficies son aproximadas. La promoción tiene 134 apartamentos en total, y los 14 que figuran son los que están listados.</p>
+    <p>La información de esta página tiene fines comerciales generales y no constituye asesoramiento legal, financiero ni de inversión. Los precios, la disponibilidad y las fechas de entrega pueden cambiar sin previo aviso.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/casares-garden-homes/media/terraced-blocks-gardens-and-pool.jpg" alt="Vista generada por ordenador de un bloque escalonado con patios en planta baja y céspedes con setos, terrazas superiores con barandillas de cristal y una piscina entre palmeras a la izquierda" width="1920" height="1323" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Vista previa de arquitectura</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arquitectura</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bloques escalonados, <em>jardines y una piscina central</em></h2>
-          <p>Las infografías del promotor muestran bloques de terrazas escalonadas con patios y céspedes en planta baja, barandillas de cristal en las terrazas superiores y lamas que dan sombra, en torno a una piscina comunitaria curva y unas laderas plantadas.</p>
-<p>El plano general es la versión 8, de enero de 2024. El promotor lo marca como no definitivo: responde al proyecto de ejecución, puede cambiar por razones técnicas o legales, y las superficies que figuran en él son aproximadas.</p>
-          <ul class="feature-list">
-            <li>Estructura — Cimentación de hormigón armado según el estudio geotécnico y estructura de hormigón armado, salvo algún pilar metálico, conforme al Código Técnico de la Edificación.</li>
-            <li>Fachada — Fachada multicapa con fábrica exterior de ladrillo, aislamiento y trasdosado interior, con acabado exterior enfoscado y pintado en varios colores.</li>
-            <li>Carpintería exterior — Carpintería exterior de PVC con doble acristalamiento tipo Climalit, tratado según la fachada, y persianas en los dormitorios.</li>
-            <li>Cubiertas — Cubiertas planas impermeabilizadas y aisladas con planchas rígidas, con acabado de grava en las zonas no transitables y de solado cerámico antideslizante en las transitables.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Acciones de solicitud del proyecto">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Casares%20Garden%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Casares Garden Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar</a>
+    <a class="ab-btn ab-primary" href="es/property-casares-garden-homes.html#enquire" data-prefill>Reservar visita</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/casares-garden-homes/media/covered-terrace-looking-to-the-hills.jpg" alt="Terraza cubierta generada por ordenador, con una mesa redonda y dos sillones, una barandilla de cristal y colinas arboladas con una franja de mar al fondo" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Presentación cinemática</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Vea <em>el terreno y la vivienda piloto</em></h2>
-            <p>La promoción está en construcción, así que la visita trata del terreno, el plano general sobre el terreno y el ritmo de la obra.</p>
-            <div class="viewing-insights">
-              <div><span>Sobre el terreno</span><p>Vea el entorno del terreno y cómo se conecta con la costa.</p></div>
-              <div><span>Sobre los planos</span><p>El plan general y, cuando lo tengamos, el plano de la vivienda que le interese.</p></div>
-              <div><span>Sobre papel</span><p>Las licencias, la garantía y el contrato, antes de firmar nada.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="es/index.html#private-viewing=1&amp;project=casares-garden-homes">Presentación cinemática</a>
-              <a class="btn project-btn ghost" href="es/property-casares-garden-homes.html#enquire" data-prefill>Solicitar información</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galería" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Cerrar">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Siguiente imagen">›</button>
+    <div class="lb-cats" role="group" aria-label="Galería"><button type="button" data-cat="Exteriors">Exteriores</button><button type="button" data-cat="Location">Ubicación</button><button type="button" data-cat="Terraces">Terrazas</button><button type="button" data-cat="Interiors">Interiores</button><button type="button" data-cat="Bedrooms">Dormitorios</button><button type="button" data-cat="Bathrooms">Baños</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/casares-garden-homes/media/pool-and-lawn-beside-the-blocks.jpg" alt="Vista generada por ordenador de una piscina curva con borde de entrada en pendiente suave y tumbonas sobre un césped, con laderas plantadas y bloques escalonados detrás" width="1920" height="1507" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Estilo de vida</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Una piscina comunitaria, <em>un gimnasio y zonas ajardinadas</em></h2>
-            <p>Las zonas comunes que recogen los documentos del promotor y lo que muestran las imágenes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Próximos pasos</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Qué ocurre <em>a continuación</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Solicite la información</h3>
-            <p>Lo que tenemos: la hoja informativa, la memoria de calidades, el plano general, las imágenes y la tabla de disponibilidad.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare las opciones</h3>
-            <p>Véalo junto a los demás proyectos de Casares que tenemos.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visita privada</h3>
-            <p>Vea con nosotros el entorno del terreno y pregunte si se puede visitar la vivienda piloto.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserva</h3>
-            <p>Una reserva y luego el contrato privado de compraventa, una vez que hayamos confirmado por escrito las licencias, la fecha contractual y la garantía.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Preguntas frecuentes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Preguntas <em>frecuentes de compradores</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>¿Pueden los extranjeros comprar propiedades en España?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué es el número de NIE y lo necesito?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué gastos adicionales debo prever además del precio de compra?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo conseguir una hipoteca en España siendo no residente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cómo funciona el proceso de reserva y pago?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo alquilar la propiedad después de comprarla?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Necesito un abogado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuántas viviendas hay disponibles?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La promoción tiene 134 apartamentos y 14 figuran actualmente, de dos, tres o cuatro dormitorios, de 395.000 € a 551.000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿El IVA está incluido?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La tabla de disponibilidad no lo indica. La hoja informativa expresa los pagos como más IVA, lo que apunta a precios sin IVA. Confirmamos por escrito los impuestos y los gastos de compra.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuándo estará terminado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La hoja informativa del promotor estima la licencia de primera ocupación y el fin de las obras para el T4 2026, y dice que prevalecerá la fecha de entrega del contrato privado de compraventa. Pedimos la fecha contractual.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es el calendario de pagos?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Para no residentes, el 30% más IVA a la firma del contrato privado de compraventa y el 70% más IVA a la finalización. Para residentes, el 20% más IVA a la firma y el 80% más IVA a la finalización.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Dónde está exactamente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El plano general dice parcela 56 del sector UR-12 de Casares, Málaga. La oficina de ventas de la hoja informativa está en Estepona, y su mapa marca el terreno tierra adentro desde la costa, cerca de Casares del Sol y Casares Costa.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué servicios figuran?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Una piscina comunitaria, un gimnasio (la memoria de calidades recoge un local para él), una urbanización ajardinada con especies vegetales locales y ascensores.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Están incluidos el garaje y el trastero?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La hoja informativa menciona aparcamiento y trastero como características. No indica si una plaza y un trastero van con cada vivienda, así que lo preguntamos al promotor antes de cualquier reserva.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Hay planos?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No para las viviendas, en los documentos que tenemos: el plano general del promotor muestra los bloques pero no las viviendas. Pedimos el plano de cada vivienda que le interese.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Consultar</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Pregunte por <em>Casares Garden Homes</em></h2>
-          <p class="body-copy">Díganos lo que necesita y volveremos con la disponibilidad actual, los planos y la lista de precios.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fundador de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fundador, Nueva Living</p>
-            <h3 id="advisor-heading">¿Prefiere comentarlo en persona?</h3>
-            <p class="advisor-copy">Elija lo que le encaje y escríbame por WhatsApp. Empezaré desde ahí.</p>
-            <div class="advisor-group" role="group" aria-label="Busco">
-              <span class="advisor-group-label">Busco</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Una vivienda para vivir</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Una casa de vacaciones</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Una inversión</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Presupuesto">
-              <span class="advisor-group-label">Presupuesto</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Menos de 500.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500.000 – 1.000.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Más de 1.000.000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Casares%20Garden%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Casares Garden Homes" data-intent="speak with an advisor">Escríbame por WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Casares Garden Homes">
-
-          <input type="hidden" id="f-project" name="project" value="Casares Garden Homes">
-          <input type="hidden" name="preferred_area" value="Casares, Málaga">
-          <input type="hidden" name="property_type_interest" value="Apartamentos">
-          <input type="hidden" name="budget_range" value="Desde 395.000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Nombre</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Nombre" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Apellidos</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Apellidos" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Correo electrónico</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Teléfono</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 o internacional">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Mensaje</label>
-              <textarea id="f-msg" name="message">Hola, Nueva Living, me gustaría recibir información sobre Casares Garden Homes.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Acepto ser contactado/a y que mis datos sean almacenados.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>También me gustaría recibir novedades ocasionales de proyectos por parte de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Enviar solicitud</button>
-            <span class="form-note">Respondemos personalmente, normalmente el mismo día.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"BSH-10A","title":"BSH-10A","sub":"4 dorm. · 180 m²","price":516000,"plans":[]},{"id":"u1","ref":"BSH-10C","title":"BSH-10C","sub":"3 dorm. · 123 m²","price":463000,"plans":[]},{"id":"u2","ref":"BSH-12A","title":"BSH-12A","sub":"2 dorm. · 101 m²","price":460000,"plans":[]},{"id":"u3","ref":"BSH-160B","title":"BSH-160B","sub":"2 dorm. · 99 m²","price":395000,"plans":[]},{"id":"u4","ref":"BSH-160C","title":"BSH-160C","sub":"3 dorm. · 123 m²","price":452000,"plans":[]},{"id":"u5","ref":"BSH-160D","title":"BSH-160D","sub":"3 dorm. · 148 m²","price":485000,"plans":[]},{"id":"u6","ref":"BSH-170A","title":"BSH-170A","sub":"4 dorm. · 180 m²","price":551000,"plans":[]},{"id":"u7","ref":"BSH-172B","title":"BSH-172B","sub":"3 dorm. · 125 m²","price":550000,"plans":[]},{"id":"u8","ref":"BSH-20C","title":"BSH-20C","sub":"3 dorm. · 123 m²","price":521000,"plans":[]},{"id":"u9","ref":"BSH-20D","title":"BSH-20D","sub":"3 dorm. · 148 m²","price":518000,"plans":[]},{"id":"u10","ref":"BSH-22B","title":"BSH-22B","sub":"3 dorm. · 125 m²","price":549000,"plans":[]},{"id":"u11","ref":"BSH-32B","title":"BSH-32B","sub":"3 dorm. · 125 m²","price":535000,"plans":[]},{"id":"u12","ref":"BSH-42A","title":"BSH-42A","sub":"2 dorm. · 101 m²","price":435000,"plans":[]},{"id":"u13","ref":"BSH-52B","title":"BSH-52B","sub":"3 dorm. · 125 m²","price":540000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.webp","alt":"Vista generada por ordenador, a través de un césped y una piscina comunitaria curva con tumbonas y sombrillas, de bloques escalonados de tres plantas, con una sala acristalada con bicicletas estáticas a la izquierda","caption":"La piscina comunitaria y los bloques","cat":"Exteriors"},{"src":"assets/liora/projects/casares-garden-homes/media/pool-and-lawn-beside-the-blocks.webp","alt":"Vista generada por ordenador de una piscina curva con borde de entrada en pendiente suave y tumbonas sobre un césped, con laderas plantadas y bloques escalonados detrás","caption":"La piscina y el césped","cat":"Exteriors"},{"src":"assets/liora/projects/casares-garden-homes/media/terraced-blocks-gardens-and-pool.webp","alt":"Vista generada por ordenador de un bloque escalonado con patios en planta baja y céspedes con setos, terrazas superiores con barandillas de cristal y una piscina entre palmeras a la izquierda","caption":"Los bloques y los jardines","cat":"Exteriors"},{"src":"assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site.webp","alt":"Vista aérea de la parcela con los bloques mostrados como imágenes generadas por ordenador, entre una carretera y calles de golf verdes, con urbanizaciones blancas y de color terracota alrededor y el mar al fondo","caption":"La promoción desde el aire","cat":"Location"},{"src":"assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa.webp","alt":"Terraza generada por ordenador, con un gran sofá rinconero, una mesa de centro baja de madera y dos sillones de ratán, con una barandilla de cristal y colinas y una franja de mar al fondo","caption":"Una terraza con sofá rinconero","cat":"Terraces"},{"src":"assets/liora/projects/casares-garden-homes/media/covered-terrace-looking-to-the-hills.webp","alt":"Terraza cubierta generada por ordenador, con una mesa redonda y dos sillones, una barandilla de cristal y colinas arboladas con una franja de mar al fondo","caption":"Una terraza cubierta y sus vistas","cat":"Terraces"},{"src":"assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen.webp","alt":"Salón de planta abierta generado por ordenador, con un sofá, un sillón y una mesa de comedor, una cocina blanca detrás y puertas correderas de cristal hacia una terraza","caption":"Salón y cocina","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/dining-table-and-terrace-doors.webp","alt":"Mesa de comedor y sillas blancas generadas por ordenador junto a grandes puertas de cristal con marco negro hacia una terraza, con una encimera de cocina en primer plano","caption":"El comedor y la terraza","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard.webp","alt":"Dormitorio generado por ordenador, con una cama doble bajo un cabecero tapizado y acolchado en paneles, un revestimiento de pared botánico y una ventana a un césped","caption":"Un dormitorio","cat":"Bedrooms"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-terrace-and-lawn.webp","alt":"Fotografía de la vivienda piloto de planta baja: una terraza cubierta con una mesa y sillas, un césped y una valla de malla, y colinas arboladas al fondo","caption":"Vivienda piloto: la terraza y el césped","cat":"Terraces"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-dining-and-living-room.webp","alt":"Fotografía de la vivienda piloto amueblada: una mesa de comedor ovalada de madera con sillas tapizadas, un sofá curvo y un televisor en la pared, con puertas de cristal a la terraza","caption":"Vivienda piloto: comedor y salón","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-kitchen-and-terrace-doors.webp","alt":"Fotografía de la cocina de la vivienda piloto, con una isla blanca con tres taburetes, armarios blancos brillantes, un horno empotrado y una placa de inducción, y puertas de cristal al jardín","caption":"Vivienda piloto: la cocina","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-kitchen-island-and-living-room.webp","alt":"Fotografía desde detrás del fregadero de la isla de la cocina, mirando a través de la mesa de comedor y el sofá hacia puertas correderas de cristal a la terraza","caption":"Vivienda piloto: desde la isla de la cocina","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-living-room.webp","alt":"Fotografía del salón de la vivienda piloto, con un sofá curvo de color crema, dos mesas de centro redondas, un televisor en la pared y una lámpara de pie","caption":"Vivienda piloto: el salón","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-bathroom-with-walk-in-shower.webp","alt":"Fotografía de un baño de la vivienda piloto, con una ducha a ras de suelo tras una mampara de cristal, un lavabo suspendido y un espejo iluminado","caption":"Vivienda piloto: un baño","cat":"Bathrooms"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-bedroom-with-roman-blind.webp","alt":"Fotografía de un dormitorio de la vivienda piloto, con una cama doble, dos lámparas con base dorada y una ventana con una persiana romana de lino","caption":"Vivienda piloto: un dormitorio","cat":"Bedrooms"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-bedroom-with-travertine-lamps.webp","alt":"Fotografía de un dormitorio de la vivienda piloto, con una cama doble, un cabecero tapizado y dos lámparas de mesa sobre mesitas de noche redondas de piedra","caption":"Vivienda piloto: un segundo dormitorio","cat":"Bedrooms"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-second-bedroom.webp","alt":"Fotografía de un dormitorio de la vivienda piloto, con una cama doble, una mesita de madera tallada con una lámpara y una ventana con una persiana romana de lino","caption":"Vivienda piloto: un dormitorio con ventana","cat":"Bedrooms"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-lawn-and-fenced-garden.webp","alt":"Fotografía de la vivienda piloto dúplex: una fachada de dos plantas con un patio cubierto y mobiliario exterior, una terraza superior con barandillas de cristal y un césped con una valla de malla a cada lado","caption":"Dúplex piloto desde el césped","cat":"Exteriors"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-living-room-to-garden.webp","alt":"Fotografía del salón de la vivienda piloto dúplex, con una mesa de comedor de piedra, un sofá curvo y un televisor en la pared, y puertas de cristal a un patio y un césped","caption":"Dúplex piloto: el salón","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-kitchen-with-breakfast-bar.webp","alt":"Fotografía de la cocina de la vivienda piloto dúplex, con armarios blancos brillantes, un horno y una placa empotrados y una barra de desayuno con dos taburetes de madera","caption":"Dúplex piloto: la cocina","cat":"Interiors"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bedroom-with-ensuite.webp","alt":"Fotografía de un dormitorio de la vivienda piloto dúplex, con una cama doble, una puerta de cristal a una terraza con vistas a colinas arboladas y una puerta abierta a un baño en suite","caption":"Dúplex piloto: dormitorio con baño en suite","cat":"Bedrooms"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bedroom-with-patterned-wall.webp","alt":"Fotografía de un dormitorio de la vivienda piloto dúplex, con una cama doble contra un revestimiento de pared de hojas de palma y una puerta corredera de cristal a una terraza con vistas a una calle de golf","caption":"Dúplex piloto: dormitorio principal","cat":"Bedrooms"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bathroom.webp","alt":"Fotografía de un baño de la vivienda piloto dúplex, con un lavabo suspendido ancho, un espejo iluminado, una ventana esmerilada y una ducha a ras de suelo","caption":"Dúplex piloto: baño","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":".","post":" €"},"i18n":{"askAbout":"Consultar sobre {ref}","plusVat":"Más IVA","totalPrice":"Precio total","vatOnStages":"Más IVA sobre cada pago","onRequest":"A consultar","imageOf":"{i} de {n}","floorPlan":"Plano"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Casares Garden Homes media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Cerrar">Cerrar</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Imagen anterior">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Siguiente imagen">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks.jpg","webp":"assets/liora/projects/casares-garden-homes/media/community-pool-and-terraced-blocks-960.webp","alt":"Vista generada por ordenador, a través de un césped y una piscina comunitaria curva con tumbonas y sombrillas, de bloques escalonados de tres plantas, con una sala acristalada con bicicletas estáticas a la izquierda","width":1920,"height":1214,"caption":"La piscina comunitaria y los bloques","category":"Exteriores"},{"src":"assets/liora/projects/casares-garden-homes/media/pool-and-lawn-beside-the-blocks.jpg","webp":"assets/liora/projects/casares-garden-homes/media/pool-and-lawn-beside-the-blocks-960.webp","alt":"Vista generada por ordenador de una piscina curva con borde de entrada en pendiente suave y tumbonas sobre un césped, con laderas plantadas y bloques escalonados detrás","width":1920,"height":1507,"caption":"La piscina y el césped","category":"Exteriores"},{"src":"assets/liora/projects/casares-garden-homes/media/terraced-blocks-gardens-and-pool.jpg","webp":"assets/liora/projects/casares-garden-homes/media/terraced-blocks-gardens-and-pool-960.webp","alt":"Vista generada por ordenador de un bloque escalonado con patios en planta baja y céspedes con setos, terrazas superiores con barandillas de cristal y una piscina entre palmeras a la izquierda","width":1920,"height":1323,"caption":"Los bloques y los jardines","category":"Exteriores"},{"src":"assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site.jpg","webp":"assets/liora/projects/casares-garden-homes/media/aerial-view-of-the-site-960.webp","alt":"Vista aérea de la parcela con los bloques mostrados como imágenes generadas por ordenador, entre una carretera y calles de golf verdes, con urbanizaciones blancas y de color terracota alrededor y el mar al fondo","width":1920,"height":1080,"caption":"La promoción desde el aire","category":"Ubicación"},{"src":"assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa.jpg","webp":"assets/liora/projects/casares-garden-homes/media/roof-terrace-with-corner-sofa-960.webp","alt":"Terraza generada por ordenador, con un gran sofá rinconero, una mesa de centro baja de madera y dos sillones de ratán, con una barandilla de cristal y colinas y una franja de mar al fondo","width":1920,"height":1080,"caption":"Una terraza con sofá rinconero","category":"Terrazas"},{"src":"assets/liora/projects/casares-garden-homes/media/covered-terrace-looking-to-the-hills.jpg","webp":"assets/liora/projects/casares-garden-homes/media/covered-terrace-looking-to-the-hills-960.webp","alt":"Terraza cubierta generada por ordenador, con una mesa redonda y dos sillones, una barandilla de cristal y colinas arboladas con una franja de mar al fondo","width":1920,"height":1080,"caption":"Una terraza cubierta y sus vistas","category":"Terrazas"},{"src":"assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen.jpg","webp":"assets/liora/projects/casares-garden-homes/media/living-room-and-kitchen-960.webp","alt":"Salón de planta abierta generado por ordenador, con un sofá, un sillón y una mesa de comedor, una cocina blanca detrás y puertas correderas de cristal hacia una terraza","width":1920,"height":1080,"caption":"Salón y cocina","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/dining-table-and-terrace-doors.jpg","webp":"assets/liora/projects/casares-garden-homes/media/dining-table-and-terrace-doors-960.webp","alt":"Mesa de comedor y sillas blancas generadas por ordenador junto a grandes puertas de cristal con marco negro hacia una terraza, con una encimera de cocina en primer plano","width":1920,"height":1080,"caption":"El comedor y la terraza","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard.jpg","webp":"assets/liora/projects/casares-garden-homes/media/bedroom-with-upholstered-headboard-960.webp","alt":"Dormitorio generado por ordenador, con una cama doble bajo un cabecero tapizado y acolchado en paneles, un revestimiento de pared botánico y una ventana a un césped","width":1920,"height":1080,"caption":"Un dormitorio","category":"Dormitorios"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-terrace-and-lawn.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-terrace-and-lawn-960.webp","alt":"Fotografía de la vivienda piloto de planta baja: una terraza cubierta con una mesa y sillas, un césped y una valla de malla, y colinas arboladas al fondo","width":1996,"height":1366,"caption":"Vivienda piloto: la terraza y el césped","category":"Terrazas"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-dining-and-living-room.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-dining-and-living-room-960.webp","alt":"Fotografía de la vivienda piloto amueblada: una mesa de comedor ovalada de madera con sillas tapizadas, un sofá curvo y un televisor en la pared, con puertas de cristal a la terraza","width":2000,"height":1333,"caption":"Vivienda piloto: comedor y salón","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-kitchen-and-terrace-doors.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-kitchen-and-terrace-doors-960.webp","alt":"Fotografía de la cocina de la vivienda piloto, con una isla blanca con tres taburetes, armarios blancos brillantes, un horno empotrado y una placa de inducción, y puertas de cristal al jardín","width":2000,"height":1333,"caption":"Vivienda piloto: la cocina","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-kitchen-island-and-living-room.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-kitchen-island-and-living-room-960.webp","alt":"Fotografía desde detrás del fregadero de la isla de la cocina, mirando a través de la mesa de comedor y el sofá hacia puertas correderas de cristal a la terraza","width":2000,"height":1333,"caption":"Vivienda piloto: desde la isla de la cocina","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-living-room.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-living-room-960.webp","alt":"Fotografía del salón de la vivienda piloto, con un sofá curvo de color crema, dos mesas de centro redondas, un televisor en la pared y una lámpara de pie","width":2000,"height":1333,"caption":"Vivienda piloto: el salón","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-bathroom-with-walk-in-shower.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-bathroom-with-walk-in-shower-960.webp","alt":"Fotografía de un baño de la vivienda piloto, con una ducha a ras de suelo tras una mampara de cristal, un lavabo suspendido y un espejo iluminado","width":2000,"height":1333,"caption":"Vivienda piloto: un baño","category":"Baños"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-bedroom-with-roman-blind.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-bedroom-with-roman-blind-960.webp","alt":"Fotografía de un dormitorio de la vivienda piloto, con una cama doble, dos lámparas con base dorada y una ventana con una persiana romana de lino","width":2000,"height":1333,"caption":"Vivienda piloto: un dormitorio","category":"Dormitorios"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-bedroom-with-travertine-lamps.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-bedroom-with-travertine-lamps-960.webp","alt":"Fotografía de un dormitorio de la vivienda piloto, con una cama doble, un cabecero tapizado y dos lámparas de mesa sobre mesitas de noche redondas de piedra","width":2000,"height":1333,"caption":"Vivienda piloto: un segundo dormitorio","category":"Dormitorios"},{"src":"assets/liora/projects/casares-garden-homes/media/show-home-second-bedroom.jpg","webp":"assets/liora/projects/casares-garden-homes/media/show-home-second-bedroom-960.webp","alt":"Fotografía de un dormitorio de la vivienda piloto, con una cama doble, una mesita de madera tallada con una lámpara y una ventana con una persiana romana de lino","width":2000,"height":1333,"caption":"Vivienda piloto: un dormitorio con ventana","category":"Dormitorios"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-lawn-and-fenced-garden.jpg","webp":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-lawn-and-fenced-garden-960.webp","alt":"Fotografía de la vivienda piloto dúplex: una fachada de dos plantas con un patio cubierto y mobiliario exterior, una terraza superior con barandillas de cristal y un césped con una valla de malla a cada lado","width":2000,"height":1333,"caption":"Dúplex piloto desde el césped","category":"Exteriores"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-living-room-to-garden.jpg","webp":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-living-room-to-garden-960.webp","alt":"Fotografía del salón de la vivienda piloto dúplex, con una mesa de comedor de piedra, un sofá curvo y un televisor en la pared, y puertas de cristal a un patio y un césped","width":2000,"height":1116,"caption":"Dúplex piloto: el salón","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-kitchen-with-breakfast-bar.jpg","webp":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-kitchen-with-breakfast-bar-960.webp","alt":"Fotografía de la cocina de la vivienda piloto dúplex, con armarios blancos brillantes, un horno y una placa empotrados y una barra de desayuno con dos taburetes de madera","width":2000,"height":1333,"caption":"Dúplex piloto: la cocina","category":"Interiores"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bedroom-with-ensuite.jpg","webp":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bedroom-with-ensuite-960.webp","alt":"Fotografía de un dormitorio de la vivienda piloto dúplex, con una cama doble, una puerta de cristal a una terraza con vistas a colinas arboladas y una puerta abierta a un baño en suite","width":2000,"height":1333,"caption":"Dúplex piloto: dormitorio con baño en suite","category":"Dormitorios"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bedroom-with-patterned-wall.jpg","webp":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bedroom-with-patterned-wall-960.webp","alt":"Fotografía de un dormitorio de la vivienda piloto dúplex, con una cama doble contra un revestimiento de pared de hojas de palma y una puerta corredera de cristal a una terraza con vistas a una calle de golf","width":2000,"height":1500,"caption":"Dúplex piloto: dormitorio principal","category":"Dormitorios"},{"src":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bathroom.jpg","webp":"assets/liora/projects/casares-garden-homes/media/duplex-show-home-bathroom-960.webp","alt":"Fotografía de un baño de la vivienda piloto dúplex, con un lavabo suspendido ancho, un espejo iluminado, una ventana esmerilada y una ducha a ras de suelo","width":2000,"height":1500,"caption":"Dúplex piloto: baño","category":"Baños"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Acciones de solicitud del proyecto">
-    <a href="es/property-casares-garden-homes.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Casares%20Garden%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Casares Garden Homes" data-intent="speak with an advisor">Hablar con un asesor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

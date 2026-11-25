@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlendinger kjøpe eiendom i Spania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er et NIE-nummer, og trenger jeg et?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg få boliglån i Spania som ikke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvordan fungerer reservasjons- og betalingsprosessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg leie ut boligen etter kjøp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Trenger jeg advokat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hvor mange boliger er det?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="no"
   data-project-name="Biubay"
   data-project-message="Hei Nueva Living, jeg vil gjerne ha informasjon om Biubay."
@@ -459,453 +396,148 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Biubay">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="no/property-biubay.html#top">Biubay<span>Fra 6 500 000 € · Ekskl. mva</span></a>
+      <nav class="hdr-proj" aria-label="Prosjektseksjoner"><a href="no/property-biubay.html#overview">Oversikt</a><a href="no/property-biubay.html#availability">Priser</a><a href="no/property-biubay.html#gallery">Galleri</a><a href="no/property-biubay.html#location">Beliggenhet</a><a href="no/property-biubay.html#onsite">På stedet</a><a href="no/property-biubay.html#view">Vår vurdering</a><a href="no/property-biubay.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="no/property-biubay.html#enquire" data-prefill>Bestill en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Biubay">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/biubay/media/seafront-block-day-640.webp 640w, assets/liora/projects/biubay/media/seafront-block-day-960.webp 960w, assets/liora/projects/biubay/media/seafront-block-day.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/biubay/media/seafront-block-day.jpg" alt="Datagenerert bilde av bygningen med de trappetrinnsformede hvite terrassene, en steinsokkel og hagen og bassenget foran" width="2000" height="1125" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/biubay/media/seafront-block-day.jpg" alt="Datagenerert bilde av bygningen med de trappetrinnsformede hvite terrassene, en steinsokkel og hagen og bassenget foran" width="2000" height="1125" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">5 av 10 boliger ledige</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Biubay <em>Estepona</em></span>
-            <span class="hero-title-context">Leiligheter med fire soverom ved sjøen i Estepona</span>
-          </h1>
-          <p class="hero-positioning">5 av 10 leiligheter med fire soverom ved sjøen i Estepona, hver med egen heis og en stor terrasse, med felles basseng, spa, treningsrom, kinosal og golfsimulator. Under bygging, overlevering i K4 2028 ifølge utbyggerens infoark. Fra 6 500 000 € pluss mva.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="no/property-biubay.html#availability">Se tilgjengelige boliger</a>
-            <a class="btn project-btn ghost" href="no/index.html#private-viewing=1&amp;project=biubay">Filmatisk presentasjon</a>
-            <a class="btn project-btn ghost" href="no/property-biubay.html#media">Alle bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktige prosjektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Estepona, Costa del Sol</strong></div>
-          <div class="hero-fact"><span>Pris fra</span><strong>Fra 6 500 000 € + mva.</strong></div>
-          <div class="hero-fact"><span>Boligtype</span><strong>Leiligheter</strong></div>
-          <div class="hero-fact"><span>Overtakelse</span><strong>K4 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Prosjektseksjoner">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Gå til</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="no/property-biubay.html#media">Media</a>
-        <a href="no/property-biubay.html#location">Beliggenhet</a>
-        <a href="no/property-biubay.html#availability">Tilgjengelighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="no/property-biubay.html#overview">Oversikt</a>
-          <a href="no/property-biubay.html#residences">Boliger</a>
-          <a href="no/property-biubay.html#calculator">Finansiering</a>
-          <a href="no/property-biubay.html#amenities">Fasiliteter</a>
-          <a href="no/property-biubay.html#why-this-project">Hvorfor</a>
-          <a href="no/property-biubay.html#architecture">Arkitektur</a>
-          <a href="no/property-biubay.html#private-viewing">Filmatisk presentasjon</a>
-          <a href="no/property-biubay.html#lifestyle">Livsstil</a>
-          <a href="no/property-biubay.html#faq">FAQ</a>
-          <a href="no/property-biubay.html#enquire">Forespørsel</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Rask prosjektfakta">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Soverom</span><strong>4 soverom</strong></div>
-          <div class="quick-fact"><span>Bebygd areal</span><strong>285,64 - 299,19 m²</strong></div>
-          <div class="quick-fact"><span>Amenities</span><strong>Basseng, spa, treningsrom, kino</strong></div>
-          <div class="quick-fact"><span>Tilgjengelighet</span><strong>5 av 10 boliger ledige</strong></div>
-          <div class="quick-fact"><span>Tilgjengelig</span><strong>5 boliger</strong></div>
-          <div class="quick-fact"><span>Prisspenn</span><strong>6 500 000 € - 9 000 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="no/property-biubay.html#enquire" data-prefill>Be om prosjektmateriell</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Oversikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ti boliger, <em>fem ledige</em></h2>
-          <p class="project-lead">Biubay er et prosjekt ved sjøen med ti leiligheter med tre eller fire soverom i Estepona, ifølge utbyggerens infoark nær marinaen. De fem boligene med pris har alle fire soverom, fire bad og et toalett, egen heis og en terrasse på 108,52 til 191,37 m² etter planene, med et lite basseng tegnet inn, og koster fra 6 500 000 € til 9 000 000 € pluss mva.</p>
-          <p class="project-lead">Beboerne deler et utendørsbasseng som vender mot havet, et spa med innendørsbasseng på visualiseringene, et treningsrom, en kinosal, en golfsimulator, et spillrom og et flerbruksrom, på fasilitetsnivået i planene. Ifølge infoarket er byggetillatelsen innvilget og arbeidene startet i mars 2026, med overlevering i K4 2028.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Boligene <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datagenererte bilder av bygningen, fellesarealene og interiørene, og plantegninger av de fem boligene på listen.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Vis 4 bilder i Eksteriør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/biubay/media/seafront-block-day-640.webp 640w, assets/liora/projects/biubay/media/seafront-block-day-960.webp 960w, assets/liora/projects/biubay/media/seafront-block-day.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/biubay/media/seafront-block-day.jpg" alt="Datagenerert bilde av bygningen med de trappetrinnsformede hvite terrassene, en steinsokkel og hagen og bassenget foran" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Eksteriør</small>
-                <strong>Bygningen sett fra hagen</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Vis 4 bilder i Interiør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/biubay/media/lobby-atrium-640.webp 640w, assets/liora/projects/biubay/media/lobby-atrium-960.webp 960w, assets/liora/projects/biubay/media/lobby-atrium.webp 1600w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/biubay/media/lobby-atrium.jpg" alt="Datagenerert bilde av inngangspartiet i to etasjers høyde, med en resepsjonsdisk og en kaskade av ringformede lamper" width="1600" height="2000" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiør</small>
-                <strong>Inngangspartiet</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Vis 7 bilder i Fasiliteter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/biubay/media/pool-deck-and-sunbeds-640.webp 640w, assets/liora/projects/biubay/media/pool-deck-and-sunbeds-960.webp 960w, assets/liora/projects/biubay/media/pool-deck-and-sunbeds.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/biubay/media/pool-deck-and-sunbeds.jpg" alt="Datagenerert bilde av bassengområdet med solsenger og en daybed, hagen og kysten bak" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Fasiliteter</small>
-                <strong>Bassengområdet</strong>
-                <span class="project-media-card-cta">7 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Vis 4 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/biubay/media/terrace-sea-view-640.webp 640w, assets/liora/projects/biubay/media/terrace-sea-view-960.webp 960w, assets/liora/projects/biubay/media/terrace-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/biubay/media/terrace-sea-view.jpg" alt="Datagenerert bilde av en overbygd terrasse med loungemøbler, takvifter og havet bak et glassrekkverk" width="2000" height="1244" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En overbygd terrasse mot havet</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Vis 2 bilder i Soverom">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/biubay/media/main-bedroom-640.webp 640w, assets/liora/projects/biubay/media/main-bedroom-960.webp 960w, assets/liora/projects/biubay/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/biubay/media/main-bedroom.jpg" alt="Datagenerert hovedsoverom med en lav seng, taklamper og en glassvegg som kan skyves til siden mot terrassen" width="2000" height="833" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Soverom</small>
-                <strong>Hovedsoverom</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Vis 2 bilder i Bad">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/biubay/media/bathroom-bath-and-vanity-640.webp 640w, assets/liora/projects/biubay/media/bathroom-bath-and-vanity-960.webp 960w, assets/liora/projects/biubay/media/bathroom-bath-and-vanity.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/biubay/media/bathroom-bath-and-vanity.jpg" alt="Datagenerert bad med et frittstående badekar, et rundt vindu og en dobbel steinservant" width="2000" height="1773" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bad</small>
-                <strong>Bad med frittstående badekar</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Vis 5 bilder i Plantegninger">
-              <img src="assets/liora/projects/biubay/floorplans/home-by-02.jpg" alt="Plantegning av bolig BY-02" width="1620" height="1370" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plantegninger</small>
-                <strong>Bolig BY-02</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Vis alle 28 bilder</button>
-          <p class="media-note">Alle bildene er datagenererte illustrasjoner og ikke fotografier av den ferdige bygningen. Møblene, innredningen og utstyret som vises, for eksempel boblebadet på en terrasse, er illustrative, og dokumentene vi har oppgir dem ikke som inkludert. Plantegningene er utbyggerens salgsplaner: de er ikke kontraktsfestet, romnavnene på BY-06 er på spansk, og noen arealer avviker fra tilgjengelighetslisten.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Beliggenhet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ved sjøen, <em>i Estepona</em></h2>
-          <p class="project-lead">Utbyggeren plasserer Biubay rett ved sjøen i Estepona, nær marinaen, med utsikt over en rolig, svaberget kyststripe, vekk fra de mest travle badestrendene. Dokumentene oppgir ingen postadresse, så markøren på kartet står i sentrum av Estepona og ikke på tomten, og veiavstandene ved siden av kartet måles fra denne markøren.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="no">
-          <div class="locmap-map" id="locmap-biubay" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona sentrum&quot;,&quot;sub&quot;:&quot;130 m · 2 min gange&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min gange&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Biubay"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Veiledende beliggenhet</span>
-            <h3 class="locmap-name">Biubay</h3>
-            <p class="locmap-place">Ved sjøen, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min gange</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona sentrum</span>
-              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min gange</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar lufthavn</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Boliger</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fem boliger, <em>tre planløsninger</em></h2>
-          <p class="project-lead">De fem oppførte boligene deler seg i tre grupper etter planløsning. Tabellen under viser hver bolig med pris.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Boligene BY-02 og BY-04</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-biubay.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig BY-06</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-biubay.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Boligene BY-07 og BY-08</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-biubay.html#availability">Vis plantegninger</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat materiale</span>
-            <p>Gjeldende planløsninger, utsiktsposisjoner og tilgjengelighet bør sjekkes mot utviklerens siste fil før man setter opp en shortlist.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="no/property-biubay.html#availability">Vis plantegninger</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tilgjengelighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fem boliger <em>tilgjengelige nå</em></h2>
-          <p class="project-lead">Fem leiligheter er oppført med pris, alle med fire soverom. Tilgjengelighet og priser er de på listen fra 29 oktober 2026 og er eksklusive mva., og vi bekrefter dem før enhver reservasjon.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/biubay/media/dining-terrace.jpg" alt="Datagenerert bilde av en terrasse med et langt spisebord og utsikt langs kysten" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>23 bilder</button>
+          <a class="chip" href="no/property-biubay.html#availability"><svg><use href="#v2-i-plan"/></svg>Plantegninger</a>
+          <a class="chip" href="no/property-biubay.html#location"><svg><use href="#v2-pin"/></svg>Kart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammendrag av gjeldende fase">
-            <div><span>Tilgjengelige boliger</span><strong>5</strong></div>
-            <div><span>Pris fra</span><strong>6 500 000 € + mva.</strong></div>
-            <div><span>Prisintervall</span><strong>6 500 000 € - 9 000 000 € + mva.</strong></div>
-            <div><span>Kontrollert</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Se alle 5 tilgjengelige boliger</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tilgjengelige boliger">
-              <article class="unit-card" data-unit data-price="9000000">
-                <a class="unit-card-plan" href="assets/liora/projects/biubay/floorplans/home-by-02.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-02">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/biubay/floorplans/home-by-02-640.webp 640w, assets/liora/projects/biubay/floorplans/home-by-02-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/biubay/floorplans/home-by-02.jpg" alt="Plantegning for BY-02" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">BY-02</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>4 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>288,94 m²</dd></div>
-                    <div><dt>Overbygd terrasse</dt><dd>121,50 m²</dd></div>
-                    <div><dt>Åpen terrasse</dt><dd>47,20 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">9 000 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Biubay%20-%20BY-02">Spør om BY-02</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="7500000">
-                <a class="unit-card-plan" href="assets/liora/projects/biubay/floorplans/home-by-04.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-04">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/biubay/floorplans/home-by-04-640.webp 640w, assets/liora/projects/biubay/floorplans/home-by-04-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/biubay/floorplans/home-by-04.jpg" alt="Plantegning for BY-04" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">BY-04</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>4 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>288,94 m²</dd></div>
-                    <div><dt>Overbygd terrasse</dt><dd>121,50 m²</dd></div>
-                    <div><dt>Åpen terrasse</dt><dd>47,20 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">7 500 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Biubay%20-%20BY-04">Spør om BY-04</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="6500000">
-                <a class="unit-card-plan" href="assets/liora/projects/biubay/floorplans/home-by-06.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-06">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/biubay/floorplans/home-by-06-640.webp 640w, assets/liora/projects/biubay/floorplans/home-by-06-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/biubay/floorplans/home-by-06.jpg" alt="Plantegning for BY-06" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">BY-06</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>4 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>299,19 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>261,42 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">6 500 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Biubay%20-%20BY-06">Spør om BY-06</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="6900000">
-                <a class="unit-card-plan" href="assets/liora/projects/biubay/floorplans/home-by-07.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-07">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/biubay/floorplans/home-by-07-640.webp 640w, assets/liora/projects/biubay/floorplans/home-by-07-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/biubay/floorplans/home-by-07.jpg" alt="Plantegning for BY-07" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">BY-07</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>4 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>285,64 m²</dd></div>
-                    <div><dt>Overbygd terrasse</dt><dd>69,37 m²</dd></div>
-                    <div><dt>Åpen terrasse</dt><dd>62,50 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">6 900 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Biubay%20-%20BY-07">Spør om BY-07</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="6900000">
-                <a class="unit-card-plan" href="assets/liora/projects/biubay/floorplans/home-by-08.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-08">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/biubay/floorplans/home-by-08-640.webp 640w, assets/liora/projects/biubay/floorplans/home-by-08-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/biubay/floorplans/home-by-08.jpg" alt="Plantegning for BY-08" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">BY-08</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>4 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>285,64 m²</dd></div>
-                    <div><dt>Overbygd terrasse</dt><dd>69,37 m²</dd></div>
-                    <div><dt>Åpen terrasse</dt><dd>62,50 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">6 900 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Biubay%20-%20BY-08">Spør om BY-08</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Prisene, soverommene og bebygde arealene er hentet fra utbyggerens tilgjengelighetsliste per 29 oktober 2026, som viser fem boliger. Listen oppgir utbyggerens nettobeløp, og infoarket legger mva. til hver innbetaling, så prisene er eksklusive mva. Terrassene, bodene og romstørrelsene kommer fra utbyggerens planer, som enkelte steder avviker fra listen; begge tallene er oppgitt i seksjonene ovenfor.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="no/property-biubay.html#enquire" data-prefill>Spør om en bolig</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Biubay." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Biubay" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beregn din <em>månedlige betaling</em></h2>
-          <p class="body-copy">Kun et veiledende anslag. Bekreft de eksakte vilkårene med din långiver før du tar en beslutning.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Biubay</span></h1>
+        <p class="hero-by">5 av 10 leiligheter med fire soverom ved sjøen i Estepona, hver med egen heis og en stor terrasse, med felles basseng, spa, treningsrom, kinosal og golfsimulator.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Fra 6 500 000 €</dd><dd class="sub">Ekskl. mva</dd></div><div><dt>Soverom</dt><dd>4</dd><dd class="sub"><span>Leiligheter</span></dd></div><div><dt>Ferdigstillelse</dt><dd>K4 2028</dd><dd class="sub">Byggetillatelse gitt</dd></div><div><dt>Boliger igjen</dt><dd>5 av 10</dd><dd class="sub">Kontrollert oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="no/property-biubay.html#enquire" data-prefill>Bestill en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Biubay." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Biubay" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Prosjektet</h2>
+    <p class="lede">Biubay er et prosjekt ved sjøen med ti leiligheter med tre eller fire soverom i Estepona, ifølge utbyggerens infoark nær marinaen. De fem boligene med pris har alle fire soverom, fire bad og et toalett, egen heis og en terrasse på 108,52 til 191,37 m² etter planene, med et lite basseng tegnet inn, og koster fra 6 500 000 € til 9 000 000 € pluss mva.</p>
+    <p class="lede-2">Beboerne deler et utendørsbasseng som vender mot havet, et spa med innendørsbasseng på visualiseringene, et treningsrom, en kinosal, en golfsimulator, et spillrom og et flerbruksrom, på fasilitetsnivået i planene. Ifølge infoarket er byggetillatelsen innvilget og arbeidene startet i mars 2026, med overlevering i K4 2028.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Trappetrinnsterrasser mot havet</span></summary><p>På utbyggerens datagenererte bilder reiser bygningen seg i trappetrinnsformede hvite bånd, med dype terrasser bak glassrekkverk, en steinsokkel og hager med lange speilbasseng som fører mot havet.</p><p>Inngangen mot gaten er en glassdør i to etasjers høyde i en steinramme, med trelameller, og den åpner seg mot et høyt inngangsparti med resepsjonsdisk. Brosjyren sier at alle boligene vender mot sør.</p><ul><li>Orientering: Brosjyren sier at alle boligene har sørvendt orientering.</li><li>Spennvidder innvendig: Brosjyren oppgir innvendige spenn på opptil 20 meter.</li><li>Egen heis: Planene for alle de fem oppførte boligene viser en egen heis som åpner seg inn i boligen.</li><li>Terraces: Brosjyren presenterer de store terrassene mot havet som et kjennetegn, og planene tegner et lite basseng på hver av dem.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>6 500 000 € – 9 000 000 €</span><small>Ekskl. mva</small></dd></div><div><dt>Tilgjengelig</dt><dd><span>5 av 10 boliger</span><small>Kontrollert oktober 2026</small></dd></div><div><dt>Boliger</dt><dd><span>Leiligheter</span></dd></div><div><dt>Størrelser</dt><dd><span>286 – 299 m²</span><small>Bebygd areal</small></dd></div><div><dt>Ferdigstillelse</dt><dd><span>K4 2028</span></dd></div><div><dt>Tillatelse</dt><dd><span><span class="ok">Byggetillatelse</span></span><small>Gitt</small></dd></div><div><dt>Forskudd</dt><dd><span>Bankgaranti</span><small>Påkrevd etter spansk lov</small></dd></div><div><dt>Parkering</dt><dd><span>Egen garasje</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Boliger og priser</h2>
+    <p class="sec-sub">Fem leiligheter er oppført med pris, alle med fire soverom. Tilgjengelighet og priser er de på listen fra 29 oktober 2026 og er eksklusive mva., og vi bekrefter dem før enhver reservasjon. Velg en bolig for å se betalingsplan og totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="5 av 10 fortsatt til salgs"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><span>5 av 10 fortsatt til salgs</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Boliger til salgs med størrelse og pris. Velg en rad for å se betalingsplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bolig</th>
+          <th scope="col" data-sort="beds">Soverom</th>
+          <th scope="col" data-sort="size">Størrelse</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Tegning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="4" data-price="9000000" data-size="288.94" data-ppm="31148" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/biubay/floorplans/home-by-02-640.webp">
+            <th scope="row"><span class="u-name">BY-02</span><span class="u-loc"></span></th>
+            <td data-label="Soverom">4 sov.</td>
+            <td data-label="Størrelse" class="num">289 m²</td>
+            <td data-label="Pris" class="u-price num">9 000 000 €</td>
+            <td data-label="Per m²" class="num">31 148 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/biubay/floorplans/home-by-02.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-02"><img src="assets/liora/projects/biubay/floorplans/home-by-02-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="4" data-price="7500000" data-size="288.94" data-ppm="25957" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/biubay/floorplans/home-by-04-640.webp">
+            <th scope="row"><span class="u-name">BY-04</span><span class="u-loc"></span></th>
+            <td data-label="Soverom">4 sov.</td>
+            <td data-label="Størrelse" class="num">289 m²</td>
+            <td data-label="Pris" class="u-price num">7 500 000 €</td>
+            <td data-label="Per m²" class="num">25 957 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/biubay/floorplans/home-by-04.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-04"><img src="assets/liora/projects/biubay/floorplans/home-by-04-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="4" data-price="6500000" data-size="299.19" data-ppm="21725" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/biubay/floorplans/home-by-06-640.webp">
+            <th scope="row"><span class="u-name">BY-06</span><span class="u-loc"></span></th>
+            <td data-label="Soverom">4 sov.</td>
+            <td data-label="Størrelse" class="num">299 m²</td>
+            <td data-label="Pris" class="u-price num">6 500 000 €</td>
+            <td data-label="Per m²" class="num">21 725 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/biubay/floorplans/home-by-06.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-06"><img src="assets/liora/projects/biubay/floorplans/home-by-06-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="4" data-price="6900000" data-size="285.64" data-ppm="24156" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/biubay/floorplans/home-by-07-640.webp">
+            <th scope="row"><span class="u-name">BY-07</span><span class="u-loc"></span></th>
+            <td data-label="Soverom">4 sov.</td>
+            <td data-label="Størrelse" class="num">286 m²</td>
+            <td data-label="Pris" class="u-price num">6 900 000 €</td>
+            <td data-label="Per m²" class="num">24 156 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/biubay/floorplans/home-by-07.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-07"><img src="assets/liora/projects/biubay/floorplans/home-by-07-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="4" data-price="6900000" data-size="285.64" data-ppm="24156" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/biubay/floorplans/home-by-08-640.webp">
+            <th scope="row"><span class="u-name">BY-08</span><span class="u-loc"></span></th>
+            <td data-label="Soverom">4 sov.</td>
+            <td data-label="Størrelse" class="num">286 m²</td>
+            <td data-label="Pris" class="u-price num">6 900 000 €</td>
+            <td data-label="Per m²" class="num">24 156 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/biubay/floorplans/home-by-08.jpg" target="_blank" rel="noopener" aria-label="Plantegning for BY-08"><img src="assets/liora/projects/biubay/floorplans/home-by-08-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Boliger · <span>Fem boliger, tre planløsninger</span></summary><p>De fem oppførte boligene deler seg i tre grupper etter planløsning. Tabellen under viser hver bolig med pris.</p><div class="res-types"><div class="res-type"><h3>Boligene BY-02 og BY-04</h3><ul><li>To boliger med fire soverom og 288,94 m² bebygd areal ifølge listen, med en overbygd terrasse på 121,50 m² og en åpen terrasse på 47,20 m² ifølge databladene, tre parkeringsplasser og egen heis.</li><li>Prisene er 9 000 000 € for BY-02 og 7 500 000 € for BY-04.</li><li>Hver plan har en stue med spisestue og kjøkken på 117,62 m² (BY-02) og 116,80 m² (BY-04), et kontor og fire soverom, hovedsoverommet på 42,56 m² (BY-02) og 42,22 m² (BY-04), og tegner inn en bod på 82,11 m².</li><li>Databladene oppgir de samme arealene for begge boligene, mens planene tegner en terrasse på 150,60 m² for BY-02 og 108,52 m² for BY-04. Databladet for BY-02 oppgir ingen bod, og planen tegner inn en.</li></ul></div><div class="res-type"><h3>Bolig BY-06</h3><ul><li>En bolig med fire soverom og 299,19 m² bebygd areal, med 261,42 m² innvendig areal, en andel på 92,53 m² av fellesarealene, til sammen 391,72 m², og en bod på 28,42 m² på fasilitetsnivået.</li><li>Prisen er 6 500 000 €.</li><li>Planen har en stue med spisestue og kjøkken på 121,13 m², et hovedsoverom på 32,51 m², et vaskerom og et bikjøkken.</li><li>Tabellen på planen oppgir overbygde gallerier (porches) på 118,50 m² og terrasser på 137,73 m², mens tegningen merker en terrasse på 191,37 m² og en inngangsterrasse på 41,81 m².</li></ul></div><div class="res-type"><h3>Boligene BY-07 og BY-08</h3><ul><li>To boliger med fire soverom og samme planløsning: en stue med spisestue og kjøkken på 121,13 m², et bikjøkken, et vaskerom, fire soverom på 17,52 til 28,52 m² og en terrasse på 118,87 m² etter planene.</li><li>Databladene deres oppgir en overbygd terrasse på 69,37 m², en åpen terrasse på 62,50 m², tre parkeringsplasser og en bod på 28,42 m² (BY-07) og 28,07 m² (BY-08).</li><li>Hver koster 6 900 000 €.</li><li>Listen oppgir 285,64 m² bebygd areal for begge. Databladet for BY-08 stemmer, og databladet for BY-07 oppgir 249,46 m².</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Utbyggerens betalingsplan fås på forespørsel; vi sender den sammen med prislisten.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Hva det koster totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>mva, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Dokumentavgift (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt før notar, tinglysing og advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="no/property-biubay.html#enquire" data-prefill>Spør om denne boligen</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plantegning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Boliglånskalkulator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Kjøpesum</span><em data-calc-price-readout>&euro;0</em></div>
@@ -965,428 +597,199 @@
               <div class="calculator-result"><span>Skatter & kjøpskostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Fasiliteter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva prosjektet <em>gir deg</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Velvære</span>
-              <h3 class="amenity-name">Utendørsbasseng</h3>
-              <p class="amenity-note">Under åpen himmel</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Bygningen sett fra hagen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/biubay/media/seafront-block-day-640.webp 640w, assets/liora/projects/biubay/media/seafront-block-day-960.webp 960w, assets/liora/projects/biubay/media/seafront-block-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/biubay/media/seafront-block-day.jpg" alt="Datagenerert bilde av bygningen med de trappetrinnsformede hvite terrassene, en steinsokkel og hagen og bassenget foran" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Inngangspartiet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/biubay/media/lobby-atrium-640.webp 640w, assets/liora/projects/biubay/media/lobby-atrium-960.webp 960w, assets/liora/projects/biubay/media/lobby-atrium.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/biubay/media/lobby-atrium.jpg" alt="Datagenerert bilde av inngangspartiet i to etasjers høyde, med en resepsjonsdisk og en kaskade av ringformede lamper" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="15" aria-label="En overbygd terrasse mot havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/biubay/media/terrace-sea-view-640.webp 640w, assets/liora/projects/biubay/media/terrace-sea-view-960.webp 960w, assets/liora/projects/biubay/media/terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/biubay/media/terrace-sea-view.jpg" alt="Datagenerert bilde av en overbygd terrasse med loungemøbler, takvifter og havet bak et glassrekkverk" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Bassengområdet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/biubay/media/pool-deck-and-sunbeds-640.webp 640w, assets/liora/projects/biubay/media/pool-deck-and-sunbeds-960.webp 960w, assets/liora/projects/biubay/media/pool-deck-and-sunbeds.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/biubay/media/pool-deck-and-sunbeds.jpg" alt="Datagenerert bilde av bassengområdet med solsenger og en daybed, hagen og kysten bak" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="19" aria-label="Hovedsoverom"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/biubay/media/main-bedroom-640.webp 640w, assets/liora/projects/biubay/media/main-bedroom-960.webp 960w, assets/liora/projects/biubay/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/biubay/media/main-bedroom.jpg" alt="Datagenerert hovedsoverom med en lav seng, taklamper og en glassvegg som kan skyves til siden mot terrassen" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Se alle 23 bildene</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Eksteriør (4)</button><button type="button" data-open-cat="Interiors">Interiør (4)</button><button type="button" data-open-cat="Amenities">Fasiliteter (7)</button><button type="button" data-open-cat="Terraces">Terrasser (4)</button><button type="button" data-open-cat="Bedrooms">Soverom (2)</button><button type="button" data-open-cat="Bathrooms">Bad (2)</button></div>
+    
+    <p class="caption">Alle bildene er datagenererte illustrasjoner og ikke fotografier av den ferdige bygningen. Møblene, innredningen og utstyret som vises, for eksempel boblebadet på en terrasse, er illustrative, og dokumentene vi har oppgir dem ikke som inkludert. Plantegningene er utbyggerens salgsplaner: de er ikke kontraktsfestet, romnavnene på BY-06 er på spansk, og noen arealer avviker fra tilgjengelighetslisten.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Beliggenhet</h2>
+    <p class="sec-sub">Utbyggeren plasserer Biubay rett ved sjøen i Estepona, nær marinaen, med utsikt over en rolig, svaberget kyststripe, vekk fra de mest travle badestrendene. Dokumentene oppgir ingen postadresse, så markøren på kartet står i sentrum av Estepona og ikke på tomten, og veiavstandene ved siden av kartet måles fra denne markøren.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="no">
+          <div class="locmap-map" id="locmap-biubay" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona sentrum&quot;,&quot;sub&quot;:&quot;130 m · 2 min gange&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min gange&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Biubay"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Veiledende beliggenhet</span>
+            <h3 class="locmap-name">Biubay</h3>
+            <p class="locmap-place">Ved sjøen, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min gange</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Velvære</span>
-              <h3 class="amenity-name">Innendørsbasseng</h3>
-              <p class="amenity-note">Svømming under tak</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Velvære</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtsoner for restitusjon</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona sentrum</span>
+              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min gange</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Velvære</span>
-              <h3 class="amenity-name">Badstue og hammam</h3>
-              <p class="amenity-note">Rom med tørr varme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Velvære</span>
-              <h3 class="amenity-name">Treningsrom</h3>
-              <p class="amenity-note">Inne i prosjektet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Velvære</span>
-              <h3 class="amenity-name">Golfsimulator</h3>
-              <p class="amenity-note">Spill innendørs hele året</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar lufthavn</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Utendørs</span>
-              <h3 class="amenity-name">Sjøutsikt</h3>
-              <p class="amenity-note">Mot Middelhavet</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Hverdag</span>
-              <h3 class="amenity-name">Adkomst med egen heis</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Hverdag</span>
-              <h3 class="amenity-name">Egne boder</h3>
-              <p class="amenity-note">Et låsbart boderom</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Hverdag</span>
-              <h3 class="amenity-name">Egen garasje</h3>
-              <p class="amenity-note">Under bygningen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Tjenester</span>
-              <h3 class="amenity-name">Kinosal</h3>
-              <p class="amenity-note">Et visningsrom</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Tjenester</span>
-              <h3 class="amenity-name">Spillrom</h3>
-              <p class="amenity-note">Bordspill og konsoller</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Tjenester</span>
-              <h3 class="amenity-name">Allrom</h3>
-              <p class="amenity-note">Et rom å samles i</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Puerto Banús</th><td>20 minutter, ifølge brosjyren</td></tr><tr><th scope="row">Marbella</th><td>25 minutter, ifølge brosjyren</td></tr><tr><th scope="row">Sotogrande</th><td>35 minutter, ifølge brosjyren</td></tr><tr><th scope="row">Málaga</th><td>50 minutter, ifølge brosjyren</td></tr><tr><th scope="row">Gibraltar</th><td>60 minutter, ifølge brosjyren</td></tr><tr><th scope="row">Tarifa</th><td>70 minutter, ifølge brosjyren</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">På stedet</h2>
+    <p class="sec-sub">Brosjyren beskriver fellesarealene som en privat klubb hjemme.</p>
+    <div class="life-panels"><div><h3>Utendørsbassenget</h3><p>Et utendørsbasseng som åpner seg mot havet, med speilbasseng og middelhavsbeplantning, ifølge brosjyren.</p></div><div><h3>Spaet</h3><p>Planene oppfører et spa med badstue og dampbad, og visualiseringene viser et innendørsbasseng med solsenger og mosaikkpaneler.</p></div><div><h3>Treningsrommet</h3><p>Et treningsrom på fasilitetsnivået og et treningsstudio som vises i brosjyren.</p></div><div><h3>Kino og golf</h3><p>En kinosal og en golfsimulator, begge på planen for fasilitetsnivået.</p></div><div><h3>Spill og samvær</h3><p>Et spillrom, en fellesstue og et flerbruksrom.</p></div></div>
+    <ul class="amen-top"><li>Utendørsbasseng</li><li>Innendørsbasseng</li><li>Spa</li><li>Badstue og hammam</li><li>Treningsrom</li><li>Kinosal</li></ul>
+    <details class="amen-all"><summary>Vis alle 13</summary><div class="amen-groups"><div><h3>Velvære<span class="count">6</span></h3><ul><li>Utendørsbasseng</li><li>Innendørsbasseng</li><li>Spa</li><li>Badstue og hammam</li><li>Treningsrom</li><li>Golfsimulator</li></ul></div><div><h3>Utendørs<span class="count">1</span></h3><ul><li>Sjøutsikt</li></ul></div><div><h3>Hverdag<span class="count">3</span></h3><ul><li>Adkomst med egen heis</li><li>Egne boder</li><li>Egen garasje</li></ul></div><div><h3>Tjenester<span class="count">3</span></h3><ul><li>Kinosal</li><li>Spillrom</li><li>Allrom</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår vurdering</h2>
+    <p class="sec-sub">Det vi ville vurdert før du reserverer her, og det vi sjekker for deg.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår vurdering">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrker</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planlegg for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Hva som skiller det ut</h3><ul class="points"><li><b>Hvem det passer for</b><span>Kjøpere som vil ha en stor ny bolig ved sjøen i Estepona, til eget bruk eller som feriebolig, med basseng, spa og treningsrom i selve bygningen.</span></li><li><b>Hva som gjør det annerledes</b><span>Bare ti boliger i bygningen, bebygd areal fra 285,64 til 299,19 m² ifølge listen, egen heis i hver av de fem oppførte boligene og terrasser fra 108,52 til 191,37 m² etter planene.</span></li><li><b>Hvorfor beliggenheten betyr noe</b><span>Utbyggeren plasserer bygningen rett ved sjøen i Estepona, nær marinaen. Brosjyren oppgir Puerto Banús 20 minutter unna og Málaga 50, uten å si hvordan de tilbakelegges.</span></li><li><b>Hvorfor sjekke byggearbeidene</b><span>Infoarket oppgir at tillatelsen er innvilget og at arbeidene startet i mars 2026, med overlevering i K4 2028. Det er udatert, så vi ber om den kontraktfestede datoen og byggestatusen før enhver reservasjon.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Hva du bør planlegge for</h3><ul class="points"><li><b>Tilgjengelighet</b><span>Fem av de ti boligene står med pris på utbyggerens liste, fra 6 500 000 € til 9 000 000 € pluss mva. Dokumentene vi har sier ikke om de øvrige fem er solgt, reservert eller ennå ikke lansert.</span></li><li><b>Mva.</b><span>Listen oppgir utbyggerens nettobeløp, og infoarket legger mva. til hver innbetaling, så prisene er eksklusive mva. Dokumentene vi har oppgir ikke satsen, og Nueva Living bekrefter den og de øvrige kjøpskostnadene skriftlig.</span></li><li><b>Betalingsvilkår</b><span>Utbyggeren fastsetter et reservasjonsbeløp og en trinnvis betalingsplan. Vi bekrefter gjeldende vilkår skriftlig før enhver reservasjon.</span></li><li><b>Garasje og bod</b><span>Databladene oppgir tre parkeringsplasser for BY-02, BY-04, BY-07 og BY-08, og planene viser en bod på 28,07 til 82,11 m². Databladet for BY-06 oppgir ingen parkering, så vi bekrefter hva hver bolig omfatter.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller før penger betales</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Tillatelse og arbeider</b><span>Byggetillatelse gitt. Infoarket oppgir byggetillatelsen som innvilget og at arbeidene startet i mars 2026. Det er udatert, så vi ber om tillatelsen og om byggestatusen slik den er nå.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ferdigstillelsesdatoen</b><span>Infoarket oppgir byggeslutt i K3 2028 og overlevering i K4 2028. Vi ber om den kontraktfestede leveringsdatoen og setter den skriftlig.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Antall boliger</b><span>Infoarket og brosjyren snakker om ti boliger med tre eller fire soverom. Tilgjengelighetslisten viser fem, alle med fire soverom, og ingen av dokumentene sier hva som har skjedd med de øvrige fem.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Arealene</b><span>Listen og planene stemmer overens om bebygd areal for BY-02, BY-04, BY-06 og BY-08. For BY-07 oppgir listen 285,64 m² og databladet til planen 249,46 m². Databladene for BY-02 og BY-04 oppgir de samme tallene for to ulike planer, og planen for BY-06 oppgir terrasser på 137,73 m² i tabellen mot 191,37 m² på tegningen. Vi bekrefter hvilke tall kontrakten bruker.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Plantegningsfilene</b><span>BY-02 kom til oss i to versjoner: den ene, datert 28 september 2026, kaller 288,94 m² bruksareal, og den andre, datert 19 oktober 2026, kaller det bebygd areal, og det er den denne siden bruker. Tegningene av fasilitetsnivået avviker også mellom filene: spaet er 195,95 m² i filene for BY-02 og BY-04 og 201,71 m² i filene for BY-07 og BY-08.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Kartet og avstandene</b><span>Dokumentene oppgir ingen postadresse, så markøren på kartet står i sentrum av Estepona og ikke på tomten. Brosjyren oppgir reisetidene uten å si hvordan de tilbakelegges, og vi bekrefter dem ved et besøk.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Be om prosjektdokumentasjonen</h3><p>Planene for boligene som er av interesse og gjeldende prisliste.</p></li><li><h3>Sammenlign alternativene</h3><p>Se dette sammen med de andre prosjektene i Estepona vi har i porteføljen.</p></li><li><h3>Privat visning</h3><p>Se området sammen med oss, og sammenlign plantegningene med byggestatus.</p></li><li><h3>Reserver</h3><p>Vi bekrefter reservasjonsbeløpet og betalingsplanen skriftlig, deretter følger kjøpekontrakten.</p></li></ol>
+      <div class="docs card"><h3>Dokumenter du får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prisliste</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plantegninger<small>5 av 5 boliger</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsplan<small>Ikke utstedt ennå</small><small>Venter</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Det offisielle sammendraget alle kjøpere i Andalucía har krav på</small></span></li></ul><a class="btn btn-primary" href="no/property-biubay.html#enquire" data-prefill>Få prosjektmappen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Spørsmål om Biubay</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hvor mange boliger er det?</summary><p>Ti, ifølge infoarket og brosjyren, med tre eller fire soverom. Fem er oppført med pris, alle med fire soverom, fra 6 500 000 € til 9 000 000 € pluss mva.</p></details><details class="segment-faq-item"><summary>Er mva inkludert?</summary><p>Nei. Listen oppgir utbyggerens nettobeløp, og infoarket legger mva. til hver innbetaling, så prisene er eksklusive mva. Vi bekrefter satsen og kjøpskostnadene skriftlig.</p></details><details class="segment-faq-item"><summary>Er det parkering og bod?</summary><p>Databladene oppgir tre parkeringsplasser for fire av de fem boligene, og planene viser en bod på 28,07 til 82,11 m². Vi bekrefter hva boligen som velges omfatter.</p></details><details class="segment-faq-item"><summary>Har alle boligene havutsikt?</summary><p>Brosjyren sier at alle boligene vender mot sør og beskriver store terrasser mot havet, men beskriver ikke utsikten fra hver bolig, så vi bekrefter den for boligen som velges.</p></details><details class="segment-faq-item"><summary>Er møbler inkludert?</summary><p>Møblene og innredningen på de datagenererte bildene er illustrative. Dokumentene vi har oppgir ikke møbler som inkludert, så vi bekrefter hva som er inkludert.</p></details></div>
+    <details class="faq2-more"><summary>Vis alle spørsmål (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Når blir det ferdig?</summary><p>Infoarket oppgir overlevering i K4 2028, med arbeidene som starter i mars 2026 og avsluttes i K3 2028. Det er udatert, så vi ber om den kontraktfestede datoen og setter den skriftlig.</p></details><details class="segment-faq-item"><summary>Hva er betalingsplanen?</summary><p>Utbyggeren fastsetter et reservasjonsbeløp og en trinnvis betalingsplan. Vi sender gjeldende vilkår skriftlig før enhver reservasjon.</p></details></div></details>
+    <p class="faq2-guide">Mer om å kjøpe nybygg i Spania → <a class="textlink" href="no/guide-how-buying-works.html">Kjøpsguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Bestill en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris fra</p>
+      <p class="rail-price num">6 500 000 €</p>
+      <p class="rail-note">Ekskl. mva. 5 av 10 boliger igjen · Kontrollert oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="no/property-biubay.html#enquire" data-prefill>Bestill en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Biubay." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Biubay" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Send oss en melding på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger</strong>Vi svarer selv på hver henvendelse.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Bestill en privat visning</h2>
+        <p>Fortell oss hvilken bolig som interesserer deg. Vi sender prosjektmappen og går deretter over området sammen med deg.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger av Nueva Living</strong>Vi svarer selv på hver henvendelse.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Biubay." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Biubay" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Send oss en melding</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>På visningen sjekker vi sammen</h3><ul><li><b>På stedet.</b> Besøk tomten og omgivelsene sammen med oss.</li><li><b>På papiret.</b> Tillatelse, overleveringsdato og kontrakt, før noe signeres.</li><li><b>På plantegningene.</b> Vi går gjennom boligen som velges, rom for rom, med plantegningen i hånden.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sender…" data-success-label="Bestill en privat visning ✓" data-submitting-message="Sender…" data-success-message="Forespørsel mottatt. Vi sender prosjektmappen og foreslår tider for visning." data-error-message="Det gikk ikke. Prøv igjen, eller send oss en melding på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Biubay">
+        <input type="hidden" id="f-project" name="project" value="Biubay">
+        <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
+        <input type="hidden" name="property_type_interest" value="Leiligheter">
+        <input type="hidden" name="budget_range" value="Fra 6 500 000 € + mva.">
+        <input type="hidden" name="consent_text" value="Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hei Nueva Living, jeg vil gjerne ha informasjon om Biubay." data-base="Hei Nueva Living, jeg vil gjerne ha informasjon om Biubay.">
+        <h3>Dine opplysninger</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Fornavn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Etternavn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valgfritt, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Hvilken bolig?</label><select id="v2-f-unit" name="unit_interest"><option value="">Ikke sikker ennå, send meg alt</option><option value="BY-02">BY-02: 9 000 000 €</option><option value="BY-04">BY-04: 7 500 000 €</option><option value="BY-06">BY-06: 6 500 000 €</option><option value="BY-07">BY-07: 6 900 000 €</option><option value="BY-08">BY-08: 6 900 000 €</option></select></div>
+        <fieldset class="field"><legend>Boligen blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Til å bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Et feriehjem</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hvordan skal vi svare?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefonsamtale</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min. <a href="no/privacy-policy.html">Personvernerklæring</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Gi meg også beskjed hvis tilgjengelighet eller priser endres i Biubay.</label>
+        <button class="btn btn-primary btn-block" type="submit">Bestill en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Hvorfor dette prosjektet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvorfor dette prosjektet <em>betyr noe</em></h2>
-          <p class="project-lead">Leiligheter med fire soverom ved sjøen, med egen heis, store terrasser og et nivå med basseng, spa og treningsrom, i en bygning med ti boliger.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Hvorfor det passer</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvem det passer for</h3><p>Kjøpere som vil ha en stor ny bolig ved sjøen i Estepona, til eget bruk eller som feriebolig, med basseng, spa og treningsrom i selve bygningen.</p></article>
-              <article class="why-point reveal-soft"><h3>Hva som gjør det annerledes</h3><p>Bare ti boliger i bygningen, bebygd areal fra 285,64 til 299,19 m² ifølge listen, egen heis i hver av de fem oppførte boligene og terrasser fra 108,52 til 191,37 m² etter planene.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor beliggenheten betyr noe</h3><p>Utbyggeren plasserer bygningen rett ved sjøen i Estepona, nær marinaen. Brosjyren oppgir Puerto Banús 20 minutter unna og Málaga 50, uten å si hvordan de tilbakelegges.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor sjekke byggearbeidene</h3><p>Infoarket oppgir at tillatelsen er innvilget og at arbeidene startet i mars 2026, med overlevering i K4 2028. Det er udatert, så vi ber om den kontraktfestede datoen og byggestatusen før enhver reservasjon.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">En saklig merknad om hva dokumentene sier og ikke sier; Nueva Living lover verken leieavkastning eller prisstigning.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tilgjengelighet</h3><p>Fem av de ti boligene står med pris på utbyggerens liste, fra 6 500 000 € til 9 000 000 € pluss mva. Dokumentene vi har sier ikke om de øvrige fem er solgt, reservert eller ennå ikke lansert.</p></article>
-              <article class="why-point reveal-soft"><h3>Mva.</h3><p>Listen oppgir utbyggerens nettobeløp, og infoarket legger mva. til hver innbetaling, så prisene er eksklusive mva. Dokumentene vi har oppgir ikke satsen, og Nueva Living bekrefter den og de øvrige kjøpskostnadene skriftlig.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalingsvilkår</h3><p>Utbyggeren fastsetter et reservasjonsbeløp og en trinnvis betalingsplan. Vi bekrefter gjeldende vilkår skriftlig før enhver reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Garasje og bod</h3><p>Databladene oppgir tre parkeringsplasser for BY-02, BY-04, BY-07 og BY-08, og planene viser en bod på 28,07 til 82,11 m². Databladet for BY-06 oppgir ingen parkering, så vi bekrefter hva hver bolig omfatter.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Tillit og gjennomgang</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillatelse og arbeider</h3><p>Infoarket oppgir byggetillatelsen som innvilget og at arbeidene startet i mars 2026. Det er udatert, så vi ber om tillatelsen og om byggestatusen slik den er nå.</p></article>
-              <article class="why-point reveal-soft"><h3>Ferdigstillelsesdatoen</h3><p>Infoarket oppgir byggeslutt i K3 2028 og overlevering i K4 2028. Vi ber om den kontraktfestede leveringsdatoen og setter den skriftlig.</p></article>
-              <article class="why-point reveal-soft"><h3>Antall boliger</h3><p>Infoarket og brosjyren snakker om ti boliger med tre eller fire soverom. Tilgjengelighetslisten viser fem, alle med fire soverom, og ingen av dokumentene sier hva som har skjedd med de øvrige fem.</p></article>
-              <article class="why-point reveal-soft"><h3>Arealene</h3><p>Listen og planene stemmer overens om bebygd areal for BY-02, BY-04, BY-06 og BY-08. For BY-07 oppgir listen 285,64 m² og databladet til planen 249,46 m². Databladene for BY-02 og BY-04 oppgir de samme tallene for to ulike planer, og planen for BY-06 oppgir terrasser på 137,73 m² i tabellen mot 191,37 m² på tegningen. Vi bekrefter hvilke tall kontrakten bruker.</p></article>
-              <article class="why-point reveal-soft"><h3>Plantegningsfilene</h3><p>BY-02 kom til oss i to versjoner: den ene, datert 28 september 2026, kaller 288,94 m² bruksareal, og den andre, datert 19 oktober 2026, kaller det bebygd areal, og det er den denne siden bruker. Tegningene av fasilitetsnivået avviker også mellom filene: spaet er 195,95 m² i filene for BY-02 og BY-04 og 201,71 m² i filene for BY-07 og BY-08.</p></article>
-              <article class="why-point reveal-soft"><h3>Kartet og avstandene</h3><p>Dokumentene oppgir ingen postadresse, så markøren på kartet står i sentrum av Estepona og ikke på tomten. Brosjyren oppgir reisetidene uten å si hvordan de tilbakelegges, og vi bekrefter dem ved et besøk.</p></article>
-            </div>
-            <p class="why-group-note">Første gang du kjøper på prospekt i Spania? <a href="no/guide-how-buying-works.html">Slik foregår et nybyggkjøp</a> beskriver de sju trinnene, og <a href="no/guide-off-plan-vs-resale.html">nybygg sammenlignet med bruktbolig</a> tar for seg forskudd, garantier og tidsplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bildene kommer fra utbyggeren og kan være datagenererte">
+    <p>Bildene kommer fra utbyggeren og kan være datagenererte; endelig utforming, overflater, uteområder og utsikt kan avvike. Du har krav på en kopi av Documento Informativo Abreviado (DIA) for hver bolig på denne siden; Nueva Living sender den på forespørsel.</p>
+    <p>Tilgjengeligheten kontrollert hos selgeren oktober 2026; vi bekrefter den på nytt før enhver reservasjon.</p>
+    <p>Prisene, soverommene og bebygde arealene er hentet fra utbyggerens tilgjengelighetsliste per 29 oktober 2026, som viser fem boliger. Listen oppgir utbyggerens nettobeløp, og infoarket legger mva. til hver innbetaling, så prisene er eksklusive mva. Terrassene, bodene og romstørrelsene kommer fra utbyggerens planer, som enkelte steder avviker fra listen; begge tallene er oppgitt i seksjonene ovenfor.</p>
+    <p>Informasjonen på denne siden er generell markedsføring og ikke juridisk, økonomisk eller investeringsrådgivning. Priser, tilgjengelighet og ferdigstillelsesdatoer kan endres uten varsel.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/biubay/media/seafront-block-dusk.jpg" alt="Datagenerert bilde av bygningen i skumringen, med opplyste terrasser, et langt speilbasseng og utendørsbassenget" width="2000" height="1200" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Forhåndsvisning av arkitektur</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Trappetrinnsterrasser <em>mot havet</em></h2>
-          <p>På utbyggerens datagenererte bilder reiser bygningen seg i trappetrinnsformede hvite bånd, med dype terrasser bak glassrekkverk, en steinsokkel og hager med lange speilbasseng som fører mot havet.</p>
-<p>Inngangen mot gaten er en glassdør i to etasjers høyde i en steinramme, med trelameller, og den åpner seg mot et høyt inngangsparti med resepsjonsdisk. Brosjyren sier at alle boligene vender mot sør.</p>
-          <ul class="feature-list">
-            <li>Orientering — Brosjyren sier at alle boligene har sørvendt orientering.</li>
-            <li>Spennvidder innvendig — Brosjyren oppgir innvendige spenn på opptil 20 meter.</li>
-            <li>Egen heis — Planene for alle de fem oppførte boligene viser en egen heis som åpner seg inn i boligen.</li>
-            <li>Terraces — Brosjyren presenterer de store terrassene mot havet som et kjennetegn, og planene tegner et lite basseng på hver av dem.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Handlinger for prosjektforespørsel">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Biubay." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Biubay" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="no/property-biubay.html#enquire" data-prefill>Bestill visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/biubay/media/terrace-sea-view.jpg" alt="Datagenerert bilde av en overbygd terrasse med loungemøbler, takvifter og havet bak et glassrekkverk" width="2000" height="1244" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmatisk presentasjon</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>området og tegningene</em></h2>
-            <p>Et besøk handler om beliggenheten, tegningene og hvor langt arbeidene har kommet.</p>
-            <div class="viewing-insights">
-              <div><span>På stedet</span><p>Besøk tomten og omgivelsene sammen med oss.</p></div>
-              <div><span>På papiret</span><p>Tillatelse, overleveringsdato og kontrakt, før noe signeres.</p></div>
-              <div><span>På plantegningene</span><p>Vi går gjennom boligen som velges, rom for rom, med plantegningen i hånden.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="no/index.html#private-viewing=1&amp;project=biubay">Filmatisk presentasjon</a>
-              <a class="btn project-btn ghost" href="no/property-biubay.html#enquire" data-prefill>Be om prosjektmateriell</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Lukk">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Forrige bilde">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Neste bilde">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Eksteriør</button><button type="button" data-cat="Interiors">Interiør</button><button type="button" data-cat="Amenities">Fasiliteter</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Bedrooms">Soverom</button><button type="button" data-cat="Bathrooms">Bad</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/biubay/media/pool-deck-and-sunbeds.jpg" alt="Datagenerert bilde av bassengområdet med solsenger og en daybed, hagen og kysten bak" width="2000" height="1333" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Basseng, spa <em>og en kinosal</em></h2>
-            <p>Brosjyren beskriver fellesarealene som en privat klubb hjemme. Planene tegner dem på ett nivå, og visualiseringene viser utendørsbassenget, spaet og rommene.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Neste steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva som skjer <em>videre</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Be om prosjektdokumentasjonen</h3>
-            <p>Planene for boligene som er av interesse og gjeldende prisliste.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Sammenlign alternativene</h3>
-            <p>Se dette sammen med de andre prosjektene i Estepona vi har i porteføljen.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se området sammen med oss, og sammenlign plantegningene med byggestatus.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserver</h3>
-            <p>Vi bekrefter reservasjonsbeløpet og betalingsplanen skriftlig, deretter følger kjøpekontrakten.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Ofte stilte spørsmål</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanlige <em>spørsmål fra kjøpere</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlendinger kjøpe eiendom i Spania?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er et NIE-nummer, og trenger jeg et?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg få boliglån i Spania som ikke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer reservasjons- og betalingsprosessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg leie ut boligen etter kjøp?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Trenger jeg advokat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange boliger er det?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ti, ifølge infoarket og brosjyren, med tre eller fire soverom. Fem er oppført med pris, alle med fire soverom, fra 6 500 000 € til 9 000 000 € pluss mva.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er mva inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nei. Listen oppgir utbyggerens nettobeløp, og infoarket legger mva. til hver innbetaling, så prisene er eksklusive mva. Vi bekrefter satsen og kjøpskostnadene skriftlig.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er det parkering og bod?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Databladene oppgir tre parkeringsplasser for fire av de fem boligene, og planene viser en bod på 28,07 til 82,11 m². Vi bekrefter hva boligen som velges omfatter.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Har alle boligene havutsikt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Brosjyren sier at alle boligene vender mot sør og beskriver store terrasser mot havet, men beskriver ikke utsikten fra hver bolig, så vi bekrefter den for boligen som velges.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er møbler inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Møblene og innredningen på de datagenererte bildene er illustrative. Dokumentene vi har oppgir ikke møbler som inkludert, så vi bekrefter hva som er inkludert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Når blir det ferdig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Infoarket oppgir overlevering i K4 2028, med arbeidene som starter i mars 2026 og avsluttes i K3 2028. Det er udatert, så vi ber om den kontraktfestede datoen og setter den skriftlig.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er betalingsplanen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Utbyggeren fastsetter et reservasjonsbeløp og en trinnvis betalingsplan. Vi sender gjeldende vilkår skriftlig før enhver reservasjon.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Forespørsel</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Spør om <em>Biubay</em></h2>
-          <p class="body-copy">Fortell oss hva som trengs, så kommer vi tilbake med gjeldende tilgjengelighet, plantegningene og prislisten.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grunnlegger av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grunnlegger, Nueva Living</p>
-            <h3 id="advisor-heading">Vil du heller snakke det gjennom?</h3>
-            <p class="advisor-copy">Velg det som passer, og send meg en melding på WhatsApp. Jeg tar utgangspunkt i det.</p>
-            <div class="advisor-group" role="group" aria-label="Jeg søker">
-              <span class="advisor-group-label">Jeg søker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">En bolig å bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">En feriebolig</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budsjett">
-              <span class="advisor-group-label">Budsjett</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Biubay." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Biubay" data-intent="speak with an advisor">Send meg en melding på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Biubay">
-
-          <input type="hidden" id="f-project" name="project" value="Biubay">
-          <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
-          <input type="hidden" name="property_type_interest" value="Leiligheter">
-          <input type="hidden" name="budget_range" value="Fra 6 500 000 € + mva.">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Fornavn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Fornavn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Etternavn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Etternavn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Melding</label>
-              <textarea id="f-msg" name="message">Hei Nueva Living, jeg vil gjerne ha informasjon om Biubay.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jeg samtykker til å bli kontaktet og til at mine data lagres.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jeg vil også gjerne motta sporadiske prosjektoppdateringer fra Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Send forespørsel</button>
-            <span class="form-note">Vi svarer personlig, vanligvis samme dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"BY-02","title":"BY-02","sub":"4 sov. · 289 m²","price":9000000,"plans":[{"src":"assets/liora/projects/biubay/floorplans/home-by-02.jpg","label":""}]},{"id":"u1","ref":"BY-04","title":"BY-04","sub":"4 sov. · 289 m²","price":7500000,"plans":[{"src":"assets/liora/projects/biubay/floorplans/home-by-04.jpg","label":""}]},{"id":"u2","ref":"BY-06","title":"BY-06","sub":"4 sov. · 299 m²","price":6500000,"plans":[{"src":"assets/liora/projects/biubay/floorplans/home-by-06.jpg","label":""}]},{"id":"u3","ref":"BY-07","title":"BY-07","sub":"4 sov. · 286 m²","price":6900000,"plans":[{"src":"assets/liora/projects/biubay/floorplans/home-by-07.jpg","label":""}]},{"id":"u4","ref":"BY-08","title":"BY-08","sub":"4 sov. · 286 m²","price":6900000,"plans":[{"src":"assets/liora/projects/biubay/floorplans/home-by-08.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/biubay/media/seafront-block-day.webp","alt":"Datagenerert bilde av bygningen med de trappetrinnsformede hvite terrassene, en steinsokkel og hagen og bassenget foran","caption":"Bygningen sett fra hagen","cat":"Exteriors"},{"src":"assets/liora/projects/biubay/media/facade-front-day.webp","alt":"Datagenerert bilde av fasaden mot gaten, med horisontale bånd, trelameller og en inngang i to etasjers høyde","caption":"Fasaden mot gaten","cat":"Exteriors"},{"src":"assets/liora/projects/biubay/media/entrance-dusk.webp","alt":"Datagenerert bilde av inngangen i skumringen, med en høy glassdør, en skulptur og opplyste vannspeil","caption":"Inngangen i skumringen","cat":"Exteriors"},{"src":"assets/liora/projects/biubay/media/seafront-block-dusk.webp","alt":"Datagenerert bilde av bygningen i skumringen, med opplyste terrasser, et langt speilbasseng og utendørsbassenget","caption":"Bygningen i skumringen","cat":"Exteriors"},{"src":"assets/liora/projects/biubay/media/lobby-atrium.webp","alt":"Datagenerert bilde av inngangspartiet i to etasjers høyde, med en resepsjonsdisk og en kaskade av ringformede lamper","caption":"Inngangspartiet","cat":"Interiors"},{"src":"assets/liora/projects/biubay/media/pool-deck-and-sunbeds.webp","alt":"Datagenerert bilde av bassengområdet med solsenger og en daybed, hagen og kysten bak","caption":"Bassengområdet","cat":"Amenities"},{"src":"assets/liora/projects/biubay/media/indoor-pool-lounge.webp","alt":"Datagenerert bilde av spaet, med solsenger ved et innendørsbasseng, mosaikkpaneler og bambusplanter","caption":"Solsenger ved innendørsbassenget","cat":"Amenities"},{"src":"assets/liora/projects/biubay/media/indoor-pool-and-spa.webp","alt":"Datagenerert bilde av innendørsbassenget, med solsenger, en rund daybed og en badstue bak","caption":"Innendørsbassenget og badstuen","cat":"Amenities"},{"src":"assets/liora/projects/biubay/media/gym.webp","alt":"Datagenerert bilde av treningsrommet, med kondisjonsapparater, frie vekter og et studioområde","caption":"Treningsrommet","cat":"Amenities"},{"src":"assets/liora/projects/biubay/media/social-lounge.webp","alt":"Datagenerert bilde av en lang lounge med hjørnesofa, en bar og et biljardbord","caption":"Den sosiale loungen","cat":"Amenities"},{"src":"assets/liora/projects/biubay/media/cinema-room.webp","alt":"Datagenerert bilde av kinosalen, med lenestoler, en stor skjerm og et stjerneklart tak","caption":"Kinorommet","cat":"Amenities"},{"src":"assets/liora/projects/biubay/media/golf-simulator.webp","alt":"Datagenerert bilde av rommet med golfsimulator, med to lenestoler og en stor skjerm","caption":"Golfsimulatoren","cat":"Amenities"},{"src":"assets/liora/projects/biubay/media/living-room.webp","alt":"Datagenerert bilde av en åpen stue med sofaer, en vinvegg og kjøkkenet bak","caption":"Stue","cat":"Interiors"},{"src":"assets/liora/projects/biubay/media/kitchen-island.webp","alt":"Datagenerert bilde av et kjøkken med en stor øy, barkrakker og integrerte hvitevarer","caption":"Kjøkken","cat":"Interiors"},{"src":"assets/liora/projects/biubay/media/study.webp","alt":"Datagenerert bilde av en arbeidskrok med et skrivebord og et kunstverk, og stuen bak","caption":"Arbeidskrok","cat":"Interiors"},{"src":"assets/liora/projects/biubay/media/terrace-sea-view.webp","alt":"Datagenerert bilde av en overbygd terrasse med loungemøbler, takvifter og havet bak et glassrekkverk","caption":"En overbygd terrasse mot havet","cat":"Terraces"},{"src":"assets/liora/projects/biubay/media/dining-terrace.webp","alt":"Datagenerert bilde av en terrasse med et langt spisebord og utsikt langs kysten","caption":"Spiseterrasse","cat":"Terraces"},{"src":"assets/liora/projects/biubay/media/terrace-whirlpool.webp","alt":"Datagenerert bilde av en terrasse med et hevet boblebad, beplantning og utsikt mot havet","caption":"En terrasse med boblebad","cat":"Terraces"},{"src":"assets/liora/projects/biubay/media/terrace-dining-wide.webp","alt":"Datagenerert bredt bilde av en spiseplass på terrassen som åpner seg mot stuen og kjøkkenet","caption":"Spiseplass på terrassen","cat":"Terraces"},{"src":"assets/liora/projects/biubay/media/main-bedroom.webp","alt":"Datagenerert hovedsoverom med en lav seng, taklamper og en glassvegg som kan skyves til siden mot terrassen","caption":"Hovedsoverom","cat":"Bedrooms"},{"src":"assets/liora/projects/biubay/media/bedroom-with-desk.webp","alt":"Datagenerert soverom med et skrivebord, en lenestol og utsikt mot havet gjennom et hjørnevindu","caption":"Soverom med skrivebord","cat":"Bedrooms"},{"src":"assets/liora/projects/biubay/media/bathroom-bath-and-vanity.webp","alt":"Datagenerert bad med et frittstående badekar, et rundt vindu og en dobbel steinservant","caption":"Bad med frittstående badekar","cat":"Bathrooms"},{"src":"assets/liora/projects/biubay/media/bathroom-shower-and-bath.webp","alt":"Datagenerert bad med en glassdusj, et frittstående badekar og en dobbel servant","caption":"Bad med glassdusj","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Spør om {ref}","plusVat":"Ekskl. mva","totalPrice":"Totalpris","vatOnStages":"Pluss mva på hver delbetaling","onRequest":"På forespørsel","imageOf":"{i} av {n}","floorPlan":"Plantegning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Biubay media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Lukk">Lukk</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Forrige bilde">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Neste bilde">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/biubay/media/seafront-block-day.jpg","webp":"assets/liora/projects/biubay/media/seafront-block-day-960.webp","alt":"Datagenerert bilde av bygningen med de trappetrinnsformede hvite terrassene, en steinsokkel og hagen og bassenget foran","width":2000,"height":1125,"caption":"Bygningen sett fra hagen","category":"Eksteriør"},{"src":"assets/liora/projects/biubay/media/facade-front-day.jpg","webp":"assets/liora/projects/biubay/media/facade-front-day-960.webp","alt":"Datagenerert bilde av fasaden mot gaten, med horisontale bånd, trelameller og en inngang i to etasjers høyde","width":2000,"height":870,"caption":"Fasaden mot gaten","category":"Eksteriør"},{"src":"assets/liora/projects/biubay/media/entrance-dusk.jpg","webp":"assets/liora/projects/biubay/media/entrance-dusk-960.webp","alt":"Datagenerert bilde av inngangen i skumringen, med en høy glassdør, en skulptur og opplyste vannspeil","width":2000,"height":2000,"caption":"Inngangen i skumringen","category":"Eksteriør"},{"src":"assets/liora/projects/biubay/media/seafront-block-dusk.jpg","webp":"assets/liora/projects/biubay/media/seafront-block-dusk-960.webp","alt":"Datagenerert bilde av bygningen i skumringen, med opplyste terrasser, et langt speilbasseng og utendørsbassenget","width":2000,"height":1200,"caption":"Bygningen i skumringen","category":"Eksteriør"},{"src":"assets/liora/projects/biubay/media/lobby-atrium.jpg","webp":"assets/liora/projects/biubay/media/lobby-atrium-960.webp","alt":"Datagenerert bilde av inngangspartiet i to etasjers høyde, med en resepsjonsdisk og en kaskade av ringformede lamper","width":1600,"height":2000,"caption":"Inngangspartiet","category":"Interiør"},{"src":"assets/liora/projects/biubay/media/pool-deck-and-sunbeds.jpg","webp":"assets/liora/projects/biubay/media/pool-deck-and-sunbeds-960.webp","alt":"Datagenerert bilde av bassengområdet med solsenger og en daybed, hagen og kysten bak","width":2000,"height":1333,"caption":"Bassengområdet","category":"Fasiliteter"},{"src":"assets/liora/projects/biubay/media/indoor-pool-lounge.jpg","webp":"assets/liora/projects/biubay/media/indoor-pool-lounge-960.webp","alt":"Datagenerert bilde av spaet, med solsenger ved et innendørsbasseng, mosaikkpaneler og bambusplanter","width":2000,"height":1125,"caption":"Solsenger ved innendørsbassenget","category":"Fasiliteter"},{"src":"assets/liora/projects/biubay/media/indoor-pool-and-spa.jpg","webp":"assets/liora/projects/biubay/media/indoor-pool-and-spa-960.webp","alt":"Datagenerert bilde av innendørsbassenget, med solsenger, en rund daybed og en badstue bak","width":2000,"height":1125,"caption":"Innendørsbassenget og badstuen","category":"Fasiliteter"},{"src":"assets/liora/projects/biubay/media/gym.jpg","webp":"assets/liora/projects/biubay/media/gym-960.webp","alt":"Datagenerert bilde av treningsrommet, med kondisjonsapparater, frie vekter og et studioområde","width":2000,"height":875,"caption":"Treningsrommet","category":"Fasiliteter"},{"src":"assets/liora/projects/biubay/media/social-lounge.jpg","webp":"assets/liora/projects/biubay/media/social-lounge-960.webp","alt":"Datagenerert bilde av en lang lounge med hjørnesofa, en bar og et biljardbord","width":2000,"height":622,"caption":"Den sosiale loungen","category":"Fasiliteter"},{"src":"assets/liora/projects/biubay/media/cinema-room.jpg","webp":"assets/liora/projects/biubay/media/cinema-room-960.webp","alt":"Datagenerert bilde av kinosalen, med lenestoler, en stor skjerm og et stjerneklart tak","width":2000,"height":1333,"caption":"Kinorommet","category":"Fasiliteter"},{"src":"assets/liora/projects/biubay/media/golf-simulator.jpg","webp":"assets/liora/projects/biubay/media/golf-simulator-960.webp","alt":"Datagenerert bilde av rommet med golfsimulator, med to lenestoler og en stor skjerm","width":2000,"height":1334,"caption":"Golfsimulatoren","category":"Fasiliteter"},{"src":"assets/liora/projects/biubay/media/living-room.jpg","webp":"assets/liora/projects/biubay/media/living-room-960.webp","alt":"Datagenerert bilde av en åpen stue med sofaer, en vinvegg og kjøkkenet bak","width":2000,"height":897,"caption":"Stue","category":"Interiør"},{"src":"assets/liora/projects/biubay/media/kitchen-island.jpg","webp":"assets/liora/projects/biubay/media/kitchen-island-960.webp","alt":"Datagenerert bilde av et kjøkken med en stor øy, barkrakker og integrerte hvitevarer","width":2000,"height":1000,"caption":"Kjøkken","category":"Interiør"},{"src":"assets/liora/projects/biubay/media/study.jpg","webp":"assets/liora/projects/biubay/media/study-960.webp","alt":"Datagenerert bilde av en arbeidskrok med et skrivebord og et kunstverk, og stuen bak","width":2000,"height":2000,"caption":"Arbeidskrok","category":"Interiør"},{"src":"assets/liora/projects/biubay/media/terrace-sea-view.jpg","webp":"assets/liora/projects/biubay/media/terrace-sea-view-960.webp","alt":"Datagenerert bilde av en overbygd terrasse med loungemøbler, takvifter og havet bak et glassrekkverk","width":2000,"height":1244,"caption":"En overbygd terrasse mot havet","category":"Terrasser"},{"src":"assets/liora/projects/biubay/media/dining-terrace.jpg","webp":"assets/liora/projects/biubay/media/dining-terrace-960.webp","alt":"Datagenerert bilde av en terrasse med et langt spisebord og utsikt langs kysten","width":2000,"height":1156,"caption":"Spiseterrasse","category":"Terrasser"},{"src":"assets/liora/projects/biubay/media/terrace-whirlpool.jpg","webp":"assets/liora/projects/biubay/media/terrace-whirlpool-960.webp","alt":"Datagenerert bilde av en terrasse med et hevet boblebad, beplantning og utsikt mot havet","width":2000,"height":1244,"caption":"En terrasse med boblebad","category":"Terrasser"},{"src":"assets/liora/projects/biubay/media/terrace-dining-wide.jpg","webp":"assets/liora/projects/biubay/media/terrace-dining-wide-960.webp","alt":"Datagenerert bredt bilde av en spiseplass på terrassen som åpner seg mot stuen og kjøkkenet","width":2000,"height":714,"caption":"Spiseplass på terrassen","category":"Terrasser"},{"src":"assets/liora/projects/biubay/media/main-bedroom.jpg","webp":"assets/liora/projects/biubay/media/main-bedroom-960.webp","alt":"Datagenerert hovedsoverom med en lav seng, taklamper og en glassvegg som kan skyves til siden mot terrassen","width":2000,"height":833,"caption":"Hovedsoverom","category":"Soverom"},{"src":"assets/liora/projects/biubay/media/bedroom-with-desk.jpg","webp":"assets/liora/projects/biubay/media/bedroom-with-desk-960.webp","alt":"Datagenerert soverom med et skrivebord, en lenestol og utsikt mot havet gjennom et hjørnevindu","width":2000,"height":890,"caption":"Soverom med skrivebord","category":"Soverom"},{"src":"assets/liora/projects/biubay/media/bathroom-bath-and-vanity.jpg","webp":"assets/liora/projects/biubay/media/bathroom-bath-and-vanity-960.webp","alt":"Datagenerert bad med et frittstående badekar, et rundt vindu og en dobbel steinservant","width":2000,"height":1773,"caption":"Bad med frittstående badekar","category":"Bad"},{"src":"assets/liora/projects/biubay/media/bathroom-shower-and-bath.jpg","webp":"assets/liora/projects/biubay/media/bathroom-shower-and-bath-960.webp","alt":"Datagenerert bad med en glassdusj, et frittstående badekar og en dobbel servant","width":2000,"height":1883,"caption":"Bad med glassdusj","category":"Bad"},{"src":"assets/liora/projects/biubay/floorplans/home-by-02.jpg","webp":"assets/liora/projects/biubay/floorplans/home-by-02-960.webp","alt":"Plantegning av bolig BY-02","width":1620,"height":1370,"caption":"Bolig BY-02","category":"Plantegninger"},{"src":"assets/liora/projects/biubay/floorplans/home-by-04.jpg","webp":"assets/liora/projects/biubay/floorplans/home-by-04-960.webp","alt":"Plantegning av bolig BY-04","width":1490,"height":1360,"caption":"Bolig BY-04","category":"Plantegninger"},{"src":"assets/liora/projects/biubay/floorplans/home-by-06.jpg","webp":"assets/liora/projects/biubay/floorplans/home-by-06-960.webp","alt":"Plantegning av bolig BY-06","width":1671,"height":1648,"caption":"Bolig BY-06","category":"Plantegninger"},{"src":"assets/liora/projects/biubay/floorplans/home-by-07.jpg","webp":"assets/liora/projects/biubay/floorplans/home-by-07-960.webp","alt":"Plantegning av bolig BY-07","width":1330,"height":1270,"caption":"Bolig BY-07","category":"Plantegninger"},{"src":"assets/liora/projects/biubay/floorplans/home-by-08.jpg","webp":"assets/liora/projects/biubay/floorplans/home-by-08-960.webp","alt":"Plantegning av bolig BY-08","width":1500,"height":1360,"caption":"Bolig BY-08","category":"Plantegninger"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Handlinger for prosjektforespørsel">
-    <a href="no/property-biubay.html#enquire" data-prefill>Spør om en bolig</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Biubay." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Biubay" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

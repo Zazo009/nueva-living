@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder finns totalt?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Vista Alta Suites"
   data-project-message="Jag vill gärna ta emot den senaste projektinformationen för Vista Alta Suites."
@@ -459,457 +396,228 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Vista Alta Suites">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-vista-alta-suites.html#top">Vista Alta Suites<span>Från 725 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-vista-alta-suites.html#overview">Översikt</a><a href="sv/property-vista-alta-suites.html#availability">Priser</a><a href="sv/property-vista-alta-suites.html#gallery">Galleri</a><a href="sv/property-vista-alta-suites.html#location">Läge</a><a href="sv/property-vista-alta-suites.html#onsite">I området</a><a href="sv/property-vista-alta-suites.html#view">Vår bedömning</a><a href="sv/property-vista-alta-suites.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Vista Alta Suites">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.jpg" alt="Aerial view of the seven-building complex on a hillside plot with mountain and sea views" width="1920" height="866" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.jpg" alt="Aerial view of the seven-building complex on a hillside plot with mountain and sea views" width="1920" height="866" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Nyproduktion / inhägnat område</span>
-          <h1 class="hero-title" style="--hero-title-run: 6">
-            <span class="hero-title-name">Vista Alta <em>Suites</em></span>
-            <span class="hero-title-context">Lägenhet · Estepona, Costa del Sol</span>
-          </h1>
-          <p class="hero-positioning">En samling av 72 lägenheter fördelade på sju byggnader i 3 våningar vid New Golden Mile i Estepona, med planlösningar på 2, 3 och 4 sovrum, hav- och bergsutsikt, två utomhuspooler, en inomhuspool, gym, spa och coworkingyta.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-vista-alta-suites.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=vista-alta-suites">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-vista-alta-suites.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Estepona, Costa del Sol</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 725 000 €</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenhet</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Beräknat K2 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-vista-alta-suites.html#media">Media</a>
-        <a href="sv/property-vista-alta-suites.html#location">Läge</a>
-        <a href="sv/property-vista-alta-suites.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-vista-alta-suites.html#overview">Översikt</a>
-          <a href="sv/property-vista-alta-suites.html#residences">Bostäder</a>
-          <a href="sv/property-vista-alta-suites.html#calculator">Finansiering</a>
-          <a href="sv/property-vista-alta-suites.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-vista-alta-suites.html#why-this-project">Varför</a>
-          <a href="sv/property-vista-alta-suites.html#architecture">Arkitektur</a>
-          <a href="sv/property-vista-alta-suites.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-vista-alta-suites.html#lifestyle">Livsstil</a>
-          <a href="sv/property-vista-alta-suites.html#faq">FAQ</a>
-          <a href="sv/property-vista-alta-suites.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2-4 sovrum</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>118,03 - 222,92 m²</strong></div>
-          <div class="quick-fact"><span>Bekvämligheter</span><strong>2 utomhuspooler, inomhuspool, gym, spa, coworking</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>15 av 72 bostäder släppta</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">72 lägenheter, <em>upphöjda över kusten</em></h2>
-          <p class="project-lead">Vista Alta Suites är en samling av 72 lägenheter fördelade på sju byggnader i 3 våningar vid New Golden Mile i Estepona, med planlösningar på 2, 3 och 4 sovrum samt hav- och bergsutsikt från de flesta bostäderna.</p>
-          <p class="project-lead">Bostäder på bottenvåningen har privat trädgård, lägenheter på mellanvåningarna öppnar sig mot övertäckta terrasser, och takvåningarnas penthouslägenheter har ett egen solterrass på taket -- varje bostad kan även få en valfri privat pool. De boende delar på två utomhuspooler, en uppvärmd inomhuspool, ett gym, ett spa och en coworkingyta, allt inom ett inhägnat område med dygnet runt-tillträdeskontroll.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bostäderna i <em>detalj</em></h2>
-          </div>
-          <p class="project-lead">Datorgenererade bilder tillhandahållna av exploatören. Möbler, styling och växtlighet är vägledande och ingår inte i försäljningen.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 4 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.jpg" alt="Flygbild över anläggningen med sju hus på en sluttande tomt med bergs- och havsutsikt" width="1920" height="866" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Flygvy över komplexet på sin sluttningstomt</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 1 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool-640.webp 640w, assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool-960.webp 960w, assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool.jpg" alt="Takterrass med solterrass, privat pool som tillval och panoramautsikt över havet" width="1920" height="1160" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Solterrass på taket med valfri privat pool</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 1 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view-640.webp 640w, assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view-960.webp 960w, assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view.jpg" alt="Öppet vardagsrum med öppen spis och panoramautsikt över havet" width="1920" height="995" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrum med öppen spis och havsutsikt</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Visa 1 bilder i Omgivningar">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/site-plan-640.webp 640w, assets/liora/projects/vista-alta-suites/media/site-plan-960.webp 960w, assets/liora/projects/vista-alta-suites/media/site-plan.webp 1684w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vista-alta-suites/media/site-plan.jpg" alt="Situationsplan med de sju husen, entréerna och de gemensamma poolerna" width="1684" height="1191" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Omgivningar</small>
-                <strong>Situationsplan över de sju byggnaderna och de gemensamma poolerna</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 7 bilder</button>
-          <p class="media-note">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>vid New Golden Mile</em></h2>
-          <p class="project-lead">Vista Alta Suites ligger i La Resina, vid New Golden Mile i Estepona, inom räckhåll för Puerto Banús, San Pedro de Alcántara och Esteponas centrum.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-vista-alta-suites" data-locmap='{&quot;site&quot;:[36.4663619,-5.083469],&quot;sea&quot;:[36.43936,-5.083469],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Resina&quot;,&quot;sub&quot;:&quot;3,0 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Vista Alta Suites"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Vista Alta Suites</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona centrum</span>
-              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan La Resina</span>
-              <span class="locmap-row-figure"><bdi>3,0 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Los Flamingos</span>
-              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar flygplats</span>
-              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Från <em>lägenheter med 2 sovrum till takvåningar</em></h2>
-          <p class="project-lead">De 72 bostäderna sträcker sig från 2 till 4 sovrum fördelade på sju byggnader. Exploatören har hittills släppt 15 bostäder med bekräftat pris; de två exemplen nedan visar startpriset för en lägenhet respektive en takvåning.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Lägenhet</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>2-3 sovrum</strong></div>
-<div><span>Byggyta</span><strong>118,03 - 138,31 m²</strong></div>
-<div><span>Från</span><strong>725 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Öppet vardagsrum-matsal och kök som öppnar sig mot en inglasad terrass.</li>
-            <li>Bostäder på bottenvåningen har privat trädgård; vissa bostäder på övre våningar har solterrass.</li>
-            <li>Möjlighet att lägga till en privat pool; tillgång till gemensamma pooler, gym, spa och coworking.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-vista-alta-suites.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Takvåning</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>3-4 sovrum</strong></div>
-<div><span>Byggyta</span><strong>181,75 - 222,92 m²</strong></div>
-<div><span>Från</span><strong>1 725 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Bostad på översta våningen med egen solterrass på taket, upp till 149,66 m².</li>
-            <li>Öppet vardags- och matrum med övertäckt och öppen terrassyta.</li>
-            <li>Möjlighet att lägga till en privat pool på solterrassen; tillgång till den gemensamma bekvämlighetsvåningen.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-vista-alta-suites.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-vista-alta-suites.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">15 bostäder <em>för närvarande släppta</em></h2>
-          <p class="project-lead">Exploatören har hittills släppt 15 bostäder med bekräftat pris, fördelade på alla 7 byggnader, från lägenheter med 2 sovrum till takvåningar med 4 sovrum. Nueva Living bekräftar aktuellt pris och tillgänglighet inför varje visning eller bokning.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>15</strong></div>
-            <div><span>Pris från</span><strong>725 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>725 000 € - 2 150 000 €</strong></div>
-            <div><span>Kontrollerad</span><strong>september 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 15 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrera tillgängliga bostäder"
-              data-availability-filters
-              data-count-template="Visar {shown} av {total}">
-              
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Pris</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Alla</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-1000000" aria-pressed="false">Under €1M</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="1000000-1250000" aria-pressed="false">€1M – €1.25M</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="1250000-" aria-pressed="false">€1.25M+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Rensa filter</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Inga bostäder matchar dessa filter.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Tillgängliga bostäder på Vista Alta Suites</caption>
-                <thead><tr><th scope="col">Referens</th><th scope="col">Våning</th><th scope="col">Sovrum</th><th scope="col">Storlek</th><th scope="col">Pris</th><th scope="col">Status</th><th scope="col">Planritning</th></tr></thead>
-                <tbody>
-              <tr data-price="1200000">
-                <td data-label="Referens"><strong>10D</strong></td>
-                <td data-label="Våning">Bottenvåning, hus 1</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>130,55 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>91,22 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>1 200 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-10d-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="895000">
-                <td data-label="Referens"><strong>11B</strong></td>
-                <td data-label="Våning">Första våningen, hus 1</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>118,03 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>34,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>895 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-11b-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="1045000">
-                <td data-label="Referens"><strong>11D</strong></td>
-                <td data-label="Våning">Första våningen, hus 1</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>130,55 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>63,19 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>82,85 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>1 045 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-              <tr data-price="814000">
-                <td data-label="Referens"><strong>20C</strong></td>
-                <td data-label="Våning">Bottenvåning, hus 2</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>118,03 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>34,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>814 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-20c-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="925000">
-                <td data-label="Referens"><strong>21B</strong></td>
-                <td data-label="Våning">Första våningen, hus 2</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>118,03 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>34,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>925 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-21b-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="2150000">
-                <td data-label="Referens"><strong>32B</strong></td>
-                <td data-label="Våning">Takvåning, hus 3</td>
-                <td data-label="Sovrum">4 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>222,92 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>72,04 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>95,00 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>2 150 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-32b-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="855000">
-                <td data-label="Referens"><strong>40A</strong></td>
-                <td data-label="Våning">Bottenvåning, hus 4</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>135,45 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>77,67 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>96,25 m²</strong> <em>Trädgård</em></span></td>
-                <td data-label="Pris"><strong>855 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-40a-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="725000">
-                <td data-label="Referens"><strong>40B</strong></td>
-                <td data-label="Våning">Bottenvåning, hus 4</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>120,45 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>38,34 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>44,95 m²</strong> <em>Trädgård</em></span></td>
-                <td data-label="Pris"><strong>725 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-40b-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="975000">
-                <td data-label="Referens"><strong>41A</strong></td>
-                <td data-label="Våning">Första våningen, hus 4</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>130,55 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>63,19 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>82,85 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>975 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="1725000">
-                <td data-label="Referens"><strong>42B</strong></td>
-                <td data-label="Våning">Takvåning, hus 4</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>181,75 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>72,04 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>91,11 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>1 725 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-42b-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="895000">
-                <td data-label="Referens"><strong>50D</strong></td>
-                <td data-label="Våning">Bottenvåning, hus 5</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>138,31 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>62,32 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>94,43 m²</strong> <em>Trädgård</em></span></td>
-                <td data-label="Pris"><strong>895 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-50d-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="1150000">
-                <td data-label="Referens"><strong>51A</strong></td>
-                <td data-label="Våning">Första våningen, hus 5</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>139,65 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>47,01 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>82,31 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>1 150 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-51a-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="1850000">
-                <td data-label="Referens"><strong>52A</strong></td>
-                <td data-label="Våning">Takvåning, hus 5</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>181,75 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>72,04 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>91,11 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>1 850 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-52a-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="845000">
-                <td data-label="Referens"><strong>61C</strong></td>
-                <td data-label="Våning">Första våningen, hus 6</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>118,03 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>34,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>845 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-61c-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-price="875000">
-                <td data-label="Referens"><strong>70A</strong></td>
-                <td data-label="Våning">Bottenvåning, hus 7</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>204,40 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>68,22 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>73,43 m²</strong> <em>Trädgård</em></span></td>
-                <td data-label="Pris"><strong>875 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-70a-floorplans.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>7 bilder</button>
+          <a class="chip" href="sv/property-vista-alta-suites.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-vista-alta-suites.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-          <p class="availability-source-note">Referenser, ytor och priser är hämtade från exploatörens publicerade prislista, kontrollerad på nytt i september 2026. Priserna är exklusive IVA och tillkommande köpkostnader och kan ändras utan förvarning eller när en bostad säljs. Nueva Living bekräftar pris, status och bokningsvillkor innan ni går vidare.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Vista%20Alta%20Suites." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vista Alta Suites" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Vista Alta</span> <span class="h1-b">Suites</span></h1>
+        <p class="hero-by">En samling av 72 lägenheter fördelade på sju byggnader i 3 våningar vid New Golden Mile i Estepona, med planlösningar på 2, 3 och 4 sovrum, hav- och bergsutsikt, två utomhuspooler, en inomhuspool, gym, spa och coworkingyta.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 725 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2 till 4</dd><dd class="sub"><span>Lägenhet</span></dd></div><div><dt>Inflyttning</dt><dd>Beräknat K2 2028</dd><dd class="sub">Bygglov beviljat</dd></div><div><dt>Bostäder kvar</dt><dd>15 av 72</dd><dd class="sub">Kontrollerat september 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Vista%20Alta%20Suites." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vista Alta Suites" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Vista Alta Suites är en samling av 72 lägenheter fördelade på sju byggnader i 3 våningar vid New Golden Mile i Estepona, med planlösningar på 2, 3 och 4 sovrum samt hav- och bergsutsikt från de flesta bostäderna.</p>
+    <p class="lede-2">Bostäder på bottenvåningen har privat trädgård, lägenheter på mellanvåningarna öppnar sig mot övertäckta terrasser, och takvåningarnas penthouslägenheter har ett egen solterrass på taket -- varje bostad kan även få en valfri privat pool. De boende delar på två utomhuspooler, en uppvärmd inomhuspool, ett gym, ett spa och en coworkingyta, allt inom ett inhägnat område med dygnet runt-tillträdeskontroll.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Sju byggnader, utformade för utsikten</span></summary><p>Komplexet är utformat i sju byggnader med 3 våningar, med ytterväggar i förstärkt akrylputs och detaljer i natursten, samt Technal-fönster i aluminium med argonfylld dubbelglasning för värme- och ljudisolering.</p><p>Köken är fullt inredda av Modulnova med vitvaror från Siemens, och badrummen kombinerar sanitetsporslin från Villeroy &amp; Boch med blandare från Hansgrohe. Uppvärmning och varmvatten tillhandahålls av en Daikin luft-vatten-värmepump, med vattenburen golvvärme i alla rum, och varje bostad har ett grundläggande smart hem-system från Schneider och Airzone för klimatstyrning och persienner.</p><ul><li>Två utomhuspooler, en uppvärmd inomhuspool, gym, spa och coworkingyta.</li><li>Modulnova-kök med Siemens vitvaror och bänkskiva i ett stycke porslin.</li><li>Daikin luft-vatten-värmepump med golvvärme i varje rum.</li><li>Hissar från OTIS, Thyssen eller Schindler, samt garageplats och förråd till varje bostad.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>725 000 € – 2 150 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>15 av 72 bostäder</span><small>Kontrollerat september 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenhet</span></dd></div><div><dt>Storlekar</dt><dd><span>118 – 223 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>Beräknat K2 2028</span></dd></div><div><dt>Tillstånd</dt><dd><span><span class="ok">Bygglov</span></span><small>Beviljat</small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Parkering under mark och förråd till varje bostad</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Exploatören har hittills släppt 15 bostäder med bekräftat pris, fördelade på alla 7 byggnader, från lägenheter med 2 sovrum till takvåningar med 4 sovrum. Nueva Living bekräftar aktuellt pris och tillgänglighet inför varje visning eller bokning. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="15 av 72 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>15 av 72 till salu</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrera på sovrum"><button type="button" aria-pressed="true" data-beds="">Alla <span>15</span></button><button type="button" aria-pressed="false" data-beds="2">2 sovrum <span>5</span></button><button type="button" aria-pressed="false" data-beds="3">3 sovrum <span>9</span></button><button type="button" aria-pressed="false" data-beds="4">4 sovrum <span>1</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="1200000" data-size="130.55" data-ppm="9192" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">10D</span><span class="u-loc">Bottenvåning, hus 1</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">131 m²</td>
+            <td data-label="Pris" class="u-price num">1 200 000 €</td>
+            <td data-label="Per m²" class="num">9 192 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-10d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 10D">Ritning</a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="895000" data-size="118.03" data-ppm="7583" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">11B</span><span class="u-loc">Första våningen, hus 1</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">118 m²</td>
+            <td data-label="Pris" class="u-price num">895 000 €</td>
+            <td data-label="Per m²" class="num">7 583 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-11b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 11B">Ritning</a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="1045000" data-size="130.55" data-ppm="8005" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">11D</span><span class="u-loc">Första våningen, hus 1</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">131 m²</td>
+            <td data-label="Pris" class="u-price num">1 045 000 €</td>
+            <td data-label="Per m²" class="num">8 005 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="814000" data-size="118.03" data-ppm="6897" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20C</span><span class="u-loc">Bottenvåning, hus 2</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">118 m²</td>
+            <td data-label="Pris" class="u-price num">814 000 €</td>
+            <td data-label="Per m²" class="num">6 897 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-20c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 20C">Ritning</a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="925000" data-size="118.03" data-ppm="7837" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">21B</span><span class="u-loc">Första våningen, hus 2</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">118 m²</td>
+            <td data-label="Pris" class="u-price num">925 000 €</td>
+            <td data-label="Per m²" class="num">7 837 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-21b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 21B">Ritning</a></td>
+          </tr>
+          <tr data-id="u5" data-beds="4" data-price="2150000" data-size="222.92" data-ppm="9645" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">32B</span><span class="u-loc">Takvåning, hus 3</span></th>
+            <td data-label="Sovrum">4 sovrum</td>
+            <td data-label="Storlek" class="num">223 m²</td>
+            <td data-label="Pris" class="u-price num">2 150 000 €</td>
+            <td data-label="Per m²" class="num">9 645 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-32b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 32B">Ritning</a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="855000" data-size="135.45" data-ppm="6312" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">40A</span><span class="u-loc">Bottenvåning, hus 4</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">135 m²</td>
+            <td data-label="Pris" class="u-price num">855 000 €</td>
+            <td data-label="Per m²" class="num">6 312 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-40a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 40A">Ritning</a></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="725000" data-size="120.45" data-ppm="6019" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">40B</span><span class="u-loc">Bottenvåning, hus 4</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">120 m²</td>
+            <td data-label="Pris" class="u-price num">725 000 €</td>
+            <td data-label="Per m²" class="num">6 019 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-40b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 40B">Ritning</a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="975000" data-size="130.55" data-ppm="7468" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">41A</span><span class="u-loc">Första våningen, hus 4</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">131 m²</td>
+            <td data-label="Pris" class="u-price num">975 000 €</td>
+            <td data-label="Per m²" class="num">7 468 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 41A">Ritning</a></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="1725000" data-size="181.75" data-ppm="9491" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">42B</span><span class="u-loc">Takvåning, hus 4</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">182 m²</td>
+            <td data-label="Pris" class="u-price num">1 725 000 €</td>
+            <td data-label="Per m²" class="num">9 491 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-42b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 42B">Ritning</a></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="895000" data-size="138.31" data-ppm="6471" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">50D</span><span class="u-loc">Bottenvåning, hus 5</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">138 m²</td>
+            <td data-label="Pris" class="u-price num">895 000 €</td>
+            <td data-label="Per m²" class="num">6 471 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-50d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 50D">Ritning</a></td>
+          </tr>
+          <tr data-id="u11" data-beds="3" data-price="1150000" data-size="139.65" data-ppm="8235" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">51A</span><span class="u-loc">Första våningen, hus 5</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">140 m²</td>
+            <td data-label="Pris" class="u-price num">1 150 000 €</td>
+            <td data-label="Per m²" class="num">8 235 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-51a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 51A">Ritning</a></td>
+          </tr>
+          <tr data-id="u12" data-beds="3" data-price="1850000" data-size="181.75" data-ppm="10179" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">52A</span><span class="u-loc">Takvåning, hus 5</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">182 m²</td>
+            <td data-label="Pris" class="u-price num">1 850 000 €</td>
+            <td data-label="Per m²" class="num">10 179 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-52a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 52A">Ritning</a></td>
+          </tr>
+          <tr data-id="u13" data-beds="2" data-price="845000" data-size="118.03" data-ppm="7159" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">61C</span><span class="u-loc">Första våningen, hus 6</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">118 m²</td>
+            <td data-label="Pris" class="u-price num">845 000 €</td>
+            <td data-label="Per m²" class="num">7 159 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-61c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 61C">Ritning</a></td>
+          </tr>
+          <tr data-id="u14" data-beds="3" data-price="875000" data-size="204.4" data-ppm="4281" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">70A</span><span class="u-loc">Bottenvåning, hus 7</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">204 m²</td>
+            <td data-label="Pris" class="u-price num">875 000 €</td>
+            <td data-label="Per m²" class="num">4 281 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vista-alta-suites/floorplans/unit-70a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för 70A">Ritning</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Från lägenheter med 2 sovrum till takvåningar</span></summary><p>De 72 bostäderna sträcker sig från 2 till 4 sovrum fördelade på sju byggnader. Exploatören har hittills släppt 15 bostäder med bekräftat pris; de två exemplen nedan visar startpriset för en lägenhet respektive en takvåning.</p><div class="res-types"><div class="res-type"><h3>Lägenhet</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>2-3 sovrum</dd></div><div><dt>Byggyta</dt><dd>118,03 - 138,31 m²</dd></div><div><dt>Från</dt><dd>725 000 €</dd></div></dl><ul><li>Öppet vardagsrum-matsal och kök som öppnar sig mot en inglasad terrass.</li><li>Bostäder på bottenvåningen har privat trädgård; vissa bostäder på övre våningar har solterrass.</li><li>Möjlighet att lägga till en privat pool; tillgång till gemensamma pooler, gym, spa och coworking.</li></ul></div><div class="res-type"><h3>Takvåning</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>3-4 sovrum</dd></div><div><dt>Byggyta</dt><dd>181,75 - 222,92 m²</dd></div><div><dt>Från</dt><dd>1 725 000 €</dd></div></dl><ul><li>Bostad på översta våningen med egen solterrass på taket, upp till 149,66 m².</li><li>Öppet vardags- och matrum med övertäckt och öppen terrassyta.</li><li>Möjlighet att lägga till en privat pool på solterrassen; tillgång till den gemensamma bekvämlighetsvåningen.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -969,427 +677,195 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Uppvärmd inomhuspool</h3>
-              <p class="amenity-note">Varmt vatten under tak</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Flygvy över komplexet på sin sluttningstomt"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.jpg" alt="Flygbild över anläggningen med sju hus på en sluttande tomt med bergs- och havsutsikt" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Vardagsrum med öppen spis och havsutsikt"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view-640.webp 640w, assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view-960.webp 960w, assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view.jpg" alt="Öppet vardagsrum med öppen spis och panoramautsikt över havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Solterrass på taket med valfri privat pool"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool-640.webp 640w, assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool-960.webp 960w, assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool.jpg" alt="Takterrass med solterrass, privat pool som tillval och panoramautsikt över havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Situationsplan över de sju byggnaderna och de gemensamma poolerna"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/site-plan-640.webp 640w, assets/liora/projects/vista-alta-suites/media/site-plan-960.webp 960w, assets/liora/projects/vista-alta-suites/media/site-plan.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vista-alta-suites/media/site-plan.jpg" alt="Situationsplan med de sju husen, entréerna och de gemensamma poolerna" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Bostad på bottenvåningen med privat trädgård"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden-640.webp 640w, assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden-960.webp 960w, assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden.jpg" alt="Exteriör av en bottenvåningsbostad med egen trädgård och inglasad terrass" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 7 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (4)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (1)</button><button type="button" data-open-cat="Interiors">Interiör (1)</button><button type="button" data-open-cat="Location">Omgivningar (1)</button></div>
+    
+    <p class="caption">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Vista Alta Suites ligger i La Resina, vid New Golden Mile i Estepona, inom räckhåll för Puerto Banús, San Pedro de Alcántara och Esteponas centrum.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-vista-alta-suites" data-locmap='{&quot;site&quot;:[36.4663619,-5.083469],&quot;sea&quot;:[36.43936,-5.083469],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Resina&quot;,&quot;sub&quot;:&quot;3,0 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Vista Alta Suites"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Vista Alta Suites</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Fullt utrustat gym</h3>
-              <p class="amenity-note">Kondition och vikter</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona centrum</span>
+              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan La Resina</span>
+              <span class="locmap-row-figure"><bdi>3,0 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Välmående</span>
-              <h3 class="amenity-name">Privat pool som tillval till varje bostad</h3>
-              <p class="amenity-note">Hör till bostaden</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Välmående</span>
-              <h3 class="amenity-name">Inomhuspool</h3>
-              <p class="amenity-note">Simning inomhus</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar flygplats</span>
+              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Utomhus</span>
-              <h3 class="amenity-name">Två utomhuspooler</h3>
-              <p class="amenity-note">Under bar himmel</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Utomhus</span>
-              <h3 class="amenity-name">Havsutsikt</h3>
-              <p class="amenity-note">Mot Medelhavet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Vardag</span>
-              <h3 class="amenity-name">Coworking och affärscenter</h3>
-              <p class="amenity-note">Arbetsplatser utanför bostaden</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Vardag</span>
-              <h3 class="amenity-name">Parkering under mark och förråd till varje bostad</h3>
-              <p class="amenity-note">Under huset</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Vardag</span>
-              <h3 class="amenity-name">Golvvärme</h3>
-              <p class="amenity-note">Värme underifrån</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Vardag</span>
-              <h3 class="amenity-name">Hemautomation</h3>
-              <p class="amenity-note">Ljus och klimat från mobilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Service</span>
-              <h3 class="amenity-name">Bevakat område med passerkontroll dygnet runt</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Service</span>
-              <h3 class="amenity-name">Bevakat område</h3>
-              <p class="amenity-note">Bevakad infart</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">La Resina Golf</th><td>Ca 7 minuter</td></tr><tr><th scope="row">Esteponas centrum</th><td>Ca 14 minuter</td></tr><tr><th scope="row">San Pedro de Alcántara</th><td>Ca 16 minuter</td></tr><tr><th scope="row">Puerto Banús</th><td>Ca 18 minuter</td></tr><tr><th scope="row">Marbella</th><td>Ca 27 minuter</td></tr><tr><th scope="row">Málagas flygplats</th><td>Ca 69 minuter</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Utöver varje bostads egen trädgård, terrass eller solterrass delar de boende i Vista Alta Suites en bekvämlighetsvåning i resortstil.</p>
+    <div class="life-panels"><div><h3>Wellness</h3><p>En uppvärmd inomhuspool, ett spa och ett fullt utrustat gym.</p></div><div><h3>Arbete och utomhusliv</h3><p>En coworking-/affärslokal samt två utomhuspooler i anlagda trädgårdar.</p></div><div><h3>Varje bostad</h3><p>Garageplats och förråd ingår, plus möjligheten att lägga till en privat pool till valfri bostad.</p></div></div>
+    <ul class="amen-top"><li>Två utomhuspooler</li><li>Uppvärmd inomhuspool</li><li>Fullt utrustat gym</li><li>Spa</li><li>Coworking och affärscenter</li><li>Parkering under mark och förråd till varje bostad</li></ul>
+    <details class="amen-all"><summary>Visa alla 13</summary><div class="amen-groups"><div><h3>Välmående<span class="count">5</span></h3><ul><li>Uppvärmd inomhuspool</li><li>Fullt utrustat gym</li><li>Spa</li><li>Privat pool som tillval till varje bostad</li><li>Inomhuspool</li></ul></div><div><h3>Utomhus<span class="count">2</span></h3><ul><li>Två utomhuspooler</li><li>Havsutsikt</li></ul></div><div><h3>Vardag<span class="count">4</span></h3><ul><li>Coworking och affärscenter</li><li>Parkering under mark och förråd till varje bostad</li><li>Golvvärme</li><li>Hemautomation</li></ul></div><div><h3>Service<span class="count">2</span></h3><ul><li>Bevakat område med passerkontroll dygnet runt</li><li>Bevakat område</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en privat trädgård, terrass eller takterrass med solterrass som standard, med möjlighet att lägga till en privat pool till valfri bostad.</span></li><li><b>Vad som skiljer det från andra</b><span>Varje bostad kan uppgraderas med en valfri privat pool, utöver komplexets egna två utomhuspooler och uppvärmda inomhuspool.</span></li><li><b>Varför läget spelar roll</b><span>Vista Alta Suites ligger i La Resina, vid New Golden Mile i Estepona, inom räckhåll för Puerto Banús, San Pedro de Alcántara och Esteponas centrum.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>15 av de 72 bostäderna är för närvarande släppta med bekräftat pris; Nueva Living bekräftar den aktuella lanseringen inför varje visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Varför tidpunkten spelar roll</b><span>15 av de 72 bostäderna är för närvarande släppta med bekräftat pris; utbudet av planlösningar kommer att förändras allteftersom fler faser släpps.</span></li><li><b>Aktuell information</b><span>Nueva Living bekräftar pris, tillgänglighet och specifikation direkt med exploatören innan varje visning eller bokning.</span></li><li><b>Långsiktig attraktionskraft</b><span>Två utomhuspooler, en uppvärmd inomhuspool och möjligheten att lägga till en privat pool till valfri bostad är en ovanlig kombination i den här skalan.</span></li><li><b>Eget bruk och uthyrning</b><span>Köpare bör bekräfta gällande uthyrningsregler för detta projekt direkt med exploatören innan de utgår från en hyresintäktsplan.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Information om exploatören</b><span>Nueva Living har exploatörens identitets- och tillståndsinformation och lämnar den skriftligt innan varje bokning.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Så fungerar köpet</b><span>En privat, engelskspråkig köpprocess med en spansk advokat som köparen själv väljer; Nueva Living samordnar visningar och dokumentation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Tillträde och garanti</b><span>Bygglovet är beviljat; byggnationen påbörjades under andra kvartalet 2026 med beräknat färdigställande under andra kvartalet 2028 och beräknat slutbesked för första inflyttning under fjärde kvartalet 2028. Betalningsvillkoren är 1 % plus IVA vid bokning, 29 % plus IVA vid undertecknande av det privata köpekontraktet, 10 % plus IVA under byggtiden och 60 % plus IVA vid lagfart.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Andra alternativ</b><span>Nueva Living kan på begäran jämföra Vista Alta Suites med andra projekt vid New Golden Mile och i Estepona.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektinformation</h3><p>Be om den aktuella prislistan för den lägenhet eller takvåning som intresserar er.</p></li><li><h3>Jämför planlösningarna</h3><p>Granska lägenhets- och takvåningsplanlösningarna tillsammans med er budget och era utrymmesbehov.</p></li><li><h3>Privat visning</h3><p>Se läget vid New Golden Mile och bekvämlighetsvåningen på plats innan ni bestämmer er.</p></li><li><h3>Genomgång före bokning</h3><p>Bekräfta aktuellt pris, tillgänglighet och betalningsstruktur skriftligt innan bokning.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>14 av 15 bostäder</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Vista Alta</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder finns totalt?</summary><p>72 lägenheter fördelade på sju byggnader.</p></details><details class="segment-faq-item"><summary>Hur många är tillgängliga just nu?</summary><p>Exploatören har hittills släppt 15 bostäder med bekräftat pris, fördelade på alla 7 byggnader. Nueva Living bekräftar den aktuella tillgängligheten inför varje visning.</p></details><details class="segment-faq-item"><summary>Är priset inklusive IVA?</summary><p>Nej. Den publicerade betalningsstrukturen lägger till IVA på varje betalningssteg.</p></details><details class="segment-faq-item"><summary>Ingår möbler?</summary><p>Nej. Bilderna som visas är datorgenererade; möbler, styling och växtlighet är vägledande och ingår inte i försäljningen.</p></details><details class="segment-faq-item"><summary>Kan jag lägga till en privat pool?</summary><p>Ja. Exploatören erbjuder en valfri uppgradering med privat pool till varje bostad, utöver komplexets två utomhuspooler och uppvärmda inomhuspool.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Vilka bekvämligheter delas?</summary><p>Två utomhuspooler, en uppvärmd inomhuspool, ett gym, ett spa, en coworkingyta / affärscenter samt garageplats och förråd till varje bostad.</p></details><details class="segment-faq-item"><summary>När sker tillträdet?</summary><p>Bygglovet är beviljat. Byggnationen påbörjades under andra kvartalet 2026, med beräknat färdigställande under andra kvartalet 2028 och beräknat slutbesked för första inflyttning under fjärde kvartalet 2028.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">725 000 €</p>
+      <p class="rail-note">Exkl. IVA. 15 av 72 bostäder kvar · Kontrollerat september 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Vista%20Alta%20Suites." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vista Alta Suites" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Vista%20Alta%20Suites." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vista Alta Suites" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>Arkitektur.</b> 7 byggnader vid New Golden Mile, utformade för hav- och bergsutsikt.</li><li><b>Bostadstyper.</b> Lägenheter och takvåningar från 2 till 4 sovrum, med trädgård, terrass eller solterrass.</li><li><b>Livsstil.</b> Två utomhuspooler, uppvärmd inomhuspool, gym, spa och coworking på plats.</li><li><b>Nästa steg.</b> Be om den aktuella prislistan och planritningarna för den planlösning ni är intresserad av.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Vista Alta Suites">
+        <input type="hidden" id="f-project" name="project" value="Vista Alta Suites">
+        <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
+        <input type="hidden" name="property_type_interest" value="Lägenhet">
+        <input type="hidden" name="budget_range" value="Från 725 000 €">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Jag vill gärna ta emot den senaste projektinformationen för Vista Alta Suites." data-base="Jag vill gärna ta emot den senaste projektinformationen för Vista Alta Suites.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="10D">10D: 1 200 000 €</option><option value="11B">11B: 895 000 €</option><option value="11D">11D: 1 045 000 €</option><option value="20C">20C: 814 000 €</option><option value="21B">21B: 925 000 €</option><option value="32B">32B: 2 150 000 €</option><option value="40A">40A: 855 000 €</option><option value="40B">40B: 725 000 €</option><option value="41A">41A: 975 000 €</option><option value="42B">42B: 1 725 000 €</option><option value="50D">50D: 895 000 €</option><option value="51A">51A: 1 150 000 €</option><option value="52A">52A: 1 850 000 €</option><option value="61C">61C: 845 000 €</option><option value="70A">70A: 875 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Vista Alta.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">En lägenhetssamling i resortstil för köpare som vill ha en fullständig bekvämlighetsvåning och havsutsikt vid New Golden Mile i Estepona.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en privat trädgård, terrass eller takterrass med solterrass som standard, med möjlighet att lägga till en privat pool till valfri bostad.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Varje bostad kan uppgraderas med en valfri privat pool, utöver komplexets egna två utomhuspooler och uppvärmda inomhuspool.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Vista Alta Suites ligger i La Resina, vid New Golden Mile i Estepona, inom räckhåll för Puerto Banús, San Pedro de Alcántara och Esteponas centrum.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>15 av de 72 bostäderna är för närvarande släppta med bekräftat pris; Nueva Living bekräftar den aktuella lanseringen inför varje visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">En saklig anmärkning om tidpunkt och ägande; Nueva Living utlovar varken hyresavkastning eller värdestegring.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Varför tidpunkten spelar roll</h3><p>15 av de 72 bostäderna är för närvarande släppta med bekräftat pris; utbudet av planlösningar kommer att förändras allteftersom fler faser släpps.</p></article>
-              <article class="why-point reveal-soft"><h3>Aktuell information</h3><p>Nueva Living bekräftar pris, tillgänglighet och specifikation direkt med exploatören innan varje visning eller bokning.</p></article>
-              <article class="why-point reveal-soft"><h3>Långsiktig attraktionskraft</h3><p>Två utomhuspooler, en uppvärmd inomhuspool och möjligheten att lägga till en privat pool till valfri bostad är en ovanlig kombination i den här skalan.</p></article>
-              <article class="why-point reveal-soft"><h3>Eget bruk och uthyrning</h3><p>Köpare bör bekräfta gällande uthyrningsregler för detta projekt direkt med exploatören innan de utgår från en hyresintäktsplan.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Information om exploatören</h3><p>Nueva Living har exploatörens identitets- och tillståndsinformation och lämnar den skriftligt innan varje bokning.</p></article>
-              <article class="why-point reveal-soft"><h3>Så fungerar köpet</h3><p>En privat, engelskspråkig köpprocess med en spansk advokat som köparen själv väljer; Nueva Living samordnar visningar och dokumentation.</p></article>
-              <article class="why-point reveal-soft"><h3>Tillträde och garanti</h3><p>Bygglovet är beviljat; byggnationen påbörjades under andra kvartalet 2026 med beräknat färdigställande under andra kvartalet 2028 och beräknat slutbesked för första inflyttning under fjärde kvartalet 2028. Betalningsvillkoren är 1 % plus IVA vid bokning, 29 % plus IVA vid undertecknande av det privata köpekontraktet, 10 % plus IVA under byggtiden och 60 % plus IVA vid lagfart.</p></article>
-              <article class="why-point reveal-soft"><h3>Andra alternativ</h3><p>Nueva Living kan på begäran jämföra Vista Alta Suites med andra projekt vid New Golden Mile och i Estepona.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren september 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Referenser, ytor och priser är hämtade från exploatörens publicerade prislista, kontrollerad på nytt i september 2026. Priserna är exklusive IVA och tillkommande köpkostnader och kan ändras utan förvarning eller när en bostad säljs. Nueva Living bekräftar pris, status och bokningsvillkor innan ni går vidare.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden.jpg" alt="Ground-floor home exterior with private garden and covered terrace" width="1920" height="1226" loading="lazy" decoding="async">
-          <figcaption class="image-caption">En bostad i bottenplan med egen trädgård</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Sju byggnader, <em>utformade för utsikten</em></h2>
-          <p>Komplexet är utformat i sju byggnader med 3 våningar, med ytterväggar i förstärkt akrylputs och detaljer i natursten, samt Technal-fönster i aluminium med argonfylld dubbelglasning för värme- och ljudisolering.</p>
-<p>Köken är fullt inredda av Modulnova med vitvaror från Siemens, och badrummen kombinerar sanitetsporslin från Villeroy &amp; Boch med blandare från Hansgrohe. Uppvärmning och varmvatten tillhandahålls av en Daikin luft-vatten-värmepump, med vattenburen golvvärme i alla rum, och varje bostad har ett grundläggande smart hem-system från Schneider och Airzone för klimatstyrning och persienner.</p>
-          <ul class="feature-list">
-            <li>Två utomhuspooler, en uppvärmd inomhuspool, gym, spa och coworkingyta.</li>
-            <li>Modulnova-kök med Siemens vitvaror och bänkskiva i ett stycke porslin.</li>
-            <li>Daikin luft-vatten-värmepump med golvvärme i varje rum.</li>
-            <li>Hissar från OTIS, Thyssen eller Schindler, samt garageplats och förråd till varje bostad.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Vista%20Alta%20Suites." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vista Alta Suites" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view.jpg" alt="Open-plan living room with fireplace and panoramic sea views" width="1920" height="995" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Ta en närmare titt på <em>Vista Alta Suites</em></h2>
-            <p>Utforska läget vid New Golden Mile, bekvämlighetsvåningen samt lägenhets- och takvåningsplanerna innan ni begär fullständig projektinformation.</p>
-            <div class="viewing-insights">
-              <div><span>Arkitektur</span><p>7 byggnader vid New Golden Mile, utformade för hav- och bergsutsikt.</p></div>
-              <div><span>Bostadstyper</span><p>Lägenheter och takvåningar från 2 till 4 sovrum, med trädgård, terrass eller solterrass.</p></div>
-              <div><span>Livsstil</span><p>Två utomhuspooler, uppvärmd inomhuspool, gym, spa och coworking på plats.</p></div>
-              <div><span>Nästa steg</span><p>Be om den aktuella prislistan och planritningarna för den planlösning ni är intresserad av.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=vista-alta-suites">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-vista-alta-suites.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Amenities">Bekvämligheter</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Location">Omgivningar</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool.jpg" alt="Rooftop solarium terrace with an optional private pool and panoramic sea views" width="1920" height="1160" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">En fullständig <em>bekvämlighetsvåning</em></h2>
-            <p>Utöver varje bostads egen trädgård, terrass eller solterrass delar de boende i Vista Alta Suites en bekvämlighetsvåning i resortstil.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektinformation</h3>
-            <p>Be om den aktuella prislistan för den lägenhet eller takvåning som intresserar er.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför planlösningarna</h3>
-            <p>Granska lägenhets- och takvåningsplanlösningarna tillsammans med er budget och era utrymmesbehov.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se läget vid New Golden Mile och bekvämlighetsvåningen på plats innan ni bestämmer er.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Genomgång före bokning</h3>
-            <p>Bekräfta aktuellt pris, tillgänglighet och betalningsstruktur skriftligt innan bokning.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder finns totalt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>72 lägenheter fördelade på sju byggnader.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många är tillgängliga just nu?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Exploatören har hittills släppt 15 bostäder med bekräftat pris, fördelade på alla 7 byggnader. Nueva Living bekräftar den aktuella tillgängligheten inför varje visning.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är priset inklusive IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Den publicerade betalningsstrukturen lägger till IVA på varje betalningssteg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår möbler?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Bilderna som visas är datorgenererade; möbler, styling och växtlighet är vägledande och ingår inte i försäljningen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag lägga till en privat pool?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Exploatören erbjuder en valfri uppgradering med privat pool till varje bostad, utöver komplexets två utomhuspooler och uppvärmda inomhuspool.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka bekvämligheter delas?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Två utomhuspooler, en uppvärmd inomhuspool, ett gym, ett spa, en coworkingyta / affärscenter samt garageplats och förråd till varje bostad.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När sker tillträdet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Bygglovet är beviljat. Byggnationen påbörjades under andra kvartalet 2026, med beräknat färdigställande under andra kvartalet 2028 och beräknat slutbesked för första inflyttning under fjärde kvartalet 2028.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Vista Alta Suites</em></h2>
-          <p class="body-copy">Berätta vilken lägenhets- eller takvåningsplanlösning ni är intresserad av så skickar vi den aktuella prislistan och specifikationen.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Vista%20Alta%20Suites." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vista Alta Suites" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Vista Alta Suites">
-
-          <input type="hidden" id="f-project" name="project" value="Vista Alta Suites">
-          <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
-          <input type="hidden" name="property_type_interest" value="Lägenhet">
-          <input type="hidden" name="budget_range" value="Från 725 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Jag vill gärna ta emot den senaste projektinformationen för Vista Alta Suites.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Projektkontext: Vista Alta Suites.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"10D","title":"10D · Bottenvåning, hus 1","sub":"3 sovrum · 131 m²","price":1200000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-10d-floorplans.pdf","label":""}]},{"id":"u1","ref":"11B","title":"11B · Första våningen, hus 1","sub":"2 sovrum · 118 m²","price":895000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-11b-floorplans.pdf","label":""}]},{"id":"u2","ref":"11D","title":"11D · Första våningen, hus 1","sub":"3 sovrum · 131 m²","price":1045000,"plans":[]},{"id":"u3","ref":"20C","title":"20C · Bottenvåning, hus 2","sub":"2 sovrum · 118 m²","price":814000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-20c-floorplans.pdf","label":""}]},{"id":"u4","ref":"21B","title":"21B · Första våningen, hus 2","sub":"2 sovrum · 118 m²","price":925000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-21b-floorplans.pdf","label":""}]},{"id":"u5","ref":"32B","title":"32B · Takvåning, hus 3","sub":"4 sovrum · 223 m²","price":2150000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-32b-floorplans.pdf","label":""}]},{"id":"u6","ref":"40A","title":"40A · Bottenvåning, hus 4","sub":"3 sovrum · 135 m²","price":855000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-40a-floorplans.pdf","label":""}]},{"id":"u7","ref":"40B","title":"40B · Bottenvåning, hus 4","sub":"2 sovrum · 120 m²","price":725000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-40b-floorplans.pdf","label":""}]},{"id":"u8","ref":"41A","title":"41A · Första våningen, hus 4","sub":"3 sovrum · 131 m²","price":975000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-41a-floorplans.pdf","label":""}]},{"id":"u9","ref":"42B","title":"42B · Takvåning, hus 4","sub":"3 sovrum · 182 m²","price":1725000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-42b-floorplans.pdf","label":""}]},{"id":"u10","ref":"50D","title":"50D · Bottenvåning, hus 5","sub":"3 sovrum · 138 m²","price":895000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-50d-floorplans.pdf","label":""}]},{"id":"u11","ref":"51A","title":"51A · Första våningen, hus 5","sub":"3 sovrum · 140 m²","price":1150000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-51a-floorplans.pdf","label":""}]},{"id":"u12","ref":"52A","title":"52A · Takvåning, hus 5","sub":"3 sovrum · 182 m²","price":1850000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-52a-floorplans.pdf","label":""}]},{"id":"u13","ref":"61C","title":"61C · Första våningen, hus 6","sub":"2 sovrum · 118 m²","price":845000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-61c-floorplans.pdf","label":""}]},{"id":"u14","ref":"70A","title":"70A · Bottenvåning, hus 7","sub":"3 sovrum · 204 m²","price":875000,"plans":[{"src":"assets/liora/projects/vista-alta-suites/floorplans/unit-70a-floorplans.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.webp","alt":"Flygbild över anläggningen med sju hus på en sluttande tomt med bergs- och havsutsikt","caption":"Flygvy över komplexet på sin sluttningstomt","cat":"Exteriors"},{"src":"assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden.webp","alt":"Exteriör av en bottenvåningsbostad med egen trädgård och inglasad terrass","caption":"Bostad på bottenvåningen med privat trädgård","cat":"Exteriors"},{"src":"assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool.webp","alt":"Takterrass med solterrass, privat pool som tillval och panoramautsikt över havet","caption":"Solterrass på taket med valfri privat pool","cat":"Amenities"},{"src":"assets/liora/projects/vista-alta-suites/media/rooftop-terrace-dining-sea-view.webp","alt":"Inglasad takterrass med matplats utomhus och panoramautsikt över havet","caption":"Takterrass med utomhusmatplats","cat":"Exteriors"},{"src":"assets/liora/projects/vista-alta-suites/media/covered-terrace-lounge-sea-view.webp","alt":"Loungeyta på inglasad terrass med panoramautsikt över havet","caption":"Övertäckt terrasslounge med havsutsikt","cat":"Exteriors"},{"src":"assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view.webp","alt":"Öppet vardagsrum med öppen spis och panoramautsikt över havet","caption":"Vardagsrum med öppen spis och havsutsikt","cat":"Interiors"},{"src":"assets/liora/projects/vista-alta-suites/media/site-plan.webp","alt":"Situationsplan med de sju husen, entréerna och de gemensamma poolerna","caption":"Situationsplan över de sju byggnaderna och de gemensamma poolerna","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Vista Alta Suites media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.jpg","webp":"assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside-960.webp","alt":"Flygbild över anläggningen med sju hus på en sluttande tomt med bergs- och havsutsikt","width":1920,"height":866,"caption":"Flygvy över komplexet på sin sluttningstomt","category":"Exteriör"},{"src":"assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden.jpg","webp":"assets/liora/projects/vista-alta-suites/media/villa-exterior-two-story-garden-960.webp","alt":"Exteriör av en bottenvåningsbostad med egen trädgård och inglasad terrass","width":1920,"height":1226,"caption":"Bostad på bottenvåningen med privat trädgård","category":"Exteriör"},{"src":"assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool.jpg","webp":"assets/liora/projects/vista-alta-suites/media/rooftop-terrace-private-pool-960.webp","alt":"Takterrass med solterrass, privat pool som tillval och panoramautsikt över havet","width":1920,"height":1160,"caption":"Solterrass på taket med valfri privat pool","category":"Bekvämligheter"},{"src":"assets/liora/projects/vista-alta-suites/media/rooftop-terrace-dining-sea-view.jpg","webp":"assets/liora/projects/vista-alta-suites/media/rooftop-terrace-dining-sea-view-960.webp","alt":"Inglasad takterrass med matplats utomhus och panoramautsikt över havet","width":1920,"height":919,"caption":"Takterrass med utomhusmatplats","category":"Exteriör"},{"src":"assets/liora/projects/vista-alta-suites/media/covered-terrace-lounge-sea-view.jpg","webp":"assets/liora/projects/vista-alta-suites/media/covered-terrace-lounge-sea-view-960.webp","alt":"Loungeyta på inglasad terrass med panoramautsikt över havet","width":1920,"height":1160,"caption":"Övertäckt terrasslounge med havsutsikt","category":"Exteriör"},{"src":"assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view.jpg","webp":"assets/liora/projects/vista-alta-suites/media/living-room-fireplace-sea-view-960.webp","alt":"Öppet vardagsrum med öppen spis och panoramautsikt över havet","width":1920,"height":995,"caption":"Vardagsrum med öppen spis och havsutsikt","category":"Interiör"},{"src":"assets/liora/projects/vista-alta-suites/media/site-plan.jpg","webp":"assets/liora/projects/vista-alta-suites/media/site-plan-960.webp","alt":"Situationsplan med de sju husen, entréerna och de gemensamma poolerna","width":1684,"height":1191,"caption":"Situationsplan över de sju byggnaderna och de gemensamma poolerna","category":"Omgivningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-vista-alta-suites.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Vista%20Alta%20Suites." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vista Alta Suites" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många lägenheter är tillgängliga?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Estepona Seafront Residences"
   data-project-message="Hej Nueva Living, jag vill gärna ha information om Estepona Seafront Residences."
@@ -451,434 +388,140 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Estepona Seafront Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-estepona-seafront-residences.html#top">Estepona Seafront Residences<span>Från 3 200 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-estepona-seafront-residences.html#overview">Översikt</a><a href="sv/property-estepona-seafront-residences.html#availability">Priser</a><a href="sv/property-estepona-seafront-residences.html#specs">Utförande</a><a href="sv/property-estepona-seafront-residences.html#gallery">Galleri</a><a href="sv/property-estepona-seafront-residences.html#location">Läge</a><a href="sv/property-estepona-seafront-residences.html#onsite">I området</a><a href="sv/property-estepona-seafront-residences.html#view">Vår bedömning</a><a href="sv/property-estepona-seafront-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Estepona Seafront Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Fotografi av en terrass med solsängar i trä och ett stendäck över en grund pool med gröna kakelplattor, med en strand och en vik bortom glasräcket" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Fotografi av en terrass med solsängar i trä och ett stendäck över en grund pool med gröna kakelplattor, med en strand och en vik bortom glasräcket" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">4 lägenheter tillgängliga</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Estepona Seafront <em>Residences</em></span>
-            <span class="hero-title-context">Färdiga lägenheter vid havet i Estepona</span>
-          </h1>
-          <p class="hero-positioning">Fyra färdiga lägenheter vid havet i Estepona, med två till tre sovrum och från 113,99 till 202,69 m², med stora terrasser, utepool, uppvärmd inomhuspool, gym och spa. Exploatörens infoblad anger bygglovet och tillståndet för första inflyttning som tillgängliga. Från 3 200 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-estepona-seafront-residences.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=estepona-seafront-residences">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-estepona-seafront-residences.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Vid havet, Estepona</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 3 200 000 €</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenheter</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Inflyttningsklart</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-estepona-seafront-residences.html#media">Media</a>
-        <a href="sv/property-estepona-seafront-residences.html#location">Läge</a>
-        <a href="sv/property-estepona-seafront-residences.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-estepona-seafront-residences.html#overview">Översikt</a>
-          <a href="sv/property-estepona-seafront-residences.html#residences">Bostäder</a>
-          <a href="sv/property-estepona-seafront-residences.html#quality-specifications">Utförande</a>
-          <a href="sv/property-estepona-seafront-residences.html#calculator">Finansiering</a>
-          <a href="sv/property-estepona-seafront-residences.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-estepona-seafront-residences.html#why-this-project">Varför</a>
-          <a href="sv/property-estepona-seafront-residences.html#architecture">Arkitektur</a>
-          <a href="sv/property-estepona-seafront-residences.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-estepona-seafront-residences.html#lifestyle">Livsstil</a>
-          <a href="sv/property-estepona-seafront-residences.html#faq">FAQ</a>
-          <a href="sv/property-estepona-seafront-residences.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2-3 sovrum</strong></div>
-          <div class="quick-fact"><span>Angiven yta</span><strong>113,99 - 202,69 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>4 lägenheter tillgängliga</strong></div>
-          <div class="quick-fact"><span>Status</span><strong>Färdigt, inflyttningsklart</strong></div>
-          <div class="quick-fact"><span>Prisspann</span><strong>3 200 000 € - 7 300 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Färdiga lägenheter, <em>fyra listade</em></h2>
-          <p class="project-lead">Exploatörens infoblad beskriver ett färdigt, inflyttningsklart område med fyra lägenheter med två, tre och fyra sovrum på första raden vid stranden i Estepona, fullt möblerade och med underjordisk parkering. Försäljningsportalen listar fyra lägenheter, AT-01, AT-03, AT-04 och AT-05, på 113,99 till 202,69 m², till priser från 3 200 000 € till 7 300 000 €.</p>
-          <p class="project-lead">Infobladet anger bygglovet och tillståndet för första inflyttning som tillgängliga och byggslutet som färdigt. De gemensamma ytor som det och byggbeskrivningen anger är en utepool, en uppvärmd inomhuspool, ett gym, en bastu, ett turkiskt bad, anlagda gemensamma ytor och en conciergetjänst. Dokumenten skiljer sig åt i antalet sovrum och i ett pris; avsnitten nedan anger var.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Projektet <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Fotografier av den färdiga byggnaden, dess terrasser, en möblerad lägenhet och de gemensamma ytorna, samt planritningarna för lägenhet AT-01.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 3 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Fotografi av en terrass med solsängar i trä och ett stendäck över en grund pool med gröna kakelplattor, med en strand och en vik bortom glasräcket" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>En terrass ovanför stranden</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Visa 2 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.jpg" alt="Fotografi av en stor terrass med ett matbord i sten, trädäck, sittgrupper och en pergola, med utsikt längs kusten mot havet" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En matterrass mot havet</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 4 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg" alt="Fotografi av en utepool med överfallskant mot en strand, solsängar med parasoller på ett stendäck och den trappstegsformade byggnaden bredvid" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Utomhuspoolen</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 2 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.jpg" alt="Fotografi av ett möblerat öppet kök med en ö i svart sten, ett matbord med orange stolar och en glasvägg mot en terrass och havet" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Kök- och matplatsyta</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Visa 3 bilder i Sovrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.jpg" alt="Fotografi av ett möblerat sovrum med en skjutbar glasdörr mot en terrass med en liten pool och utsikt över viken" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Sovrum</small>
-                <strong>Ett sovrum över viken</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Visa 2 bilder i Planritningar">
-              <img src="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg" alt="Planritning av lägenhet AT-01: vardagsrum, matplats och kök, tre sovrum, tre badrum, en toalett, ett tvättrum och två terrasser" width="2000" height="1414" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planritningar</small>
-                <strong>Lägenhet AT-01</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 16 bilder</button>
-          <p class="media-note">Fotografierna visar det färdiga området. Den möblerade lägenheten på dem är inte identifierad, och det sägs inte att möblerna, inredningen och utrustningen som visas ingår i priset. Planritningarna är exploatörens, daterade den 7 september 2026, och finns bara för lägenhet AT-01; ytorna på dem är exploatörens uppgifter.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>vid havet</em></h2>
-          <p class="project-lead">Exploatören placerar området på första raden vid stranden i Estepona, och dess karta markerar det nära Puerto Deportivo de Estepona. Fotografierna visar en strand och en vik intill byggnaden. Dokumenten anger inga avstånd eller restider, så inga visas här.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-estepona-seafront-residences" data-locmap='{&quot;site&quot;:[36.415917,-5.1629184],&quot;sea&quot;:[36.38892,-5.1629184],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;2,7 km · 6 min&quot;},{&quot;ll&quot;:[36.41569,-5.16658],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;410 m · 6 min gångväg&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;740 m · 10 min gångväg&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Estepona&quot;,&quot;sub&quot;:&quot;6,1 km · 9 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Estepona Seafront Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Estepona Seafront Residences</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>410 m</bdi> <em><bdi>6 min gångväg</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>740 m</bdi> <em><bdi>10 min gångväg</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona centrum</span>
-              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Estepona</span>
-              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>9 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>9,7 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar flygplats</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>41 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fyra lägenheter, <em>tre storlekar</em></h2>
-          <p class="project-lead">De listade lägenheterna delas in i tre grupper efter storlek. Tabellen nedan listar alla referenser i portalen med pris. Bara AT-01 har en planritning i de handlingar vi har.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Lägenhet med två sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-estepona-seafront-residences.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Lägenheter med tre sovrum på 160,54 m²</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-estepona-seafront-residences.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Lägenhet med tre sovrum på 202,69 m²</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-estepona-seafront-residences.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-estepona-seafront-residences.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen byggspecifikation, sammanfattad efter delar av bostaden.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Golv och väggar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Storformatsmarmor på de invändiga golven, parkett i sovrummen, storformatsmarmor med halkskydd på de privata terrasserna och storformatsmarmor på badrumsväggarna.</li>
-              <li>De övriga väggarna är putsade med sprutad perlit och målade, med fuktskyddsfärg i våtrummen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dörrar och garderober<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En pansrad ytterdörr i trä, innerdörrar i ek eller lackerade med förkromade beslag och magnetlås, samt garderober med matchande dörrar, klädda invändigt och utrustade med lådor, hyllor, skoförvaring och klädstänger.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fönster<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Minimalistiska aluminiumprofiler i nivå med golvet, med köldbrygga bruten och dubbelglas med solskydd.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och ventilation<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Luftkonditionering med värmeåtervinning där varje rum har sin egen tysta inomhusenhet och sin egen termostat, vattenburen golvvärme och elektrisk golvvärme i badrummen. Samma system producerar varmvattnet.</li>
-              <li>Ett ventilationsaggregat med värmeåtervinning som förnyar och filtrerar luften och kan gå medan bostaden står tom.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Hemautomation och säkerhet<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ett hemautomationssystem för ljusscener, rullgardiner, klimat och ljud, styrt från pekskärmar och mobila enheter, även på distans, med ett vattenläckagelarm som stänger av vattentillförseln till lägenheten.</li>
-              <li>Wifi-förstärkare inomhus och på terrasserna, 5.1-surroundljud i vardagsrummen, en videodörrtelefon med skärm, en fingeravtrycksläsare för byggnaden och för varje lägenhet, samt en laddplats för elbil för varje lägenhet.</li>
-              <li>Lågenergi-LED-belysning med infällda spotlights, ljusslingor samt vägg- och golvarmaturer.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Väggmonterade toaletter med dolda cisterner samt blandare och duschar i mörk matt platina i alla badrum.</li>
-              <li>En måttbeställd tvättställsmöbel och ett fristående badkar i huvudbadrummet, tvättställ infällda i bänkskivan i de övriga badrummen och ett fristående tvättställ med bakgrundsbelyst spegel i gästtoaletterna. Immfria speglar i våtrummen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Vatten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Dricksvatten som pumpas från en behandlad, recirkulerad och desinficerad tank av en tryckgrupp med tre pumpar med variabelt varvtal, samt ett självrengörande filter och en avkalkare i varje bostad som håller hårdheten vid cirka 10 °F.</li>
-              <li>Huvudavstängningsventilen för varje lägenhet sitter i dess förråd och styrs av hemautomationen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Garage och hiss<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En motoriserad garageport med fjärrkontroll, en bilhiss av specialstorlek och en vändskiva för bilar, samt en panoramahiss med dubbel entré i 180 graders vinkel.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: exploatörens byggbeskrivning för detta område, daterad den 15 september 2026. Den är skriven i futurum, trots att infobladet säger att byggnaden är färdig, och nämner utrustningsmärken ”eller motsvarande”, som denna sammanfattning utelämnar. Den har inget avsnitt om kök, vitvaror eller möbler.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fyra lägenheter <em>tillgängliga nu</em></h2>
-          <p class="project-lead">Ytorna och priserna är de i tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Tabellen listar AT-01 två gånger, till 4 200 000 € och till 3 237 000 €; här visas den en gång, till 4 200 000 €, och vi bekräftar priset med exploatören. Tabellen säger inte om ytorna är byggytor eller invändiga, eller om priserna inkluderar IVA.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg" alt="Fotografi av en utepool med överfallskant mot en strand, solsängar med parasoller på ett stendäck och den trappstegsformade byggnaden bredvid" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>14 bilder</button>
+          <a class="chip" href="sv/property-estepona-seafront-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-estepona-seafront-residences.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>4</strong></div>
-            <div><span>Pris från</span><strong>3 200 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>3 200 000 € - 7 300 000 €</strong></div>
-            <div><span>Kontrollerad</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 4 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Tillgängliga bostäder på Estepona Seafront Residences</caption>
-                <thead><tr><th scope="col">Referens</th><th scope="col">Sovrum</th><th scope="col">Storlek</th><th scope="col">Pris</th><th scope="col">Status</th><th scope="col">Planritning</th></tr></thead>
-                <tbody>
-              <tr data-beds="3" data-price="4200000">
-                <td data-label="Referens"><strong>AT-01</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>160,54 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>47,71 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>4 200 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-beds="2" data-price="3200000">
-                <td data-label="Referens"><strong>AT-03</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">113,99 m²</td>
-                <td data-label="Pris"><strong>3 200 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-              <tr data-beds="3" data-price="7300000">
-                <td data-label="Referens"><strong>AT-04</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">202,69 m²</td>
-                <td data-label="Pris"><strong>7 300 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-              <tr data-beds="3" data-price="4200000">
-                <td data-label="Referens"><strong>AT-05</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">160,54 m²</td>
-                <td data-label="Pris"><strong>4 200 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Ytorna och priserna är hämtade från tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Den listar fem rader för fyra referenser: AT-01 förekommer två gånger med samma tre sovrum och 160,54 m² men med två priser, 4 200 000 € och 3 237 000 €, och visas en gång med det första. AT-05 har samma storlek och 4 200 000 €. Tabellen anger sovrum, en yta och ett pris för varje lägenhet; den säger inte om ytan är byggyta eller invändig, eller om priset inkluderar IVA. Infobladet lägger IVA på försäljningspriset i betalningsvillkoren. Bara för AT-01 anger exploatörens planritning 160,54 m² invändig byggyta och 47,71 m² terrass. Infobladet säger att området har fyra lägenheter med två, tre och fyra sovrum.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Estepona Seafront</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Fyra färdiga lägenheter vid havet i Estepona, med två till tre sovrum och från 113,99 till 202,69 m², med stora terrasser, utepool, uppvärmd inomhuspool, gym och spa.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 3 200 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2 till 3</dd><dd class="sub"><span>Lägenheter</span></dd></div><div><dt>Inflyttning</dt><dd>Inflyttningsklar</dd><dd class="sub">Inflyttningslicens beviljad</dd></div><div><dt>Bostäder kvar</dt><dd>4 av 4</dd><dd class="sub">Kontrollerat oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Exploatörens infoblad beskriver ett färdigt, inflyttningsklart område med fyra lägenheter med två, tre och fyra sovrum på första raden vid stranden i Estepona, fullt möblerade och med underjordisk parkering. Försäljningsportalen listar fyra lägenheter, AT-01, AT-03, AT-04 och AT-05, på 113,99 till 202,69 m², till priser från 3 200 000 € till 7 300 000 €.</p>
+    <p class="lede-2">Infobladet anger bygglovet och tillståndet för första inflyttning som tillgängliga och byggslutet som färdigt. De gemensamma ytor som det och byggbeskrivningen anger är en utepool, en uppvärmd inomhuspool, ett gym, en bastu, ett turkiskt bad, anlagda gemensamma ytor och en conciergetjänst. Dokumenten skiljer sig åt i antalet sovrum och i ett pris; avsnitten nedan anger var.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Terrasser i trappsteg, sten och trä</span></summary><p>Fotografierna visar terrassnivåer med mörka pergolor, glasräcken, stora stenterrasser och trädäck, precis ovanför stranden. Byggbeskrivningen anger storformatsmarmor till golven och visar en materialtavla med marmor och vit travertin, trädäck och ett val mellan vit eller grå marmor.</p><p>Den beskriver de privata terrasserna med en minipool, en vistelseyta, en gasolkamin och vattenytor, beroende på utformningen. Den säger inte vilken lägenhet som har vad, och det bekräftar vi för var och en.</p><ul><li>Konstruktion: En grundplatta i armerad betong dimensionerad enligt den tekniska byggkoden och den geotekniska undersökningen, kassettbjälklag, samt väggar och pelare i armerad betong med några stålpelare.</li><li>Väggar: Ytterväggar av håltegel med ett luftrum isolerat med polyuretanskum och en vattenavvisande cementputs, samt ljudisolerande håltegel mellan lägenheterna.</li><li>Fönster: Minimalistiska aluminiumprofiler med köldbrygga bruten, dubbelglas med solskydd och glasräcken infällda i golvet.</li><li>Terrasser: Platta omvända tak med flytande marmorbeläggning och däckgolv, med lutningar och avlopp under beläggningen.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>3 200 000 € – 7 300 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>4 av 4 bostäder</span><small>Kontrollerat oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenheter</span></dd></div><div><dt>Storlekar</dt><dd><span>114 – 203 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>Inflyttningsklar</span></dd></div><div><dt>Tillstånd</dt><dd><span><span class="ok">Inflyttningslicens</span></span><small>Beviljad</small></dd></div><div><dt>Förskott</dt><dd><span>Ej tillämpligt</span><small>Färdig byggnad</small></dd></div><div><dt>Parkering</dt><dd><span>Parkering under mark</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Ytorna och priserna är de i tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Tabellen listar AT-01 två gånger, till 4 200 000 € och till 3 237 000 €; här visas den en gång, till 4 200 000 €, och vi bekräftar priset med exploatören. Tabellen säger inte om ytorna är byggytor eller invändiga, eller om priserna inkluderar IVA. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="4 av 4 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>4 av 4 till salu</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="4200000" data-size="160.54" data-ppm="26162" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan-640.webp">
+            <th scope="row"><span class="u-name">AT-01</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">161 m²</td>
+            <td data-label="Pris" class="u-price num">4 200 000 €</td>
+            <td data-label="Per m²" class="num">26 162 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg" target="_blank" rel="noopener" aria-label="Planritning för AT-01"><img src="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="3200000" data-size="113.99" data-ppm="28073" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AT-03</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">114 m²</td>
+            <td data-label="Pris" class="u-price num">3 200 000 €</td>
+            <td data-label="Per m²" class="num">28 073 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="7300000" data-size="202.69" data-ppm="36016" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AT-04</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">203 m²</td>
+            <td data-label="Pris" class="u-price num">7 300 000 €</td>
+            <td data-label="Per m²" class="num">36 016 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="4200000" data-size="160.54" data-ppm="26162" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AT-05</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">161 m²</td>
+            <td data-label="Pris" class="u-price num">4 200 000 €</td>
+            <td data-label="Per m²" class="num">26 162 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Fyra lägenheter, tre storlekar</span></summary><p>De listade lägenheterna delas in i tre grupper efter storlek. Tabellen nedan listar alla referenser i portalen med pris. Bara AT-01 har en planritning i de handlingar vi har.</p><div class="res-types"><div class="res-type"><h3>Lägenhet med två sovrum</h3><ul><li>En lägenhet, AT-03, listad med 113,99 m² och 3 200 000 €.</li><li>Portalen anger inte om ytan är invändig eller byggyta, och ingen planritning för denna lägenhet har lämnats.</li></ul></div><div class="res-type"><h3>Lägenheter med tre sovrum på 160,54 m²</h3><ul><li>AT-01 och AT-05 är båda listade med tre sovrum och 160,54 m². AT-05 är listad till 4 200 000 €, och AT-01 förekommer två gånger, till 4 200 000 € och till 3 237 000 €.</li><li>Planritningen för AT-01 anger 160,54 m² invändig byggyta, 47,71 m² terrasser, ett förråd på 22,12 m² och två garageplatser på 16,32 och 15,29 m², med orientering mot sydväst.</li><li>Datatabellen på planritningen anger ”rooms: 2” (”rum: 2”), medan ritningen visar tre sovrum.</li></ul></div><div class="res-type"><h3>Lägenhet med tre sovrum på 202,69 m²</h3><ul><li>En lägenhet, AT-04, listad med 202,69 m² och 7 300 000 €.</li><li>Portalen anger tre sovrum, medan infobladet säger att området omfattar lägenheter med fyra sovrum. Vi frågar vilken planlösning det gäller.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -938,447 +581,230 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Utomhuspool</h3>
-              <p class="amenity-note">Under bar himmel</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen byggspecifikation, sammanfattad efter delar av bostaden.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Golv och väggar</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Dörrar och garderober</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Fönster</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Klimat och ventilation</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Hemautomation och säkerhet</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Vatten</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Garage och hiss</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Storformatsmarmor på de invändiga golven, parkett i sovrummen, storformatsmarmor med halkskydd på de privata terrasserna och storformatsmarmor på badrumsväggarna.</li><li>De övriga väggarna är putsade med sprutad perlit och målade, med fuktskyddsfärg i våtrummen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>En pansrad ytterdörr i trä, innerdörrar i ek eller lackerade med förkromade beslag och magnetlås, samt garderober med matchande dörrar, klädda invändigt och utrustade med lådor, hyllor, skoförvaring och klädstänger.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Minimalistiska aluminiumprofiler i nivå med golvet, med köldbrygga bruten och dubbelglas med solskydd.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Luftkonditionering med värmeåtervinning där varje rum har sin egen tysta inomhusenhet och sin egen termostat, vattenburen golvvärme och elektrisk golvvärme i badrummen. Samma system producerar varmvattnet.</li><li>Ett ventilationsaggregat med värmeåtervinning som förnyar och filtrerar luften och kan gå medan bostaden står tom.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Ett hemautomationssystem för ljusscener, rullgardiner, klimat och ljud, styrt från pekskärmar och mobila enheter, även på distans, med ett vattenläckagelarm som stänger av vattentillförseln till lägenheten.</li><li>Wifi-förstärkare inomhus och på terrasserna, 5.1-surroundljud i vardagsrummen, en videodörrtelefon med skärm, en fingeravtrycksläsare för byggnaden och för varje lägenhet, samt en laddplats för elbil för varje lägenhet.</li><li>Lågenergi-LED-belysning med infällda spotlights, ljusslingor samt vägg- och golvarmaturer.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Väggmonterade toaletter med dolda cisterner samt blandare och duschar i mörk matt platina i alla badrum.</li><li>En måttbeställd tvättställsmöbel och ett fristående badkar i huvudbadrummet, tvättställ infällda i bänkskivan i de övriga badrummen och ett fristående tvättställ med bakgrundsbelyst spegel i gästtoaletterna. Immfria speglar i våtrummen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Dricksvatten som pumpas från en behandlad, recirkulerad och desinficerad tank av en tryckgrupp med tre pumpar med variabelt varvtal, samt ett självrengörande filter och en avkalkare i varje bostad som håller hårdheten vid cirka 10 °F.</li><li>Huvudavstängningsventilen för varje lägenhet sitter i dess förråd och styrs av hemautomationen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>En motoriserad garageport med fjärrkontroll, en bilhiss av specialstorlek och en vändskiva för bilar, samt en panoramahiss med dubbel entré i 180 graders vinkel.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: exploatörens byggbeskrivning för detta område, daterad den 15 september 2026. Den är skriven i futurum, trots att infobladet säger att byggnaden är färdig, och nämner utrustningsmärken ”eller motsvarande”, som denna sammanfattning utelämnar. Den har inget avsnitt om kök, vitvaror eller möbler.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="En terrass ovanför stranden"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Fotografi av en terrass med solsängar i trä och ett stendäck över en grund pool med gröna kakelplattor, med en strand och en vik bortom glasräcket" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Kök- och matplatsyta"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.jpg" alt="Fotografi av ett möblerat öppet kök med en ö i svart sten, ett matbord med orange stolar och en glasvägg mot en terrass och havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="En matterrass mot havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.jpg" alt="Fotografi av en stor terrass med ett matbord i sten, trädäck, sittgrupper och en pergola, med utsikt längs kusten mot havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Utomhuspoolen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg" alt="Fotografi av en utepool med överfallskant mot en strand, solsängar med parasoller på ett stendäck och den trappstegsformade byggnaden bredvid" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Ett sovrum över viken"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.jpg" alt="Fotografi av ett möblerat sovrum med en skjutbar glasdörr mot en terrass med en liten pool och utsikt över viken" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 14 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (3)</button><button type="button" data-open-cat="Terraces">Terrasser (2)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (4)</button><button type="button" data-open-cat="Interiors">Interiör (2)</button><button type="button" data-open-cat="Bedrooms">Sovrum (3)</button></div>
+    
+    <p class="caption">Fotografierna visar det färdiga området. Den möblerade lägenheten på dem är inte identifierad, och det sägs inte att möblerna, inredningen och utrustningen som visas ingår i priset. Planritningarna är exploatörens, daterade den 7 september 2026, och finns bara för lägenhet AT-01; ytorna på dem är exploatörens uppgifter.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Exploatören placerar området på första raden vid stranden i Estepona, och dess karta markerar det nära Puerto Deportivo de Estepona. Fotografierna visar en strand och en vik intill byggnaden. Dokumenten anger inga avstånd eller restider, så inga visas här.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-estepona-seafront-residences" data-locmap='{&quot;site&quot;:[36.415917,-5.1629184],&quot;sea&quot;:[36.38892,-5.1629184],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;2,7 km · 6 min&quot;},{&quot;ll&quot;:[36.41569,-5.16658],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;410 m · 6 min gångväg&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;740 m · 10 min gångväg&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Estepona&quot;,&quot;sub&quot;:&quot;6,1 km · 9 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Estepona Seafront Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Estepona Seafront Residences</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>410 m</bdi> <em><bdi>6 min gångväg</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Uppvärmd inomhuspool</h3>
-              <p class="amenity-note">Varmt vatten under tak</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>740 m</bdi> <em><bdi>10 min gångväg</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona centrum</span>
+              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Estepona</span>
+              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>9 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Välmående</span>
-              <h3 class="amenity-name">Bastu</h3>
-              <p class="amenity-note">Rum med torr värme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>9,7 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Välmående</span>
-              <h3 class="amenity-name">Hammam</h3>
-              <p class="amenity-note">Turkiskt ångbad</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar flygplats</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>41 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Välmående</span>
-              <h3 class="amenity-name">Jacuzzi</h3>
-              <p class="amenity-note">Varmt vatten med jetstrålar</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda gemensamma trädgårdar</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Utomhus</span>
-              <h3 class="amenity-name">Havsutsikt</h3>
-              <p class="amenity-note">Mot Medelhavet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Vardag</span>
-              <h3 class="amenity-name">Parkering under mark</h3>
-              <p class="amenity-note">Under huset</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Vardag</span>
-              <h3 class="amenity-name">Hiss</h3>
-              <p class="amenity-note">Alla våningsplan nås</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Vardag</span>
-              <h3 class="amenity-name">Hemautomation</h3>
-              <p class="amenity-note">Ljus och klimat från mobilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Vardag</span>
-              <h3 class="amenity-name">Golvvärme</h3>
-              <p class="amenity-note">Värme underifrån</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Vardag</span>
-              <h3 class="amenity-name">Laddning av elbil</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Service</span>
-              <h3 class="amenity-name">Conciergeservice</h3>
-              <p class="amenity-note">Någon i entrén</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Strand</th><td>Vid havet</td></tr><tr><th scope="row">Esteponas marina</th><td>Markerad på exploatörens karta; inget avstånd angivet</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">De gemensamma ytor som exploatören anger, med spat och poolen på byggnadens nedre nivå.</p>
+    <div class="life-panels"><div><h3>Poolerna</h3><p>En utepool med överfallskant, saltbehandlad och klädd med natursten, och en uppvärmd inomhuspool i en egen hall, med en jacuzzi.</p></div><div><h3>Spat och gymmet</h3><p>Ett fullt utrustat gym, en bastu, ett turkiskt bad och ett omklädningsrum, på nivå -3 i exploatörens planritning.</p></div><div><h3>Service och parkering</h3><p>Infobladet anger en conciergetjänst, anlagda gemensamma ytor och underjordisk parkering, och planritningen visar parkering på två nivåer.</p></div><div><h3>Tillträde och säkerhet</h3><p>En fingeravtrycksläsare för byggnaden och för varje lägenhet, en videodörrtelefon, en panoramahiss och en laddplats för elbil för varje lägenhet, så som byggbeskrivningen beskriver dem.</p></div></div>
+    <ul class="amen-top"><li>Utomhuspool</li><li>Uppvärmd inomhuspool</li><li>Gym</li><li>Spa</li><li>Bastu</li><li>Hammam</li></ul>
+    <details class="amen-all"><summary>Visa alla 16</summary><div class="amen-groups"><div><h3>Välmående<span class="count">7</span></h3><ul><li>Utomhuspool</li><li>Uppvärmd inomhuspool</li><li>Gym</li><li>Spa</li><li>Bastu</li><li>Hammam</li><li>Jacuzzi</li></ul></div><div><h3>Utomhus<span class="count">2</span></h3><ul><li>Anlagda gemensamma trädgårdar</li><li>Havsutsikt</li></ul></div><div><h3>Vardag<span class="count">6</span></h3><ul><li>Parkering under mark</li><li>Hiss</li><li>Hemautomation</li><li>Luftkonditionering</li><li>Golvvärme</li><li>Laddning av elbil</li></ul></div><div><h3>Service<span class="count">1</span></h3><ul><li>Conciergeservice</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en stor, färdig lägenhet på första raden vid stranden i Estepona och inte vill vänta på ett bygge.</span></li><li><b>Vad som skiljer det från andra</b><span>Bara fyra lägenheter i området, med stora terrasser: planritningen för AT-01 anger 47,71 m² terrass till 160,54 m² invändigt, och området har en inomhuspool och en spa-nivå.</span></li><li><b>Varför läget spelar roll</b><span>Exploatören placerar området på första raden vid stranden i Estepona, och dess karta markerar det nära småbåtshamnen, Puerto Deportivo de Estepona. Dokumenten anger inga avstånd.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>Portalen listar AT-01 med två priser, och infobladet räknar fyra lägenheter medan referenserna går till AT-05. Nueva Living bekräftar pris och tillgänglighet på nytt med exploatören före varje visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Bokning</b><span>Bokningen är 10 % av försäljningspriset plus IVA.</span></li><li><b>Vid köpehandlingen</b><span>De återstående 90 % av försäljningspriset plus IVA förfaller vid undertecknandet av köpehandlingen. Infobladet anger ingen annan delbetalning.</span></li><li><b>IVA</b><span>Betalningsvillkoren lägger IVA på försäljningspriset, vilket tyder på att de listade priserna är före IVA. Portaltabellen säger inte detta, och IVA-satsen anges inte. Nueva Living bekräftar skatter och köpkostnader skriftligen.</span></li><li><b>Vad priset inkluderar</b><span>Planritningen för AT-01 anger ett förråd och två garageplatser, och handlingarna säger inte om de ingår i priset eller vad de andra lägenheterna har. Infobladet anger lägenheterna som fullt möblerade och säger inte om möblerna ingår i priset.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Tillstånd och färdigställande</b><span>Inflyttningslicens beviljad. Infobladet anger bygglovet och tillståndet för första inflyttning som tillgängliga och byggslutet som färdigt. Vi begär kopior av båda och slutbesiktningsintyget.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Priset på AT-01</b><span>Portalen listar AT-01 två gånger, till 4 200 000 € och till 3 237 000 €, med samma tre sovrum och 160,54 m². AT-05 är listad med samma storlek till 4 200 000 €. Denna sida visar 4 200 000 € för AT-01, och vi frågar exploatören vilket belopp som gäller.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Lägenheterna och deras sovrum</b><span>Infobladet anger fyra lägenheter med två, tre och fyra sovrum. Portalen listar fyra referenser, AT-01, AT-03, AT-04 och AT-05, med två eller tre sovrum och utan AT-02. Planritningen för AT-01 anger ”rooms: 2” i sin datatabell och visar tre sovrum. Vi frågar vilka lägenheter som finns och hur många sovrum var och en har.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ytorna</b><span>Portalen säger inte om ytorna är invändiga eller byggytor. Planritningen för AT-01 anger 160,54 m² invändig byggyta, vilket stämmer med portalen, och en total byggyta på 208,25 m² som lägger till de 47,71 m² terrasserna. Vi bekräftar grunden för de andra lägenheterna och vilket tal köpehandlingen använder.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Byggbeskrivningen</b><span>Byggbeskrivningen är daterad den 15 september 2026 och skriven i futurum, medan infobladet säger att byggnaden är färdig. Den beskriver vattenbehandlingen i inomhuspoolen på två sätt, med bromdosering och med saltklorering. Vi begär beskrivningen som utfört.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Planritningen för AT-01, byggbeskrivningen och den aktuella prislistan.</p></li><li><h3>Jämför alternativen</h3><p>Se detta tillsammans med de andra projekten i Estepona som vi representerar.</p></li><li><h3>Privat visning</h3><p>Se lägenheterna, terrasserna och de gemensamma ytorna tillsammans med oss.</p></li><li><h3>Boka</h3><p>En bokning på 10 % av försäljningspriset plus IVA, därefter köpehandlingen hos notarie.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>1 av 4 bostäder</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Estepona Seafront</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många lägenheter är tillgängliga?</summary><p>Infobladet säger att området har fyra lägenheter, och portalen listar fyra referenser, AT-01, AT-03, AT-04 och AT-05, från 3 200 000 € till 7 300 000 €. AT-01 förekommer två gånger i portalen, med två priser.</p></details><details class="segment-faq-item"><summary>Varför visas AT-01 med ett pris?</summary><p>Portalen listar den till 4 200 000 € och till 3 237 000 €. Sidan visar 4 200 000 €, vilket också är priset som listas för AT-05, en lägenhet av samma storlek. Vi frågar exploatören vilket som gäller och ställer svaret skriftligen.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Portaltabellen säger inte detta. Betalningsvillkoren i infobladet lägger IVA på försäljningspriset, vilket tyder på att priserna är före IVA, och IVA-satsen anges inte. Vi bekräftar skatter och köpkostnader skriftligen.</p></details><details class="segment-faq-item"><summary>Är byggnaden färdig?</summary><p>Infobladet säger att byggslutet är färdigt, att bygglovet och tillståndet för första inflyttning finns och att lägenheterna är inflyttningsklara. Vi begär tillstånden och slutbesiktningsintyget innan ni bokar.</p></details><details class="segment-faq-item"><summary>Vilka är betalningsvillkoren?</summary><p>Bokningen är 10 % av försäljningspriset plus IVA, och de återstående 90 % plus IVA betalas vid undertecknandet av köpehandlingen.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Är lägenheterna möblerade?</summary><p>Infobladet anger dem som fullt möblerade. Det säger inte vad som ingår i priset, och den möblerade lägenheten på fotografierna är inte identifierad.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">3 200 000 €</p>
+      <p class="rail-note">Exkl. IVA. 4 av 4 bostäder kvar · Kontrollerat oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Gå över terrasserna och kontrollera utsikten och ljuset vid den tid då ni skulle använda dem.</li><li><b>Till fots.</b> Vi går stranden och vägen till hamnen tillsammans med er och tar tiden.</li><li><b>På papper.</b> Tillstånd, slutbesiktningsintyg och köpehandling, innan något undertecknas.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Seafront Residences">
+        <input type="hidden" id="f-project" name="project" value="Estepona Seafront Residences">
+        <input type="hidden" name="preferred_area" value="Vid havet, Estepona">
+        <input type="hidden" name="property_type_interest" value="Lägenheter">
+        <input type="hidden" name="budget_range" value="Från 3 200 000 €">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag vill gärna ha information om Estepona Seafront Residences." data-base="Hej Nueva Living, jag vill gärna ha information om Estepona Seafront Residences.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="AT-01">AT-01: 4 200 000 €</option><option value="AT-03">AT-03: 3 200 000 €</option><option value="AT-04">AT-04: 7 300 000 €</option><option value="AT-05">AT-05: 4 200 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Estepona Seafront.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">En färdig lägenhet vid havet i ett område med fyra, med tillstånden angivna som tillgängliga.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en stor, färdig lägenhet på första raden vid stranden i Estepona och inte vill vänta på ett bygge.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Bara fyra lägenheter i området, med stora terrasser: planritningen för AT-01 anger 47,71 m² terrass till 160,54 m² invändigt, och området har en inomhuspool och en spa-nivå.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Exploatören placerar området på första raden vid stranden i Estepona, och dess karta markerar det nära småbåtshamnen, Puerto Deportivo de Estepona. Dokumenten anger inga avstånd.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>Portalen listar AT-01 med två priser, och infobladet räknar fyra lägenheter medan referenserna går till AT-05. Nueva Living bekräftar pris och tillgänglighet på nytt med exploatören före varje visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">Villkoren är betalningsvillkoren i exploatörens infoblad. Vi bekräftar gällande belopp och datum skriftligen innan ni reserverar.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bokning</h3><p>Bokningen är 10 % av försäljningspriset plus IVA.</p></article>
-              <article class="why-point reveal-soft"><h3>Vid köpehandlingen</h3><p>De återstående 90 % av försäljningspriset plus IVA förfaller vid undertecknandet av köpehandlingen. Infobladet anger ingen annan delbetalning.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA</h3><p>Betalningsvillkoren lägger IVA på försäljningspriset, vilket tyder på att de listade priserna är före IVA. Portaltabellen säger inte detta, och IVA-satsen anges inte. Nueva Living bekräftar skatter och köpkostnader skriftligen.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad priset inkluderar</h3><p>Planritningen för AT-01 anger ett förråd och två garageplatser, och handlingarna säger inte om de ingår i priset eller vad de andra lägenheterna har. Infobladet anger lägenheterna som fullt möblerade och säger inte om möblerna ingår i priset.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillstånd och färdigställande</h3><p>Infobladet anger bygglovet och tillståndet för första inflyttning som tillgängliga och byggslutet som färdigt. Vi begär kopior av båda och slutbesiktningsintyget.</p></article>
-              <article class="why-point reveal-soft"><h3>Priset på AT-01</h3><p>Portalen listar AT-01 två gånger, till 4 200 000 € och till 3 237 000 €, med samma tre sovrum och 160,54 m². AT-05 är listad med samma storlek till 4 200 000 €. Denna sida visar 4 200 000 € för AT-01, och vi frågar exploatören vilket belopp som gäller.</p></article>
-              <article class="why-point reveal-soft"><h3>Lägenheterna och deras sovrum</h3><p>Infobladet anger fyra lägenheter med två, tre och fyra sovrum. Portalen listar fyra referenser, AT-01, AT-03, AT-04 och AT-05, med två eller tre sovrum och utan AT-02. Planritningen för AT-01 anger ”rooms: 2” i sin datatabell och visar tre sovrum. Vi frågar vilka lägenheter som finns och hur många sovrum var och en har.</p></article>
-              <article class="why-point reveal-soft"><h3>Ytorna</h3><p>Portalen säger inte om ytorna är invändiga eller byggytor. Planritningen för AT-01 anger 160,54 m² invändig byggyta, vilket stämmer med portalen, och en total byggyta på 208,25 m² som lägger till de 47,71 m² terrasserna. Vi bekräftar grunden för de andra lägenheterna och vilket tal köpehandlingen använder.</p></article>
-              <article class="why-point reveal-soft"><h3>Byggbeskrivningen</h3><p>Byggbeskrivningen är daterad den 15 september 2026 och skriven i futurum, medan infobladet säger att byggnaden är färdig. Den beskriver vattenbehandlingen i inomhuspoolen på två sätt, med bromdosering och med saltklorering. Vi begär beskrivningen som utfört.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Ytorna och priserna är hämtade från tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Den listar fem rader för fyra referenser: AT-01 förekommer två gånger med samma tre sovrum och 160,54 m² men med två priser, 4 200 000 € och 3 237 000 €, och visas en gång med det första. AT-05 har samma storlek och 4 200 000 €. Tabellen anger sovrum, en yta och ett pris för varje lägenhet; den säger inte om ytan är byggyta eller invändig, eller om priset inkluderar IVA. Infobladet lägger IVA på försäljningspriset i betalningsvillkoren. Bara för AT-01 anger exploatörens planritning 160,54 m² invändig byggyta och 47,71 m² terrass. Infobladet säger att området har fyra lägenheter med två, tre och fyra sovrum.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk.jpg" alt="Fotografi i skymningen av terrasser i trappsteg med mörka pergolor, glasräcken och en stenterrass med sittgrupper, och berg bakom" width="2000" height="1333" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terrasser i trappsteg, <em>sten och trä</em></h2>
-          <p>Fotografierna visar terrassnivåer med mörka pergolor, glasräcken, stora stenterrasser och trädäck, precis ovanför stranden. Byggbeskrivningen anger storformatsmarmor till golven och visar en materialtavla med marmor och vit travertin, trädäck och ett val mellan vit eller grå marmor.</p>
-<p>Den beskriver de privata terrasserna med en minipool, en vistelseyta, en gasolkamin och vattenytor, beroende på utformningen. Den säger inte vilken lägenhet som har vad, och det bekräftar vi för var och en.</p>
-          <ul class="feature-list">
-            <li>Konstruktion — En grundplatta i armerad betong dimensionerad enligt den tekniska byggkoden och den geotekniska undersökningen, kassettbjälklag, samt väggar och pelare i armerad betong med några stålpelare.</li>
-            <li>Väggar — Ytterväggar av håltegel med ett luftrum isolerat med polyuretanskum och en vattenavvisande cementputs, samt ljudisolerande håltegel mellan lägenheterna.</li>
-            <li>Fönster — Minimalistiska aluminiumprofiler med köldbrygga bruten, dubbelglas med solskydd och glasräcken infällda i golvet.</li>
-            <li>Terrasser — Platta omvända tak med flytande marmorbeläggning och däckgolv, med lutningar och avlopp under beläggningen.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall.jpg" alt="Fotografi av en entrégång med trägolv bredvid en grön vägg och en vattenränna i sten, som leder till en hiss" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>lägenheterna och strandkanten</em></h2>
-            <p>Byggnaden är färdig, så ett besök handlar om utsikten, terrasserna och finishen.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Gå över terrasserna och kontrollera utsikten och ljuset vid den tid då ni skulle använda dem.</p></div>
-              <div><span>Till fots</span><p>Vi går stranden och vägen till hamnen tillsammans med er och tar tiden.</p></div>
-              <div><span>På papper</span><p>Tillstånd, slutbesiktningsintyg och köpehandling, innan något undertecknas.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=estepona-seafront-residences">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Amenities">Bekvämligheter</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Bedrooms">Sovrum</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/indoor-pool.jpg" alt="Fotografi av en inomhuspool i en lång hall med mosaik, solsängar, ett inglasat ångbad och en fönstervägg mot en stenträdgård" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">En inomhuspool, <em>ett gym och ett spa</em></h2>
-            <p>De gemensamma ytor som exploatören anger, med spat och poolen på byggnadens nedre nivå.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Planritningen för AT-01, byggbeskrivningen och den aktuella prislistan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se detta tillsammans med de andra projekten i Estepona som vi representerar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se lägenheterna, terrasserna och de gemensamma ytorna tillsammans med oss.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>En bokning på 10 % av försäljningspriset plus IVA, därefter köpehandlingen hos notarie.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många lägenheter är tillgängliga?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Infobladet säger att området har fyra lägenheter, och portalen listar fyra referenser, AT-01, AT-03, AT-04 och AT-05, från 3 200 000 € till 7 300 000 €. AT-01 förekommer två gånger i portalen, med två priser.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Varför visas AT-01 med ett pris?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Portalen listar den till 4 200 000 € och till 3 237 000 €. Sidan visar 4 200 000 €, vilket också är priset som listas för AT-05, en lägenhet av samma storlek. Vi frågar exploatören vilket som gäller och ställer svaret skriftligen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Portaltabellen säger inte detta. Betalningsvillkoren i infobladet lägger IVA på försäljningspriset, vilket tyder på att priserna är före IVA, och IVA-satsen anges inte. Vi bekräftar skatter och köpkostnader skriftligen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är byggnaden färdig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Infobladet säger att byggslutet är färdigt, att bygglovet och tillståndet för första inflyttning finns och att lägenheterna är inflyttningsklara. Vi begär tillstånden och slutbesiktningsintyget innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka är betalningsvillkoren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Bokningen är 10 % av försäljningspriset plus IVA, och de återstående 90 % plus IVA betalas vid undertecknandet av köpehandlingen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är lägenheterna möblerade?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Infobladet anger dem som fullt möblerade. Det säger inte vad som ingår i priset, och den möblerade lägenheten på fotografierna är inte identifierad.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Estepona Seafront Residences</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, planritningarna och prislistan.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Seafront Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Estepona Seafront Residences">
-          <input type="hidden" name="preferred_area" value="Vid havet, Estepona">
-          <input type="hidden" name="property_type_interest" value="Lägenheter">
-          <input type="hidden" name="budget_range" value="Från 3 200 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag vill gärna ha information om Estepona Seafront Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"AT-01","title":"AT-01","sub":"3 sovrum · 161 m²","price":4200000,"plans":[{"src":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg","label":""}]},{"id":"u1","ref":"AT-03","title":"AT-03","sub":"2 sovrum · 114 m²","price":3200000,"plans":[]},{"id":"u2","ref":"AT-04","title":"AT-04","sub":"3 sovrum · 203 m²","price":7300000,"plans":[]},{"id":"u3","ref":"AT-05","title":"AT-05","sub":"3 sovrum · 161 m²","price":4200000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp","alt":"Fotografi av en terrass med solsängar i trä och ett stendäck över en grund pool med gröna kakelplattor, med en strand och en vik bortom glasräcket","caption":"En terrass ovanför stranden","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk.webp","alt":"Fotografi i skymningen av terrasser i trappsteg med mörka pergolor, glasräcken och en stenterrass med sittgrupper, och berg bakom","caption":"Terrasser och pergolor i skymningen","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.webp","alt":"Fotografi av en stor terrass med ett matbord i sten, trädäck, sittgrupper och en pergola, med utsikt längs kusten mot havet","caption":"En matterrass mot havet","cat":"Terraces"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-lounge-water-feature.webp","alt":"Fotografi av en terrass med sittgrupper på konstgräs, stora växtkrukor, stenhällar över en grund vattenyta och berg bakom","caption":"Loungeterrass med vattenyta","cat":"Terraces"},{"src":"assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.webp","alt":"Fotografi av en utepool med överfallskant mot en strand, solsängar med parasoller på ett stendäck och den trappstegsformade byggnaden bredvid","caption":"Utomhuspoolen","cat":"Amenities"},{"src":"assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall.webp","alt":"Fotografi av en entrégång med trägolv bredvid en grön vägg och en vattenränna i sten, som leder till en hiss","caption":"Entrégången","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.webp","alt":"Fotografi av ett möblerat öppet kök med en ö i svart sten, ett matbord med orange stolar och en glasvägg mot en terrass och havet","caption":"Kök- och matplatsyta","cat":"Interiors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/living-room-terrace-view.webp","alt":"Fotografi av ett möblerat vardagsrum med en soffa, ett runt bord med marmorskiva och en skjutbar glasvägg mot en terrass med havsutsikt","caption":"Vardagsrum som öppnar sig mot terrassen","cat":"Interiors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.webp","alt":"Fotografi av ett möblerat sovrum med en skjutbar glasdörr mot en terrass med en liten pool och utsikt över viken","caption":"Ett sovrum över viken","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-terrace-sea-view.webp","alt":"Fotografi av ett möblerat sovrum med en klädd vägg, en stoppad bänk och skjutbara glasdörrar mot en terrass och havet","caption":"Ett sovrum med terrass","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-seafront-residences/media/main-bedroom-terrace-sea.webp","alt":"Fotografi av ett möblerat sovrum med en upplyst fördjupning i taket, en rund stenpanel bakom sängen och glasdörrar mot en terrass mot havet","caption":"Sovrummet","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-seafront-residences/media/indoor-pool.webp","alt":"Fotografi av en inomhuspool i en lång hall med mosaik, solsängar, ett inglasat ångbad och en fönstervägg mot en stenträdgård","caption":"Inomhuspoolen","cat":"Amenities"},{"src":"assets/liora/projects/estepona-seafront-residences/media/gym.webp","alt":"Fotografi av ett gym med en löpband, motionscyklar, träningsbänkar och ett ställ med vikter, med en glasvägg mot grönskan","caption":"Gymmet","cat":"Amenities"},{"src":"assets/liora/projects/estepona-seafront-residences/media/steam-room.webp","alt":"Fotografi av ett ångbad med välvt tak och en inbyggd bänk, sett genom glas från inomhuspoolens hall","caption":"Ett ångbad intill inomhuspoolen","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Estepona Seafront Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp","alt":"Fotografi av en terrass med solsängar i trä och ett stendäck över en grund pool med gröna kakelplattor, med en strand och en vik bortom glasräcket","width":2000,"height":1333,"caption":"En terrass ovanför stranden","category":"Exteriör"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk-960.webp","alt":"Fotografi i skymningen av terrasser i trappsteg med mörka pergolor, glasräcken och en stenterrass med sittgrupper, och berg bakom","width":2000,"height":1333,"caption":"Terrasser och pergolor i skymningen","category":"Exteriör"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-960.webp","alt":"Fotografi av en stor terrass med ett matbord i sten, trädäck, sittgrupper och en pergola, med utsikt längs kusten mot havet","width":2000,"height":1125,"caption":"En matterrass mot havet","category":"Terrasser"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-lounge-water-feature.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terrace-lounge-water-feature-960.webp","alt":"Fotografi av en terrass med sittgrupper på konstgräs, stora växtkrukor, stenhällar över en grund vattenyta och berg bakom","width":2000,"height":1125,"caption":"Loungeterrass med vattenyta","category":"Terrasser"},{"src":"assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-960.webp","alt":"Fotografi av en utepool med överfallskant mot en strand, solsängar med parasoller på ett stendäck och den trappstegsformade byggnaden bredvid","width":2000,"height":1125,"caption":"Utomhuspoolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall-960.webp","alt":"Fotografi av en entrégång med trägolv bredvid en grön vägg och en vattenränna i sten, som leder till en hiss","width":2000,"height":1125,"caption":"Entrégången","category":"Exteriör"},{"src":"assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-960.webp","alt":"Fotografi av ett möblerat öppet kök med en ö i svart sten, ett matbord med orange stolar och en glasvägg mot en terrass och havet","width":2000,"height":1125,"caption":"Kök- och matplatsyta","category":"Interiör"},{"src":"assets/liora/projects/estepona-seafront-residences/media/living-room-terrace-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/living-room-terrace-view-960.webp","alt":"Fotografi av ett möblerat vardagsrum med en soffa, ett runt bord med marmorskiva och en skjutbar glasvägg mot en terrass med havsutsikt","width":2000,"height":1333,"caption":"Vardagsrum som öppnar sig mot terrassen","category":"Interiör"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-960.webp","alt":"Fotografi av ett möblerat sovrum med en skjutbar glasdörr mot en terrass med en liten pool och utsikt över viken","width":2000,"height":1125,"caption":"Ett sovrum över viken","category":"Sovrum"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-terrace-sea-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/bedroom-terrace-sea-view-960.webp","alt":"Fotografi av ett möblerat sovrum med en klädd vägg, en stoppad bänk och skjutbara glasdörrar mot en terrass och havet","width":2000,"height":1125,"caption":"Ett sovrum med terrass","category":"Sovrum"},{"src":"assets/liora/projects/estepona-seafront-residences/media/main-bedroom-terrace-sea.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/main-bedroom-terrace-sea-960.webp","alt":"Fotografi av ett möblerat sovrum med en upplyst fördjupning i taket, en rund stenpanel bakom sängen och glasdörrar mot en terrass mot havet","width":2000,"height":1333,"caption":"Sovrummet","category":"Sovrum"},{"src":"assets/liora/projects/estepona-seafront-residences/media/indoor-pool.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/indoor-pool-960.webp","alt":"Fotografi av en inomhuspool i en lång hall med mosaik, solsängar, ett inglasat ångbad och en fönstervägg mot en stenträdgård","width":2000,"height":1125,"caption":"Inomhuspoolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/estepona-seafront-residences/media/gym.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/gym-960.webp","alt":"Fotografi av ett gym med en löpband, motionscyklar, träningsbänkar och ett ställ med vikter, med en glasvägg mot grönskan","width":2000,"height":1125,"caption":"Gymmet","category":"Bekvämligheter"},{"src":"assets/liora/projects/estepona-seafront-residences/media/steam-room.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/steam-room-960.webp","alt":"Fotografi av ett ångbad med välvt tak och en inbyggd bänk, sett genom glas från inomhuspoolens hall","width":2000,"height":1333,"caption":"Ett ångbad intill inomhuspoolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg","webp":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan-960.webp","alt":"Planritning av lägenhet AT-01: vardagsrum, matplats och kök, tre sovrum, tre badrum, en toalett, ett tvättrum och två terrasser","width":2000,"height":1414,"caption":"Lägenhet AT-01","category":"Planritningar"},{"src":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-spa-and-parking-levels.jpg","webp":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-spa-and-parking-levels-960.webp","alt":"Planritningar över nivå -3 och -2 med inomhuspool, gym, bastu, hammam och omklädningsrum, parkeringsplatserna och förrådet för lägenhet AT-01","width":2000,"height":1414,"caption":"Nivå -3 och -2: spa, parkering och förråd","category":"Planritningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-estepona-seafront-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

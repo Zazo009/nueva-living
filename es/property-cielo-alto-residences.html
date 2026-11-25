@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Pueden los extranjeros comprar propiedades en España?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué es el número de NIE y lo necesito?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué gastos adicionales debo prever además del precio de compra?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo conseguir una hipoteca en España siendo no residente?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo funciona el proceso de reserva y pago?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo alquilar la propiedad después de comprarla?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito un abogado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Cuántas Sky Villas hay en total?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="es"
   data-project-name="Cielo Alto Residences"
   data-project-message="Me gustaría recibir la última información del proyecto sobre Cielo Alto Residences."
@@ -451,351 +388,124 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Cielo Alto Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="es/property-cielo-alto-residences.html#top">Cielo Alto Residences<span>Desde 2.400.000 € · Más IVA</span></a>
+      <nav class="hdr-proj" aria-label="Secciones del proyecto"><a href="es/property-cielo-alto-residences.html#overview">Visión general</a><a href="es/property-cielo-alto-residences.html#availability">Precios</a><a href="es/property-cielo-alto-residences.html#gallery">Galería</a><a href="es/property-cielo-alto-residences.html#location">Ubicación</a><a href="es/property-cielo-alto-residences.html#onsite">En la promoción</a><a href="es/property-cielo-alto-residences.html#view">Nuestra opinión</a><a href="es/property-cielo-alto-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Reservar una visita privada</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Cielo Alto Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="Two-storey villa with glass balustrade terraces set against the Benahavis hills" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="Two-storey villa with glass balustrade terraces set against the Benahavis hills" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Nueva promoción / Acceso privado</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Cielo Alto <em>Residences</em></span>
-            <span class="hero-title-context">Villa dúplex · Benahavís, Triángulo de Oro</span>
-          </h1>
-          <p class="hero-positioning">Una colección de 17 Sky Villas dúplex en una parcela elevada de Benahavís, en el Triángulo de Oro entre Marbella, Benahavís y Estepona, con clubhouse compartido y ascensor privado.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="es/property-cielo-alto-residences.html#availability">Ver viviendas disponibles</a>
-            <a class="btn project-btn ghost" href="es/index.html#private-viewing=1&amp;project=cielo-alto-residences">Presentación cinemática</a>
-            <a class="btn project-btn ghost" href="es/property-cielo-alto-residences.html#media">Todas las imágenes</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Datos clave del proyecto">
-          <div class="hero-fact"><span>Zona</span><strong>Benahavís, Triángulo de Oro</strong></div>
-          <div class="hero-fact"><span>Precio desde</span><strong>Desde 2.400.000 €</strong></div>
-          <div class="hero-fact"><span>Tipo de vivienda</span><strong>Villa dúplex</strong></div>
-          <div class="hero-fact"><span>Entrega</span><strong>T3–T4 2026</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Secciones del proyecto">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ir a</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="es/property-cielo-alto-residences.html#media">Galería</a>
-        <a href="es/property-cielo-alto-residences.html#location">Ubicación</a>
-        <a href="es/property-cielo-alto-residences.html#availability">Disponibilidad</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Más</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="es/property-cielo-alto-residences.html#overview">Visión general</a>
-          <a href="es/property-cielo-alto-residences.html#residences">Viviendas</a>
-          <a href="es/property-cielo-alto-residences.html#calculator">Financiación</a>
-          <a href="es/property-cielo-alto-residences.html#amenities">Servicios y extras</a>
-          <a href="es/property-cielo-alto-residences.html#why-this-project">Por qué</a>
-          <a href="es/property-cielo-alto-residences.html#architecture">Arquitectura</a>
-          <a href="es/property-cielo-alto-residences.html#private-viewing">Presentación cinemática</a>
-          <a href="es/property-cielo-alto-residences.html#lifestyle">Estilo de vida</a>
-          <a href="es/property-cielo-alto-residences.html#faq">FAQ</a>
-          <a href="es/property-cielo-alto-residences.html#enquire">Consultar</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Datos rápidos del proyecto">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Dormitorios</span><strong>4-5 dormitorios</strong></div>
-          <div class="quick-fact"><span>Superficie construida</span><strong>615,00 - 815,00 m²</strong></div>
-          <div class="quick-fact"><span>Terraza</span><strong>125,00 - 187,00 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilidad</span><strong>2 de 17 viviendas publicadas</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Solicitar información</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Visión general</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Espacio de villa, <em>seguridad de apartamento</em></h2>
-          <p class="project-lead">Cielo Alto Residences es una colección de 17 Sky Villas dúplex distribuidas en seis edificios boutique sobre una parcela elevada de Benahavís, en el Triángulo de Oro entre Marbella, Benahavís y Estepona. Cinco edificios tienen tres Sky Villas cada uno, y el sexto tiene dos.</p>
-          <p class="project-lead">Cada vivienda ocupa una o dos plantas completas con su propio ascensor privado que conecta las plantas habitables con un garaje privado, combinando la escala de una villa con la seguridad de un apartamento. Las terrazas son amplias y orientadas al sur, con opción de añadir piscina privada, y los residentes comparten una piscina Sky Villa y un clubhouse con piscina cubierta, spa, gimnasio y espacio de coworking.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Galería</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Las Sky Villas <em>en detalle</em></h2>
-          </div>
-          <p class="project-lead">Imágenes generadas por ordenador facilitadas por el promotor. El mobiliario, la decoración y las plantas son orientativos y no están incluidos en la venta.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Ver 5 imágenes de Exteriores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="Villa de dos plantas con terrazas de barandilla de cristal frente a las colinas de Benahavís" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriores</small>
-                <strong>Villa con terrazas frente a las colinas</strong>
-                <span class="project-media-card-cta">5 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Ver 7 imágenes de Interiores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.jpg" alt="Dormitorio principal con vestidor abierto y cabecero revestido de madera" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiores</small>
-                <strong>Dormitorio principal con vestidor</strong>
-                <span class="project-media-card-cta">7 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Ver 7 imágenes de Zonas comunes">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.jpg" alt="Gimnasio totalmente equipado con ventanales de suelo a techo frente a la costa" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Zonas comunes</small>
-                <strong>Gimnasio del club con vistas al mar</strong>
-                <span class="project-media-card-cta">7 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Ver 1 imágenes de Ubicación">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/site-plan-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/site-plan-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/site-plan.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/site-plan.jpg" alt="Plano de situación de los seis bloques de villas, con la numeración de las viviendas y la piscina de las Sky Villas" width="2000" height="1291" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Ubicación</small>
-                <strong>Plano de situación de los seis bloques</strong>
-                <span class="project-media-card-cta">1 imagen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Ver las 20 imágenes</button>
-          <p class="media-note">Imágenes facilitadas por el promotor; pueden ser generadas por ordenador. El diseño final, los acabados, el paisajismo y las vistas pueden variar, y el mobiliario no está incluido.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Ubicación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Benahavís, <em>el Triángulo de Oro</em></h2>
-          <p class="project-lead">Cielo Alto se sitúa en una parcela elevada de Benahavís, en el Triángulo de Oro entre Marbella, el pueblo de Benahavís y Estepona, cerca del golf de La Quinta y a poca distancia en coche de Puerto Banús y la costa.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="es">
-          <div class="locmap-map" id="locmap-cielo-alto-residences" data-locmap='{&quot;site&quot;:[36.505,-5.005],&quot;sea&quot;:[36.478,-5.005],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51709,-5.00143],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Quinta&quot;,&quot;sub&quot;:&quot;2,1 km · 4 min&quot;},{&quot;ll&quot;:[36.48916,-4.957],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Banús&quot;,&quot;sub&quot;:&quot;6,2 km · 7 min&quot;},{&quot;ll&quot;:[36.48676,-4.99008],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;San Pedro&quot;,&quot;sub&quot;:&quot;2,7 km · 4 min&quot;},{&quot;ll&quot;:[36.47404,-4.98179],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;4,8 km · 6 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Cielo Alto Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ubicación indicativa</span>
-            <h3 class="locmap-name">Cielo Alto Residences</h3>
-            <p class="locmap-place">Benahavís, Triángulo de Oro</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Playa</span>
-              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto Banús</span>
-              <span class="locmap-row-figure"><bdi>6,2 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centro de San Pedro de Alcántara</span>
-              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>4 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf La Quinta</span>
-              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>4 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Guadalmina</span>
-              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aeropuerto de Málaga</span>
-              <span class="locmap-row-figure"><bdi>66 km</bdi> <em><bdi>50 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Viviendas</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Dos tipologías, <em>actualmente publicadas</em></h2>
-          <p class="project-lead">La colección incluye Sky Villas en planta baja, planta intermedia y ático repartidas en seis edificios. Los dos ejemplos siguientes son las viviendas actualmente publicadas con precio confirmado; otras tipologías están disponibles bajo petición a medida que se publiquen.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Sky Villa planta Baja</h3>
-            <div class="res-meta">
-              <div><span>Dormitorios</span><strong>5 dormitorios</strong></div>
-<div><span>Baños</span><strong>5 baños + 2 aseos</strong></div>
-<div><span>Superficie construida total</span><strong>705,15 m²</strong></div>
-<div><span>Desde</span><strong>2.400.000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Salón, cocina y comedor en planta abierta con aseo de cortesía y tres dormitorios en suite en la planta principal.</li>
-            <li>Planta inferior con dos dormitorios adicionales, lavandería y espacio para gimnasio y sauna.</li>
-            <li>Ascensor y escalera privados que conectan todas las plantas con el garaje privado.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-cielo-alto-residences.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Sky Villa ático</h3>
-            <div class="res-meta">
-              <div><span>Dormitorios</span><strong>4 dormitorios</strong></div>
-<div><span>Baños</span><strong>4 baños + 1 aseo</strong></div>
-<div><span>Superficie construida total</span><strong>615,87 m²</strong></div>
-<div><span>Desde</span><strong>2.900.000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Planta principal abierta con aseo de cortesía y tres dormitorios en suite.</li>
-            <li>Planta inferior con dos dormitorios adicionales y lavandería, con opción de piscina privada en la terraza.</li>
-            <li>Ascensor privado con acceso directo al garaje propio.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-cielo-alto-residences.html#availability">Ver planos</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Material privado</span>
-            <p>Los planos, orientaciones y disponibilidad actuales deben confirmarse con el último dossier de la promotora antes de preseleccionar una vivienda.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="es/property-cielo-alto-residences.html#availability">Ver planos</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilidad</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">2 de 17 viviendas <em>publicadas actualmente</em></h2>
-          <p class="project-lead">El promotor ha publicado dos viviendas con precio confirmado hasta ahora: una Sky Villa en planta baja y una Sky Villa en ático. Nueva Living reconfirma el precio y la disponibilidad actuales antes de cualquier visita o reserva.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Resumen de la fase actual">
-            <div><span>Viviendas disponibles</span><strong>2</strong></div>
-            <div><span>Precio desde</span><strong>2.400.000 €</strong></div>
-            <div><span>Rango de precios</span><strong>2.400.000 € - 2.900.000 €</strong></div>
-            <div><span>Verificado</span><strong>agosto de 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Ver las 2 viviendas disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Viviendas disponibles">
-              <article class="unit-card" data-unit data-price="2400000">
-                <a class="unit-card-plan" href="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plano de 5.1">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb-640.webp 640w, assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb.jpg" alt="Plano de 5.1" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5.1</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>5 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>705,15 m²</dd></div>
-                    <div><dt>Terraza</dt><dd>128,45 m²</dd></div>
-                    <div><dt>Jardín</dt><dd>70,00 m²</dd></div>
-                    <div><dt>Tipo de vivienda</dt><dd>Sky Villa en planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">2.400.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Cielo%20Alto%20Residences%20-%205.1">Consultar sobre 5.1</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="2900000">
-                <a class="unit-card-plan" href="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plano de 6.2">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb-640.webp 640w, assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb.jpg" alt="Plano de 6.2" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">6.2</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>4 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>615,87 m²</dd></div>
-                    <div><dt>Terraza</dt><dd>166,58 m²</dd></div>
-                    <div><dt>Jardín</dt><dd>183,52 m²</dd></div>
-                    <div><dt>Tipo de vivienda</dt><dd>Sky Villa ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">2.900.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Cielo%20Alto%20Residences%20-%206.2">Consultar sobre 6.2</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>20 fotos</button>
+          <a class="chip" href="es/property-cielo-alto-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planos</a>
+          <a class="chip" href="es/property-cielo-alto-residences.html#location"><svg><use href="#v2-pin"/></svg>Mapa</a>
           
-          <p class="availability-source-note">Disponibilidad y precios transcritos de la publicación del promotor en agosto de 2026. Los precios no incluyen el IVA ni los gastos de compra aplicables y pueden cambiar sin previo aviso o al venderse una vivienda. Nueva Living reconfirma precio, estado y condiciones de reserva antes de continuar.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Calcule su <em>cuota mensual</em></h2>
-          <p class="body-copy">Se trata de una estimación orientativa. Confirme las condiciones exactas con su entidad financiera antes de tomar cualquier decisión.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Cielo Alto</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Una colección de 17 Sky Villas dúplex en una parcela elevada de Benahavís, en el Triángulo de Oro entre Marbella, Benahavís y Estepona, con clubhouse compartido y ascensor privado.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Precio</dt><dd class="num">Desde 2.400.000 €</dd><dd class="sub">Más IVA</dd></div><div><dt>Dormitorios</dt><dd>4 a 5</dd><dd class="sub"><span>Villa dúplex</span></dd></div><div><dt>Entrega</dt><dd>T3–T4 2026</dd><dd class="sub">Licencia: la confirmamos antes de que reserve</dd></div><div><dt>Viviendas disponibles</dt><dd>2 de 17</dd><dd class="sub">Comprobado el agosto de 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Reservar una visita privada</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">La promoción</h2>
+    <p class="lede">Cielo Alto Residences es una colección de 17 Sky Villas dúplex distribuidas en seis edificios boutique sobre una parcela elevada de Benahavís, en el Triángulo de Oro entre Marbella, Benahavís y Estepona. Cinco edificios tienen tres Sky Villas cada uno, y el sexto tiene dos.</p>
+    <p class="lede-2">Cada vivienda ocupa una o dos plantas completas con su propio ascensor privado que conecta las plantas habitables con un garaje privado, combinando la escala de una villa con la seguridad de un apartamento. Las terrazas son amplias y orientadas al sur, con opción de añadir piscina privada, y los residentes comparten una piscina Sky Villa y un clubhouse con piscina cubierta, spa, gimnasio y espacio de coworking.</p>
+    <details class="fold" id="architecture"><summary>Arquitectura · <span>Arquitectura orgánica, integrada en la ladera</span></summary><p>Las Sky Villas están diseñadas para integrarse en su entorno de ladera en lugar de contrastar con él, con fachadas revestidas, ventanales de suelo a techo y grandes terrazas orientadas a las vistas. La construcción de hormigón armado sigue una estructura de losa reticular con pilares y vigas de acero y hormigón.</p><p>La carpintería exterior es de aluminio Cortizo o similar, con puertas correderas y doble acristalamiento con rotura de puente térmico en todas las estancias. El aire acondicionado y la calefacción por suelo radiante por agua se controlan estancia por estancia, y todas las viviendas llevan preinstalación para un sistema de domótica.</p><ul><li>Ascensor privado desde las plantas habitables hasta un garaje privado.</li><li>Ventanales de suelo a techo que abren las estancias a amplias terrazas.</li><li>Calefacción por suelo radiante con control independiente por estancia.</li><li>Preinstalación para sistema de domótica.</li></ul></details>
+    <dl class="kfacts"><div><dt>Precio</dt><dd><span>2.400.000 € – 2.900.000 €</span><small>Más IVA</small></dd></div><div><dt>Disponibles</dt><dd><span>2 de 17 viviendas</span><small>Comprobado el agosto de 2026</small></dd></div><div><dt>Viviendas</dt><dd><span>Villa dúplex</span></dd></div><div><dt>Superficies</dt><dd><span>616 – 705 m²</span><small>Superficie construida</small></dd></div><div><dt>Entrega</dt><dd><span>T3–T4 2026</span></dd></div><div><dt>Licencia</dt><dd><span>No indicada</span><small>La confirmamos antes de que reserve</small></dd></div><div><dt>Anticipos</dt><dd><span>Aval bancario</span><small>Obligatorio por ley</small></dd></div><div><dt>Aparcamiento</dt><dd><span>Garaje privado</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Viviendas y precios</h2>
+    <p class="sec-sub">El promotor ha publicado dos viviendas con precio confirmado hasta ahora: una Sky Villa en planta baja y una Sky Villa en ático. Nueva Living reconfirma el precio y la disponibilidad actuales antes de cualquier visita o reserva. Seleccione una vivienda para ver su calendario de pagos y su coste total.</p>
+    <div class="scarcity" role="img" aria-label="2 de 17 aún a la venta"><div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>2 de 17 aún a la venta</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Viviendas a la venta, con superficie y precio. Seleccione una fila para ver el calendario de pagos.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Vivienda</th>
+          <th scope="col" data-sort="beds">Dormitorios</th>
+          <th scope="col" data-sort="size">Superficie</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Precio</th>
+          <th scope="col" data-sort="ppm">Por m²</th>
+          <th scope="col">Plano</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="5" data-price="2400000" data-size="705.15" data-ppm="3404" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">5.1</span><span class="u-loc">Sky Villa en planta baja</span></th>
+            <td data-label="Dormitorios">5 dorm.</td>
+            <td data-label="Superficie" class="num">705 m²</td>
+            <td data-label="Precio" class="u-price num">2.400.000 €</td>
+            <td data-label="Por m²" class="num">3.404 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plano de 5.1"><img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="4" data-price="2900000" data-size="615.87" data-ppm="4709" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">6.2</span><span class="u-loc">Sky Villa ático</span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">616 m²</td>
+            <td data-label="Precio" class="u-price num">2.900.000 €</td>
+            <td data-label="Por m²" class="num">4.709 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plano de 6.2"><img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Viviendas · <span>Dos tipologías, actualmente publicadas</span></summary><p>La colección incluye Sky Villas en planta baja, planta intermedia y ático repartidas en seis edificios. Los dos ejemplos siguientes son las viviendas actualmente publicadas con precio confirmado; otras tipologías están disponibles bajo petición a medida que se publiquen.</p><div class="res-types"><div class="res-type"><h3>Sky Villa planta Baja</h3><dl class="res-meta"><div><dt>Dormitorios</dt><dd>5 dormitorios</dd></div><div><dt>Baños</dt><dd>5 baños + 2 aseos</dd></div><div><dt>Superficie construida total</dt><dd>705,15 m²</dd></div><div><dt>Desde</dt><dd>2.400.000 €</dd></div></dl><ul><li>Salón, cocina y comedor en planta abierta con aseo de cortesía y tres dormitorios en suite en la planta principal.</li><li>Planta inferior con dos dormitorios adicionales, lavandería y espacio para gimnasio y sauna.</li><li>Ascensor y escalera privados que conectan todas las plantas con el garaje privado.</li></ul></div><div class="res-type"><h3>Sky Villa ático</h3><dl class="res-meta"><div><dt>Dormitorios</dt><dd>4 dormitorios</dd></div><div><dt>Baños</dt><dd>4 baños + 1 aseo</dd></div><div><dt>Superficie construida total</dt><dd>615,87 m²</dd></div><div><dt>Desde</dt><dd>2.900.000 €</dd></div></dl><ul><li>Planta principal abierta con aseo de cortesía y tres dormitorios en suite.</li><li>Planta inferior con dos dormitorios adicionales y lavandería, con opción de piscina privada en la terraza.</li><li>Ascensor privado con acceso directo al garaje propio.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">El calendario de pagos del promotor se facilita bajo petición; se lo enviamos con la lista de precios.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Lo que cuesta en total</p>
+      <dl class="cost-lines num">
+        <div><dt>Precio</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>AJD (actos jurídicos documentados), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total antes de notaría, registro y abogado</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Consultar sobre esta vivienda</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plano"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>¿Financiación? Calculadora de hipoteca</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Precio de compra</span><em data-calc-price-readout>&euro;0</em></div>
@@ -855,398 +565,199 @@
               <div class="calculator-result"><span>Impuestos y gastos de compra</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Servicios y extras</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Lo que la promoción <em>le ofrece</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina privada opcional</h3>
-              <p class="amenity-note">Propia de la vivienda</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galería</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Villa con terrazas frente a las colinas"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="Villa de dos plantas con terrazas de barandilla de cristal frente a las colinas de Benahavís" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Dormitorio principal con vestidor"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.jpg" alt="Dormitorio principal con vestidor abierto y cabecero revestido de madera" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="Gimnasio del club con vistas al mar"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.jpg" alt="Gimnasio totalmente equipado con ventanales de suelo a techo frente a la costa" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="19" aria-label="Plano de situación de los seis bloques"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/site-plan-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/site-plan-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/site-plan.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/site-plan.jpg" alt="Plano de situación de los seis bloques de villas, con la numeración de las viviendas y la piscina de las Sky Villas" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Villa desde el jardín y la piscina"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.jpg" alt="Villa vista desde el jardín, con una terraza cubierta en planta baja que da a la piscina" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Ver las 20 fotos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriores (5)</button><button type="button" data-open-cat="Interiors">Interiores (7)</button><button type="button" data-open-cat="Amenities">Zonas comunes (7)</button><button type="button" data-open-cat="Location">Ubicación (1)</button></div>
+    
+    <p class="caption">Imágenes facilitadas por el promotor; pueden ser generadas por ordenador. El diseño final, los acabados, el paisajismo y las vistas pueden variar, y el mobiliario no está incluido.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Ubicación</h2>
+    <p class="sec-sub">Cielo Alto se sitúa en una parcela elevada de Benahavís, en el Triángulo de Oro entre Marbella, el pueblo de Benahavís y Estepona, cerca del golf de La Quinta y a poca distancia en coche de Puerto Banús y la costa.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="es">
+          <div class="locmap-map" id="locmap-cielo-alto-residences" data-locmap='{&quot;site&quot;:[36.505,-5.005],&quot;sea&quot;:[36.478,-5.005],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51709,-5.00143],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Quinta&quot;,&quot;sub&quot;:&quot;2,1 km · 4 min&quot;},{&quot;ll&quot;:[36.48916,-4.957],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Banús&quot;,&quot;sub&quot;:&quot;6,2 km · 7 min&quot;},{&quot;ll&quot;:[36.48676,-4.99008],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;San Pedro&quot;,&quot;sub&quot;:&quot;2,7 km · 4 min&quot;},{&quot;ll&quot;:[36.47404,-4.98179],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;4,8 km · 6 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Cielo Alto Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ubicación indicativa</span>
+            <h3 class="locmap-name">Cielo Alto Residences</h3>
+            <p class="locmap-place">Benahavís, Triángulo de Oro</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Playa</span>
+              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina comunitaria Sky Villa</h3>
-              <p class="amenity-note">Al aire libre</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Banús</span>
+              <span class="locmap-row-figure"><bdi>6,2 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bienestar</span>
-              <h3 class="amenity-name">Casa club con piscina interior y spa</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centro de San Pedro de Alcántara</span>
+              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>4 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina comunitaria</h3>
-              <p class="amenity-note">Compartida por los residentes</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf La Quinta</span>
+              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>4 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Exteriores</span>
-              <h3 class="amenity-name">Vistas al mar</h3>
-              <p class="amenity-note">Hacia el Mediterráneo</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Guadalmina</span>
+              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Día a día</span>
-              <h3 class="amenity-name">Acceso con ascensor privado</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aeropuerto de Málaga</span>
+              <span class="locmap-row-figure"><bdi>66 km</bdi> <em><bdi>50 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Día a día</span>
-              <h3 class="amenity-name">Gimnasio y espacio de coworking</h3>
-              <p class="amenity-note">Puestos de trabajo fuera de casa</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Día a día</span>
-              <h3 class="amenity-name">Garaje privado</h3>
-              <p class="amenity-note">Bajo el edificio</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Día a día</span>
-              <h3 class="amenity-name">Suelo radiante</h3>
-              <p class="amenity-note">Calor desde el suelo</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Día a día</span>
-              <h3 class="amenity-name">Baños en suite</h3>
-              <p class="amenity-note">Con acceso desde el dormitorio</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Golf La Quinta</th><td>Aprox. 4 minutos</td></tr><tr><th scope="row">Puerto Banús</th><td>Aprox. 7 minutos</td></tr><tr><th scope="row">San Pedro de Alcántara</th><td>Aprox. 4 minutos</td></tr><tr><th scope="row">Playa más cercana</th><td>Aprox. 6 minutos</td></tr><tr><th scope="row">Aeropuerto de Málaga</th><td>Aprox. 50 minutos</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">En la promoción</h2>
+    <p class="sec-sub">Más allá de las terrazas propias de cada vivienda, los residentes de Cielo Alto comparten un clubhouse y una piscina Sky Villa en el centro de la promoción.</p>
+    <div class="life-panels"><div><h3>Bienestar</h3><p>Piscina cubierta y spa dentro del clubhouse, junto a un gimnasio totalmente equipado con vistas al mar.</p></div><div><h3>Trabajo y ocio</h3><p>Un espacio de coworking y un salón con barra y sala de juegos para los residentes.</p></div><div><h3>Vida al aire libre</h3><p>Una piscina comunitaria Sky Villa y solárium, además de la opción de piscina privada en cada terraza.</p></div></div>
+    <ul class="amen-top"><li>Acceso con ascensor privado</li><li>Piscina privada opcional</li><li>Piscina comunitaria Sky Villa</li><li>Casa club con piscina interior y spa</li><li>Gimnasio y espacio de coworking</li><li>Garaje privado</li></ul>
+    <details class="amen-all"><summary>Ver las 10</summary><div class="amen-groups"><div><h3>Bienestar<span class="count">4</span></h3><ul><li>Piscina privada opcional</li><li>Piscina comunitaria Sky Villa</li><li>Casa club con piscina interior y spa</li><li>Piscina comunitaria</li></ul></div><div><h3>Exteriores<span class="count">1</span></h3><ul><li>Vistas al mar</li></ul></div><div><h3>Día a día<span class="count">5</span></h3><ul><li>Acceso con ascensor privado</li><li>Gimnasio y espacio de coworking</li><li>Garaje privado</li><li>Suelo radiante</li><li>Baños en suite</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Nuestra opinión</h2>
+    <p class="sec-sub">Lo que tendríamos en cuenta antes de reservar aquí, y las comprobaciones que hacemos por usted.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Nuestra opinión">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Destaca</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">A prever</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Comprobaciones</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Por qué destaca</h3><ul class="points"><li><b>Para quién es</b><span>Compradores que quieren el espacio y la privacidad de una villa sin renunciar a ascensor, aparcamiento seguro y clubhouse compartido.</span></li><li><b>Qué la diferencia</b><span>Cada vivienda tiene su propio ascensor privado desde las plantas habitables hasta su propio garaje, algo inusual en un dúplex de este tamaño.</span></li><li><b>Por qué importa la ubicación</b><span>Benahavís se sitúa en el Triángulo de Oro entre Marbella, el pueblo de Benahavís y Estepona, cerca de Puerto Banús y a poca distancia en coche de la costa.</span></li><li><b>Por qué comprobar la disponibilidad</b><span>Solo 2 de las 17 viviendas están actualmente publicadas con precio confirmado; Nueva Living reconfirma la disponibilidad actual antes de cualquier visita.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Qué prever</h3><ul class="points"><li><b>Por qué importa el momento</b><span>Solo 2 de las 17 viviendas están actualmente publicadas con precio confirmado; la oferta de tipologías cambiará según se publiquen nuevas fases.</span></li><li><b>Información actual</b><span>Nueva Living reconfirma precio, disponibilidad y especificación directamente con el promotor antes de cualquier visita o reserva.</span></li><li><b>Atractivo a largo plazo</b><span>El ascensor privado y el garaje propio en cada vivienda son poco habituales a esta escala y pueden favorecer el atractivo a largo plazo.</span></li><li><b>Uso personal y alquiler</b><span>Los compradores deben confirmar las normas de alquiler vigentes para este proyecto directamente con el promotor antes de asumir un plan de rentabilidad por alquiler.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Comprobaciones antes de cualquier pago</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Información del promotor</b><span>Nueva Living dispone de la identidad y la información de licencias del promotor y las facilita por escrito antes de cualquier reserva.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Cómo funciona la compra</b><span>Un proceso de compra privado en inglés con un abogado español de su elección; Nueva Living coordina visitas y documentación.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Entrega y garantía</b><span>El promotor aún no ha publicado una fecha de entrega confirmada para esta fase; Nueva Living confirmará el calendario de obra actual por escrito antes de cualquier reserva.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Otras opciones</b><span>Nueva Living puede comparar Cielo Alto con otras promociones de Benahavís y el Triángulo de Oro bajo petición.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Solicite la información del proyecto</h3><p>Pida la lista de precios actual de la Sky Villa en planta baja o ático.</p></li><li><h3>Compare las distribuciones</h3><p>Revise las viviendas publicadas una junto a otra según su presupuesto y necesidades de espacio.</p></li><li><h3>Visita privada</h3><p>Conozca el entorno y las instalaciones del clubhouse en persona antes de decidir.</p></li><li><h3>Revisión antes de reservar</h3><p>Confirme por escrito el precio, la disponibilidad y la estructura de pago actuales antes de cualquier reserva.</p></li></ol>
+      <div class="docs card"><h3>Documentos que recibirá</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Lista de precios</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planos<small>2 de 2 viviendas</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Calendario de pagos<small>Aún no facilitado</small><small>Pendiente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>El resumen oficial al que tiene derecho todo comprador en Andalucía</small></span></li></ul><a class="btn btn-primary" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Recibir el dosier del proyecto</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Preguntas sobre Cielo Alto</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>¿Cuántas Sky Villas hay en total?</summary><p>17, repartidas en seis edificios. Los edificios 1 a 5 tienen tres Sky Villas cada uno y el edificio 6 tiene dos.</p></details><details class="segment-faq-item"><summary>¿Cuántas están disponibles actualmente?</summary><p>El promotor ha publicado 2 viviendas con precio confirmado hasta ahora: una Sky Villa en planta baja y una en ático. Nueva Living reconfirma la disponibilidad actual antes de cualquier visita.</p></details><details class="segment-faq-item"><summary>¿Incluye piscina privada?</summary><p>No. El promotor indica que la piscina privada en la terraza es un extra opcional, con coste adicional, para cada vivienda.</p></details><details class="segment-faq-item"><summary>¿El precio incluye el IVA?</summary><p>No. La forma de pago publicada añada el IVA en cada fase de pago.</p></details><details class="segment-faq-item"><summary>¿Incluye mobiliario?</summary><p>No. Las imágenes mostradas son infografías; el mobiliario, la decoración y las plantas son orientativos y no están incluidos en la venta.</p></details></div>
+    <details class="faq2-more"><summary>Ver todas las preguntas (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>¿Cuándo es la entrega?</summary><p>El promotor aún no ha publicado una fecha de entrega confirmada para esta fase. Nueva Living confirme el calendario de obra actual por escrito antes de cualquier reserva.</p></details></div></details>
+    <p class="faq2-guide">Más sobre comprar obra nueva en España → <a class="textlink" href="es/guide-how-buying-works.html">Guía de compra</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Reservar una visita privada">
+    <div class="card">
+      <p class="rail-price-label">Precio desde</p>
+      <p class="rail-price num">2.400.000 €</p>
+      <p class="rail-note">Más IVA. Quedan 2 de 17 viviendas · Comprobado el agosto de 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Reservar una visita privada</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Escríbanos por WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador</strong>Respondemos personalmente a cada consulta.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Reservar una visita privada</h2>
+        <p>Díganos qué vivienda le interesa. Le enviamos el dosier del proyecto y después recorremos la promoción con usted.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador de Nueva Living</strong>Respondemos personalmente a cada consulta.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Escríbanos</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Correo<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>En la visita comprobamos con usted</h3><ul><li><b>Arquitectura.</b> Villas dúplex contemporáneas integradas en la ladera, con ascensor privado hasta cada garaje.</li><li><b>Tipos de vivienda.</b> Sky Villas en planta baja y ático actualmente publicadas, de 4 a 5 dormitorios.</li><li><b>Estilo de vida.</b> Un clubhouse compartido con piscina cubierta, spa, gimnasio y espacio de coworking.</li><li><b>Siguiente paso.</b> Solicite la lista de precios y los planos actuales de la vivienda que le interese.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Enviando…" data-success-label="Reservar una visita privada ✓" data-submitting-message="Enviando…" data-success-message="Solicitud recibida. Le enviaremos el dosier del proyecto y le propondremos horarios de visita." data-error-message="No se ha podido enviar. Inténtelo de nuevo o escríbanos por WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cielo Alto Residences">
+        <input type="hidden" id="f-project" name="project" value="Cielo Alto Residences">
+        <input type="hidden" name="preferred_area" value="Benahavís, Triángulo de Oro">
+        <input type="hidden" name="property_type_interest" value="Villa dúplex">
+        <input type="hidden" name="budget_range" value="Desde 2.400.000 €">
+        <input type="hidden" name="consent_text" value="Acepto que Nueva Living guarde estos datos para responder a mi solicitud.">
+        <input type="hidden" name="message" id="v2-f-message" value="Me gustaría recibir la última información del proyecto sobre Cielo Alto Residences." data-base="Me gustaría recibir la última información del proyecto sobre Cielo Alto Residences.">
+        <h3>Sus datos</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Nombre</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Apellidos</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Correo electrónico</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Teléfono (opcional, para WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">¿Qué vivienda?</label><select id="v2-f-unit" name="unit_interest"><option value="">Aún no lo sé, envíenme todo</option><option value="5.1">5.1: 2.400.000 €</option><option value="6.2">6.2: 2.900.000 €</option></select></div>
+        <fieldset class="field"><legend>La vivienda sería</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Para vivir</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Una segunda residencia</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Una inversión</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>¿Cómo le respondemos?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Llamada</label>
+          <label><input type="radio" name="preferred_contact" value="email">Correo</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Acepto que Nueva Living guarde estos datos para responder a mi solicitud. <a href="es/privacy-policy.html">Política de privacidad</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Avísenme también si cambia la disponibilidad o los precios en Cielo Alto.</label>
+        <button class="btn btn-primary btn-block" type="submit">Reservar una visita privada</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Por qué este proyecto</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Por qué este proyecto <em>importa</em></h2>
-          <p class="project-lead">Una colección de villas dúplex para compradores que quieren la escala de una villa con la seguridad y el ascensor de un edificio de apartamentos.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Por qué encaja</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Para quién es</h3><p>Compradores que quieren el espacio y la privacidad de una villa sin renunciar a ascensor, aparcamiento seguro y clubhouse compartido.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué la diferencia</h3><p>Cada vivienda tiene su propio ascensor privado desde las plantas habitables hasta su propio garaje, algo inusual en un dúplex de este tamaño.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué importa la ubicación</h3><p>Benahavís se sitúa en el Triángulo de Oro entre Marbella, el pueblo de Benahavís y Estepona, cerca de Puerto Banús y a poca distancia en coche de la costa.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué comprobar la disponibilidad</h3><p>Solo 2 de las 17 viviendas están actualmente publicadas con precio confirmado; Nueva Living reconfirma la disponibilidad actual antes de cualquier visita.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argumento de inversión</h3></div>
-            <p class="why-group-note">Una nota objetiva sobre plazos y propiedad; Nueva Living no promete rentabilidades por alquiler ni revalorización de precio.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Por qué importa el momento</h3><p>Solo 2 de las 17 viviendas están actualmente publicadas con precio confirmado; la oferta de tipologías cambiará según se publiquen nuevas fases.</p></article>
-              <article class="why-point reveal-soft"><h3>Información actual</h3><p>Nueva Living reconfirma precio, disponibilidad y especificación directamente con el promotor antes de cualquier visita o reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Atractivo a largo plazo</h3><p>El ascensor privado y el garaje propio en cada vivienda son poco habituales a esta escala y pueden favorecer el atractivo a largo plazo.</p></article>
-              <article class="why-point reveal-soft"><h3>Uso personal y alquiler</h3><p>Los compradores deben confirmar las normas de alquiler vigentes para este proyecto directamente con el promotor antes de asumir un plan de rentabilidad por alquiler.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confianza y diligencia</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Información del promotor</h3><p>Nueva Living dispone de la identidad y la información de licencias del promotor y las facilita por escrito antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Cómo funciona la compra</h3><p>Un proceso de compra privado en inglés con un abogado español de su elección; Nueva Living coordina visitas y documentación.</p></article>
-              <article class="why-point reveal-soft"><h3>Entrega y garantía</h3><p>El promotor aún no ha publicado una fecha de entrega confirmada para esta fase; Nueva Living confirmará el calendario de obra actual por escrito antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Otras opciones</h3><p>Nueva Living puede comparar Cielo Alto con otras promociones de Benahavís y el Triángulo de Oro bajo petición.</p></article>
-            </div>
-            <p class="why-group-note">¿Es su primera compra sobre plano en España? <a href="es/guide-how-buying-works.html">Cómo funciona comprar obra nueva</a> explica los siete pasos, y <a href="es/guide-off-plan-vs-resale.html">sobre plano frente a segunda mano</a> detalla las señales, las garantías y los plazos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Las imágenes las facilita el promotor y pueden ser infografías">
+    <p>Las imágenes las facilita el promotor y pueden ser infografías; el diseño final, los acabados, el paisajismo y las vistas pueden variar. Tiene derecho a una copia del Documento Informativo Abreviado (DIA) de cualquier vivienda de esta página; Nueva Living se la facilita bajo petición.</p>
+    <p>Disponibilidad comprobada con el vendedor el agosto de 2026; la volvemos a confirmar antes de cualquier reserva.</p>
+    <p>Disponibilidad y precios transcritos de la publicación del promotor en agosto de 2026. Los precios no incluyen el IVA ni los gastos de compra aplicables y pueden cambiar sin previo aviso o al venderse una vivienda. Nueva Living reconfirma precio, estado y condiciones de reserva antes de continuar.</p>
+    <p>La información de esta página tiene fines comerciales generales y no constituye asesoramiento legal, financiero ni de inversión. Los precios, la disponibilidad y las fechas de entrega pueden cambiar sin previo aviso.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.jpg" alt="Villa seen from the garden, with a covered ground-floor terrace opening onto the pool" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">La villa desde el jardín y la piscina</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arquitectura</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Arquitectura orgánica, <em>integrada en la ladera</em></h2>
-          <p>Las Sky Villas están diseñadas para integrarse en su entorno de ladera en lugar de contrastar con él, con fachadas revestidas, ventanales de suelo a techo y grandes terrazas orientadas a las vistas. La construcción de hormigón armado sigue una estructura de losa reticular con pilares y vigas de acero y hormigón.</p>
-<p>La carpintería exterior es de aluminio Cortizo o similar, con puertas correderas y doble acristalamiento con rotura de puente térmico en todas las estancias. El aire acondicionado y la calefacción por suelo radiante por agua se controlan estancia por estancia, y todas las viviendas llevan preinstalación para un sistema de domótica.</p>
-          <ul class="feature-list">
-            <li>Ascensor privado desde las plantas habitables hasta un garaje privado.</li>
-            <li>Ventanales de suelo a techo que abren las estancias a amplias terrazas.</li>
-            <li>Calefacción por suelo radiante con control independiente por estancia.</li>
-            <li>Preinstalación para sistema de domótica.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Acciones de solicitud del proyecto">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar</a>
+    <a class="ab-btn ab-primary" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Reservar visita</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset.jpg" alt="Open-plan living and dining area opening onto a covered terrace at sunset" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Presentación cinemática</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Descubra más de <em>Cielo Alto</em></h2>
-            <p>Explore el entorno, las dos tipologías Sky Villa publicadas y el clubhouse compartido antes de solicitar toda la información del proyecto.</p>
-            <div class="viewing-insights">
-              <div><span>Arquitectura</span><p>Villas dúplex contemporáneas integradas en la ladera, con ascensor privado hasta cada garaje.</p></div>
-              <div><span>Tipos de vivienda</span><p>Sky Villas en planta baja y ático actualmente publicadas, de 4 a 5 dormitorios.</p></div>
-              <div><span>Estilo de vida</span><p>Un clubhouse compartido con piscina cubierta, spa, gimnasio y espacio de coworking.</p></div>
-              <div><span>Siguiente paso</span><p>Solicite la lista de precios y los planos actuales de la vivienda que le interese.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="es/index.html#private-viewing=1&amp;project=cielo-alto-residences">Presentación cinemática</a>
-              <a class="btn project-btn ghost" href="es/property-cielo-alto-residences.html#enquire" data-prefill>Solicitar información</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galería" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Cerrar">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Siguiente imagen">›</button>
+    <div class="lb-cats" role="group" aria-label="Galería"><button type="button" data-cat="Exteriors">Exteriores</button><button type="button" data-cat="Interiors">Interiores</button><button type="button" data-cat="Amenities">Zonas comunes</button><button type="button" data-cat="Location">Ubicación</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool.jpg" alt="Communal Sky Villa pool and sun terrace shared by residents" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Estilo de vida</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Vida en torno a <em>un clubhouse compartido</em></h2>
-            <p>Más allá de las terrazas propias de cada vivienda, los residentes de Cielo Alto comparten un clubhouse y una piscina Sky Villa en el centro de la promoción.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Próximos pasos</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Qué ocurre <em>a continuación</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Solicite la información del proyecto</h3>
-            <p>Pida la lista de precios actual de la Sky Villa en planta baja o ático.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare las distribuciones</h3>
-            <p>Revise las viviendas publicadas una junto a otra según su presupuesto y necesidades de espacio.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visita privada</h3>
-            <p>Conozca el entorno y las instalaciones del clubhouse en persona antes de decidir.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Revisión antes de reservar</h3>
-            <p>Confirme por escrito el precio, la disponibilidad y la estructura de pago actuales antes de cualquier reserva.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Preguntas frecuentes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Preguntas <em>frecuentes de compradores</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>¿Pueden los extranjeros comprar propiedades en España?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué es el número de NIE y lo necesito?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué gastos adicionales debo prever además del precio de compra?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo conseguir una hipoteca en España siendo no residente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cómo funciona el proceso de reserva y pago?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo alquilar la propiedad después de comprarla?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Necesito un abogado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuántas Sky Villas hay en total?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>17, repartidas en seis edificios. Los edificios 1 a 5 tienen tres Sky Villas cada uno y el edificio 6 tiene dos.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuántas están disponibles actualmente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El promotor ha publicado 2 viviendas con precio confirmado hasta ahora: una Sky Villa en planta baja y una en ático. Nueva Living reconfirma la disponibilidad actual antes de cualquier visita.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Incluye piscina privada?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. El promotor indica que la piscina privada en la terraza es un extra opcional, con coste adicional, para cada vivienda.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿El precio incluye el IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. La forma de pago publicada añada el IVA en cada fase de pago.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Incluye mobiliario?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. Las imágenes mostradas son infografías; el mobiliario, la decoración y las plantas son orientativos y no están incluidos en la venta.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuándo es la entrega?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El promotor aún no ha publicado una fecha de entrega confirmada para esta fase. Nueva Living confirme el calendario de obra actual por escrito antes de cualquier reserva.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Consultar</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Pregunte sobre <em>Cielo Alto Residences</em></h2>
-          <p class="body-copy">Cuéntenos qué tipología Sky Villa le interesa y le enviaremos la lista de precios y las especificaciones actuales.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fundador de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fundador, Nueva Living</p>
-            <h3 id="advisor-heading">¿Prefiere comentarlo en persona?</h3>
-            <p class="advisor-copy">Elija lo que le encaje y escríbame por WhatsApp. Empezaré desde ahí.</p>
-            <div class="advisor-group" role="group" aria-label="Busco">
-              <span class="advisor-group-label">Busco</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Una vivienda para vivir</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Una casa de vacaciones</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Una inversión</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Presupuesto">
-              <span class="advisor-group-label">Presupuesto</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Menos de 500.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500.000 – 1.000.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Más de 1.000.000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor">Escríbame por WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cielo Alto Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Cielo Alto Residences">
-          <input type="hidden" name="preferred_area" value="Benahavís, Triángulo de Oro">
-          <input type="hidden" name="property_type_interest" value="Villa dúplex">
-          <input type="hidden" name="budget_range" value="Desde 2.400.000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Nombre</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Nombre" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Apellidos</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Apellidos" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Correo electrónico</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Teléfono</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 o internacional">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Mensaje</label>
-              <textarea id="f-msg" name="message">Me gustaría recibir la última información del proyecto sobre Cielo Alto Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Acepto ser contactado/a y que mis datos sean almacenados.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>También me gustaría recibir novedades ocasionales de proyectos por parte de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Enviar solicitud</button>
-            <span class="form-note">Contexto del proyecto: Cielo Alto Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"5.1","title":"5.1 · Sky Villa en planta baja","sub":"5 dorm. · 705 m²","price":2400000,"plans":[{"src":"assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans.pdf","label":""}]},{"id":"u1","ref":"6.2","title":"6.2 · Sky Villa ático","sub":"4 dorm. · 616 m²","price":2900000,"plans":[{"src":"assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp","alt":"Villa de dos plantas con terrazas de barandilla de cristal frente a las colinas de Benahavís","caption":"Villa con terrazas frente a las colinas","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.webp","alt":"Villa vista desde el jardín, con una terraza cubierta en planta baja que da a la piscina","caption":"Villa desde el jardín y la piscina","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/aerial-view-hillside.webp","alt":"Vista aérea de las villas a lo largo de la ladera, con la costa al fondo","caption":"Vista aérea de la hilera de villas","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/street-view-villa-row.webp","alt":"Vista de la calle a lo largo de la hilera de villas, con olivos y cipreses entre las parcelas","caption":"Vista de la calle junto a la hilera de villas","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-garden-twin-pools.webp","alt":"Villa con dos piscinas privadas en un jardín ajardinado, con montañas detrás","caption":"Villa con dos piscinas y jardín","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.webp","alt":"Dormitorio principal con vestidor abierto y cabecero revestido de madera","caption":"Dormitorio principal con vestidor","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset.webp","alt":"Salón y comedor abiertos a una terraza cubierta al atardecer","caption":"Salón y comedor al atardecer","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-room.webp","alt":"Salón con una pared de estanterías empotradas y vistas al jardín","caption":"Salón","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-lounge-bar.webp","alt":"Sala multiusos con barra, mesa de juegos y zona de estar","caption":"Sala multiusos con barra","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-room.webp","alt":"Sala multiusos con asientos flexibles, apta para cine en casa o sala de juegos","caption":"Sala multiusos","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/private-garage.webp","alt":"Garaje privado al que se accede en ascensor desde las plantas de la vivienda","caption":"Garaje privado","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/open-terrace.webp","alt":"Terraza abierta con asientos exteriores y vistas a las colinas circundantes","caption":"Terraza abierta","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.webp","alt":"Gimnasio totalmente equipado con ventanales de suelo a techo frente a la costa","caption":"Gimnasio del club con vistas al mar","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-indoor-pool-spa.webp","alt":"Piscina cubierta y spa con una pared de piedra y vistas al mar","caption":"Piscina cubierta y spa del club","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-lounge-games-room.webp","alt":"Salón del club con barra, mesa de juegos y zona de estar","caption":"Salón y sala de juegos del club","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool.webp","alt":"Piscina comunitaria Sky Villa y solárium compartidos por los residentes","caption":"Piscina comunitaria Sky Villa","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-pool-night-view.webp","alt":"Piscina comunitaria y terraza iluminadas de noche","caption":"Piscina comunitaria de noche","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/sea-views-from-terrace.webp","alt":"Vistas panorámicas al mar desde una terraza de la villa","caption":"Vistas al mar desde la terraza","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/covered-terrace.webp","alt":"Terraza cubierta con zona de estar, parte del espacio exterior de la villa","caption":"Terraza cubierta","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/site-plan.webp","alt":"Plano de situación de los seis bloques de villas, con la numeración de las viviendas y la piscina de las Sky Villas","caption":"Plano de situación de los seis bloques","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":".","post":" €"},"i18n":{"askAbout":"Consultar sobre {ref}","plusVat":"Más IVA","totalPrice":"Precio total","vatOnStages":"Más IVA sobre cada pago","onRequest":"A consultar","imageOf":"{i} de {n}","floorPlan":"Plano"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Cielo Alto Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Cerrar">Cerrar</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Imagen anterior">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Siguiente imagen">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp","alt":"Villa de dos plantas con terrazas de barandilla de cristal frente a las colinas de Benahavís","width":1920,"height":1080,"caption":"Villa con terrazas frente a las colinas","category":"Exteriores"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces-960.webp","alt":"Villa vista desde el jardín, con una terraza cubierta en planta baja que da a la piscina","width":1920,"height":1080,"caption":"Villa desde el jardín y la piscina","category":"Exteriores"},{"src":"assets/liora/projects/cielo-alto-residences/media/aerial-view-hillside.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/aerial-view-hillside-960.webp","alt":"Vista aérea de las villas a lo largo de la ladera, con la costa al fondo","width":1920,"height":1080,"caption":"Vista aérea de la hilera de villas","category":"Exteriores"},{"src":"assets/liora/projects/cielo-alto-residences/media/street-view-villa-row.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/street-view-villa-row-960.webp","alt":"Vista de la calle a lo largo de la hilera de villas, con olivos y cipreses entre las parcelas","width":1920,"height":1080,"caption":"Vista de la calle junto a la hilera de villas","category":"Exteriores"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-garden-twin-pools.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/villa-garden-twin-pools-960.webp","alt":"Villa con dos piscinas privadas en un jardín ajardinado, con montañas detrás","width":1920,"height":1080,"caption":"Villa con dos piscinas y jardín","category":"Exteriores"},{"src":"assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-960.webp","alt":"Dormitorio principal con vestidor abierto y cabecero revestido de madera","width":1920,"height":1080,"caption":"Dormitorio principal con vestidor","category":"Interiores"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset-960.webp","alt":"Salón y comedor abiertos a una terraza cubierta al atardecer","width":1920,"height":1080,"caption":"Salón y comedor al atardecer","category":"Interiores"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-room.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/living-room-960.webp","alt":"Salón con una pared de estanterías empotradas y vistas al jardín","width":1920,"height":1080,"caption":"Salón","category":"Interiores"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-lounge-bar.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/multi-use-lounge-bar-960.webp","alt":"Sala multiusos con barra, mesa de juegos y zona de estar","width":1920,"height":1080,"caption":"Sala multiusos con barra","category":"Interiores"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-room.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/multi-use-room-960.webp","alt":"Sala multiusos con asientos flexibles, apta para cine en casa o sala de juegos","width":1920,"height":1080,"caption":"Sala multiusos","category":"Interiores"},{"src":"assets/liora/projects/cielo-alto-residences/media/private-garage.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/private-garage-960.webp","alt":"Garaje privado al que se accede en ascensor desde las plantas de la vivienda","width":1920,"height":1080,"caption":"Garaje privado","category":"Interiores"},{"src":"assets/liora/projects/cielo-alto-residences/media/open-terrace.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/open-terrace-960.webp","alt":"Terraza abierta con asientos exteriores y vistas a las colinas circundantes","width":1920,"height":1080,"caption":"Terraza abierta","category":"Interiores"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-960.webp","alt":"Gimnasio totalmente equipado con ventanales de suelo a techo frente a la costa","width":1920,"height":1080,"caption":"Gimnasio del club con vistas al mar","category":"Zonas comunes"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-indoor-pool-spa.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/clubhouse-indoor-pool-spa-960.webp","alt":"Piscina cubierta y spa con una pared de piedra y vistas al mar","width":1920,"height":1080,"caption":"Piscina cubierta y spa del club","category":"Zonas comunes"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-lounge-games-room.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/clubhouse-lounge-games-room-960.webp","alt":"Salón del club con barra, mesa de juegos y zona de estar","width":1920,"height":1080,"caption":"Salón y sala de juegos del club","category":"Zonas comunes"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool-960.webp","alt":"Piscina comunitaria Sky Villa y solárium compartidos por los residentes","width":1920,"height":1080,"caption":"Piscina comunitaria Sky Villa","category":"Zonas comunes"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-pool-night-view.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/communal-pool-night-view-960.webp","alt":"Piscina comunitaria y terraza iluminadas de noche","width":1920,"height":1080,"caption":"Piscina comunitaria de noche","category":"Zonas comunes"},{"src":"assets/liora/projects/cielo-alto-residences/media/sea-views-from-terrace.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/sea-views-from-terrace-960.webp","alt":"Vistas panorámicas al mar desde una terraza de la villa","width":1920,"height":1080,"caption":"Vistas al mar desde la terraza","category":"Zonas comunes"},{"src":"assets/liora/projects/cielo-alto-residences/media/covered-terrace.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/covered-terrace-960.webp","alt":"Terraza cubierta con zona de estar, parte del espacio exterior de la villa","width":1920,"height":1080,"caption":"Terraza cubierta","category":"Zonas comunes"},{"src":"assets/liora/projects/cielo-alto-residences/media/site-plan.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/site-plan-960.webp","alt":"Plano de situación de los seis bloques de villas, con la numeración de las viviendas y la piscina de las Sky Villas","width":2000,"height":1291,"caption":"Plano de situación de los seis bloques","category":"Ubicación"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Acciones de solicitud del proyecto">
-    <a href="es/property-cielo-alto-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

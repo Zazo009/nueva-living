@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Pueden los extranjeros comprar propiedades en España?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué es el número de NIE y lo necesito?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué gastos adicionales debo prever además del precio de compra?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo conseguir una hipoteca en España siendo no residente?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo funciona el proceso de reserva y pago?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo alquilar la propiedad después de comprarla?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito un abogado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Cuánto cuestan las viviendas?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -310,7 +247,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="es"
   data-project-name="Selwo Panorama Residences"
   data-project-message="Me gustaría recibir la información actualizada del proyecto Selwo Panorama Residences."
@@ -467,920 +404,310 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Selwo Panorama Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="es/property-selwo-panorama-residences.html#top">Selwo Panorama Residences<span>Desde 1.442.000 € · Más IVA</span></a>
+      <nav class="hdr-proj" aria-label="Secciones del proyecto"><a href="es/property-selwo-panorama-residences.html#overview">Visión general</a><a href="es/property-selwo-panorama-residences.html#availability">Precios</a><a href="es/property-selwo-panorama-residences.html#gallery">Galería</a><a href="es/property-selwo-panorama-residences.html#location">Ubicación</a><a href="es/property-selwo-panorama-residences.html#onsite">En la promoción</a><a href="es/property-selwo-panorama-residences.html#view">Nuestra opinión</a><a href="es/property-selwo-panorama-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Reservar una visita privada</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Selwo Panorama Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/development-from-above-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp 1400w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="The development seen from above, terraces stepping down the hillside to the sea" width="1400" height="876" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="The development seen from above, terraces stepping down the hillside to the sea" width="1400" height="876" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">En construcción / acceso privado</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Selwo <em>Panorama Residences</em></span>
-            <span class="hero-title-context">Apartamentos y áticos · Nueva Milla de Oro, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Treinta y siete viviendas y áticos en construcción en la Nueva Milla de Oro de Estepona, de 201,81 a 305,38 m² incluidas terrazas de 27,55 a 115,92 m², todas orientadas al mar, con dos plazas de aparcamiento y trastero incluidos y una planta de zonas comunes de escala resort.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="es/property-selwo-panorama-residences.html#availability">Ver viviendas disponibles</a>
-            <a class="btn project-btn ghost" href="es/index.html#private-viewing=1&amp;project=selwo-panorama-residences">Presentación cinemática</a>
-            <a class="btn project-btn ghost" href="es/property-selwo-panorama-residences.html#media">Todas las imágenes</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Datos clave del proyecto">
-          <div class="hero-fact"><span>Zona</span><strong>Nueva Milla de Oro, Estepona</strong></div>
-          <div class="hero-fact"><span>Precio desde</span><strong>Desde 1.442.000 € + IVA</strong></div>
-          <div class="hero-fact"><span>Tipo de vivienda</span><strong>Apartamentos y áticos</strong></div>
-          <div class="hero-fact"><span>Entrega</span><strong>T4 2027</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Secciones del proyecto">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ir a</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="es/property-selwo-panorama-residences.html#media">Galería</a>
-        <a href="es/property-selwo-panorama-residences.html#location">Ubicación</a>
-        <a href="es/property-selwo-panorama-residences.html#construction-timeline">Condiciones de pago</a>
-        <a href="es/property-selwo-panorama-residences.html#availability">Disponibilidad</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Más</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="es/property-selwo-panorama-residences.html#overview">Visión general</a>
-          <a href="es/property-selwo-panorama-residences.html#residences">Viviendas</a>
-          <a href="es/property-selwo-panorama-residences.html#calculator">Financiación</a>
-          <a href="es/property-selwo-panorama-residences.html#amenities">Servicios y extras</a>
-          <a href="es/property-selwo-panorama-residences.html#why-this-project">Por qué</a>
-          <a href="es/property-selwo-panorama-residences.html#architecture">Arquitectura</a>
-          <a href="es/property-selwo-panorama-residences.html#private-viewing">Presentación cinemática</a>
-          <a href="es/property-selwo-panorama-residences.html#lifestyle">Estilo de vida</a>
-          <a href="es/property-selwo-panorama-residences.html#faq">FAQ</a>
-          <a href="es/property-selwo-panorama-residences.html#enquire">Consultar</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Datos rápidos del proyecto">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Tipo de propiedad</span><strong>Apartamentos y áticos</strong></div>
-          <div class="quick-fact"><span>Dormitorios</span><strong>De 3 a 5 dormitorios</strong></div>
-          <div class="quick-fact"><span>Superficie construida</span><strong>201,81 – 305,38 m²</strong></div>
-          <div class="quick-fact"><span>Terraza</span><strong>27,55 – 115,92 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilidad</span><strong>25 de 37 disponibles</strong></div>
-          <div class="quick-fact"><span>Viviendas</span><strong>37</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Solicitar información</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Visión general</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Treinta y siete viviendas, <em>dos edificios</em></h2>
-          <p class="project-lead">Selwo Panorama Residences es una promoción cerrada de treinta y siete viviendas y áticos en construcción en la Nueva Milla de Oro, el tramo de costa entre Estepona y Marbella.</p>
-          <p class="project-lead">Las viviendas van de 201,81 a 305,38 m² incluidas sus terrazas, y las terrazas son el eje del proyecto: de 27,55 a 115,92 m², todas orientadas al mar. Tres, cuatro y cinco dormitorios, cada vivienda con dos plazas de aparcamiento y trastero incluidos en el precio.</p>
-          <p class="project-lead">Los dos edificios comparten una planta de zonas comunes de escala resort: piscina exterior en la terraza, piscina interior climatizada, spa, gimnasio, sala de yoga, salón social con cafetería, sala de coworking y simulador de golf.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Galería</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Las viviendas en <em>detalle</em></h2>
-          </div>
-          <p class="project-lead">Fotografías del piso piloto terminado, junto con imágenes virtuales del edificio y de las zonas comunes. El mobiliario y la decoración son orientativos y no están incluidos en la venta.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Ver 7 imágenes de Exteriores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/development-from-above-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="La promoción vista desde el aire, con sus terrazas escalonadas ladera abajo" width="1400" height="876" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriores</small>
-                <strong>Desde el aire</strong>
-                <span class="project-media-card-cta">7 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Ver 7 imágenes de Interiores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.jpg" alt="El salón con la cristalera abierta hacia la terraza" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiores</small>
-                <strong>Salón y terraza</strong>
-                <span class="project-media-card-cta">7 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Ver 3 imágenes de Dormitorios">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.jpg" alt="El dormitorio principal, con zona de vestidor a lo largo de una pared" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Dormitorios</small>
-                <strong>El dormitorio principal</strong>
-                <span class="project-media-card-cta">3 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Ver 1 imágenes de Baños">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.jpg" alt="Un baño de mármol con ducha a ras de suelo y una larga encimera de piedra" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Baños</small>
-                <strong>El baño principal</strong>
-                <span class="project-media-card-cta">1 imagen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Ver las 18 imágenes</button>
-          <p class="media-note">Imágenes facilitadas por el promotor; pueden ser generadas por ordenador. El diseño final, los acabados, el paisajismo y las vistas pueden variar, y el mobiliario no está incluido.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Ubicación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">La Nueva Milla de Oro, <em>Estepona</em></h2>
-          <p class="project-lead">Una ladera sobre la carretera de la costa entre Estepona y Marbella, con golf hacia el interior y la playa por debajo.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="es">
-          <div class="locmap-map" id="locmap-selwo-panorama-residences" data-locmap='{&quot;site&quot;:[36.4699,-5.086],&quot;sea&quot;:[36.4429,-5.086],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Los Flamingos&quot;,&quot;sub&quot;:&quot;9,9 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Resina&quot;,&quot;sub&quot;:&quot;3,7 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;6,6 km · 9 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Selwo Panorama Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ubicación indicativa</span>
-            <h3 class="locmap-name">Selwo Panorama Residences</h3>
-            <p class="locmap-place">Nueva Milla de Oro, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Playa</span>
-              <span class="locmap-row-figure"><bdi>6,6 km</bdi> <em><bdi>9 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centro de Estepona</span>
-              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf La Resina</span>
-              <span class="locmap-row-figure"><bdi>3,7 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Los Flamingos</span>
-              <span class="locmap-row-figure"><bdi>9,9 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Cronograma</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Cómo se escalonan <em>los pagos</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">25.000 €</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Reserva</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">30% menos la reserva</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Contrato privado</span>
-        </div>
-        <div class="timeline-point" style="transition-delay:0.18s">
-          <span class="timeline-label"></span>
-          <span class="timeline-marker"></span>
-          <span class="timeline-year">En el plazo de un año</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.27s">
-          <span class="timeline-label">50% en la escritura pública</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Entrega</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Viviendas</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">De tres dormitorios <em>a cinco</em></h2>
-          <p class="project-lead">Treinta y siete viviendas repartidas en dos edificios y cinco portales. La tabla recoge la lista actual del promotor; cada vivienda tiene su propio plano.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Piso piloto</h3>
-            <div class="res-meta">
-              <div><span>Dormitorios</span><strong>4</strong></div>
-<div><span>Baños</span><strong>4 y un aseo</strong></div>
-<div><span>Interior</span><strong>200,25 m²</strong></div>
-<div><span>Terraza</span><strong>83,96 m²</strong></div>
-<div><span>Total</span><strong>281,93 m²</strong></div>
-<div><span>Garaje</span><strong>2 plazas y un trastero</strong></div>
-<div><span>Precio</span><strong>1.798.000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>El piso piloto está terminado y puede visitarse, algo poco habitual en esta fase y la forma más rápida de valorar las calidades.</li>
-            <li>Cuatro dormitorios, cuatro baños y un aseo, con el salón y la cocina abriéndose como una sola pieza a la terraza.</li>
-            <li>Una terraza de 83,96 m² en la esquina del edificio, orientada al sureste.</li>
-            <li>Se incluyen dos plazas de aparcamiento y un trastero, como en todas las viviendas.</li>
-            <li>Los precios no incluyen el IVA del 10%, que se añade en cada fase de pago.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-selwo-panorama-residences.html#availability">Ver planos</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Material privado</span>
-            <p>Los planos, orientaciones y disponibilidad actuales deben confirmarse con el último dossier de la promotora antes de preseleccionar una vivienda.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="es/property-selwo-panorama-residences.html#availability">Ver planos</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilidad</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">25 viviendas <em>disponibles</em></h2>
-          <p class="project-lead">Treinta y siete viviendas en total, de las cuales 25 siguen disponibles y doce están reservadas. Nueva Living reconfirma precio y disponibilidad antes de cualquier visita o reserva.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Resumen de la fase actual">
-            <div><span>Viviendas disponibles</span><strong>25</strong></div>
-            <div><span>Precio desde</span><strong>1.442.000 €</strong></div>
-            <div><span>Rango de precios</span><strong>1.442.000 € – 2.155.000 €</strong></div>
-            <div><span>Verificado</span><strong>septiembre de 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Ver las 25 viviendas disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Viviendas disponibles">
-              <article class="unit-card" data-unit data-price="1807000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb.jpg" alt="Plano de 1.1 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 GF-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>4 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>233,89 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>166,13 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>85,74 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.807.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%20GF-A">Consultar sobre 1.1 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1732000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb.jpg" alt="Plano de 1.1 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 GF-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>229,86 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>166,27 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>70,01 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.732.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%20GF-B">Consultar sobre 1.1 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1775000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 1F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb.jpg" alt="Plano de 1.1 1F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 1F-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>5 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>254,43 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>180,72 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>34,83 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.775.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%201F-B">Consultar sobre 1.1 1F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1527000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 2F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb.jpg" alt="Plano de 1.1 2F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 2F-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>206,99 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>147,02 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>50,82 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta, ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.527.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%202F-A">Consultar sobre 1.1 2F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1483000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb.jpg" alt="Plano de 1.1 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 2F-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>202,37 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>143,74 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>46,10 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta, ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.483.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%202F-B">Consultar sobre 1.1 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="2104000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 G-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb.jpg" alt="Plano de 1.2 G-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 G-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>4 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>281,93 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>200,25 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>83,96 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta jardín</dd></div>
-                  </dl>
-                  <p class="unit-card-price">2.104.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20G-A">Consultar sobre 1.2 G-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1856000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 G-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb.jpg" alt="Plano de 1.2 G-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 G-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>244,96 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>173,99 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>79,50 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta jardín</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.856.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20G-B">Consultar sobre 1.2 G-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1736000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb.jpg" alt="Plano de 1.2 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 GF-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>230,53 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>163,74 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>70,00 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.736.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20GF-A">Consultar sobre 1.2 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1798000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb.jpg" alt="Plano de 1.2 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 GF-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>4 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>281,93 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>200,25 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>83,96 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.798.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20GF-B">Consultar sobre 1.2 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1456340">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 1F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb.jpg" alt="Plano de 1.2 1F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 1F-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>203,83 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>144,78 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>34,83 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.456.340 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%201F-A">Consultar sobre 1.2 1F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit>
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb.jpg" alt="Plano de 1.2 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 2F-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>207,66 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>147,50 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>50,82 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta, ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">A consultar</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%202F-B">Consultar sobre 1.2 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1820000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb.jpg" alt="Plano de 2.1 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 GF-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>4 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>236,29 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>166,06 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>85,41 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.820.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%20GF-A">Consultar sobre 2.1 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1744000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb.jpg" alt="Plano de 2.1 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 GF-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>231,54 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>162,72 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>70,64 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.744.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%20GF-B">Consultar sobre 2.1 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1825000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 1F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb.jpg" alt="Plano de 2.1 1F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 1F-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>5 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>256,61 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>180,34 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>46,32 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.825.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%201F-B">Consultar sobre 2.1 1F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1547000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 2F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb.jpg" alt="Plano de 2.1 2F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 2F-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>208,77 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>146,72 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>53,74 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta, ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.547.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%202F-A">Consultar sobre 2.1 2F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1535000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb.jpg" alt="Plano de 2.1 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 2F-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>205,16 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>144,18 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>56,92 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta, ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.535.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%202F-B">Consultar sobre 2.1 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1938000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 G-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb.jpg" alt="Plano de 2.2 G-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 G-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>253,55 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>178,19 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>88,20 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta jardín</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.938.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20G-B">Consultar sobre 2.2 G-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1742000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb.jpg" alt="Plano de 2.2 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 GF-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>231,37 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>162,60 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>70,23 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.742.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20GF-A">Consultar sobre 2.2 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1744000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb.jpg" alt="Plano de 2.2 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 GF-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>231,71 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>162,84 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>70,23 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.744.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20GF-B">Consultar sobre 2.2 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1442000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 1F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb.jpg" alt="Plano de 2.2 1F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 1F-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>205,09 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>144,13 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>27,55 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.442.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%201F-A">Consultar sobre 2.2 1F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1763000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 1F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb.jpg" alt="Plano de 2.2 1F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 1F-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>5 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>256,10 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>179,98 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>27,55 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.763.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%201F-B">Consultar sobre 2.2 1F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1480000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb.jpg" alt="Plano de 2.2 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 2F-B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>204,91 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>144,01 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>39,95 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta, ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.480.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%202F-B">Consultar sobre 2.2 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="2155000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.3 G-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb.jpg" alt="Plano de 2.3 G-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.3 G-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>4 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>297,58 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>209,13 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>69,24 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta jardín</dd></div>
-                  </dl>
-                  <p class="unit-card-price">2.155.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%20G-A">Consultar sobre 2.3 G-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1745000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.3 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb.jpg" alt="Plano de 2.3 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.3 GF-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>231,79 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>162,90 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>70,64 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.745.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%20GF-A">Consultar sobre 2.3 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1530000">
-                
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.3 2F-A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Totales</dt><dd>204,93 m²</dd></div>
-                    <div><dt>Interiores</dt><dd>144,02 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>56,54 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta, ático</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.530.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%202F-A">Consultar sobre 2.3 2F-A</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>18 fotos</button>
+          <a class="chip" href="es/property-selwo-panorama-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planos</a>
+          <a class="chip" href="es/property-selwo-panorama-residences.html#location"><svg><use href="#v2-pin"/></svg>Mapa</a>
           
-          <p class="availability-source-note">Superficies, precios y condiciones de pago transcritos de la lista de precios del promotor con fecha 7 de agosto de 2026. Los precios incluyen dos plazas de aparcamiento y un trastero, no incluyen el IVA del 10% y pueden cambiar sin previo aviso.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Calcule su <em>cuota mensual</em></h2>
-          <p class="body-copy">Se trata de una estimación orientativa. Confirme las condiciones exactas con su entidad financiera antes de tomar cualquier decisión.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Selwo Panorama</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Treinta y siete viviendas y áticos en construcción en la Nueva Milla de Oro de Estepona, de 201,81 a 305,38 m² incluidas terrazas de 27,55 a 115,92 m², todas orientadas al mar, con dos plazas de aparcamiento y trastero incluidos y una planta de zonas comunes de escala resort.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Precio</dt><dd class="num">Desde 1.442.000 €</dd><dd class="sub">Más IVA</dd></div><div><dt>Dormitorios</dt><dd>3 a 5</dd><dd class="sub"><span>Apartamentos y áticos</span></dd></div><div><dt>Entrega</dt><dd>T4 2027</dd><dd class="sub">Licencia: la confirmamos antes de que reserve</dd></div><div><dt>Viviendas disponibles</dt><dd>25 de 37</dd><dd class="sub">Comprobado el septiembre de 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Reservar una visita privada</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">La promoción</h2>
+    <p class="lede">Selwo Panorama Residences es una promoción cerrada de treinta y siete viviendas y áticos en construcción en la Nueva Milla de Oro, el tramo de costa entre Estepona y Marbella.</p>
+    <p class="lede-2">Las viviendas van de 201,81 a 305,38 m² incluidas sus terrazas, y las terrazas son el eje del proyecto: de 27,55 a 115,92 m², todas orientadas al mar. Tres, cuatro y cinco dormitorios, cada vivienda con dos plazas de aparcamiento y trastero incluidos en el precio.</p><p class="lede-2">Los dos edificios comparten una planta de zonas comunes de escala resort: piscina exterior en la terraza, piscina interior climatizada, spa, gimnasio, sala de yoga, salón social con cafetería, sala de coworking y simulador de golf.</p>
+    <details class="fold" id="architecture"><summary>Arquitectura · <span>Terrazas orientadas al mar</span></summary><p>Los edificios descienden escalonados por la ladera, de modo que cada planta retranquea sobre la inferior, y eso es lo que da a cada vivienda una terraza profunda y una vista despejada.</p><ul><li>Orientación: Todas las viviendas están orientadas al suroeste o al sureste, que es en torno a lo que se planteó la distribución.</li><li>Terrazas: De 27,55 a 115,92 m², tratadas como una estancia y no como un balcón.</li><li>Estructura: Estructura de hormigón armado, con fachadas de mortero continuo sobre aislamiento de altas prestaciones y cámara de aire.</li><li>Aislamiento: Tabiquería interior de placa de yeso con lana mineral; medianeras de ladrillo revestidas por ambas caras con placa de yeso y lana de roca.</li><li>Planta de zonas comunes: Piscina exterior, piscina interior climatizada, spa, gimnasio, sala de yoga, salón social, cafetería, sala de coworking y simulador de golf.</li><li>Incluido: Dos plazas de aparcamiento y un trastero con cada vivienda.</li></ul></details>
+    <dl class="kfacts"><div><dt>Precio</dt><dd><span>1.442.000 € – 2.155.000 €</span><small>Más IVA</small></dd></div><div><dt>Disponibles</dt><dd><span>25 de 37 viviendas</span><small>Comprobado el septiembre de 2026</small></dd></div><div><dt>Viviendas</dt><dd><span>Apartamentos y áticos</span></dd></div><div><dt>Superficies</dt><dd><span>202 – 298 m²</span><small>Interior</small></dd></div><div><dt>Entrega</dt><dd><span>T4 2027</span></dd></div><div><dt>Licencia</dt><dd><span>No indicada</span><small>La confirmamos antes de que reserve</small></dd></div><div><dt>Anticipos</dt><dd><span>Aval bancario</span><small>Obligatorio por ley</small></dd></div><div><dt>Aparcamiento</dt><dd><span>Dos plazas de aparcamiento</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Viviendas y precios</h2>
+    <p class="sec-sub">Treinta y siete viviendas en total, de las cuales 25 siguen disponibles y doce están reservadas. Nueva Living reconfirma precio y disponibilidad antes de cualquier visita o reserva. Seleccione una vivienda para ver su calendario de pagos y su coste total.</p>
+    <div class="scarcity" role="img" aria-label="25 de 37 aún a la venta"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>25 de 37 aún a la venta</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrar por dormitorios"><button type="button" aria-pressed="true" data-beds="">Todas <span>25</span></button><button type="button" aria-pressed="false" data-beds="3">3 dorm. <span>17</span></button><button type="button" aria-pressed="false" data-beds="4">4 dorm. <span>5</span></button><button type="button" aria-pressed="false" data-beds="5">5 dorm. <span>3</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Viviendas a la venta, con superficie y precio. Seleccione una fila para ver el calendario de pagos.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Vivienda</th>
+          <th scope="col" data-sort="beds">Dormitorios</th>
+          <th scope="col" data-sort="size">Superficie</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Precio</th>
+          <th scope="col" data-sort="ppm">Por m²</th>
+          <th scope="col">Plano</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="4" data-price="1807000" data-size="233.89" data-ppm="7726" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 GF-A</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">234 m²</td>
+            <td data-label="Precio" class="u-price num">1.807.000 €</td>
+            <td data-label="Por m²" class="num">7.726 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="1732000" data-size="229.86" data-ppm="7535" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 GF-B</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">230 m²</td>
+            <td data-label="Precio" class="u-price num">1.732.000 €</td>
+            <td data-label="Por m²" class="num">7.535 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="5" data-price="1775000" data-size="254.43" data-ppm="6976" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 1F-B</span><span class="u-loc">Primera planta</span></th>
+            <td data-label="Dormitorios">5 dorm.</td>
+            <td data-label="Superficie" class="num">254 m²</td>
+            <td data-label="Precio" class="u-price num">1.775.000 €</td>
+            <td data-label="Por m²" class="num">6.976 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 1F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="1527000" data-size="206.99" data-ppm="7377" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 2F-A</span><span class="u-loc">Segunda planta, ático</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">207 m²</td>
+            <td data-label="Precio" class="u-price num">1.527.000 €</td>
+            <td data-label="Por m²" class="num">7.377 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 2F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="1483000" data-size="202.37" data-ppm="7328" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 2F-B</span><span class="u-loc">Segunda planta, ático</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">202 m²</td>
+            <td data-label="Precio" class="u-price num">1.483.000 €</td>
+            <td data-label="Por m²" class="num">7.328 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.1 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="4" data-price="2104000" data-size="281.93" data-ppm="7463" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 G-A</span><span class="u-loc">Planta jardín</span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">282 m²</td>
+            <td data-label="Precio" class="u-price num">2.104.000 €</td>
+            <td data-label="Por m²" class="num">7.463 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 G-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="1856000" data-size="244.96" data-ppm="7577" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 G-B</span><span class="u-loc">Planta jardín</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">245 m²</td>
+            <td data-label="Precio" class="u-price num">1.856.000 €</td>
+            <td data-label="Por m²" class="num">7.577 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 G-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="1736000" data-size="230.53" data-ppm="7530" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 GF-A</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">231 m²</td>
+            <td data-label="Precio" class="u-price num">1.736.000 €</td>
+            <td data-label="Por m²" class="num">7.530 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="4" data-price="1798000" data-size="281.93" data-ppm="6377" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 GF-B</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">282 m²</td>
+            <td data-label="Precio" class="u-price num">1.798.000 €</td>
+            <td data-label="Por m²" class="num">6.377 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="1456340" data-size="203.83" data-ppm="7145" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 1F-A</span><span class="u-loc">Primera planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">204 m²</td>
+            <td data-label="Precio" class="u-price num">1.456.340 €</td>
+            <td data-label="Por m²" class="num">7.145 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 1F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="" data-size="207.66" data-ppm="" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 2F-B</span><span class="u-loc">Segunda planta, ático</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">208 m²</td>
+            <td data-label="Precio" class="u-price num">A consultar</td>
+            <td data-label="Por m²" class="num"><span class="u-na">–</span></td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 1.2 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u11" data-beds="4" data-price="1820000" data-size="236.29" data-ppm="7702" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 GF-A</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">236 m²</td>
+            <td data-label="Precio" class="u-price num">1.820.000 €</td>
+            <td data-label="Por m²" class="num">7.702 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u12" data-beds="3" data-price="1744000" data-size="231.54" data-ppm="7532" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 GF-B</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">232 m²</td>
+            <td data-label="Precio" class="u-price num">1.744.000 €</td>
+            <td data-label="Por m²" class="num">7.532 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u13" data-beds="5" data-price="1825000" data-size="256.61" data-ppm="7112" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 1F-B</span><span class="u-loc">Primera planta</span></th>
+            <td data-label="Dormitorios">5 dorm.</td>
+            <td data-label="Superficie" class="num">257 m²</td>
+            <td data-label="Precio" class="u-price num">1.825.000 €</td>
+            <td data-label="Por m²" class="num">7.112 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 1F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u14" data-beds="3" data-price="1547000" data-size="208.77" data-ppm="7410" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 2F-A</span><span class="u-loc">Segunda planta, ático</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">209 m²</td>
+            <td data-label="Precio" class="u-price num">1.547.000 €</td>
+            <td data-label="Por m²" class="num">7.410 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 2F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u15" data-beds="3" data-price="1535000" data-size="205.16" data-ppm="7482" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 2F-B</span><span class="u-loc">Segunda planta, ático</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">205 m²</td>
+            <td data-label="Precio" class="u-price num">1.535.000 €</td>
+            <td data-label="Por m²" class="num">7.482 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.1 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u16" data-beds="3" data-price="1938000" data-size="253.55" data-ppm="7643" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 G-B</span><span class="u-loc">Planta jardín</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">254 m²</td>
+            <td data-label="Precio" class="u-price num">1.938.000 €</td>
+            <td data-label="Por m²" class="num">7.643 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 G-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u17" data-beds="3" data-price="1742000" data-size="231.37" data-ppm="7529" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 GF-A</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">231 m²</td>
+            <td data-label="Precio" class="u-price num">1.742.000 €</td>
+            <td data-label="Por m²" class="num">7.529 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u18" data-beds="3" data-price="1744000" data-size="231.71" data-ppm="7527" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 GF-B</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">232 m²</td>
+            <td data-label="Precio" class="u-price num">1.744.000 €</td>
+            <td data-label="Por m²" class="num">7.527 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u19" data-beds="3" data-price="1442000" data-size="205.09" data-ppm="7031" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 1F-A</span><span class="u-loc">Primera planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">205 m²</td>
+            <td data-label="Precio" class="u-price num">1.442.000 €</td>
+            <td data-label="Por m²" class="num">7.031 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 1F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u20" data-beds="5" data-price="1763000" data-size="256.1" data-ppm="6884" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 1F-B</span><span class="u-loc">Primera planta</span></th>
+            <td data-label="Dormitorios">5 dorm.</td>
+            <td data-label="Superficie" class="num">256 m²</td>
+            <td data-label="Precio" class="u-price num">1.763.000 €</td>
+            <td data-label="Por m²" class="num">6.884 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 1F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u21" data-beds="3" data-price="1480000" data-size="204.91" data-ppm="7223" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 2F-B</span><span class="u-loc">Segunda planta, ático</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">205 m²</td>
+            <td data-label="Precio" class="u-price num">1.480.000 €</td>
+            <td data-label="Por m²" class="num">7.223 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.2 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u22" data-beds="4" data-price="2155000" data-size="297.58" data-ppm="7242" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.3 G-A</span><span class="u-loc">Planta jardín</span></th>
+            <td data-label="Dormitorios">4 dorm.</td>
+            <td data-label="Superficie" class="num">298 m²</td>
+            <td data-label="Precio" class="u-price num">2.155.000 €</td>
+            <td data-label="Por m²" class="num">7.242 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.3 G-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u23" data-beds="3" data-price="1745000" data-size="231.79" data-ppm="7528" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.3 GF-A</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">232 m²</td>
+            <td data-label="Precio" class="u-price num">1.745.000 €</td>
+            <td data-label="Por m²" class="num">7.528 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plano de 2.3 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u24" data-beds="3" data-price="1530000" data-size="204.93" data-ppm="7466" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">2.3 2F-A</span><span class="u-loc">Segunda planta, ático</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">205 m²</td>
+            <td data-label="Precio" class="u-price num">1.530.000 €</td>
+            <td data-label="Por m²" class="num">7.466 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Viviendas · <span>De tres dormitorios a cinco</span></summary><p>Treinta y siete viviendas repartidas en dos edificios y cinco portales. La tabla recoge la lista actual del promotor; cada vivienda tiene su propio plano.</p><div class="res-types"><div class="res-type"><h3>Piso piloto</h3><dl class="res-meta"><div><dt>Dormitorios</dt><dd>4</dd></div><div><dt>Baños</dt><dd>4 y un aseo</dd></div><div><dt>Interior</dt><dd>200,25 m²</dd></div><div><dt>Terraza</dt><dd>83,96 m²</dd></div><div><dt>Total</dt><dd>281,93 m²</dd></div><div><dt>Garaje</dt><dd>2 plazas y un trastero</dd></div><div><dt>Precio</dt><dd>1.798.000 €</dd></div></dl><ul><li>El piso piloto está terminado y puede visitarse, algo poco habitual en esta fase y la forma más rápida de valorar las calidades.</li><li>Cuatro dormitorios, cuatro baños y un aseo, con el salón y la cocina abriéndose como una sola pieza a la terraza.</li><li>Una terraza de 83,96 m² en la esquina del edificio, orientada al sureste.</li><li>Se incluyen dos plazas de aparcamiento y un trastero, como en todas las viviendas.</li><li>Los precios no incluyen el IVA del 10%, que se añade en cada fase de pago.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">El calendario de pagos del promotor se facilita bajo petición; se lo enviamos con la lista de precios.</p>
+      
+      <ol class="ct-strip" aria-label="Hitos de la obra"><li class="is-mile"><b>Reserva</b><span>25.000 €</span></li><li class="is-mile"><b>Contrato privado</b><span>30% menos la reserva</span></li><li class=""><b>En el plazo de un año</b><span>20% en un solo pago</span></li><li class="is-mile"><b>Entrega</b><span>50% en la escritura pública</span></li></ol>
+      <p class="ct-note">Todas las fases se indican más el IVA del 10%. Transcrito de las condiciones de pago publicadas por el promotor.</p></div>
+      <div class="cost-wrap"><p class="cap">Lo que cuesta en total</p>
+      <dl class="cost-lines num">
+        <div><dt>Precio</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>AJD (actos jurídicos documentados), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total antes de notaría, registro y abogado</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Consultar sobre esta vivienda</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plano"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>¿Financiación? Calculadora de hipoteca</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Precio de compra</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1440,410 +767,195 @@
               <div class="calculator-result"><span>Impuestos y gastos de compra</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Servicios y extras</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Lo que la promoción <em>le ofrece</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina comunitaria</h3>
-              <p class="amenity-note">Compartida por los residentes</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galería</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Desde el aire"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/development-from-above-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="La promoción vista desde el aire, con sus terrazas escalonadas ladera abajo" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Salón y terraza"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.jpg" alt="El salón con la cristalera abierta hacia la terraza" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="14" aria-label="El dormitorio principal"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.jpg" alt="El dormitorio principal, con zona de vestidor a lo largo de una pared" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="17" aria-label="El baño principal"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.jpg" alt="Un baño de mármol con ducha a ras de suelo y una larga encimera de piedra" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Las terrazas"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/the-building-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/the-building-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/the-building.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/the-building.jpg" alt="Terrazas superpuestas en el frente del edificio, con vegetación en cada nivel" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Ver las 18 fotos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriores (7)</button><button type="button" data-open-cat="Interiors">Interiores (7)</button><button type="button" data-open-cat="Bedrooms">Dormitorios (3)</button><button type="button" data-open-cat="Bathrooms">Baños (1)</button></div>
+    
+    <p class="caption">Imágenes facilitadas por el promotor; pueden ser generadas por ordenador. El diseño final, los acabados, el paisajismo y las vistas pueden variar, y el mobiliario no está incluido.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Ubicación</h2>
+    <p class="sec-sub">Una ladera sobre la carretera de la costa entre Estepona y Marbella, con golf hacia el interior y la playa por debajo.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="es">
+          <div class="locmap-map" id="locmap-selwo-panorama-residences" data-locmap='{&quot;site&quot;:[36.4699,-5.086],&quot;sea&quot;:[36.4429,-5.086],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Los Flamingos&quot;,&quot;sub&quot;:&quot;9,9 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Resina&quot;,&quot;sub&quot;:&quot;3,7 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;6,6 km · 9 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Selwo Panorama Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ubicación indicativa</span>
+            <h3 class="locmap-name">Selwo Panorama Residences</h3>
+            <p class="locmap-place">Nueva Milla de Oro, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Playa</span>
+              <span class="locmap-row-figure"><bdi>6,6 km</bdi> <em><bdi>9 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina interior</h3>
-              <p class="amenity-note">Nadar a cubierto</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centro de Estepona</span>
+              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bienestar</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Zona de agua para el descanso</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf La Resina</span>
+              <span class="locmap-row-figure"><bdi>3,7 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Bienestar</span>
-              <h3 class="amenity-name">Gimnasio</h3>
-              <p class="amenity-note">Dentro de la promoción</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>9,9 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Bienestar</span>
-              <h3 class="amenity-name">Simulador de golf</h3>
-              <p class="amenity-note">Jugar bajo techo todo el año</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Exteriores</span>
-              <h3 class="amenity-name">Vistas al mar</h3>
-              <p class="amenity-note">Hacia el Mediterráneo</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Día a día</span>
-              <h3 class="amenity-name">Dos plazas de aparcamiento</h3>
-              <p class="amenity-note">Sitio para dos coches</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Día a día</span>
-              <h3 class="amenity-name">Trastero</h3>
-              <p class="amenity-note">Trastero cerrado</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Día a día</span>
-              <h3 class="amenity-name">Espacio de coworking</h3>
-              <p class="amenity-note">Puestos de trabajo fuera de casa</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Servicios</span>
-              <h3 class="amenity-name">Urbanización cerrada</h3>
-              <p class="amenity-note">Acceso controlado</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Servicios</span>
-              <h3 class="amenity-name">Salón social</h3>
-              <p class="amenity-note">Una sala para reunirse</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">La playa</th><td>Aprox. 9 minutos</td></tr><tr><th scope="row">Centro de Estepona</th><td>Aprox. 16 minutos</td></tr><tr><th scope="row">Puerto Banús</th><td>Aprox. 18 minutos</td></tr><tr><th scope="row">Aeropuerto de Málaga</th><td>Aprox. 62 minutos</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">En la promoción</h2>
+    <p class="sec-sub">La Nueva Milla de Oro es el tramo de costa entre Estepona y Marbella, con golf hacia el interior y chiringuitos de diseño en la orilla.</p>
+    <div class="life-panels"><div><h3>Golf</h3><p>Varios campos quedan a pocos minutos, entre ellos Los Flamingos, El Paraíso y La Resina.</p></div><div><h3>El día a día</h3><p>Un colegio internacional, un hospital privado, supermercados y centros deportivos están todos cerca.</p></div><div><h3>Cómo moverse</h3><p>Puerto Banús queda al este por la carretera de la costa, y Marbella más allá.</p></div></div>
+    <ul class="amen-top"><li>Piscina comunitaria</li><li>Piscina interior</li><li>Spa</li><li>Gimnasio</li><li>Vistas al mar</li><li>Dos plazas de aparcamiento</li></ul>
+    <details class="amen-all"><summary>Ver las 11</summary><div class="amen-groups"><div><h3>Bienestar<span class="count">5</span></h3><ul><li>Piscina comunitaria</li><li>Piscina interior</li><li>Spa</li><li>Gimnasio</li><li>Simulador de golf</li></ul></div><div><h3>Exteriores<span class="count">1</span></h3><ul><li>Vistas al mar</li></ul></div><div><h3>Día a día<span class="count">3</span></h3><ul><li>Dos plazas de aparcamiento</li><li>Trastero</li><li>Espacio de coworking</li></ul></div><div><h3>Servicios<span class="count">2</span></h3><ul><li>Urbanización cerrada</li><li>Salón social</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Nuestra opinión</h2>
+    <p class="sec-sub">Lo que tendríamos en cuenta antes de reservar aquí, y las comprobaciones que hacemos por usted.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Nuestra opinión">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Destaca</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">A prever</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Comprobaciones</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Por qué destaca</h3><ul class="points"><li><b>Para quién es</b><span>Compradores que buscan el espacio y las vistas de una villa sin el mantenimiento de una parcela.</span></li><li><b>Qué la diferencia</b><span>Las terrazas van de 27,55 a 115,92 m², así que en la mayoría de las viviendas la estancia exterior es buena parte de lo que se compra.</span></li><li><b>Por qué importa la ubicación</b><span>La Nueva Milla de Oro está entre Estepona y Marbella, con varios campos de golf hacia el interior y la carretera de la costa por debajo.</span></li><li><b>Por qué comprobar la disponibilidad</b><span>Doce de las treinta y siete ya están reservadas. Confirmamos qué queda antes de cualquier visita.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Qué prever</h3><ul class="points"><li><b>Por qué importa el momento</b><span>La obra ya ha comenzado y la entrega se sitúa en el T4 2027, de modo que las calidades están definidas mientras las condiciones de pago aún importan.</span></li><li><b>Información actual</b><span>Nueva Living reconfirma los precios vigentes, la disponibilidad y las condiciones de pago antes de cualquier reserva.</span></li><li><b>Atractivo a largo plazo</b><span>Treinta y siete viviendas en un tramo de costa consolidado entre dos pueblos, un número limitado y no una fase que se repite.</span></li><li><b>Uso personal y alquiler</b><span>Apta tanto para vivir todo el año como para una segunda residencia de cerrar y marchar.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Comprobaciones antes de cualquier pago</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Licencia</b><span>Confirmamos por escrito la licencia de obra antes de que se mueva dinero alguno.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Aval bancario</b><span>Los pagos anteriores a la entrega deben ingresarse en la cuenta especial indicada en el contrato y estar cubiertos por un aval. Confirmamos ambas cosas.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Qué está incluido</b><span>Se indica que están incluidas dos plazas de aparcamiento y un trastero. Lo confirmamos por escrito, junto con lo que cubre la memoria de calidades.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Fecha de entrega</b><span>La entrega se sitúa en el T4 2027. La fecha del contrato de compraventa es la que prevalece, y la confirmamos antes de la reserva.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Solicite la información</h3><p>Planos, la memoria de calidades y el calendario de pagos.</p></li><li><h3>Compare las viviendas</h3><p>Las treinta y siete difieren en planta, orientación y terraza; ponemos la preselección una frente a otra.</p></li><li><h3>Visite el piso piloto</h3><p>Valore los acabados y las vistas antes de decidir.</p></li></ol>
+      <div class="docs card"><h3>Documentos que recibirá</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Lista de precios</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planos<small>24 de 25 viviendas</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Calendario de pagos<small>Aún no facilitado</small><small>Pendiente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>El resumen oficial al que tiene derecho todo comprador en Andalucía</small></span></li></ul><a class="btn btn-primary" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Recibir el dosier del proyecto</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Preguntas sobre Selwo</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>¿Cuánto cuestan las viviendas?</summary><p>De 1.442.000 € a 2.155.000 €, sin IVA. Dos plazas de aparcamiento y un trastero están incluidos en todos los precios.</p></details><details class="segment-faq-item"><summary>¿El IVA está incluido?</summary><p>No. Se añade un IVA del 10% a cada fase del calendario de pagos, incluida la reserva de 25.000 €.</p></details><details class="segment-faq-item"><summary>¿Cómo se escalonan los pagos?</summary><p>25.000 € en la reserva, 30% menos la reserva en el contrato privado de compraventa, 20% en un solo pago dentro del año siguiente a ese contrato y 50% en la escritura, cada tramo más el IVA del 10%.</p></details><details class="segment-faq-item"><summary>¿Cuántas siguen disponibles?</summary><p>25 de las treinta y siete. Las otras doce están reservadas, y una de las 25 no tiene precio en la lista actual.</p></details><details class="segment-faq-item"><summary>¿Cuándo se entrega?</summary><p>La entrega se sitúa en el T4 2027. La fecha que figure en el contrato de compraventa es la que prevalece, y la confirmamos por escrito.</p></details></div>
+    <details class="faq2-more"><summary>Ver todas las preguntas (8)</summary><div class="faq2"><details class="segment-faq-item"><summary>¿Qué superficie tienen las viviendas?</summary><p>De 201,81 a 305,38 m² incluida la terraza, con interiores de 143,34 a 216,91 m² y terrazas de 27,55 a 115,92 m².</p></details><details class="segment-faq-item"><summary>¿Se puede visitar el piso piloto?</summary><p>Sí. Está terminado y amueblado, y organizamos la visita.</p></details><details class="segment-faq-item"><summary>¿Qué hay en la planta de zonas comunes?</summary><p>Una piscina exterior, una piscina interior climatizada, un spa, un gimnasio, una sala de yoga, un salón social con cafetería, una sala de coworking y un simulador de golf.</p></details></div></details>
+    <p class="faq2-guide">Más sobre comprar obra nueva en España → <a class="textlink" href="es/guide-how-buying-works.html">Guía de compra</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Reservar una visita privada">
+    <div class="card">
+      <p class="rail-price-label">Precio desde</p>
+      <p class="rail-price num">1.442.000 €</p>
+      <p class="rail-note">Más IVA. Quedan 25 de 37 viviendas · Comprobado el septiembre de 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Reservar una visita privada</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Escríbanos por WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador</strong>Respondemos personalmente a cada consulta.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Reservar una visita privada</h2>
+        <p>Díganos qué vivienda le interesa. Le enviamos el dosier del proyecto y después recorremos la promoción con usted.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador de Nueva Living</strong>Respondemos personalmente a cada consulta.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Escríbanos</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Correo<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>En la visita comprobamos con usted</h3><ul><li><b>Sobre el terreno.</b> Vea la vivienda terminada y el avance del resto.</li><li><b>Las vistas.</b> Compare la vista desde distintas plantas y orientaciones.</li><li><b>Las zonas comunes.</b> Recorra la terraza de la piscina, el spa y el gimnasio.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Enviando…" data-success-label="Reservar una visita privada ✓" data-submitting-message="Enviando…" data-success-message="Solicitud recibida. Le enviaremos el dosier del proyecto y le propondremos horarios de visita." data-error-message="No se ha podido enviar. Inténtelo de nuevo o escríbanos por WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Selwo Panorama Residences">
+        <input type="hidden" id="f-project" name="project" value="Selwo Panorama Residences">
+        <input type="hidden" name="preferred_area" value="Nueva Milla de Oro, Estepona">
+        <input type="hidden" name="property_type_interest" value="Apartamentos y áticos">
+        <input type="hidden" name="budget_range" value="Desde 1.442.000 € + IVA">
+        <input type="hidden" name="consent_text" value="Acepto que Nueva Living guarde estos datos para responder a mi solicitud.">
+        <input type="hidden" name="message" id="v2-f-message" value="Me gustaría recibir la información actualizada del proyecto Selwo Panorama Residences." data-base="Me gustaría recibir la información actualizada del proyecto Selwo Panorama Residences.">
+        <h3>Sus datos</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Nombre</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Apellidos</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Correo electrónico</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Teléfono (opcional, para WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">¿Qué vivienda?</label><select id="v2-f-unit" name="unit_interest"><option value="">Aún no lo sé, envíenme todo</option><option value="1.1 GF-A">1.1 GF-A: 1.807.000 €</option><option value="1.1 GF-B">1.1 GF-B: 1.732.000 €</option><option value="1.1 1F-B">1.1 1F-B: 1.775.000 €</option><option value="1.1 2F-A">1.1 2F-A: 1.527.000 €</option><option value="1.1 2F-B">1.1 2F-B: 1.483.000 €</option><option value="1.2 G-A">1.2 G-A: 2.104.000 €</option><option value="1.2 G-B">1.2 G-B: 1.856.000 €</option><option value="1.2 GF-A">1.2 GF-A: 1.736.000 €</option><option value="1.2 GF-B">1.2 GF-B: 1.798.000 €</option><option value="1.2 1F-A">1.2 1F-A: 1.456.340 €</option><option value="1.2 2F-B">1.2 2F-B: A consultar</option><option value="2.1 GF-A">2.1 GF-A: 1.820.000 €</option><option value="2.1 GF-B">2.1 GF-B: 1.744.000 €</option><option value="2.1 1F-B">2.1 1F-B: 1.825.000 €</option><option value="2.1 2F-A">2.1 2F-A: 1.547.000 €</option><option value="2.1 2F-B">2.1 2F-B: 1.535.000 €</option><option value="2.2 G-B">2.2 G-B: 1.938.000 €</option><option value="2.2 GF-A">2.2 GF-A: 1.742.000 €</option><option value="2.2 GF-B">2.2 GF-B: 1.744.000 €</option><option value="2.2 1F-A">2.2 1F-A: 1.442.000 €</option><option value="2.2 1F-B">2.2 1F-B: 1.763.000 €</option><option value="2.2 2F-B">2.2 2F-B: 1.480.000 €</option><option value="2.3 G-A">2.3 G-A: 2.155.000 €</option><option value="2.3 GF-A">2.3 GF-A: 1.745.000 €</option><option value="2.3 2F-A">2.3 2F-A: 1.530.000 €</option></select></div>
+        <fieldset class="field"><legend>La vivienda sería</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Para vivir</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Una segunda residencia</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Una inversión</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>¿Cómo le respondemos?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Llamada</label>
+          <label><input type="radio" name="preferred_contact" value="email">Correo</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Acepto que Nueva Living guarde estos datos para responder a mi solicitud. <a href="es/privacy-policy.html">Política de privacidad</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Avísenme también si cambia la disponibilidad o los precios en Selwo.</label>
+        <button class="btn btn-primary btn-block" type="submit">Reservar una visita privada</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Por qué este proyecto</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Por qué este proyecto <em>importa</em></h2>
-          <p class="project-lead">Precios de piso para superficies de casa, en una ladera con el mar delante de cada terraza.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Por qué encaja</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Para quién es</h3><p>Compradores que buscan el espacio y las vistas de una villa sin el mantenimiento de una parcela.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué la diferencia</h3><p>Las terrazas van de 27,55 a 115,92 m², así que en la mayoría de las viviendas la estancia exterior es buena parte de lo que se compra.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué importa la ubicación</h3><p>La Nueva Milla de Oro está entre Estepona y Marbella, con varios campos de golf hacia el interior y la carretera de la costa por debajo.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué comprobar la disponibilidad</h3><p>Doce de las treinta y siete ya están reservadas. Confirmamos qué queda antes de cualquier visita.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argumento de inversión</h3></div>
-            <p class="why-group-note">Una mirada objetiva a lo que hace relevantes estas viviendas y su fase ahora mismo, sin promesa alguna de rentabilidad futura.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Por qué importa el momento</h3><p>La obra ya ha comenzado y la entrega se sitúa en el T4 2027, de modo que las calidades están definidas mientras las condiciones de pago aún importan.</p></article>
-              <article class="why-point reveal-soft"><h3>Información actual</h3><p>Nueva Living reconfirma los precios vigentes, la disponibilidad y las condiciones de pago antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Atractivo a largo plazo</h3><p>Treinta y siete viviendas en un tramo de costa consolidado entre dos pueblos, un número limitado y no una fase que se repite.</p></article>
-              <article class="why-point reveal-soft"><h3>Uso personal y alquiler</h3><p>Apta tanto para vivir todo el año como para una segunda residencia de cerrar y marchar.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confianza y diligencia</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Licencia</h3><p>Confirmamos por escrito la licencia de obra antes de que se mueva dinero alguno.</p></article>
-              <article class="why-point reveal-soft"><h3>Aval bancario</h3><p>Los pagos anteriores a la entrega deben ingresarse en la cuenta especial indicada en el contrato y estar cubiertos por un aval. Confirmamos ambas cosas.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué está incluido</h3><p>Se indica que están incluidas dos plazas de aparcamiento y un trastero. Lo confirmamos por escrito, junto con lo que cubre la memoria de calidades.</p></article>
-              <article class="why-point reveal-soft"><h3>Fecha de entrega</h3><p>La entrega se sitúa en el T4 2027. La fecha del contrato de compraventa es la que prevalece, y la confirmamos antes de la reserva.</p></article>
-            </div>
-            <p class="why-group-note">¿Es su primera compra sobre plano en España? <a href="es/guide-how-buying-works.html">Cómo funciona comprar obra nueva</a> explica los siete pasos, y <a href="es/guide-off-plan-vs-resale.html">sobre plano frente a segunda mano</a> detalla las señales, las garantías y los plazos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Las imágenes las facilita el promotor y pueden ser infografías">
+    <p>Las imágenes las facilita el promotor y pueden ser infografías; el diseño final, los acabados, el paisajismo y las vistas pueden variar. Tiene derecho a una copia del Documento Informativo Abreviado (DIA) de cualquier vivienda de esta página; Nueva Living se la facilita bajo petición.</p>
+    <p>Disponibilidad comprobada con el vendedor el septiembre de 2026; la volvemos a confirmar antes de cualquier reserva.</p>
+    <p>Superficies, precios y condiciones de pago transcritos de la lista de precios del promotor con fecha 7 de agosto de 2026. Los precios incluyen dos plazas de aparcamiento y un trastero, no incluyen el IVA del 10% y pueden cambiar sin previo aviso.</p>
+    <p>La información de esta página tiene fines comerciales generales y no constituye asesoramiento legal, financiero ni de inversión. Los precios, la disponibilidad y las fechas de entrega pueden cambiar sin previo aviso.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/selwo-panorama-residences/media/the-building.jpg" alt="Stacked planted terraces along the front of the building" width="1400" height="876" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Vista previa de arquitectura</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arquitectura</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terrazas <em>orientadas al mar</em></h2>
-          <p>Los edificios descienden escalonados por la ladera, de modo que cada planta retranquea sobre la inferior, y eso es lo que da a cada vivienda una terraza profunda y una vista despejada.</p>
-          <ul class="feature-list">
-            <li>Orientación — Todas las viviendas están orientadas al suroeste o al sureste, que es en torno a lo que se planteó la distribución.</li>
-            <li>Terrazas — De 27,55 a 115,92 m², tratadas como una estancia y no como un balcón.</li>
-            <li>Estructura — Estructura de hormigón armado, con fachadas de mortero continuo sobre aislamiento de altas prestaciones y cámara de aire.</li>
-            <li>Aislamiento — Tabiquería interior de placa de yeso con lana mineral; medianeras de ladrillo revestidas por ambas caras con placa de yeso y lana de roca.</li>
-            <li>Planta de zonas comunes — Piscina exterior, piscina interior climatizada, spa, gimnasio, sala de yoga, salón social, cafetería, sala de coworking y simulador de golf.</li>
-            <li>Incluido — Dos plazas de aparcamiento y un trastero con cada vivienda.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Acciones de solicitud del proyecto">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar</a>
+    <a class="ab-btn ab-primary" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Reservar visita</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/selwo-panorama-residences/media/covered-terrace.jpg" alt="A deep covered terrace with sofas, open to the coast" width="1400" height="933" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Presentación cinemática</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Visite el <em>piso piloto</em></h2>
-            <p>El piso piloto está terminado. Estar dentro es la forma más rápida de valorar la altura de techos, la luz y la profundidad de las terrazas.</p>
-            <div class="viewing-insights">
-              <div><span>Sobre el terreno</span><p>Vea la vivienda terminada y el avance del resto.</p></div>
-              <div><span>Las vistas</span><p>Compare la vista desde distintas plantas y orientaciones.</p></div>
-              <div><span>Las zonas comunes</span><p>Recorra la terraza de la piscina, el spa y el gimnasio.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="es/index.html#private-viewing=1&amp;project=selwo-panorama-residences">Presentación cinemática</a>
-              <a class="btn project-btn ghost" href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Solicitar información</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galería" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Cerrar">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Siguiente imagen">›</button>
+    <div class="lb-cats" role="group" aria-label="Galería"><button type="button" data-cat="Exteriors">Exteriores</button><button type="button" data-cat="Interiors">Interiores</button><button type="button" data-cat="Bedrooms">Dormitorios</button><button type="button" data-cat="Bathrooms">Baños</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/selwo-panorama-residences/media/communal-pool.jpg" alt="The communal pool on its terrace above the coast" width="1400" height="875" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Estilo de vida</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">La Nueva Milla de Oro, <em>entre dos pueblos</em></h2>
-            <p>La Nueva Milla de Oro es el tramo de costa entre Estepona y Marbella, con golf hacia el interior y chiringuitos de diseño en la orilla.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Próximos pasos</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Qué ocurre <em>a continuación</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Solicite la información</h3>
-            <p>Planos, la memoria de calidades y el calendario de pagos.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare las viviendas</h3>
-            <p>Las treinta y siete difieren en planta, orientación y terraza; ponemos la preselección una frente a otra.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visite el piso piloto</h3>
-            <p>Valore los acabados y las vistas antes de decidir.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Preguntas frecuentes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Preguntas <em>frecuentes de compradores</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>¿Pueden los extranjeros comprar propiedades en España?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué es el número de NIE y lo necesito?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué gastos adicionales debo prever además del precio de compra?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo conseguir una hipoteca en España siendo no residente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cómo funciona el proceso de reserva y pago?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo alquilar la propiedad después de comprarla?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Necesito un abogado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuánto cuestan las viviendas?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De 1.442.000 € a 2.155.000 €, sin IVA. Dos plazas de aparcamiento y un trastero están incluidos en todos los precios.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿El IVA está incluido?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. Se añade un IVA del 10% a cada fase del calendario de pagos, incluida la reserva de 25.000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cómo se escalonan los pagos?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>25.000 € en la reserva, 30% menos la reserva en el contrato privado de compraventa, 20% en un solo pago dentro del año siguiente a ese contrato y 50% en la escritura, cada tramo más el IVA del 10%.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuántas siguen disponibles?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>25 de las treinta y siete. Las otras doce están reservadas, y una de las 25 no tiene precio en la lista actual.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuándo se entrega?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La entrega se sitúa en el T4 2027. La fecha que figure en el contrato de compraventa es la que prevalece, y la confirmamos por escrito.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué superficie tienen las viviendas?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De 201,81 a 305,38 m² incluida la terraza, con interiores de 143,34 a 216,91 m² y terrazas de 27,55 a 115,92 m².</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Se puede visitar el piso piloto?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. Está terminado y amueblado, y organizamos la visita.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué hay en la planta de zonas comunes?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Una piscina exterior, una piscina interior climatizada, un spa, un gimnasio, una sala de yoga, un salón social con cafetería, una sala de coworking y un simulador de golf.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Consultar</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Pregunte por <em>las viviendas</em></h2>
-          <p class="body-copy">Comparta sus datos y le enviaremos la información actual del proyecto.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fundador de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fundador, Nueva Living</p>
-            <h3 id="advisor-heading">¿Prefiere comentarlo en persona?</h3>
-            <p class="advisor-copy">Elija lo que le encaje y escríbame por WhatsApp. Empezaré desde ahí.</p>
-            <div class="advisor-group" role="group" aria-label="Busco">
-              <span class="advisor-group-label">Busco</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Una vivienda para vivir</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Una casa de vacaciones</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Una inversión</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Presupuesto">
-              <span class="advisor-group-label">Presupuesto</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Menos de 500.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500.000 – 1.000.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Más de 1.000.000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor">Escríbame por WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Selwo Panorama Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Selwo Panorama Residences">
-          <input type="hidden" name="preferred_area" value="Nueva Milla de Oro, Estepona">
-          <input type="hidden" name="property_type_interest" value="Apartamentos y áticos">
-          <input type="hidden" name="budget_range" value="Desde 1.442.000 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Nombre</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Nombre" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Apellidos</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Apellidos" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Correo electrónico</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Teléfono</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 o internacional">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Mensaje</label>
-              <textarea id="f-msg" name="message">Me gustaría recibir la información actualizada del proyecto Selwo Panorama Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Acepto ser contactado/a y que mis datos sean almacenados.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>También me gustaría recibir novedades ocasionales de proyectos por parte de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Enviar solicitud</button>
-            <span class="form-note">Contexto del proyecto: Selwo Panorama Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"1.1 GF-A","title":"1.1 GF-A · Planta baja","sub":"4 dorm. · 234 m²","price":1807000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A.pdf","label":""}]},{"id":"u1","ref":"1.1 GF-B","title":"1.1 GF-B · Planta baja","sub":"3 dorm. · 230 m²","price":1732000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B.pdf","label":""}]},{"id":"u2","ref":"1.1 1F-B","title":"1.1 1F-B · Primera planta","sub":"5 dorm. · 254 m²","price":1775000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B.pdf","label":""}]},{"id":"u3","ref":"1.1 2F-A","title":"1.1 2F-A · Segunda planta, ático","sub":"3 dorm. · 207 m²","price":1527000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A.pdf","label":""}]},{"id":"u4","ref":"1.1 2F-B","title":"1.1 2F-B · Segunda planta, ático","sub":"3 dorm. · 202 m²","price":1483000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B.pdf","label":""}]},{"id":"u5","ref":"1.2 G-A","title":"1.2 G-A · Planta jardín","sub":"4 dorm. · 282 m²","price":2104000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A.pdf","label":""}]},{"id":"u6","ref":"1.2 G-B","title":"1.2 G-B · Planta jardín","sub":"3 dorm. · 245 m²","price":1856000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B.pdf","label":""}]},{"id":"u7","ref":"1.2 GF-A","title":"1.2 GF-A · Planta baja","sub":"3 dorm. · 231 m²","price":1736000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A.pdf","label":""}]},{"id":"u8","ref":"1.2 GF-B","title":"1.2 GF-B · Planta baja","sub":"4 dorm. · 282 m²","price":1798000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B.pdf","label":""}]},{"id":"u9","ref":"1.2 1F-A","title":"1.2 1F-A · Primera planta","sub":"3 dorm. · 204 m²","price":1456340,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A.pdf","label":""}]},{"id":"u10","ref":"1.2 2F-B","title":"1.2 2F-B · Segunda planta, ático","sub":"3 dorm. · 208 m²","price":null,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B.pdf","label":""}]},{"id":"u11","ref":"2.1 GF-A","title":"2.1 GF-A · Planta baja","sub":"4 dorm. · 236 m²","price":1820000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A.pdf","label":""}]},{"id":"u12","ref":"2.1 GF-B","title":"2.1 GF-B · Planta baja","sub":"3 dorm. · 232 m²","price":1744000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B.pdf","label":""}]},{"id":"u13","ref":"2.1 1F-B","title":"2.1 1F-B · Primera planta","sub":"5 dorm. · 257 m²","price":1825000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B.pdf","label":""}]},{"id":"u14","ref":"2.1 2F-A","title":"2.1 2F-A · Segunda planta, ático","sub":"3 dorm. · 209 m²","price":1547000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A.pdf","label":""}]},{"id":"u15","ref":"2.1 2F-B","title":"2.1 2F-B · Segunda planta, ático","sub":"3 dorm. · 205 m²","price":1535000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B.pdf","label":""}]},{"id":"u16","ref":"2.2 G-B","title":"2.2 G-B · Planta jardín","sub":"3 dorm. · 254 m²","price":1938000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B.pdf","label":""}]},{"id":"u17","ref":"2.2 GF-A","title":"2.2 GF-A · Planta baja","sub":"3 dorm. · 231 m²","price":1742000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A.pdf","label":""}]},{"id":"u18","ref":"2.2 GF-B","title":"2.2 GF-B · Planta baja","sub":"3 dorm. · 232 m²","price":1744000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B.pdf","label":""}]},{"id":"u19","ref":"2.2 1F-A","title":"2.2 1F-A · Primera planta","sub":"3 dorm. · 205 m²","price":1442000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A.pdf","label":""}]},{"id":"u20","ref":"2.2 1F-B","title":"2.2 1F-B · Primera planta","sub":"5 dorm. · 256 m²","price":1763000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B.pdf","label":""}]},{"id":"u21","ref":"2.2 2F-B","title":"2.2 2F-B · Segunda planta, ático","sub":"3 dorm. · 205 m²","price":1480000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B.pdf","label":""}]},{"id":"u22","ref":"2.3 G-A","title":"2.3 G-A · Planta jardín","sub":"4 dorm. · 298 m²","price":2155000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A.pdf","label":""}]},{"id":"u23","ref":"2.3 GF-A","title":"2.3 GF-A · Planta baja","sub":"3 dorm. · 232 m²","price":1745000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A.pdf","label":""}]},{"id":"u24","ref":"2.3 2F-A","title":"2.3 2F-A · Segunda planta, ático","sub":"3 dorm. · 205 m²","price":1530000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp","alt":"La promoción vista desde el aire, con sus terrazas escalonadas ladera abajo","caption":"Desde el aire","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/the-building.webp","alt":"Terrazas superpuestas en el frente del edificio, con vegetación en cada nivel","caption":"Las terrazas","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/communal-pool.webp","alt":"La piscina comunitaria en su terraza, con palmeras y el mar al fondo","caption":"La piscina comunitaria","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/covered-terrace.webp","alt":"Una terraza cubierta y profunda con sofás, abierta a la costa","caption":"La terraza","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-lounge.webp","alt":"Asientos en la terraza bajo el vuelo, con la vista a lo largo de la costa","caption":"En la terraza","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-and-sea.webp","alt":"Asientos al borde de la terraza, con el mar llenando la vista","caption":"La vista","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/gym.webp","alt":"El gimnasio de los residentes, acristalado por un lado hacia la terraza","caption":"El gimnasio","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.webp","alt":"El salón con la cristalera abierta hacia la terraza","caption":"Salón y terraza","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room.webp","alt":"El salón, acristalado en todo su ancho hacia el mar","caption":"El salón","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-and-dining.webp","alt":"Salón y comedor en una sola pieza, con la cocina al fondo","caption":"Salón y comedor","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/sitting-room.webp","alt":"Una segunda zona de estar abierta a la terraza","caption":"La sala de estar","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen-and-dining.webp","alt":"La isla de la cocina con la mesa de comedor al lado","caption":"Cocina y comedor","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen.webp","alt":"La cocina, con isla de piedra y electrodomésticos integrados","caption":"La cocina","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/dining-room.webp","alt":"La mesa de comedor bajo lámparas colgantes, con la cocina detrás","caption":"El comedor","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.webp","alt":"El dormitorio principal, con zona de vestidor a lo largo de una pared","caption":"El dormitorio principal","cat":"Bedrooms"},{"src":"assets/liora/projects/selwo-panorama-residences/media/bedroom-with-terrace.webp","alt":"Un dormitorio que se abre acristalado a su propia terraza","caption":"Un dormitorio y su terraza","cat":"Bedrooms"},{"src":"assets/liora/projects/selwo-panorama-residences/media/twin-bedroom.webp","alt":"Un dormitorio con dos camas y un rincón de estar junto a la ventana","caption":"Un dormitorio con dos camas","cat":"Bedrooms"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.webp","alt":"Un baño de mármol con ducha a ras de suelo y una larga encimera de piedra","caption":"El baño principal","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":".","post":" €"},"i18n":{"askAbout":"Consultar sobre {ref}","plusVat":"Más IVA","totalPrice":"Precio total","vatOnStages":"Más IVA sobre cada pago","onRequest":"A consultar","imageOf":"{i} de {n}","floorPlan":"Plano"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Selwo Panorama Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Cerrar">Cerrar</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Imagen anterior">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Siguiente imagen">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp","alt":"La promoción vista desde el aire, con sus terrazas escalonadas ladera abajo","width":1400,"height":876,"caption":"Desde el aire","category":"Exteriores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/the-building.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/the-building-960.webp","alt":"Terrazas superpuestas en el frente del edificio, con vegetación en cada nivel","width":1400,"height":876,"caption":"Las terrazas","category":"Exteriores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/communal-pool.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/communal-pool-960.webp","alt":"La piscina comunitaria en su terraza, con palmeras y el mar al fondo","width":1400,"height":875,"caption":"La piscina comunitaria","category":"Exteriores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/covered-terrace.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/covered-terrace-960.webp","alt":"Una terraza cubierta y profunda con sofás, abierta a la costa","width":1400,"height":933,"caption":"La terraza","category":"Exteriores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-lounge.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/terrace-lounge-960.webp","alt":"Asientos en la terraza bajo el vuelo, con la vista a lo largo de la costa","width":1400,"height":933,"caption":"En la terraza","category":"Exteriores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-and-sea.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/terrace-and-sea-960.webp","alt":"Asientos al borde de la terraza, con el mar llenando la vista","width":1400,"height":933,"caption":"La vista","category":"Exteriores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/gym.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/gym-960.webp","alt":"El gimnasio de los residentes, acristalado por un lado hacia la terraza","width":1400,"height":876,"caption":"El gimnasio","category":"Exteriores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-960.webp","alt":"El salón con la cristalera abierta hacia la terraza","width":1400,"height":933,"caption":"Salón y terraza","category":"Interiores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/living-room-960.webp","alt":"El salón, acristalado en todo su ancho hacia el mar","width":1400,"height":933,"caption":"El salón","category":"Interiores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-and-dining.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/living-and-dining-960.webp","alt":"Salón y comedor en una sola pieza, con la cocina al fondo","width":1400,"height":933,"caption":"Salón y comedor","category":"Interiores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/sitting-room.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/sitting-room-960.webp","alt":"Una segunda zona de estar abierta a la terraza","width":1400,"height":933,"caption":"La sala de estar","category":"Interiores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen-and-dining.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/kitchen-and-dining-960.webp","alt":"La isla de la cocina con la mesa de comedor al lado","width":1400,"height":936,"caption":"Cocina y comedor","category":"Interiores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/kitchen-960.webp","alt":"La cocina, con isla de piedra y electrodomésticos integrados","width":1400,"height":933,"caption":"La cocina","category":"Interiores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/dining-room.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/dining-room-960.webp","alt":"La mesa de comedor bajo lámparas colgantes, con la cocina detrás","width":1400,"height":933,"caption":"El comedor","category":"Interiores"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-960.webp","alt":"El dormitorio principal, con zona de vestidor a lo largo de una pared","width":1400,"height":933,"caption":"El dormitorio principal","category":"Dormitorios"},{"src":"assets/liora/projects/selwo-panorama-residences/media/bedroom-with-terrace.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/bedroom-with-terrace-960.webp","alt":"Un dormitorio que se abre acristalado a su propia terraza","width":1400,"height":933,"caption":"Un dormitorio y su terraza","category":"Dormitorios"},{"src":"assets/liora/projects/selwo-panorama-residences/media/twin-bedroom.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/twin-bedroom-960.webp","alt":"Un dormitorio con dos camas y un rincón de estar junto a la ventana","width":1400,"height":933,"caption":"Un dormitorio con dos camas","category":"Dormitorios"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-960.webp","alt":"Un baño de mármol con ducha a ras de suelo y una larga encimera de piedra","width":1400,"height":933,"caption":"El baño principal","category":"Baños"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Acciones de solicitud del proyecto">
-    <a href="es/property-selwo-panorama-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

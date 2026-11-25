@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Pueden los extranjeros comprar propiedades en España?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué es el número de NIE y lo necesito?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué gastos adicionales debo prever además del precio de compra?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo conseguir una hipoteca en España siendo no residente?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo funciona el proceso de reserva y pago?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo alquilar la propiedad después de comprarla?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito un abogado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Cuántas viviendas hay?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="es"
   data-project-name="Brisamar Residences"
   data-project-message="Hola Nueva Living, me gustaría recibir información sobre Brisamar Residences."
@@ -443,630 +380,180 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Brisamar Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="es/property-brisamar-residences.html#top">Brisamar Residences<span>Desde 549.000 € · Más IVA</span></a>
+      <nav class="hdr-proj" aria-label="Secciones del proyecto"><a href="es/property-brisamar-residences.html#overview">Visión general</a><a href="es/property-brisamar-residences.html#availability">Precios</a><a href="es/property-brisamar-residences.html#specs">Calidades</a><a href="es/property-brisamar-residences.html#gallery">Galería</a><a href="es/property-brisamar-residences.html#location">Ubicación</a><a href="es/property-brisamar-residences.html#onsite">En la promoción</a><a href="es/property-brisamar-residences.html#view">Nuestra opinión</a><a href="es/property-brisamar-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="es/property-brisamar-residences.html#enquire" data-prefill>Reservar una visita privada</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Brisamar Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/corner-facade-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/corner-facade-day.webp 1200w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Vista generada por ordenador de un edificio en una esquina, con losas de balcón blancas y curvas, terrazas con plantas y una pérgola en la cubierta" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Vista generada por ordenador de un edificio en una esquina, con losas de balcón blancas y curvas, terrazas con plantas y una pérgola en la cubierta" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">9 de 22 viviendas disponibles</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Brisamar <em>Residences</em></span>
-            <span class="hero-title-context">Apartamentos y áticos · Estepona</span>
-          </h1>
-          <p class="hero-positioning">22 viviendas de tres dormitorios en un solo edificio cerca del centro de Estepona: cuatro viviendas en planta baja con jardín y piscina privados, terrazas en todas las plantas superiores y viviendas con solárium y piscina privados en la cubierta. Nueve figuran con precio, desde 549.000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="es/property-brisamar-residences.html#availability">Ver viviendas disponibles</a>
-            <a class="btn project-btn ghost" href="es/index.html#private-viewing=1&amp;project=brisamar-residences">Presentación cinemática</a>
-            <a class="btn project-btn ghost" href="es/property-brisamar-residences.html#media">Todas las imágenes</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Datos clave del proyecto">
-          <div class="hero-fact"><span>Zona</span><strong>Estepona</strong></div>
-          <div class="hero-fact"><span>Precio desde</span><strong>Desde 549.000 €</strong></div>
-          <div class="hero-fact"><span>Tipo de vivienda</span><strong>Apartamentos y áticos</strong></div>
-          <div class="hero-fact"><span>Entrega</span><strong>Entrega por confirmar</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Secciones del proyecto">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ir a</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="es/property-brisamar-residences.html#media">Galería</a>
-        <a href="es/property-brisamar-residences.html#location">Ubicación</a>
-        <a href="es/property-brisamar-residences.html#availability">Disponibilidad</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Más</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="es/property-brisamar-residences.html#overview">Visión general</a>
-          <a href="es/property-brisamar-residences.html#residences">Viviendas</a>
-          <a href="es/property-brisamar-residences.html#quality-specifications">Calidades</a>
-          <a href="es/property-brisamar-residences.html#calculator">Financiación</a>
-          <a href="es/property-brisamar-residences.html#amenities">Servicios y extras</a>
-          <a href="es/property-brisamar-residences.html#why-this-project">Por qué</a>
-          <a href="es/property-brisamar-residences.html#architecture">Arquitectura</a>
-          <a href="es/property-brisamar-residences.html#private-viewing">Presentación cinemática</a>
-          <a href="es/property-brisamar-residences.html#lifestyle">Estilo de vida</a>
-          <a href="es/property-brisamar-residences.html#faq">FAQ</a>
-          <a href="es/property-brisamar-residences.html#enquire">Consultar</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Datos rápidos del proyecto">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Dormitorios</span><strong>3 dormitorios</strong></div>
-          <div class="quick-fact"><span>Superficie construida</span><strong>77,32 - 101,15 m²</strong></div>
-          <div class="quick-fact"><span>Terraza y solárium</span><strong>11,42 - 83,60 m²</strong></div>
-          <div class="quick-fact"><span>Garaje</span><strong>Plaza de aparcamiento y trastero incluidos con cada vivienda</strong></div>
-          <div class="quick-fact"><span>Disponibilidad</span><strong>9 de 22 viviendas disponibles</strong></div>
-          <div class="quick-fact"><span>Rango de precios</span><strong>549.000 € - 1.050.000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="es/property-brisamar-residences.html#enquire" data-prefill>Solicitar información</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Visión general</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veintidós viviendas, <em>nueve en la lista</em></h2>
-          <p class="project-lead">Se trata de un edificio residencial de 22 viviendas cerca del centro de Estepona. Tiene planta baja, cuatro plantas superiores y una planta de áticos, con dos sótanos para garaje y trasteros. Todas las viviendas tienen tres dormitorios, un salón-comedor con cocina y dos baños, y el dormitorio principal cuenta con baño propio.</p>
-          <p class="project-lead">Las cuatro viviendas de planta baja tienen terraza, jardín privado y piscina privada, y cada planta superior tiene cuatro viviendas con grandes terrazas. Algunas de las viviendas superiores tienen un solárium privado en la cubierta con su propia piscina, y en la cubierta hay además una piscina comunitaria, un solárium y servicios. Nueve viviendas figuran con precio; los documentos del promotor no indican una fecha de entrega.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Galería</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Las viviendas <em>al detalle</em></h2>
-          </div>
-          <p class="project-lead">Vistas del edificio y de sus interiores generadas por ordenador, y planos de las nueve viviendas de la lista.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Ver 6 imágenes de Exteriores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/corner-facade-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/corner-facade-day.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Vista generada por ordenador de un edificio en una esquina, con losas de balcón blancas y curvas, terrazas con plantas y una pérgola en la cubierta" width="1200" height="675" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriores</small>
-                <strong>La esquina del edificio</strong>
-                <span class="project-media-card-cta">6 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Ver 2 imágenes de Interiores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/living-kitchen-640.webp 640w, assets/liora/projects/brisamar-residences/media/living-kitchen-960.webp 960w, assets/liora/projects/brisamar-residences/media/living-kitchen.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/living-kitchen.jpg" alt="Salón-comedor generado por ordenador con sofá, cocina abierta y puertas de cristal al jardín" width="1200" height="675" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiores</small>
-                <strong>Salón, comedor y cocina</strong>
-                <span class="project-media-card-cta">2 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Ver 2 imágenes de Dormitorios">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/twin-bedroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/twin-bedroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/twin-bedroom.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/twin-bedroom.jpg" alt="Dormitorio generado por ordenador con dos camas individuales, armario empotrado y puerta corredera de cristal" width="1200" height="705" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Dormitorios</small>
-                <strong>Dormitorio con camas individuales</strong>
-                <span class="project-media-card-cta">2 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Ver 1 imágenes de Baños">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/bathroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/bathroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/bathroom.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/bathroom.jpg" alt="Baño generado por ordenador con mueble de lavabo suspendido, inodoro y ducha a ras de suelo" width="1200" height="900" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Baños</small>
-                <strong>Baño</strong>
-                <span class="project-media-card-cta">1 imagen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Ver 13 imágenes de Planos">
-              <img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" alt="Plano de la vivienda 0D, planta baja" width="590" height="776" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planos</small>
-                <strong>Vivienda 0D, planta baja</strong>
-                <span class="project-media-card-cta">13 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Ver las 24 imágenes</button>
-          <p class="media-note">Todas las imágenes son ilustraciones generadas por ordenador y no fotografías del edificio terminado, y el mobiliario y la decoración que aparecen son ilustrativos y no están incluidos. Los planos son los del promotor, en fase de proyecto, y las superficies que figuran en ellos son aproximadas y están sujetas al proyecto definitivo. Los nombres de las estancias en los planos están en inglés.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Ubicación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>a menos de diez minutos del puerto deportivo y de la playa</em></h2>
-          <p class="project-lead">El edificio está en una de las zonas residenciales de Estepona, cerca del casco histórico y de la A-7 y la AP-7. El folleto del promotor sitúa el puerto deportivo de Estepona y la playa de La Rada a menos de diez minutos, con comercios, supermercados, colegios e instalaciones deportivas cerca, y acceso directo a Málaga y a su aeropuerto.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="es">
-          <div class="locmap-map" id="locmap-brisamar-residences" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;130 m · 2 min a pie&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;570 m · 8 min a pie&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Brisamar Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ubicación indicativa</span>
-            <h3 class="locmap-name">Brisamar Residences</h3>
-            <p class="locmap-place">Estepona, cerca del centro</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Playa</span>
-              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min a pie</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centro de Estepona</span>
-              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min a pie</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Viviendas</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Cuatro tipos de vivienda, <em>un solo edificio</em></h2>
-          <p class="project-lead">Las nueve viviendas de la lista se dividen en cuatro grupos según su posición en el edificio. La tabla siguiente las incluye todas con sus precios.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Planta baja, con jardín y piscina</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-brisamar-residences.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>De la primera a la cuarta planta</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-brisamar-residences.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Cuarta planta, con solárium privado</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-brisamar-residences.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>El ático</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-brisamar-residences.html#availability">Ver planos</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Material privado</span>
-            <p>Los planos, orientaciones y disponibilidad actuales deben confirmarse con el último dossier de la promotora antes de preseleccionar una vivienda.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="es/property-brisamar-residences.html#availability">Ver planos</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Memoria de calidades</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Con qué están <em>construidas</em></h2>
-          <p class="project-lead">La especificación de calidades del propio promotor, resumida por partes de la vivienda.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Estructura, fachada y cubiertas<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Una estructura de hormigón armado, con cimentación diseñada según el estudio geotécnico, y una fachada multicapa de fábrica de ladrillo exterior, aislamiento interior, cámara de aire y trasdosado interior, con acabado de mortero exterior.</li>
-              <li>Cubiertas planas invertidas, impermeabilizadas y aisladas con planchas rígidas, con acabado de grava donde no hay acceso y de solado cerámico antideslizante donde sí lo hay.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Ventanas y aislamiento<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Marcos de aluminio lacado con rotura de puente térmico, abatibles, oscilobatientes o correderas según su ubicación, con doble acristalamiento de cámara de aire deshidratado elegido según la orientación, y persianas motorizadas en los dormitorios accionadas con pulsador.</li>
-              <li>Tabiquería seca de placas de yeso laminado sobre perfilería metálica con aislamiento térmico y acústico de lana mineral, placas hidrófugas en zonas húmedas, y separaciones entre viviendas y zonas comunes de ladrillo perforado con trasdosado aislante.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Carpintería y armarios<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Puerta de entrada blindada con cerradura de tres puntos, puertas de paso lacadas de hoja lisa con herrajes de acero inoxidable o cromo mate, y armarios modulares empotrados totalmente forrados, con cajoneras, balda y barra de colgar.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Suelos y techos<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gres porcelánico rectificado de gran formato en toda la vivienda, gres rectificado antideslizante en las terrazas, porcelánico en suelos y paredes de los baños, y techos de placa de yeso laminado con aislamiento de lana mineral.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cocina<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Cocina completamente amueblada con muebles altos y bajos laminados, encimera de material porcelánico de alta resistencia de unos 12 mm de grosor o similar, fregadero de acero inoxidable bajo encimera y grifo monomando cromado.</li>
-              <li>Electrodomésticos incluidos: horno eléctrico, microondas, placa de inducción, campana extractora, lavavajillas integrable, frigorífico y lavadora.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Baños<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Lavabos integrados en la encimera con mueble suspendido, platos de ducha de perfil bajo con mampara de cristal, grifería de ducha termostática cromada con barra deslizante y rociador de mano, e inodoros con cisterna empotrada, doble descarga y asiento amortiguado.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatización, agua caliente y electricidad<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Aire acondicionado por conductos para frío y calor, zonificado por estancias, agua caliente mediante aerotermia, suelo radiante eléctrico en los baños y un sistema de ventilación con renovación continua del aire.</li>
-              <li>Iluminación LED empotrada en cocinas, pasillos y baños, iluminación LED en las terrazas, tomas de TV, radio y teléfono en salones, cocinas y dormitorios, videoportero en color, y puntos de agua en las terrazas de solárium y en los jardines de planta baja.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Edificio y garaje<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Se proyecta una piscina comunitaria en la terraza de la cubierta, con aseo y cuarto de instalaciones. Los portales tienen pavimento de piedra, cerámica o piedra artificial e iluminación LED con detectores de presencia.</li>
-              <li>Los ascensores sirven a todas las plantas y comunican directamente con las plantas de garaje, con puertas automáticas, detección de sobrecarga y conexión telefónica. El suelo del garaje es de hormigón pulido.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Fuente: la memoria de calidades del promotor para esta promoción, que no lleva versión ni fecha. Indica que la dirección facultativa puede modificar los materiales siempre que no se reduzca la calidad, y que la información no es contractual.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilidad</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Nueve viviendas <em>actualmente en la lista</em></h2>
-          <p class="project-lead">Los precios son los de la lista de precios del promotor a octubre de 2026 y se confirman antes de la reserva. Nueve de las 22 viviendas figuran en la lista, todas con tres dormitorios y dos baños; los documentos del promotor no dicen que las otras 13 estén vendidas.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Vista generada por ordenador de un edificio en una esquina, con losas de balcón blancas y curvas, terrazas con plantas y una pérgola en la cubierta" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>11 fotos</button>
+          <a class="chip" href="es/property-brisamar-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planos</a>
+          <a class="chip" href="es/property-brisamar-residences.html#location"><svg><use href="#v2-pin"/></svg>Mapa</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Resumen de la fase actual">
-            <div><span>Viviendas disponibles</span><strong>9</strong></div>
-            <div><span>Precio desde</span><strong>549.000 €</strong></div>
-            <div><span>Rango de precios</span><strong>549.000 € - 1.050.000 €</strong></div>
-            <div><span>Verificado</span><strong>octubre de 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Ver las 9 viviendas disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Viviendas disponibles">
-              <article class="unit-card" data-unit data-price="650000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" target="_blank" rel="noopener" aria-label="Plano de Planta baja">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" alt="Plano de Planta baja" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Planta baja</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg" target="_blank" rel="noopener" aria-label="Plano de Jardín">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-0d-garden-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-0d-garden-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg" alt="Plano de Jardín" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Jardín</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">0D</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>77,32 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>11,42 m²</dd></div>
-                    <div><dt>De jardín</dt><dd>92,24 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Planta baja</dd></div>
-                  </dl>
-                  <p class="unit-card-price">650.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%200D">Consultar sobre 0D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="549000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Plano de 1C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" alt="Plano de 1C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1C</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>87,13 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>14,54 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">549.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%201C">Consultar sobre 1C</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="575000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Plano de 2D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" alt="Plano de 2D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2D</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>81,17 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>11,42 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Segunda planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">575.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%202D">Consultar sobre 2D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="595000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Plano de 3B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" alt="Plano de 3B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>89,11 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>17,85 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Tercera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">595.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%203B">Consultar sobre 3B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="815000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" target="_blank" rel="noopener" aria-label="Plano de Cuarta planta">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" alt="Plano de Cuarta planta" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Cuarta planta</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg" target="_blank" rel="noopener" aria-label="Plano de Solárium">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg" alt="Plano de Solárium" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Solárium</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>101,15 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>20,31 m²</dd></div>
-                    <div><dt>De solárium</dt><dd>19,66 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Cuarta planta, solárium</dd></div>
-                  </dl>
-                  <p class="unit-card-price">815.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204A">Consultar sobre 4A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="630000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Plano de 4B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" alt="Plano de 4B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>89,10 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>17,85 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Cuarta planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">630.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204B">Consultar sobre 4B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="665000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Plano de 4C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" alt="Plano de 4C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4C</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>87,13 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>14,54 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Cuarta planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">665.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204C">Consultar sobre 4C</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="860000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" target="_blank" rel="noopener" aria-label="Plano de Cuarta planta">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" alt="Plano de Cuarta planta" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Cuarta planta</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg" target="_blank" rel="noopener" aria-label="Plano de Solárium">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg" alt="Plano de Solárium" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Solárium</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4D</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>81,17 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>11,42 m²</dd></div>
-                    <div><dt>De solárium</dt><dd>31,65 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Cuarta planta, solárium</dd></div>
-                  </dl>
-                  <p class="unit-card-price">860.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204D">Consultar sobre 4D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1050000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" target="_blank" rel="noopener" aria-label="Plano de Ático">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" alt="Plano de Ático" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ático</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg" target="_blank" rel="noopener" aria-label="Plano de Solárium">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg" alt="Plano de Solárium" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Solárium</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>95,09 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>17,56 m²</dd></div>
-                    <div><dt>De solárium</dt><dd>66,04 m²</dd></div>
-                    <div><dt>Planta</dt><dd>Ático, solárium</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.050.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%205A">Consultar sobre 5A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Los precios, las superficies construidas y las terrazas se han transcrito de la lista de precios del promotor tal como figura en su portal en octubre de 2026. La lista no indica si el IVA está incluido. Para las viviendas 4A, 4D y 5A la lista da la terraza y el solárium privado como una sola cifra (39,97, 43,07 y 83,60 m²); la tabla los muestra por separado, como hacen los planos. Los planos dan además una superficie útil y una superficie construida según el Decreto 218/2005, que difieren de la superficie construida de la lista.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="es/property-brisamar-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Calcule su <em>cuota mensual</em></h2>
-          <p class="body-copy">Se trata de una estimación orientativa. Confirme las condiciones exactas con su entidad financiera antes de tomar cualquier decisión.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Brisamar</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">22 viviendas de tres dormitorios en un solo edificio cerca del centro de Estepona: cuatro viviendas en planta baja con jardín y piscina privados, terrazas en todas las plantas superiores y viviendas con solárium y piscina privados en la cubierta.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Precio</dt><dd class="num">Desde 549.000 €</dd><dd class="sub">Más IVA</dd></div><div><dt>Dormitorios</dt><dd>3</dd><dd class="sub"><span>Apartamentos y áticos</span></dd></div><div><dt>Entrega</dt><dd>por confirmar</dd><dd class="sub">Licencia: la confirmamos antes de que reserve</dd></div><div><dt>Viviendas disponibles</dt><dd>9 de 22</dd><dd class="sub">Comprobado el octubre de 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="es/property-brisamar-residences.html#enquire" data-prefill>Reservar una visita privada</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">La promoción</h2>
+    <p class="lede">Se trata de un edificio residencial de 22 viviendas cerca del centro de Estepona. Tiene planta baja, cuatro plantas superiores y una planta de áticos, con dos sótanos para garaje y trasteros. Todas las viviendas tienen tres dormitorios, un salón-comedor con cocina y dos baños, y el dormitorio principal cuenta con baño propio.</p>
+    <p class="lede-2">Las cuatro viviendas de planta baja tienen terraza, jardín privado y piscina privada, y cada planta superior tiene cuatro viviendas con grandes terrazas. Algunas de las viviendas superiores tienen un solárium privado en la cubierta con su propia piscina, y en la cubierta hay además una piscina comunitaria, un solárium y servicios. Nueve viviendas figuran con precio; los documentos del promotor no indican una fecha de entrega.</p>
+    <details class="fold" id="architecture"><summary>Arquitectura · <span>Líneas blancas curvas, terrazas con plantas</span></summary><p>En las imágenes generadas por ordenador del promotor, el edificio tiene losas de balcón blancas y curvas, terrazas con plantas en todas las plantas y una pérgola en la cubierta, con un diseño contemporáneo que busca aprovechar al máximo la luz natural.</p><p>Las viviendas tienen grandes puertas acristaladas a las terrazas, y la carpintería del salón-comedor va empotrada en el suelo para que la estancia continúe en la terraza.</p><ul><li>Estructura: Hormigón armado conforme al Código Técnico de la Edificación.</li><li>Fachada: Multicapa: fábrica de ladrillo exterior, aislamiento interior, cámara de aire y trasdosado interior, con acabado de mortero exterior.</li><li>Carpintería exterior: Marcos de aluminio lacado con rotura de puente térmico y doble acristalamiento, y persianas motorizadas en los dormitorios.</li><li>Terrazas: Pavimento de gres porcelánico antideslizante de gran formato, con iluminación LED.</li></ul></details>
+    <dl class="kfacts"><div><dt>Precio</dt><dd><span>549.000 € – 1.050.000 €</span><small>Más IVA</small></dd></div><div><dt>Disponibles</dt><dd><span>9 de 22 viviendas</span><small>Comprobado el octubre de 2026</small></dd></div><div><dt>Viviendas</dt><dd><span>Apartamentos y áticos</span></dd></div><div><dt>Superficies</dt><dd><span>77 – 101 m²</span><small>Superficie construida</small></dd></div><div><dt>Entrega</dt><dd><span>por confirmar</span></dd></div><div><dt>Licencia</dt><dd><span>No indicada</span><small>La confirmamos antes de que reserve</small></dd></div><div><dt>Anticipos</dt><dd><span>Aval bancario</span><small>Obligatorio por ley</small></dd></div><div><dt>Aparcamiento</dt><dd><span>Aparcamiento subterráneo y trastero para cada vivienda</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Viviendas y precios</h2>
+    <p class="sec-sub">Los precios son los de la lista de precios del promotor a octubre de 2026 y se confirman antes de la reserva. Nueve de las 22 viviendas figuran en la lista, todas con tres dormitorios y dos baños; los documentos del promotor no dicen que las otras 13 estén vendidas. Seleccione una vivienda para ver su calendario de pagos y su coste total.</p>
+    <div class="scarcity" role="img" aria-label="9 de 22 aún a la venta"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>9 de 22 aún a la venta</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Viviendas a la venta, con superficie y precio. Seleccione una fila para ver el calendario de pagos.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Vivienda</th>
+          <th scope="col" data-sort="beds">Dormitorios</th>
+          <th scope="col" data-sort="size">Superficie</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Precio</th>
+          <th scope="col" data-sort="ppm">Por m²</th>
+          <th scope="col">Plano</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="650000" data-size="77.32" data-ppm="8407" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp">
+            <th scope="row"><span class="u-name">0D</span><span class="u-loc">Planta baja</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">77 m²</td>
+            <td data-label="Precio" class="u-price num">650.000 €</td>
+            <td data-label="Por m²" class="num">8.407 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" target="_blank" rel="noopener" aria-label="Plano de 0D"><img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="549000" data-size="87.13" data-ppm="6301" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp">
+            <th scope="row"><span class="u-name">1C</span><span class="u-loc">Primera planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">87 m²</td>
+            <td data-label="Precio" class="u-price num">549.000 €</td>
+            <td data-label="Por m²" class="num">6.301 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Plano de 1C"><img src="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="575000" data-size="81.17" data-ppm="7084" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp">
+            <th scope="row"><span class="u-name">2D</span><span class="u-loc">Segunda planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">81 m²</td>
+            <td data-label="Precio" class="u-price num">575.000 €</td>
+            <td data-label="Por m²" class="num">7.084 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Plano de 2D"><img src="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="595000" data-size="89.11" data-ppm="6677" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp">
+            <th scope="row"><span class="u-name">3B</span><span class="u-loc">Tercera planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">89 m²</td>
+            <td data-label="Precio" class="u-price num">595.000 €</td>
+            <td data-label="Por m²" class="num">6.677 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Plano de 3B"><img src="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="815000" data-size="101.15" data-ppm="8057" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp">
+            <th scope="row"><span class="u-name">4A</span><span class="u-loc">Cuarta planta, solárium</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">101 m²</td>
+            <td data-label="Precio" class="u-price num">815.000 €</td>
+            <td data-label="Por m²" class="num">8.057 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" target="_blank" rel="noopener" aria-label="Plano de 4A"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="630000" data-size="89.1" data-ppm="7071" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp">
+            <th scope="row"><span class="u-name">4B</span><span class="u-loc">Cuarta planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">89 m²</td>
+            <td data-label="Precio" class="u-price num">630.000 €</td>
+            <td data-label="Por m²" class="num">7.071 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Plano de 4B"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="665000" data-size="87.13" data-ppm="7632" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp">
+            <th scope="row"><span class="u-name">4C</span><span class="u-loc">Cuarta planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">87 m²</td>
+            <td data-label="Precio" class="u-price num">665.000 €</td>
+            <td data-label="Por m²" class="num">7.632 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Plano de 4C"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="860000" data-size="81.17" data-ppm="10595" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp">
+            <th scope="row"><span class="u-name">4D</span><span class="u-loc">Cuarta planta, solárium</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">81 m²</td>
+            <td data-label="Precio" class="u-price num">860.000 €</td>
+            <td data-label="Por m²" class="num">10.595 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" target="_blank" rel="noopener" aria-label="Plano de 4D"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="1050000" data-size="95.09" data-ppm="11042" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp">
+            <th scope="row"><span class="u-name">5A</span><span class="u-loc">Ático, solárium</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">95 m²</td>
+            <td data-label="Precio" class="u-price num">1.050.000 €</td>
+            <td data-label="Por m²" class="num">11.042 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" target="_blank" rel="noopener" aria-label="Plano de 5A"><img src="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Viviendas · <span>Cuatro tipos de vivienda, un solo edificio</span></summary><p>Las nueve viviendas de la lista se dividen en cuatro grupos según su posición en el edificio. La tabla siguiente las incluye todas con sus precios.</p><div class="res-types"><div class="res-type"><h3>Planta baja, con jardín y piscina</h3><ul><li>Cuatro viviendas de planta baja tienen terraza, jardín privado y una piscina privada de 10 m² según los planos; una de ellas, la 0D, figura en la lista.</li><li>La vivienda 0D tiene tres dormitorios y dos baños, 77,32 m² construidos, una terraza cubierta de 11,42 m² y un jardín de 92,24 m².</li><li>El precio es de 650.000 €.</li></ul></div><div class="res-type"><h3>De la primera a la cuarta planta</h3><ul><li>Cinco viviendas de tres dormitorios y dos baños: 1C, 2D, 3B, 4B y 4C, de 81,17 a 89,11 m² construidos.</li><li>Terrazas de 11,42 a 17,85 m².</li><li>Los precios van de 549.000 € a 665.000 €.</li></ul></div><div class="res-type"><h3>Cuarta planta, con solárium privado</h3><ul><li>Las viviendas 4A y 4D tienen un solárium privado en la planta superior, al que se accede desde el interior de la vivienda, y una piscina de 8,94 y 7,37 m² según los planos.</li><li>4A tiene 101,15 m² construidos, una terraza de 20,31 m² y un solárium de 19,66 m²; 4D tiene 81,17 m² construidos, una terraza de 11,42 m² y un solárium de 31,65 m².</li><li>Los precios son 815.000 € y 860.000 €.</li></ul></div><div class="res-type"><h3>El ático</h3><ul><li>La vivienda 5A tiene tres dormitorios y dos baños, 95,09 m² construidos y una terraza de 17,56 m² en la quinta planta.</li><li>Un solárium privado en la cubierta, justo encima, de 66,04 m², con una piscina de 15,48 m² según los planos.</li><li>El precio es de 1.050.000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">El calendario de pagos del promotor se facilita bajo petición; se lo enviamos con la lista de precios.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Lo que cuesta en total</p>
+      <dl class="cost-lines num">
+        <div><dt>Precio</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>AJD (actos jurídicos documentados), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total antes de notaría, registro y abogado</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="es/property-brisamar-residences.html#enquire" data-prefill>Consultar sobre esta vivienda</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plano"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>¿Financiación? Calculadora de hipoteca</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Precio de compra</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1126,403 +613,230 @@
               <div class="calculator-result"><span>Impuestos y gastos de compra</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Servicios y extras</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Lo que la promoción <em>le ofrece</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina comunitaria</h3>
-              <p class="amenity-note">Compartida por los residentes</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Calidades</h2>
+    <p class="sec-sub">La especificación de calidades del propio promotor, resumida por partes de la vivienda.</p>
+    <div class="tabs" role="tablist" aria-label="Calidades"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Estructura, fachada y cubiertas</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Ventanas y aislamiento</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Carpintería y armarios</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Suelos y techos</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Cocina</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Baños</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Climatización, agua caliente y electricidad</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Edificio y garaje</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Una estructura de hormigón armado, con cimentación diseñada según el estudio geotécnico, y una fachada multicapa de fábrica de ladrillo exterior, aislamiento interior, cámara de aire y trasdosado interior, con acabado de mortero exterior.</li><li>Cubiertas planas invertidas, impermeabilizadas y aisladas con planchas rígidas, con acabado de grava donde no hay acceso y de solado cerámico antideslizante donde sí lo hay.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Marcos de aluminio lacado con rotura de puente térmico, abatibles, oscilobatientes o correderas según su ubicación, con doble acristalamiento de cámara de aire deshidratado elegido según la orientación, y persianas motorizadas en los dormitorios accionadas con pulsador.</li><li>Tabiquería seca de placas de yeso laminado sobre perfilería metálica con aislamiento térmico y acústico de lana mineral, placas hidrófugas en zonas húmedas, y separaciones entre viviendas y zonas comunes de ladrillo perforado con trasdosado aislante.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Puerta de entrada blindada con cerradura de tres puntos, puertas de paso lacadas de hoja lisa con herrajes de acero inoxidable o cromo mate, y armarios modulares empotrados totalmente forrados, con cajoneras, balda y barra de colgar.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Gres porcelánico rectificado de gran formato en toda la vivienda, gres rectificado antideslizante en las terrazas, porcelánico en suelos y paredes de los baños, y techos de placa de yeso laminado con aislamiento de lana mineral.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Cocina completamente amueblada con muebles altos y bajos laminados, encimera de material porcelánico de alta resistencia de unos 12 mm de grosor o similar, fregadero de acero inoxidable bajo encimera y grifo monomando cromado.</li><li>Electrodomésticos incluidos: horno eléctrico, microondas, placa de inducción, campana extractora, lavavajillas integrable, frigorífico y lavadora.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Lavabos integrados en la encimera con mueble suspendido, platos de ducha de perfil bajo con mampara de cristal, grifería de ducha termostática cromada con barra deslizante y rociador de mano, e inodoros con cisterna empotrada, doble descarga y asiento amortiguado.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Aire acondicionado por conductos para frío y calor, zonificado por estancias, agua caliente mediante aerotermia, suelo radiante eléctrico en los baños y un sistema de ventilación con renovación continua del aire.</li><li>Iluminación LED empotrada en cocinas, pasillos y baños, iluminación LED en las terrazas, tomas de TV, radio y teléfono en salones, cocinas y dormitorios, videoportero en color, y puntos de agua en las terrazas de solárium y en los jardines de planta baja.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Se proyecta una piscina comunitaria en la terraza de la cubierta, con aseo y cuarto de instalaciones. Los portales tienen pavimento de piedra, cerámica o piedra artificial e iluminación LED con detectores de presencia.</li><li>Los ascensores sirven a todas las plantas y comunican directamente con las plantas de garaje, con puertas automáticas, detección de sobrecarga y conexión telefónica. El suelo del garaje es de hormigón pulido.</li></ul>
+      
+    </div>
+    <p class="caption">Fuente: la memoria de calidades del promotor para esta promoción, que no lleva versión ni fecha. Indica que la dirección facultativa puede modificar los materiales siempre que no se reduzca la calidad, y que la información no es contractual.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galería</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="La esquina del edificio"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/corner-facade-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/corner-facade-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Vista generada por ordenador de un edificio en una esquina, con losas de balcón blancas y curvas, terrazas con plantas y una pérgola en la cubierta" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Salón, comedor y cocina"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/living-kitchen-640.webp 640w, assets/liora/projects/brisamar-residences/media/living-kitchen-960.webp 960w, assets/liora/projects/brisamar-residences/media/living-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/living-kitchen.jpg" alt="Salón-comedor generado por ordenador con sofá, cocina abierta y puertas de cristal al jardín" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Dormitorio con camas individuales"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/twin-bedroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/twin-bedroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/twin-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/twin-bedroom.jpg" alt="Dormitorio generado por ordenador con dos camas individuales, armario empotrado y puerta corredera de cristal" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Baño"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/bathroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/bathroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/bathroom.jpg" alt="Baño generado por ordenador con mueble de lavabo suspendido, inodoro y ducha a ras de suelo" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="El edificio desde el aire"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/aerial-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/aerial-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/aerial-day.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/aerial-day.jpg" alt="Vista aérea generada por ordenador del edificio junto a una rotonda, con la ciudad de Estepona y el mar al fondo" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Ver las 11 fotos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriores (6)</button><button type="button" data-open-cat="Interiors">Interiores (2)</button><button type="button" data-open-cat="Bedrooms">Dormitorios (2)</button><button type="button" data-open-cat="Bathrooms">Baños (1)</button></div>
+    
+    <p class="caption">Todas las imágenes son ilustraciones generadas por ordenador y no fotografías del edificio terminado, y el mobiliario y la decoración que aparecen son ilustrativos y no están incluidos. Los planos son los del promotor, en fase de proyecto, y las superficies que figuran en ellos son aproximadas y están sujetas al proyecto definitivo. Los nombres de las estancias en los planos están en inglés.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Ubicación</h2>
+    <p class="sec-sub">El edificio está en una de las zonas residenciales de Estepona, cerca del casco histórico y de la A-7 y la AP-7. El folleto del promotor sitúa el puerto deportivo de Estepona y la playa de La Rada a menos de diez minutos, con comercios, supermercados, colegios e instalaciones deportivas cerca, y acceso directo a Málaga y a su aeropuerto.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="es">
+          <div class="locmap-map" id="locmap-brisamar-residences" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;130 m · 2 min a pie&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;570 m · 8 min a pie&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Brisamar Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ubicación indicativa</span>
+            <h3 class="locmap-name">Brisamar Residences</h3>
+            <p class="locmap-place">Estepona, cerca del centro</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Playa</span>
+              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min a pie</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina privada</h3>
-              <p class="amenity-note">Propia de la vivienda</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina privada en la azotea</h3>
-              <p class="amenity-note">Agua en la azotea</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centro de Estepona</span>
+              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min a pie</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Exteriores</span>
-              <h3 class="amenity-name">Solárium privado en la azotea</h3>
-              <p class="amenity-note">Azotea abierta para el sol</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Exteriores</span>
-              <h3 class="amenity-name">Jardín privado</h3>
-              <p class="amenity-note">Cerrado y propio de la vivienda</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Día a día</span>
-              <h3 class="amenity-name">Ascensor</h3>
-              <p class="amenity-note">Acceso a todas las plantas</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Día a día</span>
-              <h3 class="amenity-name">Aparcamiento subterráneo y trastero para cada vivienda</h3>
-              <p class="amenity-note">Bajo el edificio</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Día a día</span>
-              <h3 class="amenity-name">Aire acondicionado</h3>
-              <p class="amenity-note">Frío y calor por conductos</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Día a día</span>
-              <h3 class="amenity-name">Sistema de aerotermia</h3>
-              <p class="amenity-note">Calefacción, refrigeración y agua caliente</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Día a día</span>
-              <h3 class="amenity-name">Cocina equipada</h3>
-              <p class="amenity-note">Amueblada y con electrodomésticos</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Día a día</span>
-              <h3 class="amenity-name">Baños en suite</h3>
-              <p class="amenity-note">Con acceso desde el dormitorio</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Puerto deportivo de Estepona</th><td>Menos de 10 minutos</td></tr><tr><th scope="row">Playa de La Rada</th><td>Menos de 10 minutos</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">En la promoción</h2>
+    <p class="sec-sub">Todas las viviendas tienen espacio exterior, desde un jardín en planta baja hasta un solárium en la cubierta.</p>
+    <div class="life-panels"><div><h3>La planta baja</h3><p>Las viviendas de planta baja tienen terraza, jardín privado y piscina privada.</p></div><div><h3>La azotea</h3><p>La cubierta tiene una piscina comunitaria, un solárium y servicios, y las viviendas con solárium privado tienen su propia piscina.</p></div><div><h3>Garaje y trastero</h3><p>Todas las viviendas incluyen una plaza de garaje y un trastero en los sótanos, a los que se llega en ascensor.</p></div><div><h3>El clima</h3><p>El folleto cuenta más de 300 días de sol al año en la Costa del Sol.</p></div></div>
+    <ul class="amen-top"><li>Piscina comunitaria</li><li>Piscina privada</li><li>Piscina privada en la azotea</li><li>Solárium privado en la azotea</li><li>Jardín privado</li><li>Ascensor</li></ul>
+    <details class="amen-all"><summary>Ver las 11</summary><div class="amen-groups"><div><h3>Bienestar<span class="count">3</span></h3><ul><li>Piscina comunitaria</li><li>Piscina privada</li><li>Piscina privada en la azotea</li></ul></div><div><h3>Exteriores<span class="count">2</span></h3><ul><li>Solárium privado en la azotea</li><li>Jardín privado</li></ul></div><div><h3>Día a día<span class="count">6</span></h3><ul><li>Ascensor</li><li>Aparcamiento subterráneo y trastero para cada vivienda</li><li>Aire acondicionado</li><li>Sistema de aerotermia</li><li>Cocina equipada</li><li>Baños en suite</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Nuestra opinión</h2>
+    <p class="sec-sub">Lo que tendríamos en cuenta antes de reservar aquí, y las comprobaciones que hacemos por usted.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Nuestra opinión">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Destaca</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">A prever</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Comprobaciones</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Por qué destaca</h3><ul class="points"><li><b>Para quién es</b><span>Compradores que buscan una vivienda nueva de tres dormitorios cerca del centro, del puerto deportivo y de la playa, desde una vivienda en planta baja con jardín hasta un ático con solárium en la cubierta.</span></li><li><b>Qué la diferencia</b><span>Un edificio de 22 viviendas con terrazas en todas las plantas, jardines y piscinas privados en planta baja, solárium privados con piscina en la cubierta y una piscina comunitaria en lo alto.</span></li><li><b>Por qué importa la ubicación</b><span>El folleto del promotor sitúa el puerto deportivo de Estepona y la playa de La Rada a menos de diez minutos, con la A-7 y la AP-7 muy cerca.</span></li><li><b>Por qué comprobar los detalles</b><span>Los documentos no indican fecha de entrega, calendario de pagos ni si el IVA está incluido, así que confirmamos los tres puntos con el promotor antes de cualquier reserva.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Qué prever</h3><ul class="points"><li><b>Reserva y calendario de pagos</b><span>Los documentos de que disponemos no indican el importe de la reserva ni el calendario de pagos. Obtenemos las condiciones del promotor y se las enviamos por escrito antes de que reserve.</span></li><li><b>IVA e impuestos</b><span>La lista de precios no indica si el IVA está incluido. Nueva Living confirma por escrito los impuestos y los gastos de compra.</span></li><li><b>Garaje y trastero</b><span>El folleto indica que todas las viviendas incluyen una plaza de garaje y un trastero en los sótanos. Confirmamos la plaza y el trastero de la vivienda que elija.</span></li><li><b>La memoria de calidades</b><span>La memoria de calidades indica que la dirección facultativa puede modificar los materiales y que no es contractual. Solicitamos la memoria de calidades definitiva.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Comprobaciones antes de cualquier pago</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Licencia y obras</b><span>Los documentos de que disponemos no indican si la licencia de obras está concedida ni si las obras han empezado, y la memoria de calidades está redactada en futuro. Solicitamos la licencia, su estado y la fecha de inicio de las obras.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>La fecha de finalización</b><span>Ninguno de los documentos del promotor indica una fecha de entrega, así que solicitamos la fecha contractual antes de cualquier reserva.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Las superficies</b><span>La lista de precios da la superficie construida de cada vivienda y una cifra de terraza; en las viviendas 4A, 4D y 5A esa cifra es la terraza y el solárium juntos. Los planos dan además una superficie útil y una superficie construida mayor según el Decreto 218/2005: 83,82 y 103,15 m² para la vivienda 1C, frente a 87,13 m² en la lista de precios. Confirmamos qué cifra utiliza el contrato.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Precios e IVA</b><span>La lista de precios da los importes en euros y no indica si el IVA está incluido ni cuál es el calendario de pagos. Confirmamos ambos puntos por escrito.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Solicite la información</h3><p>Los planos de las viviendas que le interesen, la especificación de calidades y la lista de precios.</p></li><li><h3>Compare las opciones</h3><p>Compárelo con los demás proyectos de Estepona que tenemos en cartera.</p></li><li><h3>Visita privada</h3><p>Conozca la zona con nosotros y compare los planos con el estado de las obras.</p></li><li><h3>Reserva</h3><p>Confirmamos por escrito las condiciones de reserva y el calendario de pagos, y después el contrato privado de compraventa.</p></li></ol>
+      <div class="docs card"><h3>Documentos que recibirá</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Lista de precios</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planos<small>9 de 9 viviendas</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Calendario de pagos<small>Aún no facilitado</small><small>Pendiente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Memoria de calidades</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>El resumen oficial al que tiene derecho todo comprador en Andalucía</small></span></li></ul><a class="btn btn-primary" href="es/property-brisamar-residences.html#enquire" data-prefill>Recibir el dosier del proyecto</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Preguntas sobre Brisamar</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>¿Cuántas viviendas hay?</summary><p>El edificio tiene 22 viviendas de tres dormitorios y dos baños, y nueve figuran con precio: de 549.000 € a 1.050.000 €.</p></details><details class="segment-faq-item"><summary>¿El IVA está incluido?</summary><p>La lista de precios no lo indica. Confirmamos por escrito los impuestos y los gastos de compra antes de que reserve.</p></details><details class="segment-faq-item"><summary>¿Hay aparcamiento?</summary><p>Sí. El folleto indica que todas las viviendas incluyen una plaza de garaje y un trastero en los sótanos.</p></details><details class="segment-faq-item"><summary>¿Cuándo estará terminado?</summary><p>Ninguno de los documentos del promotor indica una fecha de entrega. Solicitamos la fecha contractual y el estado de las obras.</p></details><details class="segment-faq-item"><summary>¿Cuál es el calendario de pagos?</summary><p>Los documentos de que disponemos no lo indican. Se lo preguntamos al promotor y se lo confirmamos por escrito antes de que reserve.</p></details></div>
+    
+    <p class="faq2-guide">Más sobre comprar obra nueva en España → <a class="textlink" href="es/guide-how-buying-works.html">Guía de compra</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Reservar una visita privada">
+    <div class="card">
+      <p class="rail-price-label">Precio desde</p>
+      <p class="rail-price num">549.000 €</p>
+      <p class="rail-note">Más IVA. Quedan 9 de 22 viviendas · Comprobado el octubre de 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="es/property-brisamar-residences.html#enquire" data-prefill>Reservar una visita privada</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Escríbanos por WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador</strong>Respondemos personalmente a cada consulta.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Reservar una visita privada</h2>
+        <p>Díganos qué vivienda le interesa. Le enviamos el dosier del proyecto y después recorremos la promoción con usted.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador de Nueva Living</strong>Respondemos personalmente a cada consulta.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Escríbanos</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Correo<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>En la visita comprobamos con usted</h3><ul><li><b>Sobre el terreno.</b> Visite la parcela y sus alrededores con nosotros.</li><li><b>En coche.</b> Vamos en coche con usted hasta el puerto deportivo y la playa de La Rada y cronometramos el trayecto.</li><li><b>Sobre papel.</b> Licencia, fecha de entrega y contrato, antes de firmar nada.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Enviando…" data-success-label="Reservar una visita privada ✓" data-submitting-message="Enviando…" data-success-message="Solicitud recibida. Le enviaremos el dosier del proyecto y le propondremos horarios de visita." data-error-message="No se ha podido enviar. Inténtelo de nuevo o escríbanos por WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Brisamar Residences">
+        <input type="hidden" id="f-project" name="project" value="Brisamar Residences">
+        <input type="hidden" name="preferred_area" value="Estepona">
+        <input type="hidden" name="property_type_interest" value="Apartamentos y áticos">
+        <input type="hidden" name="budget_range" value="Desde 549.000 €">
+        <input type="hidden" name="consent_text" value="Acepto que Nueva Living guarde estos datos para responder a mi solicitud.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hola Nueva Living, me gustaría recibir información sobre Brisamar Residences." data-base="Hola Nueva Living, me gustaría recibir información sobre Brisamar Residences.">
+        <h3>Sus datos</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Nombre</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Apellidos</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Correo electrónico</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Teléfono (opcional, para WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">¿Qué vivienda?</label><select id="v2-f-unit" name="unit_interest"><option value="">Aún no lo sé, envíenme todo</option><option value="0D">0D: 650.000 €</option><option value="1C">1C: 549.000 €</option><option value="2D">2D: 575.000 €</option><option value="3B">3B: 595.000 €</option><option value="4A">4A: 815.000 €</option><option value="4B">4B: 630.000 €</option><option value="4C">4C: 665.000 €</option><option value="4D">4D: 860.000 €</option><option value="5A">5A: 1.050.000 €</option></select></div>
+        <fieldset class="field"><legend>La vivienda sería</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Para vivir</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Una segunda residencia</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Una inversión</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>¿Cómo le respondemos?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Llamada</label>
+          <label><input type="radio" name="preferred_contact" value="email">Correo</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Acepto que Nueva Living guarde estos datos para responder a mi solicitud. <a href="es/privacy-policy.html">Política de privacidad</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Avísenme también si cambia la disponibilidad o los precios en Brisamar.</label>
+        <button class="btn btn-primary btn-block" type="submit">Reservar una visita privada</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Por qué este proyecto</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Por qué este proyecto <em>importa</em></h2>
-          <p class="project-lead">Viviendas de tres dormitorios cerca del centro de Estepona, cada una con plaza de garaje y trastero en el sótano.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Por qué encaja</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Para quién es</h3><p>Compradores que buscan una vivienda nueva de tres dormitorios cerca del centro, del puerto deportivo y de la playa, desde una vivienda en planta baja con jardín hasta un ático con solárium en la cubierta.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué la diferencia</h3><p>Un edificio de 22 viviendas con terrazas en todas las plantas, jardines y piscinas privados en planta baja, solárium privados con piscina en la cubierta y una piscina comunitaria en lo alto.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué importa la ubicación</h3><p>El folleto del promotor sitúa el puerto deportivo de Estepona y la playa de La Rada a menos de diez minutos, con la A-7 y la AP-7 muy cerca.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué comprobar los detalles</h3><p>Los documentos no indican fecha de entrega, calendario de pagos ni si el IVA está incluido, así que confirmamos los tres puntos con el promotor antes de cualquier reserva.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argumento de inversión</h3></div>
-            <p class="why-group-note">Los documentos de que disponemos no recogen las condiciones del promotor, así que las confirmamos por escrito antes de que reserve.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reserva y calendario de pagos</h3><p>Los documentos de que disponemos no indican el importe de la reserva ni el calendario de pagos. Obtenemos las condiciones del promotor y se las enviamos por escrito antes de que reserve.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA e impuestos</h3><p>La lista de precios no indica si el IVA está incluido. Nueva Living confirma por escrito los impuestos y los gastos de compra.</p></article>
-              <article class="why-point reveal-soft"><h3>Garaje y trastero</h3><p>El folleto indica que todas las viviendas incluyen una plaza de garaje y un trastero en los sótanos. Confirmamos la plaza y el trastero de la vivienda que elija.</p></article>
-              <article class="why-point reveal-soft"><h3>La memoria de calidades</h3><p>La memoria de calidades indica que la dirección facultativa puede modificar los materiales y que no es contractual. Solicitamos la memoria de calidades definitiva.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confianza y diligencia</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Licencia y obras</h3><p>Los documentos de que disponemos no indican si la licencia de obras está concedida ni si las obras han empezado, y la memoria de calidades está redactada en futuro. Solicitamos la licencia, su estado y la fecha de inicio de las obras.</p></article>
-              <article class="why-point reveal-soft"><h3>La fecha de finalización</h3><p>Ninguno de los documentos del promotor indica una fecha de entrega, así que solicitamos la fecha contractual antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Las superficies</h3><p>La lista de precios da la superficie construida de cada vivienda y una cifra de terraza; en las viviendas 4A, 4D y 5A esa cifra es la terraza y el solárium juntos. Los planos dan además una superficie útil y una superficie construida mayor según el Decreto 218/2005: 83,82 y 103,15 m² para la vivienda 1C, frente a 87,13 m² en la lista de precios. Confirmamos qué cifra utiliza el contrato.</p></article>
-              <article class="why-point reveal-soft"><h3>Precios e IVA</h3><p>La lista de precios da los importes en euros y no indica si el IVA está incluido ni cuál es el calendario de pagos. Confirmamos ambos puntos por escrito.</p></article>
-            </div>
-            <p class="why-group-note">¿Es su primera compra sobre plano en España? <a href="es/guide-how-buying-works.html">Cómo funciona comprar obra nueva</a> explica los siete pasos, y <a href="es/guide-off-plan-vs-resale.html">sobre plano frente a segunda mano</a> detalla las señales, las garantías y los plazos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Las imágenes las facilita el promotor y pueden ser infografías">
+    <p>Las imágenes las facilita el promotor y pueden ser infografías; el diseño final, los acabados, el paisajismo y las vistas pueden variar. Tiene derecho a una copia del Documento Informativo Abreviado (DIA) de cualquier vivienda de esta página; Nueva Living se la facilita bajo petición.</p>
+    <p>Disponibilidad comprobada con el vendedor el octubre de 2026; la volvemos a confirmar antes de cualquier reserva.</p>
+    <p>Los precios, las superficies construidas y las terrazas se han transcrito de la lista de precios del promotor tal como figura en su portal en octubre de 2026. La lista no indica si el IVA está incluido. Para las viviendas 4A, 4D y 5A la lista da la terraza y el solárium privado como una sola cifra (39,97, 43,07 y 83,60 m²); la tabla los muestra por separado, como hacen los planos. Los planos dan además una superficie útil y una superficie construida según el Decreto 218/2005, que difieren de la superficie construida de la lista.</p>
+    <p>La información de esta página tiene fines comerciales generales y no constituye asesoramiento legal, financiero ni de inversión. Los precios, la disponibilidad y las fechas de entrega pueden cambiar sin previo aviso.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/aerial-day.jpg" alt="Vista aérea generada por ordenador del edificio junto a una rotonda, con la ciudad de Estepona y el mar al fondo" width="930" height="675" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Vista previa de arquitectura</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arquitectura</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Líneas blancas curvas, <em>terrazas con plantas</em></h2>
-          <p>En las imágenes generadas por ordenador del promotor, el edificio tiene losas de balcón blancas y curvas, terrazas con plantas en todas las plantas y una pérgola en la cubierta, con un diseño contemporáneo que busca aprovechar al máximo la luz natural.</p>
-<p>Las viviendas tienen grandes puertas acristaladas a las terrazas, y la carpintería del salón-comedor va empotrada en el suelo para que la estancia continúe en la terraza.</p>
-          <ul class="feature-list">
-            <li>Estructura — Hormigón armado conforme al Código Técnico de la Edificación.</li>
-            <li>Fachada — Multicapa: fábrica de ladrillo exterior, aislamiento interior, cámara de aire y trasdosado interior, con acabado de mortero exterior.</li>
-            <li>Carpintería exterior — Marcos de aluminio lacado con rotura de puente térmico y doble acristalamiento, y persianas motorizadas en los dormitorios.</li>
-            <li>Terrazas — Pavimento de gres porcelánico antideslizante de gran formato, con iluminación LED.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Acciones de solicitud del proyecto">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar</a>
+    <a class="ab-btn ab-primary" href="es/property-brisamar-residences.html#enquire" data-prefill>Reservar visita</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/bedroom.jpg" alt="Dormitorio generado por ordenador con cama de matrimonio, pared de listones de madera y puertas correderas de cristal a la terraza" width="1200" height="705" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Presentación cinemática</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Conozca <em>la zona y los planos</em></h2>
-            <p>Una visita trata de la ubicación, los planos y el estado de las obras.</p>
-            <div class="viewing-insights">
-              <div><span>Sobre el terreno</span><p>Visite la parcela y sus alrededores con nosotros.</p></div>
-              <div><span>En coche</span><p>Vamos en coche con usted hasta el puerto deportivo y la playa de La Rada y cronometramos el trayecto.</p></div>
-              <div><span>Sobre papel</span><p>Licencia, fecha de entrega y contrato, antes de firmar nada.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="es/index.html#private-viewing=1&amp;project=brisamar-residences">Presentación cinemática</a>
-              <a class="btn project-btn ghost" href="es/property-brisamar-residences.html#enquire" data-prefill>Solicitar información</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galería" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Cerrar">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Siguiente imagen">›</button>
+    <div class="lb-cats" role="group" aria-label="Galería"><button type="button" data-cat="Exteriors">Exteriores</button><button type="button" data-cat="Interiors">Interiores</button><button type="button" data-cat="Bedrooms">Dormitorios</button><button type="button" data-cat="Bathrooms">Baños</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/living-room-garden.jpg" alt="Salón generado por ordenador con televisor, sillón, sofá y cocina abierta, y puertas correderas al jardín" width="1200" height="675" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Estilo de vida</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Jardines, terrazas <em>y la cubierta</em></h2>
-            <p>Todas las viviendas tienen espacio exterior, desde un jardín en planta baja hasta un solárium en la cubierta.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Próximos pasos</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Qué ocurre <em>a continuación</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Solicite la información</h3>
-            <p>Los planos de las viviendas que le interesen, la especificación de calidades y la lista de precios.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare las opciones</h3>
-            <p>Compárelo con los demás proyectos de Estepona que tenemos en cartera.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visita privada</h3>
-            <p>Conozca la zona con nosotros y compare los planos con el estado de las obras.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserva</h3>
-            <p>Confirmamos por escrito las condiciones de reserva y el calendario de pagos, y después el contrato privado de compraventa.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Preguntas frecuentes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Preguntas <em>frecuentes de compradores</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>¿Pueden los extranjeros comprar propiedades en España?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué es el número de NIE y lo necesito?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué gastos adicionales debo prever además del precio de compra?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo conseguir una hipoteca en España siendo no residente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cómo funciona el proceso de reserva y pago?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo alquilar la propiedad después de comprarla?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Necesito un abogado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuántas viviendas hay?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El edificio tiene 22 viviendas de tres dormitorios y dos baños, y nueve figuran con precio: de 549.000 € a 1.050.000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿El IVA está incluido?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La lista de precios no lo indica. Confirmamos por escrito los impuestos y los gastos de compra antes de que reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Hay aparcamiento?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. El folleto indica que todas las viviendas incluyen una plaza de garaje y un trastero en los sótanos.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuándo estará terminado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ninguno de los documentos del promotor indica una fecha de entrega. Solicitamos la fecha contractual y el estado de las obras.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es el calendario de pagos?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los documentos de que disponemos no lo indican. Se lo preguntamos al promotor y se lo confirmamos por escrito antes de que reserve.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Consultar</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Pregunte por <em>Brisamar Residences</em></h2>
-          <p class="body-copy">Díganos lo que necesita y volveremos con la disponibilidad actual, los planos y la lista de precios.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fundador de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fundador, Nueva Living</p>
-            <h3 id="advisor-heading">¿Prefiere comentarlo en persona?</h3>
-            <p class="advisor-copy">Elija lo que le encaje y escríbame por WhatsApp. Empezaré desde ahí.</p>
-            <div class="advisor-group" role="group" aria-label="Busco">
-              <span class="advisor-group-label">Busco</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Una vivienda para vivir</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Una casa de vacaciones</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Una inversión</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Presupuesto">
-              <span class="advisor-group-label">Presupuesto</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Menos de 500.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500.000 – 1.000.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Más de 1.000.000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor">Escríbame por WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Brisamar Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Brisamar Residences">
-          <input type="hidden" name="preferred_area" value="Estepona">
-          <input type="hidden" name="property_type_interest" value="Apartamentos y áticos">
-          <input type="hidden" name="budget_range" value="Desde 549.000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Nombre</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Nombre" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Apellidos</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Apellidos" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Correo electrónico</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Teléfono</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 o internacional">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Mensaje</label>
-              <textarea id="f-msg" name="message">Hola Nueva Living, me gustaría recibir información sobre Brisamar Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Acepto ser contactado/a y que mis datos sean almacenados.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>También me gustaría recibir novedades ocasionales de proyectos por parte de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Enviar solicitud</button>
-            <span class="form-note">Respondemos personalmente, normalmente el mismo día.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"0D","title":"0D · Planta baja","sub":"3 dorm. · 77 m²","price":650000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg","label":"Planta baja"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg","label":"Jardín"}]},{"id":"u1","ref":"1C","title":"1C · Primera planta","sub":"3 dorm. · 87 m²","price":549000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg","label":""}]},{"id":"u2","ref":"2D","title":"2D · Segunda planta","sub":"3 dorm. · 81 m²","price":575000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg","label":""}]},{"id":"u3","ref":"3B","title":"3B · Tercera planta","sub":"3 dorm. · 89 m²","price":595000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg","label":""}]},{"id":"u4","ref":"4A","title":"4A · Cuarta planta, solárium","sub":"3 dorm. · 101 m²","price":815000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg","label":"Cuarta planta"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg","label":"Solárium"}]},{"id":"u5","ref":"4B","title":"4B · Cuarta planta","sub":"3 dorm. · 89 m²","price":630000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg","label":""}]},{"id":"u6","ref":"4C","title":"4C · Cuarta planta","sub":"3 dorm. · 87 m²","price":665000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg","label":""}]},{"id":"u7","ref":"4D","title":"4D · Cuarta planta, solárium","sub":"3 dorm. · 81 m²","price":860000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg","label":"Cuarta planta"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg","label":"Solárium"}]},{"id":"u8","ref":"5A","title":"5A · Ático, solárium","sub":"3 dorm. · 95 m²","price":1050000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg","label":"Ático"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg","label":"Solárium"}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/brisamar-residences/media/corner-facade-day.webp","alt":"Vista generada por ordenador de un edificio en una esquina, con losas de balcón blancas y curvas, terrazas con plantas y una pérgola en la cubierta","caption":"La esquina del edificio","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-day.webp","alt":"Vista aérea generada por ordenador del edificio junto a una rotonda, con la ciudad de Estepona y el mar al fondo","caption":"El edificio desde el aire","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-dusk.webp","alt":"Vista aérea generada por ordenador del edificio iluminado al anochecer, con la ciudad y el mar al fondo","caption":"El edificio al anochecer","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/ground-floor-garden-pool.webp","alt":"Vista generada por ordenador de una terraza en planta baja con césped, dos tumbonas y una piscina pequeña, con colinas al fondo","caption":"Un jardín y una piscina en planta baja","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/terrace-sea-view.webp","alt":"Vista generada por ordenador de una terraza cubierta bajo una pérgola blanca, con sillones y vistas al mar","caption":"Una terraza cubierta con vistas al mar","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/rooftop-pool-terrace.webp","alt":"Vista cenital generada por ordenador de una terraza en la cubierta con tumbonas y una piscina, sobre las terrazas de los balcones inferiores","caption":"Una terraza y una piscina en la cubierta","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/living-kitchen.webp","alt":"Salón-comedor generado por ordenador con sofá, cocina abierta y puertas de cristal al jardín","caption":"Salón, comedor y cocina","cat":"Interiors"},{"src":"assets/liora/projects/brisamar-residences/media/living-room-garden.webp","alt":"Salón generado por ordenador con televisor, sillón, sofá y cocina abierta, y puertas correderas al jardín","caption":"Salón","cat":"Interiors"},{"src":"assets/liora/projects/brisamar-residences/media/twin-bedroom.webp","alt":"Dormitorio generado por ordenador con dos camas individuales, armario empotrado y puerta corredera de cristal","caption":"Dormitorio con camas individuales","cat":"Bedrooms"},{"src":"assets/liora/projects/brisamar-residences/media/bedroom.webp","alt":"Dormitorio generado por ordenador con cama de matrimonio, pared de listones de madera y puertas correderas de cristal a la terraza","caption":"Dormitorio","cat":"Bedrooms"},{"src":"assets/liora/projects/brisamar-residences/media/bathroom.webp","alt":"Baño generado por ordenador con mueble de lavabo suspendido, inodoro y ducha a ras de suelo","caption":"Baño","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":".","post":" €"},"i18n":{"askAbout":"Consultar sobre {ref}","plusVat":"Más IVA","totalPrice":"Precio total","vatOnStages":"Más IVA sobre cada pago","onRequest":"A consultar","imageOf":"{i} de {n}","floorPlan":"Plano"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Brisamar Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Cerrar">Cerrar</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Imagen anterior">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Siguiente imagen">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg","webp":"assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp","alt":"Vista generada por ordenador de un edificio en una esquina, con losas de balcón blancas y curvas, terrazas con plantas y una pérgola en la cubierta","width":1200,"height":675,"caption":"La esquina del edificio","category":"Exteriores"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-day.jpg","webp":"assets/liora/projects/brisamar-residences/media/aerial-day-960.webp","alt":"Vista aérea generada por ordenador del edificio junto a una rotonda, con la ciudad de Estepona y el mar al fondo","width":930,"height":675,"caption":"El edificio desde el aire","category":"Exteriores"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-dusk.jpg","webp":"assets/liora/projects/brisamar-residences/media/aerial-dusk-960.webp","alt":"Vista aérea generada por ordenador del edificio iluminado al anochecer, con la ciudad y el mar al fondo","width":1200,"height":675,"caption":"El edificio al anochecer","category":"Exteriores"},{"src":"assets/liora/projects/brisamar-residences/media/ground-floor-garden-pool.jpg","webp":"assets/liora/projects/brisamar-residences/media/ground-floor-garden-pool-960.webp","alt":"Vista generada por ordenador de una terraza en planta baja con césped, dos tumbonas y una piscina pequeña, con colinas al fondo","width":1200,"height":675,"caption":"Un jardín y una piscina en planta baja","category":"Exteriores"},{"src":"assets/liora/projects/brisamar-residences/media/terrace-sea-view.jpg","webp":"assets/liora/projects/brisamar-residences/media/terrace-sea-view-960.webp","alt":"Vista generada por ordenador de una terraza cubierta bajo una pérgola blanca, con sillones y vistas al mar","width":1200,"height":675,"caption":"Una terraza cubierta con vistas al mar","category":"Exteriores"},{"src":"assets/liora/projects/brisamar-residences/media/rooftop-pool-terrace.jpg","webp":"assets/liora/projects/brisamar-residences/media/rooftop-pool-terrace-960.webp","alt":"Vista cenital generada por ordenador de una terraza en la cubierta con tumbonas y una piscina, sobre las terrazas de los balcones inferiores","width":1200,"height":675,"caption":"Una terraza y una piscina en la cubierta","category":"Exteriores"},{"src":"assets/liora/projects/brisamar-residences/media/living-kitchen.jpg","webp":"assets/liora/projects/brisamar-residences/media/living-kitchen-960.webp","alt":"Salón-comedor generado por ordenador con sofá, cocina abierta y puertas de cristal al jardín","width":1200,"height":675,"caption":"Salón, comedor y cocina","category":"Interiores"},{"src":"assets/liora/projects/brisamar-residences/media/living-room-garden.jpg","webp":"assets/liora/projects/brisamar-residences/media/living-room-garden-960.webp","alt":"Salón generado por ordenador con televisor, sillón, sofá y cocina abierta, y puertas correderas al jardín","width":1200,"height":675,"caption":"Salón","category":"Interiores"},{"src":"assets/liora/projects/brisamar-residences/media/twin-bedroom.jpg","webp":"assets/liora/projects/brisamar-residences/media/twin-bedroom-960.webp","alt":"Dormitorio generado por ordenador con dos camas individuales, armario empotrado y puerta corredera de cristal","width":1200,"height":705,"caption":"Dormitorio con camas individuales","category":"Dormitorios"},{"src":"assets/liora/projects/brisamar-residences/media/bedroom.jpg","webp":"assets/liora/projects/brisamar-residences/media/bedroom-960.webp","alt":"Dormitorio generado por ordenador con cama de matrimonio, pared de listones de madera y puertas correderas de cristal a la terraza","width":1200,"height":705,"caption":"Dormitorio","category":"Dormitorios"},{"src":"assets/liora/projects/brisamar-residences/media/bathroom.jpg","webp":"assets/liora/projects/brisamar-residences/media/bathroom-960.webp","alt":"Baño generado por ordenador con mueble de lavabo suspendido, inodoro y ducha a ras de suelo","width":1200,"height":900,"caption":"Baño","category":"Baños"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-960.webp","alt":"Plano de la vivienda 0D, planta baja","width":590,"height":776,"caption":"Vivienda 0D, planta baja","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-0d-garden-960.webp","alt":"Plano de la vivienda 0D, jardín","width":586,"height":895,"caption":"Vivienda 0D, jardín","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-1c-960.webp","alt":"Plano de la vivienda 1C, primera planta","width":634,"height":747,"caption":"Vivienda 1C, primera planta","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-2d-960.webp","alt":"Plano de la vivienda 2D, segunda planta","width":1182,"height":1552,"caption":"Vivienda 2D, segunda planta","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-3b-960.webp","alt":"Plano de la vivienda 3B, tercera planta","width":1490,"height":1506,"caption":"Vivienda 3B, tercera planta","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-960.webp","alt":"Plano de la vivienda 4A, cuarta planta","width":1017,"height":679,"caption":"Vivienda 4A, cuarta planta","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium-960.webp","alt":"Plano de la vivienda 4A, solárium","width":633,"height":328,"caption":"Vivienda 4A, solárium","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4b-960.webp","alt":"Plano de la vivienda 4B, cuarta planta","width":1490,"height":1506,"caption":"Vivienda 4B, cuarta planta","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4c-960.webp","alt":"Plano de la vivienda 4C, cuarta planta","width":1268,"height":1494,"caption":"Vivienda 4C, cuarta planta","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-960.webp","alt":"Plano de la vivienda 4D, cuarta planta","width":590,"height":776,"caption":"Vivienda 4D, cuarta planta","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium-960.webp","alt":"Plano de la vivienda 4D, solárium","width":565,"height":604,"caption":"Vivienda 4D, solárium","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-960.webp","alt":"Plano de la vivienda 5A, ático","width":783,"height":745,"caption":"Vivienda 5A, ático","category":"Planos"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium-960.webp","alt":"Plano de la vivienda 5A, solárium","width":588,"height":747,"caption":"Vivienda 5A, solárium","category":"Planos"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Acciones de solicitud del proyecto">
-    <a href="es/property-brisamar-residences.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor">Hablar con un asesor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

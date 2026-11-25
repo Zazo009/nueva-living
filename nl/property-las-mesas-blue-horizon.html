@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn er?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Las Mesas Blue Horizon"
   data-project-message="Hallo Nueva Living, ik zou graag informatie ontvangen over Las Mesas Blue Horizon."
@@ -459,595 +396,180 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Las Mesas Blue Horizon">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-las-mesas-blue-horizon.html#top">Las Mesas Blue Horizon<span>Vanaf € 849.000 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-las-mesas-blue-horizon.html#overview">Overzicht</a><a href="nl/property-las-mesas-blue-horizon.html#availability">Prijzen</a><a href="nl/property-las-mesas-blue-horizon.html#specs">Afwerking</a><a href="nl/property-las-mesas-blue-horizon.html#gallery">Galerij</a><a href="nl/property-las-mesas-blue-horizon.html#location">Locatie</a><a href="nl/property-las-mesas-blue-horizon.html#onsite">Op het terrein</a><a href="nl/property-las-mesas-blue-horizon.html#view">Onze kijk</a><a href="nl/property-las-mesas-blue-horizon.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Las Mesas Blue Horizon">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Computergegenereerd beeld van het witte terrassenblok vanaf de weg, met palmen en olijfbomen op de helling en de zee links" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Computergegenereerd beeld van het witte terrassenblok vanaf de weg, met palmen en olijfbomen op de helling en de zee links" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">9 van de 34 woningen beschikbaar</span>
-          <h1 class="hero-title" style="--hero-title-run: 7">
-            <span class="hero-title-name">Las Mesas <em>Blue Horizon</em></span>
-            <span class="hero-title-context">Appartementen met twee en drie slaapkamers in Las Mesas, Estepona</span>
-          </h1>
-          <p class="hero-positioning">9 van de 34 appartementen met twee en drie slaapkamers in Las Mesas Blue Horizon, in Las Mesas, Estepona, met zeezicht, een gemeenschappelijk zwembad, een fitnessruimte, een spa, een coworkingruimte en een bioscoop. Er wordt geen opleveringsdatum genoemd. Vanaf € 849.000 excl. btw.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-las-mesas-blue-horizon.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=las-mesas-blue-horizon">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-las-mesas-blue-horizon.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Las Mesas, Estepona</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 849.000 + btw</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartementen</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Oplevering nog te bevestigen</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-las-mesas-blue-horizon.html#media">Media</a>
-        <a href="nl/property-las-mesas-blue-horizon.html#location">Locatie</a>
-        <a href="nl/property-las-mesas-blue-horizon.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-las-mesas-blue-horizon.html#overview">Overzicht</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#residences">Woningen</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#quality-specifications">Afwerking</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#calculator">Financiering</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#amenities">Voorzieningen</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#why-this-project">Waarom</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#architecture">Architectuur</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#faq">FAQ</a>
-          <a href="nl/property-las-mesas-blue-horizon.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>2-3 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Bebouwde oppervlakte</span><strong>70,93 - 88,66 m²</strong></div>
-          <div class="quick-fact"><span>Terras</span><strong>20,40 - 45,48 m²</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>9 van de 34 woningen beschikbaar</strong></div>
-          <div class="quick-fact"><span>Beschikbaar</span><strong>9 woningen</strong></div>
-          <div class="quick-fact"><span>Prijsklasse</span><strong>€ 849.000 - € 1.245.000</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Negen woningen <em>beschikbaar</em>, in drie blokken</h2>
-          <p class="project-lead">Las Mesas Blue Horizon is een woonwijk van drie blokken in Las Mesas, Estepona, met woningen met twee en drie slaapkamers die allemaal twee badkamers hebben. De brochure van de ontwikkelaar beschrijft grote terrassen met panoramisch uitzicht op de Middellandse Zee. Ze telt 36 woningen, terwijl de plattegronden en de prijslijst er 34 tonen, 20 met twee slaapkamers en 14 met drie, en negen daarvan staan met een prijs op de lijst.</p>
-          <p class="project-lead">De bewoners delen een gemeenschappelijk zwembad met nachtverlichting, aangelegde buitenruimten, een fitnessruimte, een spa, een coworkingruimte en een bioscoop, en drie kelderlagen herbergen de garage en de bergingen. De documenten van de ontwikkelaar noemen geen opleveringsdatum, en 25 van de 34 woningen op de lijst zijn als gereserveerd aangemerkt.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">De woningen <em>in detail</em></h2>
-          </div>
-          <p class="project-lead">Computergegenereerde beelden van de blokken, het zwembad, de gemeenschappelijke ruimten en de interieurs, en de plattegronden van de negen woningen die op de lijst staan.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 9 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Computergegenereerd beeld van het witte terrassenblok vanaf de weg, met palmen en olijfbomen op de helling en de zee links" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Het blok vanaf de weg</strong>
-                <span class="project-media-card-cta">9 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Bekijk 5 afbeeldingen in Voorzieningen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Computergegenereerd beeld van het gemeenschappelijk zwembad met een houten dek, ligbedden en parasols, een palmboom en rechts de terrassen van het blok" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Voorzieningen</small>
-                <strong>Het gemeenschappelijke zwembad</strong>
-                <span class="project-media-card-cta">5 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 8 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg" alt="Computergegenereerd beeld van een open woonkamer met eetgedeelte en keukeneiland en een glazen schuifwand naar het terras" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>Woonkamer, eetkamer en keuken</strong>
-                <span class="project-media-card-cta">8 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Bekijk 9 afbeeldingen in Plattegronden">
-              <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" alt="Plattegrond van woning 1-2A, tweede verdieping, Blok 1" width="1515" height="1039" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plattegronden</small>
-                <strong>Woning 1-2A, tweede verdieping, Blok 1</strong>
-                <span class="project-media-card-cta">9 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 31 afbeeldingen</button>
-          <p class="media-note">Alle beelden zijn computergegenereerde illustraties en geen foto’s van het voltooide gebouw, en het meubilair en de inrichting erop zijn illustratief en niet inbegrepen. De plattegronden zijn de verkoopplannen van de ontwikkelaar: ze zijn niet contractueel, de namen van de ruimten erop zijn in het Spaans en de terrassen erop wijken af van de prijslijst.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Las Mesas, <em>in Estepona</em></h2>
-          <p class="project-lead">De woningen liggen in Las Mesas, dat de brochure van de ontwikkelaar een van de meest gedistingeerde woonwijken van Estepona noemt, in het hart van de Costa del Sol. Ze plaatst de locatie aan de A-7 en de AP-7, op 5 minuten van het strand La Rada en op 45 minuten van de luchthaven van Málaga, met gezondheidscentra, supermarkten en winkelcentra in de buurt. De brochure zegt niet of de 5 minuten te voet of met de auto zijn.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-las-mesas-blue-horizon" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;130 m · 2 min. lopen&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min. lopen&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Las Mesas Blue Horizon"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Las Mesas Blue Horizon</h3>
-            <p class="locmap-place">Las Mesas, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min. lopen</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Estepona</span>
-              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min. lopen</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Negen woningen, <em>drie groepen</em></h2>
-          <p class="project-lead">De negen woningen met een prijs vallen naar grootte en blok uiteen in drie groepen. In de tabel hieronder staat elke woning met haar prijs.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Twee slaapkamers, blokken 1 en 2</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-las-mesas-blue-horizon.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Drie slaapkamers, blok 2</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-las-mesas-blue-horizon.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Drie slaapkamers, blok 3</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-las-mesas-blue-horizon.html#availability">Plattegronden bekijken</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-las-mesas-blue-horizon.html#availability">Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Technische omschrijving</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarmee de woningen <em>gebouwd zijn</em></h2>
-          <p class="project-lead">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Wanden en scheidingswanden<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Scheidingswanden van gipsplaten op een metalen frame met steenwolisolatie binnen de woning, waterafstotend in de natte ruimten, en geperforeerde baksteen tussen woningen en naast de gemeenschappelijke ruimten, bekleed met gipsplaten en thermische en akoestische isolatie.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Ramen en zonwering<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Dubbele beglazing met een droge luchtspouw en een coating met lage emissie, schuifdeuren van de woonkamers en slaapkamers naar de terrassen, en een verborgen vloerrail in de woon-eetkamer en de keuken zodat die overlopen in de buitenruimte.</li>
-              <li>Gemotoriseerde rolgordijnen die de slaapkamers en de woonkamer verduisteren, met een drukknop in elke ruimte.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Deuren en kasten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een metaalversterkte voordeur met een veiligheidsslot met drie vergrendelpunten en een smartlock, vloer-tot-plafond binnendeuren in een minimalistisch ontwerp, in kleur gelakt, en ingebouwde modulaire kledingkasten met beklede binnenkant, een kofferplank en een kleerstang. Grepen en beslag in zwart of chroom.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Vloeren en wanden<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Vloeren van gerectificeerd porseleinen gres in het formaat 120 x 120 cm of van microcement, met een witte houten plint passend bij het houtwerk, en antislip gerectificeerd porseleinen gres op de terrassen.</li>
-              <li>Badkamers van vloer tot plafond betegeld met grootformaat porseleinen gres en wit wandtegelwerk, gecombineerd met microcement op de overige wanden, en een gespikkelde afwerking in grijs en crème op de badkamerplafonds.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Keuken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een gemeubileerde keuken met hoge en lage kasten van grote capaciteit in gelamineerde afwerking, een werkblad en spatwand van compact kwarts, een centraal eiland met opbergruimte eronder en een kwartsen blad, en een spoelbak van hetzelfde kwarts met een uittrekbare kraan.</li>
-              <li>Apparatuur: een oven en een magnetron in een kolom, een inductiekookplaat met geïntegreerde afzuigkap, een vaatwasser, een koelkast, een wasmachine en een wijnkoeler.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badkamers<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>In de hoofdbadkamer en de tweede badkamer opzetwastafels van compact kwarts op hangende kasten, lage douchebakken van kunsthars en glazen douchewanden met roestvrijstalen of zwarte kaders.</li>
-              <li>Thermostatische doucheafwerking met een glijstang en een handdouche, eengreeps wastafelkranen in chroom of zwart, en toiletten met een dubbele spoeling en een soft-close bril.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimaat en energie<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Warm water uit een aerothermisch systeem en geïntegreerde airconditioning per ruimte, met een thermostaat in de woonkamer.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Elektriciteit en telecom<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Inbouw-ledverlichting in de keuken, de gangen en de badkamerplafonds en ledverlichting op de terrassen, een video-intercom in kleur en een digitaal netwerk van geïntegreerde diensten met aansluitingen in de woonkamers, keukens en slaapkamers.</li>
-              <li>Wateraansluitingen op de dakterrassen en in de tuinen op de begane grond.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gemeenschappelijke ruimten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een gemeenschappelijk zwembad met nachtverlichting, groenzones en een zonneterras, een fitnessruimte, een spa, een sociale club en een bioscoop.</li>
-              <li>Beplanting met inheemse, waterzuinige planten met automatische druppelirrigatie, verlichte toegangsdeuren voor een warm onthaal, en spaarverlichting met bewegingsmelders en tijdschakelaars bij de ingangen, op de trappen en op de overlopen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Garage en liften<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een garage met afstandsbediende deuren, een gepolijste doorlopende vloer van kwartsbeton, brandbeveiliging volgens de voorschriften en een voorbereiding voor het laden van elektrische auto’s.</li>
-              <li>Liften die alle verdiepingen en rechtstreeks de garageverdiepingen bereiken, met automatische deuren, overbelastingsdetectie en een telefoonverbinding, en een cabine die geschikt is voor personen met beperkte mobiliteit.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Bron: de kwaliteitsomschrijving in de brochure van de ontwikkelaar, die niet is gedateerd. Daarin staat dat de materialen kunnen wijzigen zolang de kwaliteit niet wordt verlaagd, dat de beelden niet contractueel zijn en dat het getoonde meubilair niet is inbegrepen.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Negen woningen <em>momenteel beschikbaar</em></h2>
-          <p class="project-lead">Negen appartementen staan met een prijs vermeld: vier met twee slaapkamers en vijf met drie, op de eerste tot en met de vierde verdieping van blok 1, 2 en 3. De prijzen zijn die van de prijslijst van de ontwikkelaar per oktober 2026 en zijn exclusief btw; wij bevestigen beschikbaarheid en prijs vóór elke reservering. De overige 25 woningen op de lijst zijn als gereserveerd aangemerkt en niet beschikbaar.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Computergegenereerd beeld van het gemeenschappelijk zwembad met een houten dek, ligbedden en parasols, een palmboom en rechts de terrassen van het blok" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>22 foto's</button>
+          <a class="chip" href="nl/property-las-mesas-blue-horizon.html#availability"><svg><use href="#v2-i-plan"/></svg>Plattegronden</a>
+          <a class="chip" href="nl/property-las-mesas-blue-horizon.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>9</strong></div>
-            <div><span>Startprijs</span><strong>€ 849.000 + btw</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 849.000 - € 1.245.000 + btw</strong></div>
-            <div><span>Gecontroleerd</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 9 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-price="849000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1-2A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" alt="Plattegrond van 1-2A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1-2A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>76,26 m²</dd></div>
-                    <div><dt>Terras</dt><dd>20,40 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 1, tweede verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 849.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%201-2A">Vraag naar 1-2A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="879000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" alt="Plattegrond van 1-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1-3A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>76,26 m²</dd></div>
-                    <div><dt>Terras</dt><dd>20,40 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 1, derde verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 879.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%201-3A">Vraag naar 1-3A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="865000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-1A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" alt="Plattegrond van 2-1A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-1A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>70,93 m²</dd></div>
-                    <div><dt>Terras</dt><dd>24,30 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 865.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-1A">Vraag naar 2-1A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="953000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-1B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" alt="Plattegrond van 2-1B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-1B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terras</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 953.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-1B">Vraag naar 2-1B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="995000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-2B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" alt="Plattegrond van 2-2B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-2B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terras</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, tweede verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 995.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-2B">Vraag naar 2-2B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="889000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" alt="Plattegrond van 2-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-3A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>70,93 m²</dd></div>
-                    <div><dt>Terras</dt><dd>24,30 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, derde verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 889.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-3A">Vraag naar 2-3A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1055000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-3B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" alt="Plattegrond van 2-3B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-3B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terras</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, derde verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.055.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-3B">Vraag naar 2-3B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1155000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-4B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" alt="Plattegrond van 2-4B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-4B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terras</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, vierde verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.155.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-4B">Vraag naar 2-4B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1245000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" alt="Plattegrond van 3-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3-3A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>88,66 m²</dd></div>
-                    <div><dt>Terras</dt><dd>45,48 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 3, derde verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.245.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%203-3A">Vraag naar 3-3A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Prijzen, slaapkamers, bebouwde oppervlakten en terrassen zijn overgenomen uit de prijslijst van de ontwikkelaar voor de negen woningen die zij met een prijs toont, van 34 rijen, per oktober 2026. De lijst markeert de overige 25 rijen als gereserveerd. Ze toont naast elke prijs een btw-bedrag van 10%, dus de prijzen zijn exclusief btw. De bebouwde oppervlakte op de lijst komt tot op 0,02 m² overeen met de plattegronden; de terrassen wijken af, en beide cijfers staan hierboven bij elk woningtype.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Las Mesas Blue Horizon</span></h1>
+        <p class="hero-by">9 van de 34 appartementen met twee en drie slaapkamers in Las Mesas Blue Horizon, in Las Mesas, Estepona, met zeezicht, een gemeenschappelijk zwembad, een fitnessruimte, een spa, een coworkingruimte en een bioscoop.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 849.000</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>2 tot 3</dd><dd class="sub"><span>Appartementen</span></dd></div><div><dt>Oplevering</dt><dd>nog te bevestigen</dd><dd class="sub">Vergunning: wij bevestigen dit voordat u reserveert</dd></div><div><dt>Nog beschikbaar</dt><dd>9 van 34</dd><dd class="sub">Gecontroleerd op oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Las Mesas Blue Horizon is een woonwijk van drie blokken in Las Mesas, Estepona, met woningen met twee en drie slaapkamers die allemaal twee badkamers hebben. De brochure van de ontwikkelaar beschrijft grote terrassen met panoramisch uitzicht op de Middellandse Zee. Ze telt 36 woningen, terwijl de plattegronden en de prijslijst er 34 tonen, 20 met twee slaapkamers en 14 met drie, en negen daarvan staan met een prijs op de lijst.</p>
+    <p class="lede-2">De bewoners delen een gemeenschappelijk zwembad met nachtverlichting, aangelegde buitenruimten, een fitnessruimte, een spa, een coworkingruimte en een bioscoop, en drie kelderlagen herbergen de garage en de bergingen. De documenten van de ontwikkelaar noemen geen opleveringsdatum, en 25 van de 34 woningen op de lijst zijn als gereserveerd aangemerkt.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Getrapte witte terrassen, gericht op de zee</span></summary><p>In de computergegenereerde beelden van de ontwikkelaar hebben de blokken lange, gebogen witte terrassen die boven donkere lamellenschermen op elkaar zijn gestapeld, met pergola’s op de bovenste lagen en palmen en olijfbomen eromheen. De brochure noemt het een eigentijds ontwerp met uitzicht op zee.</p><p>De woningen op de begane grond hebben volgens de brochure een tuin en een privézwembad en de penthouses een solarium met een zwembad op het dak. De negen woningen met een prijs liggen op de eerste tot en met de vierde verdieping, elk met een terras.</p><ul><li>Structuur: Gewapend beton conform de geldende voorschriften en de Technische Bouwcode, op een fundering die is ontworpen op basis van het geotechnisch onderzoek.</li><li>Gevel: Meerlagig metselwerk met binnenisolatie, een spouw en een gipsplaatbekleding, gepleisterd en afgewerkt met gelakte aluminium panelen en composietbekleding.</li><li>Beglazing: Donker gelakte aluminium kozijnen met thermische onderbreking, dubbele beglazing met lage emissie en schuifdeuren naar de terrassen.</li><li>Daken: Omgekeerde platte daken, waterdicht en geïsoleerd, met grind waar niemand loopt en antislip keramische tegels op de betreedbare delen.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 849.000 – € 1.245.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>9 van 34 woningen</span><small>Gecontroleerd op oktober 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartementen</span></dd></div><div><dt>Oppervlakten</dt><dd><span>71 – 89 m²</span><small>Bebouwde oppervlakte</small></dd></div><div><dt>Oplevering</dt><dd><span>nog te bevestigen</span></dd></div><div><dt>Vergunning</dt><dd><span>Niet vermeld</span><small>Wij bevestigen dit voordat u reserveert</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Ondergrondse garage</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">Negen appartementen staan met een prijs vermeld: vier met twee slaapkamers en vijf met drie, op de eerste tot en met de vierde verdieping van blok 1, 2 en 3. De prijzen zijn die van de prijslijst van de ontwikkelaar per oktober 2026 en zijn exclusief btw; wij bevestigen beschikbaarheid en prijs vóór elke reservering. De overige 25 woningen op de lijst zijn als gereserveerd aangemerkt en niet beschikbaar. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    <div class="scarcity" role="img" aria-label="9 van 34 nog te koop"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>9 van 34 nog te koop</span></div>
+    <div class="ufilter" role="group" aria-label="Filteren op slaapkamers"><button type="button" aria-pressed="true" data-beds="">Alle <span>9</span></button><button type="button" aria-pressed="false" data-beds="2">2 slk. <span>4</span></button><button type="button" aria-pressed="false" data-beds="3">3 slk. <span>5</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="849000" data-size="76.26" data-ppm="11133" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp">
+            <th scope="row"><span class="u-name">1-2A</span><span class="u-loc">Blok 1, tweede verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">76 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 849.000</td>
+            <td data-label="Per m²" class="num">€ 11.133</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1-2A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="879000" data-size="76.26" data-ppm="11526" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp">
+            <th scope="row"><span class="u-name">1-3A</span><span class="u-loc">Blok 1, derde verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">76 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 879.000</td>
+            <td data-label="Per m²" class="num">€ 11.526</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="865000" data-size="70.93" data-ppm="12195" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp">
+            <th scope="row"><span class="u-name">2-1A</span><span class="u-loc">Blok 2, eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">71 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 865.000</td>
+            <td data-label="Per m²" class="num">€ 12.195</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-1A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="953000" data-size="87.88" data-ppm="10844" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp">
+            <th scope="row"><span class="u-name">2-1B</span><span class="u-loc">Blok 2, eerste verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">88 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 953.000</td>
+            <td data-label="Per m²" class="num">€ 10.844</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-1B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="995000" data-size="87.88" data-ppm="11322" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp">
+            <th scope="row"><span class="u-name">2-2B</span><span class="u-loc">Blok 2, tweede verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">88 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 995.000</td>
+            <td data-label="Per m²" class="num">€ 11.322</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-2B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="889000" data-size="70.93" data-ppm="12533" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp">
+            <th scope="row"><span class="u-name">2-3A</span><span class="u-loc">Blok 2, derde verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">71 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 889.000</td>
+            <td data-label="Per m²" class="num">€ 12.533</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="1055000" data-size="87.88" data-ppm="12005" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp">
+            <th scope="row"><span class="u-name">2-3B</span><span class="u-loc">Blok 2, derde verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">88 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.055.000</td>
+            <td data-label="Per m²" class="num">€ 12.005</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-3B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="1155000" data-size="87.88" data-ppm="13143" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp">
+            <th scope="row"><span class="u-name">2-4B</span><span class="u-loc">Blok 2, vierde verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">88 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.155.000</td>
+            <td data-label="Per m²" class="num">€ 13.143</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-4B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="1245000" data-size="88.66" data-ppm="14042" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp">
+            <th scope="row"><span class="u-name">3-3A</span><span class="u-loc">Blok 3, derde verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">89 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.245.000</td>
+            <td data-label="Per m²" class="num">€ 14.042</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Negen woningen, drie groepen</span></summary><p>De negen woningen met een prijs vallen naar grootte en blok uiteen in drie groepen. In de tabel hieronder staat elke woning met haar prijs.</p><div class="res-types"><div class="res-type"><h3>Twee slaapkamers, blokken 1 en 2</h3><ul><li>Vier woningen met twee slaapkamers en twee badkamers: 1-2A en 1-3A in blok 1, met 76,26 m² bebouwd, en 2-1A en 2-3A in blok 2, met 70,93 m² bebouwd. De lijst geeft terrassen van 20,40 m² voor de eerste twee en van 24,30 m² voor de andere twee.</li><li>De prijzen zijn € 849.000, € 879.000, € 865.000 en € 889.000.</li><li>De plattegronden geven binnenoppervlakten van 70,55 m² voor de woningen in blok 1 en 65,70 m² voor die in blok 2, en terrassen van 18,30, 18,25, 18,00 en 21,70 m², in dezelfde volgorde als hierboven.</li></ul></div><div class="res-type"><h3>Drie slaapkamers, blok 2</h3><ul><li>Vier woningen met drie slaapkamers en twee badkamers op de eerste tot en met de vierde verdieping: 2-1B, 2-2B, 2-3B en 2-4B, elk met 87,88 m² bebouwd en een terras van 21,65 m² volgens de lijst.</li><li>De prijzen stijgen met de verdieping, van € 953.000 op de eerste tot € 1.155.000 op de vierde.</li><li>De plattegronden geven een binnenoppervlakte van 82,30 m² en terrassen van 19,90, 15,90, 15,75 en 19,40 m², in dezelfde volgorde als hierboven.</li></ul></div><div class="res-type"><h3>Drie slaapkamers, blok 3</h3><ul><li>Woning 3-3A op de derde verdieping, met drie slaapkamers en twee badkamers, 88,66 m² bebouwd en een terras van 45,48 m² volgens de lijst.</li><li>De prijs is € 1.245.000.</li><li>De plattegrond geeft 81,60 m² binnen en een terras van 45,50 m².</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1107,436 +629,236 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk buitenzwembad met nachtverlichting</h3>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Afwerking</h2>
+    <p class="sec-sub">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
+    <div class="tabs" role="tablist" aria-label="Afwerking"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Wanden en scheidingswanden</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Ramen en zonwering</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Deuren en kasten</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Vloeren en wanden</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Keuken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Badkamers</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Klimaat en energie</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Elektriciteit en telecom</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-8">Gemeenschappelijke ruimten</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-9">Garage en liften</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Scheidingswanden van gipsplaten op een metalen frame met steenwolisolatie binnen de woning, waterafstotend in de natte ruimten, en geperforeerde baksteen tussen woningen en naast de gemeenschappelijke ruimten, bekleed met gipsplaten en thermische en akoestische isolatie.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Dubbele beglazing met een droge luchtspouw en een coating met lage emissie, schuifdeuren van de woonkamers en slaapkamers naar de terrassen, en een verborgen vloerrail in de woon-eetkamer en de keuken zodat die overlopen in de buitenruimte.</li><li>Gemotoriseerde rolgordijnen die de slaapkamers en de woonkamer verduisteren, met een drukknop in elke ruimte.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Een metaalversterkte voordeur met een veiligheidsslot met drie vergrendelpunten en een smartlock, vloer-tot-plafond binnendeuren in een minimalistisch ontwerp, in kleur gelakt, en ingebouwde modulaire kledingkasten met beklede binnenkant, een kofferplank en een kleerstang. Grepen en beslag in zwart of chroom.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Vloeren van gerectificeerd porseleinen gres in het formaat 120 x 120 cm of van microcement, met een witte houten plint passend bij het houtwerk, en antislip gerectificeerd porseleinen gres op de terrassen.</li><li>Badkamers van vloer tot plafond betegeld met grootformaat porseleinen gres en wit wandtegelwerk, gecombineerd met microcement op de overige wanden, en een gespikkelde afwerking in grijs en crème op de badkamerplafonds.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Een gemeubileerde keuken met hoge en lage kasten van grote capaciteit in gelamineerde afwerking, een werkblad en spatwand van compact kwarts, een centraal eiland met opbergruimte eronder en een kwartsen blad, en een spoelbak van hetzelfde kwarts met een uittrekbare kraan.</li><li>Apparatuur: een oven en een magnetron in een kolom, een inductiekookplaat met geïntegreerde afzuigkap, een vaatwasser, een koelkast, een wasmachine en een wijnkoeler.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>In de hoofdbadkamer en de tweede badkamer opzetwastafels van compact kwarts op hangende kasten, lage douchebakken van kunsthars en glazen douchewanden met roestvrijstalen of zwarte kaders.</li><li>Thermostatische doucheafwerking met een glijstang en een handdouche, eengreeps wastafelkranen in chroom of zwart, en toiletten met een dubbele spoeling en een soft-close bril.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Warm water uit een aerothermisch systeem en geïntegreerde airconditioning per ruimte, met een thermostaat in de woonkamer.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Inbouw-ledverlichting in de keuken, de gangen en de badkamerplafonds en ledverlichting op de terrassen, een video-intercom in kleur en een digitaal netwerk van geïntegreerde diensten met aansluitingen in de woonkamers, keukens en slaapkamers.</li><li>Wateraansluitingen op de dakterrassen en in de tuinen op de begane grond.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-8" role="tabpanel" hidden>
+      <ul><li>Een gemeenschappelijk zwembad met nachtverlichting, groenzones en een zonneterras, een fitnessruimte, een spa, een sociale club en een bioscoop.</li><li>Beplanting met inheemse, waterzuinige planten met automatische druppelirrigatie, verlichte toegangsdeuren voor een warm onthaal, en spaarverlichting met bewegingsmelders en tijdschakelaars bij de ingangen, op de trappen en op de overlopen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-9" role="tabpanel" hidden>
+      <ul><li>Een garage met afstandsbediende deuren, een gepolijste doorlopende vloer van kwartsbeton, brandbeveiliging volgens de voorschriften en een voorbereiding voor het laden van elektrische auto’s.</li><li>Liften die alle verdiepingen en rechtstreeks de garageverdiepingen bereiken, met automatische deuren, overbelastingsdetectie en een telefoonverbinding, en een cabine die geschikt is voor personen met beperkte mobiliteit.</li></ul>
+      
+    </div>
+    <p class="caption">Bron: de kwaliteitsomschrijving in de brochure van de ontwikkelaar, die niet is gedateerd. Daarin staat dat de materialen kunnen wijzigen zolang de kwaliteit niet wordt verlaagd, dat de beelden niet contractueel zijn en dat het getoonde meubilair niet is inbegrepen.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Het blok vanaf de weg"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Computergegenereerd beeld van het witte terrassenblok vanaf de weg, met palmen en olijfbomen op de helling en de zee links" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="14" aria-label="Woonkamer, eetkamer en keuken"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg" alt="Computergegenereerd beeld van een open woonkamer met eetgedeelte en keukeneiland en een glazen schuifwand naar het terras" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Het gemeenschappelijke zwembad"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Computergegenereerd beeld van het gemeenschappelijk zwembad met een houten dek, ligbedden en parasols, een palmboom en rechts de terrassen van het blok" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Het blok vanaf het zwembaddek"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg" alt="Computergegenereerd beeld van het getrapte blok vanaf het zwembaddek, met palmen en een pergola op het dak" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Het blok boven de olijfbomen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.jpg" alt="Computergegenereerd beeld van het blok met lange, gebogen witte terrassen en donkere lamellenschermen boven olijfbomen, met links gazon en dennen" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 22 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (9)</button><button type="button" data-open-cat="Amenities">Voorzieningen (5)</button><button type="button" data-open-cat="Interiors">Interieur (8)</button></div>
+    
+    <p class="caption">Alle beelden zijn computergegenereerde illustraties en geen foto’s van het voltooide gebouw, en het meubilair en de inrichting erop zijn illustratief en niet inbegrepen. De plattegronden zijn de verkoopplannen van de ontwikkelaar: ze zijn niet contractueel, de namen van de ruimten erop zijn in het Spaans en de terrassen erop wijken af van de prijslijst.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">De woningen liggen in Las Mesas, dat de brochure van de ontwikkelaar een van de meest gedistingeerde woonwijken van Estepona noemt, in het hart van de Costa del Sol. Ze plaatst de locatie aan de A-7 en de AP-7, op 5 minuten van het strand La Rada en op 45 minuten van de luchthaven van Málaga, met gezondheidscentra, supermarkten en winkelcentra in de buurt. De brochure zegt niet of de 5 minuten te voet of met de auto zijn.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-las-mesas-blue-horizon" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;130 m · 2 min. lopen&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min. lopen&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Las Mesas Blue Horizon"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Las Mesas Blue Horizon</h3>
+            <p class="locmap-place">Las Mesas, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min. lopen</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Fitnessruimte</h3>
-              <p class="amenity-note">Binnen het project</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Wellness</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Natte ruimtes om te herstellen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Estepona</span>
+              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min. lopen</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Buiten</span>
-              <h3 class="amenity-name">Aangelegde tuinen met inheemse, waterzuinige beplanting</h3>
-              <p class="amenity-note">Beplante gemeenschappelijke grond</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Buiten</span>
-              <h3 class="amenity-name">Zeezicht</h3>
-              <p class="amenity-note">Richting de Middellandse Zee</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Coworking</h3>
-              <p class="amenity-note">Werkplekken buiten de woning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Ondergrondse garage</h3>
-              <p class="amenity-note">Onder het gebouw</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Berging</h3>
-              <p class="amenity-note">Een afsluitbare berging</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Lift</h3>
-              <p class="amenity-note">Elke verdieping bereikbaar</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Voorbereiding voor laadpunt</h3>
-              <p class="amenity-note">Een punt voor de auto</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Warm water via warmtepomp</h3>
-              <p class="amenity-note">Warm water uit de lucht</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Airconditioning</h3>
-              <p class="amenity-note">Koelen en verwarmen via kanalen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Uitgeruste keuken</h3>
-              <p class="amenity-note">Ingericht en voorzien van apparatuur</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Diensten</span>
-              <h3 class="amenity-name">Bioscoop</h3>
-              <p class="amenity-note">Een filmzaal binnen</p>
-            </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Strand van La Rada</th><td>5 minuten, volgens de ontwikkelaar</td></tr><tr><th scope="row">Luchthaven Málaga</th><td>45 minuten, volgens de ontwikkelaar</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">De gemeenschappelijke ruimten zijn opgezet rond een zwembad, een spa en een fitnessruimte, met een bioscoop en een coworkingruimte, binnen het complex.</p>
+    <div class="life-panels"><div><h3>Het zwembad</h3><p>Een gemeenschappelijk zwembad van 77,65 m² met nachtverlichting, in een tuin van 67,60 m² met een zonneterras.</p></div><div><h3>De spa</h3><p>Een spa van 46,90 m². De beelden van de ontwikkelaar tonen een ruimte met ligbedden, een smal bad met waterstralen en een rond bubbelbad.</p></div><div><h3>De fitnessruimte en de coworkingruimte</h3><p>Een fitnessruimte van 31,40 m² en een coworkingruimte van 33,90 m², op de eerste kelderlaag.</p></div><div><h3>De bioscoop</h3><p>Een bioscoopzaal van 15,40 m², op dezelfde laag als de spa, de fitnessruimte en de coworkingruimte.</p></div><div><h3>Garage en bergingen</h3><p>Drie kelderlagen met garageplaatsen en bergingen, liften naar alle verdiepingen en een voorbereiding voor het laden van elektrische auto’s.</p></div></div>
+    <ul class="amen-top"><li>Gemeenschappelijk buitenzwembad met nachtverlichting</li><li>Fitnessruimte</li><li>Spa</li><li>Coworking</li><li>Bioscoop</li><li>Aangelegde tuinen met inheemse, waterzuinige beplanting</li></ul>
+    <details class="amen-all"><summary>Alle 14 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">3</span></h3><ul><li>Gemeenschappelijk buitenzwembad met nachtverlichting</li><li>Fitnessruimte</li><li>Spa</li></ul></div><div><h3>Buiten<span class="count">2</span></h3><ul><li>Aangelegde tuinen met inheemse, waterzuinige beplanting</li><li>Zeezicht</li></ul></div><div><h3>Dagelijks<span class="count">8</span></h3><ul><li>Coworking</li><li>Ondergrondse garage</li><li>Berging</li><li>Lift</li><li>Voorbereiding voor laadpunt</li><li>Warm water via warmtepomp</li><li>Airconditioning</li><li>Uitgeruste keuken</li></ul></div><div><h3>Diensten<span class="count">1</span></h3><ul><li>Bioscoop</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een nieuw appartement met twee of drie slaapkamers in Estepona willen, met een groot terras en wellnessfaciliteiten in het complex, om in te wonen of als tweede woning.</span></li><li><b>Wat het anders maakt</b><span>Een spa van 46,90 m², een fitnessruimte, een coworkingruimte, een bioscoop en een gemeenschappelijk zwembad, met een lift en een garage met bergingen op drie kelderlagen, in een complex van slechts drie blokken.</span></li><li><b>Waarom de locatie ertoe doet</b><span>De ontwikkelaar plaatst de locatie aan de A-7 en de AP-7, op 5 minuten van het strand La Rada en op 45 minuten van de luchthaven van Málaga. Hij zegt niet of de 5 minuten te voet of met de auto zijn.</span></li><li><b>Waarom beschikbaarheid checken</b><span>Vijfentwintig van de 34 woningen op de lijst zijn als gereserveerd aangemerkt en negen hebben een prijs. De documenten noemen geen opleveringsdatum, dus we bevestigen de bouwstand en de datum vóór elke reservering.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Beschikbaarheid</b><span>Vijfentwintig van de 34 woningen op de lijst zijn als gereserveerd aangemerkt. Negen staan met een prijs op de lijst, van € 849.000 tot € 1.245.000 excl. btw.</span></li><li><b>Btw</b><span>De lijst toont naast elke prijs in een aparte kolom een bedrag aan Spaanse btw, 10% ervan. De prijzen zijn exclusief btw, en Nueva Living bevestigt het tarief en de aankoopkosten schriftelijk.</span></li><li><b>Betalingsvoorwaarden</b><span>De documenten waarover we beschikken noemen geen reserveringsbedrag en geen betalingsschema, dus we vragen ze vóór elke reservering schriftelijk op.</span></li><li><b>Parkeren en berging</b><span>De brochure toont garageplaatsen en bergingen op drie kelderlagen, maar de prijslijst zegt niet of er bij elke woning een hoort. We bevestigen het voor de woning die u kiest.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vergunning en werken</b><span>De documenten waarover we beschikken zeggen niet of de bouwvergunning is verleend of hoe ver de werken zijn, en de specificatie is in de toekomende tijd geschreven. We vragen de vergunning, de status ervan en de startdatum van de werken op.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De opleveringsdatum</b><span>Geen van de documenten van de ontwikkelaar noemt een opleveringsdatum, dus wij vragen de contractuele datum op vóór elke reservering.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Het aantal woningen</b><span>De tekst van de brochure spreekt van 36 woningen. De plattegronden en de prijslijst tonen er 34: 11 in blok 1, 11 in blok 2 en 12 in blok 3. Deze pagina gebruikt de 34 van de plattegronden en de lijst, en we vragen de ontwikkelaar het totaal te bevestigen.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De oppervlakten</b><span>De prijslijst en de plattegronden komen voor elke woning tot op 0,02 m² overeen qua bebouwde oppervlakte, maar niet qua terrassen. Voor woning 2-2B geeft de lijst een terras van 21,65 m² en de plattegrond 15,90 m², en voor woning 1-2A geeft de lijst 20,40 m² en de plattegrond 18,30 m². De plattegronden geven bovendien een tweede, grotere bebouwde oppervlakte volgens decreet 218/2005: 86,01 m² voor woning 1-2A tegenover 76,26 m². We bevestigen welke cijfers het contract hanteert.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De prijslijst</b><span>De prijslijst heeft als kop “Blue Horizon. Listado de ventas” en bevat zelf geen datum. De bestandsnaam luidt “oktober 26”, wat we lezen als oktober 2026, en we bevestigen elke prijs vóór elke reservering.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De kaart en de afstanden</b><span>De documenten geven geen adres of coördinaten, dus de markering op de kaart staat in het centrum van Estepona en niet op het perceel, en de wegafstanden naast de kaart zijn vanaf die markering gemeten. De brochure noemt het strand La Rada op 5 minuten zonder te zeggen of te voet of met de auto, en de luchthaven van Málaga op 45 minuten; de afstanden bevestigen we bij een bezichtiging.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>De plattegronden van de woningen die u interesseren, de kwaliteitsspecificatie en de prijslijst.</p></li><li><h3>Vergelijk de opties</h3><p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p></li><li><h3>Privébezichtiging</h3><p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p></li><li><h3>Reserveren</h3><p>We bevestigen het reserveringsbedrag en het betalingsschema schriftelijk, daarna volgt de koopovereenkomst.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plattegronden<small>9 van 9 woningen</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Technische omschrijving</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Las Mesas Blue Horizon</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn er?</summary><p>De tekst van de brochure spreekt van 36 woningen, maar de plattegronden en de prijslijst tonen er 34, met twee of drie slaapkamers. Negen staan met een prijs op de lijst, van € 849.000 tot € 1.245.000 excl. btw, en de andere 25 zijn als gereserveerd aangemerkt.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>Nee. De prijslijst toont in een aparte kolom een btw-bedrag van 10%, dus de prijzen zijn exclusief btw. We bevestigen de belastingen en aankoopkosten schriftelijk.</p></details><details class="segment-faq-item"><summary>Is er parkeergelegenheid en een berging?</summary><p>De brochure toont 37 garageplaatsen en 37 bergingen op drie kelderlagen. De prijslijst zegt niet of er bij elke woning een hoort, dus we bevestigen het voor de woning die u kiest.</p></details><details class="segment-faq-item"><summary>Hebben alle woningen zeezicht?</summary><p>De brochure beschrijft voor het complex panoramisch uitzicht op de Middellandse Zee, maar zegt niet welke woningen dat hebben, dus we bevestigen het uitzicht vanuit de woning die u kiest.</p></details><details class="segment-faq-item"><summary>Is meubilair inbegrepen?</summary><p>Nee. Het meubilair dat op de beelden te zien is, is niet inbegrepen. De keuken wordt gemeubileerd en met apparatuur opgeleverd, zoals de specificatie aangeeft.</p></details></div>
+    <details class="faq2-more"><summary>Alle vragen tonen (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Wanneer is het klaar?</summary><p>Geen van de documenten van de ontwikkelaar geeft een opleverdatum. We vragen naar de contractuele datum, de status van de vergunning en de stand van de werken.</p></details><details class="segment-faq-item"><summary>Wat is het betalingsschema?</summary><p>De documenten waarover we beschikken noemen geen reserveringsbedrag en geen betalingsschema. We vragen ze op en leggen ze schriftelijk vast.</p></details></div></details>
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 849.000</p>
+      <p class="rail-note">Excl. btw. Nog 9 van 34 woningen · Gecontroleerd op oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Bezoek met ons het terrein en de omgeving.</li><li><b>Op papier.</b> Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</li><li><b>Op de plattegronden.</b> We lopen met u door de woning die u kiest, kamer voor kamer, aan de hand van de plattegrond.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Las Mesas Blue Horizon">
+        <input type="hidden" id="f-project" name="project" value="Las Mesas Blue Horizon">
+        <input type="hidden" name="preferred_area" value="Las Mesas, Estepona">
+        <input type="hidden" name="property_type_interest" value="Appartementen">
+        <input type="hidden" name="budget_range" value="Vanaf € 849.000 + btw">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hallo Nueva Living, ik zou graag informatie ontvangen over Las Mesas Blue Horizon." data-base="Hallo Nueva Living, ik zou graag informatie ontvangen over Las Mesas Blue Horizon.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="1-2A">1-2A: € 849.000</option><option value="1-3A">1-3A: € 879.000</option><option value="2-1A">2-1A: € 865.000</option><option value="2-1B">2-1B: € 953.000</option><option value="2-2B">2-2B: € 995.000</option><option value="2-3A">2-3A: € 889.000</option><option value="2-3B">2-3B: € 1.055.000</option><option value="2-4B">2-4B: € 1.155.000</option><option value="3-3A">3-3A: € 1.245.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Las Mesas Blue Horizon veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Appartementen met twee en drie slaapkamers en grote terrassen, met een spa, een fitnessruimte en een bioscoop in het complex, in Las Mesas, Estepona.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een nieuw appartement met twee of drie slaapkamers in Estepona willen, met een groot terras en wellnessfaciliteiten in het complex, om in te wonen of als tweede woning.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>Een spa van 46,90 m², een fitnessruimte, een coworkingruimte, een bioscoop en een gemeenschappelijk zwembad, met een lift en een garage met bergingen op drie kelderlagen, in een complex van slechts drie blokken.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>De ontwikkelaar plaatst de locatie aan de A-7 en de AP-7, op 5 minuten van het strand La Rada en op 45 minuten van de luchthaven van Málaga. Hij zegt niet of de 5 minuten te voet of met de auto zijn.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom beschikbaarheid checken</h3><p>Vijfentwintig van de 34 woningen op de lijst zijn als gereserveerd aangemerkt en negen hebben een prijs. De documenten noemen geen opleveringsdatum, dus we bevestigen de bouwstand en de datum vóór elke reservering.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Een feitelijke noot over wat de documenten wel en niet zeggen; Nueva Living belooft geen huurrendement of waardestijging.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Beschikbaarheid</h3><p>Vijfentwintig van de 34 woningen op de lijst zijn als gereserveerd aangemerkt. Negen staan met een prijs op de lijst, van € 849.000 tot € 1.245.000 excl. btw.</p></article>
-              <article class="why-point reveal-soft"><h3>Btw</h3><p>De lijst toont naast elke prijs in een aparte kolom een bedrag aan Spaanse btw, 10% ervan. De prijzen zijn exclusief btw, en Nueva Living bevestigt het tarief en de aankoopkosten schriftelijk.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalingsvoorwaarden</h3><p>De documenten waarover we beschikken noemen geen reserveringsbedrag en geen betalingsschema, dus we vragen ze vóór elke reservering schriftelijk op.</p></article>
-              <article class="why-point reveal-soft"><h3>Parkeren en berging</h3><p>De brochure toont garageplaatsen en bergingen op drie kelderlagen, maar de prijslijst zegt niet of er bij elke woning een hoort. We bevestigen het voor de woning die u kiest.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vergunning en werken</h3><p>De documenten waarover we beschikken zeggen niet of de bouwvergunning is verleend of hoe ver de werken zijn, en de specificatie is in de toekomende tijd geschreven. We vragen de vergunning, de status ervan en de startdatum van de werken op.</p></article>
-              <article class="why-point reveal-soft"><h3>De opleveringsdatum</h3><p>Geen van de documenten van de ontwikkelaar noemt een opleveringsdatum, dus wij vragen de contractuele datum op vóór elke reservering.</p></article>
-              <article class="why-point reveal-soft"><h3>Het aantal woningen</h3><p>De tekst van de brochure spreekt van 36 woningen. De plattegronden en de prijslijst tonen er 34: 11 in blok 1, 11 in blok 2 en 12 in blok 3. Deze pagina gebruikt de 34 van de plattegronden en de lijst, en we vragen de ontwikkelaar het totaal te bevestigen.</p></article>
-              <article class="why-point reveal-soft"><h3>De oppervlakten</h3><p>De prijslijst en de plattegronden komen voor elke woning tot op 0,02 m² overeen qua bebouwde oppervlakte, maar niet qua terrassen. Voor woning 2-2B geeft de lijst een terras van 21,65 m² en de plattegrond 15,90 m², en voor woning 1-2A geeft de lijst 20,40 m² en de plattegrond 18,30 m². De plattegronden geven bovendien een tweede, grotere bebouwde oppervlakte volgens decreet 218/2005: 86,01 m² voor woning 1-2A tegenover 76,26 m². We bevestigen welke cijfers het contract hanteert.</p></article>
-              <article class="why-point reveal-soft"><h3>De prijslijst</h3><p>De prijslijst heeft als kop “Blue Horizon. Listado de ventas” en bevat zelf geen datum. De bestandsnaam luidt “oktober 26”, wat we lezen als oktober 2026, en we bevestigen elke prijs vóór elke reservering.</p></article>
-              <article class="why-point reveal-soft"><h3>De kaart en de afstanden</h3><p>De documenten geven geen adres of coördinaten, dus de markering op de kaart staat in het centrum van Estepona en niet op het perceel, en de wegafstanden naast de kaart zijn vanaf die markering gemeten. De brochure noemt het strand La Rada op 5 minuten zonder te zeggen of te voet of met de auto, en de luchthaven van Málaga op 45 minuten; de afstanden bevestigen we bij een bezichtiging.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op oktober 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>Prijzen, slaapkamers, bebouwde oppervlakten en terrassen zijn overgenomen uit de prijslijst van de ontwikkelaar voor de negen woningen die zij met een prijs toont, van 34 rijen, per oktober 2026. De lijst markeert de overige 25 rijen als gereserveerd. Ze toont naast elke prijs een btw-bedrag van 10%, dus de prijzen zijn exclusief btw. De bebouwde oppervlakte op de lijst komt tot op 0,02 m² overeen met de plattegronden; de terrassen wijken af, en beide cijfers staan hierboven bij elk woningtype.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg" alt="Computergegenereerd beeld van het getrapte blok vanaf het zwembaddek, met palmen en een pergola op het dak" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Getrapte witte terrassen, <em>gericht op de zee</em></h2>
-          <p>In de computergegenereerde beelden van de ontwikkelaar hebben de blokken lange, gebogen witte terrassen die boven donkere lamellenschermen op elkaar zijn gestapeld, met pergola’s op de bovenste lagen en palmen en olijfbomen eromheen. De brochure noemt het een eigentijds ontwerp met uitzicht op zee.</p>
-<p>De woningen op de begane grond hebben volgens de brochure een tuin en een privézwembad en de penthouses een solarium met een zwembad op het dak. De negen woningen met een prijs liggen op de eerste tot en met de vierde verdieping, elk met een terras.</p>
-          <ul class="feature-list">
-            <li>Structuur — Gewapend beton conform de geldende voorschriften en de Technische Bouwcode, op een fundering die is ontworpen op basis van het geotechnisch onderzoek.</li>
-            <li>Gevel — Meerlagig metselwerk met binnenisolatie, een spouw en een gipsplaatbekleding, gepleisterd en afgewerkt met gelakte aluminium panelen en composietbekleding.</li>
-            <li>Beglazing — Donker gelakte aluminium kozijnen met thermische onderbreking, dubbele beglazing met lage emissie en schuifdeuren naar de terrassen.</li>
-            <li>Daken — Omgekeerde platte daken, waterdicht en geïsoleerd, met grind waar niemand loopt en antislip keramische tegels op de betreedbare delen.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg" alt="Computergegenereerd beeld van een slaapkamer met een tweepersoonsbed, een gestoffeerde wand en een glazen schuifdeur naar het terras" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>de omgeving en de plattegronden</em></h2>
-            <p>Bij een bezoek gaat het om de ligging, de plattegronden en de stand van de werken.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Bezoek met ons het terrein en de omgeving.</p></div>
-              <div><span>Op papier</span><p>Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</p></div>
-              <div><span>Op de plattegronden</span><p>We lopen met u door de woning die u kiest, kamer voor kamer, aan de hand van de plattegrond.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=las-mesas-blue-horizon">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Amenities">Voorzieningen</button><button type="button" data-cat="Interiors">Interieur</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Computergegenereerd beeld van het gemeenschappelijk zwembad met een houten dek, ligbedden en parasols, een palmboom en rechts de terrassen van het blok" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Een spa, <em>een fitnessruimte</em> en een zwembad</h2>
-            <p>De gemeenschappelijke ruimten zijn opgezet rond een zwembad, een spa en een fitnessruimte, met een bioscoop en een coworkingruimte, binnen het complex.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>De plattegronden van de woningen die u interesseren, de kwaliteitsspecificatie en de prijslijst.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de opties</h3>
-            <p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserveren</h3>
-            <p>We bevestigen het reserveringsbedrag en het betalingsschema schriftelijk, daarna volgt de koopovereenkomst.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn er?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De tekst van de brochure spreekt van 36 woningen, maar de plattegronden en de prijslijst tonen er 34, met twee of drie slaapkamers. Negen staan met een prijs op de lijst, van € 849.000 tot € 1.245.000 excl. btw, en de andere 25 zijn als gereserveerd aangemerkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. De prijslijst toont in een aparte kolom een btw-bedrag van 10%, dus de prijzen zijn exclusief btw. We bevestigen de belastingen en aankoopkosten schriftelijk.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is er parkeergelegenheid en een berging?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De brochure toont 37 garageplaatsen en 37 bergingen op drie kelderlagen. De prijslijst zegt niet of er bij elke woning een hoort, dus we bevestigen het voor de woning die u kiest.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hebben alle woningen zeezicht?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De brochure beschrijft voor het complex panoramisch uitzicht op de Middellandse Zee, maar zegt niet welke woningen dat hebben, dus we bevestigen het uitzicht vanuit de woning die u kiest.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is meubilair inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. Het meubilair dat op de beelden te zien is, is niet inbegrepen. De keuken wordt gemeubileerd en met apparatuur opgeleverd, zoals de specificatie aangeeft.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is het klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Geen van de documenten van de ontwikkelaar geeft een opleverdatum. We vragen naar de contractuele datum, de status van de vergunning en de stand van de werken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het betalingsschema?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De documenten waarover we beschikken noemen geen reserveringsbedrag en geen betalingsschema. We vragen ze op en leggen ze schriftelijk vast.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>Las Mesas Blue Horizon</em></h2>
-          <p class="body-copy">Vertel ons wat u nodig heeft en we komen bij u terug met de actuele beschikbaarheid, de plattegronden en de prijslijst.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Las Mesas Blue Horizon">
-
-          <input type="hidden" id="f-project" name="project" value="Las Mesas Blue Horizon">
-          <input type="hidden" name="preferred_area" value="Las Mesas, Estepona">
-          <input type="hidden" name="property_type_interest" value="Appartementen">
-          <input type="hidden" name="budget_range" value="Vanaf € 849.000 + btw">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Hallo Nueva Living, ik zou graag informatie ontvangen over Las Mesas Blue Horizon.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Wij reageren persoonlijk, meestal dezelfde dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"1-2A","title":"1-2A · Blok 1, tweede verdieping","sub":"2 slk. · 76 m²","price":849000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg","label":""}]},{"id":"u1","ref":"1-3A","title":"1-3A · Blok 1, derde verdieping","sub":"2 slk. · 76 m²","price":879000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg","label":""}]},{"id":"u2","ref":"2-1A","title":"2-1A · Blok 2, eerste verdieping","sub":"2 slk. · 71 m²","price":865000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg","label":""}]},{"id":"u3","ref":"2-1B","title":"2-1B · Blok 2, eerste verdieping","sub":"3 slk. · 88 m²","price":953000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg","label":""}]},{"id":"u4","ref":"2-2B","title":"2-2B · Blok 2, tweede verdieping","sub":"3 slk. · 88 m²","price":995000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg","label":""}]},{"id":"u5","ref":"2-3A","title":"2-3A · Blok 2, derde verdieping","sub":"2 slk. · 71 m²","price":889000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg","label":""}]},{"id":"u6","ref":"2-3B","title":"2-3B · Blok 2, derde verdieping","sub":"3 slk. · 88 m²","price":1055000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg","label":""}]},{"id":"u7","ref":"2-4B","title":"2-4B · Blok 2, vierde verdieping","sub":"3 slk. · 88 m²","price":1155000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg","label":""}]},{"id":"u8","ref":"3-3A","title":"3-3A · Blok 3, derde verdieping","sub":"3 slk. · 89 m²","price":1245000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp","alt":"Computergegenereerd beeld van het witte terrassenblok vanaf de weg, met palmen en olijfbomen op de helling en de zee links","caption":"Het blok vanaf de weg","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.webp","alt":"Computergegenereerd beeld van het getrapte blok vanaf het zwembaddek, met palmen en een pergola op het dak","caption":"Het blok vanaf het zwembaddek","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.webp","alt":"Computergegenereerd beeld van het blok met lange, gebogen witte terrassen en donkere lamellenschermen boven olijfbomen, met links gazon en dennen","caption":"Het blok boven de olijfbomen","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.webp","alt":"Computergegenereerd beeld van een hoek van het blok met een pergola op het dak boven getrapte terrassen, met op de voorgrond het gemeenschappelijk zwembad","caption":"Een hoek van het blok boven het zwembad","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.webp","alt":"Computergegenereerd beeld van het blok boven een stenen keermuur, met een trap en een poort bij de ingang, een straat ervoor en bergen erachter","caption":"Het blok boven de ingang","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk.webp","alt":"Computergegenereerd beeld van het blok in de schemering, van binnenuit verlicht, met straatlantaarns en de bergen erachter","caption":"Het blok in de schemering","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools.webp","alt":"Computergegenereerd beeld van het blok van bovenaf, met daktuinen met zwembaden en terrassen op de bovenste lagen en kleine zwembaden en gazons aan de voet","caption":"Luchtbeeld van het blok","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool.webp","alt":"Computergegenereerd beeld van een woning op de begane grond met een overdekt terras, een gazon met ligbedden en een klein privézwembad","caption":"Een woning op de begane grond met tuin en zwembad","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool.webp","alt":"Computergegenereerd beeld van een dakterras met een eettafel, ligbedden, een klein zwembad en de zee aan de horizon","caption":"Een dakterras met zwembad","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp","alt":"Computergegenereerd beeld van het gemeenschappelijk zwembad met een houten dek, ligbedden en parasols, een palmboom en rechts de terrassen van het blok","caption":"Het gemeenschappelijke zwembad","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance.webp","alt":"Computergegenereerd beeld van een helling en een trap met stenen muren naar de garagedeur, met achter glas een fitnessruimte en een coworkingruimte","caption":"De fitnessruimte en de coworkingruimte","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment.webp","alt":"Computergegenereerd beeld van een fitnessruimte met twee crosstrainers, planken met gymnastiekballen en gewichten en een glazen wand","caption":"De fitnessruimte","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge.webp","alt":"Computergegenereerd beeld van een spa-relaxruimte met ligbedden, twee kuipvormige fauteuils en een smal bad met waterstralen","caption":"De relaxruimte van de spa","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool.webp","alt":"Computergegenereerd beeld van de spa van bovenaf, met een bad, waterstralen, een rond bubbelbad en ligbedden","caption":"Het spabad en het bubbelbad","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp","alt":"Computergegenereerd beeld van een open woonkamer met eetgedeelte en keukeneiland en een glazen schuifwand naar het terras","caption":"Woonkamer, eetkamer en keuken","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island.webp","alt":"Computergegenereerd beeld van een eettafel en een keuken met een eiland van houten latten en barkrukken, naast een glazen schuifwand","caption":"Het keukeneiland en de eettafel","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen.webp","alt":"Computergegenereerd beeld van een terras met zitgedeelte en eettafel, dat uitkomt op een woonkamer en keuken, met in de verte de stad en groen land","caption":"Een terras aan de woonkamer","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.webp","alt":"Computergegenereerd beeld van een woonkamer met een hoekbank, een eettafel en een brede glazen schuifwand richting de zee","caption":"Een woonkamer met zeezicht","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.webp","alt":"Computergegenereerd beeld van een slaapkamer met een tweepersoonsbed, een gestoffeerde wand en een glazen schuifdeur naar het terras","caption":"Een slaapkamer die uitkomt op het terras","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view.webp","alt":"Computergegenereerd beeld van een slaapkamer met vloer-tot-plafondbeglazing naar een terras, met daarachter de stad en de zee","caption":"Een slaapkamer met uitzicht op zee","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.webp","alt":"Computergegenereerd beeld van een badkamer met een opzetwastafel op een houten kast, een ronde verlichte spiegel en een douche met glazen wand","caption":"Een badkamer met een douche met glazen wand","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin.webp","alt":"Computergegenereerd beeld van een badkamer met twee opzetwastafels, twee ovale verlichte spiegels en een douche met glazen wand","caption":"Een badkamer met twee wastafels","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Las Mesas Blue Horizon media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp","alt":"Computergegenereerd beeld van het witte terrassenblok vanaf de weg, met palmen en olijfbomen op de helling en de zee links","width":1920,"height":1080,"caption":"Het blok vanaf de weg","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-960.webp","alt":"Computergegenereerd beeld van het getrapte blok vanaf het zwembaddek, met palmen en een pergola op het dak","width":1920,"height":1080,"caption":"Het blok vanaf het zwembaddek","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-960.webp","alt":"Computergegenereerd beeld van het blok met lange, gebogen witte terrassen en donkere lamellenschermen boven olijfbomen, met links gazon en dennen","width":1920,"height":1080,"caption":"Het blok boven de olijfbomen","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool-960.webp","alt":"Computergegenereerd beeld van een hoek van het blok met een pergola op het dak boven getrapte terrassen, met op de voorgrond het gemeenschappelijk zwembad","width":1920,"height":1080,"caption":"Een hoek van het blok boven het zwembad","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall-960.webp","alt":"Computergegenereerd beeld van het blok boven een stenen keermuur, met een trap en een poort bij de ingang, een straat ervoor en bergen erachter","width":1920,"height":1080,"caption":"Het blok boven de ingang","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk-960.webp","alt":"Computergegenereerd beeld van het blok in de schemering, van binnenuit verlicht, met straatlantaarns en de bergen erachter","width":1920,"height":1080,"caption":"Het blok in de schemering","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools-960.webp","alt":"Computergegenereerd beeld van het blok van bovenaf, met daktuinen met zwembaden en terrassen op de bovenste lagen en kleine zwembaden en gazons aan de voet","width":1920,"height":1080,"caption":"Luchtbeeld van het blok","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool-960.webp","alt":"Computergegenereerd beeld van een woning op de begane grond met een overdekt terras, een gazon met ligbedden en een klein privézwembad","width":1920,"height":1080,"caption":"Een woning op de begane grond met tuin en zwembad","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool-960.webp","alt":"Computergegenereerd beeld van een dakterras met een eettafel, ligbedden, een klein zwembad en de zee aan de horizon","width":1920,"height":1080,"caption":"Een dakterras met zwembad","category":"Exterieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp","alt":"Computergegenereerd beeld van het gemeenschappelijk zwembad met een houten dek, ligbedden en parasols, een palmboom en rechts de terrassen van het blok","width":1920,"height":1080,"caption":"Het gemeenschappelijke zwembad","category":"Voorzieningen"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance-960.webp","alt":"Computergegenereerd beeld van een helling en een trap met stenen muren naar de garagedeur, met achter glas een fitnessruimte en een coworkingruimte","width":1920,"height":1080,"caption":"De fitnessruimte en de coworkingruimte","category":"Voorzieningen"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment-960.webp","alt":"Computergegenereerd beeld van een fitnessruimte met twee crosstrainers, planken met gymnastiekballen en gewichten en een glazen wand","width":1920,"height":1080,"caption":"De fitnessruimte","category":"Voorzieningen"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge-960.webp","alt":"Computergegenereerd beeld van een spa-relaxruimte met ligbedden, twee kuipvormige fauteuils en een smal bad met waterstralen","width":1920,"height":1080,"caption":"De relaxruimte van de spa","category":"Voorzieningen"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool-960.webp","alt":"Computergegenereerd beeld van de spa van bovenaf, met een bad, waterstralen, een rond bubbelbad en ligbedden","width":1920,"height":1080,"caption":"Het spabad en het bubbelbad","category":"Voorzieningen"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp","alt":"Computergegenereerd beeld van een open woonkamer met eetgedeelte en keukeneiland en een glazen schuifwand naar het terras","width":1920,"height":1080,"caption":"Woonkamer, eetkamer en keuken","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island-960.webp","alt":"Computergegenereerd beeld van een eettafel en een keuken met een eiland van houten latten en barkrukken, naast een glazen schuifwand","width":1920,"height":1080,"caption":"Het keukeneiland en de eettafel","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen-960.webp","alt":"Computergegenereerd beeld van een terras met zitgedeelte en eettafel, dat uitkomt op een woonkamer en keuken, met in de verte de stad en groen land","width":1920,"height":1080,"caption":"Een terras aan de woonkamer","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view-960.webp","alt":"Computergegenereerd beeld van een woonkamer met een hoekbank, een eettafel en een brede glazen schuifwand richting de zee","width":1920,"height":1080,"caption":"Een woonkamer met zeezicht","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace-960.webp","alt":"Computergegenereerd beeld van een slaapkamer met een tweepersoonsbed, een gestoffeerde wand en een glazen schuifdeur naar het terras","width":1920,"height":1080,"caption":"Een slaapkamer die uitkomt op het terras","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view-960.webp","alt":"Computergegenereerd beeld van een slaapkamer met vloer-tot-plafondbeglazing naar een terras, met daarachter de stad en de zee","width":1920,"height":1080,"caption":"Een slaapkamer met uitzicht op zee","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin-960.webp","alt":"Computergegenereerd beeld van een badkamer met een opzetwastafel op een houten kast, een ronde verlichte spiegel en een douche met glazen wand","width":1920,"height":1080,"caption":"Een badkamer met een douche met glazen wand","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin-960.webp","alt":"Computergegenereerd beeld van een badkamer met twee opzetwastafels, twee ovale verlichte spiegels en een douche met glazen wand","width":1920,"height":1080,"caption":"Een badkamer met twee wastafels","category":"Interieur"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-960.webp","alt":"Plattegrond van woning 1-2A, tweede verdieping, Blok 1","width":1515,"height":1039,"caption":"Woning 1-2A, tweede verdieping, Blok 1","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-960.webp","alt":"Plattegrond van woning 1-3A, derde verdieping, Blok 1","width":1515,"height":1039,"caption":"Woning 1-3A, derde verdieping, Blok 1","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-960.webp","alt":"Plattegrond van woning 2-1A, eerste verdieping, Blok 2","width":1920,"height":903,"caption":"Woning 2-1A, eerste verdieping, Blok 2","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-960.webp","alt":"Plattegrond van woning 2-1B, eerste verdieping, Blok 2","width":1803,"height":1090,"caption":"Woning 2-1B, eerste verdieping, Blok 2","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-960.webp","alt":"Plattegrond van woning 2-2B, tweede verdieping, Blok 2","width":1803,"height":1074,"caption":"Woning 2-2B, tweede verdieping, Blok 2","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-960.webp","alt":"Plattegrond van woning 2-3A, derde verdieping, Blok 2","width":1920,"height":931,"caption":"Woning 2-3A, derde verdieping, Blok 2","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-960.webp","alt":"Plattegrond van woning 2-3B, derde verdieping, Blok 2","width":1803,"height":1074,"caption":"Woning 2-3B, derde verdieping, Blok 2","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-960.webp","alt":"Plattegrond van woning 2-4B, vierde verdieping, Blok 2","width":1803,"height":1074,"caption":"Woning 2-4B, vierde verdieping, Blok 2","category":"Plattegronden"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-960.webp","alt":"Plattegrond van woning 3-3A, derde verdieping, Blok 3","width":1609,"height":1188,"caption":"Woning 3-3A, derde verdieping, Blok 3","category":"Plattegronden"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-las-mesas-blue-horizon.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder finns det?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Las Mesas Blue Horizon"
   data-project-message="Hej Nueva Living, jag skulle vilja ha information om Las Mesas Blue Horizon."
@@ -459,595 +396,180 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Las Mesas Blue Horizon">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-las-mesas-blue-horizon.html#top">Las Mesas Blue Horizon<span>Från 849 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-las-mesas-blue-horizon.html#overview">Översikt</a><a href="sv/property-las-mesas-blue-horizon.html#availability">Priser</a><a href="sv/property-las-mesas-blue-horizon.html#specs">Utförande</a><a href="sv/property-las-mesas-blue-horizon.html#gallery">Galleri</a><a href="sv/property-las-mesas-blue-horizon.html#location">Läge</a><a href="sv/property-las-mesas-blue-horizon.html#onsite">I området</a><a href="sv/property-las-mesas-blue-horizon.html#view">Vår bedömning</a><a href="sv/property-las-mesas-blue-horizon.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Las Mesas Blue Horizon">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Datorgenererad vy av det vita terrasshuset sett från vägen, med palmer och olivträd i sluttningen och havet till vänster" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Datorgenererad vy av det vita terrasshuset sett från vägen, med palmer och olivträd i sluttningen och havet till vänster" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">9 av 34 bostäder lediga</span>
-          <h1 class="hero-title" style="--hero-title-run: 7">
-            <span class="hero-title-name">Las Mesas <em>Blue Horizon</em></span>
-            <span class="hero-title-context">Lägenheter med två och tre sovrum i Las Mesas, Estepona</span>
-          </h1>
-          <p class="hero-positioning">9 av 34 lägenheter med två och tre sovrum i Las Mesas Blue Horizon, i Las Mesas, Estepona, med havsutsikt, gemensam pool, gym, spa, coworking-rum och biograf. Inget tillträdesdatum anges. Från 849 000 € plus IVA.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-las-mesas-blue-horizon.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=las-mesas-blue-horizon">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-las-mesas-blue-horizon.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Las Mesas, Estepona</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 849 000 € + IVA</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenheter</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Färdigställande ej bekräftat</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-las-mesas-blue-horizon.html#media">Media</a>
-        <a href="sv/property-las-mesas-blue-horizon.html#location">Läge</a>
-        <a href="sv/property-las-mesas-blue-horizon.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-las-mesas-blue-horizon.html#overview">Översikt</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#residences">Bostäder</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#quality-specifications">Utförande</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#calculator">Finansiering</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#why-this-project">Varför</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#architecture">Arkitektur</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#lifestyle">Livsstil</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#faq">FAQ</a>
-          <a href="sv/property-las-mesas-blue-horizon.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2-3 sovrum</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>70,93 - 88,66 m²</strong></div>
-          <div class="quick-fact"><span>Terrass</span><strong>20,40 - 45,48 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>9 av 34 bostäder lediga</strong></div>
-          <div class="quick-fact"><span>Tillgänglig</span><strong>9 bostäder</strong></div>
-          <div class="quick-fact"><span>Prisspann</span><strong>849 000 € - 1 245 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Nio bostäder <em>tillgängliga</em>, i tre hus</h2>
-          <p class="project-lead">Las Mesas Blue Horizon är ett bostadsområde med tre hus i Las Mesas, Estepona, med bostäder med två och tre sovrum som alla har två badrum. Exploatörens broschyr beskriver stora terrasser med panoramautsikt över Medelhavet. Den anger 36 bostäder, medan planritningarna och prislistan visar 34, varav 20 med två sovrum och 14 med tre, och nio av dem är listade med pris.</p>
-          <p class="project-lead">De boende delar en gemensam pool med kvällsbelysning, planterade ytor, ett gym, ett spa, ett coworking-rum och en biograf, och tre källarplan rymmer garaget och förråden. Exploatörens dokument anger inget tillträdesdatum, och 25 av de 34 bostäderna på listan är markerade som reserverade.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bostäderna <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datorgenererade vyer av husen, poolen, de gemensamma ytorna och interiörerna, samt planritningar för de nio bostäder som är listade.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 9 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Datorgenererad vy av det vita terrasshuset sett från vägen, med palmer och olivträd i sluttningen och havet till vänster" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Huskroppen från vägen</strong>
-                <span class="project-media-card-cta">9 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 5 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Datorgenererad vy av den gemensamma poolen med trädäck, solstolar och parasoller, en palm och husets terrasser till höger" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Den gemensamma poolen</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 8 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg" alt="Datorgenererad vy av ett öppet vardagsrum med matplats och köksö samt en glasskjutvägg ut mot terrassen" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrum, matplats och kök</strong>
-                <span class="project-media-card-cta">8 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Visa 9 bilder i Planritningar">
-              <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" alt="Planritning för bostad 1-2A, andra våningen, Hus 1" width="1515" height="1039" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planritningar</small>
-                <strong>Bostad 1-2A, andra våningen, Hus 1</strong>
-                <span class="project-media-card-cta">9 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 31 bilder</button>
-          <p class="media-note">Alla bilder är datagenererade illustrationer och inte fotografier av den färdiga byggnaden, och möblerna och inredningen på dem är illustrativa och ingår inte. Planritningarna är exploatörens försäljningsritningar: de är inte avtalsbindande, rumsnamnen på dem är på spanska och terrasserna på dem avviker från prislistan.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Las Mesas, <em>i Estepona</em></h2>
-          <p class="project-lead">Bostäderna ligger i Las Mesas, som exploatörens broschyr kallar ett av de mest distingerade bostadsområdena i Estepona, mitt i hjärtat av Costa del Sol. Den placerar området vid A-7 och AP-7, 5 minuter från stranden La Rada och 45 minuter från Málaga flygplats, med vårdcentraler, snabbköp och köpcentrum i närheten. Broschyren anger inte om de 5 minuterna är till fots eller med bil.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-las-mesas-blue-horizon" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;130 m · 2 min gångväg&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min gångväg&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Las Mesas Blue Horizon"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Las Mesas Blue Horizon</h3>
-            <p class="locmap-place">Las Mesas, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min gångväg</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona centrum</span>
-              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min gångväg</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar flygplats</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Nio bostäder, <em>tre grupper</em></h2>
-          <p class="project-lead">De nio bostäderna med pris delas in i tre grupper efter storlek och hus. Tabellen nedan visar var och en med sitt pris.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Två sovrum, hus 1 och 2</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-las-mesas-blue-horizon.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Tre sovrum, hus 2</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-las-mesas-blue-horizon.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Tre sovrum, hus 3</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-las-mesas-blue-horizon.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-las-mesas-blue-horizon.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Väggar och mellanväggar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gipsskivor på stålreglar med mineralullsisolering inne i bostaden, fuktresistenta i våtrummen, och hålsten mellan bostäderna och mot de gemensamma ytorna, med gipsskivor på insidan och värme- och ljudisolering.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fönster och solskydd<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Tvåglasfönster med torr luftspalt och lågemissionsbeläggning, skjutdörrar från vardagsrum och sovrum ut till terrasserna, och ett dolt golvspår i vardagsrummet med matplats och i köket så att de flyter ut mot utomhusytan.</li>
-              <li>Motordrivna rullgardiner som mörklägger sovrummen och vardagsrummet, med tryckknapp i varje rum.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dörrar och garderober<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En metallförstärkt ytterdörr med säkerhetslås med tre låspunkter och smartlås, innerdörrar från golv till tak i minimalistisk design, lackerade i färg, och inbyggda modulgarderober med klädd insida, resväskshylla och klädstång. Handtag och beslag i svart eller krom.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Golv och väggar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Golv av rektifierad klinker i formatet 120 x 120 cm eller av mikrocement, med vit träsockel som matchar snickerierna, och halkfri rektifierad klinker på terrasserna.</li>
-              <li>Badrum klädda från golv till tak med storformatsklinker och vit kakelbeklädnad, kombinerat med mikrocement på övriga väggar, och en prickig yta i grått och kräm i badrumstaken.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kök<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ett möblerat kök med höga och låga skåp med stor kapacitet i laminatfinish, bänkskiva och stänkskydd i kompakt kvarts, en central köksö med förvaring under och bänkskiva i kvarts, samt en diskho i samma kvarts med utdragbar blandare.</li>
-              <li>Vitvaror: en ugn och en mikrovågsugn i kolonn, en induktionshäll med inbyggd fläkt, en diskmaskin, ett kylskåp, en tvättmaskin och ett vinkylskåp.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>I huvudbadrummet och det andra badrummet handfat på bänkskiva i kompakt kvarts på hängande skåp, låga duschkar i harts och duschväggar i glas med ramar i rostfritt stål eller svarta.</li>
-              <li>Termostatiska duschblandare med glidstång och handdusch, enhandsblandare till handfaten i krom eller svart, och toaletter med dubbelspolning och mjukstängande sits.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och energi<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Varmvatten från ett aerotermiskt system och integrerad luftkonditionering uppdelad per rum, med termostat i vardagsrummet.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>El och telekom<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Infällda LED-lampor i köket, korridorerna och badrumstaken och LED-belysning på terrasserna, en färgvideotelefon och ett digitalt nät av integrerade tjänster med uttag i vardagsrummen, köken och sovrummen.</li>
-              <li>Vattenuttag på takterrasserna och i trädgårdarna på bottenvåningen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gemensamma ytor<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En gemensam pool med kvällsbelysning, grönytor och en solplats, ett gym, ett spa, en social klubb och en biograf.</li>
-              <li>Landskapsarbete med inhemska, vattensnåla växter med automatisk droppbevattning, upplysta entrédörrar för ett varmt mottagande, och lågenergibelysning med rörelsedetektorer och timers vid entréerna, i trapporna och på avsatserna.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Garage och hissar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ett garage med fjärrstyrda portar, ett polerat sammanhängande golv av kvartsbetong, brandskydd enligt föreskrifterna och förberedelse för laddning av elbil.</li>
-              <li>Hissar som når alla våningar och direkt garageplanen, med automatiska dörrar, överlastdetektering och telefonanslutning, och en hytt anpassad för nedsatt rörlighet.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: kvalitetsbeskrivningen i exploatörens broschyr, som saknar datum. Den anger att materialen kan ändras om kvaliteten inte försämras, att bilderna inte är avtalsbindande och att de möbler som visas inte ingår.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Nio bostäder <em>för närvarande tillgängliga</em></h2>
-          <p class="project-lead">Nio lägenheter är listade med pris: fyra med två sovrum och fem med tre, på första till fjärde våningen i hus 1, 2 och 3. Priserna är de i exploatörens prislista per oktober 2026 och är exklusive IVA; vi bekräftar tillgänglighet och pris före varje reservation. De övriga 25 bostäderna på listan är markerade som reserverade och är inte tillgängliga.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Datorgenererad vy av den gemensamma poolen med trädäck, solstolar och parasoller, en palm och husets terrasser till höger" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>22 bilder</button>
+          <a class="chip" href="sv/property-las-mesas-blue-horizon.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-las-mesas-blue-horizon.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>9</strong></div>
-            <div><span>Pris från</span><strong>849 000 € + IVA</strong></div>
-            <div><span>Prisintervall</span><strong>849 000 € - 1 245 000 € + IVA</strong></div>
-            <div><span>Kontrollerad</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 9 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="849000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 1-2A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" alt="Planritning för 1-2A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1-2A</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>76,26 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>20,40 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 1, andra våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">849 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%201-2A">Fråga om 1-2A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="879000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 1-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" alt="Planritning för 1-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1-3A</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>76,26 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>20,40 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 1, tredje våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">879 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%201-3A">Fråga om 1-3A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="865000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-1A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" alt="Planritning för 2-1A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-1A</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>70,93 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>24,30 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 2, första våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">865 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-1A">Fråga om 2-1A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="953000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-1B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" alt="Planritning för 2-1B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-1B</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 2, första våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">953 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-1B">Fråga om 2-1B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="995000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-2B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" alt="Planritning för 2-2B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-2B</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 2, andra våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">995 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-2B">Fråga om 2-2B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="889000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" alt="Planritning för 2-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-3A</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>70,93 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>24,30 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 2, tredje våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">889 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-3A">Fråga om 2-3A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1055000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-3B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" alt="Planritning för 2-3B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-3B</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 2, tredje våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 055 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-3B">Fråga om 2-3B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1155000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-4B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" alt="Planritning för 2-4B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-4B</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>87,88 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 2, fjärde våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 155 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-4B">Fråga om 2-4B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1245000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 3-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" alt="Planritning för 3-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3-3A</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>88,66 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>45,48 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Hus 3, tredje våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 245 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%203-3A">Fråga om 3-3A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Priser, sovrum, byggytor och terrasser är hämtade från exploatörens prislista för de nio bostäder som den visar med pris, av 34 rader, per oktober 2026. Listan markerar de övriga 25 raderna som reserverade. Den visar ett IVA-belopp på 10 % bredvid varje pris, så priserna är exklusive IVA. Byggytan på listan stämmer med planritningarna med högst 0,02 m² i skillnad; terrasserna avviker, och båda siffrorna anges för varje bostadstyp ovan.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Las Mesas Blue Horizon</span></h1>
+        <p class="hero-by">9 av 34 lägenheter med två och tre sovrum i Las Mesas Blue Horizon, i Las Mesas, Estepona, med havsutsikt, gemensam pool, gym, spa, coworking-rum och biograf.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 849 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2 till 3</dd><dd class="sub"><span>Lägenheter</span></dd></div><div><dt>Inflyttning</dt><dd>ej bekräftat</dd><dd class="sub">Bygglov: vi bekräftar det innan ni reserverar</dd></div><div><dt>Bostäder kvar</dt><dd>9 av 34</dd><dd class="sub">Kontrollerat oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Las Mesas Blue Horizon är ett bostadsområde med tre hus i Las Mesas, Estepona, med bostäder med två och tre sovrum som alla har två badrum. Exploatörens broschyr beskriver stora terrasser med panoramautsikt över Medelhavet. Den anger 36 bostäder, medan planritningarna och prislistan visar 34, varav 20 med två sovrum och 14 med tre, och nio av dem är listade med pris.</p>
+    <p class="lede-2">De boende delar en gemensam pool med kvällsbelysning, planterade ytor, ett gym, ett spa, ett coworking-rum och en biograf, och tre källarplan rymmer garaget och förråden. Exploatörens dokument anger inget tillträdesdatum, och 25 av de 34 bostäderna på listan är markerade som reserverade.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Trappstegsformade vita terrasser, vända mot havet</span></summary><p>På exploatörens datorgenererade bilder har husen långa, böjda vita terrasser som staplas ovanpå mörka lamellskärmar, med pergolor på de översta planen och palmer och olivträd runtomkring. Broschyren kallar det en modern design vänd mot havet.</p><p>Bostäderna på bottenvåningen har enligt broschyren trädgård och privat pool, och takvåningarna har en solterrass med pool på taket. De nio bostäderna med pris ligger på första till fjärde våningen, var och en med terrass.</p><ul><li>Konstruktion: Armerad betong enligt gällande föreskrifter och den tekniska byggkoden, på grundläggning utformad efter den geotekniska utredningen.</li><li>Fasad: Flerskiktsmurverk i tegel med invändig isolering, luftspalt och gipsskivor på insidan, putsat och avslutat med lackerade aluminiumpaneler och kompositbeklädnad.</li><li>Fönster: Mörka lackerade aluminiumkarmar med köldbrygga-brytare, lågemissions-tvåglasfönster och skjutdörrar ut mot terrasserna.</li><li>Tak: Omvända platta tak, tätade och isolerade, med grus där ingen går och halkfria keramikplattor där de är gångbara.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>849 000 € – 1 245 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>9 av 34 bostäder</span><small>Kontrollerat oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenheter</span></dd></div><div><dt>Storlekar</dt><dd><span>71 – 89 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>ej bekräftat</span></dd></div><div><dt>Tillstånd</dt><dd><span>Ej angivet</span><small>Vi bekräftar det innan ni reserverar</small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Garage under mark</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Nio lägenheter är listade med pris: fyra med två sovrum och fem med tre, på första till fjärde våningen i hus 1, 2 och 3. Priserna är de i exploatörens prislista per oktober 2026 och är exklusive IVA; vi bekräftar tillgänglighet och pris före varje reservation. De övriga 25 bostäderna på listan är markerade som reserverade och är inte tillgängliga. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="9 av 34 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>9 av 34 till salu</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrera på sovrum"><button type="button" aria-pressed="true" data-beds="">Alla <span>9</span></button><button type="button" aria-pressed="false" data-beds="2">2 sovrum <span>4</span></button><button type="button" aria-pressed="false" data-beds="3">3 sovrum <span>5</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="849000" data-size="76.26" data-ppm="11133" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp">
+            <th scope="row"><span class="u-name">1-2A</span><span class="u-loc">Hus 1, andra våningen</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">76 m²</td>
+            <td data-label="Pris" class="u-price num">849 000 €</td>
+            <td data-label="Per m²" class="num">11 133 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 1-2A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="879000" data-size="76.26" data-ppm="11526" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp">
+            <th scope="row"><span class="u-name">1-3A</span><span class="u-loc">Hus 1, tredje våningen</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">76 m²</td>
+            <td data-label="Pris" class="u-price num">879 000 €</td>
+            <td data-label="Per m²" class="num">11 526 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 1-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="865000" data-size="70.93" data-ppm="12195" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp">
+            <th scope="row"><span class="u-name">2-1A</span><span class="u-loc">Hus 2, första våningen</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">71 m²</td>
+            <td data-label="Pris" class="u-price num">865 000 €</td>
+            <td data-label="Per m²" class="num">12 195 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-1A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="953000" data-size="87.88" data-ppm="10844" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp">
+            <th scope="row"><span class="u-name">2-1B</span><span class="u-loc">Hus 2, första våningen</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">88 m²</td>
+            <td data-label="Pris" class="u-price num">953 000 €</td>
+            <td data-label="Per m²" class="num">10 844 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-1B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="995000" data-size="87.88" data-ppm="11322" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp">
+            <th scope="row"><span class="u-name">2-2B</span><span class="u-loc">Hus 2, andra våningen</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">88 m²</td>
+            <td data-label="Pris" class="u-price num">995 000 €</td>
+            <td data-label="Per m²" class="num">11 322 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-2B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="889000" data-size="70.93" data-ppm="12533" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp">
+            <th scope="row"><span class="u-name">2-3A</span><span class="u-loc">Hus 2, tredje våningen</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">71 m²</td>
+            <td data-label="Pris" class="u-price num">889 000 €</td>
+            <td data-label="Per m²" class="num">12 533 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="1055000" data-size="87.88" data-ppm="12005" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp">
+            <th scope="row"><span class="u-name">2-3B</span><span class="u-loc">Hus 2, tredje våningen</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">88 m²</td>
+            <td data-label="Pris" class="u-price num">1 055 000 €</td>
+            <td data-label="Per m²" class="num">12 005 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-3B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="1155000" data-size="87.88" data-ppm="13143" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp">
+            <th scope="row"><span class="u-name">2-4B</span><span class="u-loc">Hus 2, fjärde våningen</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">88 m²</td>
+            <td data-label="Pris" class="u-price num">1 155 000 €</td>
+            <td data-label="Per m²" class="num">13 143 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2-4B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="1245000" data-size="88.66" data-ppm="14042" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp">
+            <th scope="row"><span class="u-name">3-3A</span><span class="u-loc">Hus 3, tredje våningen</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">89 m²</td>
+            <td data-label="Pris" class="u-price num">1 245 000 €</td>
+            <td data-label="Per m²" class="num">14 042 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 3-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Nio bostäder, tre grupper</span></summary><p>De nio bostäderna med pris delas in i tre grupper efter storlek och hus. Tabellen nedan visar var och en med sitt pris.</p><div class="res-types"><div class="res-type"><h3>Två sovrum, hus 1 och 2</h3><ul><li>Fyra bostäder med två sovrum och två badrum: 1-2A och 1-3A i hus 1, med 76,26 m² byggyta, och 2-1A och 2-3A i hus 2, med 70,93 m² byggyta. Listan anger terrasser på 20,40 m² för de två första och 24,30 m² för de två andra.</li><li>Priserna är 849 000 €, 879 000 €, 865 000 € och 889 000 €.</li><li>Planritningarna anger inomhusytor på 70,55 m² för bostäderna i hus 1 och 65,70 m² för bostäderna i hus 2, och terrasser på 18,30, 18,25, 18,00 och 21,70 m², i samma ordning som ovan.</li></ul></div><div class="res-type"><h3>Tre sovrum, hus 2</h3><ul><li>Fyra bostäder med tre sovrum och två badrum på första till fjärde våningen: 2-1B, 2-2B, 2-3B och 2-4B, var och en med 87,88 m² byggyta och en terrass på 21,65 m² enligt listan.</li><li>Priserna stiger med våningen, från 953 000 € på första våningen till 1 155 000 € på fjärde.</li><li>Planritningarna anger en inomhusyta på 82,30 m² och terrasser på 19,90, 15,90, 15,75 och 19,40 m², i samma ordning som ovan.</li></ul></div><div class="res-type"><h3>Tre sovrum, hus 3</h3><ul><li>Bostad 3-3A på tredje våningen, med tre sovrum och två badrum, 88,66 m² byggyta och en terrass på 45,48 m² enligt listan.</li><li>Priset är 1 245 000 €.</li><li>Planritningen anger 81,60 m² inomhus och en terrass på 45,50 m².</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1107,436 +629,236 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Gemensam utomhuspool med kvällsbelysning</h3>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Väggar och mellanväggar</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Fönster och solskydd</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Dörrar och garderober</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Golv och väggar</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Kök</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Klimat och energi</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">El och telekom</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-8">Gemensamma ytor</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-9">Garage och hissar</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Gipsskivor på stålreglar med mineralullsisolering inne i bostaden, fuktresistenta i våtrummen, och hålsten mellan bostäderna och mot de gemensamma ytorna, med gipsskivor på insidan och värme- och ljudisolering.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Tvåglasfönster med torr luftspalt och lågemissionsbeläggning, skjutdörrar från vardagsrum och sovrum ut till terrasserna, och ett dolt golvspår i vardagsrummet med matplats och i köket så att de flyter ut mot utomhusytan.</li><li>Motordrivna rullgardiner som mörklägger sovrummen och vardagsrummet, med tryckknapp i varje rum.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>En metallförstärkt ytterdörr med säkerhetslås med tre låspunkter och smartlås, innerdörrar från golv till tak i minimalistisk design, lackerade i färg, och inbyggda modulgarderober med klädd insida, resväskshylla och klädstång. Handtag och beslag i svart eller krom.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Golv av rektifierad klinker i formatet 120 x 120 cm eller av mikrocement, med vit träsockel som matchar snickerierna, och halkfri rektifierad klinker på terrasserna.</li><li>Badrum klädda från golv till tak med storformatsklinker och vit kakelbeklädnad, kombinerat med mikrocement på övriga väggar, och en prickig yta i grått och kräm i badrumstaken.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Ett möblerat kök med höga och låga skåp med stor kapacitet i laminatfinish, bänkskiva och stänkskydd i kompakt kvarts, en central köksö med förvaring under och bänkskiva i kvarts, samt en diskho i samma kvarts med utdragbar blandare.</li><li>Vitvaror: en ugn och en mikrovågsugn i kolonn, en induktionshäll med inbyggd fläkt, en diskmaskin, ett kylskåp, en tvättmaskin och ett vinkylskåp.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>I huvudbadrummet och det andra badrummet handfat på bänkskiva i kompakt kvarts på hängande skåp, låga duschkar i harts och duschväggar i glas med ramar i rostfritt stål eller svarta.</li><li>Termostatiska duschblandare med glidstång och handdusch, enhandsblandare till handfaten i krom eller svart, och toaletter med dubbelspolning och mjukstängande sits.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Varmvatten från ett aerotermiskt system och integrerad luftkonditionering uppdelad per rum, med termostat i vardagsrummet.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Infällda LED-lampor i köket, korridorerna och badrumstaken och LED-belysning på terrasserna, en färgvideotelefon och ett digitalt nät av integrerade tjänster med uttag i vardagsrummen, köken och sovrummen.</li><li>Vattenuttag på takterrasserna och i trädgårdarna på bottenvåningen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-8" role="tabpanel" hidden>
+      <ul><li>En gemensam pool med kvällsbelysning, grönytor och en solplats, ett gym, ett spa, en social klubb och en biograf.</li><li>Landskapsarbete med inhemska, vattensnåla växter med automatisk droppbevattning, upplysta entrédörrar för ett varmt mottagande, och lågenergibelysning med rörelsedetektorer och timers vid entréerna, i trapporna och på avsatserna.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-9" role="tabpanel" hidden>
+      <ul><li>Ett garage med fjärrstyrda portar, ett polerat sammanhängande golv av kvartsbetong, brandskydd enligt föreskrifterna och förberedelse för laddning av elbil.</li><li>Hissar som når alla våningar och direkt garageplanen, med automatiska dörrar, överlastdetektering och telefonanslutning, och en hytt anpassad för nedsatt rörlighet.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: kvalitetsbeskrivningen i exploatörens broschyr, som saknar datum. Den anger att materialen kan ändras om kvaliteten inte försämras, att bilderna inte är avtalsbindande och att de möbler som visas inte ingår.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Huskroppen från vägen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Datorgenererad vy av det vita terrasshuset sett från vägen, med palmer och olivträd i sluttningen och havet till vänster" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="14" aria-label="Vardagsrum, matplats och kök"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg" alt="Datorgenererad vy av ett öppet vardagsrum med matplats och köksö samt en glasskjutvägg ut mot terrassen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Den gemensamma poolen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Datorgenererad vy av den gemensamma poolen med trädäck, solstolar och parasoller, en palm och husets terrasser till höger" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Huset sett från poolområdet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg" alt="Datorgenererad vy av det trappstegsformade huset sett från poolområdet, med palmer och en pergola på taket" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Huset ovanför olivträden"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.jpg" alt="Datorgenererad vy av huset med långa, böjda vita terrasser och mörka lamellskärmar ovanför olivträd, med gräsmatta och tallar till vänster" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 22 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (9)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (5)</button><button type="button" data-open-cat="Interiors">Interiör (8)</button></div>
+    
+    <p class="caption">Alla bilder är datagenererade illustrationer och inte fotografier av den färdiga byggnaden, och möblerna och inredningen på dem är illustrativa och ingår inte. Planritningarna är exploatörens försäljningsritningar: de är inte avtalsbindande, rumsnamnen på dem är på spanska och terrasserna på dem avviker från prislistan.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Bostäderna ligger i Las Mesas, som exploatörens broschyr kallar ett av de mest distingerade bostadsområdena i Estepona, mitt i hjärtat av Costa del Sol. Den placerar området vid A-7 och AP-7, 5 minuter från stranden La Rada och 45 minuter från Málaga flygplats, med vårdcentraler, snabbköp och köpcentrum i närheten. Broschyren anger inte om de 5 minuterna är till fots eller med bil.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-las-mesas-blue-horizon" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;130 m · 2 min gångväg&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min gångväg&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Las Mesas Blue Horizon"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Las Mesas Blue Horizon</h3>
+            <p class="locmap-place">Las Mesas, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min gångväg</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona centrum</span>
+              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min gångväg</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda trädgårdar med inhemska, vattensnåla växter</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utomhus</span>
-              <h3 class="amenity-name">Havsutsikt</h3>
-              <p class="amenity-note">Mot Medelhavet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Vardag</span>
-              <h3 class="amenity-name">Coworking</h3>
-              <p class="amenity-note">Arbetsplatser utanför bostaden</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar flygplats</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Vardag</span>
-              <h3 class="amenity-name">Garage under mark</h3>
-              <p class="amenity-note">Under huset</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Vardag</span>
-              <h3 class="amenity-name">Förråd</h3>
-              <p class="amenity-note">Ett låsbart förråd</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Vardag</span>
-              <h3 class="amenity-name">Hiss</h3>
-              <p class="amenity-note">Alla våningsplan nås</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Vardag</span>
-              <h3 class="amenity-name">Förberett för laddplats</h3>
-              <p class="amenity-note">En punkt för bilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Vardag</span>
-              <h3 class="amenity-name">Varmvatten från värmepump</h3>
-              <p class="amenity-note">Varmvatten ur luften</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Vardag</span>
-              <h3 class="amenity-name">Utrustat kök</h3>
-              <p class="amenity-note">Inredd med vitvaror</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Service</span>
-              <h3 class="amenity-name">Biograf</h3>
-              <p class="amenity-note">Ett visningsrum</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Stranden La Rada</th><td>5 minuter, enligt exploatören</td></tr><tr><th scope="row">Málagas flygplats</th><td>45 minuter, enligt exploatören</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">De gemensamma ytorna är planerade kring en pool, ett spa och ett gym, med en biograf och ett coworking-rum, inom området.</p>
+    <div class="life-panels"><div><h3>Poolen</h3><p>En gemensam pool på 77,65 m² med kvällsbelysning, i en trädgård på 67,60 m² med solplats.</p></div><div><h3>Spat</h3><p>Ett spa på 46,90 m². Exploatörens bilder visar en vilozon med solsängar, en smal pool med vattenstrålar och ett runt bubbelbad.</p></div><div><h3>Gymmet och coworking-rummet</h3><p>Ett gym på 31,40 m² och ett coworking-rum på 33,90 m², på första källarplanet.</p></div><div><h3>Biografen</h3><p>En biosalong på 15,40 m², på samma plan som spat, gymmet och coworking-rummet.</p></div><div><h3>Garage och förråd</h3><p>Tre källarplan med garageplatser och förråd, hissar till alla våningar och förberedelse för laddning av elbil.</p></div></div>
+    <ul class="amen-top"><li>Gemensam utomhuspool med kvällsbelysning</li><li>Gym</li><li>Spa</li><li>Coworking</li><li>Biograf</li><li>Anlagda trädgårdar med inhemska, vattensnåla växter</li></ul>
+    <details class="amen-all"><summary>Visa alla 14</summary><div class="amen-groups"><div><h3>Välmående<span class="count">3</span></h3><ul><li>Gemensam utomhuspool med kvällsbelysning</li><li>Gym</li><li>Spa</li></ul></div><div><h3>Utomhus<span class="count">2</span></h3><ul><li>Anlagda trädgårdar med inhemska, vattensnåla växter</li><li>Havsutsikt</li></ul></div><div><h3>Vardag<span class="count">8</span></h3><ul><li>Coworking</li><li>Garage under mark</li><li>Förråd</li><li>Hiss</li><li>Förberett för laddplats</li><li>Varmvatten från värmepump</li><li>Luftkonditionering</li><li>Utrustat kök</li></ul></div><div><h3>Service<span class="count">1</span></h3><ul><li>Biograf</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en ny lägenhet med två eller tre sovrum i Estepona med stor terrass och välmåendeanläggningar i området, att bo i eller som andrahem.</span></li><li><b>Vad som skiljer det från andra</b><span>Ett spa på 46,90 m², ett gym, ett coworking-rum, en biograf och en gemensam pool, med hiss och ett garage med förråd på tre källarplan, i ett område med bara tre hus.</span></li><li><b>Varför läget spelar roll</b><span>Exploatören placerar området vid A-7 och AP-7, 5 minuter från stranden La Rada och 45 minuter från Málaga flygplats. Den anger inte om de 5 minuterna är till fots eller med bil.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>Tjugofem av de 34 bostäderna på listan är markerade som reserverade och nio har ett pris. Dokumenten anger inget tillträdesdatum, så vi bekräftar byggstadiet och datumet före varje reservation.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Tillgänglighet</b><span>Tjugofem av de 34 bostäderna på listan är markerade som reserverade. Nio är listade med pris, från 849 000 € till 1 245 000 € plus IVA.</span></li><li><b>IVA</b><span>Listan visar ett IVA-belopp (spansk moms) bredvid varje pris, 10 % av priset, i en egen kolumn. Priserna inkluderar inte IVA, och Nueva Living bekräftar skattesatsen och köpkostnaderna skriftligen.</span></li><li><b>Betalningsvillkor</b><span>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan, så vi begär dem skriftligen före varje reservation.</span></li><li><b>Garage och förråd</b><span>Broschyren visar garageplatser och förråd på tre källarplan, men prislistan anger inte om en sådan följer med varje bostad. Vi bekräftar det för den bostad ni väljer.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bygglov och arbeten</b><span>Dokumenten vi har säger inte om bygglovet har beviljats eller hur långt arbetena har kommit, och specifikationen är skriven i futurum. Vi begär bygglovet, dess status och startdatum för arbetena.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Färdigställandedatumet</b><span>Inget av exploatörens dokument anger ett leveransdatum, så vi ber om det avtalade datumet före varje reservation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Antalet bostäder</b><span>Texten i broschyren anger 36 bostäder. Planritningarna och prislistan visar 34: 11 i hus 1, 11 i hus 2 och 12 i hus 3. Den här sidan använder de 34 från ritningarna och listan, och vi ber exploatören bekräfta det totala antalet.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ytorna</b><span>Prislistan och planritningarna stämmer överens om byggytan för varje bostad med högst 0,02 m² i skillnad, men inte om terrasserna. För bostad 2-2B anger listan en terrass på 21,65 m² och planritningen 15,90 m², och för bostad 1-2A anger listan 20,40 m² och planritningen 18,30 m². Planritningarna anger också en andra, större byggyta enligt dekret 218/2005: 86,01 m² för bostad 1-2A mot 76,26 m². Vi bekräftar vilka siffror avtalet använder.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Prislistan</b><span>Prislistan har rubriken ”Blue Horizon. Listado de ventas” och saknar datum. Filnamnet lyder ”oktober 26”, vilket vi läser som oktober 2026, och vi bekräftar varje pris före varje reservation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Kartan och avstånden</b><span>Dokumenten anger varken adress eller koordinater, så markören på kartan ligger i centrala Estepona och inte på tomten, och vägavstånden bredvid kartan är mätta från den markören. Broschyren anger stranden La Rada 5 minuter bort utan att säga om till fots eller med bil, och Málaga flygplats 45 minuter bort; avstånden bekräftar vi vid ett besök.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Planritningarna för de bostäder som intresserar er, kvalitetsspecifikationen och prislistan.</p></li><li><h3>Jämför alternativen</h3><p>Se detta tillsammans med de andra projekten i Estepona som vi representerar.</p></li><li><h3>Privat visning</h3><p>Se området tillsammans med oss och jämför planritningarna med byggstadiet.</p></li><li><h3>Boka</h3><p>Vi bekräftar reservationsbeloppet och betalningsplanen skriftligen, därefter följer köpeavtalet.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>9 av 9 bostäder</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Las Mesas Blue Horizon</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder finns det?</summary><p>Texten i broschyren anger 36 bostäder, men planritningarna och prislistan visar 34, med två eller tre sovrum. Nio är listade med pris, från 849 000 € till 1 245 000 € plus IVA, och de övriga 25 är markerade som reserverade.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Nej. Prislistan visar ett IVA-belopp på 10 % i en egen kolumn, så priserna är exklusive IVA. Vi bekräftar skatter och köpkostnader skriftligen.</p></details><details class="segment-faq-item"><summary>Finns det parkering och förråd?</summary><p>Broschyren visar 37 garageplatser och 37 förråd på tre källarplan. Prislistan anger inte om en sådan följer med varje bostad, så vi bekräftar det för den bostad ni väljer.</p></details><details class="segment-faq-item"><summary>Har alla bostäder havsutsikt?</summary><p>Broschyren beskriver panoramautsikt över Medelhavet för området men anger inte vilka bostäder som har den, så vi bekräftar utsikten från den bostad ni väljer.</p></details><details class="segment-faq-item"><summary>Ingår möbler?</summary><p>Nej. Möblerna som visas på bilderna ingår inte. Köket levereras möblerat och med vitvaror, som specifikationen anger.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>När blir det färdigt?</summary><p>Inget av exploatörens dokument anger ett slutdatum. Vi ber om det avtalade datumet, bygglovets status och byggstadiet.</p></details><details class="segment-faq-item"><summary>Hur ser betalningsplanen ut?</summary><p>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan. Vi begär dem och sätter dem skriftligen.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">849 000 €</p>
+      <p class="rail-note">Exkl. IVA. 9 av 34 bostäder kvar · Kontrollerat oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Besök tomten och omgivningarna tillsammans med oss.</li><li><b>På papper.</b> Bygglov, tillträdesdatum och avtal, innan något skrivs under.</li><li><b>På ritningarna.</b> Vi går igenom den bostad ni väljer, rum för rum, med planritningen i handen.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Las Mesas Blue Horizon">
+        <input type="hidden" id="f-project" name="project" value="Las Mesas Blue Horizon">
+        <input type="hidden" name="preferred_area" value="Las Mesas, Estepona">
+        <input type="hidden" name="property_type_interest" value="Lägenheter">
+        <input type="hidden" name="budget_range" value="Från 849 000 € + IVA">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag skulle vilja ha information om Las Mesas Blue Horizon." data-base="Hej Nueva Living, jag skulle vilja ha information om Las Mesas Blue Horizon.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="1-2A">1-2A: 849 000 €</option><option value="1-3A">1-3A: 879 000 €</option><option value="2-1A">2-1A: 865 000 €</option><option value="2-1B">2-1B: 953 000 €</option><option value="2-2B">2-2B: 995 000 €</option><option value="2-3A">2-3A: 889 000 €</option><option value="2-3B">2-3B: 1 055 000 €</option><option value="2-4B">2-4B: 1 155 000 €</option><option value="3-3A">3-3A: 1 245 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Las Mesas Blue Horizon.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">Lägenheter med två och tre sovrum och stora terrasser, med spa, gym och biograf i området, i Las Mesas, Estepona.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en ny lägenhet med två eller tre sovrum i Estepona med stor terrass och välmåendeanläggningar i området, att bo i eller som andrahem.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Ett spa på 46,90 m², ett gym, ett coworking-rum, en biograf och en gemensam pool, med hiss och ett garage med förråd på tre källarplan, i ett område med bara tre hus.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Exploatören placerar området vid A-7 och AP-7, 5 minuter från stranden La Rada och 45 minuter från Málaga flygplats. Den anger inte om de 5 minuterna är till fots eller med bil.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>Tjugofem av de 34 bostäderna på listan är markerade som reserverade och nio har ett pris. Dokumenten anger inget tillträdesdatum, så vi bekräftar byggstadiet och datumet före varje reservation.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">En saklig anmärkning om vad dokumenten säger och inte säger; Nueva Living lovar varken hyresavkastning eller prisuppgång.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillgänglighet</h3><p>Tjugofem av de 34 bostäderna på listan är markerade som reserverade. Nio är listade med pris, från 849 000 € till 1 245 000 € plus IVA.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA</h3><p>Listan visar ett IVA-belopp (spansk moms) bredvid varje pris, 10 % av priset, i en egen kolumn. Priserna inkluderar inte IVA, och Nueva Living bekräftar skattesatsen och köpkostnaderna skriftligen.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningsvillkor</h3><p>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan, så vi begär dem skriftligen före varje reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Garage och förråd</h3><p>Broschyren visar garageplatser och förråd på tre källarplan, men prislistan anger inte om en sådan följer med varje bostad. Vi bekräftar det för den bostad ni väljer.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bygglov och arbeten</h3><p>Dokumenten vi har säger inte om bygglovet har beviljats eller hur långt arbetena har kommit, och specifikationen är skriven i futurum. Vi begär bygglovet, dess status och startdatum för arbetena.</p></article>
-              <article class="why-point reveal-soft"><h3>Färdigställandedatumet</h3><p>Inget av exploatörens dokument anger ett leveransdatum, så vi ber om det avtalade datumet före varje reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Antalet bostäder</h3><p>Texten i broschyren anger 36 bostäder. Planritningarna och prislistan visar 34: 11 i hus 1, 11 i hus 2 och 12 i hus 3. Den här sidan använder de 34 från ritningarna och listan, och vi ber exploatören bekräfta det totala antalet.</p></article>
-              <article class="why-point reveal-soft"><h3>Ytorna</h3><p>Prislistan och planritningarna stämmer överens om byggytan för varje bostad med högst 0,02 m² i skillnad, men inte om terrasserna. För bostad 2-2B anger listan en terrass på 21,65 m² och planritningen 15,90 m², och för bostad 1-2A anger listan 20,40 m² och planritningen 18,30 m². Planritningarna anger också en andra, större byggyta enligt dekret 218/2005: 86,01 m² för bostad 1-2A mot 76,26 m². Vi bekräftar vilka siffror avtalet använder.</p></article>
-              <article class="why-point reveal-soft"><h3>Prislistan</h3><p>Prislistan har rubriken ”Blue Horizon. Listado de ventas” och saknar datum. Filnamnet lyder ”oktober 26”, vilket vi läser som oktober 2026, och vi bekräftar varje pris före varje reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Kartan och avstånden</h3><p>Dokumenten anger varken adress eller koordinater, så markören på kartan ligger i centrala Estepona och inte på tomten, och vägavstånden bredvid kartan är mätta från den markören. Broschyren anger stranden La Rada 5 minuter bort utan att säga om till fots eller med bil, och Málaga flygplats 45 minuter bort; avstånden bekräftar vi vid ett besök.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Priser, sovrum, byggytor och terrasser är hämtade från exploatörens prislista för de nio bostäder som den visar med pris, av 34 rader, per oktober 2026. Listan markerar de övriga 25 raderna som reserverade. Den visar ett IVA-belopp på 10 % bredvid varje pris, så priserna är exklusive IVA. Byggytan på listan stämmer med planritningarna med högst 0,02 m² i skillnad; terrasserna avviker, och båda siffrorna anges för varje bostadstyp ovan.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg" alt="Datorgenererad vy av det trappstegsformade huset sett från poolområdet, med palmer och en pergola på taket" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Trappstegsformade vita terrasser, <em>vända mot havet</em></h2>
-          <p>På exploatörens datorgenererade bilder har husen långa, böjda vita terrasser som staplas ovanpå mörka lamellskärmar, med pergolor på de översta planen och palmer och olivträd runtomkring. Broschyren kallar det en modern design vänd mot havet.</p>
-<p>Bostäderna på bottenvåningen har enligt broschyren trädgård och privat pool, och takvåningarna har en solterrass med pool på taket. De nio bostäderna med pris ligger på första till fjärde våningen, var och en med terrass.</p>
-          <ul class="feature-list">
-            <li>Konstruktion — Armerad betong enligt gällande föreskrifter och den tekniska byggkoden, på grundläggning utformad efter den geotekniska utredningen.</li>
-            <li>Fasad — Flerskiktsmurverk i tegel med invändig isolering, luftspalt och gipsskivor på insidan, putsat och avslutat med lackerade aluminiumpaneler och kompositbeklädnad.</li>
-            <li>Fönster — Mörka lackerade aluminiumkarmar med köldbrygga-brytare, lågemissions-tvåglasfönster och skjutdörrar ut mot terrasserna.</li>
-            <li>Tak — Omvända platta tak, tätade och isolerade, med grus där ingen går och halkfria keramikplattor där de är gångbara.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg" alt="Datorgenererad vy av ett sovrum med dubbelsäng, en stoppad vägg och en glasskjutdörr ut mot terrassen" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>området och ritningarna</em></h2>
-            <p>Ett besök handlar om läget, ritningarna och hur långt arbetena har kommit.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Besök tomten och omgivningarna tillsammans med oss.</p></div>
-              <div><span>På papper</span><p>Bygglov, tillträdesdatum och avtal, innan något skrivs under.</p></div>
-              <div><span>På ritningarna</span><p>Vi går igenom den bostad ni väljer, rum för rum, med planritningen i handen.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=las-mesas-blue-horizon">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Amenities">Bekvämligheter</button><button type="button" data-cat="Interiors">Interiör</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Datorgenererad vy av den gemensamma poolen med trädäck, solstolar och parasoller, en palm och husets terrasser till höger" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Ett spa, <em>ett gym</em> och en pool</h2>
-            <p>De gemensamma ytorna är planerade kring en pool, ett spa och ett gym, med en biograf och ett coworking-rum, inom området.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Planritningarna för de bostäder som intresserar er, kvalitetsspecifikationen och prislistan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se detta tillsammans med de andra projekten i Estepona som vi representerar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se området tillsammans med oss och jämför planritningarna med byggstadiet.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>Vi bekräftar reservationsbeloppet och betalningsplanen skriftligen, därefter följer köpeavtalet.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder finns det?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Texten i broschyren anger 36 bostäder, men planritningarna och prislistan visar 34, med två eller tre sovrum. Nio är listade med pris, från 849 000 € till 1 245 000 € plus IVA, och de övriga 25 är markerade som reserverade.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Prislistan visar ett IVA-belopp på 10 % i en egen kolumn, så priserna är exklusive IVA. Vi bekräftar skatter och köpkostnader skriftligen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Finns det parkering och förråd?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Broschyren visar 37 garageplatser och 37 förråd på tre källarplan. Prislistan anger inte om en sådan följer med varje bostad, så vi bekräftar det för den bostad ni väljer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Har alla bostäder havsutsikt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Broschyren beskriver panoramautsikt över Medelhavet för området men anger inte vilka bostäder som har den, så vi bekräftar utsikten från den bostad ni väljer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår möbler?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Möblerna som visas på bilderna ingår inte. Köket levereras möblerat och med vitvaror, som specifikationen anger.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När blir det färdigt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Inget av exploatörens dokument anger ett slutdatum. Vi ber om det avtalade datumet, bygglovets status och byggstadiet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur ser betalningsplanen ut?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dokumenten vi har anger varken reservationsbelopp eller betalningsplan. Vi begär dem och sätter dem skriftligen.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Las Mesas Blue Horizon</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, planritningarna och prislistan.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Las Mesas Blue Horizon">
-
-          <input type="hidden" id="f-project" name="project" value="Las Mesas Blue Horizon">
-          <input type="hidden" name="preferred_area" value="Las Mesas, Estepona">
-          <input type="hidden" name="property_type_interest" value="Lägenheter">
-          <input type="hidden" name="budget_range" value="Från 849 000 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag skulle vilja ha information om Las Mesas Blue Horizon.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"1-2A","title":"1-2A · Hus 1, andra våningen","sub":"2 sovrum · 76 m²","price":849000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg","label":""}]},{"id":"u1","ref":"1-3A","title":"1-3A · Hus 1, tredje våningen","sub":"2 sovrum · 76 m²","price":879000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg","label":""}]},{"id":"u2","ref":"2-1A","title":"2-1A · Hus 2, första våningen","sub":"2 sovrum · 71 m²","price":865000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg","label":""}]},{"id":"u3","ref":"2-1B","title":"2-1B · Hus 2, första våningen","sub":"3 sovrum · 88 m²","price":953000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg","label":""}]},{"id":"u4","ref":"2-2B","title":"2-2B · Hus 2, andra våningen","sub":"3 sovrum · 88 m²","price":995000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg","label":""}]},{"id":"u5","ref":"2-3A","title":"2-3A · Hus 2, tredje våningen","sub":"2 sovrum · 71 m²","price":889000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg","label":""}]},{"id":"u6","ref":"2-3B","title":"2-3B · Hus 2, tredje våningen","sub":"3 sovrum · 88 m²","price":1055000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg","label":""}]},{"id":"u7","ref":"2-4B","title":"2-4B · Hus 2, fjärde våningen","sub":"3 sovrum · 88 m²","price":1155000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg","label":""}]},{"id":"u8","ref":"3-3A","title":"3-3A · Hus 3, tredje våningen","sub":"3 sovrum · 89 m²","price":1245000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp","alt":"Datorgenererad vy av det vita terrasshuset sett från vägen, med palmer och olivträd i sluttningen och havet till vänster","caption":"Huskroppen från vägen","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.webp","alt":"Datorgenererad vy av det trappstegsformade huset sett från poolområdet, med palmer och en pergola på taket","caption":"Huset sett från poolområdet","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.webp","alt":"Datorgenererad vy av huset med långa, böjda vita terrasser och mörka lamellskärmar ovanför olivträd, med gräsmatta och tallar till vänster","caption":"Huset ovanför olivträden","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.webp","alt":"Datorgenererad vy av ett hörn av huset med en pergola på taket ovanför trappstegsformade terrasser och den gemensamma poolen i förgrunden","caption":"Ett hörn av huset ovanför poolen","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.webp","alt":"Datorgenererad vy av huset ovanför en stödmur i sten, med en trappa och en port vid entrén, en gata framför och berg bakom","caption":"Huset ovanför entrén","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk.webp","alt":"Datorgenererad vy av huset i skymningen, upplyst inifrån, med gatlyktor och bergen bakom","caption":"Huset i skymningen","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools.webp","alt":"Datorgenererad vy av huset uppifrån, med takpooler och terrasser på de övre planen samt små pooler och gräsmattor vid foten","caption":"Flygvy av huset","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool.webp","alt":"Datorgenererad vy av en bostad på bottenvåningen med övertäckt terrass, en gräsmatta med solstolar och en liten privat pool","caption":"En bostad på bottenvåningen med trädgård och pool","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool.webp","alt":"Datorgenererad vy av en takterrass med matbord, solstolar, en liten pool och havet vid horisonten","caption":"En takterrass med pool","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp","alt":"Datorgenererad vy av den gemensamma poolen med trädäck, solstolar och parasoller, en palm och husets terrasser till höger","caption":"Den gemensamma poolen","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance.webp","alt":"Datorgenererad vy av en ramp och en trappa med stenmurar som leder till garageporten, med ett gym och ett coworking-rum bakom glas","caption":"Gymmet och coworking-rummet","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment.webp","alt":"Datorgenererad vy av ett gym med två crosstrainers, hyllor med träningsbollar och vikter samt en glasvägg","caption":"Gymmet","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge.webp","alt":"Datorgenererad vy av en vilozon i spat med solsängar, två skålformade fåtöljer och en smal pool med vattenstrålar","caption":"Vilozonen i spat","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool.webp","alt":"Datorgenererad vy av spat uppifrån, med en pool, vattenstrålar, ett runt bubbelbad och solsängar","caption":"Spapoolen och bubbelbadet","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp","alt":"Datorgenererad vy av ett öppet vardagsrum med matplats och köksö samt en glasskjutvägg ut mot terrassen","caption":"Vardagsrum, matplats och kök","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island.webp","alt":"Datorgenererad vy av ett matbord och ett kök med en köksö klädd i träribbor och barstolar, intill en glasskjutvägg","caption":"Köksön och matbordet","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen.webp","alt":"Datorgenererad vy av en terrass med sittgrupp och matbord som öppnar sig mot ett vardagsrum och ett kök, med staden och grön mark i fjärran","caption":"En terrass intill vardagsrummet","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.webp","alt":"Datorgenererad vy av ett vardagsrum med hörnsoffa, matbord och en bred glasskjutvägg mot havet","caption":"Ett vardagsrum mot havet","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.webp","alt":"Datorgenererad vy av ett sovrum med dubbelsäng, en stoppad vägg och en glasskjutdörr ut mot terrassen","caption":"Ett sovrum med utgång till terrassen","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view.webp","alt":"Datorgenererad vy av ett sovrum med glas från golv till tak ut mot en terrass, med staden och havet bakom","caption":"Ett sovrum med havsutsikt","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.webp","alt":"Datorgenererad vy av ett badrum med en bänkskiva med handfat på ett träskåp, en rund bakgrundsbelyst spegel och en dusch med glasvägg","caption":"Ett badrum med dusch med glasvägg","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin.webp","alt":"Datorgenererad vy av ett badrum med två handfat på bänkskiva, två ovala bakgrundsbelysta speglar och en dusch med glasvägg","caption":"Ett badrum med två handfat","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Las Mesas Blue Horizon media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp","alt":"Datorgenererad vy av det vita terrasshuset sett från vägen, med palmer och olivträd i sluttningen och havet till vänster","width":1920,"height":1080,"caption":"Huskroppen från vägen","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-960.webp","alt":"Datorgenererad vy av det trappstegsformade huset sett från poolområdet, med palmer och en pergola på taket","width":1920,"height":1080,"caption":"Huset sett från poolområdet","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-960.webp","alt":"Datorgenererad vy av huset med långa, böjda vita terrasser och mörka lamellskärmar ovanför olivträd, med gräsmatta och tallar till vänster","width":1920,"height":1080,"caption":"Huset ovanför olivträden","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool-960.webp","alt":"Datorgenererad vy av ett hörn av huset med en pergola på taket ovanför trappstegsformade terrasser och den gemensamma poolen i förgrunden","width":1920,"height":1080,"caption":"Ett hörn av huset ovanför poolen","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall-960.webp","alt":"Datorgenererad vy av huset ovanför en stödmur i sten, med en trappa och en port vid entrén, en gata framför och berg bakom","width":1920,"height":1080,"caption":"Huset ovanför entrén","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk-960.webp","alt":"Datorgenererad vy av huset i skymningen, upplyst inifrån, med gatlyktor och bergen bakom","width":1920,"height":1080,"caption":"Huset i skymningen","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools-960.webp","alt":"Datorgenererad vy av huset uppifrån, med takpooler och terrasser på de övre planen samt små pooler och gräsmattor vid foten","width":1920,"height":1080,"caption":"Flygvy av huset","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool-960.webp","alt":"Datorgenererad vy av en bostad på bottenvåningen med övertäckt terrass, en gräsmatta med solstolar och en liten privat pool","width":1920,"height":1080,"caption":"En bostad på bottenvåningen med trädgård och pool","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool-960.webp","alt":"Datorgenererad vy av en takterrass med matbord, solstolar, en liten pool och havet vid horisonten","width":1920,"height":1080,"caption":"En takterrass med pool","category":"Exteriör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp","alt":"Datorgenererad vy av den gemensamma poolen med trädäck, solstolar och parasoller, en palm och husets terrasser till höger","width":1920,"height":1080,"caption":"Den gemensamma poolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance-960.webp","alt":"Datorgenererad vy av en ramp och en trappa med stenmurar som leder till garageporten, med ett gym och ett coworking-rum bakom glas","width":1920,"height":1080,"caption":"Gymmet och coworking-rummet","category":"Bekvämligheter"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment-960.webp","alt":"Datorgenererad vy av ett gym med två crosstrainers, hyllor med träningsbollar och vikter samt en glasvägg","width":1920,"height":1080,"caption":"Gymmet","category":"Bekvämligheter"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge-960.webp","alt":"Datorgenererad vy av en vilozon i spat med solsängar, två skålformade fåtöljer och en smal pool med vattenstrålar","width":1920,"height":1080,"caption":"Vilozonen i spat","category":"Bekvämligheter"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool-960.webp","alt":"Datorgenererad vy av spat uppifrån, med en pool, vattenstrålar, ett runt bubbelbad och solsängar","width":1920,"height":1080,"caption":"Spapoolen och bubbelbadet","category":"Bekvämligheter"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp","alt":"Datorgenererad vy av ett öppet vardagsrum med matplats och köksö samt en glasskjutvägg ut mot terrassen","width":1920,"height":1080,"caption":"Vardagsrum, matplats och kök","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island-960.webp","alt":"Datorgenererad vy av ett matbord och ett kök med en köksö klädd i träribbor och barstolar, intill en glasskjutvägg","width":1920,"height":1080,"caption":"Köksön och matbordet","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen-960.webp","alt":"Datorgenererad vy av en terrass med sittgrupp och matbord som öppnar sig mot ett vardagsrum och ett kök, med staden och grön mark i fjärran","width":1920,"height":1080,"caption":"En terrass intill vardagsrummet","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view-960.webp","alt":"Datorgenererad vy av ett vardagsrum med hörnsoffa, matbord och en bred glasskjutvägg mot havet","width":1920,"height":1080,"caption":"Ett vardagsrum mot havet","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace-960.webp","alt":"Datorgenererad vy av ett sovrum med dubbelsäng, en stoppad vägg och en glasskjutdörr ut mot terrassen","width":1920,"height":1080,"caption":"Ett sovrum med utgång till terrassen","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view-960.webp","alt":"Datorgenererad vy av ett sovrum med glas från golv till tak ut mot en terrass, med staden och havet bakom","width":1920,"height":1080,"caption":"Ett sovrum med havsutsikt","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin-960.webp","alt":"Datorgenererad vy av ett badrum med en bänkskiva med handfat på ett träskåp, en rund bakgrundsbelyst spegel och en dusch med glasvägg","width":1920,"height":1080,"caption":"Ett badrum med dusch med glasvägg","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin-960.webp","alt":"Datorgenererad vy av ett badrum med två handfat på bänkskiva, två ovala bakgrundsbelysta speglar och en dusch med glasvägg","width":1920,"height":1080,"caption":"Ett badrum med två handfat","category":"Interiör"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-960.webp","alt":"Planritning för bostad 1-2A, andra våningen, Hus 1","width":1515,"height":1039,"caption":"Bostad 1-2A, andra våningen, Hus 1","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-960.webp","alt":"Planritning för bostad 1-3A, tredje våningen, Hus 1","width":1515,"height":1039,"caption":"Bostad 1-3A, tredje våningen, Hus 1","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-960.webp","alt":"Planritning för bostad 2-1A, första våningen, Hus 2","width":1920,"height":903,"caption":"Bostad 2-1A, första våningen, Hus 2","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-960.webp","alt":"Planritning för bostad 2-1B, första våningen, Hus 2","width":1803,"height":1090,"caption":"Bostad 2-1B, första våningen, Hus 2","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-960.webp","alt":"Planritning för bostad 2-2B, andra våningen, Hus 2","width":1803,"height":1074,"caption":"Bostad 2-2B, andra våningen, Hus 2","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-960.webp","alt":"Planritning för bostad 2-3A, tredje våningen, Hus 2","width":1920,"height":931,"caption":"Bostad 2-3A, tredje våningen, Hus 2","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-960.webp","alt":"Planritning för bostad 2-3B, tredje våningen, Hus 2","width":1803,"height":1074,"caption":"Bostad 2-3B, tredje våningen, Hus 2","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-960.webp","alt":"Planritning för bostad 2-4B, fjärde våningen, Hus 2","width":1803,"height":1074,"caption":"Bostad 2-4B, fjärde våningen, Hus 2","category":"Planritningar"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-960.webp","alt":"Planritning för bostad 3-3A, tredje våningen, Hus 3","width":1609,"height":1188,"caption":"Bostad 3-3A, tredje våningen, Hus 3","category":"Planritningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-las-mesas-blue-horizon.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

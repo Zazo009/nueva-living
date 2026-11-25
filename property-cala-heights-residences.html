@@ -34,13 +34,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -153,78 +154,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can foreigners buy property in Spain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is an NIE number and do I need one?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What costs should I budget for on top of the purchase price?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I get a mortgage in Spain as a non-resident?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between off-plan and completed properties?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the reservation and payment process work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I rent out the property after purchase?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need a lawyer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many homes are available?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The development has 50 apartments and five are currently listed, from EUR 680,000 to EUR 930,000."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "What does 1½ bedrooms mean?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -325,7 +254,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="en"
   data-project-name="Cala Heights Residences"
   data-project-message="Hello Nueva Living, I would like information about Cala Heights Residences."
@@ -482,396 +411,148 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Cala Heights Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="#top">Cala Heights Residences<span>From €680,000 · Plus VAT</span></a>
+      <nav class="hdr-proj" aria-label="Project sections"><a href="#overview">Overview</a><a href="#availability">Prices</a><a href="#specs">Specifications</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#onsite">On site</a><a href="#view">Our view</a><a href="#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="#enquire" data-prefill>Book a private viewing</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Cala Heights Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg" alt="Photograph from above of white terraced apartment blocks on a slope beside a road, with a golf course and a lake to the left and the sea on the horizon" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg" alt="Photograph from above of white terraced apartment blocks on a slope beside a road, with a golf course and a lake to the left and the sea on the horizon" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">5 of 50 homes available</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Cala Heights <em>Residences</em></span>
-            <span class="hero-title-context">Key-Ready Apartments in La Cala de Mijas</span>
-          </h1>
-          <p class="hero-positioning">Fifty apartments of one to three bedrooms in a gated, key-ready community in La Cala de Mijas, with a pool area, an infinity pool, a padel court and an outdoor gym. Five homes of 1½ and 2 bedrooms are listed, from EUR 680,000.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="#availability">View Available Homes</a>
-            <a class="btn project-btn ghost" href="index.html#private-viewing=1&amp;project=cala-heights-residences">Cinematic Presentation</a>
-            <a class="btn project-btn ghost" href="#media">All Images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Project key facts">
-          <div class="hero-fact"><span>Location</span><strong>La Cala de Mijas</strong></div>
-          <div class="hero-fact"><span>Starting Price</span><strong>From EUR 680,000</strong></div>
-          <div class="hero-fact"><span>Property Type</span><strong>Apartments</strong></div>
-          <div class="hero-fact"><span>Delivery</span><strong>Key ready</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Project sections">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Jump to</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="#media">Media</a>
-        <a href="#location">Location</a>
-        <a href="#availability">Availability</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">More</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="#overview">Overview</a>
-          <a href="#residences">Residences</a>
-          <a href="#quality-specifications">Specifications</a>
-          <a href="#calculator">Affordability</a>
-          <a href="#amenities">Amenities</a>
-          <a href="#why-this-project">Why</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#private-viewing">Cinematic Presentation</a>
-          <a href="#lifestyle">Lifestyle</a>
-          <a href="#faq">FAQ</a>
-          <a href="#enquire">Enquire</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Project quick facts">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Location</span><strong>La Cala de Mijas, Mijas</strong></div>
-          <div class="quick-fact"><span>Bedrooms</span><strong>1½-2 bedrooms</strong></div>
-          <div class="quick-fact"><span>Listed area</span><strong>87.64 - 102.06 sqm</strong></div>
-          <div class="quick-fact"><span>Availability</span><strong>5 of 50 homes available</strong></div>
-          <div class="quick-fact"><span>Development</span><strong>50 apartments</strong></div>
-          <div class="quick-fact"><span>Available</span><strong>5 homes</strong></div>
-          <div class="quick-fact"><span>Price range</span><strong>EUR 680,000 - EUR 930,000</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="#enquire" data-prefill>Request Project Material</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overview</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fifty homes, <em>key ready</em></h2>
-          <p class="project-lead">Cala Heights Residences is a gated, key-ready community of 50 apartments in La Cala de Mijas, on the Costa del Sol. The developer’s infosheet lists homes of one, 1½, two and three bedrooms, and a community with a pool area, an infinity pool, a padel court, an outdoor gym and a children’s playground.</p>
-          <p class="project-lead">Five homes are listed as available: two of 1½ bedrooms and three of two bedrooms, from 87.64 to 102.06 sqm, at EUR 680,000 to EUR 930,000. The infosheet lists construction as started in the second quarter of 2021 and finished in the second quarter of 2025, with the building licence in place; it leaves the first occupation licence blank.</p>
-          <p class="project-lead">This is the earlier phase of a scheme whose later phase, blocks six and seven, is on this site as La Noria Golf Residences. The site plan we hold numbers five blocks, 01 to 05.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">The development <em>in detail</em></h2>
-          </div>
-          <p class="project-lead">Photographs of the finished blocks and their terraces, of the interior of a furnished home, and the developer’s site plan of the five blocks.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="View 3 images in Exteriors">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg" alt="Photograph from above of white terraced apartment blocks on a slope beside a road, with a golf course and a lake to the left and the sea on the horizon" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriors</small>
-                <strong>The blocks above the sea</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="View 3 images in Terraces">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view.jpg" alt="Photograph of a terrace with a corner sofa, an armchair and a low wooden table behind a glass balustrade, looking over rooftops to the sea" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terraces</small>
-                <strong>A terrace with a sea view</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="View 3 images in Interiors">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view-640.webp 640w, assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view-960.webp 960w, assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view.jpg" alt="Photograph of a furnished living room with a sofa, a dining table and a sliding glass door open to a terrace, with mountains beyond" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiors</small>
-                <strong>The living room</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>View all 9 images</button>
-          <p class="media-note">The photographs show the completed development. The interiors are of a furnished home, and the furniture, plants and styling are not included in the sale. The documents we hold include no floorplans of the homes. The site plan is the developer’s and numbers the blocks 01 to 05.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Location</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">La Cala de Mijas, <em>Mijas</em></h2>
-          <p class="project-lead">The infosheet map places the development in La Cala de Mijas, inland of the coastal road, and the photographs and the site plan show it beside a golf course and a lake. The documents give no distances, so the travel times below are road times measured from the area, not taken from them.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="en">
-          <div class="locmap-map" id="locmap-cala-heights-residences" data-locmap='{&quot;site&quot;:[36.5002,-4.686],&quot;sea&quot;:[36.4732,-4.686],&quot;seaLabel&quot;:&quot;Mediterranean&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;9.4 km · 15 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centre&quot;,&quot;sub&quot;:&quot;9.0 km · 13 min&quot;},{&quot;ll&quot;:[36.49899,-4.68403],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Beach&quot;,&quot;sub&quot;:&quot;320 m · 4 min walk&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Cabopino golf&quot;,&quot;sub&quot;:&quot;6.9 km · 11 min&quot;}]}' role="img" aria-label="Indicative location map for Cala Heights Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicative location</span>
-            <h3 class="locmap-name">Cala Heights Residences</h3>
-            <p class="locmap-place">La Cala de Mijas, Mijas</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Beach</span>
-              <span class="locmap-row-figure"><bdi>320 m</bdi> <em><bdi>4 min walk</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>9.4 km</bdi> <em><bdi>15 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Fuengirola centre</span>
-              <span class="locmap-row-figure"><bdi>9.0 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Cabopino golf</span>
-              <span class="locmap-row-figure"><bdi>6.9 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">La Cala golf</span>
-              <span class="locmap-row-figure"><bdi>8.7 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga airport</span>
-              <span class="locmap-row-figure"><bdi>36 km</bdi> <em><bdi>34 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances measured by road from the plot boundary. Map for orientation only; boundaries indicative.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Residences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Two kinds of home, <em>five listed</em></h2>
-          <p class="project-lead">The infosheet describes 50 apartments of one, 1½, two and three bedrooms. The availability table lists five of them, of two kinds. We hold no floorplans of the homes, and the table gives no floors, terrace areas or home types.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>1½-bedroom apartments</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="#enquire" data-prefill>Request Floorplans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Two-bedroom apartments</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="#enquire" data-prefill>Request Floorplans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Private Material</span>
-            <p>Current layouts, view positions and unit availability should be reviewed against the latest developer file before shortlisting.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="#enquire" data-prefill>View Floorplans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Quality specifications</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What the homes are <em>built with</em></h2>
-          <p class="project-lead">The developer’s own building specification, summarised by part of the home.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Floors and walls<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Porcelain stoneware floors throughout the home (Plank Grey by Newker or similar), and non-slip porcelain stoneware on the terraces (Land Grey by Newker or similar).</li>
-              <li>Bathroom walls tiled in Citi White at the washbasin and Lava Grey at the shower, by Newker or similar, and the rest painted; toilet rooms tiled in Citi White. Plain plastic paint on the walls and ceilings of the homes.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Doors and wardrobes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>A security entrance door with anti-lever hinges, polyurethane insulation, a security lock and a spyhole.</li>
-              <li>Interior doors in white lacquered wood with stainless-steel fittings, hinged or sliding according to the plans, and modular wardrobes lacquered white, with a luggage shelf and a hanging rail.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kitchen<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>A fully fitted kitchen with upper and lower units and a contemporary worktop, with an oven, a ceramic hob, an extractor hood, a fridge and a dishwasher, and a stainless-steel sink with a single-lever mixer tap.</li>
-              <li>The infosheet adds that the appliances are by Bosch and that the kitchen has no microwave.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Bathrooms<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>White glazed porcelain sanitaryware by Roca or similar, with chrome single-lever mixers with ceramic cartridges by Hansgrohe or similar.</li>
-              <li>The main bathroom has a Roca Cratos shower tray, a Hansgrohe Croma E Showerpipe 280 thermostatic column and a screen. The secondary bathroom has a Roca Cratos shower tray with a Crometta E Showerpipe 240 column, and/or a Roca Contesa bath, with a screen. A toilet room has a Roca The Gap washbasin and toilet.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climate and hot water<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ducted air conditioning in each home, with a single thermostat for the living room and bedrooms, served by an aerothermal heat pump.</li>
-              <li>Hot water from the aerothermal heat pump, with an individual storage tank in each home, and a hot-water underfloor heating system in the living room and bedrooms. The infosheet lists air conditioning, hot and cold, and underfloor heating throughout, but not in the bathrooms.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Electrics and technology<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>An electrical installation to low-voltage regulations, light points on terraces and common areas, and a socket and a water tap on the main terrace.</li>
-              <li>Telecommunications sockets in the lounges, bedrooms and kitchen, an outside TV socket, and a video entry phone with an individual monitor in each home.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Parking, lift and common areas<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>A storage room and a parking space as inseparable annexes of each home, and garage doors that open automatically by remote control.</li>
-              <li>A lift for six people with automatic doors, going down to the garage level.</li>
-              <li>A closed, private community with adults’ and children’s pools with night lighting, a padel court (the English column says one court, the Spanish column says courts), a children’s play area, garden areas and private gardens for residents.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Source: the developer’s building specification (Memoria de calidades, Spanish and English columns), whose file is dated 31 August 2021, so it describes what was specified in 2021. It says the project management may change the specification and replace items with similar ones without a loss of quality. Brands are given as “or similar”. It lists no loose furniture, and it does not mention an infinity pool or a multipurpose room, which the 2026 infosheet lists.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Availability</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">5 homes <em>currently available</em></h2>
-          <p class="project-lead">Sizes and prices are those of the availability table in the sales portal, read on 18 October 2026. The table gives no floors, floorplans or terrace areas, and does not say whether sizes are built or usable area or whether prices include VAT.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg" alt="Photograph from above of white terraced apartment blocks on a slope beside a road, with a golf course and a lake to the left and the sea on the horizon" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>9 photos</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Current release summary">
-            <div><span>Available Homes</span><strong>5</strong></div>
-            <div><span>Starting Price</span><strong>EUR 680,000</strong></div>
-            <div><span>Price Range</span><strong>EUR 680,000 - EUR 930,000</strong></div>
-            <div><span>Checked</span><strong>October 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>View All 5 Available Homes</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Available homes at Cala Heights Residences</caption>
-                <thead><tr><th scope="col">Reference</th><th scope="col">Bedrooms</th><th scope="col">Size</th><th scope="col">Price</th><th scope="col">Status</th></tr></thead>
-                <tbody>
-              <tr data-beds="2" data-price="910000">
-                <td data-label="Reference"><strong>NGS-421A</strong></td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size">102.06 sqm</td>
-                <td data-label="Price"><strong>EUR 910,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-              </tr>
-              <tr data-price="690000">
-                <td data-label="Reference"><strong>NGS-511A</strong></td>
-                <td data-label="Bedrooms">1½ bedrooms</td>
-                <td data-label="Size">87.64 sqm</td>
-                <td data-label="Price"><strong>EUR 690,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-              </tr>
-              <tr data-beds="2" data-price="930000">
-                <td data-label="Reference"><strong>NGS-511B</strong></td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size">99.67 sqm</td>
-                <td data-label="Price"><strong>EUR 930,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-              </tr>
-              <tr data-beds="2" data-price="890000">
-                <td data-label="Reference"><strong>NGS-521A</strong></td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size">99.67 sqm</td>
-                <td data-label="Price"><strong>EUR 890,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-              </tr>
-              <tr data-price="680000">
-                <td data-label="Reference"><strong>NGS-521B</strong></td>
-                <td data-label="Bedrooms">1½ bedrooms</td>
-                <td data-label="Size">87.64 sqm</td>
-                <td data-label="Price"><strong>EUR 680,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="#location"><svg><use href="#v2-pin"/></svg>Map</a>
           
-          <p class="availability-source-note">Sizes and prices are transcribed from the availability table in the sales portal, read on 18 October 2026. It lists five references, each once. The table gives the number of bedrooms, one size and a price for each home, and lists two homes as 1½ bedrooms, which is the developer’s wording. It does not say whether the size is built or usable area, or whether the price includes VAT; the infosheet states the payment instalments as plus VAT. The development has 50 apartments in all, and the five shown are those listed.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="#enquire" data-prefill>Ask About a Home</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cala%20Heights%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cala Heights Residences" data-intent="speak with an advisor">Speak With Advisor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Affordability</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimate your <em>monthly payment</em></h2>
-          <p class="body-copy">A quick indicative estimate only. Confirm exact terms with your lender before making any decision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Cala Heights</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Fifty apartments of one to three bedrooms in a gated, key-ready community in La Cala de Mijas, with a pool area, an infinity pool, a padel court and an outdoor gym.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Price</dt><dd class="num">From €680,000</dd><dd class="sub">Plus VAT</dd></div><div><dt>Bedrooms</dt><dd>1 to 2</dd><dd class="sub"><span>Apartments</span></dd></div><div><dt>Completion</dt><dd>Key-ready</dd><dd class="sub">Building licence granted</dd></div><div><dt>Homes left</dt><dd>5 of 50</dd><dd class="sub">Checked October 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="#enquire" data-prefill>Book a private viewing</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cala%20Heights%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cala Heights Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">The development</h2>
+    <p class="lede">Cala Heights Residences is a gated, key-ready community of 50 apartments in La Cala de Mijas, on the Costa del Sol. The developer’s infosheet lists homes of one, 1½, two and three bedrooms, and a community with a pool area, an infinity pool, a padel court, an outdoor gym and a children’s playground.</p>
+    <p class="lede-2">Five homes are listed as available: two of 1½ bedrooms and three of two bedrooms, from 87.64 to 102.06 sqm, at EUR 680,000 to EUR 930,000. The infosheet lists construction as started in the second quarter of 2021 and finished in the second quarter of 2025, with the building licence in place; it leaves the first occupation licence blank.</p><p class="lede-2">This is the earlier phase of a scheme whose later phase, blocks six and seven, is on this site as La Noria Golf Residences. The site plan we hold numbers five blocks, 01 to 05.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>White terraces, stepping down the slope</span></summary><p>The photographs show white blocks whose terraces step back level by level, with glass balustrades and, on the upper levels, slatted pergola shading, on a slope above a road. The developer’s building specification describes how they are built.</p><p>The specification is dated 31 August 2021, and it allows the project management to replace materials with similar ones without a loss of quality, so we confirm what was built.</p><ul><li>Structure: A reinforced concrete structure with waffle or reinforced slabs on a slab or footings, with a pile screen and micropiles to stabilise the slope.</li><li>Facade: A double-leaf facade: a perforated-brick outer leaf, sprayed insulation, an air chamber and an inner leaf of dry lining on a metal frame with mineral wool. The outside is continuous mortar render with a paint finish, combined with stone-type panels.</li><li>Glazing: Lacquered extruded aluminium windows by Strugal or Cortizo, or similar, with a thermal break and thermal-acoustic double glazing, and air inlets for ventilation.</li><li>Terraces and roofs: Terrace balustrades are a mix of solid wall and glass, according to the elevations, and terraces are paved in non-slip porcelain stoneware. Roofs are insulated and waterproofed, either walk-on terraces or non-accessible roofs.</li><li>Walls between homes: Acoustic ceramic brick, lined on both sides with dry lining and mineral wool, between homes and between homes and common areas.</li></ul></details>
+    <dl class="kfacts"><div><dt>Price</dt><dd><span>€680,000 – €930,000</span><small>Plus VAT</small></dd></div><div><dt>Available</dt><dd><span>5 of 50 homes</span><small>Checked October 2026</small></dd></div><div><dt>Homes</dt><dd><span>Apartments</span></dd></div><div><dt>Sizes</dt><dd><span>88 – 102 m²</span></dd></div><div><dt>Completion</dt><dd><span>Key-ready</span></dd></div><div><dt>Licence</dt><dd><span><span class="ok">Building licence</span></span><small>Granted</small></dd></div><div><dt>Deposits</dt><dd><span>Not applicable</span><small>Finished building</small></dd></div><div><dt>Parking</dt><dd><span>Parking Space And Storage With Every Home</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Homes and prices</h2>
+    <p class="sec-sub">Sizes and prices are those of the availability table in the sales portal, read on 18 October 2026. The table gives no floors, floorplans or terrace areas, and does not say whether sizes are built or usable area or whether prices include VAT. Select a home to see its payment schedule and total cost.</p>
+    <div class="scarcity" role="img" aria-label="5 of 50 still for sale"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>5 of 50 still for sale</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Homes for sale, with size and price. Select a row for the payment schedule.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Home</th>
+          <th scope="col" data-sort="beds">Bedrooms</th>
+          <th scope="col" data-sort="size">Size</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Price</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="910000" data-size="102.06" data-ppm="8916" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NGS-421A</span><span class="u-loc"></span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">102 m²</td>
+            <td data-label="Price" class="u-price num">€910,000</td>
+            <td data-label="Per m²" class="num">€8,916</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="1" data-price="690000" data-size="87.64" data-ppm="7873" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NGS-511A</span><span class="u-loc"></span></th>
+            <td data-label="Bedrooms">1 bed</td>
+            <td data-label="Size" class="num">88 m²</td>
+            <td data-label="Price" class="u-price num">€690,000</td>
+            <td data-label="Per m²" class="num">€7,873</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="930000" data-size="99.67" data-ppm="9331" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NGS-511B</span><span class="u-loc"></span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">100 m²</td>
+            <td data-label="Price" class="u-price num">€930,000</td>
+            <td data-label="Per m²" class="num">€9,331</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="890000" data-size="99.67" data-ppm="8929" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NGS-521A</span><span class="u-loc"></span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">100 m²</td>
+            <td data-label="Price" class="u-price num">€890,000</td>
+            <td data-label="Per m²" class="num">€8,929</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="1" data-price="680000" data-size="87.64" data-ppm="7759" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NGS-521B</span><span class="u-loc"></span></th>
+            <td data-label="Bedrooms">1 bed</td>
+            <td data-label="Size" class="num">88 m²</td>
+            <td data-label="Price" class="u-price num">€680,000</td>
+            <td data-label="Per m²" class="num">€7,759</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Residences · <span>Two kinds of home, five listed</span></summary><p>The infosheet describes 50 apartments of one, 1½, two and three bedrooms. The availability table lists five of them, of two kinds. We hold no floorplans of the homes, and the table gives no floors, terrace areas or home types.</p><div class="res-types"><div class="res-type"><h3>1½-bedroom apartments</h3><ul><li>Two homes are listed, both of 87.64 sqm: NGS-521B at EUR 680,000 and NGS-511A at EUR 690,000.</li><li>“1½ bedrooms” is the developer’s wording, in the infosheet and the table. Neither the infosheet nor the specification says what the half bedroom is, so we ask for the plan of the home before you rely on it.</li></ul></div><div class="res-type"><h3>Two-bedroom apartments</h3><ul><li>Three homes are listed: NGS-521A of 99.67 sqm at EUR 890,000, NGS-511B of 99.67 sqm at EUR 930,000, and NGS-421A of 102.06 sqm at EUR 910,000.</li><li>The table does not say what accounts for the price difference between homes of the same size.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">The developer’s payment schedule is on request; we send it with the price list.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">What it costs in total</p>
+      <dl class="cost-lines num">
+        <div><dt>Price</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>VAT, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stamp duty (AJD), 1.2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total before notary, land registry and legal fees</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="#enquire" data-prefill>Ask about this home</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Floor plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financing? Mortgage calculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Purchase price</span><em data-calc-price-readout>&euro;0</em></div>
@@ -931,446 +612,227 @@
               <div class="calculator-result"><span>Taxes & purchase costs</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Amenities</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What the development <em>offers you</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Oasis Pool And Children Pool</h3>
-              <p class="amenity-note">Open to the sky</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Specifications</h2>
+    <p class="sec-sub">The developer’s own building specification, summarised by part of the home.</p>
+    <div class="tabs" role="tablist" aria-label="Specifications"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Floors and walls</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Doors and wardrobes</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Kitchen</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Bathrooms</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Climate and hot water</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Electrics and technology</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Parking, lift and common areas</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Porcelain stoneware floors throughout the home (Plank Grey by Newker or similar), and non-slip porcelain stoneware on the terraces (Land Grey by Newker or similar).</li><li>Bathroom walls tiled in Citi White at the washbasin and Lava Grey at the shower, by Newker or similar, and the rest painted; toilet rooms tiled in Citi White. Plain plastic paint on the walls and ceilings of the homes.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>A security entrance door with anti-lever hinges, polyurethane insulation, a security lock and a spyhole.</li><li>Interior doors in white lacquered wood with stainless-steel fittings, hinged or sliding according to the plans, and modular wardrobes lacquered white, with a luggage shelf and a hanging rail.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>A fully fitted kitchen with upper and lower units and a contemporary worktop, with an oven, a ceramic hob, an extractor hood, a fridge and a dishwasher, and a stainless-steel sink with a single-lever mixer tap.</li><li>The infosheet adds that the appliances are by Bosch and that the kitchen has no microwave.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>White glazed porcelain sanitaryware by Roca or similar, with chrome single-lever mixers with ceramic cartridges by Hansgrohe or similar.</li><li>The main bathroom has a Roca Cratos shower tray, a Hansgrohe Croma E Showerpipe 280 thermostatic column and a screen. The secondary bathroom has a Roca Cratos shower tray with a Crometta E Showerpipe 240 column, and/or a Roca Contesa bath, with a screen. A toilet room has a Roca The Gap washbasin and toilet.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Ducted air conditioning in each home, with a single thermostat for the living room and bedrooms, served by an aerothermal heat pump.</li><li>Hot water from the aerothermal heat pump, with an individual storage tank in each home, and a hot-water underfloor heating system in the living room and bedrooms. The infosheet lists air conditioning, hot and cold, and underfloor heating throughout, but not in the bathrooms.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>An electrical installation to low-voltage regulations, light points on terraces and common areas, and a socket and a water tap on the main terrace.</li><li>Telecommunications sockets in the lounges, bedrooms and kitchen, an outside TV socket, and a video entry phone with an individual monitor in each home.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>A storage room and a parking space as inseparable annexes of each home, and garage doors that open automatically by remote control.</li><li>A lift for six people with automatic doors, going down to the garage level.</li><li>A closed, private community with adults’ and children’s pools with night lighting, a padel court (the English column says one court, the Spanish column says courts), a children’s play area, garden areas and private gardens for residents.</li></ul>
+      
+    </div>
+    <p class="caption">Source: the developer’s building specification (Memoria de calidades, Spanish and English columns), whose file is dated 31 August 2021, so it describes what was specified in 2021. It says the project management may change the specification and replace items with similar ones without a loss of quality. Brands are given as “or similar”. It lists no loose furniture, and it does not mention an infinity pool or a multipurpose room, which the 2026 infosheet lists.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Gallery</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="The blocks above the sea"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg" alt="Photograph from above of white terraced apartment blocks on a slope beside a road, with a golf course and a lake to the left and the sea on the horizon" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="The living room"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view-640.webp 640w, assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view-960.webp 960w, assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view.jpg" alt="Photograph of a furnished living room with a sofa, a dining table and a sliding glass door open to a terrace, with mountains beyond" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="A terrace with a sea view"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view.jpg" alt="Photograph of a terrace with a corner sofa, an armchair and a low wooden table behind a glass balustrade, looking over rooftops to the sea" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="The blocks, the golf course and the lake"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake.jpg" alt="Photograph from above of terraced white blocks beside a road, with a golf course, a lake, wooded grounds and the sea beyond" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Site plan: blocks 01 to 05"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/site-plan-of-the-five-blocks-640.webp 640w, assets/liora/projects/cala-heights-residences/media/site-plan-of-the-five-blocks-960.webp 960w, assets/liora/projects/cala-heights-residences/media/site-plan-of-the-five-blocks.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cala-heights-residences/media/site-plan-of-the-five-blocks.jpg" alt="Aerial site plan with five numbered white blocks, 01 to 05, in a row along a road, with a golf course and a lake to the right" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>View all 9 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriors (3)</button><button type="button" data-open-cat="Terraces">Terraces (3)</button><button type="button" data-open-cat="Interiors">Interiors (3)</button></div>
+    
+    <p class="caption">The photographs show the completed development. The interiors are of a furnished home, and the furniture, plants and styling are not included in the sale. The documents we hold include no floorplans of the homes. The site plan is the developer’s and numbers the blocks 01 to 05.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Location</h2>
+    <p class="sec-sub">The infosheet map places the development in La Cala de Mijas, inland of the coastal road, and the photographs and the site plan show it beside a golf course and a lake. The documents give no distances, so the travel times below are road times measured from the area, not taken from them.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="en">
+          <div class="locmap-map" id="locmap-cala-heights-residences" data-locmap='{&quot;site&quot;:[36.5002,-4.686],&quot;sea&quot;:[36.4732,-4.686],&quot;seaLabel&quot;:&quot;Mediterranean&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;9.4 km · 15 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centre&quot;,&quot;sub&quot;:&quot;9.0 km · 13 min&quot;},{&quot;ll&quot;:[36.49899,-4.68403],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Beach&quot;,&quot;sub&quot;:&quot;320 m · 4 min walk&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Cabopino golf&quot;,&quot;sub&quot;:&quot;6.9 km · 11 min&quot;}]}' role="img" aria-label="Indicative location map for Cala Heights Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicative location</span>
+            <h3 class="locmap-name">Cala Heights Residences</h3>
+            <p class="locmap-place">La Cala de Mijas, Mijas</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Beach</span>
+              <span class="locmap-row-figure"><bdi>320 m</bdi> <em><bdi>4 min walk</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Infinity Pool</h3>
-              <p class="amenity-note">An edge that disappears</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>9.4 km</bdi> <em><bdi>15 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Wellness</span>
-              <h3 class="amenity-name">Padel Court</h3>
-              <p class="amenity-note">The coast’s own racket sport</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Fuengirola centre</span>
+              <span class="locmap-row-figure"><bdi>9.0 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Wellness</span>
-              <h3 class="amenity-name">Outdoor Gym</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Cabopino golf</span>
+              <span class="locmap-row-figure"><bdi>6.9 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Outdoors</span>
-              <h3 class="amenity-name">Chill-Out Area</h3>
-              <p class="amenity-note">A room to gather in</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">La Cala golf</span>
+              <span class="locmap-row-figure"><bdi>8.7 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/><path d="M8.5 14a4.5 4.5 0 0 0 7 0"/><path d="M9 9.5h.01"/><path d="M15 9.5h.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Outdoors</span>
-              <h3 class="amenity-name">Children Playground</h3>
-              <p class="amenity-note">Fitted out for play</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga airport</span>
+              <span class="locmap-row-figure"><bdi>36 km</bdi> <em><bdi>34 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Outdoors</span>
-              <h3 class="amenity-name">Landscaped Communal Gardens</h3>
-              <p class="amenity-note">Planted communal grounds</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Everyday</span>
-              <h3 class="amenity-name">Parking Space And Storage With Every Home</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Everyday</span>
-              <h3 class="amenity-name">Storage Room</h3>
-              <p class="amenity-note">A lockable store</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Everyday</span>
-              <h3 class="amenity-name">Lift</h3>
-              <p class="amenity-note">Every floor reached</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Everyday</span>
-              <h3 class="amenity-name">Air Conditioning</h3>
-              <p class="amenity-note">Cooling and heating by duct</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Everyday</span>
-              <h3 class="amenity-name">Aerothermal System</h3>
-              <p class="amenity-note">Heating, cooling and hot water</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Everyday</span>
-              <h3 class="amenity-name">Underfloor Heating Throughout</h3>
-              <p class="amenity-note">Warmth from the floor up</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Services</span>
-              <h3 class="amenity-name">Gated Community</h3>
-              <p class="amenity-note">Controlled entrance</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances measured by road from the plot boundary. Map for orientation only; boundaries indicative.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">La Cala de Mijas beach</th><td>Approx. 6 minutes</td></tr><tr><th scope="row">Fuengirola</th><td>Approx. 15 minutes</td></tr><tr><th scope="row">Málaga airport</th><td>Approx. 36 minutes</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">On site</h2>
+    <p class="sec-sub">The shared areas listed in the developer’s documents, in a gated community.</p>
+    <div class="life-panels"><div><h3>Pools and chill-out</h3><p>The infosheet lists an oasis area with an adults’ pool and a children’s pool, plus a new infinity pool, with a chill-out area and a multipurpose room for the gym. The 2021 specification lists community adults’ and children’s pools with night lighting and does not mention an infinity pool.</p></div><div><h3>Padel, gym and play</h3><p>The infosheet lists padel tennis, an outdoor gym and a children’s playground. The specification lists a padel court (or courts, in its Spanish column), a children’s play area and garden areas.</p></div><div><h3>Parking and access</h3><p>A closed, private community. Every home has a parking space and a storage room, which the infosheet lists as included and the specification gives as annexes of the home, with a lift down to the garage level.</p></div><div><h3>The outlook</h3><p>The photographs show terraces looking over a golf course and a lake towards the sea, and inland to the mountains. We confirm the outlook of each listed home.</p></div></div>
+    <ul class="amen-top"><li>Gated Community</li><li>Oasis Pool And Children Pool</li><li>Infinity Pool</li><li>Chill-Out Area</li><li>Padel Court</li><li>Outdoor Gym</li></ul>
+    <details class="amen-all"><summary>Show all 14</summary><div class="amen-groups"><div><h3>Wellness<span class="count">4</span></h3><ul><li>Oasis Pool And Children Pool</li><li>Infinity Pool</li><li>Padel Court</li><li>Outdoor Gym</li></ul></div><div><h3>Outdoors<span class="count">3</span></h3><ul><li>Chill-Out Area</li><li>Children Playground</li><li>Landscaped Communal Gardens</li></ul></div><div><h3>Everyday<span class="count">6</span></h3><ul><li>Parking Space And Storage With Every Home</li><li>Storage Room</li><li>Lift</li><li>Air Conditioning</li><li>Aerothermal System</li><li>Underfloor Heating Throughout</li></ul></div><div><h3>Services<span class="count">1</span></h3><ul><li>Gated Community</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Our view</h2>
+    <p class="sec-sub">What we would weigh before reserving here, and the checks we make on your behalf.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Our view">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Stands out</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Plan for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Checks</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Why it stands out</h3><ul class="points"><li><b>Who it is for</b><span>Buyers who want a finished apartment they can see and use now rather than wait for a build, in a community with pools, a padel court and an outdoor gym. The five listed homes cost EUR 680,000 to EUR 930,000.</span></li><li><b>What makes it different</b><span>The infosheet lists construction as finished in the second quarter of 2025 and calls the homes key ready, so the homes and the shared areas can be visited. The 2021 specification lists underfloor heating in the living room and bedrooms, ducted air conditioning and aerothermal hot water.</span></li><li><b>Why location matters</b><span>In the photographs and on the site plan the blocks stand on a slope beside a golf course and a lake, with the sea beyond. The infosheet map places them in La Cala de Mijas, inland of the coastal road. The documents give no distances or travel times; the road times are in the location section.</span></li><li><b>Why check availability</b><span>Only five of the 50 homes are listed. Two homes of 87.64 sqm are priced EUR 10,000 apart, and two of 99.67 sqm EUR 40,000 apart, and the table does not say why. Nueva Living reconfirms price and availability before any viewing.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>What to plan for</h3><ul class="points"><li><b>Reservation</b><span>The pre-reservation is EUR 6,000. The infosheet does not say whether it is deducted from the first instalment.</span></li><li><b>Payment schedule</b><span>40% plus VAT on signing the private purchase contract, and 60% plus VAT on completion. The infosheet puts an asterisk against the 40% and does not explain it, so we ask what it refers to.</span></li><li><b>VAT</b><span>The infosheet states both instalments as plus VAT, which indicates that the listed prices are before VAT. The availability table does not say, so we confirm it in writing.</span></li><li><b>What the price includes</b><span>Parking and storage are listed as included, and the kitchen comes fitted with appliances. The infosheet notes underfloor heating in the dry areas only, not the bathrooms, with a possible extension in homes in blocks 4 and 5 for an extra EUR 8,500. It does not say what the extension covers, so we ask which listed homes it applies to.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Checks before any money moves</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Licences</b><span>Building licence granted. The infosheet lists the building licence as in place and leaves the first occupation licence blank. We ask for both, and for the registered description of the home, its parking space and its storage room.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>The dates</b><span>The infosheet lists construction as started in the second quarter of 2021 and finished in the second quarter of 2025, and calls the homes key ready. We ask for the completion certificate and the handover date of the home you choose.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>The areas</b><span>The availability table gives one size per home and does not say whether it is built or usable area, and it gives no terrace area. We confirm which figure the contract uses, and the terrace area of each home.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>What was built</b><span>The specification is dated 2021. We ask what was built, whether the infinity pool and the multipurpose room are in place, what the EUR 8,500 underfloor-heating extension covers, and what “1½ bedrooms” means on the plan.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Request the project file</h3><p>What we hold: the infosheet, the 2021 building specification, the site plan and the availability table.</p></li><li><h3>Compare the options</h3><p>See this alongside the other Mijas projects we hold, including the later phase of the same scheme.</p></li><li><h3>Private viewing</h3><p>The homes are finished, so we arrange a viewing of the home and the shared areas.</p></li><li><h3>Reserve</h3><p>A pre-reservation of EUR 6,000, then the private purchase contract, once we have confirmed the licences, the areas and what the price includes in writing.</p></li></ol>
+      <div class="docs card"><h3>Documents you’ll receive</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Price list</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Floor plans<small>Not issued yet</small><small>Pending</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Payment schedule<small>Not issued yet</small><small>Pending</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Quality specification</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>The official summary every buyer in Andalucía is entitled to</small></span></li></ul><a class="btn btn-primary" href="#enquire" data-prefill>Get the project file</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions about Cala Heights</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>What does 1½ bedrooms mean?</summary><p>It is the developer’s own wording, used in the infosheet and in the availability table for two homes of 87.64 sqm. No document we hold defines it, so we ask for the plan of each home.</p></details><details class="segment-faq-item"><summary>Is it finished?</summary><p>The infosheet says key ready, lists construction as started in the second quarter of 2021 and finished in the second quarter of 2025, and lists the building licence as in place. The first occupation licence is blank on the infosheet, and we ask for it.</p></details><details class="segment-faq-item"><summary>Is VAT included?</summary><p>The availability table does not say. The infosheet states both instalments as plus VAT, which points to prices before VAT. We confirm the taxes and purchase costs in writing.</p></details><details class="segment-faq-item"><summary>What is the payment schedule?</summary><p>EUR 6,000 to pre-reserve, then 40% plus VAT on signing the private purchase contract and 60% plus VAT on completion.</p></details><details class="segment-faq-item"><summary>What amenities are listed?</summary><p>An oasis area with adults’ and children’s pools, an infinity pool, a chill-out area, padel tennis, an outdoor gym, a multipurpose room for the gym and a children’s playground, in a gated community.</p></details></div>
+    <details class="faq2-more"><summary>Show all questions (9)</summary><div class="faq2"><details class="segment-faq-item"><summary>Are parking and storage included?</summary><p>Yes. The infosheet lists parking and storage as included, and the specification gives each home a parking space and a storage room as inseparable annexes.</p></details><details class="segment-faq-item"><summary>Is there underfloor heating?</summary><p>The infosheet lists underfloor heating in the dry areas and not in the bathrooms, and the specification lists it in the living room and bedrooms. It also mentions a possible extension in homes in blocks 4 and 5 for EUR 8,500, and we ask what that covers.</p></details><details class="segment-faq-item"><summary>How recent is the specification?</summary><p>It is dated 31 August 2021, so it describes what was specified then. The 2026 infosheet lists an infinity pool and a multipurpose room that it does not mention, so we confirm what was built.</p></details><details class="segment-faq-item"><summary>Is this connected to La Noria Golf Residences?</summary><p>Yes. La Noria Golf Residences is the later phase of the same scheme, blocks six and seven, and is listed separately on this site.</p></details></div></details>
+    <p class="faq2-guide">More on buying a new build in Spain → <a class="textlink" href="guide-how-buying-works.html">Buying guide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Book a private viewing">
+    <div class="card">
+      <p class="rail-price-label">Price from</p>
+      <p class="rail-price num">€680,000</p>
+      <p class="rail-note">Plus VAT. 5 of 50 homes left · Checked October 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="#enquire" data-prefill>Book a private viewing</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cala%20Heights%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cala Heights Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Message us on WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, founder</strong>We reply to every enquiry ourselves.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Book a private viewing</h2>
+        <p>Tell us which home interests you. We send the project file, then walk the site with you.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, founder of Nueva Living</strong>We reply to every enquiry ourselves.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cala%20Heights%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cala Heights Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Message us</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Call<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Email<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>On the visit we check with you</h3><ul><li><b>On site.</b> Walk the terraces, check the outlook of each listed home and see the shared areas.</li><li><b>Next door.</b> See the blocks beside the golf course, and the later phase of the same scheme.</li><li><b>On paper.</b> The licences, the registered description of the home and the contract, before anything is signed.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sending…" data-success-label="Book a private viewing ✓" data-submitting-message="Sending…" data-success-message="Request received. We’ll send the project file and suggest times for a visit." data-error-message="That did not go through. Please try again, or message us on WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cala Heights Residences">
+        <input type="hidden" id="f-project" name="project" value="Cala Heights Residences">
+        <input type="hidden" name="preferred_area" value="La Cala de Mijas">
+        <input type="hidden" name="property_type_interest" value="Apartments">
+        <input type="hidden" name="budget_range" value="From EUR 680,000">
+        <input type="hidden" name="consent_text" value="I agree that Nueva Living may store these details to answer my request.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hello Nueva Living, I would like information about Cala Heights Residences." data-base="Hello Nueva Living, I would like information about Cala Heights Residences.">
+        <h3>Your details</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">First Name</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Last Name</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Email</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Phone (optional, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Which home?</label><select id="v2-f-unit" name="unit_interest"><option value="">Not sure yet, send me everything</option><option value="NGS-421A">NGS-421A: €910,000</option><option value="NGS-511A">NGS-511A: €690,000</option><option value="NGS-511B">NGS-511B: €930,000</option><option value="NGS-521A">NGS-521A: €890,000</option><option value="NGS-521B">NGS-521B: €680,000</option></select></div>
+        <fieldset class="field"><legend>The home would be</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">To live in</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">A holiday home</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">An investment</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>How should we reply?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Phone call</label>
+          <label><input type="radio" name="preferred_contact" value="email">Email</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>I agree that Nueva Living may store these details to answer my request. <a href="privacy-policy.html">Privacy policy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Also tell me if availability or prices change at Cala Heights.</label>
+        <button class="btn btn-primary btn-block" type="submit">Book a private viewing</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Why This Project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Why this project <em>matters</em></h2>
-          <p class="project-lead">A finished apartment in a gated community, with the building licence listed as in place.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Why It Fits</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Who it is for</h3><p>Buyers who want a finished apartment they can see and use now rather than wait for a build, in a community with pools, a padel court and an outdoor gym. The five listed homes cost EUR 680,000 to EUR 930,000.</p></article>
-              <article class="why-point reveal-soft"><h3>What makes it different</h3><p>The infosheet lists construction as finished in the second quarter of 2025 and calls the homes key ready, so the homes and the shared areas can be visited. The 2021 specification lists underfloor heating in the living room and bedrooms, ducted air conditioning and aerothermal hot water.</p></article>
-              <article class="why-point reveal-soft"><h3>Why location matters</h3><p>In the photographs and on the site plan the blocks stand on a slope beside a golf course and a lake, with the sea beyond. The infosheet map places them in La Cala de Mijas, inland of the coastal road. The documents give no distances or travel times; the road times are in the location section.</p></article>
-              <article class="why-point reveal-soft"><h3>Why check availability</h3><p>Only five of the 50 homes are listed. Two homes of 87.64 sqm are priced EUR 10,000 apart, and two of 99.67 sqm EUR 40,000 apart, and the table does not say why. Nueva Living reconfirms price and availability before any viewing.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investment Case</h3></div>
-            <p class="why-group-note">The terms are those on the developer’s infosheet. We confirm the current amounts and dates in writing before you reserve.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservation</h3><p>The pre-reservation is EUR 6,000. The infosheet does not say whether it is deducted from the first instalment.</p></article>
-              <article class="why-point reveal-soft"><h3>Payment schedule</h3><p>40% plus VAT on signing the private purchase contract, and 60% plus VAT on completion. The infosheet puts an asterisk against the 40% and does not explain it, so we ask what it refers to.</p></article>
-              <article class="why-point reveal-soft"><h3>VAT</h3><p>The infosheet states both instalments as plus VAT, which indicates that the listed prices are before VAT. The availability table does not say, so we confirm it in writing.</p></article>
-              <article class="why-point reveal-soft"><h3>What the price includes</h3><p>Parking and storage are listed as included, and the kitchen comes fitted with appliances. The infosheet notes underfloor heating in the dry areas only, not the bathrooms, with a possible extension in homes in blocks 4 and 5 for an extra EUR 8,500. It does not say what the extension covers, so we ask which listed homes it applies to.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Trust & Diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Licences</h3><p>The infosheet lists the building licence as in place and leaves the first occupation licence blank. We ask for both, and for the registered description of the home, its parking space and its storage room.</p></article>
-              <article class="why-point reveal-soft"><h3>The dates</h3><p>The infosheet lists construction as started in the second quarter of 2021 and finished in the second quarter of 2025, and calls the homes key ready. We ask for the completion certificate and the handover date of the home you choose.</p></article>
-              <article class="why-point reveal-soft"><h3>The areas</h3><p>The availability table gives one size per home and does not say whether it is built or usable area, and it gives no terrace area. We confirm which figure the contract uses, and the terrace area of each home.</p></article>
-              <article class="why-point reveal-soft"><h3>What was built</h3><p>The specification is dated 2021. We ask what was built, whether the infinity pool and the multipurpose room are in place, what the EUR 8,500 underfloor-heating extension covers, and what “1½ bedrooms” means on the plan.</p></article>
-            </div>
-            <p class="why-group-note">New to buying off-plan in Spain? <a href="guide-how-buying-works.html">How buying a new-build works</a> sets out the seven steps, and <a href="guide-off-plan-vs-resale.html">off-plan versus resale</a> covers the deposits, guarantees and timelines involved.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Images are supplied by the developer and may be computer-generated">
+    <p>Images are supplied by the developer and may be computer-generated; final design, finishes, landscaping and views may vary. You are entitled to a copy of the Documento Informativo Abreviado (DIA) for any home on this page, available from Nueva Living on request.</p>
+    <p>Availability checked with the seller on October 2026; we reconfirm it before any reservation.</p>
+    <p>Sizes and prices are transcribed from the availability table in the sales portal, read on 18 October 2026. It lists five references, each once. The table gives the number of bedrooms, one size and a price for each home, and lists two homes as 1½ bedrooms, which is the developer’s wording. It does not say whether the size is built or usable area, or whether the price includes VAT; the infosheet states the payment instalments as plus VAT. The development has 50 apartments in all, and the five shown are those listed.</p>
+    <p>Information on this page is for general marketing purposes and is not legal, financial or investment advice. Prices, availability and delivery dates can change without notice.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake.jpg" alt="Photograph from above of terraced white blocks beside a road, with a golf course, a lake, wooded grounds and the sea beyond" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architecture preview</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">White terraces, <em>stepping down the slope</em></h2>
-          <p>The photographs show white blocks whose terraces step back level by level, with glass balustrades and, on the upper levels, slatted pergola shading, on a slope above a road. The developer’s building specification describes how they are built.</p>
-<p>The specification is dated 31 August 2021, and it allows the project management to replace materials with similar ones without a loss of quality, so we confirm what was built.</p>
-          <ul class="feature-list">
-            <li>Structure — A reinforced concrete structure with waffle or reinforced slabs on a slab or footings, with a pile screen and micropiles to stabilise the slope.</li>
-            <li>Facade — A double-leaf facade: a perforated-brick outer leaf, sprayed insulation, an air chamber and an inner leaf of dry lining on a metal frame with mineral wool. The outside is continuous mortar render with a paint finish, combined with stone-type panels.</li>
-            <li>Glazing — Lacquered extruded aluminium windows by Strugal or Cortizo, or similar, with a thermal break and thermal-acoustic double glazing, and air inlets for ventilation.</li>
-            <li>Terraces and roofs — Terrace balustrades are a mix of solid wall and glass, according to the elevations, and terraces are paved in non-slip porcelain stoneware. Roofs are insulated and waterproofed, either walk-on terraces or non-accessible roofs.</li>
-            <li>Walls between homes — Acoustic ceramic brick, lined on both sides with dry lining and mineral wool, between homes and between homes and common areas.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Project request actions">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cala%20Heights%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cala Heights Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Call</a>
+    <a class="ab-btn ab-primary" href="#enquire" data-prefill>Book a viewing</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cala-heights-residences/media/terrace-dining-table-above-the-golf-course.jpg" alt="Photograph of a terrace with a round table and four chairs behind a glass balustrade, looking over a golf course and wooded hills to the mountains" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Cinematic Presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">See the <em>finished homes</em></h2>
-            <p>The development is finished, so a visit shows the real terraces, the outlook and the shared areas rather than a plan.</p>
-            <div class="viewing-insights">
-              <div><span>On site</span><p>Walk the terraces, check the outlook of each listed home and see the shared areas.</p></div>
-              <div><span>Next door</span><p>See the blocks beside the golf course, and the later phase of the same scheme.</p></div>
-              <div><span>On paper</span><p>The licences, the registered description of the home and the contract, before anything is signed.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="index.html#private-viewing=1&amp;project=cala-heights-residences">Cinematic Presentation</a>
-              <a class="btn project-btn ghost" href="#enquire" data-prefill>Request Project Material</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Gallery" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Close">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image">›</button>
+    <div class="lb-cats" role="group" aria-label="Gallery"><button type="button" data-cat="Exteriors">Exteriors</button><button type="button" data-cat="Terraces">Terraces</button><button type="button" data-cat="Interiors">Interiors</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view.jpg" alt="Photograph of a terrace with a corner sofa, an armchair and a low wooden table behind a glass balustrade, looking over rooftops to the sea" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Lifestyle</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Pools, padel <em>and an outdoor gym</em></h2>
-            <p>The shared areas listed in the developer’s documents, in a gated community.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Next Steps</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What happens <em>next</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Request the project file</h3>
-            <p>What we hold: the infosheet, the 2021 building specification, the site plan and the availability table.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare the options</h3>
-            <p>See this alongside the other Mijas projects we hold, including the later phase of the same scheme.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Private viewing</h3>
-            <p>The homes are finished, so we arrange a viewing of the home and the shared areas.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserve</h3>
-            <p>A pre-reservation of EUR 6,000, then the private purchase contract, once we have confirmed the licences, the areas and what the price includes in writing.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Common <em>buyer questions</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Can foreigners buy property in Spain?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is an NIE number and do I need one?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What costs should I budget for on top of the purchase price?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Can I get a mortgage in Spain as a non-resident?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is the difference between off-plan and completed properties?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How does the reservation and payment process work?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Can I rent out the property after purchase?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Do I need a lawyer?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How many homes are available?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The development has 50 apartments and five are currently listed, from EUR 680,000 to EUR 930,000.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What does 1½ bedrooms mean?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>It is the developer’s own wording, used in the infosheet and in the availability table for two homes of 87.64 sqm. No document we hold defines it, so we ask for the plan of each home.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is it finished?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The infosheet says key ready, lists construction as started in the second quarter of 2021 and finished in the second quarter of 2025, and lists the building licence as in place. The first occupation licence is blank on the infosheet, and we ask for it.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is VAT included?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The availability table does not say. The infosheet states both instalments as plus VAT, which points to prices before VAT. We confirm the taxes and purchase costs in writing.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is the payment schedule?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>EUR 6,000 to pre-reserve, then 40% plus VAT on signing the private purchase contract and 60% plus VAT on completion.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What amenities are listed?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>An oasis area with adults’ and children’s pools, an infinity pool, a chill-out area, padel tennis, an outdoor gym, a multipurpose room for the gym and a children’s playground, in a gated community.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Are parking and storage included?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes. The infosheet lists parking and storage as included, and the specification gives each home a parking space and a storage room as inseparable annexes.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is there underfloor heating?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The infosheet lists underfloor heating in the dry areas and not in the bathrooms, and the specification lists it in the living room and bedrooms. It also mentions a possible extension in homes in blocks 4 and 5 for EUR 8,500, and we ask what that covers.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How recent is the specification?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>It is dated 31 August 2021, so it describes what was specified then. The 2026 infosheet lists an infinity pool and a multipurpose room that it does not mention, so we confirm what was built.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is this connected to La Noria Golf Residences?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes. La Noria Golf Residences is the later phase of the same scheme, blocks six and seven, and is listed separately on this site.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Enquire</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Ask about <em>Cala Heights Residences</em></h2>
-          <p class="body-copy">Tell us what you need and we will come back with current availability, the plans and the price list.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, founder of Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Founder, Nueva Living</p>
-            <h3 id="advisor-heading">Prefer to talk it through?</h3>
-            <p class="advisor-copy">Choose what fits and message me on WhatsApp. I will start from there.</p>
-            <div class="advisor-group" role="group" aria-label="I am looking for">
-              <span class="advisor-group-label">I am looking for</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">A home to live in</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">A holiday home</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">An investment</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under €500,000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€500,000 – €1,000,000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over €1,000,000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cala%20Heights%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cala Heights Residences" data-intent="speak with an advisor">Message me on WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cala Heights Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Cala Heights Residences">
-          <input type="hidden" name="preferred_area" value="La Cala de Mijas">
-          <input type="hidden" name="property_type_interest" value="Apartments">
-          <input type="hidden" name="budget_range" value="From EUR 680,000">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">First Name</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="First Name" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Last Name</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Last Name" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Hello Nueva Living, I would like information about Cala Heights Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>I agree to be contacted and for my data to be stored.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>I would also like to receive occasional project updates from Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Submit Request</button>
-            <span class="form-note">We reply personally, usually the same day.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"NGS-421A","title":"NGS-421A","sub":"2 bed · 102 m²","price":910000,"plans":[]},{"id":"u1","ref":"NGS-511A","title":"NGS-511A","sub":"1 bed · 88 m²","price":690000,"plans":[]},{"id":"u2","ref":"NGS-511B","title":"NGS-511B","sub":"2 bed · 100 m²","price":930000,"plans":[]},{"id":"u3","ref":"NGS-521A","title":"NGS-521A","sub":"2 bed · 100 m²","price":890000,"plans":[]},{"id":"u4","ref":"NGS-521B","title":"NGS-521B","sub":"1 bed · 88 m²","price":680000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.webp","alt":"Photograph from above of white terraced apartment blocks on a slope beside a road, with a golf course and a lake to the left and the sea on the horizon","caption":"The blocks above the sea","cat":"Exteriors"},{"src":"assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake.webp","alt":"Photograph from above of terraced white blocks beside a road, with a golf course, a lake, wooded grounds and the sea beyond","caption":"The blocks, the golf course and the lake","cat":"Exteriors"},{"src":"assets/liora/projects/cala-heights-residences/media/site-plan-of-the-five-blocks.webp","alt":"Aerial site plan with five numbered white blocks, 01 to 05, in a row along a road, with a golf course and a lake to the right","caption":"Site plan: blocks 01 to 05","cat":"Exteriors"},{"src":"assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view.webp","alt":"Photograph of a terrace with a corner sofa, an armchair and a low wooden table behind a glass balustrade, looking over rooftops to the sea","caption":"A terrace with a sea view","cat":"Terraces"},{"src":"assets/liora/projects/cala-heights-residences/media/terrace-dining-table-above-the-golf-course.webp","alt":"Photograph of a terrace with a round table and four chairs behind a glass balustrade, looking over a golf course and wooded hills to the mountains","caption":"A terrace above the golf course","cat":"Terraces"},{"src":"assets/liora/projects/cala-heights-residences/media/terrace-with-round-table-and-loungers.webp","alt":"Photograph of a long white-walled terrace with a round table, a lounger and a corner sofa, looking over a golf course and the coast to the sea","caption":"A long terrace","cat":"Terraces"},{"src":"assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view.webp","alt":"Photograph of a furnished living room with a sofa, a dining table and a sliding glass door open to a terrace, with mountains beyond","caption":"The living room","cat":"Interiors"},{"src":"assets/liora/projects/cala-heights-residences/media/kitchen-and-living-room-details.webp","alt":"Two photographs side by side: a white kitchen with a stainless-steel sink beneath a window, and a television on a low cabinet beside a tall plant","caption":"Kitchen and living room details","cat":"Interiors"},{"src":"assets/liora/projects/cala-heights-residences/media/bedside-lamp-and-oven-details.webp","alt":"Two photographs side by side: a bedside wall light and table beside an upholstered headboard, and a built-in oven beside a vase of flowers on a worktop","caption":"A bedside and the oven","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€","sep":",","post":""},"i18n":{"askAbout":"Ask about {ref}","plusVat":"Plus VAT","totalPrice":"Total price","vatOnStages":"Plus VAT on the stage payments","onRequest":"On Request","imageOf":"{i} of {n}","floorPlan":"Floor plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Cala Heights Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Close">Close</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Previous image">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Next image">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg","webp":"assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-960.webp","alt":"Photograph from above of white terraced apartment blocks on a slope beside a road, with a golf course and a lake to the left and the sea on the horizon","width":1920,"height":1080,"caption":"The blocks above the sea","category":"Exteriors"},{"src":"assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake.jpg","webp":"assets/liora/projects/cala-heights-residences/media/terraced-blocks-above-the-golf-course-and-lake-960.webp","alt":"Photograph from above of terraced white blocks beside a road, with a golf course, a lake, wooded grounds and the sea beyond","width":1920,"height":1080,"caption":"The blocks, the golf course and the lake","category":"Exteriors"},{"src":"assets/liora/projects/cala-heights-residences/media/site-plan-of-the-five-blocks.jpg","webp":"assets/liora/projects/cala-heights-residences/media/site-plan-of-the-five-blocks-960.webp","alt":"Aerial site plan with five numbered white blocks, 01 to 05, in a row along a road, with a golf course and a lake to the right","width":1474,"height":772,"caption":"Site plan: blocks 01 to 05","category":"Exteriors"},{"src":"assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view.jpg","webp":"assets/liora/projects/cala-heights-residences/media/terrace-lounge-with-sea-view-960.webp","alt":"Photograph of a terrace with a corner sofa, an armchair and a low wooden table behind a glass balustrade, looking over rooftops to the sea","width":1920,"height":1080,"caption":"A terrace with a sea view","category":"Terraces"},{"src":"assets/liora/projects/cala-heights-residences/media/terrace-dining-table-above-the-golf-course.jpg","webp":"assets/liora/projects/cala-heights-residences/media/terrace-dining-table-above-the-golf-course-960.webp","alt":"Photograph of a terrace with a round table and four chairs behind a glass balustrade, looking over a golf course and wooded hills to the mountains","width":1920,"height":1080,"caption":"A terrace above the golf course","category":"Terraces"},{"src":"assets/liora/projects/cala-heights-residences/media/terrace-with-round-table-and-loungers.jpg","webp":"assets/liora/projects/cala-heights-residences/media/terrace-with-round-table-and-loungers-960.webp","alt":"Photograph of a long white-walled terrace with a round table, a lounger and a corner sofa, looking over a golf course and the coast to the sea","width":1920,"height":1080,"caption":"A long terrace","category":"Terraces"},{"src":"assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view.jpg","webp":"assets/liora/projects/cala-heights-residences/media/living-room-with-mountain-view-960.webp","alt":"Photograph of a furnished living room with a sofa, a dining table and a sliding glass door open to a terrace, with mountains beyond","width":1920,"height":1080,"caption":"The living room","category":"Interiors"},{"src":"assets/liora/projects/cala-heights-residences/media/kitchen-and-living-room-details.jpg","webp":"assets/liora/projects/cala-heights-residences/media/kitchen-and-living-room-details-960.webp","alt":"Two photographs side by side: a white kitchen with a stainless-steel sink beneath a window, and a television on a low cabinet beside a tall plant","width":1920,"height":1080,"caption":"Kitchen and living room details","category":"Interiors"},{"src":"assets/liora/projects/cala-heights-residences/media/bedside-lamp-and-oven-details.jpg","webp":"assets/liora/projects/cala-heights-residences/media/bedside-lamp-and-oven-details-960.webp","alt":"Two photographs side by side: a bedside wall light and table beside an upholstered headboard, and a built-in oven beside a vase of flowers on a worktop","width":1920,"height":1080,"caption":"A bedside and the oven","category":"Interiors"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Project request actions">
-    <a href="#enquire" data-prefill>Ask About a Home</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cala%20Heights%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cala Heights Residences" data-intent="speak with an advisor">Speak With Advisor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Wat kosten de woningen?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -310,7 +247,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Selwo Panorama Residences"
   data-project-message="Ik ontvang graag de actuele projectinformatie voor Selwo Panorama Residences."
@@ -467,963 +404,310 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Selwo Panorama Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-selwo-panorama-residences.html#top">Selwo Panorama Residences<span>Vanaf € 1.442.000 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-selwo-panorama-residences.html#overview">Overzicht</a><a href="nl/property-selwo-panorama-residences.html#availability">Prijzen</a><a href="nl/property-selwo-panorama-residences.html#gallery">Galerij</a><a href="nl/property-selwo-panorama-residences.html#location">Locatie</a><a href="nl/property-selwo-panorama-residences.html#onsite">Op het terrein</a><a href="nl/property-selwo-panorama-residences.html#view">Onze kijk</a><a href="nl/property-selwo-panorama-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Selwo Panorama Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/development-from-above-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp 1400w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="The development seen from above, terraces stepping down the hillside to the sea" width="1400" height="876" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="The development seen from above, terraces stepping down the hillside to the sea" width="1400" height="876" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">In aanbouw / privétoegang</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Selwo <em>Panorama Residences</em></span>
-            <span class="hero-title-context">Appartementen &amp; penthouses · New Golden Mile, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Zevenendertig appartementen en penthouses in aanbouw aan de New Golden Mile in Estepona, van 201,81 tot 305,38 m² inclusief terrassen van 27,55 tot 115,92 m², alle op zee gericht, met twee parkeerplaatsen en een berging inbegrepen en een gemeenschappelijke verdieping op resortniveau.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-selwo-panorama-residences.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=selwo-panorama-residences">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-selwo-panorama-residences.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>New Golden Mile, Estepona</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 1.442.000 + btw</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartementen &amp; penthouses</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>K4 2027</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-selwo-panorama-residences.html#media">Media</a>
-        <a href="nl/property-selwo-panorama-residences.html#location">Locatie</a>
-        <a href="nl/property-selwo-panorama-residences.html#construction-timeline">Betalingsvoorwaarden</a>
-        <a href="nl/property-selwo-panorama-residences.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-selwo-panorama-residences.html#overview">Overzicht</a>
-          <a href="nl/property-selwo-panorama-residences.html#residences">Woningen</a>
-          <a href="nl/property-selwo-panorama-residences.html#calculator">Financiering</a>
-          <a href="nl/property-selwo-panorama-residences.html#amenities">Voorzieningen</a>
-          <a href="nl/property-selwo-panorama-residences.html#why-this-project">Waarom</a>
-          <a href="nl/property-selwo-panorama-residences.html#architecture">Architectuur</a>
-          <a href="nl/property-selwo-panorama-residences.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-selwo-panorama-residences.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-selwo-panorama-residences.html#faq">FAQ</a>
-          <a href="nl/property-selwo-panorama-residences.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Type woning</span><strong>Appartementen en penthouses</strong></div>
-          <div class="quick-fact"><span>Slaapkamers</span><strong>3 tot 5 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Bebouwde oppervlakte</span><strong>201,81 – 305,38 m²</strong></div>
-          <div class="quick-fact"><span>Terras</span><strong>27,55 – 115,92 m²</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>25 van de 37 beschikbaar</strong></div>
-          <div class="quick-fact"><span>Woningen</span><strong>37</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Zevenendertig woningen, <em>twee gebouwen</em></h2>
-          <p class="project-lead">Selwo Panorama Residences is een afgesloten complex van zevenendertig appartementen en penthouses in aanbouw aan de New Golden Mile, het stuk kust tussen Estepona en Marbella.</p>
-          <p class="project-lead">De woningen lopen van 201,81 tot 305,38 m² inclusief hun terrassen, en die terrassen zijn de kern van het ontwerp: van 27,55 tot 115,92 m², elk gericht op zee. Drie, vier en vijf slaapkamers, elke woning met twee parkeerplaatsen en een berging in de prijs.</p>
-          <p class="project-lead">De twee gebouwen delen een gemeenschappelijke verdieping op resortniveau: een buitenzwembad op het terras, een verwarmd binnenzwembad, een spa, een fitnessruimte, een yogaruimte, een gemeenschappelijke lounge met café, een cowork-ruimte en een golfsimulator.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">De woningen in <em>detail</em></h2>
-          </div>
-          <p class="project-lead">Foto's van het afgewerkte modelappartement, met computerbeelden van het gebouw en de gemeenschappelijke ruimten. Meubilair en styling zijn indicatief en niet bij de verkoop inbegrepen.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 7 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/development-from-above-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="Het complex van bovenaf, met terrassen die de helling af trappen" width="1400" height="876" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Van bovenaf</strong>
-                <span class="project-media-card-cta">7 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 7 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.jpg" alt="De woonkamer met de schuifpui open naar het terras" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>Woonkamer en terras</strong>
-                <span class="project-media-card-cta">7 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Bekijk 3 afbeeldingen in Slaapkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.jpg" alt="De hoofdslaapkamer, met een kleedgedeelte langs één wand" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Slaapkamers</small>
-                <strong>De hoofdslaapkamer</strong>
-                <span class="project-media-card-cta">3 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Bekijk 1 afbeeldingen in Badkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.jpg" alt="Een marmeren badkamer met inloopdouche en een lang stenen blad" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badkamers</small>
-                <strong>De hoofdbadkamer</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 18 afbeeldingen</button>
-          <p class="media-note">De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn. Het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken; meubilair is niet inbegrepen.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">De New Golden Mile, <em>Estepona</em></h2>
-          <p class="project-lead">Een helling boven de kustweg tussen Estepona en Marbella, met golf landinwaarts en het strand eronder.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-selwo-panorama-residences" data-locmap='{&quot;site&quot;:[36.4699,-5.086],&quot;sea&quot;:[36.4429,-5.086],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Los Flamingos&quot;,&quot;sub&quot;:&quot;9,9 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan La Resina&quot;,&quot;sub&quot;:&quot;3,7 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,6 km · 9 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Selwo Panorama Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Selwo Panorama Residences</h3>
-            <p class="locmap-place">New Golden Mile, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>6,6 km</bdi> <em><bdi>9 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Estepona</span>
-              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan La Resina</span>
-              <span class="locmap-row-figure"><bdi>3,7 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Los Flamingos</span>
-              <span class="locmap-row-figure"><bdi>9,9 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Tijdlijn</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hoe de betalingen <em>zijn gefaseerd</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">€ 25.000</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Reservering</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">30% minus de reservering</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Koopovereenkomst</span>
-        </div>
-        <div class="timeline-point" style="transition-delay:0.18s">
-          <span class="timeline-label"></span>
-          <span class="timeline-marker"></span>
-          <span class="timeline-year">Binnen een jaar</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.27s">
-          <span class="timeline-label">50% bij eigendomsakte</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Oplevering</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Van drie slaapkamers <em>tot vijf</em></h2>
-          <p class="project-lead">Zevenendertig woningen verdeeld over twee gebouwen en vijf trappenhuizen. De tabel geeft de actuele lijst van de ontwikkelaar; elke woning heeft haar eigen plattegrond.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Modelappartement</h3>
-            <div class="res-meta">
-              <div><span>Slaapkamers</span><strong>4</strong></div>
-<div><span>Badkamers</span><strong>4 en een gastentoilet</strong></div>
-<div><span>Interieur</span><strong>200,25 m²</strong></div>
-<div><span>Terras</span><strong>83,96 m²</strong></div>
-<div><span>Totaal</span><strong>281,93 m²</strong></div>
-<div><span>Parkeren</span><strong>2 plaatsen en een berging</strong></div>
-<div><span>Prijs</span><strong>€ 1.798.000</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Het modelappartement is afgewerkt en te bezichtigen, wat in deze fase ongebruikelijk is en de snelste manier blijft om de afwerking te beoordelen.</li>
-            <li>Vier slaapkamers, vier badkamers en een gastentoilet, met woonkamer en keuken die als één ruimte op het terras uitkomen.</li>
-            <li>Een terras van 83,96 m² op de hoek van het gebouw, op het zuidoosten.</li>
-            <li>Twee parkeerplaatsen en een berging zijn inbegrepen, zoals bij elke woning.</li>
-            <li>De prijzen zijn exclusief 10% btw, die bij elke betalingstermijn wordt toegevoegd.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-selwo-panorama-residences.html#availability">Plattegronden bekijken</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-selwo-panorama-residences.html#availability">Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">25 woningen <em>beschikbaar</em></h2>
-          <p class="project-lead">Zevenendertig woningen in totaal, waarvan er 25 nog beschikbaar zijn en twaalf gereserveerd. Nueva Living bevestigt prijs en beschikbaarheid opnieuw vóór elke bezichtiging of reservering.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>25</strong></div>
-            <div><span>Startprijs</span><strong>€ 1.442.000</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 1.442.000 – € 2.155.000</strong></div>
-            <div><span>Gecontroleerd</span><strong>september 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 25 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
-              data-availability-filters
-              data-count-template="{shown} van {total} weergegeven">
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Woningtype</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
-                </div>
-              </div>
-              
-              
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filters wissen</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Geen woningen komen overeen met deze filters.</p>
-            <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-type="apartment" data-price="1807000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb.jpg" alt="Plattegrond van 1.1 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 GF-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>4 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>233,89 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>166,13 m²</dd></div>
-                    <div><dt>Terras</dt><dd>85,74 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.807.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%20GF-A">Vraag naar 1.1 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1732000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb.jpg" alt="Plattegrond van 1.1 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 GF-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>229,86 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>166,27 m²</dd></div>
-                    <div><dt>Terras</dt><dd>70,01 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.732.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%20GF-B">Vraag naar 1.1 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1775000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 1F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb.jpg" alt="Plattegrond van 1.1 1F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 1F-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>5 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>254,43 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>180,72 m²</dd></div>
-                    <div><dt>Terras</dt><dd>34,83 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.775.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%201F-B">Vraag naar 1.1 1F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="1527000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 2F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb.jpg" alt="Plattegrond van 1.1 2F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 2F-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>206,99 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>147,02 m²</dd></div>
-                    <div><dt>Terras</dt><dd>50,82 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.527.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%202F-A">Vraag naar 1.1 2F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="1483000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb.jpg" alt="Plattegrond van 1.1 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.1 2F-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>202,37 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>143,74 m²</dd></div>
-                    <div><dt>Terras</dt><dd>46,10 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.483.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%202F-B">Vraag naar 1.1 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="2104000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 G-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb.jpg" alt="Plattegrond van 1.2 G-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 G-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>4 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>281,93 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>200,25 m²</dd></div>
-                    <div><dt>Terras</dt><dd>83,96 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tuinniveau</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 2.104.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20G-A">Vraag naar 1.2 G-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1856000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 G-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb.jpg" alt="Plattegrond van 1.2 G-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 G-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>244,96 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>173,99 m²</dd></div>
-                    <div><dt>Terras</dt><dd>79,50 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tuinniveau</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.856.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20G-B">Vraag naar 1.2 G-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1736000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb.jpg" alt="Plattegrond van 1.2 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 GF-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>230,53 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>163,74 m²</dd></div>
-                    <div><dt>Terras</dt><dd>70,00 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.736.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20GF-A">Vraag naar 1.2 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1798000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb.jpg" alt="Plattegrond van 1.2 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 GF-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>4 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>281,93 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>200,25 m²</dd></div>
-                    <div><dt>Terras</dt><dd>83,96 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.798.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20GF-B">Vraag naar 1.2 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1456340">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 1F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb.jpg" alt="Plattegrond van 1.2 1F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 1F-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>203,83 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>144,78 m²</dd></div>
-                    <div><dt>Terras</dt><dd>34,83 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.456.340</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%201F-A">Vraag naar 1.2 1F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb.jpg" alt="Plattegrond van 1.2 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1.2 2F-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>207,66 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>147,50 m²</dd></div>
-                    <div><dt>Terras</dt><dd>50,82 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">Op aanvraag</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%202F-B">Vraag naar 1.2 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1820000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb.jpg" alt="Plattegrond van 2.1 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 GF-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>4 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>236,29 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>166,06 m²</dd></div>
-                    <div><dt>Terras</dt><dd>85,41 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.820.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%20GF-A">Vraag naar 2.1 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1744000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb.jpg" alt="Plattegrond van 2.1 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 GF-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>231,54 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>162,72 m²</dd></div>
-                    <div><dt>Terras</dt><dd>70,64 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.744.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%20GF-B">Vraag naar 2.1 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1825000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 1F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb.jpg" alt="Plattegrond van 2.1 1F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 1F-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>5 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>256,61 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>180,34 m²</dd></div>
-                    <div><dt>Terras</dt><dd>46,32 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.825.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%201F-B">Vraag naar 2.1 1F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="1547000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 2F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb.jpg" alt="Plattegrond van 2.1 2F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 2F-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>208,77 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>146,72 m²</dd></div>
-                    <div><dt>Terras</dt><dd>53,74 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.547.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%202F-A">Vraag naar 2.1 2F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="1535000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb.jpg" alt="Plattegrond van 2.1 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.1 2F-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>205,16 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>144,18 m²</dd></div>
-                    <div><dt>Terras</dt><dd>56,92 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.535.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%202F-B">Vraag naar 2.1 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1938000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 G-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb.jpg" alt="Plattegrond van 2.2 G-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 G-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>253,55 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>178,19 m²</dd></div>
-                    <div><dt>Terras</dt><dd>88,20 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tuinniveau</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.938.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20G-B">Vraag naar 2.2 G-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1742000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb.jpg" alt="Plattegrond van 2.2 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 GF-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>231,37 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>162,60 m²</dd></div>
-                    <div><dt>Terras</dt><dd>70,23 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.742.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20GF-A">Vraag naar 2.2 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1744000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 GF-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb.jpg" alt="Plattegrond van 2.2 GF-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 GF-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>231,71 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>162,84 m²</dd></div>
-                    <div><dt>Terras</dt><dd>70,23 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.744.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20GF-B">Vraag naar 2.2 GF-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1442000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 1F-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb.jpg" alt="Plattegrond van 2.2 1F-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 1F-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>205,09 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>144,13 m²</dd></div>
-                    <div><dt>Terras</dt><dd>27,55 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.442.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%201F-A">Vraag naar 2.2 1F-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1763000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 1F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb.jpg" alt="Plattegrond van 2.2 1F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 1F-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>5 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>256,10 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>179,98 m²</dd></div>
-                    <div><dt>Terras</dt><dd>27,55 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.763.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%201F-B">Vraag naar 2.2 1F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="1480000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 2F-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb.jpg" alt="Plattegrond van 2.2 2F-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.2 2F-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>204,91 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>144,01 m²</dd></div>
-                    <div><dt>Terras</dt><dd>39,95 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.480.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%202F-B">Vraag naar 2.2 2F-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="2155000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.3 G-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb.jpg" alt="Plattegrond van 2.3 G-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.3 G-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>4 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>297,58 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>209,13 m²</dd></div>
-                    <div><dt>Terras</dt><dd>69,24 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tuinniveau</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 2.155.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%20G-A">Vraag naar 2.3 G-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="1745000">
-                <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.3 GF-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb.jpg" alt="Plattegrond van 2.3 GF-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.3 GF-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>231,79 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>162,90 m²</dd></div>
-                    <div><dt>Terras</dt><dd>70,64 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.745.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%20GF-A">Vraag naar 2.3 GF-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="1530000">
-                
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2.3 2F-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Totaal</dt><dd>204,93 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>144,02 m²</dd></div>
-                    <div><dt>Terras</dt><dd>56,54 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 1.530.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%202F-A">Vraag naar 2.3 2F-A</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>18 foto's</button>
+          <a class="chip" href="nl/property-selwo-panorama-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plattegronden</a>
+          <a class="chip" href="nl/property-selwo-panorama-residences.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-          <p class="availability-source-note">Oppervlakten, prijzen en betalingsvoorwaarden overgenomen uit de prijslijst van de ontwikkelaar van 7 augustus 2026. De prijzen zijn inclusief twee parkeerplaatsen en een berging, exclusief 10% btw, en kunnen zonder aankondiging wijzigen.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Selwo Panorama</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Zevenendertig appartementen en penthouses in aanbouw aan de New Golden Mile in Estepona, van 201,81 tot 305,38 m² inclusief terrassen van 27,55 tot 115,92 m², alle op zee gericht, met twee parkeerplaatsen en een berging inbegrepen en een gemeenschappelijke verdieping op resortniveau.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 1.442.000</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>3 tot 5</dd><dd class="sub"><span>Appartementen &amp; penthouses</span></dd></div><div><dt>Oplevering</dt><dd>K4 2027</dd><dd class="sub">Vergunning: wij bevestigen dit voordat u reserveert</dd></div><div><dt>Nog beschikbaar</dt><dd>25 van 37</dd><dd class="sub">Gecontroleerd op september 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Selwo Panorama Residences is een afgesloten complex van zevenendertig appartementen en penthouses in aanbouw aan de New Golden Mile, het stuk kust tussen Estepona en Marbella.</p>
+    <p class="lede-2">De woningen lopen van 201,81 tot 305,38 m² inclusief hun terrassen, en die terrassen zijn de kern van het ontwerp: van 27,55 tot 115,92 m², elk gericht op zee. Drie, vier en vijf slaapkamers, elke woning met twee parkeerplaatsen en een berging in de prijs.</p><p class="lede-2">De twee gebouwen delen een gemeenschappelijke verdieping op resortniveau: een buitenzwembad op het terras, een verwarmd binnenzwembad, een spa, een fitnessruimte, een yogaruimte, een gemeenschappelijke lounge met café, een cowork-ruimte en een golfsimulator.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Terrassen op zee gericht</span></summary><p>De gebouwen trappen de helling af, zodat elke verdieping terugspringt op de onderliggende; dat is wat elke woning haar diepe terras en vrije uitzicht geeft.</p><ul><li>Oriëntatie: Elke woning ligt op het zuidwesten of zuidoosten, en daar is de plattegrond omheen ontworpen.</li><li>Terrassen: Van 27,55 tot 115,92 m², behandeld als een kamer en niet als een balkon.</li><li>Structuur: Een betonskelet, met buitenmuren in doorlopend pleisterwerk over hoogwaardige isolatie en een luchtspouw.</li><li>Isolatie: Binnenwanden van gipsplaat met minerale wol; woningscheidende wanden van baksteen, aan beide zijden bekleed met gipsplaat en steenwol.</li><li>Gemeenschappelijke verdieping: Buitenzwembad, verwarmd binnenzwembad, spa, fitnessruimte, yogaruimte, gemeenschappelijke lounge, café, cowork-ruimte en een golfsimulator.</li><li>Inbegrepen: Twee parkeerplaatsen en een berging bij elke woning.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 1.442.000 – € 2.155.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>25 van 37 woningen</span><small>Gecontroleerd op september 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartementen &amp; penthouses</span></dd></div><div><dt>Oppervlakten</dt><dd><span>202 – 298 m²</span><small>Binnen</small></dd></div><div><dt>Oplevering</dt><dd><span>K4 2027</span></dd></div><div><dt>Vergunning</dt><dd><span>Niet vermeld</span><small>Wij bevestigen dit voordat u reserveert</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Twee parkeerplaatsen</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">Zevenendertig woningen in totaal, waarvan er 25 nog beschikbaar zijn en twaalf gereserveerd. Nueva Living bevestigt prijs en beschikbaarheid opnieuw vóór elke bezichtiging of reservering. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    <div class="scarcity" role="img" aria-label="25 van 37 nog te koop"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>25 van 37 nog te koop</span></div>
+    <div class="ufilter" role="group" aria-label="Filteren op slaapkamers"><button type="button" aria-pressed="true" data-beds="">Alle <span>25</span></button><button type="button" aria-pressed="false" data-beds="3">3 slk. <span>17</span></button><button type="button" aria-pressed="false" data-beds="4">4 slk. <span>5</span></button><button type="button" aria-pressed="false" data-beds="5">5 slk. <span>3</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="4" data-price="1807000" data-size="233.89" data-ppm="7726" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 GF-A</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">4 slk.</td>
+            <td data-label="Oppervlakte" class="num">234 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.807.000</td>
+            <td data-label="Per m²" class="num">€ 7.726</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="1732000" data-size="229.86" data-ppm="7535" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 GF-B</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">230 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.732.000</td>
+            <td data-label="Per m²" class="num">€ 7.535</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="5" data-price="1775000" data-size="254.43" data-ppm="6976" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 1F-B</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">5 slk.</td>
+            <td data-label="Oppervlakte" class="num">254 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.775.000</td>
+            <td data-label="Per m²" class="num">€ 6.976</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 1F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="1527000" data-size="206.99" data-ppm="7377" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 2F-A</span><span class="u-loc">Tweede verdieping, penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">207 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.527.000</td>
+            <td data-label="Per m²" class="num">€ 7.377</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 2F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="1483000" data-size="202.37" data-ppm="7328" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.1 2F-B</span><span class="u-loc">Tweede verdieping, penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">202 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.483.000</td>
+            <td data-label="Per m²" class="num">€ 7.328</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.1 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="4" data-price="2104000" data-size="281.93" data-ppm="7463" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 G-A</span><span class="u-loc">Tuinniveau</span></th>
+            <td data-label="Slaapkamers">4 slk.</td>
+            <td data-label="Oppervlakte" class="num">282 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 2.104.000</td>
+            <td data-label="Per m²" class="num">€ 7.463</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 G-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="1856000" data-size="244.96" data-ppm="7577" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 G-B</span><span class="u-loc">Tuinniveau</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">245 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.856.000</td>
+            <td data-label="Per m²" class="num">€ 7.577</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 G-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="1736000" data-size="230.53" data-ppm="7530" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 GF-A</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">231 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.736.000</td>
+            <td data-label="Per m²" class="num">€ 7.530</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="4" data-price="1798000" data-size="281.93" data-ppm="6377" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 GF-B</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">4 slk.</td>
+            <td data-label="Oppervlakte" class="num">282 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.798.000</td>
+            <td data-label="Per m²" class="num">€ 6.377</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="1456340" data-size="203.83" data-ppm="7145" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 1F-A</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">204 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.456.340</td>
+            <td data-label="Per m²" class="num">€ 7.145</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 1F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="" data-size="207.66" data-ppm="" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">1.2 2F-B</span><span class="u-loc">Tweede verdieping, penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">208 m²</td>
+            <td data-label="Prijs" class="u-price num">Op aanvraag</td>
+            <td data-label="Per m²" class="num"><span class="u-na">–</span></td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 1.2 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u11" data-beds="4" data-price="1820000" data-size="236.29" data-ppm="7702" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 GF-A</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">4 slk.</td>
+            <td data-label="Oppervlakte" class="num">236 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.820.000</td>
+            <td data-label="Per m²" class="num">€ 7.702</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u12" data-beds="3" data-price="1744000" data-size="231.54" data-ppm="7532" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 GF-B</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">232 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.744.000</td>
+            <td data-label="Per m²" class="num">€ 7.532</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u13" data-beds="5" data-price="1825000" data-size="256.61" data-ppm="7112" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 1F-B</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">5 slk.</td>
+            <td data-label="Oppervlakte" class="num">257 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.825.000</td>
+            <td data-label="Per m²" class="num">€ 7.112</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 1F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u14" data-beds="3" data-price="1547000" data-size="208.77" data-ppm="7410" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 2F-A</span><span class="u-loc">Tweede verdieping, penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">209 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.547.000</td>
+            <td data-label="Per m²" class="num">€ 7.410</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 2F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u15" data-beds="3" data-price="1535000" data-size="205.16" data-ppm="7482" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.1 2F-B</span><span class="u-loc">Tweede verdieping, penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">205 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.535.000</td>
+            <td data-label="Per m²" class="num">€ 7.482</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.1 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u16" data-beds="3" data-price="1938000" data-size="253.55" data-ppm="7643" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 G-B</span><span class="u-loc">Tuinniveau</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">254 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.938.000</td>
+            <td data-label="Per m²" class="num">€ 7.643</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 G-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u17" data-beds="3" data-price="1742000" data-size="231.37" data-ppm="7529" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 GF-A</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">231 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.742.000</td>
+            <td data-label="Per m²" class="num">€ 7.529</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u18" data-beds="3" data-price="1744000" data-size="231.71" data-ppm="7527" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 GF-B</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">232 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.744.000</td>
+            <td data-label="Per m²" class="num">€ 7.527</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 GF-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u19" data-beds="3" data-price="1442000" data-size="205.09" data-ppm="7031" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 1F-A</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">205 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.442.000</td>
+            <td data-label="Per m²" class="num">€ 7.031</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 1F-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u20" data-beds="5" data-price="1763000" data-size="256.1" data-ppm="6884" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 1F-B</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">5 slk.</td>
+            <td data-label="Oppervlakte" class="num">256 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.763.000</td>
+            <td data-label="Per m²" class="num">€ 6.884</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 1F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u21" data-beds="3" data-price="1480000" data-size="204.91" data-ppm="7223" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb.jpg">
+            <th scope="row"><span class="u-name">2.2 2F-B</span><span class="u-loc">Tweede verdieping, penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">205 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.480.000</td>
+            <td data-label="Per m²" class="num">€ 7.223</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.2 2F-B"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u22" data-beds="4" data-price="2155000" data-size="297.58" data-ppm="7242" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.3 G-A</span><span class="u-loc">Tuinniveau</span></th>
+            <td data-label="Slaapkamers">4 slk.</td>
+            <td data-label="Oppervlakte" class="num">298 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 2.155.000</td>
+            <td data-label="Per m²" class="num">€ 7.242</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.3 G-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u23" data-beds="3" data-price="1745000" data-size="231.79" data-ppm="7528" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb.jpg">
+            <th scope="row"><span class="u-name">2.3 GF-A</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">232 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.745.000</td>
+            <td data-label="Per m²" class="num">€ 7.528</td>
+            <td class="u-plan"><a href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 2.3 GF-A"><img src="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u24" data-beds="3" data-price="1530000" data-size="204.93" data-ppm="7466" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">2.3 2F-A</span><span class="u-loc">Tweede verdieping, penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">205 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.530.000</td>
+            <td data-label="Per m²" class="num">€ 7.466</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Van drie slaapkamers tot vijf</span></summary><p>Zevenendertig woningen verdeeld over twee gebouwen en vijf trappenhuizen. De tabel geeft de actuele lijst van de ontwikkelaar; elke woning heeft haar eigen plattegrond.</p><div class="res-types"><div class="res-type"><h3>Modelappartement</h3><dl class="res-meta"><div><dt>Slaapkamers</dt><dd>4</dd></div><div><dt>Badkamers</dt><dd>4 en een gastentoilet</dd></div><div><dt>Interieur</dt><dd>200,25 m²</dd></div><div><dt>Terras</dt><dd>83,96 m²</dd></div><div><dt>Totaal</dt><dd>281,93 m²</dd></div><div><dt>Parkeren</dt><dd>2 plaatsen en een berging</dd></div><div><dt>Prijs</dt><dd>€ 1.798.000</dd></div></dl><ul><li>Het modelappartement is afgewerkt en te bezichtigen, wat in deze fase ongebruikelijk is en de snelste manier blijft om de afwerking te beoordelen.</li><li>Vier slaapkamers, vier badkamers en een gastentoilet, met woonkamer en keuken die als één ruimte op het terras uitkomen.</li><li>Een terras van 83,96 m² op de hoek van het gebouw, op het zuidoosten.</li><li>Twee parkeerplaatsen en een berging zijn inbegrepen, zoals bij elke woning.</li><li>De prijzen zijn exclusief 10% btw, die bij elke betalingstermijn wordt toegevoegd.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      
+      <ol class="ct-strip" aria-label="Bouwmijlpalen"><li class="is-mile"><b>Reservering</b><span>€ 25.000</span></li><li class="is-mile"><b>Koopovereenkomst</b><span>30% minus de reservering</span></li><li class=""><b>Binnen een jaar</b><span>20% in één termijn</span></li><li class="is-mile"><b>Oplevering</b><span>50% bij eigendomsakte</span></li></ol>
+      <p class="ct-note">Alle termijnen zijn exclusief 10% btw. Overgenomen uit de gepubliceerde betalingsvoorwaarden van de ontwikkelaar.</p></div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1483,410 +767,195 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk zwembad</h3>
-              <p class="amenity-note">Gedeeld door de bewoners</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Van bovenaf"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/development-from-above-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg" alt="Het complex van bovenaf, met terrassen die de helling af trappen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Woonkamer en terras"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.jpg" alt="De woonkamer met de schuifpui open naar het terras" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="14" aria-label="De hoofdslaapkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.jpg" alt="De hoofdslaapkamer, met een kleedgedeelte langs één wand" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="17" aria-label="De hoofdbadkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.jpg" alt="Een marmeren badkamer met inloopdouche en een lang stenen blad" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="De terrassen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/media/the-building-640.webp 640w, assets/liora/projects/selwo-panorama-residences/media/the-building-960.webp 960w, assets/liora/projects/selwo-panorama-residences/media/the-building.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/selwo-panorama-residences/media/the-building.jpg" alt="Gestapelde terrassen langs de voorzijde van het gebouw, op elk niveau beplant" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 18 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (7)</button><button type="button" data-open-cat="Interiors">Interieur (7)</button><button type="button" data-open-cat="Bedrooms">Slaapkamers (3)</button><button type="button" data-open-cat="Bathrooms">Badkamers (1)</button></div>
+    
+    <p class="caption">De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn. Het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken; meubilair is niet inbegrepen.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">Een helling boven de kustweg tussen Estepona en Marbella, met golf landinwaarts en het strand eronder.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-selwo-panorama-residences" data-locmap='{&quot;site&quot;:[36.4699,-5.086],&quot;sea&quot;:[36.4429,-5.086],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Los Flamingos&quot;,&quot;sub&quot;:&quot;9,9 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan La Resina&quot;,&quot;sub&quot;:&quot;3,7 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,6 km · 9 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Selwo Panorama Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Selwo Panorama Residences</h3>
+            <p class="locmap-place">New Golden Mile, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>6,6 km</bdi> <em><bdi>9 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Binnenzwembad</h3>
-              <p class="amenity-note">Zwemmen uit de wind</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Estepona</span>
+              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Wellness</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Natte ruimtes om te herstellen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan La Resina</span>
+              <span class="locmap-row-figure"><bdi>3,7 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Wellness</span>
-              <h3 class="amenity-name">Fitnessruimte</h3>
-              <p class="amenity-note">Binnen het project</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>9,9 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Wellness</span>
-              <h3 class="amenity-name">Golfsimulator</h3>
-              <p class="amenity-note">Binnen spelen, het hele jaar</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Buiten</span>
-              <h3 class="amenity-name">Zeezicht</h3>
-              <p class="amenity-note">Richting de Middellandse Zee</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Twee parkeerplaatsen</h3>
-              <p class="amenity-note">Ruimte voor twee auto’s</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Berging</h3>
-              <p class="amenity-note">Een afsluitbare berging</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Coworkingruimte</h3>
-              <p class="amenity-note">Werkplekken buiten de woning</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Diensten</span>
-              <h3 class="amenity-name">Besloten complex</h3>
-              <p class="amenity-note">Gecontroleerde toegang</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Diensten</span>
-              <h3 class="amenity-name">Gemeenschappelijke lounge</h3>
-              <p class="amenity-note">Een ruimte om samen te komen</p>
-            </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Het strand</th><td>Ca. 9 minuten</td></tr><tr><th scope="row">Centrum van Estepona</th><td>Ca. 16 minuten</td></tr><tr><th scope="row">Puerto Banús</th><td>Ca. 18 minuten</td></tr><tr><th scope="row">Luchthaven Málaga</th><td>Ca. 62 minuten</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">De New Golden Mile is het stuk kust tussen Estepona en Marbella, met golf landinwaarts en beachclubs aan het water.</p>
+    <div class="life-panels"><div><h3>Golf</h3><p>Meerdere banen liggen op enkele minuten, waaronder Los Flamingos, El Paraíso en La Resina.</p></div><div><h3>Dagelijks leven</h3><p>Een internationale school, een privékliniek, supermarkten en sportcentra liggen allemaal dichtbij.</p></div><div><h3>Bereikbaarheid</h3><p>Puerto Banús ligt oostwaarts langs de kustweg, met Marbella daarachter.</p></div></div>
+    <ul class="amen-top"><li>Gemeenschappelijk zwembad</li><li>Binnenzwembad</li><li>Spa</li><li>Fitnessruimte</li><li>Zeezicht</li><li>Twee parkeerplaatsen</li></ul>
+    <details class="amen-all"><summary>Alle 11 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">5</span></h3><ul><li>Gemeenschappelijk zwembad</li><li>Binnenzwembad</li><li>Spa</li><li>Fitnessruimte</li><li>Golfsimulator</li></ul></div><div><h3>Buiten<span class="count">1</span></h3><ul><li>Zeezicht</li></ul></div><div><h3>Dagelijks<span class="count">3</span></h3><ul><li>Twee parkeerplaatsen</li><li>Berging</li><li>Coworkingruimte</li></ul></div><div><h3>Diensten<span class="count">2</span></h3><ul><li>Besloten complex</li><li>Gemeenschappelijke lounge</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die de ruimte en het uitzicht van een villa willen zonder het onderhoud van een perceel.</span></li><li><b>Wat het anders maakt</b><span>De terrassen lopen van 27,55 tot 115,92 m², dus bij de meeste woningen is de buitenruimte een groot deel van wat u koopt.</span></li><li><b>Waarom de locatie ertoe doet</b><span>De New Golden Mile ligt tussen Estepona en Marbella, met meerdere golfbanen landinwaarts en de kustweg eronder.</span></li><li><b>Waarom beschikbaarheid checken</b><span>Twaalf van de zevenendertig zijn al gereserveerd. Wij bevestigen wat er nog is vóór elke bezichtiging.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Waarom timing belangrijk is</b><span>De bouw is begonnen en de oplevering staat op K4 2027, dus de afwerking ligt vast terwijl de betalingsvoorwaarden nog meewegen.</span></li><li><b>Actuele informatie</b><span>Nueva Living bevestigt de actuele prijzen, beschikbaarheid en betalingsvoorwaarden opnieuw vóór elke reservering.</span></li><li><b>Aantrekkingskracht op lange termijn</b><span>Zevenendertig woningen op een gevestigd stuk kust tussen twee steden, een eindig aantal en geen fase die zich herhaalt.</span></li><li><b>Persoonlijk gebruik en verhuur</b><span>Geschikt voor permanente bewoning of als lock-and-leave tweede woning.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vergunning</b><span>Wij bevestigen de bouwvergunning schriftelijk voordat er geld overgaat.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bankgarantie</b><span>Betalingen vóór oplevering moeten op de in het contract genoemde bijzondere rekening binnenkomen en door een garantie gedekt zijn. Wij bevestigen beide.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Wat is inbegrepen</b><span>Twee parkeerplaatsen en een berging worden als inbegrepen opgegeven. Wij bevestigen dat schriftelijk, samen met wat de bouwbeschrijving dekt.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Opleverdatum</b><span>De oplevering staat op K4 2027. De datum in de koopovereenkomst is bepalend, en die bevestigen wij vóór de reservering.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>Plattegronden, de bouwbeschrijving en het betalingsschema.</p></li><li><h3>Vergelijk de woningen</h3><p>De zevenendertig verschillen in verdieping, oriëntatie en terras; wij zetten de selectie naast elkaar.</p></li><li><h3>Bekijk het modelappartement</h3><p>Beoordeel de afwerking en het uitzicht voordat u beslist.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plattegronden<small>24 van 25 woningen</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Selwo</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Wat kosten de woningen?</summary><p>Van € 1.442.000 tot € 2.155.000, exclusief btw. Twee parkeerplaatsen en een berging zitten in elke prijs.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>Nee. Bij elke fase van het betalingsschema komt 10% btw, ook bij de reservering van € 25.000.</p></details><details class="segment-faq-item"><summary>Hoe zijn de betalingen gespreid?</summary><p>€ 25.000 bij reservering, 30% minus de reservering bij de onderhandse koopovereenkomst, 20% in één termijn binnen een jaar na die overeenkomst en 50% bij de notariële akte, telkens plus 10% btw.</p></details><details class="segment-faq-item"><summary>Hoeveel zijn er nog beschikbaar?</summary><p>25 van de zevenendertig. De andere twaalf zijn gereserveerd, en één van de 25 heeft geen prijs in de actuele lijst.</p></details><details class="segment-faq-item"><summary>Wanneer is de villa klaar?</summary><p>De oplevering staat op K4 2027. De datum in de koopovereenkomst is bepalend, en die bevestigen wij schriftelijk.</p></details></div>
+    <details class="faq2-more"><summary>Alle vragen tonen (8)</summary><div class="faq2"><details class="segment-faq-item"><summary>Hoe groot zijn de woningen?</summary><p>Van 201,81 tot 305,38 m² inclusief terras, met interieurs van 143,34 tot 216,91 m² en terrassen van 27,55 tot 115,92 m².</p></details><details class="segment-faq-item"><summary>Kan het modelappartement bezichtigd worden?</summary><p>Ja. Het is afgewerkt en ingericht, en wij regelen het bezoek.</p></details><details class="segment-faq-item"><summary>Wat is er op de gemeenschappelijke verdieping?</summary><p>Een buitenzwembad, een verwarmd binnenzwembad, een spa, een fitnessruimte, een yogaruimte, een gemeenschappelijke lounge met café, een cowork-ruimte en een golfsimulator.</p></details></div></details>
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 1.442.000</p>
+      <p class="rail-note">Excl. btw. Nog 25 van 37 woningen · Gecontroleerd op september 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Zie de afgewerkte woning en de voortgang van de rest.</li><li><b>Het uitzicht.</b> Vergelijk het uitzicht vanaf verschillende verdiepingen en oriëntaties.</li><li><b>De gemeenschappelijke ruimten.</b> Loop over het zwembadterras, door de spa en de fitnessruimte.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Selwo Panorama Residences">
+        <input type="hidden" id="f-project" name="project" value="Selwo Panorama Residences">
+        <input type="hidden" name="preferred_area" value="New Golden Mile, Estepona">
+        <input type="hidden" name="property_type_interest" value="Appartementen &amp; penthouses">
+        <input type="hidden" name="budget_range" value="Vanaf € 1.442.000 + btw">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Ik ontvang graag de actuele projectinformatie voor Selwo Panorama Residences." data-base="Ik ontvang graag de actuele projectinformatie voor Selwo Panorama Residences.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="1.1 GF-A">1.1 GF-A: € 1.807.000</option><option value="1.1 GF-B">1.1 GF-B: € 1.732.000</option><option value="1.1 1F-B">1.1 1F-B: € 1.775.000</option><option value="1.1 2F-A">1.1 2F-A: € 1.527.000</option><option value="1.1 2F-B">1.1 2F-B: € 1.483.000</option><option value="1.2 G-A">1.2 G-A: € 2.104.000</option><option value="1.2 G-B">1.2 G-B: € 1.856.000</option><option value="1.2 GF-A">1.2 GF-A: € 1.736.000</option><option value="1.2 GF-B">1.2 GF-B: € 1.798.000</option><option value="1.2 1F-A">1.2 1F-A: € 1.456.340</option><option value="1.2 2F-B">1.2 2F-B: Op aanvraag</option><option value="2.1 GF-A">2.1 GF-A: € 1.820.000</option><option value="2.1 GF-B">2.1 GF-B: € 1.744.000</option><option value="2.1 1F-B">2.1 1F-B: € 1.825.000</option><option value="2.1 2F-A">2.1 2F-A: € 1.547.000</option><option value="2.1 2F-B">2.1 2F-B: € 1.535.000</option><option value="2.2 G-B">2.2 G-B: € 1.938.000</option><option value="2.2 GF-A">2.2 GF-A: € 1.742.000</option><option value="2.2 GF-B">2.2 GF-B: € 1.744.000</option><option value="2.2 1F-A">2.2 1F-A: € 1.442.000</option><option value="2.2 1F-B">2.2 1F-B: € 1.763.000</option><option value="2.2 2F-B">2.2 2F-B: € 1.480.000</option><option value="2.3 G-A">2.3 G-A: € 2.155.000</option><option value="2.3 GF-A">2.3 GF-A: € 1.745.000</option><option value="2.3 2F-A">2.3 2F-A: € 1.530.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Selwo veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Appartementsprijzen voor huisoppervlakten, op een helling met de zee voor elk terras.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die de ruimte en het uitzicht van een villa willen zonder het onderhoud van een perceel.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>De terrassen lopen van 27,55 tot 115,92 m², dus bij de meeste woningen is de buitenruimte een groot deel van wat u koopt.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>De New Golden Mile ligt tussen Estepona en Marbella, met meerdere golfbanen landinwaarts en de kustweg eronder.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom beschikbaarheid checken</h3><p>Twaalf van de zevenendertig zijn al gereserveerd. Wij bevestigen wat er nog is vóór elke bezichtiging.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Een feitelijke blik op wat deze woningen en hun bouwfase nu relevant maakt, zonder enige belofte over toekomstig rendement.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Waarom timing belangrijk is</h3><p>De bouw is begonnen en de oplevering staat op K4 2027, dus de afwerking ligt vast terwijl de betalingsvoorwaarden nog meewegen.</p></article>
-              <article class="why-point reveal-soft"><h3>Actuele informatie</h3><p>Nueva Living bevestigt de actuele prijzen, beschikbaarheid en betalingsvoorwaarden opnieuw vóór elke reservering.</p></article>
-              <article class="why-point reveal-soft"><h3>Aantrekkingskracht op lange termijn</h3><p>Zevenendertig woningen op een gevestigd stuk kust tussen twee steden, een eindig aantal en geen fase die zich herhaalt.</p></article>
-              <article class="why-point reveal-soft"><h3>Persoonlijk gebruik en verhuur</h3><p>Geschikt voor permanente bewoning of als lock-and-leave tweede woning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vergunning</h3><p>Wij bevestigen de bouwvergunning schriftelijk voordat er geld overgaat.</p></article>
-              <article class="why-point reveal-soft"><h3>Bankgarantie</h3><p>Betalingen vóór oplevering moeten op de in het contract genoemde bijzondere rekening binnenkomen en door een garantie gedekt zijn. Wij bevestigen beide.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat is inbegrepen</h3><p>Twee parkeerplaatsen en een berging worden als inbegrepen opgegeven. Wij bevestigen dat schriftelijk, samen met wat de bouwbeschrijving dekt.</p></article>
-              <article class="why-point reveal-soft"><h3>Opleverdatum</h3><p>De oplevering staat op K4 2027. De datum in de koopovereenkomst is bepalend, en die bevestigen wij vóór de reservering.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op september 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>Oppervlakten, prijzen en betalingsvoorwaarden overgenomen uit de prijslijst van de ontwikkelaar van 7 augustus 2026. De prijzen zijn inclusief twee parkeerplaatsen en een berging, exclusief 10% btw, en kunnen zonder aankondiging wijzigen.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/selwo-panorama-residences/media/the-building.jpg" alt="Stacked planted terraces along the front of the building" width="1400" height="876" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terrassen <em>op zee gericht</em></h2>
-          <p>De gebouwen trappen de helling af, zodat elke verdieping terugspringt op de onderliggende; dat is wat elke woning haar diepe terras en vrije uitzicht geeft.</p>
-          <ul class="feature-list">
-            <li>Oriëntatie — Elke woning ligt op het zuidwesten of zuidoosten, en daar is de plattegrond omheen ontworpen.</li>
-            <li>Terrassen — Van 27,55 tot 115,92 m², behandeld als een kamer en niet als een balkon.</li>
-            <li>Structuur — Een betonskelet, met buitenmuren in doorlopend pleisterwerk over hoogwaardige isolatie en een luchtspouw.</li>
-            <li>Isolatie — Binnenwanden van gipsplaat met minerale wol; woningscheidende wanden van baksteen, aan beide zijden bekleed met gipsplaat en steenwol.</li>
-            <li>Gemeenschappelijke verdieping — Buitenzwembad, verwarmd binnenzwembad, spa, fitnessruimte, yogaruimte, gemeenschappelijke lounge, café, cowork-ruimte en een golfsimulator.</li>
-            <li>Inbegrepen — Twee parkeerplaatsen en een berging bij elke woning.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/selwo-panorama-residences/media/covered-terrace.jpg" alt="A deep covered terrace with sofas, open to the coast" width="1400" height="933" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk het <em>modelappartement</em></h2>
-            <p>Het modelappartement is afgewerkt. Erin staan is de snelste manier om de plafondhoogte, het licht en de diepte van de terrassen te beoordelen.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Zie de afgewerkte woning en de voortgang van de rest.</p></div>
-              <div><span>Het uitzicht</span><p>Vergelijk het uitzicht vanaf verschillende verdiepingen en oriëntaties.</p></div>
-              <div><span>De gemeenschappelijke ruimten</span><p>Loop over het zwembadterras, door de spa en de fitnessruimte.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=selwo-panorama-residences">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Interiors">Interieur</button><button type="button" data-cat="Bedrooms">Slaapkamers</button><button type="button" data-cat="Bathrooms">Badkamers</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/selwo-panorama-residences/media/communal-pool.jpg" alt="The communal pool on its terrace above the coast" width="1400" height="875" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">De New Golden Mile, <em>tussen twee steden</em></h2>
-            <p>De New Golden Mile is het stuk kust tussen Estepona en Marbella, met golf landinwaarts en beachclubs aan het water.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>Plattegronden, de bouwbeschrijving en het betalingsschema.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de woningen</h3>
-            <p>De zevenendertig verschillen in verdieping, oriëntatie en terras; wij zetten de selectie naast elkaar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Bekijk het modelappartement</h3>
-            <p>Beoordeel de afwerking en het uitzicht voordat u beslist.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat kosten de woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Van € 1.442.000 tot € 2.155.000, exclusief btw. Twee parkeerplaatsen en een berging zitten in elke prijs.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. Bij elke fase van het betalingsschema komt 10% btw, ook bij de reservering van € 25.000.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe zijn de betalingen gespreid?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>€ 25.000 bij reservering, 30% minus de reservering bij de onderhandse koopovereenkomst, 20% in één termijn binnen een jaar na die overeenkomst en 50% bij de notariële akte, telkens plus 10% btw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel zijn er nog beschikbaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>25 van de zevenendertig. De andere twaalf zijn gereserveerd, en één van de 25 heeft geen prijs in de actuele lijst.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is de villa klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De oplevering staat op K4 2027. De datum in de koopovereenkomst is bepalend, en die bevestigen wij schriftelijk.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe groot zijn de woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Van 201,81 tot 305,38 m² inclusief terras, met interieurs van 143,34 tot 216,91 m² en terrassen van 27,55 tot 115,92 m².</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan het modelappartement bezichtigd worden?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Het is afgewerkt en ingericht, en wij regelen het bezoek.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is er op de gemeenschappelijke verdieping?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een buitenzwembad, een verwarmd binnenzwembad, een spa, een fitnessruimte, een yogaruimte, een gemeenschappelijke lounge met café, een cowork-ruimte en een golfsimulator.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>de woningen</em></h2>
-          <p class="body-copy">Deel uw gegevens en wij sturen u de actuele projectinformatie.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Selwo Panorama Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Selwo Panorama Residences">
-          <input type="hidden" name="preferred_area" value="New Golden Mile, Estepona">
-          <input type="hidden" name="property_type_interest" value="Appartementen &amp; penthouses">
-          <input type="hidden" name="budget_range" value="Vanaf € 1.442.000 + btw">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Ik ontvang graag de actuele projectinformatie voor Selwo Panorama Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Projectcontext: Selwo Panorama Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"1.1 GF-A","title":"1.1 GF-A · Begane grond","sub":"4 slk. · 234 m²","price":1807000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A.pdf","label":""}]},{"id":"u1","ref":"1.1 GF-B","title":"1.1 GF-B · Begane grond","sub":"3 slk. · 230 m²","price":1732000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B.pdf","label":""}]},{"id":"u2","ref":"1.1 1F-B","title":"1.1 1F-B · Eerste verdieping","sub":"5 slk. · 254 m²","price":1775000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B.pdf","label":""}]},{"id":"u3","ref":"1.1 2F-A","title":"1.1 2F-A · Tweede verdieping, penthouse","sub":"3 slk. · 207 m²","price":1527000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A.pdf","label":""}]},{"id":"u4","ref":"1.1 2F-B","title":"1.1 2F-B · Tweede verdieping, penthouse","sub":"3 slk. · 202 m²","price":1483000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B.pdf","label":""}]},{"id":"u5","ref":"1.2 G-A","title":"1.2 G-A · Tuinniveau","sub":"4 slk. · 282 m²","price":2104000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A.pdf","label":""}]},{"id":"u6","ref":"1.2 G-B","title":"1.2 G-B · Tuinniveau","sub":"3 slk. · 245 m²","price":1856000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B.pdf","label":""}]},{"id":"u7","ref":"1.2 GF-A","title":"1.2 GF-A · Begane grond","sub":"3 slk. · 231 m²","price":1736000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A.pdf","label":""}]},{"id":"u8","ref":"1.2 GF-B","title":"1.2 GF-B · Begane grond","sub":"4 slk. · 282 m²","price":1798000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B.pdf","label":""}]},{"id":"u9","ref":"1.2 1F-A","title":"1.2 1F-A · Eerste verdieping","sub":"3 slk. · 204 m²","price":1456340,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A.pdf","label":""}]},{"id":"u10","ref":"1.2 2F-B","title":"1.2 2F-B · Tweede verdieping, penthouse","sub":"3 slk. · 208 m²","price":null,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B.pdf","label":""}]},{"id":"u11","ref":"2.1 GF-A","title":"2.1 GF-A · Begane grond","sub":"4 slk. · 236 m²","price":1820000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A.pdf","label":""}]},{"id":"u12","ref":"2.1 GF-B","title":"2.1 GF-B · Begane grond","sub":"3 slk. · 232 m²","price":1744000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B.pdf","label":""}]},{"id":"u13","ref":"2.1 1F-B","title":"2.1 1F-B · Eerste verdieping","sub":"5 slk. · 257 m²","price":1825000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B.pdf","label":""}]},{"id":"u14","ref":"2.1 2F-A","title":"2.1 2F-A · Tweede verdieping, penthouse","sub":"3 slk. · 209 m²","price":1547000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A.pdf","label":""}]},{"id":"u15","ref":"2.1 2F-B","title":"2.1 2F-B · Tweede verdieping, penthouse","sub":"3 slk. · 205 m²","price":1535000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B.pdf","label":""}]},{"id":"u16","ref":"2.2 G-B","title":"2.2 G-B · Tuinniveau","sub":"3 slk. · 254 m²","price":1938000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B.pdf","label":""}]},{"id":"u17","ref":"2.2 GF-A","title":"2.2 GF-A · Begane grond","sub":"3 slk. · 231 m²","price":1742000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A.pdf","label":""}]},{"id":"u18","ref":"2.2 GF-B","title":"2.2 GF-B · Begane grond","sub":"3 slk. · 232 m²","price":1744000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B.pdf","label":""}]},{"id":"u19","ref":"2.2 1F-A","title":"2.2 1F-A · Eerste verdieping","sub":"3 slk. · 205 m²","price":1442000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A.pdf","label":""}]},{"id":"u20","ref":"2.2 1F-B","title":"2.2 1F-B · Eerste verdieping","sub":"5 slk. · 256 m²","price":1763000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B.pdf","label":""}]},{"id":"u21","ref":"2.2 2F-B","title":"2.2 2F-B · Tweede verdieping, penthouse","sub":"3 slk. · 205 m²","price":1480000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B.pdf","label":""}]},{"id":"u22","ref":"2.3 G-A","title":"2.3 G-A · Tuinniveau","sub":"4 slk. · 298 m²","price":2155000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A.pdf","label":""}]},{"id":"u23","ref":"2.3 GF-A","title":"2.3 GF-A · Begane grond","sub":"3 slk. · 232 m²","price":1745000,"plans":[{"src":"assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A.pdf","label":""}]},{"id":"u24","ref":"2.3 2F-A","title":"2.3 2F-A · Tweede verdieping, penthouse","sub":"3 slk. · 205 m²","price":1530000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/selwo-panorama-residences/media/development-from-above.webp","alt":"Het complex van bovenaf, met terrassen die de helling af trappen","caption":"Van bovenaf","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/the-building.webp","alt":"Gestapelde terrassen langs de voorzijde van het gebouw, op elk niveau beplant","caption":"De terrassen","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/communal-pool.webp","alt":"Het gemeenschappelijke zwembad op zijn terras, met palmen en de zee erachter","caption":"Het gemeenschappelijke zwembad","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/covered-terrace.webp","alt":"Een diep overdekt terras met banken, open naar de kust","caption":"Het terras","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-lounge.webp","alt":"Zitplaatsen op het terras onder de overstek, met zicht langs de kust","caption":"Op het terras","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-and-sea.webp","alt":"Zitplaatsen aan de rand van het terras, met de zee die het zicht vult","caption":"Het uitzicht","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/gym.webp","alt":"De fitnessruimte voor bewoners, aan één zijde beglaasd naar het terras","caption":"De fitnessruimte","cat":"Exteriors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.webp","alt":"De woonkamer met de schuifpui open naar het terras","caption":"Woonkamer en terras","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room.webp","alt":"De woonkamer, over de volle breedte beglaasd naar zee","caption":"De woonkamer","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-and-dining.webp","alt":"Wonen en eten in één ruimte, met de keuken erachter","caption":"Woon- en eetkamer","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/sitting-room.webp","alt":"Een tweede zithoek die op het terras uitkomt","caption":"De zithoek","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen-and-dining.webp","alt":"Het keukeneiland met de eettafel ernaast","caption":"Keuken en eethoek","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen.webp","alt":"De keuken, met een stenen eiland en ingebouwde apparatuur","caption":"De keuken","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/dining-room.webp","alt":"De eettafel onder hanglampen, de keuken erachter","caption":"De eetkamer","cat":"Interiors"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.webp","alt":"De hoofdslaapkamer, met een kleedgedeelte langs één wand","caption":"De hoofdslaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/selwo-panorama-residences/media/bedroom-with-terrace.webp","alt":"Een slaapkamer die via glas op het eigen terras uitkomt","caption":"Een slaapkamer en haar terras","cat":"Bedrooms"},{"src":"assets/liora/projects/selwo-panorama-residences/media/twin-bedroom.webp","alt":"Een tweepersoonskamer met een zithoek bij het raam","caption":"Een tweepersoonskamer","cat":"Bedrooms"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.webp","alt":"Een marmeren badkamer met inloopdouche en een lang stenen blad","caption":"De hoofdbadkamer","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Selwo Panorama Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/selwo-panorama-residences/media/development-from-above.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/development-from-above-960.webp","alt":"Het complex van bovenaf, met terrassen die de helling af trappen","width":1400,"height":876,"caption":"Van bovenaf","category":"Exterieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/the-building.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/the-building-960.webp","alt":"Gestapelde terrassen langs de voorzijde van het gebouw, op elk niveau beplant","width":1400,"height":876,"caption":"De terrassen","category":"Exterieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/communal-pool.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/communal-pool-960.webp","alt":"Het gemeenschappelijke zwembad op zijn terras, met palmen en de zee erachter","width":1400,"height":875,"caption":"Het gemeenschappelijke zwembad","category":"Exterieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/covered-terrace.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/covered-terrace-960.webp","alt":"Een diep overdekt terras met banken, open naar de kust","width":1400,"height":933,"caption":"Het terras","category":"Exterieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-lounge.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/terrace-lounge-960.webp","alt":"Zitplaatsen op het terras onder de overstek, met zicht langs de kust","width":1400,"height":933,"caption":"Op het terras","category":"Exterieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/terrace-and-sea.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/terrace-and-sea-960.webp","alt":"Zitplaatsen aan de rand van het terras, met de zee die het zicht vult","width":1400,"height":933,"caption":"Het uitzicht","category":"Exterieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/gym.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/gym-960.webp","alt":"De fitnessruimte voor bewoners, aan één zijde beglaasd naar het terras","width":1400,"height":876,"caption":"De fitnessruimte","category":"Exterieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/living-room-to-terrace-960.webp","alt":"De woonkamer met de schuifpui open naar het terras","width":1400,"height":933,"caption":"Woonkamer en terras","category":"Interieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-room.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/living-room-960.webp","alt":"De woonkamer, over de volle breedte beglaasd naar zee","width":1400,"height":933,"caption":"De woonkamer","category":"Interieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/living-and-dining.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/living-and-dining-960.webp","alt":"Wonen en eten in één ruimte, met de keuken erachter","width":1400,"height":933,"caption":"Woon- en eetkamer","category":"Interieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/sitting-room.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/sitting-room-960.webp","alt":"Een tweede zithoek die op het terras uitkomt","width":1400,"height":933,"caption":"De zithoek","category":"Interieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen-and-dining.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/kitchen-and-dining-960.webp","alt":"Het keukeneiland met de eettafel ernaast","width":1400,"height":936,"caption":"Keuken en eethoek","category":"Interieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/kitchen.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/kitchen-960.webp","alt":"De keuken, met een stenen eiland en ingebouwde apparatuur","width":1400,"height":933,"caption":"De keuken","category":"Interieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/dining-room.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/dining-room-960.webp","alt":"De eettafel onder hanglampen, de keuken erachter","width":1400,"height":933,"caption":"De eetkamer","category":"Interieur"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bedroom.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/principal-bedroom-960.webp","alt":"De hoofdslaapkamer, met een kleedgedeelte langs één wand","width":1400,"height":933,"caption":"De hoofdslaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/selwo-panorama-residences/media/bedroom-with-terrace.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/bedroom-with-terrace-960.webp","alt":"Een slaapkamer die via glas op het eigen terras uitkomt","width":1400,"height":933,"caption":"Een slaapkamer en haar terras","category":"Slaapkamers"},{"src":"assets/liora/projects/selwo-panorama-residences/media/twin-bedroom.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/twin-bedroom-960.webp","alt":"Een tweepersoonskamer met een zithoek bij het raam","width":1400,"height":933,"caption":"Een tweepersoonskamer","category":"Slaapkamers"},{"src":"assets/liora/projects/selwo-panorama-residences/media/principal-bathroom.jpg","webp":"assets/liora/projects/selwo-panorama-residences/media/principal-bathroom-960.webp","alt":"Een marmeren badkamer met inloopdouche en een lang stenen blad","width":1400,"height":933,"caption":"De hoofdbadkamer","category":"Badkamers"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-selwo-panorama-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Selwo%20Panorama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Selwo Panorama Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

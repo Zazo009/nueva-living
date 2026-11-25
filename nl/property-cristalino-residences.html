@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn beschikbaar?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Cristalino Residences"
   data-project-message="Hallo Nueva Living, ik wil graag informatie over Cristalino Residences."
@@ -443,407 +380,156 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Cristalino Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-cristalino-residences.html#top">Cristalino Residences<span>Vanaf € 470.900 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-cristalino-residences.html#overview">Overzicht</a><a href="nl/property-cristalino-residences.html#availability">Prijzen</a><a href="nl/property-cristalino-residences.html#specs">Afwerking</a><a href="nl/property-cristalino-residences.html#gallery">Galerij</a><a href="nl/property-cristalino-residences.html#location">Locatie</a><a href="nl/property-cristalino-residences.html#onsite">Op het terrein</a><a href="nl/property-cristalino-residences.html#view">Onze kijk</a><a href="nl/property-cristalino-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-cristalino-residences.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Cristalino Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-640.webp 640w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-960.webp 960w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.webp 1440w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg" alt="Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden" width="1440" height="960" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg" alt="Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden" width="1440" height="960" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">6 woningen beschikbaar</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Cristalino <em>Residences</em></span>
-            <span class="hero-title-context">Appartementen · Las Lagunas, Mijas</span>
-          </h1>
-          <p class="hero-positioning">Zes appartementen met drie slaapkamers van 131 tot 150 m² staan op de lijst in een complex met appartementen met één, twee en drie slaapkamers in Las Lagunas, Mijas, naast Fuengirola, met een zwembad, een fitnessruimte, een sauna en een speeltuin. De documenten van de ontwikkelaar noemen tegenstrijdige opleveringsdata, dus de opleveringsdatum is nog te bevestigen. Vanaf € 470.900; of de btw is inbegrepen, is nog te bevestigen.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-cristalino-residences.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=cristalino-residences">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-cristalino-residences.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Las Lagunas, Mijas</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 470.900</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartementen</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Nog te bevestigen</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-cristalino-residences.html#media">Media</a>
-        <a href="nl/property-cristalino-residences.html#location">Locatie</a>
-        <a href="nl/property-cristalino-residences.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-cristalino-residences.html#overview">Overzicht</a>
-          <a href="nl/property-cristalino-residences.html#residences">Woningen</a>
-          <a href="nl/property-cristalino-residences.html#quality-specifications">Afwerking</a>
-          <a href="nl/property-cristalino-residences.html#calculator">Financiering</a>
-          <a href="nl/property-cristalino-residences.html#amenities">Voorzieningen</a>
-          <a href="nl/property-cristalino-residences.html#why-this-project">Waarom</a>
-          <a href="nl/property-cristalino-residences.html#architecture">Architectuur</a>
-          <a href="nl/property-cristalino-residences.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-cristalino-residences.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-cristalino-residences.html#faq">FAQ</a>
-          <a href="nl/property-cristalino-residences.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>3 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Oppervlakte</span><strong>131,09 - 150,20 m²</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>6 woningen beschikbaar</strong></div>
-          <div class="quick-fact"><span>Project</span><strong>Appartementen in twee blokken</strong></div>
-          <div class="quick-fact"><span>Beschikbaar</span><strong>6 woningen</strong></div>
-          <div class="quick-fact"><span>Prijsklasse</span><strong>€ 470.900 - € 770.000</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-cristalino-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Zes woningen, <em>met prijzen vermeld</em></h2>
-          <p class="project-lead">Cristalino Residences is een complex met appartementen in Las Lagunas, in de gemeente Mijas naast Fuengirola. Het infoblad van de ontwikkelaar beschrijft appartementen met één, twee en drie slaapkamers, terwijl de beschikbaarheidstabel zes woningen met drie slaapkamers van 131,09 tot 150,20 m² vermeldt, van € 470.900 tot € 770.000. Op de beelden liggen de terrassen achter blauwe glazen balustrades, en de genoemde gemeenschappelijke ruimten zijn een zwembad, een tuinzone, een fitnessruimte, een sauna en een speeltuin.</p>
-          <p class="project-lead">Het infoblad vermeldt de bouwvergunning als verleend en de status als in aanbouw, in twee blokken. De twee reeksen data kloppen niet met elkaar: de kop noemt oplevering van Blok 1 in het eerste kwartaal van 2026 en van Blok 2 in het vierde kwartaal van 2026, terwijl de lijst het einde van de bouw van Blok 1 in het vierde kwartaal van 2025 en van Blok 2 in het tweede kwartaal van 2027 noemt. Het blad zegt niet in welk blok elke vermelde woning ligt, en ook niet hoeveel woningen het project heeft.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Het project <em>in detail</em></h2>
-          </div>
-          <p class="project-lead">Computergegenereerde beelden van het gebouw, de tuinen, de terrassen en de interieurs.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 2 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-640.webp 640w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-960.webp 960w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.webp 1440w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg" alt="Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden" width="1440" height="960" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Het gemeenschappelijke zwembad onder de terrassen</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Bekijk 2 afbeeldingen in Terrassen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset-640.webp 640w, assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset-960.webp 960w, assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset.jpg" alt="Computergegenereerd beeld van een dakterras bij zonsondergang met een witte pergola, een grote bank, een eettafel en een glazen balustrade" width="1920" height="960" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrassen</small>
-                <strong>Een dakterras bij zonsondergang</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 2 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/living-room-and-terrace-640.webp 640w, assets/liora/projects/cristalino-residences/media/living-room-and-terrace-960.webp 960w, assets/liora/projects/cristalino-residences/media/living-room-and-terrace.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cristalino-residences/media/living-room-and-terrace.jpg" alt="Computergegenereerd beeld van een woonkamer met een bank, een vloerkleed en een houten wand, die uitkomt op een terras met een eettafel" width="1920" height="1146" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>De woonkamer en het terras</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 6 afbeeldingen</button>
-          <p class="media-note">Alle beelden zijn computergegenereerde beelden, en het meubilair, de inrichting en de beplanting erop zijn illustratief; geen enkel document zegt dat ze zijn inbegrepen. We hebben voor dit project geen plattegronden en geen brochure, dus die worden niet getoond, en de beelden zijn niet gekoppeld aan een bepaalde woning.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Las Lagunas, <em>Mijas</em></h2>
-          <p class="project-lead">Het project ligt in Las Lagunas, in de gemeente Mijas. De kaart op het infoblad heeft als kop Fuengirola en toont het project net landinwaarts van de stad, en het verkoopkantoor zit in Mijas. De documenten geven geen afstanden tot het strand, de stad of de luchthaven en geen coördinaat die als het perceel wordt aangeduid, dus de kaart toont het gebied Las Lagunas.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-cristalino-residences" data-locmap='{&quot;site&quot;:[36.5484,-4.6333],&quot;sea&quot;:[36.5214,-4.6333],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54471,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,0 km · 5 min&quot;},{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan La Cala&quot;,&quot;sub&quot;:&quot;16 km · 22 min&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;2,2 km · 6 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Fuengirola&quot;,&quot;sub&quot;:&quot;2,2 km · 6 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Cristalino Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Cristalino Residences</h3>
-            <p class="locmap-place">Las Lagunas, Mijas</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>2,0 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>2,2 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>2,2 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan La Cala</span>
-              <span class="locmap-row-figure"><bdi>16 km</bdi> <em><bdi>22 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Cabopino</span>
-              <span class="locmap-row-figure"><bdi>17 km</bdi> <em><bdi>19 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Málaga</span>
-              <span class="locmap-row-figure"><bdi>26 km</bdi> <em><bdi>25 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Zes woningen, <em>drie groepen</em></h2>
-          <p class="project-lead">De beschikbaarheidstabel vermeldt zes appartementen met drie slaapkamers. Voor geen ervan geeft hij een verdieping, terras of plattegrond, dus de groepen hieronder volgen de oppervlakte en de prijs.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Woningen 3-0A en 4-0A</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-cristalino-residences.html#enquire" data-prefill>Plattegronden aanvragen</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Woningen 12-1A en 12-2B</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-cristalino-residences.html#enquire" data-prefill>Plattegronden aanvragen</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Woningen 9-At.A en 10-At.A</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-cristalino-residences.html#enquire" data-prefill>Plattegronden aanvragen</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-cristalino-residences.html#enquire" data-prefill>Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Technische omschrijving</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarmee de woningen <em>gebouwd zijn</em></h2>
-          <p class="project-lead">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Vloeren en wanden<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Laminaatvloer op akoestische isolatie in de woonruimten, porseleinen grestegels in de badkamers en buitengres op de terrassen en privézonneterrassen.</li>
-              <li>Badkamerwanden betegeld met gres, ivoorkleurig in de hoofdbadkamer en wit in de overige, lichte muurverf op de andere wanden en wit op de plafonds.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Deuren en kasten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een voordeur met veiligheidsslot, inbraakwerende scharnieren en kijkgaatje, op de begane grond van geëmailleerd plaatstaal met een stalen kozijn, en binnendeuren met verchroomd beslag en doorschijnend glas naar de hal en de woonkamer.</li>
-              <li>Modulaire kasten met draaideuren, afgewerkt passend bij het overige schrijnwerk.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Keuken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een ingerichte keuken met koelkast, wasmachine, vaatwasser, oven, keramische kookplaat en afzuigkap van Bosch of gelijkwaardig, en een onderbouwspoelbak van Franke of gelijkwaardig.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badkamers<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Kranen van Grohe en een douchesset met twee straalsoorten van Grohe of gelijkwaardig, sanitair van Laufen Pro of gelijkwaardig met wastafels op voet of wandhangend, en douchebakken van hars.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimaat en energie<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Airconditioning met warmtepomp, een multisplitsysteem met toestellen in de woonkamer en de slaapkamers en de buitenunit op het dak of op de begane grond, en warm water uit een aerothermische warmtepomp.</li>
-              <li>Elektrische vloerverwarming in de badkamers met een eigen regeling. Het gebouw is ontworpen voor energielabel A, met zonnepanelen als ondersteuning van de stroom voor de gemeenschappelijke ruimten.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Elektra en toegang<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Schakelmateriaal van Niessen of gelijkwaardig en een elektronisch deurtelefoonsysteem, met de garage voorbereid op laadpunten voor elektrische voertuigen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Lift, garage en bergingen<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een lift met automatische deuren voor zes personen (450 kg), die stopt op elke woonverdieping en in de kelder, en een kelderparkeergarage die via een helling met een elektrisch bediende deur met afstandsbediening wordt bereikt.</li>
-              <li>Vloeren van de garage en de bergingen in afgewerkt beton.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Bron: de kwaliteitsspecificatie van de ontwikkelaar voor dit project, in het Spaans en het Engels, zonder datum of versie. Daarin staat dat materialen mogen worden vervangen door andere van gelijke of hogere kwaliteit zonder dat de prijs verandert, en dat natuursteen in kleur en nerf varieert. De twee talen verschillen op sommige punten: de Engelse tekst geeft de beglazing als 6-12-16 en de Spaanse als 6-12-6, en de Spaanse tekst voegt een thermische onderbreking en de optie van PVC-kozijnen toe. We volgen de Spaanse tekst. De specificatie noemt de platte daken alleen toegankelijk voor onderhoud, terwijl een beeld een gemeubileerd dakterras toont; we vragen welke woningen er een hebben.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Zes woningen <em>nu beschikbaar</em></h2>
-          <p class="project-lead">Prijzen en oppervlakten zijn die van de beschikbaarheidstabel van de ontwikkelaar zoals gelezen in oktober 2026. Voor elke woning geeft de tabel een referentie, het aantal slaapkamers, een oppervlakte en een prijs, en niets anders.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg" alt="Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>6 foto's</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>6</strong></div>
-            <div><span>Startprijs</span><strong>€ 470.900</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 470.900 - € 770.000</strong></div>
-            <div><span>Gecontroleerd</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 6 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Beschikbare woningen bij Cristalino Residences</caption>
-                <thead><tr><th scope="col">Referentie</th><th scope="col">Slaapkamers</th><th scope="col">Oppervlakte</th><th scope="col">Prijs</th><th scope="col">Status</th></tr></thead>
-                <tbody>
-              <tr data-beds="3" data-price="470900">
-                <td data-label="Referentie"><strong>Home 3-0A</strong></td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte">150,20 m²</td>
-                <td data-label="Prijs"><strong>€ 470.900</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-              </tr>
-              <tr data-beds="3" data-price="473500">
-                <td data-label="Referentie"><strong>Home 4-0A</strong></td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte">150,20 m²</td>
-                <td data-label="Prijs"><strong>€ 473.500</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-              </tr>
-              <tr data-beds="3" data-price="501900">
-                <td data-label="Referentie"><strong>Home 12-1A</strong></td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte">131,09 m²</td>
-                <td data-label="Prijs"><strong>€ 501.900</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-              </tr>
-              <tr data-beds="3" data-price="522500">
-                <td data-label="Referentie"><strong>Home 12-2B</strong></td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte">135,01 m²</td>
-                <td data-label="Prijs"><strong>€ 522.500</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-              </tr>
-              <tr data-beds="3" data-price="770000">
-                <td data-label="Referentie"><strong>Home 9-At.A</strong></td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte">135,27 m²</td>
-                <td data-label="Prijs"><strong>€ 770.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-              </tr>
-              <tr data-beds="3" data-price="770000">
-                <td data-label="Referentie"><strong>Home 10-At.A</strong></td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte">135,27 m²</td>
-                <td data-label="Prijs"><strong>€ 770.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="nl/property-cristalino-residences.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-          <p class="availability-source-note">Referenties, slaapkamers, oppervlakten en prijzen zijn overgenomen uit de beschikbaarheidstabel van de ontwikkelaar, gelezen in oktober 2026, die zes woningen vermeldt. De tabel zegt niet of een oppervlakte bebouwd of binnen gemeten is of een terras omvat, of de prijs btw bevat, of een parkeerplaats en een berging zijn inbegrepen, of op welke verdieping en in welk blok een woning ligt; daarom wordt dat niet getoond. De woningen 9-At.A en 10-At.A staan met dezelfde oppervlakte en dezelfde prijs op de lijst; hun referenties verschillen, dus beide worden getoond en we bevestigen bij de ontwikkelaar dat het twee woningen zijn. We hebben geen plattegronden van deze woningen.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-cristalino-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cristalino%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cristalino Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Cristalino</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Zes appartementen met drie slaapkamers van 131 tot 150 m² staan op de lijst in een complex met appartementen met één, twee en drie slaapkamers in Las Lagunas, Mijas, naast Fuengirola, met een zwembad, een fitnessruimte, een sauna en een speeltuin.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 470.900</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>3</dd><dd class="sub"><span>Appartementen</span></dd></div><div><dt>Oplevering</dt><dd>Nog te bevestigen</dd><dd class="sub">Bouwvergunning verleend</dd></div><div><dt>Nog beschikbaar</dt><dd>6 aangeboden</dd><dd class="sub">Gecontroleerd op oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-cristalino-residences.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cristalino%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cristalino Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Cristalino Residences is een complex met appartementen in Las Lagunas, in de gemeente Mijas naast Fuengirola. Het infoblad van de ontwikkelaar beschrijft appartementen met één, twee en drie slaapkamers, terwijl de beschikbaarheidstabel zes woningen met drie slaapkamers van 131,09 tot 150,20 m² vermeldt, van € 470.900 tot € 770.000. Op de beelden liggen de terrassen achter blauwe glazen balustrades, en de genoemde gemeenschappelijke ruimten zijn een zwembad, een tuinzone, een fitnessruimte, een sauna en een speeltuin.</p>
+    <p class="lede-2">Het infoblad vermeldt de bouwvergunning als verleend en de status als in aanbouw, in twee blokken. De twee reeksen data kloppen niet met elkaar: de kop noemt oplevering van Blok 1 in het eerste kwartaal van 2026 en van Blok 2 in het vierde kwartaal van 2026, terwijl de lijst het einde van de bouw van Blok 1 in het vierde kwartaal van 2025 en van Blok 2 in het tweede kwartaal van 2027 noemt. Het blad zegt niet in welk blok elke vermelde woning ligt, en ook niet hoeveel woningen het project heeft.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Terrassen achter blauw glas</span></summary><p>Op de beelden is het gebouw wit, met rijen terrassen achter blauwe glazen balustrades, palmen en een pergolawandeling door de tuin, een dakterras met een pergola en overdekte terrassen. Het infoblad en de kwaliteitsspecificatie beschrijven het ontwerp niet, dus de beelden zijn alles wat we hebben om te weten hoe het eruit komt te zien.</p><p>De kwaliteitsspecificatie beschrijft hoe het is gebouwd en wordt hieronder samengevat.</p><ul><li>Structuur: Gewapendbetonnen kolommen en tweerichtingsvloeren met kassetten, op een betonplaat of paalfundering.</li><li>Gevel: Muren van ruwe baksteen afgewerkt met gres en/of geverfde of eenlagige mortel, met een geïsoleerde luchtspouw en een binnenwand in droogbouw.</li><li>Beglazing: Schuif- of draairamen en -deuren van gelakt aluminium of PVC met thermisch-akoestische dubbele beglazing, en ramen op de begane grond beschermd met veiligheidsbeslag.</li><li>Daken: Platte daken met thermische isolatie en een laag kiezel, alleen toegankelijk voor onderhoud.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 470.900 – € 770.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>6 aangeboden</span><small>Gecontroleerd op oktober 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartementen</span></dd></div><div><dt>Oppervlakten</dt><dd><span>131 – 150 m²</span></dd></div><div><dt>Oplevering</dt><dd><span>Nog te bevestigen</span></dd></div><div><dt>Vergunning</dt><dd><span><span class="ok">Bouwvergunning</span></span><small>Verleend</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Ondergrondse parkeergarage</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">Prijzen en oppervlakten zijn die van de beschikbaarheidstabel van de ontwikkelaar zoals gelezen in oktober 2026. Voor elke woning geeft de tabel een referentie, het aantal slaapkamers, een oppervlakte en een prijs, en niets anders. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="470900" data-size="150.2" data-ppm="3135" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">Home 3-0A</span><span class="u-loc"></span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">150 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 470.900</td>
+            <td data-label="Per m²" class="num">€ 3.135</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="473500" data-size="150.2" data-ppm="3152" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">Home 4-0A</span><span class="u-loc"></span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">150 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 473.500</td>
+            <td data-label="Per m²" class="num">€ 3.152</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="501900" data-size="131.09" data-ppm="3829" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">Home 12-1A</span><span class="u-loc"></span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">131 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 501.900</td>
+            <td data-label="Per m²" class="num">€ 3.829</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="522500" data-size="135.01" data-ppm="3870" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">Home 12-2B</span><span class="u-loc"></span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">135 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 522.500</td>
+            <td data-label="Per m²" class="num">€ 3.870</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="770000" data-size="135.27" data-ppm="5692" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">Home 9-At.A</span><span class="u-loc"></span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">135 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 770.000</td>
+            <td data-label="Per m²" class="num">€ 5.692</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="770000" data-size="135.27" data-ppm="5692" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">Home 10-At.A</span><span class="u-loc"></span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">135 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 770.000</td>
+            <td data-label="Per m²" class="num">€ 5.692</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Zes woningen, drie groepen</span></summary><p>De beschikbaarheidstabel vermeldt zes appartementen met drie slaapkamers. Voor geen ervan geeft hij een verdieping, terras of plattegrond, dus de groepen hieronder volgen de oppervlakte en de prijs.</p><div class="res-types"><div class="res-type"><h3>Woningen 3-0A en 4-0A</h3><ul><li>Twee woningen met drie slaapkamers van elk 150,20 m², de grootste op de lijst.</li><li>€ 470.900 en € 473.500. De tabel zegt niet of de oppervlakte bebouwd of binnen gemeten is, of welk terras of welke tuin erbij hoort.</li></ul></div><div class="res-type"><h3>Woningen 12-1A en 12-2B</h3><ul><li>Twee woningen met drie slaapkamers van 131,09 en 135,01 m².</li><li>€ 501.900 en € 522.500.</li></ul></div><div class="res-type"><h3>Woningen 9-At.A en 10-At.A</h3><ul><li>Twee woningen met drie slaapkamers van elk 135,27 m², de duurste op de lijst, voor elk € 770.000.</li><li>Ze staan met dezelfde oppervlakte en dezelfde prijs onder twee referenties op de lijst. We publiceren ze als twee woningen en bevestigen dat bij de ontwikkelaar. De documenten leggen de ‘At.’ in de referentie niet uit.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-cristalino-residences.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -903,435 +589,227 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk zwembad</h3>
-              <p class="amenity-note">Gedeeld door de bewoners</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Afwerking</h2>
+    <p class="sec-sub">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
+    <div class="tabs" role="tablist" aria-label="Afwerking"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Vloeren en wanden</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Deuren en kasten</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Keuken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Badkamers</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Klimaat en energie</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Elektra en toegang</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Lift, garage en bergingen</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Laminaatvloer op akoestische isolatie in de woonruimten, porseleinen grestegels in de badkamers en buitengres op de terrassen en privézonneterrassen.</li><li>Badkamerwanden betegeld met gres, ivoorkleurig in de hoofdbadkamer en wit in de overige, lichte muurverf op de andere wanden en wit op de plafonds.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Een voordeur met veiligheidsslot, inbraakwerende scharnieren en kijkgaatje, op de begane grond van geëmailleerd plaatstaal met een stalen kozijn, en binnendeuren met verchroomd beslag en doorschijnend glas naar de hal en de woonkamer.</li><li>Modulaire kasten met draaideuren, afgewerkt passend bij het overige schrijnwerk.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Een ingerichte keuken met koelkast, wasmachine, vaatwasser, oven, keramische kookplaat en afzuigkap van Bosch of gelijkwaardig, en een onderbouwspoelbak van Franke of gelijkwaardig.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Kranen van Grohe en een douchesset met twee straalsoorten van Grohe of gelijkwaardig, sanitair van Laufen Pro of gelijkwaardig met wastafels op voet of wandhangend, en douchebakken van hars.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Airconditioning met warmtepomp, een multisplitsysteem met toestellen in de woonkamer en de slaapkamers en de buitenunit op het dak of op de begane grond, en warm water uit een aerothermische warmtepomp.</li><li>Elektrische vloerverwarming in de badkamers met een eigen regeling. Het gebouw is ontworpen voor energielabel A, met zonnepanelen als ondersteuning van de stroom voor de gemeenschappelijke ruimten.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Schakelmateriaal van Niessen of gelijkwaardig en een elektronisch deurtelefoonsysteem, met de garage voorbereid op laadpunten voor elektrische voertuigen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Een lift met automatische deuren voor zes personen (450 kg), die stopt op elke woonverdieping en in de kelder, en een kelderparkeergarage die via een helling met een elektrisch bediende deur met afstandsbediening wordt bereikt.</li><li>Vloeren van de garage en de bergingen in afgewerkt beton.</li></ul>
+      
+    </div>
+    <p class="caption">Bron: de kwaliteitsspecificatie van de ontwikkelaar voor dit project, in het Spaans en het Engels, zonder datum of versie. Daarin staat dat materialen mogen worden vervangen door andere van gelijke of hogere kwaliteit zonder dat de prijs verandert, en dat natuursteen in kleur en nerf varieert. De twee talen verschillen op sommige punten: de Engelse tekst geeft de beglazing als 6-12-16 en de Spaanse als 6-12-6, en de Spaanse tekst voegt een thermische onderbreking en de optie van PVC-kozijnen toe. We volgen de Spaanse tekst. De specificatie noemt de platte daken alleen toegankelijk voor onderhoud, terwijl een beeld een gemeubileerd dakterras toont; we vragen welke woningen er een hebben.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Het gemeenschappelijke zwembad onder de terrassen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-640.webp 640w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-960.webp 960w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg" alt="Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="De woonkamer en het terras"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/living-room-and-terrace-640.webp 640w, assets/liora/projects/cristalino-residences/media/living-room-and-terrace-960.webp 960w, assets/liora/projects/cristalino-residences/media/living-room-and-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cristalino-residences/media/living-room-and-terrace.jpg" alt="Computergegenereerd beeld van een woonkamer met een bank, een vloerkleed en een houten wand, die uitkomt op een terras met een eettafel" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Een dakterras bij zonsondergang"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset-640.webp 640w, assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset-960.webp 960w, assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset.jpg" alt="Computergegenereerd beeld van een dakterras bij zonsondergang met een witte pergola, een grote bank, een eettafel en een glazen balustrade" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Het gebouw vanuit de tuin"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens-640.webp 640w, assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens-960.webp 960w, assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens.jpg" alt="Computergegenereerd beeld van een lang wit gebouw met terrassen achter blauwe glazen balustrades, gezien over een tuin met palmen, bloeiende bomen en een pergolawandeling" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Een overdekt terras"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/covered-terrace-lounge-640.webp 640w, assets/liora/projects/cristalino-residences/media/covered-terrace-lounge-960.webp 960w, assets/liora/projects/cristalino-residences/media/covered-terrace-lounge.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cristalino-residences/media/covered-terrace-lounge.jpg" alt="Computergegenereerd beeld van een overdekt terras met rieten fauteuils, een bank, een eettafel en een glazen balustrade" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 6 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (2)</button><button type="button" data-open-cat="Terraces">Terrassen (2)</button><button type="button" data-open-cat="Interiors">Interieur (2)</button></div>
+    
+    <p class="caption">Alle beelden zijn computergegenereerde beelden, en het meubilair, de inrichting en de beplanting erop zijn illustratief; geen enkel document zegt dat ze zijn inbegrepen. We hebben voor dit project geen plattegronden en geen brochure, dus die worden niet getoond, en de beelden zijn niet gekoppeld aan een bepaalde woning.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">Het project ligt in Las Lagunas, in de gemeente Mijas. De kaart op het infoblad heeft als kop Fuengirola en toont het project net landinwaarts van de stad, en het verkoopkantoor zit in Mijas. De documenten geven geen afstanden tot het strand, de stad of de luchthaven en geen coördinaat die als het perceel wordt aangeduid, dus de kaart toont het gebied Las Lagunas.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-cristalino-residences" data-locmap='{&quot;site&quot;:[36.5484,-4.6333],&quot;sea&quot;:[36.5214,-4.6333],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54471,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,0 km · 5 min&quot;},{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan La Cala&quot;,&quot;sub&quot;:&quot;16 km · 22 min&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;2,2 km · 6 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Fuengirola&quot;,&quot;sub&quot;:&quot;2,2 km · 6 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Cristalino Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Cristalino Residences</h3>
+            <p class="locmap-place">Las Lagunas, Mijas</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>2,0 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Fitnessruimte</h3>
-              <p class="amenity-note">Binnen het project</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>2,2 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Wellness</span>
-              <h3 class="amenity-name">Sauna</h3>
-              <p class="amenity-note">Ruimte met droge hitte</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>2,2 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Buiten</span>
-              <h3 class="amenity-name">Aangelegde gemeenschappelijke tuinen</h3>
-              <p class="amenity-note">Beplante gemeenschappelijke grond</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan La Cala</span>
+              <span class="locmap-row-figure"><bdi>16 km</bdi> <em><bdi>22 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/><path d="M8.5 14a4.5 4.5 0 0 0 7 0"/><path d="M9 9.5h.01"/><path d="M15 9.5h.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Buiten</span>
-              <h3 class="amenity-name">Speeltuin</h3>
-              <p class="amenity-note">Ingericht om te spelen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Cabopino</span>
+              <span class="locmap-row-figure"><bdi>17 km</bdi> <em><bdi>19 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Lift</h3>
-              <p class="amenity-note">Elke verdieping bereikbaar</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Málaga</span>
+              <span class="locmap-row-figure"><bdi>26 km</bdi> <em><bdi>25 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Ondergrondse parkeergarage</h3>
-              <p class="amenity-note">Onder het gebouw</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Berging</h3>
-              <p class="amenity-note">Een afsluitbare berging</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Airconditioning</h3>
-              <p class="amenity-note">Koelen en verwarmen via kanalen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Warm water via warmtepomp</h3>
-              <p class="amenity-note">Warm water uit de lucht</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Vloerverwarming</h3>
-              <p class="amenity-note">Warmte vanuit de vloer</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Uitgeruste keuken</h3>
-              <p class="amenity-note">Ingericht en voorzien van apparatuur</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Voorbereiding voor laadpunt</h3>
-              <p class="amenity-note">Een punt voor de auto</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Zonnepanelen</h3>
-              <p class="amenity-note">Stroom van het dak</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Diensten</span>
-              <h3 class="amenity-name">Elektronische deurintercom</h3>
-              <p class="amenity-note">Video aan de deur</p>
-            </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">Het infoblad en de kwaliteitsspecificatie noemen deze gemeenschappelijke ruimten.</p>
+    <div class="life-panels"><div><h3>Het zwembad en de tuinen</h3><p>Een zwembad en tuinzones. Op de beelden is het zwembad langwerpig, met ligbedden op het gazon, en een pergolawandeling met banken loopt door de beplanting.</p></div><div><h3>Fitnessruimte en sauna</h3><p>Een fitnessruimte en een sauna bij de gemeenschappelijke ruimten, zoals het infoblad en de specificatie ze noemen.</p></div><div><h3>Voor kinderen</h3><p>Een speeltuin, zoals het infoblad die noemt.</p></div><div><h3>Garage en liften</h3><p>Garages en bergingen met liften die in de kelder stoppen, een helling met een deur met afstandsbediening en een garage die is voorbereid op het laden van elektrische voertuigen. De documenten zeggen niet welke plaatsen bij welke woning horen.</p></div></div>
+    <ul class="amen-top"><li>Gemeenschappelijk zwembad</li><li>Aangelegde gemeenschappelijke tuinen</li><li>Fitnessruimte</li><li>Sauna</li><li>Speeltuin</li><li>Lift</li></ul>
+    <details class="amen-all"><summary>Alle 15 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">3</span></h3><ul><li>Gemeenschappelijk zwembad</li><li>Fitnessruimte</li><li>Sauna</li></ul></div><div><h3>Buiten<span class="count">2</span></h3><ul><li>Aangelegde gemeenschappelijke tuinen</li><li>Speeltuin</li></ul></div><div><h3>Dagelijks<span class="count">9</span></h3><ul><li>Lift</li><li>Ondergrondse parkeergarage</li><li>Berging</li><li>Airconditioning</li><li>Warm water via warmtepomp</li><li>Vloerverwarming</li><li>Uitgeruste keuken</li><li>Voorbereiding voor laadpunt</li><li>Zonnepanelen</li></ul></div><div><h3>Diensten<span class="count">1</span></h3><ul><li>Elektronische deurintercom</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een ruim appartement met drie slaapkamers van 131 tot 150 m² willen, in een complex met een zwembad, een fitnessruimte, een sauna en een speeltuin.</span></li><li><b>Wat het anders maakt</b><span>De kwaliteitsspecificatie geeft een ingerichte keuken met apparatuur, airconditioning, warm water uit een aerothermisch systeem en elektrische vloerverwarming in de badkamers.</span></li><li><b>Waarom de locatie ertoe doet</b><span>Las Lagunas hoort bij Mijas en grenst aan Fuengirola. De kaart op het infoblad toont het project net landinwaarts van Fuengirola en noemt geen afstanden.</span></li><li><b>Waarom beschikbaarheid checken</b><span>Er staan zes woningen op de lijst, maar de opleveringsdatum, de btw-behandeling en het aantal woningen in het project liggen in de documenten niet vast. Nueva Living bevestigt ze bij de ontwikkelaar vóór elke bezichtiging.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Reservering</b><span>Het infoblad geeft een reservering van € 6.000 zonder btw. Het zegt niet of de reservering van de eerste termijn wordt afgetrokken.</span></li><li><b>Betalingsschema</b><span>40% plus btw bij de onderhandse koopovereenkomst, 10% plus btw tien maanden daarna en 50% plus btw bij ondertekening van de notariële akte van koop. Het infoblad kort de eerste fase af als PPC, wat we lezen als de onderhandse koopovereenkomst.</span></li><li><b>Btw</b><span>De beschikbaarheidstabel zegt niet of de prijzen btw bevatten. Het infoblad geeft elke termijn plus btw, dus we lezen de prijzen als exclusief btw. Nueva Living bevestigt de belastingen en aankoopkosten schriftelijk.</span></li><li><b>Lopende kosten</b><span>Voor een woning met drie slaapkamers geeft het infoblad ongeveer € 125 per maand aan servicekosten, € 600 per jaar aan onroerendezaakbelasting (IBI) en € 80 per jaar aan afvalheffing.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Vergunning en garanties</b><span>Bouwvergunning verleend. Het infoblad vermeldt de bouwvergunning als verleend. We vragen om de vergunning en om de bankgarantie die de vooruitbetaalde bedragen dekt.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De opleveringsdatum</b><span>Het infoblad noemt in de kop de oplevering van Blok 1 in het eerste kwartaal van 2026 en van Blok 2 in het vierde kwartaal van 2026, en in de lijst het einde van de bouw van Blok 1 in het vierde kwartaal van 2025 en van Blok 2 in het tweede kwartaal van 2027. We vragen in welk blok elke woning ligt, of Blok 1 is opgeleverd en wat de contractuele datum is.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De omvang van het project</b><span>Het infoblad geeft het aantal woningen niet. Het dakenplan van de architect van november 2021 draagt de titel 76 woningen met parkeerplaatsen en bergingen in een eerste fase, wat niet het hele project hoeft te zijn. We vragen naar het totaal en de fasering.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Oppervlakten, parkeren en beglazing</b><span>De tabel geeft per woning één oppervlakte zonder te zeggen of die bebouwd of binnen gemeten is, of dat een parkeerplaats en een berging zijn inbegrepen. De Engelse en de Spaanse tekst van de kwaliteitsspecificatie geven bovendien een verschillende beglazing. We vragen om de plattegrond van elke woning en de cijfers die het contract hanteert.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>De beschikbaarheidstabel, de kwaliteitsspecificatie en de plattegronden van de woningen die u interesseren, voor zover de ontwikkelaar die kan leveren.</p></li><li><h3>Vergelijk de opties</h3><p>Vergelijk het met de andere projecten in Mijas en Fuengirola die we beheren.</p></li><li><h3>Privébezichtiging</h3><p>Bekijk met ons het terrein en de omgeving, en de bouw naast de informatie op deze pagina.</p></li><li><h3>Reserveren</h3><p>Een reservering van € 6.000, daarna de onderhandse koopovereenkomst, zodra de datum, de btw en de garantie schriftelijk zijn bevestigd.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Plattegronden<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Technische omschrijving</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-cristalino-residences.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Cristalino</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn beschikbaar?</summary><p>Er staan er zes op de lijst: appartementen met drie slaapkamers van 131,09 tot 150,20 m², van € 470.900 tot € 770.000. Geen enkel document waarover we beschikken geeft het totale aantal woningen in het project.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>De beschikbaarheidstabel zegt het niet. Het infoblad geeft elke termijn plus btw, dus we lezen de prijzen als exclusief btw, en we bevestigen het schriftelijk voordat u reserveert.</p></details><details class="segment-faq-item"><summary>Wat is bij de prijs inbegrepen?</summary><p>De kwaliteitsspecificatie geeft een ingerichte keuken met apparatuur. De documenten zeggen niet of een parkeerplaats en een berging zijn inbegrepen, en geen enkel document zegt dat het meubilair op de beelden is inbegrepen. We bevestigen beide.</p></details><details class="segment-faq-item"><summary>Wanneer is het klaar?</summary><p>Het infoblad geeft tegenstrijdige data: oplevering van Blok 1 in het eerste kwartaal van 2026 en van Blok 2 in het vierde kwartaal van 2026, maar het einde van de bouw van Blok 1 in het vierde kwartaal van 2025 en van Blok 2 in het tweede kwartaal van 2027. We vragen naar de contractuele datum.</p></details><details class="segment-faq-item"><summary>Wat is het betalingsschema?</summary><p>Een reservering van € 6.000 zonder btw, daarna 40% plus btw bij de onderhandse koopovereenkomst, 10% plus btw tien maanden later en 50% plus btw bij ondertekening van de notariële akte van koop.</p></details></div>
+    
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 470.900</p>
+      <p class="rail-note">Excl. btw. · Gecontroleerd op oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-cristalino-residences.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cristalino%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cristalino Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cristalino%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cristalino Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Loop over het perceel en door de straat, en zie welk blok is gebouwd.</li><li><b>Te voet.</b> We lopen met u naar de winkels en de stad en nemen de tijd op.</li><li><b>Op papier.</b> Vergunning, garantie en contract, voordat er iets wordt ondertekend.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cristalino Residences">
+        <input type="hidden" id="f-project" name="project" value="Cristalino Residences">
+        <input type="hidden" name="preferred_area" value="Las Lagunas, Mijas">
+        <input type="hidden" name="property_type_interest" value="Appartementen">
+        <input type="hidden" name="budget_range" value="Vanaf € 470.900">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hallo Nueva Living, ik wil graag informatie over Cristalino Residences." data-base="Hallo Nueva Living, ik wil graag informatie over Cristalino Residences.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="Home 3-0A">Home 3-0A: € 470.900</option><option value="Home 4-0A">Home 4-0A: € 473.500</option><option value="Home 12-1A">Home 12-1A: € 501.900</option><option value="Home 12-2B">Home 12-2B: € 522.500</option><option value="Home 9-At.A">Home 9-At.A: € 770.000</option><option value="Home 10-At.A">Home 10-At.A: € 770.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Cristalino veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Ruime appartementen met drie slaapkamers in een complex met een zwembad, een fitnessruimte en een sauna, vanaf € 470.900.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een ruim appartement met drie slaapkamers van 131 tot 150 m² willen, in een complex met een zwembad, een fitnessruimte, een sauna en een speeltuin.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>De kwaliteitsspecificatie geeft een ingerichte keuken met apparatuur, airconditioning, warm water uit een aerothermisch systeem en elektrische vloerverwarming in de badkamers.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>Las Lagunas hoort bij Mijas en grenst aan Fuengirola. De kaart op het infoblad toont het project net landinwaarts van Fuengirola en noemt geen afstanden.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom beschikbaarheid checken</h3><p>Er staan zes woningen op de lijst, maar de opleveringsdatum, de btw-behandeling en het aantal woningen in het project liggen in de documenten niet vast. Nueva Living bevestigt ze bij de ontwikkelaar vóór elke bezichtiging.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">De voorwaarden zijn die van het infoblad van de ontwikkelaar. We bevestigen de actuele bedragen en data schriftelijk voordat u reserveert.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservering</h3><p>Het infoblad geeft een reservering van € 6.000 zonder btw. Het zegt niet of de reservering van de eerste termijn wordt afgetrokken.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalingsschema</h3><p>40% plus btw bij de onderhandse koopovereenkomst, 10% plus btw tien maanden daarna en 50% plus btw bij ondertekening van de notariële akte van koop. Het infoblad kort de eerste fase af als PPC, wat we lezen als de onderhandse koopovereenkomst.</p></article>
-              <article class="why-point reveal-soft"><h3>Btw</h3><p>De beschikbaarheidstabel zegt niet of de prijzen btw bevatten. Het infoblad geeft elke termijn plus btw, dus we lezen de prijzen als exclusief btw. Nueva Living bevestigt de belastingen en aankoopkosten schriftelijk.</p></article>
-              <article class="why-point reveal-soft"><h3>Lopende kosten</h3><p>Voor een woning met drie slaapkamers geeft het infoblad ongeveer € 125 per maand aan servicekosten, € 600 per jaar aan onroerendezaakbelasting (IBI) en € 80 per jaar aan afvalheffing.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vergunning en garanties</h3><p>Het infoblad vermeldt de bouwvergunning als verleend. We vragen om de vergunning en om de bankgarantie die de vooruitbetaalde bedragen dekt.</p></article>
-              <article class="why-point reveal-soft"><h3>De opleveringsdatum</h3><p>Het infoblad noemt in de kop de oplevering van Blok 1 in het eerste kwartaal van 2026 en van Blok 2 in het vierde kwartaal van 2026, en in de lijst het einde van de bouw van Blok 1 in het vierde kwartaal van 2025 en van Blok 2 in het tweede kwartaal van 2027. We vragen in welk blok elke woning ligt, of Blok 1 is opgeleverd en wat de contractuele datum is.</p></article>
-              <article class="why-point reveal-soft"><h3>De omvang van het project</h3><p>Het infoblad geeft het aantal woningen niet. Het dakenplan van de architect van november 2021 draagt de titel 76 woningen met parkeerplaatsen en bergingen in een eerste fase, wat niet het hele project hoeft te zijn. We vragen naar het totaal en de fasering.</p></article>
-              <article class="why-point reveal-soft"><h3>Oppervlakten, parkeren en beglazing</h3><p>De tabel geeft per woning één oppervlakte zonder te zeggen of die bebouwd of binnen gemeten is, of dat een parkeerplaats en een berging zijn inbegrepen. De Engelse en de Spaanse tekst van de kwaliteitsspecificatie geven bovendien een verschillende beglazing. We vragen om de plattegrond van elke woning en de cijfers die het contract hanteert.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op oktober 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>Referenties, slaapkamers, oppervlakten en prijzen zijn overgenomen uit de beschikbaarheidstabel van de ontwikkelaar, gelezen in oktober 2026, die zes woningen vermeldt. De tabel zegt niet of een oppervlakte bebouwd of binnen gemeten is of een terras omvat, of de prijs btw bevat, of een parkeerplaats en een berging zijn inbegrepen, of op welke verdieping en in welk blok een woning ligt; daarom wordt dat niet getoond. De woningen 9-At.A en 10-At.A staan met dezelfde oppervlakte en dezelfde prijs op de lijst; hun referenties verschillen, dus beide worden getoond en we bevestigen bij de ontwikkelaar dat het twee woningen zijn. We hebben geen plattegronden van deze woningen.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens.jpg" alt="Computergegenereerd beeld van een lang wit gebouw met terrassen achter blauwe glazen balustrades, gezien over een tuin met palmen, bloeiende bomen en een pergolawandeling" width="1600" height="1142" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terrassen achter <em>blauw glas</em></h2>
-          <p>Op de beelden is het gebouw wit, met rijen terrassen achter blauwe glazen balustrades, palmen en een pergolawandeling door de tuin, een dakterras met een pergola en overdekte terrassen. Het infoblad en de kwaliteitsspecificatie beschrijven het ontwerp niet, dus de beelden zijn alles wat we hebben om te weten hoe het eruit komt te zien.</p>
-<p>De kwaliteitsspecificatie beschrijft hoe het is gebouwd en wordt hieronder samengevat.</p>
-          <ul class="feature-list">
-            <li>Structuur — Gewapendbetonnen kolommen en tweerichtingsvloeren met kassetten, op een betonplaat of paalfundering.</li>
-            <li>Gevel — Muren van ruwe baksteen afgewerkt met gres en/of geverfde of eenlagige mortel, met een geïsoleerde luchtspouw en een binnenwand in droogbouw.</li>
-            <li>Beglazing — Schuif- of draairamen en -deuren van gelakt aluminium of PVC met thermisch-akoestische dubbele beglazing, en ramen op de begane grond beschermd met veiligheidsbeslag.</li>
-            <li>Daken — Platte daken met thermische isolatie en een laag kiezel, alleen toegankelijk voor onderhoud.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cristalino%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cristalino Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-cristalino-residences.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cristalino-residences/media/covered-terrace-lounge.jpg" alt="Computergegenereerd beeld van een overdekt terras met rieten fauteuils, een bank, een eettafel en een glazen balustrade" width="1920" height="1117" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>het terrein en de omgeving</em></h2>
-            <p>Het project is in aanbouw, dus een bezoek gaat over de ligging, de stand van de bouw en de plattegronden.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Loop over het perceel en door de straat, en zie welk blok is gebouwd.</p></div>
-              <div><span>Te voet</span><p>We lopen met u naar de winkels en de stad en nemen de tijd op.</p></div>
-              <div><span>Op papier</span><p>Vergunning, garantie en contract, voordat er iets wordt ondertekend.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=cristalino-residences">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-cristalino-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Terraces">Terrassen</button><button type="button" data-cat="Interiors">Interieur</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset.jpg" alt="Computergegenereerd beeld van een dakterras bij zonsondergang met een witte pergola, een grote bank, een eettafel en een glazen balustrade" width="1920" height="960" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Een zwembad, <em>een fitnessruimte en een sauna</em></h2>
-            <p>Het infoblad en de kwaliteitsspecificatie noemen deze gemeenschappelijke ruimten. Ze geven geen afmetingen, openingstijden of gebruiksregels.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>De beschikbaarheidstabel, de kwaliteitsspecificatie en de plattegronden van de woningen die u interesseren, voor zover de ontwikkelaar die kan leveren.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de opties</h3>
-            <p>Vergelijk het met de andere projecten in Mijas en Fuengirola die we beheren.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bekijk met ons het terrein en de omgeving, en de bouw naast de informatie op deze pagina.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserveren</h3>
-            <p>Een reservering van € 6.000, daarna de onderhandse koopovereenkomst, zodra de datum, de btw en de garantie schriftelijk zijn bevestigd.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn beschikbaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Er staan er zes op de lijst: appartementen met drie slaapkamers van 131,09 tot 150,20 m², van € 470.900 tot € 770.000. Geen enkel document waarover we beschikken geeft het totale aantal woningen in het project.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De beschikbaarheidstabel zegt het niet. Het infoblad geeft elke termijn plus btw, dus we lezen de prijzen als exclusief btw, en we bevestigen het schriftelijk voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is bij de prijs inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De kwaliteitsspecificatie geeft een ingerichte keuken met apparatuur. De documenten zeggen niet of een parkeerplaats en een berging zijn inbegrepen, en geen enkel document zegt dat het meubilair op de beelden is inbegrepen. We bevestigen beide.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is het klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Het infoblad geeft tegenstrijdige data: oplevering van Blok 1 in het eerste kwartaal van 2026 en van Blok 2 in het vierde kwartaal van 2026, maar het einde van de bouw van Blok 1 in het vierde kwartaal van 2025 en van Blok 2 in het tweede kwartaal van 2027. We vragen naar de contractuele datum.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het betalingsschema?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een reservering van € 6.000 zonder btw, daarna 40% plus btw bij de onderhandse koopovereenkomst, 10% plus btw tien maanden later en 50% plus btw bij ondertekening van de notariële akte van koop.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>Cristalino Residences</em></h2>
-          <p class="body-copy">Vertel ons wat u nodig heeft en we komen bij u terug met de actuele beschikbaarheid, de plattegronden en de prijslijst.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cristalino%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cristalino Residences" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cristalino Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Cristalino Residences">
-          <input type="hidden" name="preferred_area" value="Las Lagunas, Mijas">
-          <input type="hidden" name="property_type_interest" value="Appartementen">
-          <input type="hidden" name="budget_range" value="Vanaf € 470.900">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Hallo Nueva Living, ik wil graag informatie over Cristalino Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Wij reageren persoonlijk, meestal dezelfde dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"Home 3-0A","title":"Home 3-0A","sub":"3 slk. · 150 m²","price":470900,"plans":[]},{"id":"u1","ref":"Home 4-0A","title":"Home 4-0A","sub":"3 slk. · 150 m²","price":473500,"plans":[]},{"id":"u2","ref":"Home 12-1A","title":"Home 12-1A","sub":"3 slk. · 131 m²","price":501900,"plans":[]},{"id":"u3","ref":"Home 12-2B","title":"Home 12-2B","sub":"3 slk. · 135 m²","price":522500,"plans":[]},{"id":"u4","ref":"Home 9-At.A","title":"Home 9-At.A","sub":"3 slk. · 135 m²","price":770000,"plans":[]},{"id":"u5","ref":"Home 10-At.A","title":"Home 10-At.A","sub":"3 slk. · 135 m²","price":770000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.webp","alt":"Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden","caption":"Het gemeenschappelijke zwembad onder de terrassen","cat":"Exteriors"},{"src":"assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens.webp","alt":"Computergegenereerd beeld van een lang wit gebouw met terrassen achter blauwe glazen balustrades, gezien over een tuin met palmen, bloeiende bomen en een pergolawandeling","caption":"Het gebouw vanuit de tuin","cat":"Exteriors"},{"src":"assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset.webp","alt":"Computergegenereerd beeld van een dakterras bij zonsondergang met een witte pergola, een grote bank, een eettafel en een glazen balustrade","caption":"Een dakterras bij zonsondergang","cat":"Terraces"},{"src":"assets/liora/projects/cristalino-residences/media/covered-terrace-lounge.webp","alt":"Computergegenereerd beeld van een overdekt terras met rieten fauteuils, een bank, een eettafel en een glazen balustrade","caption":"Een overdekt terras","cat":"Terraces"},{"src":"assets/liora/projects/cristalino-residences/media/living-room-and-terrace.webp","alt":"Computergegenereerd beeld van een woonkamer met een bank, een vloerkleed en een houten wand, die uitkomt op een terras met een eettafel","caption":"De woonkamer en het terras","cat":"Interiors"},{"src":"assets/liora/projects/cristalino-residences/media/dining-area-and-kitchen.webp","alt":"Computergegenereerd beeld van een eettafel met stoelen naast een open keuken met een ontbijtbar en twee krukken","caption":"De eethoek en de keuken","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Cristalino Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg","webp":"assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-960.webp","alt":"Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden","width":1440,"height":960,"caption":"Het gemeenschappelijke zwembad onder de terrassen","category":"Exterieur"},{"src":"assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens.jpg","webp":"assets/liora/projects/cristalino-residences/media/glass-terraces-and-gardens-960.webp","alt":"Computergegenereerd beeld van een lang wit gebouw met terrassen achter blauwe glazen balustrades, gezien over een tuin met palmen, bloeiende bomen en een pergolawandeling","width":1600,"height":1142,"caption":"Het gebouw vanuit de tuin","category":"Exterieur"},{"src":"assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset.jpg","webp":"assets/liora/projects/cristalino-residences/media/roof-terrace-at-sunset-960.webp","alt":"Computergegenereerd beeld van een dakterras bij zonsondergang met een witte pergola, een grote bank, een eettafel en een glazen balustrade","width":1920,"height":960,"caption":"Een dakterras bij zonsondergang","category":"Terrassen"},{"src":"assets/liora/projects/cristalino-residences/media/covered-terrace-lounge.jpg","webp":"assets/liora/projects/cristalino-residences/media/covered-terrace-lounge-960.webp","alt":"Computergegenereerd beeld van een overdekt terras met rieten fauteuils, een bank, een eettafel en een glazen balustrade","width":1920,"height":1117,"caption":"Een overdekt terras","category":"Terrassen"},{"src":"assets/liora/projects/cristalino-residences/media/living-room-and-terrace.jpg","webp":"assets/liora/projects/cristalino-residences/media/living-room-and-terrace-960.webp","alt":"Computergegenereerd beeld van een woonkamer met een bank, een vloerkleed en een houten wand, die uitkomt op een terras met een eettafel","width":1920,"height":1146,"caption":"De woonkamer en het terras","category":"Interieur"},{"src":"assets/liora/projects/cristalino-residences/media/dining-area-and-kitchen.jpg","webp":"assets/liora/projects/cristalino-residences/media/dining-area-and-kitchen-960.webp","alt":"Computergegenereerd beeld van een eettafel met stoelen naast een open keuken met een ontbijtbar en twee krukken","width":1920,"height":960,"caption":"De eethoek en de keuken","category":"Interieur"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-cristalino-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Cristalino%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cristalino Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

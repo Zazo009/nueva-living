@@ -47,6 +47,7 @@ import { renderMajolicaMain } from './lib/signature_majolica.mjs';
 import { renderTyrianMain } from './lib/signature_tyrian.mjs';
 import { renderVersaceMain } from './lib/signature_versace.mjs';
 import { renderBentleyMain } from './lib/signature_bentley.mjs';
+import { renderV2Main, buildV2Stylesheet, assertV2Strings, v2Faqs } from './lib/property_v2.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -86,6 +87,13 @@ const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
 const locationMapCssVersion = fileVersion('assets/liora/nueva-location-map.css');
 const locationMapJsVersion = fileVersion('assets/liora/nueva-location-map.js');
 const calculatorJsVersion = fileVersion('assets/liora/liora-calculator.js');
+// Every development that is not a signature page is built from the one property template
+// (lib/property_v2.mjs). Its stylesheet is generated from assets/liora/property-v2/ first, so the
+// version stamp below reads the file this run will publish.
+buildV2Stylesheet(process.cwd());
+assertV2Strings(LOCALES.map((l) => l.code));
+const v2CssVersion = fileVersion('assets/liora/nueva-property-v2.css');
+const v2JsVersion = fileVersion('assets/liora/nueva-property-v2.js');
 
 // General buyer-process questions that apply to every development. A
 // project's own `faq` array (if set) is appended after these, for
@@ -2074,6 +2082,72 @@ function renderEnquiryForm(project, locale) {
         </form>`;
 }
 
+// The affordability calculator, shared by the old project layout and the template page (where it
+// sits folded beside the payment schedule). liora-calculator.js binds to [data-calculator].
+function renderCalculatorPanel(locale, calculatorSeedPrice) {
+  return `        <div class="calculator-panel reveal-soft" data-calculator>
+          <div class="calculator-inputs">
+            <div class="calculator-field calculator-field--dual">
+              <div class="calculator-field-label"><span id="calc-price-label">${t('calculator.purchasePrice', locale)}</span><em data-calc-price-readout>&euro;0</em></div>
+              <input type="range" data-calc-price-range aria-labelledby="calc-price-label" min="150000" max="3000000" step="5000" value="${esc(calculatorSeedPrice)}">
+              <input type="number" data-calc-price aria-labelledby="calc-price-label" value="${esc(calculatorSeedPrice)}" min="0" step="1000" class="calculator-field-number">
+            </div>
+            <div class="calculator-field calculator-field--dual">
+              <div class="calculator-field-label"><span id="calc-deposit-label">${t('calculator.deposit', locale)}</span><em data-calc-deposit-readout>30% &middot; &euro;0</em></div>
+              <input type="range" data-calc-deposit aria-labelledby="calc-deposit-label" min="10" max="100" step="5" value="30">
+              <em class="calculator-field-hint">${t('calculator.depositHint', locale)}</em>
+            </div>
+            <div class="calculator-field calculator-field--dual">
+              <div class="calculator-field-label"><span id="calc-term-label">${t('calculator.mortgageTerm', locale)}</span><em data-calc-term-readout>25 ${t('common.years', locale)}</em></div>
+              <input type="range" data-calc-term aria-labelledby="calc-term-label" min="5" max="35" step="1" value="25">
+            </div>
+            <div class="calculator-field calculator-field--split">
+              <label>
+                <span>${t('calculator.interestRate', locale)}</span>
+                <div class="calculator-input-suffix">
+                  <input type="number" data-calc-rate value="3.2" min="0" max="15" step="0.1">
+                  <span class="calculator-input-suffix-label">%</span>
+                </div>
+              </label>
+              <div class="calculator-rate-toggle" data-calc-rate-toggle role="group" aria-label="${t('calculator.rateType', locale)}">
+                <button type="button" class="is-active" data-rate-type="fixed">${t('calculator.fixed', locale)}</button>
+                <button type="button" data-rate-type="variable">${t('calculator.variable', locale)}</button>
+              </div>
+            </div>
+            <label class="calculator-field">
+              <span>${t('calculator.taxesAndCosts', locale)}</span>
+              <div class="calculator-input-suffix">
+                <input type="number" data-calc-costs value="10" min="0" max="20" step="0.5">
+                <span class="calculator-input-suffix-label">%</span>
+              </div>
+              <em class="calculator-field-hint">${t('calculator.taxesHint', locale)}</em>
+            </label>
+          </div>
+          <div class="calculator-results">
+            <div class="calculator-result calculator-result--highlight"><span>${t('calculator.estimatedMonthly', locale)}</span><strong data-calc-monthly>&euro;0</strong></div>
+            <div class="calculator-result calculator-result--secondary"><span>${t('calculator.cashWithoutMortgage', locale)}</span><strong data-calc-total-property>&euro;0</strong></div>
+            <div class="calculator-result calculator-result--secondary"><span>${t('calculator.cashWithMortgage', locale)}</span><strong data-calc-cash-with-mortgage>&euro;0</strong></div>
+            <div class="calculator-breakdown-bar" data-calc-bar>
+              <span class="calculator-bar-segment calculator-bar-segment--deposit" data-calc-bar-deposit></span>
+              <span class="calculator-bar-segment calculator-bar-segment--principal" data-calc-bar-principal></span>
+              <span class="calculator-bar-segment calculator-bar-segment--interest" data-calc-bar-interest></span>
+            </div>
+            <div class="calculator-bar-legend">
+              <span><i class="calculator-bar-segment--deposit"></i>${t('calculator.deposit', locale)}</span>
+              <span><i class="calculator-bar-segment--principal"></i>${t('calculator.legendPrincipal', locale)}</span>
+              <span><i class="calculator-bar-segment--interest"></i>${t('calculator.legendInterest', locale)}</span>
+            </div>
+            <div class="calculator-result-grid">
+              <div class="calculator-result"><span>${t('calculator.deposit', locale)}</span><strong data-calc-deposit-amount>&euro;0</strong></div>
+              <div class="calculator-result"><span>${t('calculator.resultLoan', locale)}</span><strong data-calc-loan>&euro;0</strong></div>
+              <div class="calculator-result"><span>${t('calculator.resultFinanced', locale)}</span><strong data-calc-financed-pct>0%</strong></div>
+              <div class="calculator-result"><span>${t('calculator.resultTotalInterest', locale)}</span><strong data-calc-total-interest>&euro;0</strong></div>
+              <div class="calculator-result"><span>${t('calculator.taxesAndCosts', locale)}</span><strong data-calc-costs-amount>&euro;0</strong></div>
+            </div>
+          </div>
+        </div>`;
+}
+
 function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
   const rtl = isRtl(locale);
@@ -2086,6 +2160,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const isTyrian = isSignature && sourceProject.signature?.layout === 'tyrian';
   const isVersace = isSignature && sourceProject.signature?.layout === 'versace';
   const isBentley = isSignature && sourceProject.signature?.layout === 'bentley';
+  const isV2 = !isSignature;
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
@@ -2235,7 +2310,9 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     publisher: { '@id': organizationId(siteUrl) }
   };
 
-  const faqs = [...defaultFaqs(locale), ...(project.faq || [])];
+  // The template page answers the project's own questions; the general buying questions live in
+  // the buying guides, where they are not repeated 125 times.
+  const faqs = isV2 ? v2Faqs(sourceProject, project) : [...defaultFaqs(locale), ...(project.faq || [])];
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -2318,6 +2395,18 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
       helpers: {
         esc, t, pictureTag, imageTag, actionLink, ghostAction,
         whatsappHref, renderLocationCard, renderEnquiryForm, liveLocationMap
+      }
+    })
+    : isV2
+    ? renderV2Main({
+      project,
+      sourceProject,
+      locale,
+      helpers: {
+        esc, t, pictureTag, renderEnquiryForm, renderLocationCard, liveLocationMap, whatsappHref,
+        localizedUnitPrice, localizedUnitFloor, localizeMonthDate, localizedPath, translateAmenity,
+        amenityCategory: (name) => AMENITY_CATALOGUE[name]?.category, localizedCategory, image, PRICE_FORMAT,
+        calculatorPanel: calculatorSeedKnown ? renderCalculatorPanel(locale, calculatorSeedPrice) : ''
       }
     })
     : '';
@@ -2491,67 +2580,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
           <h2 class="section-headline">${t('calculator.headlineHtml', locale)}</h2>
           <p class="body-copy">${t('calculator.intro', locale)}</p>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
-          <div class="calculator-inputs">
-            <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span id="calc-price-label">${t('calculator.purchasePrice', locale)}</span><em data-calc-price-readout>&euro;0</em></div>
-              <input type="range" data-calc-price-range aria-labelledby="calc-price-label" min="150000" max="3000000" step="5000" value="${esc(calculatorSeedPrice)}">
-              <input type="number" data-calc-price aria-labelledby="calc-price-label" value="${esc(calculatorSeedPrice)}" min="0" step="1000" class="calculator-field-number">
-            </div>
-            <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span id="calc-deposit-label">${t('calculator.deposit', locale)}</span><em data-calc-deposit-readout>30% &middot; &euro;0</em></div>
-              <input type="range" data-calc-deposit aria-labelledby="calc-deposit-label" min="10" max="100" step="5" value="30">
-              <em class="calculator-field-hint">${t('calculator.depositHint', locale)}</em>
-            </div>
-            <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span id="calc-term-label">${t('calculator.mortgageTerm', locale)}</span><em data-calc-term-readout>25 ${t('common.years', locale)}</em></div>
-              <input type="range" data-calc-term aria-labelledby="calc-term-label" min="5" max="35" step="1" value="25">
-            </div>
-            <div class="calculator-field calculator-field--split">
-              <label>
-                <span>${t('calculator.interestRate', locale)}</span>
-                <div class="calculator-input-suffix">
-                  <input type="number" data-calc-rate value="3.2" min="0" max="15" step="0.1">
-                  <span class="calculator-input-suffix-label">%</span>
-                </div>
-              </label>
-              <div class="calculator-rate-toggle" data-calc-rate-toggle role="group" aria-label="${t('calculator.rateType', locale)}">
-                <button type="button" class="is-active" data-rate-type="fixed">${t('calculator.fixed', locale)}</button>
-                <button type="button" data-rate-type="variable">${t('calculator.variable', locale)}</button>
-              </div>
-            </div>
-            <label class="calculator-field">
-              <span>${t('calculator.taxesAndCosts', locale)}</span>
-              <div class="calculator-input-suffix">
-                <input type="number" data-calc-costs value="10" min="0" max="20" step="0.5">
-                <span class="calculator-input-suffix-label">%</span>
-              </div>
-              <em class="calculator-field-hint">${t('calculator.taxesHint', locale)}</em>
-            </label>
-          </div>
-          <div class="calculator-results">
-            <div class="calculator-result calculator-result--highlight"><span>${t('calculator.estimatedMonthly', locale)}</span><strong data-calc-monthly>&euro;0</strong></div>
-            <div class="calculator-result calculator-result--secondary"><span>${t('calculator.cashWithoutMortgage', locale)}</span><strong data-calc-total-property>&euro;0</strong></div>
-            <div class="calculator-result calculator-result--secondary"><span>${t('calculator.cashWithMortgage', locale)}</span><strong data-calc-cash-with-mortgage>&euro;0</strong></div>
-            <div class="calculator-breakdown-bar" data-calc-bar>
-              <span class="calculator-bar-segment calculator-bar-segment--deposit" data-calc-bar-deposit></span>
-              <span class="calculator-bar-segment calculator-bar-segment--principal" data-calc-bar-principal></span>
-              <span class="calculator-bar-segment calculator-bar-segment--interest" data-calc-bar-interest></span>
-            </div>
-            <div class="calculator-bar-legend">
-              <span><i class="calculator-bar-segment--deposit"></i>${t('calculator.deposit', locale)}</span>
-              <span><i class="calculator-bar-segment--principal"></i>${t('calculator.legendPrincipal', locale)}</span>
-              <span><i class="calculator-bar-segment--interest"></i>${t('calculator.legendInterest', locale)}</span>
-            </div>
-            <div class="calculator-result-grid">
-              <div class="calculator-result"><span>${t('calculator.deposit', locale)}</span><strong data-calc-deposit-amount>&euro;0</strong></div>
-              <div class="calculator-result"><span>${t('calculator.resultLoan', locale)}</span><strong data-calc-loan>&euro;0</strong></div>
-              <div class="calculator-result"><span>${t('calculator.resultFinanced', locale)}</span><strong data-calc-financed-pct>0%</strong></div>
-              <div class="calculator-result"><span>${t('calculator.resultTotalInterest', locale)}</span><strong data-calc-total-interest>&euro;0</strong></div>
-              <div class="calculator-result"><span>${t('calculator.taxesAndCosts', locale)}</span><strong data-calc-costs-amount>&euro;0</strong></div>
-            </div>
-          </div>
-        </div>
+${renderCalculatorPanel(locale, calculatorSeedPrice)}
       </div>
     </section>
 
@@ -2710,7 +2739,7 @@ ${hreflangLinks(sourceProject.output, siteUrl)}
 ${fontPreloadBlock(p, locale)}
   <link rel="stylesheet" href="${p}assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="${p}assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="${p}assets/liora/liora-property.css?v=${propertyCssVersion}">${rtl ? `
+  ${isV2 ? `<link rel="stylesheet" href="${p}assets/liora/nueva-property-v2.css?v=${v2CssVersion}">` : `<link rel="stylesheet" href="${p}assets/liora/liora-property.css?v=${propertyCssVersion}">`}${rtl ? `
   <link rel="stylesheet" href="${p}assets/liora/liora-rtl.css?v=${rtlCssVersion}">` : ''}${liveLocationMap ? `
   <link rel="stylesheet" href="${p}assets/liora/nueva-location-map.css?v=${locationMapCssVersion}">
 ${leafletHead()}
@@ -2731,7 +2760,8 @@ ${leafletHead()}
   <link rel="preload" href="${p}assets/fonts/google/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${p}assets/liora/nueva-signature.css?v=${signatureCssVersion}">
   <script src="${p}assets/liora/nueva-signature.js?v=${signatureJsVersion}" defer></script>` : ''}
-  <script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
+  ${isV2 ? `<script src="${p}assets/liora/nueva-property-v2.js?v=${v2JsVersion}" defer></script>
+  ` : ''}<script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
   <script type="application/ld+json">
 ${JSON.stringify(webPageSchema, null, 2)}
   </script>
@@ -2741,14 +2771,14 @@ ${JSON.stringify(productSchema, null, 2)}
   <script type="application/ld+json">
 ${JSON.stringify(agentSchema, null, 2)}
   </script>
-  <script type="application/ld+json">
+${faqs.length ? `  <script type="application/ld+json">
 ${JSON.stringify(faqSchema, null, 2)}
-  </script>
+  </script>` : ''}
   <script type="application/ld+json">
 ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   </script>
 </head>
-<body${isBentley ? ' class="bentley-page"' : isVersace ? ' class="versace-page"' : isTyrian ? ' class="tyrian-page"' : isMajolica ? ' class="majolica-page"' : isSignature ? ' class="signature-page"' : ''}
+<body${isV2 ? ' class="v2-page"' : isBentley ? ' class="bentley-page"' : isVersace ? ' class="versace-page"' : isTyrian ? ' class="tyrian-page"' : isMajolica ? ' class="majolica-page"' : isSignature ? ' class="signature-page"' : ''}
   data-locale="${locale}"
   data-project-name="${esc(project.name)}"
   data-project-message="${esc(project.enquiry.message)}"
@@ -2757,14 +2787,14 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   ${nav(project, locale)}
   ${breadcrumb(project, locale)}
 
-  <main${isBentley ? ' class="bentley-main"' : isVersace ? ' class="versace-main"' : isTyrian ? ' class="tyrian-main"' : isMajolica ? ' class="majolica-main"' : isSignature ? ' class="signature-main"' : ''}>
-${isSignature ? signatureMain : standardMain}
+  <main${isV2 ? ' class="v2"' : isBentley ? ' class="bentley-main"' : isVersace ? ' class="versace-main"' : isTyrian ? ' class="tyrian-main"' : isMajolica ? ' class="majolica-main"' : isSignature ? ' class="signature-main"' : ''}>
+${isSignature || isV2 ? signatureMain : standardMain}
   </main>
 
-${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="${t('aria.projectRequestActions', locale)}">
+${isV2 ? '' : `${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="${t('aria.projectRequestActions', locale)}">
     <a href="#enquire" data-prefill>${hasPublishedAvailability ? t('cta.askAboutAHome', locale) : t('cta.requestAvailability', locale)}</a>
     <a href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">${t('cta.speakWithAdvisor', locale)}</a>
-  </div>
+  </div>`}
 
   ${footer(project, locale)}
   ${LANG_SWITCHER_SCRIPT}

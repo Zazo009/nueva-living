@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn er?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Almendro Homes"
   data-project-message="Goedendag Nueva Living, ik wil graag informatie over Almendro Homes."
@@ -451,642 +388,204 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Almendro Homes">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-almendro-homes.html#top">Almendro Homes<span>Vanaf € 332.000 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-almendro-homes.html#overview">Overzicht</a><a href="nl/property-almendro-homes.html#availability">Prijzen</a><a href="nl/property-almendro-homes.html#gallery">Galerij</a><a href="nl/property-almendro-homes.html#location">Locatie</a><a href="nl/property-almendro-homes.html#onsite">Op het terrein</a><a href="nl/property-almendro-homes.html#view">Onze kijk</a><a href="nl/property-almendro-homes.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-almendro-homes.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Almendro Homes">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.jpg" alt="Computergegenereerd beeld van een appartementengebouw met drie bouwlagen en lange terrassen, gezien over een gemeenschappelijk zwembad en een gazon" width="2000" height="1125" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.jpg" alt="Computergegenereerd beeld van een appartementengebouw met drie bouwlagen en lange terrassen, gezien over een gemeenschappelijk zwembad en een gazon" width="2000" height="1125" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">12 woningen te koop</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Almendro <em>Homes</em></span>
-            <span class="hero-title-context">Appartementen &amp; penthouses · Estepona</span>
-          </h1>
-          <p class="hero-positioning">12 appartementen en penthouses met twee slaapkamers in een besloten complex met eigentijdse woningen naast een golfclub in Estepona, met een gemeenschappelijk zwembad, een fitnessruimte en tuinen. De documenten van de ontwikkelaar noemen geen opleveringsdatum. Vanaf € 332.000 plus btw.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-almendro-homes.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=almendro-homes">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-almendro-homes.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Estepona</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 332.000 + btw</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartementen &amp; penthouses</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Oplevering nog te bevestigen</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-almendro-homes.html#media">Media</a>
-        <a href="nl/property-almendro-homes.html#location">Locatie</a>
-        <a href="nl/property-almendro-homes.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-almendro-homes.html#overview">Overzicht</a>
-          <a href="nl/property-almendro-homes.html#residences">Woningen</a>
-          <a href="nl/property-almendro-homes.html#calculator">Financiering</a>
-          <a href="nl/property-almendro-homes.html#amenities">Voorzieningen</a>
-          <a href="nl/property-almendro-homes.html#why-this-project">Waarom</a>
-          <a href="nl/property-almendro-homes.html#architecture">Architectuur</a>
-          <a href="nl/property-almendro-homes.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-almendro-homes.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-almendro-homes.html#faq">FAQ</a>
-          <a href="nl/property-almendro-homes.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>2 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Bebouwde oppervlakte</span><strong>107,82 - 126,50 m²</strong></div>
-          <div class="quick-fact"><span>Terrassen</span><strong>15,83 - 56,61 m²</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>12 woningen te koop</strong></div>
-          <div class="quick-fact"><span>Prijsklasse</span><strong>€ 332.000 - € 455.000</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-almendro-homes.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Twaalf woningen <em>op de lijst</em></h2>
-          <p class="project-lead">Dit is een besloten complex van eigentijdse appartementen en penthouses naast een golfclub in Estepona. Het portaal van de ontwikkelaar beschrijft het als 135 woningen met een, twee en drie slaapkamers, op het zuiden gericht, met tuinen bij de woningen op de begane grond, solariums bij de penthouses, een zwembad met zonneterras, een fitnessruimte en tuinen met inheemse beplanting. Het noemt dit de eerste fase en zegt niet hoeveel van de 135 woningen daarbij horen.</p>
-          <p class="project-lead">De prijslijst van deze fase toont 12 woningen, allemaal met twee slaapkamers en twee badkamers: vier op de begane grond, een op de eerste verdieping, twee op de tweede verdieping en vijf penthouses, in de blokken 2, 3, 5, 7, 8 en 9. Elk staat vermeld met een garageplaats en een berging. In geen van de documenten van de ontwikkelaar staat een opleveringsdatum.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">De woningen <em>in detail</em></h2>
-          </div>
-          <p class="project-lead">Computergegenereerde beelden van het complex en van de interieurs, en plattegronden van de 12 woningen op de lijst.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 7 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.jpg" alt="Computergegenereerd beeld van een appartementengebouw met drie bouwlagen en lange terrassen, gezien over een gemeenschappelijk zwembad en een gazon" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Het zwembad en de gebouwen met terrassen</strong>
-                <span class="project-media-card-cta">7 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 1 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/living-kitchen-640.webp 640w, assets/liora/projects/almendro-homes/media/living-kitchen-960.webp 960w, assets/liora/projects/almendro-homes/media/living-kitchen.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/almendro-homes/media/living-kitchen.jpg" alt="Computergegenereerde open woon- en eetkamer met een keukeneiland, een hoekbank en schuifdeuren naar het terras" width="2000" height="1009" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>Woonkamer en keuken</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Bekijk 2 afbeeldingen in Slaapkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/main-bedroom-640.webp 640w, assets/liora/projects/almendro-homes/media/main-bedroom-960.webp 960w, assets/liora/projects/almendro-homes/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/almendro-homes/media/main-bedroom.jpg" alt="Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een glazen deur naar een terras" width="2000" height="1098" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Slaapkamers</small>
-                <strong>Hoofdslaapkamer</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Bekijk 1 afbeeldingen in Badkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/bathroom-640.webp 640w, assets/liora/projects/almendro-homes/media/bathroom-960.webp 960w, assets/liora/projects/almendro-homes/media/bathroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/almendro-homes/media/bathroom.jpg" alt="Computergegenereerde badkamer met een zwevend wastafelmeubel, een toilet en een inloopdouche achter een glazen wand" width="2000" height="1619" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badkamers</small>
-                <strong>Badkamer</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Bekijk 12 afbeeldingen in Plattegronden">
-              <img src="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a.jpg" alt="Plattegrond van woning 2-2-BAJ-A" width="1624" height="1400" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plattegronden</small>
-                <strong>Woning 2-2-BAJ-A</strong>
-                <span class="project-media-card-cta">12 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 23 afbeeldingen</button>
-          <p class="media-note">Alle beelden zijn computergegenereerde illustraties en geen foto’s van het afgewerkte gebouw, en het meubilair en de inrichting die erop te zien zijn, dienen ter illustratie en zijn niet inbegrepen. De plattegronden zijn de projectplannen van de ontwikkelaar: de bladen van de begane grond zijn gedateerd april 2024 en de overige december 2024, en de oppervlakten erop zijn bij benadering en onder voorbehoud van het definitieve project. De ruimtenamen op de plattegronden zijn in het Spaans.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>naast een golfclub</em></h2>
-          <p class="project-lead">Het portaal plaatst het complex naast een golfclub in Estepona en zegt dat de woningen op het zuiden liggen. De documenten van de ontwikkelaar geven geen adres, perceelpositie of afstanden, dus de kaart plaatst het project op gebiedsniveau en de reistijden worden vanaf dat punt gemeten; de exacte positie en de reistijden bevestigen we tijdens een bezoek.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-almendro-homes" data-locmap='{&quot;site&quot;:[36.438,-5.203],&quot;sea&quot;:[36.411,-5.203],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;8,2 km · 19 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;9,1 km · 18 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;5,3 km · 14 min&quot;},{&quot;ll&quot;:[36.4106,-5.18261],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;8,4 km · 16 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Almendro Homes"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Almendro Homes</h3>
-            <p class="locmap-place">Estepona, naast een golfclub</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>9,1 km</bdi> <em><bdi>18 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,2 km</bdi> <em><bdi>19 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Estepona</span>
-              <span class="locmap-row-figure"><bdi>5,3 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>9,5 km</bdi> <em><bdi>20 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>47 km</bdi> <em><bdi>50 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Drie soorten woningen, <em>elk met twee slaapkamers</em></h2>
-          <p class="project-lead">De 12 vermelde woningen hebben allemaal twee slaapkamers en twee badkamers en vallen naar verdieping uiteen in drie groepen. De tabel hieronder toont ze allemaal met hun prijzen.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Begane grond, met overdekt terras of tuin</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-almendro-homes.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Eerste en tweede verdieping</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-almendro-homes.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Penthouses</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-almendro-homes.html#availability">Plattegronden bekijken</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-almendro-homes.html#availability">Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">12 woningen <em>momenteel te koop</em></h2>
-          <p class="project-lead">De prijzen komen uit de prijslijst van de ontwikkelaar per oktober 2026 en worden vóór de reservering bevestigd. De 12 woningen hieronder zijn allemaal appartementen en penthouses met twee slaapkamers en twee badkamers.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.jpg" alt="Computergegenereerd beeld van een appartementengebouw met drie bouwlagen en lange terrassen, gezien over een gemeenschappelijk zwembad en een gazon" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>11 foto's</button>
+          <a class="chip" href="nl/property-almendro-homes.html#availability"><svg><use href="#v2-i-plan"/></svg>Plattegronden</a>
+          <a class="chip" href="nl/property-almendro-homes.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>12</strong></div>
-            <div><span>Startprijs</span><strong>€ 332.000 + btw</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 332.000 - € 455.000 + btw</strong></div>
-            <div><span>Gecontroleerd</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 12 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
-              data-availability-filters
-              data-count-template="{shown} van {total} weergegeven">
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Woningtype</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
-                </div>
-              </div>
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Prijs</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Alle</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-400000" aria-pressed="false">Onder €400k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="400000-" aria-pressed="false">€400k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filters wissen</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Geen woningen komen overeen met deze filters.</p>
-            <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="332000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-2-BAJ-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a.jpg" alt="Plattegrond van 2-2-BAJ-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-2-BAJ-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>111,86 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>76,92 m²</dd></div>
-                    <div><dt>Terras</dt><dd>56,54 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, portiek 2, begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 332.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%202-2-BAJ-A">Vraag naar 2-2-BAJ-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="332000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-2-BAJ-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b.jpg" alt="Plattegrond van 2-2-BAJ-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-2-BAJ-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>111,85 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>76,92 m²</dd></div>
-                    <div><dt>Terras</dt><dd>56,61 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, portiek 2, begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 332.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%202-2-BAJ-B">Vraag naar 2-2-BAJ-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="455000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-1-ATC-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a.jpg" alt="Plattegrond van 3-1-ATC-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3-1-ATC-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>126,50 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>87,71 m²</dd></div>
-                    <div><dt>Terras</dt><dd>29,32 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 3, portiek 1, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 455.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%203-1-ATC-A">Vraag naar 3-1-ATC-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="344000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-2-BAJ-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a.jpg" alt="Plattegrond van 3-2-BAJ-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3-2-BAJ-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>110,62 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>76,92 m²</dd></div>
-                    <div><dt>Terras</dt><dd>56,54 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 3, portiek 2, begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 344.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%203-2-BAJ-A">Vraag naar 3-2-BAJ-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="445000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-3-ATC-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b.jpg" alt="Plattegrond van 3-3-ATC-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3-3-ATC-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>126,50 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>87,71 m²</dd></div>
-                    <div><dt>Terras</dt><dd>29,32 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 3, portiek 3, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 445.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%203-3-ATC-B">Vraag naar 3-3-ATC-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="370000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-1-BAJ-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a.jpg" alt="Plattegrond van 5-1-BAJ-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5-1-BAJ-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>115,18 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>79,73 m²</dd></div>
-                    <div><dt>Terras</dt><dd>38,87 m²</dd></div>
-                    <div><dt>Tuin</dt><dd>31,00 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 5, portiek 1, begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 370.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-1-BAJ-A">Vraag naar 5-1-BAJ-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="373000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-1-1-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a.jpg" alt="Plattegrond van 5-1-1-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5-1-1-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>115,31 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>79,73 m²</dd></div>
-                    <div><dt>Terras</dt><dd>39,75 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 5, portiek 1, eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 373.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-1-1-A">Vraag naar 5-1-1-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="380000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-2-ATC-C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c.jpg" alt="Plattegrond van 5-2-ATC-C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5-2-ATC-C</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>107,82 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>76,44 m²</dd></div>
-                    <div><dt>Terras</dt><dd>15,83 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 5, portiek 2, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 380.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-2-ATC-C">Vraag naar 5-2-ATC-C</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="380000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-3-ATC-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a.jpg" alt="Plattegrond van 5-3-ATC-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5-3-ATC-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>107,82 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>76,44 m²</dd></div>
-                    <div><dt>Terras</dt><dd>15,83 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 5, portiek 3, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 380.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-3-ATC-A">Vraag naar 5-3-ATC-A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="408000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 7-3-2-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b.jpg" alt="Plattegrond van 7-3-2-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">7-3-2-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>114,12 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>79,62 m²</dd></div>
-                    <div><dt>Terras</dt><dd>29,91 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 7, portiek 3, tweede verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 408.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%207-3-2-B">Vraag naar 7-3-2-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="408000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 8-3-2-B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b.jpg" alt="Plattegrond van 8-3-2-B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">8-3-2-B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>114,16 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>79,62 m²</dd></div>
-                    <div><dt>Terras</dt><dd>29,91 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 8, portiek 3, tweede verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 408.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%208-3-2-B">Vraag naar 8-3-2-B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="360000">
-                <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 9-2-ATC-A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a.jpg" alt="Plattegrond van 9-2-ATC-A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">9-2-ATC-A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>107,99 m²</dd></div>
-                    <div><dt>Binnenoppervlak</dt><dd>76,44 m²</dd></div>
-                    <div><dt>Terras</dt><dd>15,91 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 9, portiek 2, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 360.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%209-2-ATC-A">Vraag naar 9-2-ATC-A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Prijzen, oppervlakten en beschikbaarheid zijn overgenomen uit de prijslijst van de ontwikkelaar voor de eerste fase zoals die in oktober 2026 op zijn portaal stond; die markeert alle 12 woningen als beschikbaar en vermeldt dat de prijzen exclusief btw zijn, zonder het tarief te noemen. De bebouwde oppervlakte bevat een aandeel in de gemeenschappelijke ruimten, zoals de plattegronden aangeven. Het getoonde terras is bij de woningen op de begane grond het cijfer voor ‘porche’ (overdekt terras) van de lijst en bij de overige het terrascijfer; waar de lijst een overdekt en een open terras geeft (woningen 5-1-1-A, 5-2-ATC-C, 5-3-ATC-A en 9-2-ATC-A) telt de tabel ze op, en woning 5-1-BAJ-A heeft daarnaast een tuin van 31,00 m². De terrascijfers van de lijst zijn 0,6 tot 4,2 m² groter dan de buitenoppervlakten op de plattegronden. De lijst vermeldt per woning een garageplaats en een berging en zegt niet of die in de prijs zijn inbegrepen. De referenties lezen als blok, portiek, verdieping en deur, zoals op de plattegronden.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-almendro-homes.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Almendro%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Almendro Homes" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Almendro</span> <span class="h1-b">Homes</span></h1>
+        <p class="hero-by">12 appartementen en penthouses met twee slaapkamers in een besloten complex met eigentijdse woningen naast een golfclub in Estepona, met een gemeenschappelijk zwembad, een fitnessruimte en tuinen.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 332.000</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>2</dd><dd class="sub"><span>Appartementen &amp; penthouses</span></dd></div><div><dt>Oplevering</dt><dd>nog te bevestigen</dd><dd class="sub">Vergunning: wij bevestigen dit voordat u reserveert</dd></div><div><dt>Nog beschikbaar</dt><dd>12 aangeboden</dd><dd class="sub">Gecontroleerd op oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-almendro-homes.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Almendro%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Almendro Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Dit is een besloten complex van eigentijdse appartementen en penthouses naast een golfclub in Estepona. Het portaal van de ontwikkelaar beschrijft het als 135 woningen met een, twee en drie slaapkamers, op het zuiden gericht, met tuinen bij de woningen op de begane grond, solariums bij de penthouses, een zwembad met zonneterras, een fitnessruimte en tuinen met inheemse beplanting. Het noemt dit de eerste fase en zegt niet hoeveel van de 135 woningen daarbij horen.</p>
+    <p class="lede-2">De prijslijst van deze fase toont 12 woningen, allemaal met twee slaapkamers en twee badkamers: vier op de begane grond, een op de eerste verdieping, twee op de tweede verdieping en vijf penthouses, in de blokken 2, 3, 5, 7, 8 en 9. Elk staat vermeld met een garageplaats en een berging. In geen van de documenten van de ontwikkelaar staat een opleveringsdatum.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Eigentijdse gebouwen, gebouwd rond terrassen</span></summary><p>Het portaal van de ontwikkelaar beschrijft het ontwerp als eigentijds. In de computergegenereerde beelden rijzen de gebouwen op tot drie en vier bouwlagen met lange stroken terrassen met glazen balustrades, te midden van gazons, met een zwembad en een glazen fitnessgebouw in de tuinen.</p><p>Op de plattegronden komen de woningen op de begane grond uit op een overdekt terras en sommige ook op een groen gearceerd gedeelte, de hogere verdiepingen op een terras. De bladen van december 2024 vermelden dat de groen gearceerde delen worden uitgevoerd met kunstgras op een constructie.</p><ul><li>De woningen: Twee slaapkamers, twee badkamers, een hal en een woon- en eetkamer met keuken, op 76,44 tot 87,71 m² binnenoppervlak.</li><li>Buiten: De woningen op de begane grond hebben een overdekt terras van 56,54 tot 56,61 m², of een van 38,87 m² met een tuin van 31,00 m². De hogere verdiepingen hebben terrassen van 15,83 tot 39,75 m².</li><li>Gemeenschappelijke ruimtes: Een zwembad met zonneterras, een fitnessruimte en tuinen met inheemse beplanting, binnen een besloten complex, zoals het portaal ze beschrijft.</li><li>Parkeren en berging: Bij elke woning staan een garageplaats en een berging vermeld.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 332.000 – € 455.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>12 aangeboden</span><small>Gecontroleerd op oktober 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartementen &amp; penthouses</span></dd></div><div><dt>Oppervlakten</dt><dd><span>108 – 127 m²</span><small>Bebouwde oppervlakte</small></dd></div><div><dt>Oplevering</dt><dd><span>nog te bevestigen</span></dd></div><div><dt>Vergunning</dt><dd><span>Niet vermeld</span><small>Wij bevestigen dit voordat u reserveert</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Garageplaats</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">De prijzen komen uit de prijslijst van de ontwikkelaar per oktober 2026 en worden vóór de reservering bevestigd. De 12 woningen hieronder zijn allemaal appartementen en penthouses met twee slaapkamers en twee badkamers. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="332000" data-size="111.86" data-ppm="2968" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a-640.webp">
+            <th scope="row"><span class="u-name">2-2-BAJ-A</span><span class="u-loc">Blok 2, portiek 2, begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">112 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 332.000</td>
+            <td data-label="Per m²" class="num">€ 2.968</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-2-BAJ-A"><img src="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="332000" data-size="111.85" data-ppm="2968" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b-640.webp">
+            <th scope="row"><span class="u-name">2-2-BAJ-B</span><span class="u-loc">Blok 2, portiek 2, begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">112 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 332.000</td>
+            <td data-label="Per m²" class="num">€ 2.968</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2-2-BAJ-B"><img src="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="455000" data-size="126.5" data-ppm="3597" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a-640.webp">
+            <th scope="row"><span class="u-name">3-1-ATC-A</span><span class="u-loc">Blok 3, portiek 1, penthouse</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">127 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 455.000</td>
+            <td data-label="Per m²" class="num">€ 3.597</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-1-ATC-A"><img src="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="344000" data-size="110.62" data-ppm="3110" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a-640.webp">
+            <th scope="row"><span class="u-name">3-2-BAJ-A</span><span class="u-loc">Blok 3, portiek 2, begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">111 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 344.000</td>
+            <td data-label="Per m²" class="num">€ 3.110</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-2-BAJ-A"><img src="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="445000" data-size="126.5" data-ppm="3518" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b-640.webp">
+            <th scope="row"><span class="u-name">3-3-ATC-B</span><span class="u-loc">Blok 3, portiek 3, penthouse</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">127 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 445.000</td>
+            <td data-label="Per m²" class="num">€ 3.518</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3-3-ATC-B"><img src="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="370000" data-size="115.18" data-ppm="3212" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a-640.webp">
+            <th scope="row"><span class="u-name">5-1-BAJ-A</span><span class="u-loc">Blok 5, portiek 1, begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">115 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 370.000</td>
+            <td data-label="Per m²" class="num">€ 3.212</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-1-BAJ-A"><img src="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="373000" data-size="115.31" data-ppm="3235" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a-640.webp">
+            <th scope="row"><span class="u-name">5-1-1-A</span><span class="u-loc">Blok 5, portiek 1, eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">115 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 373.000</td>
+            <td data-label="Per m²" class="num">€ 3.235</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-1-1-A"><img src="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="380000" data-size="107.82" data-ppm="3524" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c-640.webp">
+            <th scope="row"><span class="u-name">5-2-ATC-C</span><span class="u-loc">Blok 5, portiek 2, penthouse</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">108 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 380.000</td>
+            <td data-label="Per m²" class="num">€ 3.524</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-2-ATC-C"><img src="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="2" data-price="380000" data-size="107.82" data-ppm="3524" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a-640.webp">
+            <th scope="row"><span class="u-name">5-3-ATC-A</span><span class="u-loc">Blok 5, portiek 3, penthouse</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">108 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 380.000</td>
+            <td data-label="Per m²" class="num">€ 3.524</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 5-3-ATC-A"><img src="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="408000" data-size="114.12" data-ppm="3575" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b-640.webp">
+            <th scope="row"><span class="u-name">7-3-2-B</span><span class="u-loc">Blok 7, portiek 3, tweede verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">114 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 408.000</td>
+            <td data-label="Per m²" class="num">€ 3.575</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 7-3-2-B"><img src="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="2" data-price="408000" data-size="114.16" data-ppm="3574" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b-640.webp">
+            <th scope="row"><span class="u-name">8-3-2-B</span><span class="u-loc">Blok 8, portiek 3, tweede verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">114 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 408.000</td>
+            <td data-label="Per m²" class="num">€ 3.574</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 8-3-2-B"><img src="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u11" data-beds="2" data-price="360000" data-size="107.99" data-ppm="3334" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a-640.webp">
+            <th scope="row"><span class="u-name">9-2-ATC-A</span><span class="u-loc">Blok 9, portiek 2, penthouse</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">108 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 360.000</td>
+            <td data-label="Per m²" class="num">€ 3.334</td>
+            <td class="u-plan"><a href="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 9-2-ATC-A"><img src="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Drie soorten woningen, elk met twee slaapkamers</span></summary><p>De 12 vermelde woningen hebben allemaal twee slaapkamers en twee badkamers en vallen naar verdieping uiteen in drie groepen. De tabel hieronder toont ze allemaal met hun prijzen.</p><div class="res-types"><div class="res-type"><h3>Begane grond, met overdekt terras of tuin</h3><ul><li>Vier woningen: 2-2-BAJ-A en 2-2-BAJ-B met 111,86 en 111,85 m² bebouwd, 3-2-BAJ-A met 110,62 m² en 5-1-BAJ-A met 115,18 m².</li><li>Drie ervan hebben een overdekt terras van 56,54 tot 56,61 m²; 5-1-BAJ-A heeft een van 38,87 m² en een tuin van 31,00 m².</li><li>De prijzen lopen van € 332.000 tot € 370.000.</li></ul></div><div class="res-type"><h3>Eerste en tweede verdieping</h3><ul><li>Drie woningen: 5-1-1-A op de eerste verdieping met 115,31 m² bebouwd en een terras van 39,75 m², en 7-3-2-B en 8-3-2-B op de tweede verdieping met 114,12 en 114,16 m² bebouwd en een terras van 29,91 m².</li><li>De woning op de eerste verdieping kost € 373.000 en elke woning op de tweede verdieping € 408.000.</li></ul></div><div class="res-type"><h3>Penthouses</h3><ul><li>Vijf penthouses van 107,82 tot 126,50 m² bebouwd en 76,44 tot 87,71 m² binnenoppervlak.</li><li>De twee in blok 3 hebben een terras van 29,32 m²; de drie in de blokken 5 en 9 hebben terrassen van 15,83 tot 15,91 m².</li><li>De prijzen lopen van € 360.000 tot € 455.000. De tekst van het portaal noemt solariums bij de penthouses, maar de plattegronden van deze vijf tonen alleen terrassen.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-almendro-homes.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1146,374 +645,199 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk zwembad</h3>
-              <p class="amenity-note">Gedeeld door de bewoners</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Het zwembad en de gebouwen met terrassen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.jpg" alt="Computergegenereerd beeld van een appartementengebouw met drie bouwlagen en lange terrassen, gezien over een gemeenschappelijk zwembad en een gazon" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Woonkamer en keuken"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/living-kitchen-640.webp 640w, assets/liora/projects/almendro-homes/media/living-kitchen-960.webp 960w, assets/liora/projects/almendro-homes/media/living-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/almendro-homes/media/living-kitchen.jpg" alt="Computergegenereerde open woon- en eetkamer met een keukeneiland, een hoekbank en schuifdeuren naar het terras" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Hoofdslaapkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/main-bedroom-640.webp 640w, assets/liora/projects/almendro-homes/media/main-bedroom-960.webp 960w, assets/liora/projects/almendro-homes/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/almendro-homes/media/main-bedroom.jpg" alt="Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een glazen deur naar een terras" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Badkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/bathroom-640.webp 640w, assets/liora/projects/almendro-homes/media/bathroom-960.webp 960w, assets/liora/projects/almendro-homes/media/bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/almendro-homes/media/bathroom.jpg" alt="Computergegenereerde badkamer met een zwevend wastafelmeubel, een toilet en een inloopdouche achter een glazen wand" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="De gebouwen naast de golfbaan"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/almendro-homes/media/aerial-golf-and-sea-640.webp 640w, assets/liora/projects/almendro-homes/media/aerial-golf-and-sea-960.webp 960w, assets/liora/projects/almendro-homes/media/aerial-golf-and-sea.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/almendro-homes/media/aerial-golf-and-sea.jpg" alt="Computergegenereerde luchtfoto van witte appartementengebouwen naast een golfbaan, met de zee en de kust in de verte" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 11 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (7)</button><button type="button" data-open-cat="Interiors">Interieur (1)</button><button type="button" data-open-cat="Bedrooms">Slaapkamers (2)</button><button type="button" data-open-cat="Bathrooms">Badkamers (1)</button></div>
+    
+    <p class="caption">Alle beelden zijn computergegenereerde illustraties en geen foto’s van het afgewerkte gebouw, en het meubilair en de inrichting die erop te zien zijn, dienen ter illustratie en zijn niet inbegrepen. De plattegronden zijn de projectplannen van de ontwikkelaar: de bladen van de begane grond zijn gedateerd april 2024 en de overige december 2024, en de oppervlakten erop zijn bij benadering en onder voorbehoud van het definitieve project. De ruimtenamen op de plattegronden zijn in het Spaans.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">Het portaal plaatst het complex naast een golfclub in Estepona en zegt dat de woningen op het zuiden liggen. De documenten van de ontwikkelaar geven geen adres, perceelpositie of afstanden, dus de kaart plaatst het project op gebiedsniveau en de reistijden worden vanaf dat punt gemeten; de exacte positie en de reistijden bevestigen we tijdens een bezoek.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-almendro-homes" data-locmap='{&quot;site&quot;:[36.438,-5.203],&quot;sea&quot;:[36.411,-5.203],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;8,2 km · 19 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;9,1 km · 18 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;5,3 km · 14 min&quot;},{&quot;ll&quot;:[36.4106,-5.18261],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;8,4 km · 16 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Almendro Homes"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Almendro Homes</h3>
+            <p class="locmap-place">Estepona, naast een golfclub</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Fitnessruimte</h3>
-              <p class="amenity-note">Binnen het project</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>9,1 km</bdi> <em><bdi>18 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Buiten</span>
-              <h3 class="amenity-name">Aangelegde gemeenschappelijke tuinen</h3>
-              <p class="amenity-note">Beplante gemeenschappelijke grond</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,2 km</bdi> <em><bdi>19 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Buiten</span>
-              <h3 class="amenity-name">Privétuin</h3>
-              <p class="amenity-note">Omsloten en eigen aan de woning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Estepona</span>
+              <span class="locmap-row-figure"><bdi>5,3 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Garageplaats</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>9,5 km</bdi> <em><bdi>20 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Berging</h3>
-              <p class="amenity-note">Een afsluitbare berging</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>47 km</bdi> <em><bdi>50 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Diensten</span>
-              <h3 class="amenity-name">Besloten complex</h3>
-              <p class="amenity-note">Gecontroleerde toegang</p>
             </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Golfclub</th><td>Grenst aan het complex</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">Het portaal van de ontwikkelaar beschrijft een besloten complex met gedeelde voorzieningen voor de bewoners, naast een golfclub.</p>
+    <div class="life-panels"><div><h3>Het zwembad</h3><p>Een gemeenschappelijk zwembad met zonneterras, in de computergegenereerde beelden omringd door de gebouwen.</p></div><div><h3>De fitnessruimte</h3><p>Het portaal vermeldt een fitnessruimte; het computergegenereerde beeld toont die in een glazen gebouw in de tuinen.</p></div><div><h3>De tuinen</h3><p>Tuinen met inheemse beplanting binnen een besloten complex.</p></div><div><h3>De golfbaan</h3><p>Het portaal plaatst het complex naast een golfclub in Estepona.</p></div></div>
+    <ul class="amen-top"><li>Gemeenschappelijk zwembad</li><li>Fitnessruimte</li><li>Aangelegde gemeenschappelijke tuinen</li><li>Besloten complex</li><li>Garageplaats</li><li>Berging</li></ul>
+    <details class="amen-all"><summary>Alle 7 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">2</span></h3><ul><li>Gemeenschappelijk zwembad</li><li>Fitnessruimte</li></ul></div><div><h3>Buiten<span class="count">2</span></h3><ul><li>Aangelegde gemeenschappelijke tuinen</li><li>Privétuin</li></ul></div><div><h3>Dagelijks<span class="count">2</span></h3><ul><li>Garageplaats</li><li>Berging</li></ul></div><div><h3>Diensten<span class="count">1</span></h3><ul><li>Besloten complex</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een nieuwe woning met twee slaapkamers en twee badkamers willen, met een groot terras of een overdekt terras, een zwembad en een fitnessruimte in het complex en een golfclub naast de deur.</span></li><li><b>Wat het anders maakt</b><span>Overdekte terrassen van ongeveer 56 m² of een tuin op de begane grond, terrassen op alle andere verdiepingen, een zuidoriëntatie en prijzen vanaf € 332.000 plus btw.</span></li><li><b>Waarom de locatie ertoe doet</b><span>Het portaal plaatst het complex naast een golfclub in Estepona. De documenten van de ontwikkelaar noemen geen afstanden, dus we meten samen met u de rit naar het strand, de stad en het vliegveld.</span></li><li><b>Waarom de details controleren</b><span>In de documenten staat geen opleveringsdatum, en het portaal noemt solariums bij de penthouses terwijl de plattegronden van de vermelde penthouses terrassen tonen. Beide bevestigen we vóór elke reservering.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Reservering</b><span>Het portaal vermeldt geen reserveringsbetaling.</span></li><li><b>Kopers die buiten Spanje wonen</b><span>30% plus btw bij ondertekening van de onderhandse koopovereenkomst en 70% plus btw bij oplevering ten overstaan van de notaris.</span></li><li><b>Kopers die in Spanje wonen</b><span>20% plus btw bij ondertekening van de onderhandse koopovereenkomst en 80% plus btw bij oplevering ten overstaan van de notaris.</span></li><li><b>Btw en waarborg</b><span>De prijslijst is exclusief btw en vermeldt het tarief niet. De documenten vermelden geen waarborg op vooruitbetalingen, dus we vragen de polis voordat er iets wordt betaald.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vergunning, werken en oplevering</b><span>De documenten waarover we beschikken geven geen opleveringsdatum en zeggen niet of de bouwvergunning is verleend of hoe ver de werken zijn. Het portaal heeft een pagina over de voortgang van de werken die niet bij ons materiaal zat. We vragen om de vergunning, de stand van de werken en de contractuele datum.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De oppervlakten</b><span>De bebouwde en binnenoppervlakten op de prijslijst komen met de plattegronden overeen tot op 0,01 m², maar de terras- en verandacijfers van de lijst zijn 0,6 tot 4,2 m² groter dan de buitenoppervlakten op de plattegronden: voor woning 5-1-1-A geeft de lijst 33,24 m² overdekt en 6,51 m² open terras (39,75 m²), de plattegrond 35,53 m². De plattegronden geven ook grotere oppervlakten volgens Decreet 218/2005, bijvoorbeeld 120,94 m² bebouwd voor woning 2-2-BAJ-B tegenover 111,85 m². We bevestigen welk cijfer het contract hanteert.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Solariums bij de penthouses</b><span>De tekst van het portaal noemt penthouses met een solarium. De plattegronden van de vijf vermelde penthouses tonen één niveau met een terras en geen solarium. We vragen of een van de vermelde penthouses er een heeft.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De plattegronden en de fase</b><span>De plattegronden zeggen dat ze niet definitief zijn. De bladen van de begane grond zijn gedateerd april 2024 en volgen het basisproject; de overige zijn gedateerd december 2024 en volgen het uitvoeringsproject. Het portaal beschrijft 135 woningen zonder te zeggen hoeveel er in deze fase zitten.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>De plattegronden van de woningen die u interesseren en de prijslijst.</p></li><li><h3>Vergelijk de opties</h3><p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p></li><li><h3>Privébezichtiging</h3><p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p></li><li><h3>Reserveren</h3><p>We bevestigen de voorwaarden en het betalingsschema schriftelijk, daarna volgt de onderhandse koopovereenkomst.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plattegronden<small>12 van 12 woningen</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-almendro-homes.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Almendro</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn er?</summary><p>Het portaal van de ontwikkelaar beschrijft het complex als 135 woningen met een, twee en drie slaapkamers. De prijslijst van deze fase toont er 12, allemaal met twee slaapkamers en twee badkamers, van € 332.000 tot € 455.000 excl. btw.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>Nee. De prijslijst vermeldt dat de prijzen exclusief btw zijn en geeft het tarief niet. We bevestigen de belastingen en aankoopkosten schriftelijk.</p></details><details class="segment-faq-item"><summary>Is er parkeergelegenheid?</summary><p>De prijslijst vermeldt per woning een garageplaats en een berging. Ze zegt niet of die in de prijs zijn inbegrepen, dus we bevestigen dat.</p></details><details class="segment-faq-item"><summary>Wanneer is het klaar?</summary><p>In geen enkel document waarover we beschikken staat een opleveringsdatum. Het portaal heeft een pagina over de voortgang van de werken die we niet hebben ontvangen, dus we vragen naar de stand van de werken en de contractuele datum.</p></details><details class="segment-faq-item"><summary>Wat is het betalingsschema?</summary><p>Het portaal vermeldt geen reserveringsbetaling. Kopers die buiten Spanje wonen betalen 30% plus btw bij ondertekening van de onderhandse koopovereenkomst en 70% plus btw bij oplevering ten overstaan van de notaris; kopers die in Spanje wonen betalen 20% plus btw en 80% plus btw.</p></details></div>
+    <details class="faq2-more"><summary>Alle vragen tonen (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Hebben de penthouses een solarium?</summary><p>De tekst van het portaal noemt penthouses met een solarium, maar de plattegronden van de vijf vermelde penthouses tonen een terras en geen solariumniveau. We bevestigen dit vóór elke reservering.</p></details></div></details>
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 332.000</p>
+      <p class="rail-note">Excl. btw. · Gecontroleerd op oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-almendro-homes.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Almendro%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Almendro Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Almendro%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Almendro Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Bezoek met ons de omgeving naast de golfclub en zie hoe ver de werken zijn.</li><li><b>Met de auto.</b> We rijden met u naar het centrum van Estepona en het strand en meten de reistijd.</li><li><b>Op papier.</b> Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Almendro Homes">
+        <input type="hidden" id="f-project" name="project" value="Almendro Homes">
+        <input type="hidden" name="preferred_area" value="Estepona">
+        <input type="hidden" name="property_type_interest" value="Appartementen &amp; penthouses">
+        <input type="hidden" name="budget_range" value="Vanaf € 332.000 + btw">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Goedendag Nueva Living, ik wil graag informatie over Almendro Homes." data-base="Goedendag Nueva Living, ik wil graag informatie over Almendro Homes.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="2-2-BAJ-A">2-2-BAJ-A: € 332.000</option><option value="2-2-BAJ-B">2-2-BAJ-B: € 332.000</option><option value="3-1-ATC-A">3-1-ATC-A: € 455.000</option><option value="3-2-BAJ-A">3-2-BAJ-A: € 344.000</option><option value="3-3-ATC-B">3-3-ATC-B: € 445.000</option><option value="5-1-BAJ-A">5-1-BAJ-A: € 370.000</option><option value="5-1-1-A">5-1-1-A: € 373.000</option><option value="5-2-ATC-C">5-2-ATC-C: € 380.000</option><option value="5-3-ATC-A">5-3-ATC-A: € 380.000</option><option value="7-3-2-B">7-3-2-B: € 408.000</option><option value="8-3-2-B">8-3-2-B: € 408.000</option><option value="9-2-ATC-A">9-2-ATC-A: € 360.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Almendro veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Woningen met twee slaapkamers naast een golfclub in Estepona, van woningen op de begane grond met een overdekt terras tot penthouses, elk vermeld met een garageplaats en een berging.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een nieuwe woning met twee slaapkamers en twee badkamers willen, met een groot terras of een overdekt terras, een zwembad en een fitnessruimte in het complex en een golfclub naast de deur.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>Overdekte terrassen van ongeveer 56 m² of een tuin op de begane grond, terrassen op alle andere verdiepingen, een zuidoriëntatie en prijzen vanaf € 332.000 plus btw.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>Het portaal plaatst het complex naast een golfclub in Estepona. De documenten van de ontwikkelaar noemen geen afstanden, dus we meten samen met u de rit naar het strand, de stad en het vliegveld.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de details controleren</h3><p>In de documenten staat geen opleveringsdatum, en het portaal noemt solariums bij de penthouses terwijl de plattegronden van de vermelde penthouses terrassen tonen. Beide bevestigen we vóór elke reservering.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">De voorwaarden zijn die van het portaal van de ontwikkelaar. We bevestigen de bedragen en data schriftelijk voordat u zich vastlegt.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservering</h3><p>Het portaal vermeldt geen reserveringsbetaling.</p></article>
-              <article class="why-point reveal-soft"><h3>Kopers die buiten Spanje wonen</h3><p>30% plus btw bij ondertekening van de onderhandse koopovereenkomst en 70% plus btw bij oplevering ten overstaan van de notaris.</p></article>
-              <article class="why-point reveal-soft"><h3>Kopers die in Spanje wonen</h3><p>20% plus btw bij ondertekening van de onderhandse koopovereenkomst en 80% plus btw bij oplevering ten overstaan van de notaris.</p></article>
-              <article class="why-point reveal-soft"><h3>Btw en waarborg</h3><p>De prijslijst is exclusief btw en vermeldt het tarief niet. De documenten vermelden geen waarborg op vooruitbetalingen, dus we vragen de polis voordat er iets wordt betaald.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vergunning, werken en oplevering</h3><p>De documenten waarover we beschikken geven geen opleveringsdatum en zeggen niet of de bouwvergunning is verleend of hoe ver de werken zijn. Het portaal heeft een pagina over de voortgang van de werken die niet bij ons materiaal zat. We vragen om de vergunning, de stand van de werken en de contractuele datum.</p></article>
-              <article class="why-point reveal-soft"><h3>De oppervlakten</h3><p>De bebouwde en binnenoppervlakten op de prijslijst komen met de plattegronden overeen tot op 0,01 m², maar de terras- en verandacijfers van de lijst zijn 0,6 tot 4,2 m² groter dan de buitenoppervlakten op de plattegronden: voor woning 5-1-1-A geeft de lijst 33,24 m² overdekt en 6,51 m² open terras (39,75 m²), de plattegrond 35,53 m². De plattegronden geven ook grotere oppervlakten volgens Decreet 218/2005, bijvoorbeeld 120,94 m² bebouwd voor woning 2-2-BAJ-B tegenover 111,85 m². We bevestigen welk cijfer het contract hanteert.</p></article>
-              <article class="why-point reveal-soft"><h3>Solariums bij de penthouses</h3><p>De tekst van het portaal noemt penthouses met een solarium. De plattegronden van de vijf vermelde penthouses tonen één niveau met een terras en geen solarium. We vragen of een van de vermelde penthouses er een heeft.</p></article>
-              <article class="why-point reveal-soft"><h3>De plattegronden en de fase</h3><p>De plattegronden zeggen dat ze niet definitief zijn. De bladen van de begane grond zijn gedateerd april 2024 en volgen het basisproject; de overige zijn gedateerd december 2024 en volgen het uitvoeringsproject. Het portaal beschrijft 135 woningen zonder te zeggen hoeveel er in deze fase zitten.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op oktober 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>Prijzen, oppervlakten en beschikbaarheid zijn overgenomen uit de prijslijst van de ontwikkelaar voor de eerste fase zoals die in oktober 2026 op zijn portaal stond; die markeert alle 12 woningen als beschikbaar en vermeldt dat de prijzen exclusief btw zijn, zonder het tarief te noemen. De bebouwde oppervlakte bevat een aandeel in de gemeenschappelijke ruimten, zoals de plattegronden aangeven. Het getoonde terras is bij de woningen op de begane grond het cijfer voor ‘porche’ (overdekt terras) van de lijst en bij de overige het terrascijfer; waar de lijst een overdekt en een open terras geeft (woningen 5-1-1-A, 5-2-ATC-C, 5-3-ATC-A en 9-2-ATC-A) telt de tabel ze op, en woning 5-1-BAJ-A heeft daarnaast een tuin van 31,00 m². De terrascijfers van de lijst zijn 0,6 tot 4,2 m² groter dan de buitenoppervlakten op de plattegronden. De lijst vermeldt per woning een garageplaats en een berging en zegt niet of die in de prijs zijn inbegrepen. De referenties lezen als blok, portiek, verdieping en deur, zoals op de plattegronden.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/almendro-homes/media/blocks-from-the-lawn.jpg" alt="Computergegenereerd beeld van een lang appartementengebouw met vier bouwlagen en terrassen met glazen balustrades, gezien over een gazon" width="2000" height="1125" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Eigentijdse gebouwen, <em>gebouwd rond terrassen</em></h2>
-          <p>Het portaal van de ontwikkelaar beschrijft het ontwerp als eigentijds. In de computergegenereerde beelden rijzen de gebouwen op tot drie en vier bouwlagen met lange stroken terrassen met glazen balustrades, te midden van gazons, met een zwembad en een glazen fitnessgebouw in de tuinen.</p>
-<p>Op de plattegronden komen de woningen op de begane grond uit op een overdekt terras en sommige ook op een groen gearceerd gedeelte, de hogere verdiepingen op een terras. De bladen van december 2024 vermelden dat de groen gearceerde delen worden uitgevoerd met kunstgras op een constructie.</p>
-          <ul class="feature-list">
-            <li>De woningen — Twee slaapkamers, twee badkamers, een hal en een woon- en eetkamer met keuken, op 76,44 tot 87,71 m² binnenoppervlak.</li>
-            <li>Buiten — De woningen op de begane grond hebben een overdekt terras van 56,54 tot 56,61 m², of een van 38,87 m² met een tuin van 31,00 m². De hogere verdiepingen hebben terrassen van 15,83 tot 39,75 m².</li>
-            <li>Gemeenschappelijke ruimtes — Een zwembad met zonneterras, een fitnessruimte en tuinen met inheemse beplanting, binnen een besloten complex, zoals het portaal ze beschrijft.</li>
-            <li>Parkeren en berging — Bij elke woning staan een garageplaats en een berging vermeld.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Almendro%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Almendro Homes" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-almendro-homes.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/almendro-homes/media/terrace-at-dusk.jpg" alt="Computergegenereerd beeld van een terras bij schemering met twee ligbedden, een bank en verlichte plantenbakken, voor een glazen woonkamer" width="2000" height="929" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>de omgeving en de plattegronden</em></h2>
-            <p>Bij een bezoek gaat het om de ligging, de plattegronden en de stand van de werken.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Bezoek met ons de omgeving naast de golfclub en zie hoe ver de werken zijn.</p></div>
-              <div><span>Met de auto</span><p>We rijden met u naar het centrum van Estepona en het strand en meten de reistijd.</p></div>
-              <div><span>Op papier</span><p>Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=almendro-homes">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-almendro-homes.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Interiors">Interieur</button><button type="button" data-cat="Bedrooms">Slaapkamers</button><button type="button" data-cat="Bathrooms">Badkamers</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/almendro-homes/media/terrace-sea-view.jpg" alt="Computergegenereerd beeld van een overdekt terras met loungemeubilair en uitzicht op de zee en de kust" width="2000" height="995" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Een zwembad, een fitnessruimte <em>en de golf naast de deur</em></h2>
-            <p>Het portaal van de ontwikkelaar beschrijft een besloten complex met gedeelde voorzieningen voor de bewoners, naast een golfclub.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>De plattegronden van de woningen die u interesseren en de prijslijst.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de opties</h3>
-            <p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserveren</h3>
-            <p>We bevestigen de voorwaarden en het betalingsschema schriftelijk, daarna volgt de onderhandse koopovereenkomst.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn er?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Het portaal van de ontwikkelaar beschrijft het complex als 135 woningen met een, twee en drie slaapkamers. De prijslijst van deze fase toont er 12, allemaal met twee slaapkamers en twee badkamers, van € 332.000 tot € 455.000 excl. btw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. De prijslijst vermeldt dat de prijzen exclusief btw zijn en geeft het tarief niet. We bevestigen de belastingen en aankoopkosten schriftelijk.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is er parkeergelegenheid?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De prijslijst vermeldt per woning een garageplaats en een berging. Ze zegt niet of die in de prijs zijn inbegrepen, dus we bevestigen dat.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is het klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>In geen enkel document waarover we beschikken staat een opleveringsdatum. Het portaal heeft een pagina over de voortgang van de werken die we niet hebben ontvangen, dus we vragen naar de stand van de werken en de contractuele datum.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het betalingsschema?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Het portaal vermeldt geen reserveringsbetaling. Kopers die buiten Spanje wonen betalen 30% plus btw bij ondertekening van de onderhandse koopovereenkomst en 70% plus btw bij oplevering ten overstaan van de notaris; kopers die in Spanje wonen betalen 20% plus btw en 80% plus btw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hebben de penthouses een solarium?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De tekst van het portaal noemt penthouses met een solarium, maar de plattegronden van de vijf vermelde penthouses tonen een terras en geen solariumniveau. We bevestigen dit vóór elke reservering.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>Almendro Homes</em></h2>
-          <p class="body-copy">Vertel ons wat u nodig heeft en we komen bij u terug met de actuele beschikbaarheid, de plattegronden en de prijslijst.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Almendro%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Almendro Homes" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Almendro Homes">
-
-          <input type="hidden" id="f-project" name="project" value="Almendro Homes">
-          <input type="hidden" name="preferred_area" value="Estepona">
-          <input type="hidden" name="property_type_interest" value="Appartementen &amp; penthouses">
-          <input type="hidden" name="budget_range" value="Vanaf € 332.000 + btw">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Goedendag Nueva Living, ik wil graag informatie over Almendro Homes.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Wij reageren persoonlijk, meestal dezelfde dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"2-2-BAJ-A","title":"2-2-BAJ-A · Blok 2, portiek 2, begane grond","sub":"2 slk. · 112 m²","price":332000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a.jpg","label":""}]},{"id":"u1","ref":"2-2-BAJ-B","title":"2-2-BAJ-B · Blok 2, portiek 2, begane grond","sub":"2 slk. · 112 m²","price":332000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b.jpg","label":""}]},{"id":"u2","ref":"3-1-ATC-A","title":"3-1-ATC-A · Blok 3, portiek 1, penthouse","sub":"2 slk. · 127 m²","price":455000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a.jpg","label":""}]},{"id":"u3","ref":"3-2-BAJ-A","title":"3-2-BAJ-A · Blok 3, portiek 2, begane grond","sub":"2 slk. · 111 m²","price":344000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a.jpg","label":""}]},{"id":"u4","ref":"3-3-ATC-B","title":"3-3-ATC-B · Blok 3, portiek 3, penthouse","sub":"2 slk. · 127 m²","price":445000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b.jpg","label":""}]},{"id":"u5","ref":"5-1-BAJ-A","title":"5-1-BAJ-A · Blok 5, portiek 1, begane grond","sub":"2 slk. · 115 m²","price":370000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a.jpg","label":""}]},{"id":"u6","ref":"5-1-1-A","title":"5-1-1-A · Blok 5, portiek 1, eerste verdieping","sub":"2 slk. · 115 m²","price":373000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a.jpg","label":""}]},{"id":"u7","ref":"5-2-ATC-C","title":"5-2-ATC-C · Blok 5, portiek 2, penthouse","sub":"2 slk. · 108 m²","price":380000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c.jpg","label":""}]},{"id":"u8","ref":"5-3-ATC-A","title":"5-3-ATC-A · Blok 5, portiek 3, penthouse","sub":"2 slk. · 108 m²","price":380000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a.jpg","label":""}]},{"id":"u9","ref":"7-3-2-B","title":"7-3-2-B · Blok 7, portiek 3, tweede verdieping","sub":"2 slk. · 114 m²","price":408000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b.jpg","label":""}]},{"id":"u10","ref":"8-3-2-B","title":"8-3-2-B · Blok 8, portiek 3, tweede verdieping","sub":"2 slk. · 114 m²","price":408000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b.jpg","label":""}]},{"id":"u11","ref":"9-2-ATC-A","title":"9-2-ATC-A · Blok 9, portiek 2, penthouse","sub":"2 slk. · 108 m²","price":360000,"plans":[{"src":"assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.webp","alt":"Computergegenereerd beeld van een appartementengebouw met drie bouwlagen en lange terrassen, gezien over een gemeenschappelijk zwembad en een gazon","caption":"Het zwembad en de gebouwen met terrassen","cat":"Exteriors"},{"src":"assets/liora/projects/almendro-homes/media/aerial-golf-and-sea.webp","alt":"Computergegenereerde luchtfoto van witte appartementengebouwen naast een golfbaan, met de zee en de kust in de verte","caption":"De gebouwen naast de golfbaan","cat":"Exteriors"},{"src":"assets/liora/projects/almendro-homes/media/aerial-pool-and-hills.webp","alt":"Computergegenereerde luchtfoto van de appartementengebouwen rond een zwembad, met bebost heuvelland en bergen erachter","caption":"Het complex vanuit de lucht","cat":"Exteriors"},{"src":"assets/liora/projects/almendro-homes/media/blocks-from-the-lawn.webp","alt":"Computergegenereerd beeld van een lang appartementengebouw met vier bouwlagen en terrassen met glazen balustrades, gezien over een gazon","caption":"De gebouwen vanaf het gazon","cat":"Exteriors"},{"src":"assets/liora/projects/almendro-homes/media/gym-and-blocks-at-dusk.webp","alt":"Computergegenereerd beeld bij schemering van de appartementengebouwen met een glazen fitnessgebouw in de tuinen","caption":"De fitnessruimte en de gebouwen bij schemering","cat":"Exteriors"},{"src":"assets/liora/projects/almendro-homes/media/terrace-sea-view.webp","alt":"Computergegenereerd beeld van een overdekt terras met loungemeubilair en uitzicht op de zee en de kust","caption":"Een terras met uitzicht op de kust","cat":"Exteriors"},{"src":"assets/liora/projects/almendro-homes/media/terrace-at-dusk.webp","alt":"Computergegenereerd beeld van een terras bij schemering met twee ligbedden, een bank en verlichte plantenbakken, voor een glazen woonkamer","caption":"Een terras bij schemering","cat":"Exteriors"},{"src":"assets/liora/projects/almendro-homes/media/living-kitchen.webp","alt":"Computergegenereerde open woon- en eetkamer met een keukeneiland, een hoekbank en schuifdeuren naar het terras","caption":"Woonkamer en keuken","cat":"Interiors"},{"src":"assets/liora/projects/almendro-homes/media/main-bedroom.webp","alt":"Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een glazen deur naar een terras","caption":"Hoofdslaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/almendro-homes/media/second-bedroom.webp","alt":"Computergegenereerde slaapkamer met een tweepersoonsbed tegen een wand met palmenprint en een inbouwkast","caption":"Tweede slaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/almendro-homes/media/bathroom.webp","alt":"Computergegenereerde badkamer met een zwevend wastafelmeubel, een toilet en een inloopdouche achter een glazen wand","caption":"Badkamer","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Almendro Homes media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks.jpg","webp":"assets/liora/projects/almendro-homes/media/pool-and-terraced-blocks-960.webp","alt":"Computergegenereerd beeld van een appartementengebouw met drie bouwlagen en lange terrassen, gezien over een gemeenschappelijk zwembad en een gazon","width":2000,"height":1125,"caption":"Het zwembad en de gebouwen met terrassen","category":"Exterieur"},{"src":"assets/liora/projects/almendro-homes/media/aerial-golf-and-sea.jpg","webp":"assets/liora/projects/almendro-homes/media/aerial-golf-and-sea-960.webp","alt":"Computergegenereerde luchtfoto van witte appartementengebouwen naast een golfbaan, met de zee en de kust in de verte","width":1207,"height":903,"caption":"De gebouwen naast de golfbaan","category":"Exterieur"},{"src":"assets/liora/projects/almendro-homes/media/aerial-pool-and-hills.jpg","webp":"assets/liora/projects/almendro-homes/media/aerial-pool-and-hills-960.webp","alt":"Computergegenereerde luchtfoto van de appartementengebouwen rond een zwembad, met bebost heuvelland en bergen erachter","width":1176,"height":906,"caption":"Het complex vanuit de lucht","category":"Exterieur"},{"src":"assets/liora/projects/almendro-homes/media/blocks-from-the-lawn.jpg","webp":"assets/liora/projects/almendro-homes/media/blocks-from-the-lawn-960.webp","alt":"Computergegenereerd beeld van een lang appartementengebouw met vier bouwlagen en terrassen met glazen balustrades, gezien over een gazon","width":2000,"height":1125,"caption":"De gebouwen vanaf het gazon","category":"Exterieur"},{"src":"assets/liora/projects/almendro-homes/media/gym-and-blocks-at-dusk.jpg","webp":"assets/liora/projects/almendro-homes/media/gym-and-blocks-at-dusk-960.webp","alt":"Computergegenereerd beeld bij schemering van de appartementengebouwen met een glazen fitnessgebouw in de tuinen","width":2000,"height":1209,"caption":"De fitnessruimte en de gebouwen bij schemering","category":"Exterieur"},{"src":"assets/liora/projects/almendro-homes/media/terrace-sea-view.jpg","webp":"assets/liora/projects/almendro-homes/media/terrace-sea-view-960.webp","alt":"Computergegenereerd beeld van een overdekt terras met loungemeubilair en uitzicht op de zee en de kust","width":2000,"height":995,"caption":"Een terras met uitzicht op de kust","category":"Exterieur"},{"src":"assets/liora/projects/almendro-homes/media/terrace-at-dusk.jpg","webp":"assets/liora/projects/almendro-homes/media/terrace-at-dusk-960.webp","alt":"Computergegenereerd beeld van een terras bij schemering met twee ligbedden, een bank en verlichte plantenbakken, voor een glazen woonkamer","width":2000,"height":929,"caption":"Een terras bij schemering","category":"Exterieur"},{"src":"assets/liora/projects/almendro-homes/media/living-kitchen.jpg","webp":"assets/liora/projects/almendro-homes/media/living-kitchen-960.webp","alt":"Computergegenereerde open woon- en eetkamer met een keukeneiland, een hoekbank en schuifdeuren naar het terras","width":2000,"height":1009,"caption":"Woonkamer en keuken","category":"Interieur"},{"src":"assets/liora/projects/almendro-homes/media/main-bedroom.jpg","webp":"assets/liora/projects/almendro-homes/media/main-bedroom-960.webp","alt":"Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een glazen deur naar een terras","width":2000,"height":1098,"caption":"Hoofdslaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/almendro-homes/media/second-bedroom.jpg","webp":"assets/liora/projects/almendro-homes/media/second-bedroom-960.webp","alt":"Computergegenereerde slaapkamer met een tweepersoonsbed tegen een wand met palmenprint en een inbouwkast","width":2000,"height":1167,"caption":"Tweede slaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/almendro-homes/media/bathroom.jpg","webp":"assets/liora/projects/almendro-homes/media/bathroom-960.webp","alt":"Computergegenereerde badkamer met een zwevend wastafelmeubel, een toilet en een inloopdouche achter een glazen wand","width":2000,"height":1619,"caption":"Badkamer","category":"Badkamers"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a-960.webp","alt":"Plattegrond van woning 2-2-BAJ-A","width":1624,"height":1400,"caption":"Woning 2-2-BAJ-A","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b-960.webp","alt":"Plattegrond van woning 2-2-BAJ-B","width":1640,"height":1408,"caption":"Woning 2-2-BAJ-B","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a-960.webp","alt":"Plattegrond van woning 3-1-ATC-A","width":1056,"height":1968,"caption":"Woning 3-1-ATC-A","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a-960.webp","alt":"Plattegrond van woning 3-2-BAJ-A","width":1640,"height":1440,"caption":"Woning 3-2-BAJ-A","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b-960.webp","alt":"Plattegrond van woning 3-3-ATC-B","width":1056,"height":1968,"caption":"Woning 3-3-ATC-B","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a-960.webp","alt":"Plattegrond van woning 5-1-BAJ-A","width":1148,"height":2000,"caption":"Woning 5-1-BAJ-A","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a-960.webp","alt":"Plattegrond van woning 5-1-1-A","width":982,"height":2000,"caption":"Woning 5-1-1-A","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c-960.webp","alt":"Plattegrond van woning 5-2-ATC-C","width":800,"height":2000,"caption":"Woning 5-2-ATC-C","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a-960.webp","alt":"Plattegrond van woning 5-3-ATC-A","width":800,"height":2000,"caption":"Woning 5-3-ATC-A","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b-960.webp","alt":"Plattegrond van woning 7-3-2-B","width":1064,"height":1896,"caption":"Woning 7-3-2-B","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b-960.webp","alt":"Plattegrond van woning 8-3-2-B","width":1064,"height":1896,"caption":"Woning 8-3-2-B","category":"Plattegronden"},{"src":"assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a.jpg","webp":"assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a-960.webp","alt":"Plattegrond van woning 9-2-ATC-A","width":800,"height":2000,"caption":"Woning 9-2-ATC-A","category":"Plattegronden"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-almendro-homes.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Almendro%20Homes." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Almendro Homes" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlendinger kjøpe eiendom i Spania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er et NIE-nummer, og trenger jeg et?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg få boliglån i Spania som ikke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvordan fungerer reservasjons- og betalingsprosessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg leie ut boligen etter kjøp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Trenger jeg advokat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hvor mange Sky Villas er det totalt?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="no"
   data-project-name="Cielo Alto Residences"
   data-project-message="Jeg ønsker å motta den nyeste prosjektinformasjonen om Cielo Alto Residences."
@@ -451,351 +388,124 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Cielo Alto Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="no/property-cielo-alto-residences.html#top">Cielo Alto Residences<span>Fra 2 400 000 € · Ekskl. mva</span></a>
+      <nav class="hdr-proj" aria-label="Prosjektseksjoner"><a href="no/property-cielo-alto-residences.html#overview">Oversikt</a><a href="no/property-cielo-alto-residences.html#availability">Priser</a><a href="no/property-cielo-alto-residences.html#gallery">Galleri</a><a href="no/property-cielo-alto-residences.html#location">Beliggenhet</a><a href="no/property-cielo-alto-residences.html#onsite">På stedet</a><a href="no/property-cielo-alto-residences.html#view">Vår vurdering</a><a href="no/property-cielo-alto-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Bestill en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Cielo Alto Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="Two-storey villa with glass balustrade terraces set against the Benahavis hills" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="Two-storey villa with glass balustrade terraces set against the Benahavis hills" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Nytt Prosjekt / Privat Tilgang</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Cielo Alto <em>Residences</em></span>
-            <span class="hero-title-context">Toetasjes villa · Benahavís, Den Gylne Trekanten</span>
-          </h1>
-          <p class="hero-positioning">En samling av 17 to-etasjes Sky Villas på en høytliggende tomt i Benahavís, i Den Gylne Trekanten mellom Marbella, Benahavís og Estepona, med felles klubbhus og privat heis.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="no/property-cielo-alto-residences.html#availability">Se tilgjengelige boliger</a>
-            <a class="btn project-btn ghost" href="no/index.html#private-viewing=1&amp;project=cielo-alto-residences">Filmatisk presentasjon</a>
-            <a class="btn project-btn ghost" href="no/property-cielo-alto-residences.html#media">Alle bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktige prosjektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Benahavís, Den Gylne Trekanten</strong></div>
-          <div class="hero-fact"><span>Pris fra</span><strong>Fra 2 400 000 €</strong></div>
-          <div class="hero-fact"><span>Boligtype</span><strong>Toetasjes villa</strong></div>
-          <div class="hero-fact"><span>Overtakelse</span><strong>K3–K4 2026</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Prosjektseksjoner">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Gå til</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="no/property-cielo-alto-residences.html#media">Media</a>
-        <a href="no/property-cielo-alto-residences.html#location">Beliggenhet</a>
-        <a href="no/property-cielo-alto-residences.html#availability">Tilgjengelighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="no/property-cielo-alto-residences.html#overview">Oversikt</a>
-          <a href="no/property-cielo-alto-residences.html#residences">Boliger</a>
-          <a href="no/property-cielo-alto-residences.html#calculator">Finansiering</a>
-          <a href="no/property-cielo-alto-residences.html#amenities">Fasiliteter</a>
-          <a href="no/property-cielo-alto-residences.html#why-this-project">Hvorfor</a>
-          <a href="no/property-cielo-alto-residences.html#architecture">Arkitektur</a>
-          <a href="no/property-cielo-alto-residences.html#private-viewing">Filmatisk presentasjon</a>
-          <a href="no/property-cielo-alto-residences.html#lifestyle">Livsstil</a>
-          <a href="no/property-cielo-alto-residences.html#faq">FAQ</a>
-          <a href="no/property-cielo-alto-residences.html#enquire">Forespørsel</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Rask prosjektfakta">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Soverom</span><strong>4-5 soverom</strong></div>
-          <div class="quick-fact"><span>Bebygd areal</span><strong>615,00 - 815,00 m²</strong></div>
-          <div class="quick-fact"><span>Terrasse</span><strong>125,00 - 187,00 m²</strong></div>
-          <div class="quick-fact"><span>Tilgjengelighet</span><strong>2 av 17 boliger frigitt</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Oversikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Villaens plass, <em>leilighetens sikkerhet</em></h2>
-          <p class="project-lead">Cielo Alto Residences er en samling av 17 to-etasjes Sky Villas fordelt på seks boutique-bygg på en høytliggende tomt i Benahavís, i Den Gylne Trekanten mellom Marbella, Benahavís og Estepona. Fem bygg har tre Sky Villas hver, og det sjette har to.</p>
-          <p class="project-lead">Hver bolig strekker seg over én eller to hele etasjer med egen privat heis som går fra boligetasjene ned til en privat garasje, og kombinerer villaens størrelse med leilighetens sikkerhet. Terrassene er store og sørvendte, med mulighet for å legge til privat basseng, og beboerne deler et Sky Villa-basseng og et klubbhus med innendørsbasseng, spa, treningsstudio og coworking-område.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Sky Villaene <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Dataskapte bilder levert av utbygger. Møbler, styling og beplantning er veiledende og ikke inkludert i salget.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Vis 5 bilder i Eksteriør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="To-etasjes villa med terrasser med glassrekkverk mot åsene i Benahavís" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Eksteriør</small>
-                <strong>Villafasade med terrasser over skråningen</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Vis 7 bilder i Interiør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.jpg" alt="Hovedsoverom med åpen garderobe og en hodegavlvegg kledd i tre" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiør</small>
-                <strong>Hovedsoverom med garderobe</strong>
-                <span class="project-media-card-cta">7 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Vis 7 bilder i Fasiliteter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.jpg" alt="Fullt utstyrt treningsstudio med gulv-til-tak-vinduer mot kysten" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Fasiliteter</small>
-                <strong>Klubbhusets treningsstudio med sjøutsikt</strong>
-                <span class="project-media-card-cta">7 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Vis 1 bilder i Omgivelser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/site-plan-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/site-plan-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/site-plan.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/cielo-alto-residences/media/site-plan.jpg" alt="Situasjonsplan over de seks villabyggene med boligenes nummer og bassenget for Sky Villas" width="2000" height="1291" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Omgivelser</small>
-                <strong>Situasjonsplan over de seks byggene</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Vis alle 20 bilder</button>
-          <p class="media-note">Bildene kommer fra utbyggeren og kan være datagenererte. Endelig utforming, overflater, uteområder og utsikt kan avvike, og møbler er ikke inkludert.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Beliggenhet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Benahavís, <em>Den Gylne Trekanten</em></h2>
-          <p class="project-lead">Cielo Alto ligger på en høytliggende tomt i Benahavís, i Den Gylne Trekanten mellom Marbella, landsbyen Benahavís og Estepona, nær La Quinta golfbane og kort kjøretur fra Puerto Banús og kysten.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="no">
-          <div class="locmap-map" id="locmap-cielo-alto-residences" data-locmap='{&quot;site&quot;:[36.505,-5.005],&quot;sea&quot;:[36.478,-5.005],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51709,-5.00143],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen La Quinta&quot;,&quot;sub&quot;:&quot;2,1 km · 4 min&quot;},{&quot;ll&quot;:[36.48916,-4.957],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Banús&quot;,&quot;sub&quot;:&quot;6,2 km · 7 min&quot;},{&quot;ll&quot;:[36.48676,-4.99008],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;San Pedro&quot;,&quot;sub&quot;:&quot;2,7 km · 4 min&quot;},{&quot;ll&quot;:[36.47404,-4.98179],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;4,8 km · 6 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Cielo Alto Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Veiledende beliggenhet</span>
-            <h3 class="locmap-name">Cielo Alto Residences</h3>
-            <p class="locmap-place">Benahavís, Den Gylne Trekanten</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto Banús</span>
-              <span class="locmap-row-figure"><bdi>6,2 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">San Pedro de Alcántara sentrum</span>
-              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>4 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen La Quinta</span>
-              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>4 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Guadalmina</span>
-              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga lufthavn</span>
-              <span class="locmap-row-figure"><bdi>66 km</bdi> <em><bdi>50 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Boliger</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">To planløsninger, <em>for tiden frigitt</em></h2>
-          <p class="project-lead">Samlingen omfatter Sky Villas i første etasje, mellometasje og toppetasje fordelt på seks bygg. De to eksemplene under er boligene som for tiden er frigitt med bekreftet pris; andre planløsninger er tilgjengelige på forespørsel etter hvert som de frigis.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Sky Villa første etasje</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>5 soverom</strong></div>
-<div><span>Bad</span><strong>5 bad + 2 gjestetoalett</strong></div>
-<div><span>Totalt bebygd areal</span><strong>705,15 m²</strong></div>
-<div><span>Fra</span><strong>2 400 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Åpen stue, kjøkken og spiseplass med gjestetoalett og tre soverom med eget bad i hovedetasjen.</li>
-            <li>Nedre etasje med to ekstra soverom, vaskerom og plass til treningsrom og badstue.</li>
-            <li>Privat heis og trapp som forbinder alle etasjer med den private garasjen.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-cielo-alto-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Sky Villa Toppetasje</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>4 soverom</strong></div>
-<div><span>Bad</span><strong>4 bad + 1 gjestetoalett</strong></div>
-<div><span>Totalt bebygd areal</span><strong>615,87 m²</strong></div>
-<div><span>Fra</span><strong>2 900 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Åpen hovedetasje med gjestetoalett og tre soverom med eget bad.</li>
-            <li>Nedre etasje med to ekstra soverom og vaskerom, med mulighet for privat basseng på terrassen.</li>
-            <li>Privat heis med direkte adgang til boligens egen garasje.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-cielo-alto-residences.html#availability">Vis plantegninger</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat materiale</span>
-            <p>Gjeldende planløsninger, utsiktsposisjoner og tilgjengelighet bør sjekkes mot utviklerens siste fil før man setter opp en shortlist.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="no/property-cielo-alto-residences.html#availability">Vis plantegninger</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tilgjengelighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">2 av 17 boliger <em>for tiden frigitt</em></h2>
-          <p class="project-lead">Utbyggeren har så langt frigitt to boliger med bekreftet pris: en Sky Villa i første etasje og en Sky Villa i toppetasjen. Nueva Living bekrefter gjeldende pris og tilgjengelighet før enhver visning eller reservasjon.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammendrag av gjeldende fase">
-            <div><span>Tilgjengelige boliger</span><strong>2</strong></div>
-            <div><span>Pris fra</span><strong>2 400 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>2 400 000 € - 2 900 000 €</strong></div>
-            <div><span>Kontrollert</span><strong>august 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Se alle 2 tilgjengelige boliger</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tilgjengelige boliger">
-              <article class="unit-card" data-unit data-price="2400000">
-                <a class="unit-card-plan" href="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 5.1">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb-640.webp 640w, assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb.jpg" alt="Plantegning for 5.1" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5.1</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>5 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>705,15 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>128,45 m²</dd></div>
-                    <div><dt>Hage</dt><dd>70,00 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Sky Villa i første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">2 400 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Cielo%20Alto%20Residences%20-%205.1">Spør om 5.1</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="2900000">
-                <a class="unit-card-plan" href="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 6.2">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb-640.webp 640w, assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb.jpg" alt="Plantegning for 6.2" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">6.2</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>4 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>615,87 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>166,58 m²</dd></div>
-                    <div><dt>Hage</dt><dd>183,52 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Sky Villa toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">2 900 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Cielo%20Alto%20Residences%20-%206.2">Spør om 6.2</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>20 bilder</button>
+          <a class="chip" href="no/property-cielo-alto-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plantegninger</a>
+          <a class="chip" href="no/property-cielo-alto-residences.html#location"><svg><use href="#v2-pin"/></svg>Kart</a>
           
-          <p class="availability-source-note">Tilgjengelighet og priser er hentet fra utbyggerens publiserte frigivelse i august 2026. Prisene er eksklusive mva og gjeldende kjøpskostnader og kan endres uten varsel eller ved salg av en bolig. Nueva Living bekrefter pris, status og reservasjonsvilkår før du går videre.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Spør om en bolig</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beregn din <em>månedlige betaling</em></h2>
-          <p class="body-copy">Kun et veiledende anslag. Bekreft de eksakte vilkårene med din långiver før du tar en beslutning.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Cielo Alto</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">En samling av 17 to-etasjes Sky Villas på en høytliggende tomt i Benahavís, i Den Gylne Trekanten mellom Marbella, Benahavís og Estepona, med felles klubbhus og privat heis.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Fra 2 400 000 €</dd><dd class="sub">Ekskl. mva</dd></div><div><dt>Soverom</dt><dd>4 til 5</dd><dd class="sub"><span>Toetasjes villa</span></dd></div><div><dt>Ferdigstillelse</dt><dd>K3–K4 2026</dd><dd class="sub">Tillatelse: vi bekrefter den før du reserverer</dd></div><div><dt>Boliger igjen</dt><dd>2 av 17</dd><dd class="sub">Kontrollert august 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Bestill en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Prosjektet</h2>
+    <p class="lede">Cielo Alto Residences er en samling av 17 to-etasjes Sky Villas fordelt på seks boutique-bygg på en høytliggende tomt i Benahavís, i Den Gylne Trekanten mellom Marbella, Benahavís og Estepona. Fem bygg har tre Sky Villas hver, og det sjette har to.</p>
+    <p class="lede-2">Hver bolig strekker seg over én eller to hele etasjer med egen privat heis som går fra boligetasjene ned til en privat garasje, og kombinerer villaens størrelse med leilighetens sikkerhet. Terrassene er store og sørvendte, med mulighet for å legge til privat basseng, og beboerne deler et Sky Villa-basseng og et klubbhus med innendørsbasseng, spa, treningsstudio og coworking-område.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Organisk arkitektur, bygget inn i skråningen</span></summary><p>Sky Villaene er designet for å gli inn i skråningsomgivelsene i stedet for å stå i kontrast til dem, med pussede fasader, gulv-til-tak-vinduer og store terrasser vendt mot utsikten. Konstruksjonen i armert betong følger en kassettdekkestruktur med søyler og bjelker i stål og betong.</p><p>Utvendig snekkerarbeid er i aluminium fra Cortizo eller tilsvarende, med skyvedører og dobbel isolerglass med kuldebrobryter i alle rom. Klimaanlegg og vannbåren gulvvarme styres rom for rom, og hver bolig er forberedt for et hjemmeautomasjonssystem.</p><ul><li>Privat heis fra boligetasjene til en privat garasje.</li><li>Gulv-til-tak-vinduer som åpner oppholdsrom mot store terrasser.</li><li>Vannbåren gulvvarme med uavhengig styring per rom.</li><li>Forberedt for hjemmeautomasjonssystem.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>2 400 000 € – 2 900 000 €</span><small>Ekskl. mva</small></dd></div><div><dt>Tilgjengelig</dt><dd><span>2 av 17 boliger</span><small>Kontrollert august 2026</small></dd></div><div><dt>Boliger</dt><dd><span>Toetasjes villa</span></dd></div><div><dt>Størrelser</dt><dd><span>616 – 705 m²</span><small>Bebygd areal</small></dd></div><div><dt>Ferdigstillelse</dt><dd><span>K3–K4 2026</span></dd></div><div><dt>Tillatelse</dt><dd><span>Ikke oppgitt</span><small>Vi bekrefter det før du reserverer</small></dd></div><div><dt>Forskudd</dt><dd><span>Bankgaranti</span><small>Påkrevd etter spansk lov</small></dd></div><div><dt>Parkering</dt><dd><span>Egen garasje</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Boliger og priser</h2>
+    <p class="sec-sub">Utbyggeren har så langt frigitt to boliger med bekreftet pris: en Sky Villa i første etasje og en Sky Villa i toppetasjen. Nueva Living bekrefter gjeldende pris og tilgjengelighet før enhver visning eller reservasjon. Velg en bolig for å se betalingsplan og totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="2 av 17 fortsatt til salgs"><div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>2 av 17 fortsatt til salgs</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Boliger til salgs med størrelse og pris. Velg en rad for å se betalingsplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bolig</th>
+          <th scope="col" data-sort="beds">Soverom</th>
+          <th scope="col" data-sort="size">Størrelse</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Tegning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="5" data-price="2400000" data-size="705.15" data-ppm="3404" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">5.1</span><span class="u-loc">Sky Villa i første etasje</span></th>
+            <td data-label="Soverom">5 sov.</td>
+            <td data-label="Størrelse" class="num">705 m²</td>
+            <td data-label="Pris" class="u-price num">2 400 000 €</td>
+            <td data-label="Per m²" class="num">3 404 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 5.1"><img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="4" data-price="2900000" data-size="615.87" data-ppm="4709" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">6.2</span><span class="u-loc">Sky Villa toppleilighet</span></th>
+            <td data-label="Soverom">4 sov.</td>
+            <td data-label="Størrelse" class="num">616 m²</td>
+            <td data-label="Pris" class="u-price num">2 900 000 €</td>
+            <td data-label="Per m²" class="num">4 709 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 6.2"><img src="assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Boliger · <span>To planløsninger, for tiden frigitt</span></summary><p>Samlingen omfatter Sky Villas i første etasje, mellometasje og toppetasje fordelt på seks bygg. De to eksemplene under er boligene som for tiden er frigitt med bekreftet pris; andre planløsninger er tilgjengelige på forespørsel etter hvert som de frigis.</p><div class="res-types"><div class="res-type"><h3>Sky Villa første etasje</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>5 soverom</dd></div><div><dt>Bad</dt><dd>5 bad + 2 gjestetoalett</dd></div><div><dt>Totalt bebygd areal</dt><dd>705,15 m²</dd></div><div><dt>Fra</dt><dd>2 400 000 €</dd></div></dl><ul><li>Åpen stue, kjøkken og spiseplass med gjestetoalett og tre soverom med eget bad i hovedetasjen.</li><li>Nedre etasje med to ekstra soverom, vaskerom og plass til treningsrom og badstue.</li><li>Privat heis og trapp som forbinder alle etasjer med den private garasjen.</li></ul></div><div class="res-type"><h3>Sky Villa Toppetasje</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>4 soverom</dd></div><div><dt>Bad</dt><dd>4 bad + 1 gjestetoalett</dd></div><div><dt>Totalt bebygd areal</dt><dd>615,87 m²</dd></div><div><dt>Fra</dt><dd>2 900 000 €</dd></div></dl><ul><li>Åpen hovedetasje med gjestetoalett og tre soverom med eget bad.</li><li>Nedre etasje med to ekstra soverom og vaskerom, med mulighet for privat basseng på terrassen.</li><li>Privat heis med direkte adgang til boligens egen garasje.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Utbyggerens betalingsplan fås på forespørsel; vi sender den sammen med prislisten.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Hva det koster totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>mva, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Dokumentavgift (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt før notar, tinglysing og advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Spør om denne boligen</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plantegning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Boliglånskalkulator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Kjøpesum</span><em data-calc-price-readout>&euro;0</em></div>
@@ -855,398 +565,199 @@
               <div class="calculator-result"><span>Skatter & kjøpskostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Fasiliteter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva prosjektet <em>gir deg</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Velvære</span>
-              <h3 class="amenity-name">Privat basseng som tillegg</h3>
-              <p class="amenity-note">Tilhører boligen</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Villafasade med terrasser over skråningen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg" alt="To-etasjes villa med terrasser med glassrekkverk mot åsene i Benahavís" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Hovedsoverom med garderobe"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.jpg" alt="Hovedsoverom med åpen garderobe og en hodegavlvegg kledd i tre" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="Klubbhusets treningsstudio med sjøutsikt"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.jpg" alt="Fullt utstyrt treningsstudio med gulv-til-tak-vinduer mot kysten" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="19" aria-label="Situasjonsplan over de seks byggene"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/site-plan-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/site-plan-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/site-plan.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/site-plan.jpg" alt="Situasjonsplan over de seks villabyggene med boligenes nummer og bassenget for Sky Villas" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Villaen fra hagen og bassenget"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces-640.webp 640w, assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces-960.webp 960w, assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.jpg" alt="Villa sett fra hagen, med en overbygd terrasse i første etasje som åpner mot bassenget" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Se alle 20 bildene</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Eksteriør (5)</button><button type="button" data-open-cat="Interiors">Interiør (7)</button><button type="button" data-open-cat="Amenities">Fasiliteter (7)</button><button type="button" data-open-cat="Location">Omgivelser (1)</button></div>
+    
+    <p class="caption">Bildene kommer fra utbyggeren og kan være datagenererte. Endelig utforming, overflater, uteområder og utsikt kan avvike, og møbler er ikke inkludert.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Beliggenhet</h2>
+    <p class="sec-sub">Cielo Alto ligger på en høytliggende tomt i Benahavís, i Den Gylne Trekanten mellom Marbella, landsbyen Benahavís og Estepona, nær La Quinta golfbane og kort kjøretur fra Puerto Banús og kysten.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="no">
+          <div class="locmap-map" id="locmap-cielo-alto-residences" data-locmap='{&quot;site&quot;:[36.505,-5.005],&quot;sea&quot;:[36.478,-5.005],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51709,-5.00143],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen La Quinta&quot;,&quot;sub&quot;:&quot;2,1 km · 4 min&quot;},{&quot;ll&quot;:[36.48916,-4.957],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Banús&quot;,&quot;sub&quot;:&quot;6,2 km · 7 min&quot;},{&quot;ll&quot;:[36.48676,-4.99008],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;San Pedro&quot;,&quot;sub&quot;:&quot;2,7 km · 4 min&quot;},{&quot;ll&quot;:[36.47404,-4.98179],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;4,8 km · 6 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Cielo Alto Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Veiledende beliggenhet</span>
+            <h3 class="locmap-name">Cielo Alto Residences</h3>
+            <p class="locmap-place">Benahavís, Den Gylne Trekanten</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Velvære</span>
-              <h3 class="amenity-name">Felles Sky Villa-basseng</h3>
-              <p class="amenity-note">Under åpen himmel</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Banús</span>
+              <span class="locmap-row-figure"><bdi>6,2 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Velvære</span>
-              <h3 class="amenity-name">Klubbhus med innendørsbasseng og spa</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">San Pedro de Alcántara sentrum</span>
+              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>4 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Velvære</span>
-              <h3 class="amenity-name">Fellesbasseng</h3>
-              <p class="amenity-note">Delt av beboerne</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen La Quinta</span>
+              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>4 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utendørs</span>
-              <h3 class="amenity-name">Sjøutsikt</h3>
-              <p class="amenity-note">Mot Middelhavet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Guadalmina</span>
+              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Hverdag</span>
-              <h3 class="amenity-name">Adkomst med egen heis</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga lufthavn</span>
+              <span class="locmap-row-figure"><bdi>66 km</bdi> <em><bdi>50 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Hverdag</span>
-              <h3 class="amenity-name">Treningsrom og coworkingområde</h3>
-              <p class="amenity-note">Arbeidsplasser utenfor boligen</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Hverdag</span>
-              <h3 class="amenity-name">Egen garasje</h3>
-              <p class="amenity-note">Under bygningen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Hverdag</span>
-              <h3 class="amenity-name">Gulvvarme</h3>
-              <p class="amenity-note">Varme fra gulvet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Hverdag</span>
-              <h3 class="amenity-name">Egne bad til soverommene</h3>
-              <p class="amenity-note">Direkte fra soverommet</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">La Quinta Golf</th><td>Ca. 4 minutter</td></tr><tr><th scope="row">Puerto Banús</th><td>Ca. 7 minutter</td></tr><tr><th scope="row">San Pedro de Alcántara</th><td>Ca. 4 minutter</td></tr><tr><th scope="row">Nærmeste strand</th><td>Ca. 6 minutter</td></tr><tr><th scope="row">Málaga lufthavn</th><td>Ca. 50 minutter</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">På stedet</h2>
+    <p class="sec-sub">I tillegg til hver boligs egne terrasser deler beboerne i Cielo Alto et klubbhus og et dedikert Sky Villa-basseng i hjertet av prosjektet.</p>
+    <div class="life-panels"><div><h3>Velvære</h3><p>Et innendørsbasseng og spa inne i klubbhuset, sammen med et fullt utstyrt treningsstudio med sjøutsikt.</p></div><div><h3>Arbeid og fritid</h3><p>Et coworking-område og en lounge med bar og spillerom for beboerne.</p></div><div><h3>Uteliv</h3><p>Et felles Sky Villa-basseng og solterrasse, i tillegg til muligheten for privat basseng på hver terrasse.</p></div></div>
+    <ul class="amen-top"><li>Adkomst med egen heis</li><li>Privat basseng som tillegg</li><li>Felles Sky Villa-basseng</li><li>Klubbhus med innendørsbasseng og spa</li><li>Treningsrom og coworkingområde</li><li>Egen garasje</li></ul>
+    <details class="amen-all"><summary>Vis alle 10</summary><div class="amen-groups"><div><h3>Velvære<span class="count">4</span></h3><ul><li>Privat basseng som tillegg</li><li>Felles Sky Villa-basseng</li><li>Klubbhus med innendørsbasseng og spa</li><li>Fellesbasseng</li></ul></div><div><h3>Utendørs<span class="count">1</span></h3><ul><li>Sjøutsikt</li></ul></div><div><h3>Hverdag<span class="count">5</span></h3><ul><li>Adkomst med egen heis</li><li>Treningsrom og coworkingområde</li><li>Egen garasje</li><li>Gulvvarme</li><li>Egne bad til soverommene</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår vurdering</h2>
+    <p class="sec-sub">Det vi ville vurdert før du reserverer her, og det vi sjekker for deg.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår vurdering">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrker</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planlegg for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Hva som skiller det ut</h3><ul class="points"><li><b>Hvem det passer for</b><span>Kjøpere som ønsker en villas plass og privatliv uten å gi avkall på heis, sikker parkering og et felles klubbhus.</span></li><li><b>Hva som gjør det annerledes</b><span>Hver bolig har sin egen private heis fra boligetasjene til sin egen garasje, uvanlig for en toetasjes leilighet av denne størrelsen.</span></li><li><b>Hvorfor beliggenheten betyr noe</b><span>Benahavís ligger i Den Gylne Trekanten mellom Marbella, landsbyen Benahavís og Estepona, nær Puerto Banús og kort kjøretur fra kysten.</span></li><li><b>Hvorfor sjekke tilgjengelighet</b><span>Kun 2 av de 17 boligene er for tiden frigitt med bekreftet pris; Nueva Living bekrefter gjeldende tilgjengelighet før enhver visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Hva du bør planlegge for</h3><ul class="points"><li><b>Hvorfor timing betyr noe</b><span>Kun 2 av de 17 boligene er for tiden frigitt med bekreftet pris; utvalget av planløsninger vil endre seg etter hvert som flere faser frigis.</span></li><li><b>Aktuell informasjon</b><span>Nueva Living bekrefter pris, tilgjengelighet og spesifikasjon direkte med utbygger før enhver visning eller reservasjon.</span></li><li><b>Langsiktig appell</b><span>Privat heisadgang og en privat garasje for hver bolig er uvanlig i denne størrelsesorden og kan støtte langsiktig appell.</span></li><li><b>Eget bruk og utleie</b><span>Kjøpere bør bekrefte gjeldende utleieregler for dette prosjektet direkte med utbyggeren før de legger til grunn en avkastningsplan for utleie.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller før penger betales</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Informasjon om utbygger</b><span>Nueva Living har utbyggers identitets- og lisensinformasjon og gir den skriftlig før enhver reservasjon.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Slik fungerer kjøpet</b><span>En privat, engelskspråklig kjøpsprosess med en spansk advokat etter kjøperens eget valg; Nueva Living koordinerer visninger og dokumentasjon.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Overlevering og garanti</b><span>Utbyggeren har ennå ikke publisert en bekreftet overleveringsdato for denne fasen; Nueva Living bekrefter gjeldende byggeprogram skriftlig før enhver reservasjon.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Andre alternativer</b><span>Nueva Living kan på forespørsel sammenligne Cielo Alto med andre prosjekter i Benahavís og Den Gylne Trekanten.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Be om prosjektinformasjon</h3><p>Be om den gjeldende prislisten for Sky Villa i første etasje eller toppetasje.</p></li><li><h3>Sammenlign planløsningene</h3><p>Se de frigitte boligene side om side opp mot budsjettet og plassbehovet ditt.</p></li><li><h3>Privat visning</h3><p>Se omgivelsene og klubbhusets fasiliteter personlig før du tar en beslutning.</p></li><li><h3>Gjennomgang før reservasjon</h3><p>Bekreft gjeldende pris, tilgjengelighet og betalingsstruktur skriftlig før enhver reservasjon.</p></li></ol>
+      <div class="docs card"><h3>Dokumenter du får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prisliste</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plantegninger<small>2 av 2 boliger</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsplan<small>Ikke utstedt ennå</small><small>Venter</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Det offisielle sammendraget alle kjøpere i Andalucía har krav på</small></span></li></ul><a class="btn btn-primary" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Få prosjektmappen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Spørsmål om Cielo Alto</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hvor mange Sky Villas er det totalt?</summary><p>17, fordelt på seks bygg. Bygg 1 til 5 har tre Sky Villas hver, og bygg 6 har to.</p></details><details class="segment-faq-item"><summary>Hvor mange er tilgjengelige nå?</summary><p>Utbyggeren har så langt frigitt 2 boliger med bekreftet pris: en Sky Villa i første etasje og en i toppetasjen. Nueva Living bekrefter gjeldende tilgjengelighet før enhver visning.</p></details><details class="segment-faq-item"><summary>Er privat basseng inkludert?</summary><p>Nei. Utbyggeren opplyser at privat basseng på terrassen er et valgfritt tillegg, mot tilleggskostnad, for hver bolig.</p></details><details class="segment-faq-item"><summary>Er prisen inkludert mva?</summary><p>Nei. Den publiserte betalingsstrukturen legger til mva på hvert betalingstrinn.</p></details><details class="segment-faq-item"><summary>Er møbler inkludert?</summary><p>Nei. Bildene som vises er dataskapte visualiseringer; møbler, styling og beplantning er veiledende og inngår ikke i salget.</p></details></div>
+    <details class="faq2-more"><summary>Vis alle spørsmål (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Når skjer overleveringen?</summary><p>Utbyggeren har ennå ikke publisert en bekreftet overleveringsdato for denne fasen. Nueva Living bekrefter gjeldende byggeprogram skriftlig før enhver reservasjon.</p></details></div></details>
+    <p class="faq2-guide">Mer om å kjøpe nybygg i Spania → <a class="textlink" href="no/guide-how-buying-works.html">Kjøpsguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Bestill en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris fra</p>
+      <p class="rail-price num">2 400 000 €</p>
+      <p class="rail-note">Ekskl. mva. 2 av 17 boliger igjen · Kontrollert august 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Bestill en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Send oss en melding på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger</strong>Vi svarer selv på hver henvendelse.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Bestill en privat visning</h2>
+        <p>Fortell oss hvilken bolig som interesserer deg. Vi sender prosjektmappen og går deretter over området sammen med deg.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger av Nueva Living</strong>Vi svarer selv på hver henvendelse.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Send oss en melding</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>På visningen sjekker vi sammen</h3><ul><li><b>Arkitektur.</b> Moderne toetasjes villaer bygget inn i skråningen, med privat heis til hver garasje.</li><li><b>Boligtyper.</b> Sky Villas i første etasje og toppetasje for tiden frigitt, fra 4 til 5 soverom.</li><li><b>Livsstil.</b> Et felles klubbhus med innendørsbasseng, spa, treningsstudio og coworking-område.</li><li><b>Neste steg.</b> Be om den gjeldende prislisten og planløsningene for boligen du er interessert i.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sender…" data-success-label="Bestill en privat visning ✓" data-submitting-message="Sender…" data-success-message="Forespørsel mottatt. Vi sender prosjektmappen og foreslår tider for visning." data-error-message="Det gikk ikke. Prøv igjen, eller send oss en melding på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cielo Alto Residences">
+        <input type="hidden" id="f-project" name="project" value="Cielo Alto Residences">
+        <input type="hidden" name="preferred_area" value="Benahavís, Den Gylne Trekanten">
+        <input type="hidden" name="property_type_interest" value="Toetasjes villa">
+        <input type="hidden" name="budget_range" value="Fra 2 400 000 €">
+        <input type="hidden" name="consent_text" value="Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min.">
+        <input type="hidden" name="message" id="v2-f-message" value="Jeg ønsker å motta den nyeste prosjektinformasjonen om Cielo Alto Residences." data-base="Jeg ønsker å motta den nyeste prosjektinformasjonen om Cielo Alto Residences.">
+        <h3>Dine opplysninger</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Fornavn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Etternavn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valgfritt, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Hvilken bolig?</label><select id="v2-f-unit" name="unit_interest"><option value="">Ikke sikker ennå, send meg alt</option><option value="5.1">5.1: 2 400 000 €</option><option value="6.2">6.2: 2 900 000 €</option></select></div>
+        <fieldset class="field"><legend>Boligen blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Til å bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Et feriehjem</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hvordan skal vi svare?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefonsamtale</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min. <a href="no/privacy-policy.html">Personvernerklæring</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Gi meg også beskjed hvis tilgjengelighet eller priser endres i Cielo Alto.</label>
+        <button class="btn btn-primary btn-block" type="submit">Bestill en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Hvorfor dette prosjektet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvorfor dette prosjektet <em>betyr noe</em></h2>
-          <p class="project-lead">En samling toetasjes villaer for kjøpere som ønsker villaens størrelse med sikkerheten og heisen til en leilighetsbygning.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Hvorfor det passer</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvem det passer for</h3><p>Kjøpere som ønsker en villas plass og privatliv uten å gi avkall på heis, sikker parkering og et felles klubbhus.</p></article>
-              <article class="why-point reveal-soft"><h3>Hva som gjør det annerledes</h3><p>Hver bolig har sin egen private heis fra boligetasjene til sin egen garasje, uvanlig for en toetasjes leilighet av denne størrelsen.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor beliggenheten betyr noe</h3><p>Benahavís ligger i Den Gylne Trekanten mellom Marbella, landsbyen Benahavís og Estepona, nær Puerto Banús og kort kjøretur fra kysten.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor sjekke tilgjengelighet</h3><p>Kun 2 av de 17 boligene er for tiden frigitt med bekreftet pris; Nueva Living bekrefter gjeldende tilgjengelighet før enhver visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">En faktabasert merknad om timing og eierskap; Nueva Living lover verken leieavkastning eller prisstigning.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvorfor timing betyr noe</h3><p>Kun 2 av de 17 boligene er for tiden frigitt med bekreftet pris; utvalget av planløsninger vil endre seg etter hvert som flere faser frigis.</p></article>
-              <article class="why-point reveal-soft"><h3>Aktuell informasjon</h3><p>Nueva Living bekrefter pris, tilgjengelighet og spesifikasjon direkte med utbygger før enhver visning eller reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Langsiktig appell</h3><p>Privat heisadgang og en privat garasje for hver bolig er uvanlig i denne størrelsesorden og kan støtte langsiktig appell.</p></article>
-              <article class="why-point reveal-soft"><h3>Eget bruk og utleie</h3><p>Kjøpere bør bekrefte gjeldende utleieregler for dette prosjektet direkte med utbyggeren før de legger til grunn en avkastningsplan for utleie.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Tillit og gjennomgang</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Informasjon om utbygger</h3><p>Nueva Living har utbyggers identitets- og lisensinformasjon og gir den skriftlig før enhver reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Slik fungerer kjøpet</h3><p>En privat, engelskspråklig kjøpsprosess med en spansk advokat etter kjøperens eget valg; Nueva Living koordinerer visninger og dokumentasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Overlevering og garanti</h3><p>Utbyggeren har ennå ikke publisert en bekreftet overleveringsdato for denne fasen; Nueva Living bekrefter gjeldende byggeprogram skriftlig før enhver reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Andre alternativer</h3><p>Nueva Living kan på forespørsel sammenligne Cielo Alto med andre prosjekter i Benahavís og Den Gylne Trekanten.</p></article>
-            </div>
-            <p class="why-group-note">Første gang du kjøper på prospekt i Spania? <a href="no/guide-how-buying-works.html">Slik foregår et nybyggkjøp</a> beskriver de sju trinnene, og <a href="no/guide-off-plan-vs-resale.html">nybygg sammenlignet med bruktbolig</a> tar for seg forskudd, garantier og tidsplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bildene kommer fra utbyggeren og kan være datagenererte">
+    <p>Bildene kommer fra utbyggeren og kan være datagenererte; endelig utforming, overflater, uteområder og utsikt kan avvike. Du har krav på en kopi av Documento Informativo Abreviado (DIA) for hver bolig på denne siden; Nueva Living sender den på forespørsel.</p>
+    <p>Tilgjengeligheten kontrollert hos selgeren august 2026; vi bekrefter den på nytt før enhver reservasjon.</p>
+    <p>Tilgjengelighet og priser er hentet fra utbyggerens publiserte frigivelse i august 2026. Prisene er eksklusive mva og gjeldende kjøpskostnader og kan endres uten varsel eller ved salg av en bolig. Nueva Living bekrefter pris, status og reservasjonsvilkår før du går videre.</p>
+    <p>Informasjonen på denne siden er generell markedsføring og ikke juridisk, økonomisk eller investeringsrådgivning. Priser, tilgjengelighet og ferdigstillelsesdatoer kan endres uten varsel.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.jpg" alt="Villa seen from the garden, with a covered ground-floor terrace opening onto the pool" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Villaen fra hagen og bassenget</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Organisk arkitektur, <em>bygget inn i skråningen</em></h2>
-          <p>Sky Villaene er designet for å gli inn i skråningsomgivelsene i stedet for å stå i kontrast til dem, med pussede fasader, gulv-til-tak-vinduer og store terrasser vendt mot utsikten. Konstruksjonen i armert betong følger en kassettdekkestruktur med søyler og bjelker i stål og betong.</p>
-<p>Utvendig snekkerarbeid er i aluminium fra Cortizo eller tilsvarende, med skyvedører og dobbel isolerglass med kuldebrobryter i alle rom. Klimaanlegg og vannbåren gulvvarme styres rom for rom, og hver bolig er forberedt for et hjemmeautomasjonssystem.</p>
-          <ul class="feature-list">
-            <li>Privat heis fra boligetasjene til en privat garasje.</li>
-            <li>Gulv-til-tak-vinduer som åpner oppholdsrom mot store terrasser.</li>
-            <li>Vannbåren gulvvarme med uavhengig styring per rom.</li>
-            <li>Forberedt for hjemmeautomasjonssystem.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Handlinger for prosjektforespørsel">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Bestill visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset.jpg" alt="Open-plan living and dining area opening onto a covered terrace at sunset" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmatisk presentasjon</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Ta en nærmere titt på <em>Cielo Alto</em></h2>
-            <p>Utforsk omgivelsene, de to frigitte Sky Villa-planløsningene og det felles klubbhuset før du ber om fullstendig prosjektinformasjon.</p>
-            <div class="viewing-insights">
-              <div><span>Arkitektur</span><p>Moderne toetasjes villaer bygget inn i skråningen, med privat heis til hver garasje.</p></div>
-              <div><span>Boligtyper</span><p>Sky Villas i første etasje og toppetasje for tiden frigitt, fra 4 til 5 soverom.</p></div>
-              <div><span>Livsstil</span><p>Et felles klubbhus med innendørsbasseng, spa, treningsstudio og coworking-område.</p></div>
-              <div><span>Neste steg</span><p>Be om den gjeldende prislisten og planløsningene for boligen du er interessert i.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="no/index.html#private-viewing=1&amp;project=cielo-alto-residences">Filmatisk presentasjon</a>
-              <a class="btn project-btn ghost" href="no/property-cielo-alto-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Lukk">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Forrige bilde">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Neste bilde">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Eksteriør</button><button type="button" data-cat="Interiors">Interiør</button><button type="button" data-cat="Amenities">Fasiliteter</button><button type="button" data-cat="Location">Omgivelser</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool.jpg" alt="Communal Sky Villa pool and sun terrace shared by residents" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Livet rundt <em>et felles klubbhus</em></h2>
-            <p>I tillegg til hver boligs egne terrasser deler beboerne i Cielo Alto et klubbhus og et dedikert Sky Villa-basseng i hjertet av prosjektet.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Neste steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva som skjer <em>videre</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Be om prosjektinformasjon</h3>
-            <p>Be om den gjeldende prislisten for Sky Villa i første etasje eller toppetasje.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Sammenlign planløsningene</h3>
-            <p>Se de frigitte boligene side om side opp mot budsjettet og plassbehovet ditt.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se omgivelsene og klubbhusets fasiliteter personlig før du tar en beslutning.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Gjennomgang før reservasjon</h3>
-            <p>Bekreft gjeldende pris, tilgjengelighet og betalingsstruktur skriftlig før enhver reservasjon.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Ofte stilte spørsmål</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanlige <em>spørsmål fra kjøpere</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlendinger kjøpe eiendom i Spania?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er et NIE-nummer, og trenger jeg et?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg få boliglån i Spania som ikke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer reservasjons- og betalingsprosessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg leie ut boligen etter kjøp?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Trenger jeg advokat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange Sky Villas er det totalt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>17, fordelt på seks bygg. Bygg 1 til 5 har tre Sky Villas hver, og bygg 6 har to.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange er tilgjengelige nå?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Utbyggeren har så langt frigitt 2 boliger med bekreftet pris: en Sky Villa i første etasje og en i toppetasjen. Nueva Living bekrefter gjeldende tilgjengelighet før enhver visning.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er privat basseng inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nei. Utbyggeren opplyser at privat basseng på terrassen er et valgfritt tillegg, mot tilleggskostnad, for hver bolig.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er prisen inkludert mva?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nei. Den publiserte betalingsstrukturen legger til mva på hvert betalingstrinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er møbler inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nei. Bildene som vises er dataskapte visualiseringer; møbler, styling og beplantning er veiledende og inngår ikke i salget.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Når skjer overleveringen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Utbyggeren har ennå ikke publisert en bekreftet overleveringsdato for denne fasen. Nueva Living bekrefter gjeldende byggeprogram skriftlig før enhver reservasjon.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Forespørsel</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Spør om <em>Cielo Alto Residences</em></h2>
-          <p class="body-copy">Fortell oss hvilken Sky Villa-planløsning som interesserer deg, så sender vi gjeldende prisliste og spesifikasjon.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grunnlegger av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grunnlegger, Nueva Living</p>
-            <h3 id="advisor-heading">Vil du heller snakke det gjennom?</h3>
-            <p class="advisor-copy">Velg det som passer, og send meg en melding på WhatsApp. Jeg tar utgangspunkt i det.</p>
-            <div class="advisor-group" role="group" aria-label="Jeg søker">
-              <span class="advisor-group-label">Jeg søker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">En bolig å bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">En feriebolig</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budsjett">
-              <span class="advisor-group-label">Budsjett</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor">Send meg en melding på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Cielo Alto Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Cielo Alto Residences">
-          <input type="hidden" name="preferred_area" value="Benahavís, Den Gylne Trekanten">
-          <input type="hidden" name="property_type_interest" value="Toetasjes villa">
-          <input type="hidden" name="budget_range" value="Fra 2 400 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Fornavn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Fornavn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Etternavn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Etternavn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Melding</label>
-              <textarea id="f-msg" name="message">Jeg ønsker å motta den nyeste prosjektinformasjonen om Cielo Alto Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jeg samtykker til å bli kontaktet og til at mine data lagres.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jeg vil også gjerne motta sporadiske prosjektoppdateringer fra Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Send forespørsel</button>
-            <span class="form-note">Prosjektkontekst: Cielo Alto Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"5.1","title":"5.1 · Sky Villa i første etasje","sub":"5 sov. · 705 m²","price":2400000,"plans":[{"src":"assets/liora/projects/cielo-alto-residences/floorplans/unit-5-1-floorplans.pdf","label":""}]},{"id":"u1","ref":"6.2","title":"6.2 · Sky Villa toppleilighet","sub":"4 sov. · 616 m²","price":2900000,"plans":[{"src":"assets/liora/projects/cielo-alto-residences/floorplans/unit-6-2-floorplans.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.webp","alt":"To-etasjes villa med terrasser med glassrekkverk mot åsene i Benahavís","caption":"Villafasade med terrasser over skråningen","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.webp","alt":"Villa sett fra hagen, med en overbygd terrasse i første etasje som åpner mot bassenget","caption":"Villaen fra hagen og bassenget","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/aerial-view-hillside.webp","alt":"Luftfoto av villaene langs veien på skråningen, med kystlinjen i det fjerne","caption":"Luftfoto av villarekken","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/street-view-villa-row.webp","alt":"Gatevisning langs villarekken, med oliven- og sypresstrær mellom tomtene","caption":"Gatevisning langs villarekken","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-garden-twin-pools.webp","alt":"Villa med to private basseng i en opparbeidet hage, med fjell i bakgrunnen","caption":"Villa med to basseng og hage","cat":"Exteriors"},{"src":"assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.webp","alt":"Hovedsoverom med åpen garderobe og en hodegavlvegg kledd i tre","caption":"Hovedsoverom med garderobe","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset.webp","alt":"Åpen stue og spiseplass som åpner mot en overbygd terrasse ved solnedgang","caption":"Stue og spiseplass ved solnedgang","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-room.webp","alt":"Stue med en innebygd hyllevegg og utsikt mot hagen","caption":"Stue","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-lounge-bar.webp","alt":"Flerbruks-lounge med bar, spillbord og sittegruppe","caption":"Flerbruks-lounge med bar","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-room.webp","alt":"Flerbruksrom med fleksible sitteplasser, egnet som hjemmekino eller lekerom","caption":"Flerbruksrom","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/private-garage.webp","alt":"Privat garasje nås med heis fra villaens boligetasjer","caption":"Privat garasje","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/open-terrace.webp","alt":"Åpen terrasse med utendørs sitteplasser og utsikt over de omkringliggende åsene","caption":"Åpen terrasse","cat":"Interiors"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.webp","alt":"Fullt utstyrt treningsstudio med gulv-til-tak-vinduer mot kysten","caption":"Klubbhusets treningsstudio med sjøutsikt","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-indoor-pool-spa.webp","alt":"Innendørsbasseng og spa med en steinvegg og sjøutsikt","caption":"Klubbhusets innendørsbasseng og spa","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-lounge-games-room.webp","alt":"Klubbhusets lounge med bar, spillbord og sittegruppe","caption":"Klubbhusets lounge og spillerom","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool.webp","alt":"Felles Sky Villa-basseng og solterrasse delt av beboerne","caption":"Felles Sky Villa-basseng","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-pool-night-view.webp","alt":"Felles basseng og terrasse opplyst om natten","caption":"Felles basseng om natten","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/sea-views-from-terrace.webp","alt":"Panoramisk sjøutsikt fra en villaterrasse","caption":"Sjøutsikt fra terrassen","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/covered-terrace.webp","alt":"Overbygd terrasse med loungesitteplasser, del av villaens uteareal","caption":"Overbygd terrasse","cat":"Amenities"},{"src":"assets/liora/projects/cielo-alto-residences/media/site-plan.webp","alt":"Situasjonsplan over de seks villabyggene med boligenes nummer og bassenget for Sky Villas","caption":"Situasjonsplan over de seks byggene","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Spør om {ref}","plusVat":"Ekskl. mva","totalPrice":"Totalpris","vatOnStages":"Pluss mva på hver delbetaling","onRequest":"På forespørsel","imageOf":"{i} av {n}","floorPlan":"Plantegning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Cielo Alto Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Lukk">Lukk</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Forrige bilde">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Neste bilde">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/villa-front-view-mountains-960.webp","alt":"To-etasjes villa med terrasser med glassrekkverk mot åsene i Benahavís","width":1920,"height":1080,"caption":"Villafasade med terrasser over skråningen","category":"Eksteriør"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/villa-side-view-terraces-960.webp","alt":"Villa sett fra hagen, med en overbygd terrasse i første etasje som åpner mot bassenget","width":1920,"height":1080,"caption":"Villaen fra hagen og bassenget","category":"Eksteriør"},{"src":"assets/liora/projects/cielo-alto-residences/media/aerial-view-hillside.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/aerial-view-hillside-960.webp","alt":"Luftfoto av villaene langs veien på skråningen, med kystlinjen i det fjerne","width":1920,"height":1080,"caption":"Luftfoto av villarekken","category":"Eksteriør"},{"src":"assets/liora/projects/cielo-alto-residences/media/street-view-villa-row.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/street-view-villa-row-960.webp","alt":"Gatevisning langs villarekken, med oliven- og sypresstrær mellom tomtene","width":1920,"height":1080,"caption":"Gatevisning langs villarekken","category":"Eksteriør"},{"src":"assets/liora/projects/cielo-alto-residences/media/villa-garden-twin-pools.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/villa-garden-twin-pools-960.webp","alt":"Villa med to private basseng i en opparbeidet hage, med fjell i bakgrunnen","width":1920,"height":1080,"caption":"Villa med to basseng og hage","category":"Eksteriør"},{"src":"assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/master-bedroom-dressing-area-960.webp","alt":"Hovedsoverom med åpen garderobe og en hodegavlvegg kledd i tre","width":1920,"height":1080,"caption":"Hovedsoverom med garderobe","category":"Interiør"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/living-dining-terrace-sunset-960.webp","alt":"Åpen stue og spiseplass som åpner mot en overbygd terrasse ved solnedgang","width":1920,"height":1080,"caption":"Stue og spiseplass ved solnedgang","category":"Interiør"},{"src":"assets/liora/projects/cielo-alto-residences/media/living-room.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/living-room-960.webp","alt":"Stue med en innebygd hyllevegg og utsikt mot hagen","width":1920,"height":1080,"caption":"Stue","category":"Interiør"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-lounge-bar.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/multi-use-lounge-bar-960.webp","alt":"Flerbruks-lounge med bar, spillbord og sittegruppe","width":1920,"height":1080,"caption":"Flerbruks-lounge med bar","category":"Interiør"},{"src":"assets/liora/projects/cielo-alto-residences/media/multi-use-room.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/multi-use-room-960.webp","alt":"Flerbruksrom med fleksible sitteplasser, egnet som hjemmekino eller lekerom","width":1920,"height":1080,"caption":"Flerbruksrom","category":"Interiør"},{"src":"assets/liora/projects/cielo-alto-residences/media/private-garage.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/private-garage-960.webp","alt":"Privat garasje nås med heis fra villaens boligetasjer","width":1920,"height":1080,"caption":"Privat garasje","category":"Interiør"},{"src":"assets/liora/projects/cielo-alto-residences/media/open-terrace.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/open-terrace-960.webp","alt":"Åpen terrasse med utendørs sitteplasser og utsikt over de omkringliggende åsene","width":1920,"height":1080,"caption":"Åpen terrasse","category":"Interiør"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-gym.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/clubhouse-gym-960.webp","alt":"Fullt utstyrt treningsstudio med gulv-til-tak-vinduer mot kysten","width":1920,"height":1080,"caption":"Klubbhusets treningsstudio med sjøutsikt","category":"Fasiliteter"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-indoor-pool-spa.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/clubhouse-indoor-pool-spa-960.webp","alt":"Innendørsbasseng og spa med en steinvegg og sjøutsikt","width":1920,"height":1080,"caption":"Klubbhusets innendørsbasseng og spa","category":"Fasiliteter"},{"src":"assets/liora/projects/cielo-alto-residences/media/clubhouse-lounge-games-room.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/clubhouse-lounge-games-room-960.webp","alt":"Klubbhusets lounge med bar, spillbord og sittegruppe","width":1920,"height":1080,"caption":"Klubbhusets lounge og spillerom","category":"Fasiliteter"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/communal-sky-villa-pool-960.webp","alt":"Felles Sky Villa-basseng og solterrasse delt av beboerne","width":1920,"height":1080,"caption":"Felles Sky Villa-basseng","category":"Fasiliteter"},{"src":"assets/liora/projects/cielo-alto-residences/media/communal-pool-night-view.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/communal-pool-night-view-960.webp","alt":"Felles basseng og terrasse opplyst om natten","width":1920,"height":1080,"caption":"Felles basseng om natten","category":"Fasiliteter"},{"src":"assets/liora/projects/cielo-alto-residences/media/sea-views-from-terrace.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/sea-views-from-terrace-960.webp","alt":"Panoramisk sjøutsikt fra en villaterrasse","width":1920,"height":1080,"caption":"Sjøutsikt fra terrassen","category":"Fasiliteter"},{"src":"assets/liora/projects/cielo-alto-residences/media/covered-terrace.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/covered-terrace-960.webp","alt":"Overbygd terrasse med loungesitteplasser, del av villaens uteareal","width":1920,"height":1080,"caption":"Overbygd terrasse","category":"Fasiliteter"},{"src":"assets/liora/projects/cielo-alto-residences/media/site-plan.jpg","webp":"assets/liora/projects/cielo-alto-residences/media/site-plan-960.webp","alt":"Situasjonsplan over de seks villabyggene med boligenes nummer og bassenget for Sky Villas","width":2000,"height":1291,"caption":"Situasjonsplan over de seks byggene","category":"Omgivelser"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Handlinger for prosjektforespørsel">
-    <a href="no/property-cielo-alto-residences.html#enquire" data-prefill>Spør om en bolig</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Cielo%20Alto%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Cielo Alto Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

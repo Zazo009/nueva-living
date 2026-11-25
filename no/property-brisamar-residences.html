@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlendinger kjøpe eiendom i Spania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er et NIE-nummer, og trenger jeg et?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg få boliglån i Spania som ikke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvordan fungerer reservasjons- og betalingsprosessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg leie ut boligen etter kjøp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Trenger jeg advokat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hvor mange boliger er det?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="no"
   data-project-name="Brisamar Residences"
   data-project-message="Hei Nueva Living, jeg vil gjerne ha informasjon om Brisamar Residences."
@@ -443,630 +380,180 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Brisamar Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="no/property-brisamar-residences.html#top">Brisamar Residences<span>Fra 549 000 € · Ekskl. mva</span></a>
+      <nav class="hdr-proj" aria-label="Prosjektseksjoner"><a href="no/property-brisamar-residences.html#overview">Oversikt</a><a href="no/property-brisamar-residences.html#availability">Priser</a><a href="no/property-brisamar-residences.html#specs">Utførelse</a><a href="no/property-brisamar-residences.html#gallery">Galleri</a><a href="no/property-brisamar-residences.html#location">Beliggenhet</a><a href="no/property-brisamar-residences.html#onsite">På stedet</a><a href="no/property-brisamar-residences.html#view">Vår vurdering</a><a href="no/property-brisamar-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="no/property-brisamar-residences.html#enquire" data-prefill>Bestill en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Brisamar Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/corner-facade-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/corner-facade-day.webp 1200w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Datagenerert bilde av en bygning på et gatehjørne med buede hvite balkongplater, beplantede terrasser og en pergola på taket" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Datagenerert bilde av en bygning på et gatehjørne med buede hvite balkongplater, beplantede terrasser og en pergola på taket" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">9 av 22 boliger ledige</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Brisamar <em>Residences</em></span>
-            <span class="hero-title-context">Leiligheter og toppleiligheter · Estepona</span>
-          </h1>
-          <p class="hero-positioning">22 boliger med tre soverom i én bygning nær sentrum av Estepona: fire boliger i første etasje med privat hage og basseng, terrasser i alle etasjene over og boliger med privat solterrasse og basseng på taket. Ni er oppført, fra 549 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="no/property-brisamar-residences.html#availability">Se tilgjengelige boliger</a>
-            <a class="btn project-btn ghost" href="no/index.html#private-viewing=1&amp;project=brisamar-residences">Filmatisk presentasjon</a>
-            <a class="btn project-btn ghost" href="no/property-brisamar-residences.html#media">Alle bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktige prosjektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Estepona</strong></div>
-          <div class="hero-fact"><span>Pris fra</span><strong>Fra 549 000 €</strong></div>
-          <div class="hero-fact"><span>Boligtype</span><strong>Leiligheter og toppleiligheter</strong></div>
-          <div class="hero-fact"><span>Overtakelse</span><strong>Ferdigstillelse ikke bekreftet</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Prosjektseksjoner">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Gå til</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="no/property-brisamar-residences.html#media">Media</a>
-        <a href="no/property-brisamar-residences.html#location">Beliggenhet</a>
-        <a href="no/property-brisamar-residences.html#availability">Tilgjengelighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="no/property-brisamar-residences.html#overview">Oversikt</a>
-          <a href="no/property-brisamar-residences.html#residences">Boliger</a>
-          <a href="no/property-brisamar-residences.html#quality-specifications">Utførelse</a>
-          <a href="no/property-brisamar-residences.html#calculator">Finansiering</a>
-          <a href="no/property-brisamar-residences.html#amenities">Fasiliteter</a>
-          <a href="no/property-brisamar-residences.html#why-this-project">Hvorfor</a>
-          <a href="no/property-brisamar-residences.html#architecture">Arkitektur</a>
-          <a href="no/property-brisamar-residences.html#private-viewing">Filmatisk presentasjon</a>
-          <a href="no/property-brisamar-residences.html#lifestyle">Livsstil</a>
-          <a href="no/property-brisamar-residences.html#faq">FAQ</a>
-          <a href="no/property-brisamar-residences.html#enquire">Forespørsel</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Rask prosjektfakta">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Soverom</span><strong>3 soverom</strong></div>
-          <div class="quick-fact"><span>Bebygd areal</span><strong>77,32 - 101,15 m²</strong></div>
-          <div class="quick-fact"><span>Terrasse og solterrasse</span><strong>11,42 - 83,60 m²</strong></div>
-          <div class="quick-fact"><span>Parkering</span><strong>Parkeringsplass og bod inkludert i hver bolig</strong></div>
-          <div class="quick-fact"><span>Tilgjengelighet</span><strong>9 av 22 boliger ledige</strong></div>
-          <div class="quick-fact"><span>Prisspenn</span><strong>549 000 € - 1 050 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="no/property-brisamar-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Oversikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tjueto boliger, <em>ni oppført</em></h2>
-          <p class="project-lead">Dette er en boligbygning med 22 boliger nær sentrum av Estepona. Den har første etasje, fire etasjer over og et toppleilighetsnivå, med to kjelleretasjer for parkering og boder. Hver bolig har tre soverom, stue og spisestue med kjøkken og to bad, og hovedsoverommet har eget bad.</p>
-          <p class="project-lead">De fire boligene i første etasje har terrasse, privat hage og privat basseng, og hver etasje over har fire boliger med store terrasser. Noen av de øverste boligene har en privat solterrasse på taket med eget basseng, og på taket er det også et felles basseng, en solterrasse og servicearealer. Ni boliger er oppført med pris; utbyggerens dokumenter oppgir ingen overleveringsdato.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Boligene <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datagenererte bilder av bygningen og interiørene, og plantegninger av de ni boligene på listen.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Vis 6 bilder i Eksteriør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/corner-facade-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/corner-facade-day.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Datagenerert bilde av en bygning på et gatehjørne med buede hvite balkongplater, beplantede terrasser og en pergola på taket" width="1200" height="675" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Eksteriør</small>
-                <strong>Hjørnet av bygningen</strong>
-                <span class="project-media-card-cta">6 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Vis 2 bilder i Interiør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/living-kitchen-640.webp 640w, assets/liora/projects/brisamar-residences/media/living-kitchen-960.webp 960w, assets/liora/projects/brisamar-residences/media/living-kitchen.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/living-kitchen.jpg" alt="Datagenerert stue og spisestue med sofa, åpent kjøkken og glassdører til hagen" width="1200" height="675" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiør</small>
-                <strong>Stue, spisestue og kjøkken</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Vis 2 bilder i Soverom">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/twin-bedroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/twin-bedroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/twin-bedroom.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/twin-bedroom.jpg" alt="Datagenerert soverom med to enkeltsenger, innebygd garderobeskap og en skyvedør i glass" width="1200" height="705" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Soverom</small>
-                <strong>Soverom med to senger</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Vis 1 bilder i Bad">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/bathroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/bathroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/bathroom.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/brisamar-residences/media/bathroom.jpg" alt="Datagenerert bad med en veggmontert servantskap, et toalett og en dusj uten kar" width="1200" height="900" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bad</small>
-                <strong>Bad</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Vis 13 bilder i Plantegninger">
-              <img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" alt="Plantegning av bolig 0D, første etasje" width="590" height="776" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plantegninger</small>
-                <strong>Bolig 0D, første etasje</strong>
-                <span class="project-media-card-cta">13 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Vis alle 24 bilder</button>
-          <p class="media-note">Alle bildene er datagenererte illustrasjoner og ikke fotografier av den ferdige bygningen, og møblene og dekorasjonen på dem er illustrative og ikke inkludert. Plantegningene er utbyggerens prosjektplaner, og arealene på dem er omtrentlige og med forbehold om det endelige prosjektet. Romnavnene på plantegningene er på engelsk.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Beliggenhet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>under ti minutter fra småbåthavnen og stranden</em></h2>
-          <p class="project-lead">Bygningen ligger i et av boligområdene i Estepona, nær det historiske sentrum og A-7 og AP-7. Utbyggerens brosjyre oppgir at småbåthavnen i Estepona og La Rada-stranden ligger under ti minutter unna, med butikker, supermarkeder, skoler og idrettsanlegg i nærheten og direkte tilgang til Málaga og flyplassen.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="no">
-          <div class="locmap-map" id="locmap-brisamar-residences" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona sentrum&quot;,&quot;sub&quot;:&quot;130 m · 2 min gange&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min gange&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Brisamar Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Veiledende beliggenhet</span>
-            <h3 class="locmap-name">Brisamar Residences</h3>
-            <p class="locmap-place">Estepona, nær sentrum</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min gange</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona sentrum</span>
-              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min gange</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar lufthavn</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Boliger</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fire typer boliger, <em>én bygning</em></h2>
-          <p class="project-lead">De ni oppførte boligene deles i fire grupper etter plasseringen i bygningen. Tabellen under viser alle med priser.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Første etasje, med hage og basseng</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-brisamar-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Andre til femte etasje</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-brisamar-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Femte etasje, med privat solterrasse</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-brisamar-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Toppleiligheten</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-brisamar-residences.html#availability">Vis plantegninger</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat materiale</span>
-            <p>Gjeldende planløsninger, utsiktsposisjoner og tilgjengelighet bør sjekkes mot utviklerens siste fil før man setter opp en shortlist.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="no/property-brisamar-residences.html#availability">Vis plantegninger</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggebeskrivelse</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva boligene <em>er bygget av</em></h2>
-          <p class="project-lead">Utbyggerens egen kvalitetsspesifikasjon, oppsummert etter deler av boligen.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Konstruksjon, fasade og tak<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En armert betongkonstruksjon med fundamenter prosjektert etter den geotekniske undersøkelsen, og en flerlags fasade av ytre murstein, innvendig isolasjon, luftspalte og innvendig kledning, med ytre mørtelpuss som finish.</li>
-              <li>Flate omvendte tak, fuktisolert og isolert med harde plater, med grus som finish der det ikke er adkomst og sklisikre keramiske fliser der det er.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Vinduer og isolasjon<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Lakkerte aluminiumsrammer med termisk brudd, side-, sidehengslede/tilt- eller skyvevinduer etter plassering, med dobbeltglass med tørket luftkammer valgt etter himmelretning, og motoriserte skodder på soverommene betjent med trykknapp.</li>
-              <li>Tørre skillevegger av gipsplater på stålprofiler med varme- og lydisolasjon av mineralull, fuktbestandige plater i våtrom, og skiller mellom boliger og fellesarealer av hullmurstein med isolert kledning.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dører og skap<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En pansret inngangsdør med trepunktslås, lakkerte plane innerdører med beslag i rustfritt stål eller matt krom, og innebygde modulgarderober fullt kledd innvendig, med skuffer, hylle og klesstang.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gulv og tak<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Rektifisert porselensflis i stort format i hele boligen, sklisikker rektifisert porselensflis på terrassene, porselensflis på gulv og vegger på badene, og himlinger av gipsplater med mineralullisolasjon.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kjøkken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et fullt utstyrt kjøkken med laminerte over- og underskap, en benkeplate av svært slitesterkt porselensmateriale på omtrent 12 mm eller tilsvarende, en underlimt vask i rustfritt stål og en forkrommet énhåndsblander.</li>
-              <li>Hvitevarer inkludert: en elektrisk ovn, en mikrobølgeovn, en induksjonstopp, en kjøkkenvifte, en integrert oppvaskmaskin, et kjøleskap og en vaskemaskin.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Bad<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Servanter innfelt i benkeplaten med veggmonterte skap, flate dusjkar med glassvegger, forkrommede termostatiske dusjblandere med glidestang og håndsdusj, og toaletter med innebygd sisterne, tosidig spyling og mykt lukkende sete.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klima, varmtvann og elektrisk<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Kanalbasert klimaanlegg for kjøling og oppvarming, soneinndelt etter rom, varmtvann fra et aerotermisk system, elektrisk gulvvarme på badene og et ventilasjonssystem med kontinuerlig luftfornyelse.</li>
-              <li>Innfelt LED-belysning på kjøkken, i ganger og på bad, LED-belysning på terrassene, TV-, radio- og telefonuttak i stuer, kjøkken og soverom, en fargevideoporttelefon og vannuttak på solterrassene og i hagene i første etasje.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Bygning og garasje<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et felles basseng er planlagt på takterrassen, med toalett og teknisk rom. Inngangspartiene har gulv av stein, keramikk eller kunststein og LED-belysning med tilstedeværelsesdetektorer.</li>
-              <li>Heiser betjener alle etasjer og forbinder direkte med garasjenivåene, med automatiske dører, overlastdeteksjon og telefonforbindelse. Garasjegulvet er av polert betong.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Kilde: utbyggerens kvalitetsbeskrivelse for dette prosjektet, uten versjonsnummer og dato. Den sier at prosjektledelsen kan endre materialene så lenge kvaliteten ikke reduseres, og at opplysningene ikke er kontraktsfestet.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tilgjengelighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ni boliger <em>oppført nå</em></h2>
-          <p class="project-lead">Prisene er fra utbyggerens prisliste per oktober 2026 og bekreftes før reservasjon. Ni av de 22 boligene er oppført, alle med tre soverom og to bad; utbyggerens dokumenter sier ikke at de øvrige 13 er solgt.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Datagenerert bilde av en bygning på et gatehjørne med buede hvite balkongplater, beplantede terrasser og en pergola på taket" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>11 bilder</button>
+          <a class="chip" href="no/property-brisamar-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plantegninger</a>
+          <a class="chip" href="no/property-brisamar-residences.html#location"><svg><use href="#v2-pin"/></svg>Kart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammendrag av gjeldende fase">
-            <div><span>Tilgjengelige boliger</span><strong>9</strong></div>
-            <div><span>Pris fra</span><strong>549 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>549 000 € - 1 050 000 €</strong></div>
-            <div><span>Kontrollert</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Se alle 9 tilgjengelige boliger</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tilgjengelige boliger">
-              <article class="unit-card" data-unit data-price="650000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Første etasje">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" alt="Plantegning for Første etasje" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Første etasje</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Hage">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-0d-garden-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-0d-garden-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg" alt="Plantegning for Hage" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Hage</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">0D</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>77,32 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>11,42 m²</dd></div>
-                    <div><dt>Hage</dt><dd>92,24 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">650 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%200D">Spør om 0D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="549000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 1C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" alt="Plantegning for 1C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1C</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>87,13 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>14,54 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Andre etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">549 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%201C">Spør om 1C</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="575000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 2D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" alt="Plantegning for 2D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2D</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>81,17 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>11,42 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Tredje etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">575 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%202D">Spør om 2D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="595000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 3B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" alt="Plantegning for 3B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>89,11 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>17,85 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Fjerde etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">595 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%203B">Spør om 3B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="815000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Femte etasje">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" alt="Plantegning for Femte etasje" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Femte etasje</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Solterrasse">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg" alt="Plantegning for Solterrasse" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Solterrasse</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>101,15 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>20,31 m²</dd></div>
-                    <div><dt>Solterrasse</dt><dd>19,66 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Femte etasje, solterrasse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">815 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204A">Spør om 4A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="630000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 4B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" alt="Plantegning for 4B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>89,10 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>17,85 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Femte etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">630 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204B">Spør om 4B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="665000">
-                <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 4C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" alt="Plantegning for 4C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4C</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>87,13 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>14,54 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Femte etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">665 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204C">Spør om 4C</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="860000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Femte etasje">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" alt="Plantegning for Femte etasje" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Femte etasje</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Solterrasse">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg" alt="Plantegning for Solterrasse" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Solterrasse</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4D</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>81,17 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>11,42 m²</dd></div>
-                    <div><dt>Solterrasse</dt><dd>31,65 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Femte etasje, solterrasse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">860 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204D">Spør om 4D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1050000">
-                <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Toppleilighet">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" alt="Plantegning for Toppleilighet" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Toppleilighet</span>
-                </a><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Solterrasse">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg" alt="Plantegning for Solterrasse" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Solterrasse</span>
-                </a></div>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">5A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>95,09 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>17,56 m²</dd></div>
-                    <div><dt>Solterrasse</dt><dd>66,04 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Toppleilighet, solterrasse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 050 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%205A">Spør om 5A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Priser, bebygde arealer og terrasser er hentet fra utbyggerens prisliste slik den sto på portalen hans i oktober 2026. Listen oppgir ikke om mva. er inkludert. For boligene 4A, 4D og 5A oppgir listen terrassen og den private solterrassen som ett tall (39,97, 43,07 og 83,60 m²); tabellen viser dem hver for seg, slik tegningene gjør. Tegningene oppgir i tillegg et bruksareal og et bebygd areal etter dekret 218/2005, som avviker fra det bebygde arealet i listen.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="no/property-brisamar-residences.html#enquire" data-prefill>Spør om en bolig</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beregn din <em>månedlige betaling</em></h2>
-          <p class="body-copy">Kun et veiledende anslag. Bekreft de eksakte vilkårene med din långiver før du tar en beslutning.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Brisamar</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">22 boliger med tre soverom i én bygning nær sentrum av Estepona: fire boliger i første etasje med privat hage og basseng, terrasser i alle etasjene over og boliger med privat solterrasse og basseng på taket.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Fra 549 000 €</dd><dd class="sub">Ekskl. mva</dd></div><div><dt>Soverom</dt><dd>3</dd><dd class="sub"><span>Leiligheter og toppleiligheter</span></dd></div><div><dt>Ferdigstillelse</dt><dd>ikke bekreftet</dd><dd class="sub">Tillatelse: vi bekrefter den før du reserverer</dd></div><div><dt>Boliger igjen</dt><dd>9 av 22</dd><dd class="sub">Kontrollert oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="no/property-brisamar-residences.html#enquire" data-prefill>Bestill en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Prosjektet</h2>
+    <p class="lede">Dette er en boligbygning med 22 boliger nær sentrum av Estepona. Den har første etasje, fire etasjer over og et toppleilighetsnivå, med to kjelleretasjer for parkering og boder. Hver bolig har tre soverom, stue og spisestue med kjøkken og to bad, og hovedsoverommet har eget bad.</p>
+    <p class="lede-2">De fire boligene i første etasje har terrasse, privat hage og privat basseng, og hver etasje over har fire boliger med store terrasser. Noen av de øverste boligene har en privat solterrasse på taket med eget basseng, og på taket er det også et felles basseng, en solterrasse og servicearealer. Ni boliger er oppført med pris; utbyggerens dokumenter oppgir ingen overleveringsdato.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Buede hvite linjer, beplantede terrasser</span></summary><p>På utbyggerens datagenererte bilder har bygningen buede hvite balkongplater, beplantede terrasser i hver etasje og en pergola på taket, i en moderne utforming som skal slippe inn så mye dagslys som mulig.</p><p>Boligene har store glassdører til terrassene, og glassprofilen i stue og spisestue er skjult i gulvet slik at rommet går sømløst over i terrassen.</p><ul><li>Konstruksjon: Betong armert i samsvar med den spanske tekniske byggekoden.</li><li>Fasade: Flerlags: yttermur av murstein, innvendig isolasjon, luftspalte og innvendig kledning, med et ytre mørtelpuss som finish.</li><li>Vinduer: Lakkerte aluminiumsrammer med termisk brudd og dobbeltglass, og motoriserte skodder på soverommene.</li><li>Terrasser: Sklisikre porselensfliser i stort format, med LED-belysning.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>549 000 € – 1 050 000 €</span><small>Ekskl. mva</small></dd></div><div><dt>Tilgjengelig</dt><dd><span>9 av 22 boliger</span><small>Kontrollert oktober 2026</small></dd></div><div><dt>Boliger</dt><dd><span>Leiligheter og toppleiligheter</span></dd></div><div><dt>Størrelser</dt><dd><span>77 – 101 m²</span><small>Bebygd areal</small></dd></div><div><dt>Ferdigstillelse</dt><dd><span>ikke bekreftet</span></dd></div><div><dt>Tillatelse</dt><dd><span>Ikke oppgitt</span><small>Vi bekrefter det før du reserverer</small></dd></div><div><dt>Forskudd</dt><dd><span>Bankgaranti</span><small>Påkrevd etter spansk lov</small></dd></div><div><dt>Parkering</dt><dd><span>Parkering under bakken og bod til hver bolig</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Boliger og priser</h2>
+    <p class="sec-sub">Prisene er fra utbyggerens prisliste per oktober 2026 og bekreftes før reservasjon. Ni av de 22 boligene er oppført, alle med tre soverom og to bad; utbyggerens dokumenter sier ikke at de øvrige 13 er solgt. Velg en bolig for å se betalingsplan og totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="9 av 22 fortsatt til salgs"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>9 av 22 fortsatt til salgs</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Boliger til salgs med størrelse og pris. Velg en rad for å se betalingsplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bolig</th>
+          <th scope="col" data-sort="beds">Soverom</th>
+          <th scope="col" data-sort="size">Størrelse</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Tegning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="650000" data-size="77.32" data-ppm="8407" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp">
+            <th scope="row"><span class="u-name">0D</span><span class="u-loc">Første etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">77 m²</td>
+            <td data-label="Pris" class="u-price num">650 000 €</td>
+            <td data-label="Per m²" class="num">8 407 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 0D"><img src="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="549000" data-size="87.13" data-ppm="6301" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp">
+            <th scope="row"><span class="u-name">1C</span><span class="u-loc">Andre etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">87 m²</td>
+            <td data-label="Pris" class="u-price num">549 000 €</td>
+            <td data-label="Per m²" class="num">6 301 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 1C"><img src="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="575000" data-size="81.17" data-ppm="7084" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp">
+            <th scope="row"><span class="u-name">2D</span><span class="u-loc">Tredje etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">81 m²</td>
+            <td data-label="Pris" class="u-price num">575 000 €</td>
+            <td data-label="Per m²" class="num">7 084 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 2D"><img src="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="595000" data-size="89.11" data-ppm="6677" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp">
+            <th scope="row"><span class="u-name">3B</span><span class="u-loc">Fjerde etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">89 m²</td>
+            <td data-label="Pris" class="u-price num">595 000 €</td>
+            <td data-label="Per m²" class="num">6 677 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 3B"><img src="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="815000" data-size="101.15" data-ppm="8057" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp">
+            <th scope="row"><span class="u-name">4A</span><span class="u-loc">Femte etasje, solterrasse</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">101 m²</td>
+            <td data-label="Pris" class="u-price num">815 000 €</td>
+            <td data-label="Per m²" class="num">8 057 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 4A"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="630000" data-size="89.1" data-ppm="7071" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp">
+            <th scope="row"><span class="u-name">4B</span><span class="u-loc">Femte etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">89 m²</td>
+            <td data-label="Pris" class="u-price num">630 000 €</td>
+            <td data-label="Per m²" class="num">7 071 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 4B"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="665000" data-size="87.13" data-ppm="7632" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp">
+            <th scope="row"><span class="u-name">4C</span><span class="u-loc">Femte etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">87 m²</td>
+            <td data-label="Pris" class="u-price num">665 000 €</td>
+            <td data-label="Per m²" class="num">7 632 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 4C"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="860000" data-size="81.17" data-ppm="10595" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp">
+            <th scope="row"><span class="u-name">4D</span><span class="u-loc">Femte etasje, solterrasse</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">81 m²</td>
+            <td data-label="Pris" class="u-price num">860 000 €</td>
+            <td data-label="Per m²" class="num">10 595 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 4D"><img src="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="1050000" data-size="95.09" data-ppm="11042" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp">
+            <th scope="row"><span class="u-name">5A</span><span class="u-loc">Toppleilighet, solterrasse</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">95 m²</td>
+            <td data-label="Pris" class="u-price num">1 050 000 €</td>
+            <td data-label="Per m²" class="num">11 042 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 5A"><img src="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Boliger · <span>Fire typer boliger, én bygning</span></summary><p>De ni oppførte boligene deles i fire grupper etter plasseringen i bygningen. Tabellen under viser alle med priser.</p><div class="res-types"><div class="res-type"><h3>Første etasje, med hage og basseng</h3><ul><li>Fire boliger i første etasje har terrasse, privat hage og ifølge tegningene et privat basseng på 10 m²; én av dem, 0D, er oppført.</li><li>Bolig 0D har tre soverom og to bad, 77,32 m² bygd, en overbygd terrasse på 11,42 m² og en hage på 92,24 m².</li><li>Prisen er 650 000 €.</li></ul></div><div class="res-type"><h3>Andre til femte etasje</h3><ul><li>Fem boliger med tre soverom og to bad: 1C, 2D, 3B, 4B og 4C, fra 81,17 til 89,11 m² bygd.</li><li>Terrasser på 11,42 til 17,85 m².</li><li>Prisene går fra 549 000 € til 665 000 €.</li></ul></div><div class="res-type"><h3>Femte etasje, med privat solterrasse</h3><ul><li>Bolig 4A og 4D har en privat solterrasse i etasjen over, nådd fra innsiden av boligen, og ifølge tegningene et basseng på 8,94 og 7,37 m².</li><li>4A har 101,15 m² bygd, en terrasse på 20,31 m² og en solterrasse på 19,66 m²; 4D har 81,17 m² bygd, en terrasse på 11,42 m² og en solterrasse på 31,65 m².</li><li>Prisene er 815 000 € og 860 000 €.</li></ul></div><div class="res-type"><h3>Toppleiligheten</h3><ul><li>Bolig 5A har tre soverom og to bad, 95,09 m² bygd og en terrasse på 17,56 m² i sjette etasje.</li><li>En privat solterrasse på taket på 66,04 m² over boligen har ifølge tegningene et basseng på 15,48 m².</li><li>Prisen er 1 050 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Utbyggerens betalingsplan fås på forespørsel; vi sender den sammen med prislisten.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Hva det koster totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>mva, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Dokumentavgift (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt før notar, tinglysing og advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="no/property-brisamar-residences.html#enquire" data-prefill>Spør om denne boligen</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plantegning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Boliglånskalkulator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Kjøpesum</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1126,403 +613,230 @@
               <div class="calculator-result"><span>Skatter & kjøpskostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Fasiliteter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva prosjektet <em>gir deg</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Velvære</span>
-              <h3 class="amenity-name">Fellesbasseng</h3>
-              <p class="amenity-note">Delt av beboerne</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utførelse</h2>
+    <p class="sec-sub">Utbyggerens egen kvalitetsspesifikasjon, oppsummert etter deler av boligen.</p>
+    <div class="tabs" role="tablist" aria-label="Utførelse"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Konstruksjon, fasade og tak</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Vinduer og isolasjon</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Dører og skap</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Gulv og tak</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Kjøkken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Bad</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Klima, varmtvann og elektrisk</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Bygning og garasje</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>En armert betongkonstruksjon med fundamenter prosjektert etter den geotekniske undersøkelsen, og en flerlags fasade av ytre murstein, innvendig isolasjon, luftspalte og innvendig kledning, med ytre mørtelpuss som finish.</li><li>Flate omvendte tak, fuktisolert og isolert med harde plater, med grus som finish der det ikke er adkomst og sklisikre keramiske fliser der det er.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Lakkerte aluminiumsrammer med termisk brudd, side-, sidehengslede/tilt- eller skyvevinduer etter plassering, med dobbeltglass med tørket luftkammer valgt etter himmelretning, og motoriserte skodder på soverommene betjent med trykknapp.</li><li>Tørre skillevegger av gipsplater på stålprofiler med varme- og lydisolasjon av mineralull, fuktbestandige plater i våtrom, og skiller mellom boliger og fellesarealer av hullmurstein med isolert kledning.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>En pansret inngangsdør med trepunktslås, lakkerte plane innerdører med beslag i rustfritt stål eller matt krom, og innebygde modulgarderober fullt kledd innvendig, med skuffer, hylle og klesstang.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Rektifisert porselensflis i stort format i hele boligen, sklisikker rektifisert porselensflis på terrassene, porselensflis på gulv og vegger på badene, og himlinger av gipsplater med mineralullisolasjon.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Et fullt utstyrt kjøkken med laminerte over- og underskap, en benkeplate av svært slitesterkt porselensmateriale på omtrent 12 mm eller tilsvarende, en underlimt vask i rustfritt stål og en forkrommet énhåndsblander.</li><li>Hvitevarer inkludert: en elektrisk ovn, en mikrobølgeovn, en induksjonstopp, en kjøkkenvifte, en integrert oppvaskmaskin, et kjøleskap og en vaskemaskin.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Servanter innfelt i benkeplaten med veggmonterte skap, flate dusjkar med glassvegger, forkrommede termostatiske dusjblandere med glidestang og håndsdusj, og toaletter med innebygd sisterne, tosidig spyling og mykt lukkende sete.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Kanalbasert klimaanlegg for kjøling og oppvarming, soneinndelt etter rom, varmtvann fra et aerotermisk system, elektrisk gulvvarme på badene og et ventilasjonssystem med kontinuerlig luftfornyelse.</li><li>Innfelt LED-belysning på kjøkken, i ganger og på bad, LED-belysning på terrassene, TV-, radio- og telefonuttak i stuer, kjøkken og soverom, en fargevideoporttelefon og vannuttak på solterrassene og i hagene i første etasje.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Et felles basseng er planlagt på takterrassen, med toalett og teknisk rom. Inngangspartiene har gulv av stein, keramikk eller kunststein og LED-belysning med tilstedeværelsesdetektorer.</li><li>Heiser betjener alle etasjer og forbinder direkte med garasjenivåene, med automatiske dører, overlastdeteksjon og telefonforbindelse. Garasjegulvet er av polert betong.</li></ul>
+      
+    </div>
+    <p class="caption">Kilde: utbyggerens kvalitetsbeskrivelse for dette prosjektet, uten versjonsnummer og dato. Den sier at prosjektledelsen kan endre materialene så lenge kvaliteten ikke reduseres, og at opplysningene ikke er kontraktsfestet.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Hjørnet av bygningen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/corner-facade-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/corner-facade-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg" alt="Datagenerert bilde av en bygning på et gatehjørne med buede hvite balkongplater, beplantede terrasser og en pergola på taket" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Stue, spisestue og kjøkken"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/living-kitchen-640.webp 640w, assets/liora/projects/brisamar-residences/media/living-kitchen-960.webp 960w, assets/liora/projects/brisamar-residences/media/living-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/living-kitchen.jpg" alt="Datagenerert stue og spisestue med sofa, åpent kjøkken og glassdører til hagen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Soverom med to senger"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/twin-bedroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/twin-bedroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/twin-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/twin-bedroom.jpg" alt="Datagenerert soverom med to enkeltsenger, innebygd garderobeskap og en skyvedør i glass" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Bad"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/bathroom-640.webp 640w, assets/liora/projects/brisamar-residences/media/bathroom-960.webp 960w, assets/liora/projects/brisamar-residences/media/bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/bathroom.jpg" alt="Datagenerert bad med en veggmontert servantskap, et toalett og en dusj uten kar" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Bygningen fra luften"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/media/aerial-day-640.webp 640w, assets/liora/projects/brisamar-residences/media/aerial-day-960.webp 960w, assets/liora/projects/brisamar-residences/media/aerial-day.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/brisamar-residences/media/aerial-day.jpg" alt="Datagenerert flyfoto av bygningen ved siden av en rundkjøring, med byen Estepona og havet bak" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Se alle 11 bildene</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Eksteriør (6)</button><button type="button" data-open-cat="Interiors">Interiør (2)</button><button type="button" data-open-cat="Bedrooms">Soverom (2)</button><button type="button" data-open-cat="Bathrooms">Bad (1)</button></div>
+    
+    <p class="caption">Alle bildene er datagenererte illustrasjoner og ikke fotografier av den ferdige bygningen, og møblene og dekorasjonen på dem er illustrative og ikke inkludert. Plantegningene er utbyggerens prosjektplaner, og arealene på dem er omtrentlige og med forbehold om det endelige prosjektet. Romnavnene på plantegningene er på engelsk.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Beliggenhet</h2>
+    <p class="sec-sub">Bygningen ligger i et av boligområdene i Estepona, nær det historiske sentrum og A-7 og AP-7. Utbyggerens brosjyre oppgir at småbåthavnen i Estepona og La Rada-stranden ligger under ti minutter unna, med butikker, supermarkeder, skoler og idrettsanlegg i nærheten og direkte tilgang til Málaga og flyplassen.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="no">
+          <div class="locmap-map" id="locmap-brisamar-residences" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona sentrum&quot;,&quot;sub&quot;:&quot;130 m · 2 min gange&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;570 m · 8 min gange&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Brisamar Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Veiledende beliggenhet</span>
+            <h3 class="locmap-name">Brisamar Residences</h3>
+            <p class="locmap-place">Estepona, nær sentrum</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min gange</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Velvære</span>
-              <h3 class="amenity-name">Privat basseng</h3>
-              <p class="amenity-note">Tilhører boligen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Velvære</span>
-              <h3 class="amenity-name">Privat takbasseng</h3>
-              <p class="amenity-note">Vann på taket</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona sentrum</span>
+              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min gange</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Utendørs</span>
-              <h3 class="amenity-name">Privat solterrasse på taket</h3>
-              <p class="amenity-note">Åpen takterrasse for sol</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utendørs</span>
-              <h3 class="amenity-name">Egen hage</h3>
-              <p class="amenity-note">Inngjerdet og boligens egen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Hverdag</span>
-              <h3 class="amenity-name">Heis</h3>
-              <p class="amenity-note">Alle etasjer nås</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar lufthavn</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Hverdag</span>
-              <h3 class="amenity-name">Parkering under bakken og bod til hver bolig</h3>
-              <p class="amenity-note">Under bygningen</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Hverdag</span>
-              <h3 class="amenity-name">Klimaanlegg</h3>
-              <p class="amenity-note">Kjøling og oppvarming via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Hverdag</span>
-              <h3 class="amenity-name">Luft-til-vann-varmepumpe</h3>
-              <p class="amenity-note">Oppvarming, kjøling og varmtvann</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Hverdag</span>
-              <h3 class="amenity-name">Utstyrt kjøkken</h3>
-              <p class="amenity-note">Innredet og med hvitevarer</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Hverdag</span>
-              <h3 class="amenity-name">Egne bad til soverommene</h3>
-              <p class="amenity-note">Direkte fra soverommet</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Småbåthavnen i Estepona</th><td>Under 10 minutter</td></tr><tr><th scope="row">La Rada-stranden</th><td>Under 10 minutter</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">På stedet</h2>
+    <p class="sec-sub">Alle boliger har uteplass, fra en hage i første etasje til en solterrasse på taket.</p>
+    <div class="life-panels"><div><h3>Første etasje</h3><p>Boligene i første etasje har terrasse, privat hage og privat basseng.</p></div><div><h3>Taket</h3><p>På taket er det et felles basseng, en solterrasse og servicearealer, og boligene med privat solterrasse har eget basseng.</p></div><div><h3>Garasje og bod</h3><p>Hver bolig inkluderer en parkeringsplass og en bod i kjelleretasjene, nådd med heis.</p></div><div><h3>Klimaet</h3><p>Brosjyren oppgir mer enn 300 soldager i året på Costa del Sol.</p></div></div>
+    <ul class="amen-top"><li>Fellesbasseng</li><li>Privat basseng</li><li>Privat takbasseng</li><li>Privat solterrasse på taket</li><li>Egen hage</li><li>Heis</li></ul>
+    <details class="amen-all"><summary>Vis alle 11</summary><div class="amen-groups"><div><h3>Velvære<span class="count">3</span></h3><ul><li>Fellesbasseng</li><li>Privat basseng</li><li>Privat takbasseng</li></ul></div><div><h3>Utendørs<span class="count">2</span></h3><ul><li>Privat solterrasse på taket</li><li>Egen hage</li></ul></div><div><h3>Hverdag<span class="count">6</span></h3><ul><li>Heis</li><li>Parkering under bakken og bod til hver bolig</li><li>Klimaanlegg</li><li>Luft-til-vann-varmepumpe</li><li>Utstyrt kjøkken</li><li>Egne bad til soverommene</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår vurdering</h2>
+    <p class="sec-sub">Det vi ville vurdert før du reserverer her, og det vi sjekker for deg.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår vurdering">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrker</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planlegg for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Hva som skiller det ut</h3><ul class="points"><li><b>Hvem det passer for</b><span>Kjøpere som vil ha en ny bolig med tre soverom nær sentrum, småbåthavnen og stranden, fra en bolig i første etasje med hage til en toppleilighet med solterrasse på taket.</span></li><li><b>Hva som gjør det annerledes</b><span>Én bygning med 22 boliger med terrasser i alle etasjer, private hager og basseng i første etasje, private solterrasser med basseng høyere opp og et felles basseng på taket.</span></li><li><b>Hvorfor beliggenheten betyr noe</b><span>Utbyggerens brosjyre oppgir at småbåthavnen i Estepona og La Rada-stranden ligger under ti minutter unna, med A-7 og AP-7 like i nærheten.</span></li><li><b>Hvorfor sjekke detaljene</b><span>Dokumentene oppgir verken overleveringsdato, betalingsplan eller mva.-forhold, så vi bekrefter alle tre med utbyggeren før en eventuell reservasjon.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Hva du bør planlegge for</h3><ul class="points"><li><b>Reservasjon og betalingsplan</b><span>Dokumentene vi har, oppgir verken reservasjonsbeløp eller betalingsplan. Vi innhenter utbyggerens vilkår og sender dem skriftlig før en eventuell reservasjon.</span></li><li><b>Mva. og skatter</b><span>Prislisten oppgir ikke om mva. er inkludert. Nueva Living bekrefter skatter og kjøpskostnader skriftlig.</span></li><li><b>Garasje og bod</b><span>Brosjyren sier at hver bolig inkluderer en parkeringsplass og en bod i kjelleretasjene. Vi bekrefter plassen og boden til boligen som velges.</span></li><li><b>Beskrivelsen</b><span>Kvalitetsbeskrivelsen sier at prosjektledelsen kan endre materialene, og at den ikke er kontraktsfestet. Vi ber om den endelige beskrivelsen.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller før penger betales</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Tillatelse og arbeider</b><span>Dokumentene vi har, sier ikke om byggetillatelsen er gitt eller om arbeidene har startet, og kvalitetsbeskrivelsen er skrevet i futurum. Vi ber om tillatelsen, status for den og startdatoen for arbeidene.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ferdigstillelsesdatoen</b><span>Ingen av utbyggerens dokumenter oppgir en overleveringsdato, så vi ber om den kontraktsfestede datoen før en eventuell reservasjon.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Arealene</b><span>Prislisten oppgir bebygd areal for hver bolig og et terrassetall; for boligene 4A, 4D og 5A er tallet terrassen og solterrassen til sammen. Tegningene oppgir i tillegg et bruksareal og et større bebygd areal etter dekret 218/2005: 83,82 og 103,15 m² for bolig 1C mot 87,13 m² i prislisten. Vi bekrefter hvilket tall kontrakten bruker.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Priser og mva.</b><span>Prislisten oppgir beløp i euro og sier ikke om mva. er inkludert eller hva betalingsplanen er. Vi bekrefter begge deler skriftlig.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Be om prosjektdokumentasjonen</h3><p>Plantegningene til boligene du er interessert i, kvalitetsspesifikasjonen og prislisten.</p></li><li><h3>Sammenlign alternativene</h3><p>Se dette sammen med de andre prosjektene i Estepona vi har i porteføljen.</p></li><li><h3>Privat visning</h3><p>Se området sammen med oss, og sammenlign tegningene med hvor langt arbeidene har kommet.</p></li><li><h3>Reserver</h3><p>Vi bekrefter reservasjonsvilkårene og betalingsplanen skriftlig, deretter følger den private kjøpskontrakten.</p></li></ol>
+      <div class="docs card"><h3>Dokumenter du får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prisliste</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plantegninger<small>9 av 9 boliger</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsplan<small>Ikke utstedt ennå</small><small>Venter</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggebeskrivelse</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Det offisielle sammendraget alle kjøpere i Andalucía har krav på</small></span></li></ul><a class="btn btn-primary" href="no/property-brisamar-residences.html#enquire" data-prefill>Få prosjektmappen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Spørsmål om Brisamar</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hvor mange boliger er det?</summary><p>Bygningen har 22 boliger med tre soverom og to bad, og ni er oppført med pris: fra 549 000 € til 1 050 000 €.</p></details><details class="segment-faq-item"><summary>Er mva inkludert?</summary><p>Prislisten sier ikke noe om det. Vi bekrefter skatter og kjøpskostnader skriftlig før en eventuell reservasjon.</p></details><details class="segment-faq-item"><summary>Er det parkering?</summary><p>Ja. Brosjyren sier at hver bolig inkluderer en parkeringsplass og en bod i kjelleretasjene.</p></details><details class="segment-faq-item"><summary>Når blir det ferdig?</summary><p>Ingen av utbyggerens dokumenter oppgir en overleveringsdato. Vi ber om den kontraktsfestede datoen og status for arbeidene.</p></details><details class="segment-faq-item"><summary>Hva er betalingsplanen?</summary><p>Dokumentene vi har, oppgir ingen. Vi spør utbyggeren og bekrefter den skriftlig før en eventuell reservasjon.</p></details></div>
+    
+    <p class="faq2-guide">Mer om å kjøpe nybygg i Spania → <a class="textlink" href="no/guide-how-buying-works.html">Kjøpsguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Bestill en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris fra</p>
+      <p class="rail-price num">549 000 €</p>
+      <p class="rail-note">Ekskl. mva. 9 av 22 boliger igjen · Kontrollert oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="no/property-brisamar-residences.html#enquire" data-prefill>Bestill en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Send oss en melding på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger</strong>Vi svarer selv på hver henvendelse.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Bestill en privat visning</h2>
+        <p>Fortell oss hvilken bolig som interesserer deg. Vi sender prosjektmappen og går deretter over området sammen med deg.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger av Nueva Living</strong>Vi svarer selv på hver henvendelse.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Send oss en melding</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>På visningen sjekker vi sammen</h3><ul><li><b>På stedet.</b> Besøk tomten og omgivelsene sammen med oss.</li><li><b>Med bil.</b> Vi kjører til småbåthavnen og La Rada-stranden og tar tiden.</li><li><b>På papiret.</b> Tillatelse, overleveringsdato og kontrakt, før noe signeres.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sender…" data-success-label="Bestill en privat visning ✓" data-submitting-message="Sender…" data-success-message="Forespørsel mottatt. Vi sender prosjektmappen og foreslår tider for visning." data-error-message="Det gikk ikke. Prøv igjen, eller send oss en melding på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Brisamar Residences">
+        <input type="hidden" id="f-project" name="project" value="Brisamar Residences">
+        <input type="hidden" name="preferred_area" value="Estepona">
+        <input type="hidden" name="property_type_interest" value="Leiligheter og toppleiligheter">
+        <input type="hidden" name="budget_range" value="Fra 549 000 €">
+        <input type="hidden" name="consent_text" value="Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hei Nueva Living, jeg vil gjerne ha informasjon om Brisamar Residences." data-base="Hei Nueva Living, jeg vil gjerne ha informasjon om Brisamar Residences.">
+        <h3>Dine opplysninger</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Fornavn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Etternavn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valgfritt, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Hvilken bolig?</label><select id="v2-f-unit" name="unit_interest"><option value="">Ikke sikker ennå, send meg alt</option><option value="0D">0D: 650 000 €</option><option value="1C">1C: 549 000 €</option><option value="2D">2D: 575 000 €</option><option value="3B">3B: 595 000 €</option><option value="4A">4A: 815 000 €</option><option value="4B">4B: 630 000 €</option><option value="4C">4C: 665 000 €</option><option value="4D">4D: 860 000 €</option><option value="5A">5A: 1 050 000 €</option></select></div>
+        <fieldset class="field"><legend>Boligen blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Til å bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Et feriehjem</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hvordan skal vi svare?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefonsamtale</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min. <a href="no/privacy-policy.html">Personvernerklæring</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Gi meg også beskjed hvis tilgjengelighet eller priser endres i Brisamar.</label>
+        <button class="btn btn-primary btn-block" type="submit">Bestill en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Hvorfor dette prosjektet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvorfor dette prosjektet <em>betyr noe</em></h2>
-          <p class="project-lead">Boliger med tre soverom nær sentrum av Estepona, hver med en parkeringsplass og en bod i kjelleren.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Hvorfor det passer</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvem det passer for</h3><p>Kjøpere som vil ha en ny bolig med tre soverom nær sentrum, småbåthavnen og stranden, fra en bolig i første etasje med hage til en toppleilighet med solterrasse på taket.</p></article>
-              <article class="why-point reveal-soft"><h3>Hva som gjør det annerledes</h3><p>Én bygning med 22 boliger med terrasser i alle etasjer, private hager og basseng i første etasje, private solterrasser med basseng høyere opp og et felles basseng på taket.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor beliggenheten betyr noe</h3><p>Utbyggerens brosjyre oppgir at småbåthavnen i Estepona og La Rada-stranden ligger under ti minutter unna, med A-7 og AP-7 like i nærheten.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor sjekke detaljene</h3><p>Dokumentene oppgir verken overleveringsdato, betalingsplan eller mva.-forhold, så vi bekrefter alle tre med utbyggeren før en eventuell reservasjon.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Dokumentene vi har, oppgir ikke utbyggerens vilkår, så vi bekrefter dem skriftlig før en eventuell reservasjon.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservasjon og betalingsplan</h3><p>Dokumentene vi har, oppgir verken reservasjonsbeløp eller betalingsplan. Vi innhenter utbyggerens vilkår og sender dem skriftlig før en eventuell reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Mva. og skatter</h3><p>Prislisten oppgir ikke om mva. er inkludert. Nueva Living bekrefter skatter og kjøpskostnader skriftlig.</p></article>
-              <article class="why-point reveal-soft"><h3>Garasje og bod</h3><p>Brosjyren sier at hver bolig inkluderer en parkeringsplass og en bod i kjelleretasjene. Vi bekrefter plassen og boden til boligen som velges.</p></article>
-              <article class="why-point reveal-soft"><h3>Beskrivelsen</h3><p>Kvalitetsbeskrivelsen sier at prosjektledelsen kan endre materialene, og at den ikke er kontraktsfestet. Vi ber om den endelige beskrivelsen.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Tillit og gjennomgang</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillatelse og arbeider</h3><p>Dokumentene vi har, sier ikke om byggetillatelsen er gitt eller om arbeidene har startet, og kvalitetsbeskrivelsen er skrevet i futurum. Vi ber om tillatelsen, status for den og startdatoen for arbeidene.</p></article>
-              <article class="why-point reveal-soft"><h3>Ferdigstillelsesdatoen</h3><p>Ingen av utbyggerens dokumenter oppgir en overleveringsdato, så vi ber om den kontraktsfestede datoen før en eventuell reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Arealene</h3><p>Prislisten oppgir bebygd areal for hver bolig og et terrassetall; for boligene 4A, 4D og 5A er tallet terrassen og solterrassen til sammen. Tegningene oppgir i tillegg et bruksareal og et større bebygd areal etter dekret 218/2005: 83,82 og 103,15 m² for bolig 1C mot 87,13 m² i prislisten. Vi bekrefter hvilket tall kontrakten bruker.</p></article>
-              <article class="why-point reveal-soft"><h3>Priser og mva.</h3><p>Prislisten oppgir beløp i euro og sier ikke om mva. er inkludert eller hva betalingsplanen er. Vi bekrefter begge deler skriftlig.</p></article>
-            </div>
-            <p class="why-group-note">Første gang du kjøper på prospekt i Spania? <a href="no/guide-how-buying-works.html">Slik foregår et nybyggkjøp</a> beskriver de sju trinnene, og <a href="no/guide-off-plan-vs-resale.html">nybygg sammenlignet med bruktbolig</a> tar for seg forskudd, garantier og tidsplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bildene kommer fra utbyggeren og kan være datagenererte">
+    <p>Bildene kommer fra utbyggeren og kan være datagenererte; endelig utforming, overflater, uteområder og utsikt kan avvike. Du har krav på en kopi av Documento Informativo Abreviado (DIA) for hver bolig på denne siden; Nueva Living sender den på forespørsel.</p>
+    <p>Tilgjengeligheten kontrollert hos selgeren oktober 2026; vi bekrefter den på nytt før enhver reservasjon.</p>
+    <p>Priser, bebygde arealer og terrasser er hentet fra utbyggerens prisliste slik den sto på portalen hans i oktober 2026. Listen oppgir ikke om mva. er inkludert. For boligene 4A, 4D og 5A oppgir listen terrassen og den private solterrassen som ett tall (39,97, 43,07 og 83,60 m²); tabellen viser dem hver for seg, slik tegningene gjør. Tegningene oppgir i tillegg et bruksareal og et bebygd areal etter dekret 218/2005, som avviker fra det bebygde arealet i listen.</p>
+    <p>Informasjonen på denne siden er generell markedsføring og ikke juridisk, økonomisk eller investeringsrådgivning. Priser, tilgjengelighet og ferdigstillelsesdatoer kan endres uten varsel.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/aerial-day.jpg" alt="Datagenerert flyfoto av bygningen ved siden av en rundkjøring, med byen Estepona og havet bak" width="930" height="675" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Forhåndsvisning av arkitektur</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Buede hvite linjer, <em>beplantede terrasser</em></h2>
-          <p>På utbyggerens datagenererte bilder har bygningen buede hvite balkongplater, beplantede terrasser i hver etasje og en pergola på taket, i en moderne utforming som skal slippe inn så mye dagslys som mulig.</p>
-<p>Boligene har store glassdører til terrassene, og glassprofilen i stue og spisestue er skjult i gulvet slik at rommet går sømløst over i terrassen.</p>
-          <ul class="feature-list">
-            <li>Konstruksjon — Betong armert i samsvar med den spanske tekniske byggekoden.</li>
-            <li>Fasade — Flerlags: yttermur av murstein, innvendig isolasjon, luftspalte og innvendig kledning, med et ytre mørtelpuss som finish.</li>
-            <li>Vinduer — Lakkerte aluminiumsrammer med termisk brudd og dobbeltglass, og motoriserte skodder på soverommene.</li>
-            <li>Terrasser — Sklisikre porselensfliser i stort format, med LED-belysning.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Handlinger for prosjektforespørsel">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="no/property-brisamar-residences.html#enquire" data-prefill>Bestill visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/bedroom.jpg" alt="Datagenerert soverom med dobbeltseng, en vegg av trelister og skyvedører i glass til terrassen" width="1200" height="705" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmatisk presentasjon</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>området og tegningene</em></h2>
-            <p>Et besøk handler om beliggenheten, tegningene og hvor langt arbeidene har kommet.</p>
-            <div class="viewing-insights">
-              <div><span>På stedet</span><p>Besøk tomten og omgivelsene sammen med oss.</p></div>
-              <div><span>Med bil</span><p>Vi kjører til småbåthavnen og La Rada-stranden og tar tiden.</p></div>
-              <div><span>På papiret</span><p>Tillatelse, overleveringsdato og kontrakt, før noe signeres.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="no/index.html#private-viewing=1&amp;project=brisamar-residences">Filmatisk presentasjon</a>
-              <a class="btn project-btn ghost" href="no/property-brisamar-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Lukk">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Forrige bilde">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Neste bilde">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Eksteriør</button><button type="button" data-cat="Interiors">Interiør</button><button type="button" data-cat="Bedrooms">Soverom</button><button type="button" data-cat="Bathrooms">Bad</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/brisamar-residences/media/living-room-garden.jpg" alt="Datagenerert stue med TV, lenestol, sofa og åpent kjøkken, og skyvedører til hagen" width="1200" height="675" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Hager, terrasser <em>og taket</em></h2>
-            <p>Alle boliger har uteplass, fra en hage i første etasje til en solterrasse på taket.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Neste steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva som skjer <em>videre</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Be om prosjektdokumentasjonen</h3>
-            <p>Plantegningene til boligene du er interessert i, kvalitetsspesifikasjonen og prislisten.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Sammenlign alternativene</h3>
-            <p>Se dette sammen med de andre prosjektene i Estepona vi har i porteføljen.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se området sammen med oss, og sammenlign tegningene med hvor langt arbeidene har kommet.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserver</h3>
-            <p>Vi bekrefter reservasjonsvilkårene og betalingsplanen skriftlig, deretter følger den private kjøpskontrakten.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Ofte stilte spørsmål</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanlige <em>spørsmål fra kjøpere</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlendinger kjøpe eiendom i Spania?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er et NIE-nummer, og trenger jeg et?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg få boliglån i Spania som ikke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer reservasjons- og betalingsprosessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg leie ut boligen etter kjøp?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Trenger jeg advokat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange boliger er det?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Bygningen har 22 boliger med tre soverom og to bad, og ni er oppført med pris: fra 549 000 € til 1 050 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er mva inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Prislisten sier ikke noe om det. Vi bekrefter skatter og kjøpskostnader skriftlig før en eventuell reservasjon.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er det parkering?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Brosjyren sier at hver bolig inkluderer en parkeringsplass og en bod i kjelleretasjene.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Når blir det ferdig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ingen av utbyggerens dokumenter oppgir en overleveringsdato. Vi ber om den kontraktsfestede datoen og status for arbeidene.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er betalingsplanen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dokumentene vi har, oppgir ingen. Vi spør utbyggeren og bekrefter den skriftlig før en eventuell reservasjon.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Forespørsel</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Spør om <em>Brisamar Residences</em></h2>
-          <p class="body-copy">Fortell oss hva du trenger, så kommer vi tilbake med gjeldende tilgjengelighet, plantegningene og prislisten.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grunnlegger av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grunnlegger, Nueva Living</p>
-            <h3 id="advisor-heading">Vil du heller snakke det gjennom?</h3>
-            <p class="advisor-copy">Velg det som passer, og send meg en melding på WhatsApp. Jeg tar utgangspunkt i det.</p>
-            <div class="advisor-group" role="group" aria-label="Jeg søker">
-              <span class="advisor-group-label">Jeg søker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">En bolig å bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">En feriebolig</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budsjett">
-              <span class="advisor-group-label">Budsjett</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor">Send meg en melding på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Brisamar Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Brisamar Residences">
-          <input type="hidden" name="preferred_area" value="Estepona">
-          <input type="hidden" name="property_type_interest" value="Leiligheter og toppleiligheter">
-          <input type="hidden" name="budget_range" value="Fra 549 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Fornavn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Fornavn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Etternavn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Etternavn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Melding</label>
-              <textarea id="f-msg" name="message">Hei Nueva Living, jeg vil gjerne ha informasjon om Brisamar Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jeg samtykker til å bli kontaktet og til at mine data lagres.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jeg vil også gjerne motta sporadiske prosjektoppdateringer fra Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Send forespørsel</button>
-            <span class="form-note">Vi svarer personlig, vanligvis samme dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"0D","title":"0D · Første etasje","sub":"3 sov. · 77 m²","price":650000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg","label":"Første etasje"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg","label":"Hage"}]},{"id":"u1","ref":"1C","title":"1C · Andre etasje","sub":"3 sov. · 87 m²","price":549000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg","label":""}]},{"id":"u2","ref":"2D","title":"2D · Tredje etasje","sub":"3 sov. · 81 m²","price":575000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg","label":""}]},{"id":"u3","ref":"3B","title":"3B · Fjerde etasje","sub":"3 sov. · 89 m²","price":595000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg","label":""}]},{"id":"u4","ref":"4A","title":"4A · Femte etasje, solterrasse","sub":"3 sov. · 101 m²","price":815000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg","label":"Femte etasje"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg","label":"Solterrasse"}]},{"id":"u5","ref":"4B","title":"4B · Femte etasje","sub":"3 sov. · 89 m²","price":630000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg","label":""}]},{"id":"u6","ref":"4C","title":"4C · Femte etasje","sub":"3 sov. · 87 m²","price":665000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg","label":""}]},{"id":"u7","ref":"4D","title":"4D · Femte etasje, solterrasse","sub":"3 sov. · 81 m²","price":860000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg","label":"Femte etasje"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg","label":"Solterrasse"}]},{"id":"u8","ref":"5A","title":"5A · Toppleilighet, solterrasse","sub":"3 sov. · 95 m²","price":1050000,"plans":[{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg","label":"Toppleilighet"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg","label":"Solterrasse"}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/brisamar-residences/media/corner-facade-day.webp","alt":"Datagenerert bilde av en bygning på et gatehjørne med buede hvite balkongplater, beplantede terrasser og en pergola på taket","caption":"Hjørnet av bygningen","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-day.webp","alt":"Datagenerert flyfoto av bygningen ved siden av en rundkjøring, med byen Estepona og havet bak","caption":"Bygningen fra luften","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-dusk.webp","alt":"Datagenerert flyfoto av den opplyste bygningen i skumringen, med byen og havet i bakgrunnen","caption":"Bygningen i skumringen","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/ground-floor-garden-pool.webp","alt":"Datagenerert bilde av en terrasse i første etasje med plen, to solsenger og et lite basseng, med åser i det fjerne","caption":"En hage og et basseng i første etasje","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/terrace-sea-view.webp","alt":"Datagenerert bilde av en overbygd terrasse under en hvit pergola med loungestoler og utsikt over havet","caption":"En overbygd terrasse med utsikt mot havet","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/rooftop-pool-terrace.webp","alt":"Datagenerert bilde ovenfra av en takterrasse med solsenger og et basseng, over balkongterrassene under","caption":"En takterrasse med basseng","cat":"Exteriors"},{"src":"assets/liora/projects/brisamar-residences/media/living-kitchen.webp","alt":"Datagenerert stue og spisestue med sofa, åpent kjøkken og glassdører til hagen","caption":"Stue, spisestue og kjøkken","cat":"Interiors"},{"src":"assets/liora/projects/brisamar-residences/media/living-room-garden.webp","alt":"Datagenerert stue med TV, lenestol, sofa og åpent kjøkken, og skyvedører til hagen","caption":"Stue","cat":"Interiors"},{"src":"assets/liora/projects/brisamar-residences/media/twin-bedroom.webp","alt":"Datagenerert soverom med to enkeltsenger, innebygd garderobeskap og en skyvedør i glass","caption":"Soverom med to senger","cat":"Bedrooms"},{"src":"assets/liora/projects/brisamar-residences/media/bedroom.webp","alt":"Datagenerert soverom med dobbeltseng, en vegg av trelister og skyvedører i glass til terrassen","caption":"Soverom","cat":"Bedrooms"},{"src":"assets/liora/projects/brisamar-residences/media/bathroom.webp","alt":"Datagenerert bad med en veggmontert servantskap, et toalett og en dusj uten kar","caption":"Bad","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Spør om {ref}","plusVat":"Ekskl. mva","totalPrice":"Totalpris","vatOnStages":"Pluss mva på hver delbetaling","onRequest":"På forespørsel","imageOf":"{i} av {n}","floorPlan":"Plantegning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Brisamar Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Lukk">Lukk</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Forrige bilde">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Neste bilde">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/brisamar-residences/media/corner-facade-day.jpg","webp":"assets/liora/projects/brisamar-residences/media/corner-facade-day-960.webp","alt":"Datagenerert bilde av en bygning på et gatehjørne med buede hvite balkongplater, beplantede terrasser og en pergola på taket","width":1200,"height":675,"caption":"Hjørnet av bygningen","category":"Eksteriør"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-day.jpg","webp":"assets/liora/projects/brisamar-residences/media/aerial-day-960.webp","alt":"Datagenerert flyfoto av bygningen ved siden av en rundkjøring, med byen Estepona og havet bak","width":930,"height":675,"caption":"Bygningen fra luften","category":"Eksteriør"},{"src":"assets/liora/projects/brisamar-residences/media/aerial-dusk.jpg","webp":"assets/liora/projects/brisamar-residences/media/aerial-dusk-960.webp","alt":"Datagenerert flyfoto av den opplyste bygningen i skumringen, med byen og havet i bakgrunnen","width":1200,"height":675,"caption":"Bygningen i skumringen","category":"Eksteriør"},{"src":"assets/liora/projects/brisamar-residences/media/ground-floor-garden-pool.jpg","webp":"assets/liora/projects/brisamar-residences/media/ground-floor-garden-pool-960.webp","alt":"Datagenerert bilde av en terrasse i første etasje med plen, to solsenger og et lite basseng, med åser i det fjerne","width":1200,"height":675,"caption":"En hage og et basseng i første etasje","category":"Eksteriør"},{"src":"assets/liora/projects/brisamar-residences/media/terrace-sea-view.jpg","webp":"assets/liora/projects/brisamar-residences/media/terrace-sea-view-960.webp","alt":"Datagenerert bilde av en overbygd terrasse under en hvit pergola med loungestoler og utsikt over havet","width":1200,"height":675,"caption":"En overbygd terrasse med utsikt mot havet","category":"Eksteriør"},{"src":"assets/liora/projects/brisamar-residences/media/rooftop-pool-terrace.jpg","webp":"assets/liora/projects/brisamar-residences/media/rooftop-pool-terrace-960.webp","alt":"Datagenerert bilde ovenfra av en takterrasse med solsenger og et basseng, over balkongterrassene under","width":1200,"height":675,"caption":"En takterrasse med basseng","category":"Eksteriør"},{"src":"assets/liora/projects/brisamar-residences/media/living-kitchen.jpg","webp":"assets/liora/projects/brisamar-residences/media/living-kitchen-960.webp","alt":"Datagenerert stue og spisestue med sofa, åpent kjøkken og glassdører til hagen","width":1200,"height":675,"caption":"Stue, spisestue og kjøkken","category":"Interiør"},{"src":"assets/liora/projects/brisamar-residences/media/living-room-garden.jpg","webp":"assets/liora/projects/brisamar-residences/media/living-room-garden-960.webp","alt":"Datagenerert stue med TV, lenestol, sofa og åpent kjøkken, og skyvedører til hagen","width":1200,"height":675,"caption":"Stue","category":"Interiør"},{"src":"assets/liora/projects/brisamar-residences/media/twin-bedroom.jpg","webp":"assets/liora/projects/brisamar-residences/media/twin-bedroom-960.webp","alt":"Datagenerert soverom med to enkeltsenger, innebygd garderobeskap og en skyvedør i glass","width":1200,"height":705,"caption":"Soverom med to senger","category":"Soverom"},{"src":"assets/liora/projects/brisamar-residences/media/bedroom.jpg","webp":"assets/liora/projects/brisamar-residences/media/bedroom-960.webp","alt":"Datagenerert soverom med dobbeltseng, en vegg av trelister og skyvedører i glass til terrassen","width":1200,"height":705,"caption":"Soverom","category":"Soverom"},{"src":"assets/liora/projects/brisamar-residences/media/bathroom.jpg","webp":"assets/liora/projects/brisamar-residences/media/bathroom-960.webp","alt":"Datagenerert bad med en veggmontert servantskap, et toalett og en dusj uten kar","width":1200,"height":900,"caption":"Bad","category":"Bad"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-960.webp","alt":"Plantegning av bolig 0D, første etasje","width":590,"height":776,"caption":"Bolig 0D, første etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-0d-garden.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-0d-garden-960.webp","alt":"Plantegning av bolig 0D, hage","width":586,"height":895,"caption":"Bolig 0D, hage","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-1c-960.webp","alt":"Plantegning av bolig 1C, andre etasje","width":634,"height":747,"caption":"Bolig 1C, andre etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-2d-960.webp","alt":"Plantegning av bolig 2D, tredje etasje","width":1182,"height":1552,"caption":"Bolig 2D, tredje etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-3b-960.webp","alt":"Plantegning av bolig 3B, fjerde etasje","width":1490,"height":1506,"caption":"Bolig 3B, fjerde etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-960.webp","alt":"Plantegning av bolig 4A, femte etasje","width":1017,"height":679,"caption":"Bolig 4A, femte etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4a-solarium-960.webp","alt":"Plantegning av bolig 4A, solterrasse","width":633,"height":328,"caption":"Bolig 4A, solterrasse","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4b-960.webp","alt":"Plantegning av bolig 4B, femte etasje","width":1490,"height":1506,"caption":"Bolig 4B, femte etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4c-960.webp","alt":"Plantegning av bolig 4C, femte etasje","width":1268,"height":1494,"caption":"Bolig 4C, femte etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-960.webp","alt":"Plantegning av bolig 4D, femte etasje","width":590,"height":776,"caption":"Bolig 4D, femte etasje","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-4d-solarium-960.webp","alt":"Plantegning av bolig 4D, solterrasse","width":565,"height":604,"caption":"Bolig 4D, solterrasse","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-960.webp","alt":"Plantegning av bolig 5A, toppleilighet","width":783,"height":745,"caption":"Bolig 5A, toppleilighet","category":"Plantegninger"},{"src":"assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium.jpg","webp":"assets/liora/projects/brisamar-residences/floorplans/home-5a-solarium-960.webp","alt":"Plantegning av bolig 5A, solterrasse","width":588,"height":747,"caption":"Bolig 5A, solterrasse","category":"Plantegninger"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Handlinger for prosjektforespørsel">
-    <a href="no/property-brisamar-residences.html#enquire" data-prefill>Spør om en bolig</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Brisamar%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Brisamar Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

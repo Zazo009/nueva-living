@@ -34,13 +34,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -153,70 +154,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can foreigners buy property in Spain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is an NIE number and do I need one?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What costs should I budget for on top of the purchase price?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I get a mortgage in Spain as a non-resident?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between off-plan and completed properties?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the reservation and payment process work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I rent out the property after purchase?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need a lawyer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "How many homes are available?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -285,7 +222,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="en"
   data-project-name="The Privilege"
   data-project-message="Hello Nueva Living, I would like information about The Privilege."
@@ -442,893 +379,244 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="The Privilege">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="#top">The Privilege<span>From €775,500 · Plus VAT</span></a>
+      <nav class="hdr-proj" aria-label="Project sections"><a href="#overview">Overview</a><a href="#availability">Prices</a><a href="#specs">Specifications</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#onsite">On site</a><a href="#view">Our view</a><a href="#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="#enquire" data-prefill>Book a private viewing</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="The Privilege">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/garden-facade-day-640.webp 640w, assets/liora/projects/the-privilege/media/garden-facade-day-960.webp 960w, assets/liora/projects/the-privilege/media/garden-facade-day.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/the-privilege/media/garden-facade-day.jpg" alt="Computer-generated view of the building from the garden, with planted terraces on every floor, a lawn and a pool in front" width="2000" height="1125" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/the-privilege/media/garden-facade-day.jpg" alt="Computer-generated view of the building from the garden, with planted terraces on every floor, a lawn and a pool in front" width="2000" height="1125" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">17 of 32 homes available</span>
-          <h1 class="hero-title" style="--hero-title-run: 9">
-            <span class="hero-title-name">The Privilege <em>Estepona</em></span>
-            <span class="hero-title-context">New Homes with Private Pools Next to the Old Town of Estepona</span>
-          </h1>
-          <p class="hero-positioning">17 of 32 homes with two and three bedrooms in one building next to the old town of Estepona, with private pools, rooftop solariums, a communal pool, a gym, a spa, a social club and a coworking space, and two garage spaces and a storage room with each listed home. No completion date is stated. From EUR 775,500 plus VAT.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="#availability">View Available Homes</a>
-            <a class="btn project-btn ghost" href="index.html#private-viewing=1&amp;project=the-privilege">Cinematic Presentation</a>
-            <a class="btn project-btn ghost" href="#media">All Images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Project key facts">
-          <div class="hero-fact"><span>Location</span><strong>Estepona</strong></div>
-          <div class="hero-fact"><span>Starting Price</span><strong>From EUR 775,500 + VAT</strong></div>
-          <div class="hero-fact"><span>Property Type</span><strong>Apartments &amp; Penthouses</strong></div>
-          <div class="hero-fact"><span>Delivery</span><strong>Completion to be confirmed</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Project sections">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Jump to</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="#media">Media</a>
-        <a href="#location">Location</a>
-        <a href="#availability">Availability</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">More</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="#overview">Overview</a>
-          <a href="#residences">Residences</a>
-          <a href="#quality-specifications">Specifications</a>
-          <a href="#calculator">Affordability</a>
-          <a href="#amenities">Amenities</a>
-          <a href="#why-this-project">Why</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#private-viewing">Cinematic Presentation</a>
-          <a href="#lifestyle">Lifestyle</a>
-          <a href="#faq">FAQ</a>
-          <a href="#enquire">Enquire</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Project quick facts">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Bedrooms</span><strong>2-3 bedrooms</strong></div>
-          <div class="quick-fact"><span>Interior area</span><strong>72.14 - 124.93 sqm</strong></div>
-          <div class="quick-fact"><span>Built area</span><strong>79.48 - 134.62 sqm</strong></div>
-          <div class="quick-fact"><span>Availability</span><strong>17 of 32 homes available</strong></div>
-          <div class="quick-fact"><span>Available</span><strong>17 homes</strong></div>
-          <div class="quick-fact"><span>Price range</span><strong>EUR 775,500 - EUR 2,084,500 + VAT</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="#enquire" data-prefill>Request Project Material</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overview</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Thirty-two homes, <em>seventeen listed</em></h2>
-          <p class="project-lead">The Privilege is one residential building of 32 homes with two and three bedrooms next to the old town of Estepona. It has a ground floor, four upper floors and a rooftop solarium level, with two basement levels for parking and storage rooms. The ground-floor homes have a private garden and a private pool, and the penthouses have a terrace and a private solarium with a pool on the roof.</p>
-          <p class="project-lead">Seventeen homes are listed with a price and the other 15 are marked as reserved on the developer’s price list headed September 2026. The shared areas are a communal pool with night lighting, a gym, a spa with a sauna, a social club and a coworking space. The developer’s documents give no completion date.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">The homes <em>in detail</em></h2>
-          </div>
-          <p class="project-lead">Computer-generated views of the building, its shared areas and its interiors, and the floorplans of the 17 homes that are listed.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="View 7 images in Exteriors">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/garden-facade-day-640.webp 640w, assets/liora/projects/the-privilege/media/garden-facade-day-960.webp 960w, assets/liora/projects/the-privilege/media/garden-facade-day.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/the-privilege/media/garden-facade-day.jpg" alt="Computer-generated view of the building from the garden, with planted terraces on every floor, a lawn and a pool in front" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriors</small>
-                <strong>The building from the garden</strong>
-                <span class="project-media-card-cta">7 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="View 4 images in Amenities">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/pool-lounge-pavilion-640.webp 640w, assets/liora/projects/the-privilege/media/pool-lounge-pavilion-960.webp 960w, assets/liora/projects/the-privilege/media/pool-lounge-pavilion.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/the-privilege/media/pool-lounge-pavilion.jpg" alt="Computer-generated communal pool with white loungers beside a concrete and timber pavilion, with hills beyond" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Amenities</small>
-                <strong>The communal pool and a pavilion</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="View 5 images in Terraces">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn-640.webp 640w, assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn-960.webp 960w, assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn.jpg" alt="Computer-generated covered terrace with a dining table, a long narrow pool and a lawn with round white seats, and mountains beyond" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terraces</small>
-                <strong>A terrace with a pool and a lawn</strong>
-                <span class="project-media-card-cta">5 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="View 2 images in Interiors">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/living-room-640.webp 640w, assets/liora/projects/the-privilege/media/living-room-960.webp 960w, assets/liora/projects/the-privilege/media/living-room.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/the-privilege/media/living-room.jpg" alt="Computer-generated open living and dining room with a curved sofa, a marble dining table and glass doors to the terrace" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiors</small>
-                <strong>Living and dining room</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="View 1 images in Bedrooms">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/main-bedroom-640.webp 640w, assets/liora/projects/the-privilege/media/main-bedroom-960.webp 960w, assets/liora/projects/the-privilege/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/the-privilege/media/main-bedroom.jpg" alt="Computer-generated main bedroom with a double bed, a panelled headboard wall and glass doors to a balcony with a view of the hills" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bedrooms</small>
-                <strong>Main bedroom</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="View 1 images in Bathrooms">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/main-bathroom-640.webp 640w, assets/liora/projects/the-privilege/media/main-bathroom-960.webp 960w, assets/liora/projects/the-privilege/media/main-bathroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/the-privilege/media/main-bathroom.jpg" alt="Computer-generated bathroom with a wall-hung stone vanity with two basins, a long mirror and a walk-in shower beside a glass wall" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bathrooms</small>
-                <strong>Bathroom</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="View 17 images in Floorplans">
-              <img src="assets/liora/projects/the-privilege/floorplans/home-ground-a.jpg" alt="Floorplan of home Ground A" width="2000" height="1421" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Floorplans</small>
-                <strong>Home Ground A</strong>
-                <span class="project-media-card-cta">17 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>View all 37 images</button>
-          <p class="media-note">All the views are computer-generated, apart from the aerial view, which places the computer-generated building in a photograph, and the furniture and decoration in them are illustrative and not included. The floorplans are the developer’s sales plans: they are not contractual, the room names on them are in English and the areas on them differ in places from the price list.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Location</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>next to the old town</em></h2>
-          <p class="project-lead">The building is in one of Estepona’s residential areas, next to the old town and in the heart of the Costa del Sol, close to the A-7 and the AP-7. The developer’s brochure puts the marina, Playa Beach and La Rada beach under ten minutes away, with shops, supermarkets, schools and sports facilities close by and swift access to Málaga and its airport. Its location map adds times of 4 minutes to the Estepona marina, 6 to Punta Plata beach and 8 to Padrón beach, without saying how they are travelled.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="en">
-          <div class="locmap-map" id="locmap-the-privilege" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Mediterranean&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centre&quot;,&quot;sub&quot;:&quot;130 m · 2 min walk&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Beach&quot;,&quot;sub&quot;:&quot;570 m · 8 min walk&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2.9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Estepona golf&quot;,&quot;sub&quot;:&quot;8.4 km · 14 min&quot;}]}' role="img" aria-label="Indicative location map for The Privilege"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicative location</span>
-            <h3 class="locmap-name">The Privilege</h3>
-            <p class="locmap-place">Estepona, next to the old town</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Beach</span>
-              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min walk</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2.9 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona centre</span>
-              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min walk</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona golf</span>
-              <span class="locmap-row-figure"><bdi>8.4 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Finca Cortesín golf</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar airport</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances measured by road from the plot boundary. Map for orientation only; boundaries indicative.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Residences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Seventeen homes, <em>four kinds</em></h2>
-          <p class="project-lead">The 17 listed homes fall into four groups by floor and outdoor space. The table below lists each one with its price.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Ground-floor homes with a garden and a pool</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="#availability">View Floorplans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Homes with a terrace, on the first to third floors</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="#availability">View Floorplans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Third-floor homes with a private pool</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="#availability">View Floorplans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Penthouses with a rooftop solarium and a pool</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="#availability">View Floorplans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Private Material</span>
-            <p>Current layouts, view positions and unit availability should be reviewed against the latest developer file before shortlisting.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="#availability">View Floorplans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Quality specifications</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What the homes are <em>built with</em></h2>
-          <p class="project-lead">The developer’s own quality specification, summarised by part of the home.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Facade and glazing<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>A multilayer facade of an outer brick wall, interior insulation, an air cavity and a plasterboard lining, finished in glass and cladding such as lacquered aluminium or GRC panels.</li>
-              <li>A curtain wall of lacquered aluminium with a thermal break and Climalit-type double glazing with low-emissivity and solar-control treatment, with sliding and opening panels to the terraces and motorised blackout blinds in the bedrooms and living rooms.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Walls and partitions<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Partitions inside the home in dry plasterboard on a metal frame with mineral-wool insulation, and water-repellent plasterboard in the wet rooms.</li>
-              <li>Between homes and common areas, a leaf of perforated brick with a self-supporting plasterboard lining and thermal and acoustic insulation with an anti-impact layer.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Floors, doors and wardrobes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Rectified porcelain stoneware floors in 120 x 120 cm format by PORCELANOSA or equivalent, in the rooms, the bathrooms and, in a non-slip finish, on the terraces, with timber skirting boards matching the doors.</li>
-              <li>An armoured front door with a three-point lock and a smart lock, full-height frameless lacquered interior doors, and built-in lacquered wardrobes with a suitcase shelf and a hanging rail. Some walls are clad in wood panelling with a choice of finishes.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kitchen<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>A fully furnished kitchen with high-pressure laminate units, a worktop and splashback in SILESTONE compact quartz or porcelain stoneware, a central island with a porcelain or CORIAN top and a pull-out GROHE tap or similar.</li>
-              <li>GAGGENAU or equivalent appliances: an oven, an induction hob with an integrated extractor, a dishwasher, a fridge and a wine cooler, and a laundry area with a washing machine, a tumble dryer and an ironing centre.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Bathrooms<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Electric underfloor heating in the main and the second bathroom, a continuous washbasin in compact quartz, porcelain or Corian with a wall-hung unit, and low-profile shower trays with glass screens.</li>
-              <li>Thermostatic wall-mounted GROHE or similar shower fittings with a sliding bar and a handheld shower head, large-format rectified wall tiles by PORCELANOSA or equivalent combined with microcement, and textured ceilings.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climate and energy<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Hot water from an aerothermal heat pump in each home.</li>
-              <li>Air conditioning and heating by a direct-expansion heat pump, through ducts in the false ceiling with grilles in the living room, kitchen and bedrooms, and a thermostat in the living room and in every bedroom with Airzone zoning.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Electrical and telecoms<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>A high level of electrification, TV, radio and telephone points in the living rooms, kitchens and bedrooms, a colour video intercom, and recessed LED lights in the kitchens, corridors and bathrooms.</li>
-              <li>LED lighting, a socket and a water point on the terraces, the rooftop solariums and the ground-floor gardens.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Terraces, gardens and solariums<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Private built-in pools on some terraces, clad in natural stone with exterior LED lighting and individual to each home, and outdoor showers in the gardens and solariums.</li>
-              <li>Gardens and terraces paved with exterior porcelain stoneware and planted with natural grass and an integrated irrigation system.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Common areas, garage and lifts<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>A communal pool with night lighting, landscaped areas with native low-water planting and automatic drip irrigation, a solarium, a fully equipped gym, a spa with a sauna, a social club and a coworking space.</li>
-              <li>Entrance halls with stone, ceramic or large-format artificial stone floors and presence detectors with timers on the lighting of halls, stairs and landings.</li>
-              <li>A garage with a remote-controlled door, a polished quartz-concrete floor with an epoxy coating, fire protection and pre-installation for electric-car charging, and lifts that reach every floor and the garage levels directly, with automatic doors, overload detection and a telephone connection.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Source: the quality specification in the developer’s documents, which is undated. It says that the materials may be changed by the project management as long as their quality is not reduced, that it is not contractual and that the furniture shown in the images is not included. Brands are named in it with “or equivalent”.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Availability</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">17 of 32 homes <em>currently available</em></h2>
-          <p class="project-lead">Seventeen homes are listed with a price: two on the ground floor with a garden and a pool, seven with a terrace on the first to third floors, two on the third floor with a private pool and six penthouses with a rooftop solarium and a pool. The other 15 are marked RESERVADO, reserved, on the developer’s price list headed September 2026. Prices exclude the 10% IVA and are confirmed before any reservation.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/the-privilege/media/garden-facade-day.jpg" alt="Computer-generated view of the building from the garden, with planted terraces on every floor, a lawn and a pool in front" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>20 photos</button>
+          <a class="chip" href="#availability"><svg><use href="#v2-i-plan"/></svg>Floor plans</a>
+          <a class="chip" href="#location"><svg><use href="#v2-pin"/></svg>Map</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Current release summary">
-            <div><span>Available Homes</span><strong>17</strong></div>
-            <div><span>Starting Price</span><strong>EUR 775,500 + VAT</strong></div>
-            <div><span>Price Range</span><strong>EUR 775,500 - EUR 2,084,500 + VAT</strong></div>
-            <div><span>Checked</span><strong>September 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>View All 17 Available Homes</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filter available homes"
-              data-availability-filters
-              data-count-template="Showing {shown} of {total}">
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Home type</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
-                </div>
-              </div>
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Bedrooms</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 bed</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 bed</button>
-                </div>
-              </div>
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Price</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">All</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-1250000" aria-pressed="false">Under €1.25M</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="1250000-" aria-pressed="false">€1.25M+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Clear filters</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
-            <div class="unit-card-grid" role="list" aria-label="Available homes">
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2084500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-ground-a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Ground A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-ground-a-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-ground-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-ground-a.jpg" alt="Floorplan for Ground A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Ground A</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>134.62 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>124.93 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>102.25 sqm</dd></div>
-                    <div><dt>Garden</dt><dd>177.69 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Ground floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 2,084,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%20Ground%20A">Ask about Ground A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1408000">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-ground-b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Ground B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-ground-b-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-ground-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-ground-b.jpg" alt="Floorplan for Ground B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Ground B</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>104.61 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>96.38 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>78.28 sqm</dd></div>
-                    <div><dt>Garden</dt><dd>45.47 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Ground floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,408,000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%20Ground%20B">Ask about Ground B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1097250">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-1d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 1D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-1d-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-1d.jpg" alt="Floorplan for 1D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1D</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.49 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>24.10 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 2, First floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,097,250</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%201D">Ask about 1D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1149500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-1g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 1G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-1g-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-1g-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-1g.jpg" alt="Floorplan for 1G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1G</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.49 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>101.21 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, First floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,149,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%201G">Ask about 1G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1127500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 2D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-2d-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-2d.jpg" alt="Floorplan for 2D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2D</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.26 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>19.51 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 2, Second floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,127,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%202D">Ask about 2D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="775500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-2e.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 2E">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-2e-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-2e-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-2e.jpg" alt="Floorplan for 2E" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2E</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>79.48 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>72.14 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>14.92 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 2, Second floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 775,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%202E">Ask about 2E</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1249500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-2g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 2G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-2g-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-2g-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-2g.jpg" alt="Floorplan for 2G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2G</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.49 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>92.13 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Second floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,249,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%202G">Ask about 2G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1420650">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-3a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-3a-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-3a.jpg" alt="Floorplan for 3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3A</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>134.62 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>124.93 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>42.99 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Third floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,420,650</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%203A">Ask about 3A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1193500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-3b-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-3b.jpg" alt="Floorplan for 3B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3B</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>104.61 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>96.38 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>33.13 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Third floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,193,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%203B">Ask about 3B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1127500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-3d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-3d-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-3d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-3d.jpg" alt="Floorplan for 3D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3D</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.26 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>22.57 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 2, Third floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,127,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%203D">Ask about 3D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1179000">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-3g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-3g-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-3g-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-3g.jpg" alt="Floorplan for 3G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3G</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.49 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>77.58 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Apartment</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Third floor</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,179,000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%203G">Ask about 3G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="1290800">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-4b-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-4b.jpg" alt="Floorplan for 4B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4B</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>79.48 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>72.14 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>22.31 sqm</dd></div>
-                    <div><dt>Solarium</dt><dd>27.33 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Fourth floor, Penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,290,800</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%204B">Ask about 4B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="1290800">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-4c-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-4c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-4c.jpg" alt="Floorplan for 4C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4C</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>79.48 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>72.14 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>22.31 sqm</dd></div>
-                    <div><dt>Solarium</dt><dd>27.33 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 2, Fourth floor, Penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,290,800</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%204C">Ask about 4C</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1721500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-4e.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4E">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-4e-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-4e-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-4e.jpg" alt="Floorplan for 4E" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4E</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.49 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>29.18 sqm</dd></div>
-                    <div><dt>Solarium</dt><dd>36.32 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 2, Fourth floor, Penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,721,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%204E">Ask about 4E</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="1230000">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-4f.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4F">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-4f-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-4f-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-4f.jpg" alt="Floorplan for 4F" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4F</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>79.48 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>72.14 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>16.67 sqm</dd></div>
-                    <div><dt>Solarium</dt><dd>27.33 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 2, Fourth floor, Penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,230,000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%204F">Ask about 4F</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="1230000">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-4g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-4g-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-4g-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-4g.jpg" alt="Floorplan for 4G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4G</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>79.48 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>72.14 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>16.67 sqm</dd></div>
-                    <div><dt>Solarium</dt><dd>27.33 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Fourth floor, Penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,230,000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%204G">Ask about 4G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1908500">
-                <a class="unit-card-plan" href="assets/liora/projects/the-privilege/floorplans/home-4h.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4H">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/the-privilege/floorplans/home-4h-640.webp 640w, assets/liora/projects/the-privilege/floorplans/home-4h-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/the-privilege/floorplans/home-4h.jpg" alt="Floorplan for 4H" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">View floorplan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">4H</strong>
-                    <span class="availability-status">Available</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
-                    <div><dt>Built</dt><dd>103.49 sqm</dd></div>
-                    <div><dt>Interior</dt><dd>95.72 sqm</dd></div>
-                    <div><dt>Terrace</dt><dd>76.07 sqm</dd></div>
-                    <div><dt>Solarium</dt><dd>36.32 sqm</dd></div>
-                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
-                    <div><dt>Floor</dt><dd>Staircase 1, Fourth floor, Penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">EUR 1,908,500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=The%20Privilege%20-%204H">Ask about 4H</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Prices, bedrooms, built areas, terraces, solariums and gardens are transcribed from the developer’s price list headed September 2026, which gives 17 of the 32 homes a price and marks the other 15 as reserved. The list states that prices exclude 10% IVA. It calls the two ground-floor homes Bajo A and Bajo B and gives each home’s staircase, 1 or 2. The interior areas and the pools are taken from the developer’s plans, which the list does not give. The built area is the plans’ total built area, without a share of the communal areas. Where the plans or the brochure differ from the list, the list is followed in the table and both figures are given above.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="#enquire" data-prefill>Ask About a Home</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20The%20Privilege." target="_blank" rel="noopener" data-whatsapp-advisor data-project="The Privilege" data-intent="speak with an advisor">Speak With Advisor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Affordability</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimate your <em>monthly payment</em></h2>
-          <p class="body-copy">A quick indicative estimate only. Confirm exact terms with your lender before making any decision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">The Privilege</span></h1>
+        <p class="hero-by">17 of 32 homes with two and three bedrooms in one building next to the old town of Estepona, with private pools, rooftop solariums, a communal pool, a gym, a spa, a social club and a coworking space, and two garage spaces and a storage room with each listed home.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Price</dt><dd class="num">From €775,500</dd><dd class="sub">Plus VAT</dd></div><div><dt>Bedrooms</dt><dd>2 to 3</dd><dd class="sub"><span>Apartments &amp; Penthouses</span></dd></div><div><dt>Completion</dt><dd>to be confirmed</dd><dd class="sub">Licence: we confirm it before you reserve</dd></div><div><dt>Homes left</dt><dd>17 of 32</dd><dd class="sub">Checked September 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="#enquire" data-prefill>Book a private viewing</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20The%20Privilege." target="_blank" rel="noopener" data-whatsapp-advisor data-project="The Privilege" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">The development</h2>
+    <p class="lede">The Privilege is one residential building of 32 homes with two and three bedrooms next to the old town of Estepona. It has a ground floor, four upper floors and a rooftop solarium level, with two basement levels for parking and storage rooms. The ground-floor homes have a private garden and a private pool, and the penthouses have a terrace and a private solarium with a pool on the roof.</p>
+    <p class="lede-2">Seventeen homes are listed with a price and the other 15 are marked as reserved on the developer’s price list headed September 2026. The shared areas are a communal pool with night lighting, a gym, a spa with a sauna, a social club and a coworking space. The developer’s documents give no completion date.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Bronze-toned frames, planted terraces</span></summary><p>The developer’s brochure calls the design innovative and avant-garde, and eminently contemporary. In its computer-generated images the building has angular bronze-toned frames around the terraces on every floor, planted balustrades and a large frame around the roof.</p><p>The specification describes a curtain-wall facade with sliding and opening panels where the living room and kitchen meet the terrace, with the tracks hidden in the floor, so that the room runs on into the outdoors.</p><ul><li>Structure: Reinforced concrete built to current regulations and the Technical Building Code, on foundations designed from the geotechnical study.</li><li>Facade: Multilayer: an outer brick wall, interior insulation, an air cavity and a plasterboard lining, finished in glass and cladding such as lacquered aluminium or GRC panels, to be fixed by the project management.</li><li>Glazing: Lacquered aluminium frames with a thermal break and double glazing with low-emissivity and solar-control treatment, and motorised blackout blinds in the bedrooms and living rooms.</li><li>Roofs: Inverted flat roofs, waterproofed and insulated, with gravel where nobody walks and non-slip ceramic flooring where they are walkable.</li></ul></details>
+    <dl class="kfacts"><div><dt>Price</dt><dd><span>€775,500 – €2,084,500</span><small>Plus VAT</small></dd></div><div><dt>Available</dt><dd><span>17 of 32 homes</span><small>Checked September 2026</small></dd></div><div><dt>Homes</dt><dd><span>Apartments &amp; Penthouses</span></dd></div><div><dt>Sizes</dt><dd><span>79 – 135 m²</span><small>Built area</small></dd></div><div><dt>Completion</dt><dd><span>to be confirmed</span></dd></div><div><dt>Licence</dt><dd><span>Not stated</span><small>We confirm it before you reserve</small></dd></div><div><dt>Deposits</dt><dd><span>Bank guarantee</span><small>Required by Spanish law</small></dd></div><div><dt>Parking</dt><dd><span>Underground Parking And Storage For Every Home</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Homes and prices</h2>
+    <p class="sec-sub">Seventeen homes are listed with a price: two on the ground floor with a garden and a pool, seven with a terrace on the first to third floors, two on the third floor with a private pool and six penthouses with a rooftop solarium and a pool. The other 15 are marked RESERVADO, reserved, on the developer’s price list headed September 2026. Prices exclude the 10% IVA and are confirmed before any reservation. Select a home to see its payment schedule and total cost.</p>
+    <div class="scarcity" role="img" aria-label="17 of 32 still for sale"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>17 of 32 still for sale</span></div>
+    <div class="ufilter" role="group" aria-label="Filter by bedrooms"><button type="button" aria-pressed="true" data-beds="">All <span>17</span></button><button type="button" aria-pressed="false" data-beds="2">2 bed <span>5</span></button><button type="button" aria-pressed="false" data-beds="3">3 bed <span>12</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Homes for sale, with size and price. Select a row for the payment schedule.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Home</th>
+          <th scope="col" data-sort="beds">Bedrooms</th>
+          <th scope="col" data-sort="size">Size</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Price</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="2084500" data-size="134.62" data-ppm="15484" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-ground-a-640.webp">
+            <th scope="row"><span class="u-name">Ground A</span><span class="u-loc">Staircase 1, Ground floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">135 m²</td>
+            <td data-label="Price" class="u-price num">€2,084,500</td>
+            <td data-label="Per m²" class="num">€15,484</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-ground-a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Ground A"><img src="assets/liora/projects/the-privilege/floorplans/home-ground-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="1408000" data-size="104.61" data-ppm="13460" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-ground-b-640.webp">
+            <th scope="row"><span class="u-name">Ground B</span><span class="u-loc">Staircase 1, Ground floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">105 m²</td>
+            <td data-label="Price" class="u-price num">€1,408,000</td>
+            <td data-label="Per m²" class="num">€13,460</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-ground-b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Ground B"><img src="assets/liora/projects/the-privilege/floorplans/home-ground-b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="1097250" data-size="103.49" data-ppm="10602" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-1d-640.webp">
+            <th scope="row"><span class="u-name">1D</span><span class="u-loc">Staircase 2, First floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,097,250</td>
+            <td data-label="Per m²" class="num">€10,602</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-1d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 1D"><img src="assets/liora/projects/the-privilege/floorplans/home-1d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="1149500" data-size="103.49" data-ppm="11107" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-1g-640.webp">
+            <th scope="row"><span class="u-name">1G</span><span class="u-loc">Staircase 1, First floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,149,500</td>
+            <td data-label="Per m²" class="num">€11,107</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-1g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 1G"><img src="assets/liora/projects/the-privilege/floorplans/home-1g-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="1127500" data-size="103.26" data-ppm="10919" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-2d-640.webp">
+            <th scope="row"><span class="u-name">2D</span><span class="u-loc">Staircase 2, Second floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,127,500</td>
+            <td data-label="Per m²" class="num">€10,919</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 2D"><img src="assets/liora/projects/the-privilege/floorplans/home-2d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="775500" data-size="79.48" data-ppm="9757" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-2e-640.webp">
+            <th scope="row"><span class="u-name">2E</span><span class="u-loc">Staircase 2, Second floor</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">79 m²</td>
+            <td data-label="Price" class="u-price num">€775,500</td>
+            <td data-label="Per m²" class="num">€9,757</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-2e.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 2E"><img src="assets/liora/projects/the-privilege/floorplans/home-2e-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="1249500" data-size="103.49" data-ppm="12074" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-2g-640.webp">
+            <th scope="row"><span class="u-name">2G</span><span class="u-loc">Staircase 1, Second floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,249,500</td>
+            <td data-label="Per m²" class="num">€12,074</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-2g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 2G"><img src="assets/liora/projects/the-privilege/floorplans/home-2g-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="1420650" data-size="134.62" data-ppm="10553" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-3a-640.webp">
+            <th scope="row"><span class="u-name">3A</span><span class="u-loc">Staircase 1, Third floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">135 m²</td>
+            <td data-label="Price" class="u-price num">€1,420,650</td>
+            <td data-label="Per m²" class="num">€10,553</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-3a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3A"><img src="assets/liora/projects/the-privilege/floorplans/home-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="1193500" data-size="104.61" data-ppm="11409" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-3b-640.webp">
+            <th scope="row"><span class="u-name">3B</span><span class="u-loc">Staircase 1, Third floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">105 m²</td>
+            <td data-label="Price" class="u-price num">€1,193,500</td>
+            <td data-label="Per m²" class="num">€11,409</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3B"><img src="assets/liora/projects/the-privilege/floorplans/home-3b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="1127500" data-size="103.26" data-ppm="10919" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-3d-640.webp">
+            <th scope="row"><span class="u-name">3D</span><span class="u-loc">Staircase 2, Third floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,127,500</td>
+            <td data-label="Per m²" class="num">€10,919</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-3d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3D"><img src="assets/liora/projects/the-privilege/floorplans/home-3d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="1179000" data-size="103.49" data-ppm="11392" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-3g-640.webp">
+            <th scope="row"><span class="u-name">3G</span><span class="u-loc">Staircase 1, Third floor</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,179,000</td>
+            <td data-label="Per m²" class="num">€11,392</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-3g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 3G"><img src="assets/liora/projects/the-privilege/floorplans/home-3g-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u11" data-beds="2" data-price="1290800" data-size="79.48" data-ppm="16241" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-4b-640.webp">
+            <th scope="row"><span class="u-name">4B</span><span class="u-loc">Staircase 1, Fourth floor, Penthouse</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">79 m²</td>
+            <td data-label="Price" class="u-price num">€1,290,800</td>
+            <td data-label="Per m²" class="num">€16,241</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4B"><img src="assets/liora/projects/the-privilege/floorplans/home-4b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u12" data-beds="2" data-price="1290800" data-size="79.48" data-ppm="16241" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-4c-640.webp">
+            <th scope="row"><span class="u-name">4C</span><span class="u-loc">Staircase 2, Fourth floor, Penthouse</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">79 m²</td>
+            <td data-label="Price" class="u-price num">€1,290,800</td>
+            <td data-label="Per m²" class="num">€16,241</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4C"><img src="assets/liora/projects/the-privilege/floorplans/home-4c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u13" data-beds="3" data-price="1721500" data-size="103.49" data-ppm="16634" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-4e-640.webp">
+            <th scope="row"><span class="u-name">4E</span><span class="u-loc">Staircase 2, Fourth floor, Penthouse</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,721,500</td>
+            <td data-label="Per m²" class="num">€16,634</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-4e.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4E"><img src="assets/liora/projects/the-privilege/floorplans/home-4e-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u14" data-beds="2" data-price="1230000" data-size="79.48" data-ppm="15476" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-4f-640.webp">
+            <th scope="row"><span class="u-name">4F</span><span class="u-loc">Staircase 2, Fourth floor, Penthouse</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">79 m²</td>
+            <td data-label="Price" class="u-price num">€1,230,000</td>
+            <td data-label="Per m²" class="num">€15,476</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-4f.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4F"><img src="assets/liora/projects/the-privilege/floorplans/home-4f-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u15" data-beds="2" data-price="1230000" data-size="79.48" data-ppm="15476" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-4g-640.webp">
+            <th scope="row"><span class="u-name">4G</span><span class="u-loc">Staircase 1, Fourth floor, Penthouse</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">79 m²</td>
+            <td data-label="Price" class="u-price num">€1,230,000</td>
+            <td data-label="Per m²" class="num">€15,476</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-4g.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4G"><img src="assets/liora/projects/the-privilege/floorplans/home-4g-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u16" data-beds="3" data-price="1908500" data-size="103.49" data-ppm="18441" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/the-privilege/floorplans/home-4h-640.webp">
+            <th scope="row"><span class="u-name">4H</span><span class="u-loc">Staircase 1, Fourth floor, Penthouse</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">103 m²</td>
+            <td data-label="Price" class="u-price num">€1,908,500</td>
+            <td data-label="Per m²" class="num">€18,441</td>
+            <td class="u-plan"><a href="assets/liora/projects/the-privilege/floorplans/home-4h.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4H"><img src="assets/liora/projects/the-privilege/floorplans/home-4h-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Residences · <span>Seventeen homes, four kinds</span></summary><p>The 17 listed homes fall into four groups by floor and outdoor space. The table below lists each one with its price.</p><div class="res-types"><div class="res-type"><h3>Ground-floor homes with a garden and a pool</h3><ul><li>Two three-bedroom homes at ground level, each with a terrace, a private garden and a private pool: Ground A with 134.62 sqm built, a 102.25 sqm terrace and a 177.69 sqm garden, and Ground B with 104.61 sqm built, a 78.28 sqm terrace and a 45.47 sqm garden.</li><li>The plans give the pools as 99.33 sqm for Ground A and 23.76 sqm for Ground B. Each home has two garage spaces and a storage room.</li><li>The prices are EUR 2,084,500 and EUR 1,408,000.</li><li>The plans give terraces of 102.73 and 84.24 sqm against 102.25 and 78.28 sqm on the price list.</li></ul></div><div class="res-type"><h3>Homes with a terrace, on the first to third floors</h3><ul><li>Seven homes without a private pool: six with three bedrooms (1D, 1G, 2D, 2G, 3D and 3G) and one with two bedrooms (2E).</li><li>The three-bedroom homes have 103.26 or 103.49 sqm built and terraces of 19.51 to 101.21 sqm, the largest being 1G, 2G and 3G with 101.21, 92.13 and 77.58 sqm; 2E has 79.48 sqm built and a 14.92 sqm terrace. Each has two garage spaces and a storage room.</li><li>Home 2E is EUR 775,500 and the three-bedroom homes run from EUR 1,097,250 to EUR 1,249,500.</li><li>The price list gives 103.26 sqm built for 2D and 3D where the plans give 103.49 sqm.</li></ul></div><div class="res-type"><h3>Third-floor homes with a private pool</h3><ul><li>Homes 3A and 3B have three bedrooms, a terrace and a private pool of 4.73 sqm on the plans: 3A has 134.62 sqm built and a 42.99 sqm terrace, and 3B has 104.61 sqm built and a 33.13 sqm terrace.</li><li>Each has two garage spaces and a storage room. The prices are EUR 1,420,650 and EUR 1,193,500.</li><li>The plan gives 3A a terrace of 47.72 sqm against 42.99 sqm on the price list.</li></ul></div><div class="res-type"><h3>Penthouses with a rooftop solarium and a pool</h3><ul><li>Six homes on the fourth floor, each with a terrace and a private solarium and pool on the roof level above: 4B, 4C, 4F and 4G with two bedrooms and 79.48 sqm built, and 4E and 4H with three bedrooms and 103.49 sqm built.</li><li>Terraces of 22.31 sqm (4B and 4C), 16.67 sqm (4F and 4G), 29.18 sqm (4E) and 76.07 sqm (4H), and solariums of 27.33 sqm for the two-bedroom homes and 36.32 sqm for the other two. The plans give the pools as 9.99 sqm for the two-bedroom homes and 13.28 and 13.27 sqm for 4E and 4H.</li><li>The two-bedroom homes are EUR 1,230,000 or EUR 1,290,800, and the three-bedroom homes EUR 1,721,500 and EUR 1,908,500.</li><li>The plan for 4E gives a terrace of 21.80 sqm against 29.18 sqm on the price list.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">The developer’s payment schedule is on request; we send it with the price list.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">What it costs in total</p>
+      <dl class="cost-lines num">
+        <div><dt>Price</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>VAT, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stamp duty (AJD), 1.2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total before notary, land registry and legal fees</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="#enquire" data-prefill>Ask about this home</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Floor plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financing? Mortgage calculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Purchase price</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1388,466 +676,233 @@
               <div class="calculator-result"><span>Taxes & purchase costs</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Amenities</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What the development <em>offers you</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Communal Outdoor Pool With Night Lighting</h3>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Specifications</h2>
+    <p class="sec-sub">The developer’s own quality specification, summarised by part of the home.</p>
+    <div class="tabs" role="tablist" aria-label="Specifications"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Facade and glazing</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Walls and partitions</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Floors, doors and wardrobes</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Kitchen</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Bathrooms</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Climate and energy</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Electrical and telecoms</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Terraces, gardens and solariums</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-8">Common areas, garage and lifts</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>A multilayer facade of an outer brick wall, interior insulation, an air cavity and a plasterboard lining, finished in glass and cladding such as lacquered aluminium or GRC panels.</li><li>A curtain wall of lacquered aluminium with a thermal break and Climalit-type double glazing with low-emissivity and solar-control treatment, with sliding and opening panels to the terraces and motorised blackout blinds in the bedrooms and living rooms.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Partitions inside the home in dry plasterboard on a metal frame with mineral-wool insulation, and water-repellent plasterboard in the wet rooms.</li><li>Between homes and common areas, a leaf of perforated brick with a self-supporting plasterboard lining and thermal and acoustic insulation with an anti-impact layer.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Rectified porcelain stoneware floors in 120 x 120 cm format by PORCELANOSA or equivalent, in the rooms, the bathrooms and, in a non-slip finish, on the terraces, with timber skirting boards matching the doors.</li><li>An armoured front door with a three-point lock and a smart lock, full-height frameless lacquered interior doors, and built-in lacquered wardrobes with a suitcase shelf and a hanging rail. Some walls are clad in wood panelling with a choice of finishes.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>A fully furnished kitchen with high-pressure laminate units, a worktop and splashback in SILESTONE compact quartz or porcelain stoneware, a central island with a porcelain or CORIAN top and a pull-out GROHE tap or similar.</li><li>GAGGENAU or equivalent appliances: an oven, an induction hob with an integrated extractor, a dishwasher, a fridge and a wine cooler, and a laundry area with a washing machine, a tumble dryer and an ironing centre.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Electric underfloor heating in the main and the second bathroom, a continuous washbasin in compact quartz, porcelain or Corian with a wall-hung unit, and low-profile shower trays with glass screens.</li><li>Thermostatic wall-mounted GROHE or similar shower fittings with a sliding bar and a handheld shower head, large-format rectified wall tiles by PORCELANOSA or equivalent combined with microcement, and textured ceilings.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Hot water from an aerothermal heat pump in each home.</li><li>Air conditioning and heating by a direct-expansion heat pump, through ducts in the false ceiling with grilles in the living room, kitchen and bedrooms, and a thermostat in the living room and in every bedroom with Airzone zoning.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>A high level of electrification, TV, radio and telephone points in the living rooms, kitchens and bedrooms, a colour video intercom, and recessed LED lights in the kitchens, corridors and bathrooms.</li><li>LED lighting, a socket and a water point on the terraces, the rooftop solariums and the ground-floor gardens.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Private built-in pools on some terraces, clad in natural stone with exterior LED lighting and individual to each home, and outdoor showers in the gardens and solariums.</li><li>Gardens and terraces paved with exterior porcelain stoneware and planted with natural grass and an integrated irrigation system.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-8" role="tabpanel" hidden>
+      <ul><li>A communal pool with night lighting, landscaped areas with native low-water planting and automatic drip irrigation, a solarium, a fully equipped gym, a spa with a sauna, a social club and a coworking space.</li><li>Entrance halls with stone, ceramic or large-format artificial stone floors and presence detectors with timers on the lighting of halls, stairs and landings.</li><li>A garage with a remote-controlled door, a polished quartz-concrete floor with an epoxy coating, fire protection and pre-installation for electric-car charging, and lifts that reach every floor and the garage levels directly, with automatic doors, overload detection and a telephone connection.</li></ul>
+      
+    </div>
+    <p class="caption">Source: the quality specification in the developer’s documents, which is undated. It says that the materials may be changed by the project management as long as their quality is not reduced, that it is not contractual and that the furniture shown in the images is not included. Brands are named in it with “or equivalent”.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Gallery</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="The building from the garden"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/garden-facade-day-640.webp 640w, assets/liora/projects/the-privilege/media/garden-facade-day-960.webp 960w, assets/liora/projects/the-privilege/media/garden-facade-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/the-privilege/media/garden-facade-day.jpg" alt="Computer-generated view of the building from the garden, with planted terraces on every floor, a lawn and a pool in front" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="16" aria-label="Living and dining room"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/living-room-640.webp 640w, assets/liora/projects/the-privilege/media/living-room-960.webp 960w, assets/liora/projects/the-privilege/media/living-room.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/the-privilege/media/living-room.jpg" alt="Computer-generated open living and dining room with a curved sofa, a marble dining table and glass doors to the terrace" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="11" aria-label="A terrace with a pool and a lawn"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn-640.webp 640w, assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn-960.webp 960w, assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn.jpg" alt="Computer-generated covered terrace with a dining table, a long narrow pool and a lawn with round white seats, and mountains beyond" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="The communal pool and a pavilion"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/pool-lounge-pavilion-640.webp 640w, assets/liora/projects/the-privilege/media/pool-lounge-pavilion-960.webp 960w, assets/liora/projects/the-privilege/media/pool-lounge-pavilion.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/the-privilege/media/pool-lounge-pavilion.jpg" alt="Computer-generated communal pool with white loungers beside a concrete and timber pavilion, with hills beyond" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="18" aria-label="Main bedroom"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/the-privilege/media/main-bedroom-640.webp 640w, assets/liora/projects/the-privilege/media/main-bedroom-960.webp 960w, assets/liora/projects/the-privilege/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/the-privilege/media/main-bedroom.jpg" alt="Computer-generated main bedroom with a double bed, a panelled headboard wall and glass doors to a balcony with a view of the hills" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>View all 20 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriors (7)</button><button type="button" data-open-cat="Amenities">Amenities (4)</button><button type="button" data-open-cat="Terraces">Terraces (5)</button><button type="button" data-open-cat="Interiors">Interiors (2)</button><button type="button" data-open-cat="Bedrooms">Bedrooms (1)</button><button type="button" data-open-cat="Bathrooms">Bathrooms (1)</button></div>
+    
+    <p class="caption">All the views are computer-generated, apart from the aerial view, which places the computer-generated building in a photograph, and the furniture and decoration in them are illustrative and not included. The floorplans are the developer’s sales plans: they are not contractual, the room names on them are in English and the areas on them differ in places from the price list.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Location</h2>
+    <p class="sec-sub">The building is in one of Estepona’s residential areas, next to the old town and in the heart of the Costa del Sol, close to the A-7 and the AP-7. The developer’s brochure puts the marina, Playa Beach and La Rada beach under ten minutes away, with shops, supermarkets, schools and sports facilities close by and swift access to Málaga and its airport. Its location map adds times of 4 minutes to the Estepona marina, 6 to Punta Plata beach and 8 to Padrón beach, without saying how they are travelled.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="en">
+          <div class="locmap-map" id="locmap-the-privilege" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Mediterranean&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centre&quot;,&quot;sub&quot;:&quot;130 m · 2 min walk&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Beach&quot;,&quot;sub&quot;:&quot;570 m · 8 min walk&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2.9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Estepona golf&quot;,&quot;sub&quot;:&quot;8.4 km · 14 min&quot;}]}' role="img" aria-label="Indicative location map for The Privilege"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicative location</span>
+            <h3 class="locmap-name">The Privilege</h3>
+            <p class="locmap-place">Estepona, next to the old town</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Beach</span>
+              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min walk</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Fully Equipped Gym</h3>
-              <p class="amenity-note">Cardio and weights</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2.9 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Wellness</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Wet rooms for recovery</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona centre</span>
+              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min walk</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Wellness</span>
-              <h3 class="amenity-name">Sauna</h3>
-              <p class="amenity-note">Dry heat room</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona golf</span>
+              <span class="locmap-row-figure"><bdi>8.4 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Wellness</span>
-              <h3 class="amenity-name">Private Pool</h3>
-              <p class="amenity-note">Belonging to the home</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Finca Cortesín golf</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Wellness</span>
-              <h3 class="amenity-name">Private Rooftop Pool</h3>
-              <p class="amenity-note">Water at the top</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar airport</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Outdoors</span>
-              <h3 class="amenity-name">Landscaped Green Areas</h3>
-              <p class="amenity-note">Planted communal grounds</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Outdoors</span>
-              <h3 class="amenity-name">Private Garden</h3>
-              <p class="amenity-note">Enclosed and the home’s own</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Outdoors</span>
-              <h3 class="amenity-name">Private Rooftop Solarium</h3>
-              <p class="amenity-note">Open roof terrace for the sun</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Outdoors</span>
-              <h3 class="amenity-name">Built-In BBQ</h3>
-              <p class="amenity-note">Fixed, not wheeled out</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Everyday</span>
-              <h3 class="amenity-name">Coworking Space</h3>
-              <p class="amenity-note">Desks away from the home</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Everyday</span>
-              <h3 class="amenity-name">Lift</h3>
-              <p class="amenity-note">Every floor reached</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Everyday</span>
-              <h3 class="amenity-name">Underground Parking And Storage For Every Home</h3>
-              <p class="amenity-note">Below the building</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Everyday</span>
-              <h3 class="amenity-name">EV Charging Pre-Installation</h3>
-              <p class="amenity-note">A point for the car</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Everyday</span>
-              <h3 class="amenity-name">Air Conditioning</h3>
-              <p class="amenity-note">Cooling and heating by duct</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Everyday</span>
-              <h3 class="amenity-name">Aerothermal System</h3>
-              <p class="amenity-note">Heating, cooling and hot water</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">17 &middot; Everyday</span>
-              <h3 class="amenity-name">Equipped Kitchen</h3>
-              <p class="amenity-note">Fitted and applianced</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">18 &middot; Everyday</span>
-              <h3 class="amenity-name">En-Suite Bathrooms</h3>
-              <p class="amenity-note">Opening off the bedroom</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">19 &middot; Services</span>
-              <h3 class="amenity-name">Social Club Lounge</h3>
-              <p class="amenity-note">A room to gather in</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances measured by road from the plot boundary. Map for orientation only; boundaries indicative.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Estepona marina</th><td>Approx. 4 minutes</td></tr><tr><th scope="row">Punta Plata beach</th><td>Approx. 6 minutes</td></tr><tr><th scope="row">Padrón beach</th><td>Approx. 8 minutes</td></tr><tr><th scope="row">La Rada beach</th><td>Under 10 minutes</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">On site</h2>
+    <p class="sec-sub">The shared areas are planned around a communal pool, a gym, a spa with a sauna, a social club and a coworking space.</p>
+    <div class="life-panels"><div><h3>The pool</h3><p>A communal pool with night lighting, with landscaped green areas and a solarium for sunbathing.</p></div><div><h3>The gym and the spa</h3><p>A fully equipped gym and a spa with a sauna for residents.</p></div><div><h3>The social club and the coworking space</h3><p>A residents’ social club and a coworking space, listed among the shared areas in the brochure and the specification.</p></div><div><h3>Parking and storage</h3><p>Each listed home comes with two garage spaces and a storage room on the two basement levels, reached by lift, with pre-installation for electric-car charging.</p></div></div>
+    <ul class="amen-top"><li>Communal Outdoor Pool With Night Lighting</li><li>Fully Equipped Gym</li><li>Spa</li><li>Sauna</li><li>Social Club Lounge</li><li>Coworking Space</li></ul>
+    <details class="amen-all"><summary>Show all 19</summary><div class="amen-groups"><div><h3>Wellness<span class="count">6</span></h3><ul><li>Communal Outdoor Pool With Night Lighting</li><li>Fully Equipped Gym</li><li>Spa</li><li>Sauna</li><li>Private Pool</li><li>Private Rooftop Pool</li></ul></div><div><h3>Outdoors<span class="count">4</span></h3><ul><li>Landscaped Green Areas</li><li>Private Garden</li><li>Private Rooftop Solarium</li><li>Built-In BBQ</li></ul></div><div><h3>Everyday<span class="count">8</span></h3><ul><li>Coworking Space</li><li>Lift</li><li>Underground Parking And Storage For Every Home</li><li>EV Charging Pre-Installation</li><li>Air Conditioning</li><li>Aerothermal System</li><li>Equipped Kitchen</li><li>En-Suite Bathrooms</li></ul></div><div><h3>Services<span class="count">1</span></h3><ul><li>Social Club Lounge</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Our view</h2>
+    <p class="sec-sub">What we would weigh before reserving here, and the checks we make on your behalf.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Our view">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Stands out</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Plan for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Checks</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Why it stands out</h3><ul class="points"><li><b>Who it is for</b><span>Buyers who want a new two- or three-bedroom home next to the old town of Estepona, to live in or as a second home, from a ground-floor home with a garden to a penthouse with a rooftop pool.</span></li><li><b>What makes it different</b><span>One building of 32 homes with a private garden and pool on the ground floor, a private rooftop solarium and pool for each penthouse, and a gym, a spa, a social club and a coworking space for residents.</span></li><li><b>Why location matters</b><span>The developer’s brochure puts the marina, Playa Beach and La Rada beach under ten minutes away, next to the old town, with the A-7 and the AP-7 close by.</span></li><li><b>Why check the details</b><span>The documents give no completion date or payment schedule, and the brochure and the basement plans disagree on the number of parking spaces, so we confirm these with the developer before any reservation.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>What to plan for</h3><ul class="points"><li><b>Reservation and payment schedule</b><span>The documents we hold give no reservation amount and no payment schedule. We obtain the developer’s terms and send them to you in writing before you reserve.</span></li><li><b>VAT</b><span>The price list states that its prices do not include the 10% IVA, the rate for new homes. We confirm the tax and the other purchase costs in writing.</span></li><li><b>Parking and storage</b><span>The price list gives each listed home two garage spaces and a storage room, by number. We confirm the spaces and the room of the home you choose.</span></li><li><b>The specification</b><span>The quality specification says that the materials may be changed by the project management as long as their quality is not reduced, and that it is not contractual. We ask for the final specification.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Checks before any money moves</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Licence and works</b><span>The documents we hold do not say whether the building licence has been granted or whether the works have started, and the quality specification is written in the future tense. We ask for the licence, its status and the start date of the works.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>The completion date</b><span>None of the developer’s documents gives a completion date, so we ask for the contractual date before any reservation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>The areas</b><span>The price list and the plans differ on a few figures: the terrace of Ground A, Ground B, 3A and 4E, and the built area of 2D and 3D, which is 103.26 sqm on the list and 103.49 sqm on the plans. The plans also give usable and built areas under Decree 218/2005, for example 147.11 sqm built for Ground A against 134.62 sqm on the list. We confirm which figures the contract uses.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Parking and storage</b><span>The brochure counts 76 parking spaces and 35 storage rooms, while the basement plans number 86 spaces and 37 storage rooms and the price list uses space numbers up to 84 and room numbers up to 37. Each listed home has two spaces and a room. We ask which count is right.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Request the project file</h3><p>The plans of the homes that interest you, the quality specification and the price list.</p></li><li><h3>Compare the options</h3><p>See this alongside the other Estepona projects we hold.</p></li><li><h3>Private viewing</h3><p>See the area with us, and the plans against the stage of the works.</p></li><li><h3>Reserve</h3><p>We confirm the reservation terms and the payment schedule in writing, then the private purchase contract.</p></li></ol>
+      <div class="docs card"><h3>Documents you’ll receive</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Price list</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Floor plans<small>17 of 17 homes</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Payment schedule<small>Not issued yet</small><small>Pending</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Quality specification</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>The official summary every buyer in Andalucía is entitled to</small></span></li></ul><a class="btn btn-primary" href="#enquire" data-prefill>Get the project file</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions about The Privilege</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>How many homes are available?</summary><p>The building has 32 homes and 17 are listed with a price: five with two bedrooms and twelve with three, from EUR 775,500 to EUR 2,084,500 plus VAT. The other 15 are marked as reserved on the developer’s list.</p></details><details class="segment-faq-item"><summary>Is VAT included?</summary><p>No. The price list states that its prices exclude the 10% IVA. We confirm the tax and the other purchase costs in writing.</p></details><details class="segment-faq-item"><summary>Is there parking and storage?</summary><p>Yes. The price list gives each of the 17 homes two garage spaces and a storage room, and the specification includes pre-installation for electric-car charging in the garage.</p></details><details class="segment-faq-item"><summary>When will it be finished?</summary><p>None of the developer’s documents gives a completion date. We ask for the contractual date and the stage of the works and put them in writing.</p></details><details class="segment-faq-item"><summary>What is the payment schedule?</summary><p>The documents we hold do not give one. We ask the developer and confirm it in writing before you reserve.</p></details></div>
+    
+    <p class="faq2-guide">More on buying a new build in Spain → <a class="textlink" href="guide-how-buying-works.html">Buying guide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Book a private viewing">
+    <div class="card">
+      <p class="rail-price-label">Price from</p>
+      <p class="rail-price num">€775,500</p>
+      <p class="rail-note">Plus VAT. 17 of 32 homes left · Checked September 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="#enquire" data-prefill>Book a private viewing</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20The%20Privilege." target="_blank" rel="noopener" data-whatsapp-advisor data-project="The Privilege" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Message us on WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, founder</strong>We reply to every enquiry ourselves.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Book a private viewing</h2>
+        <p>Tell us which home interests you. We send the project file, then walk the site with you.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, founder of Nueva Living</strong>We reply to every enquiry ourselves.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20The%20Privilege." target="_blank" rel="noopener" data-whatsapp-advisor data-project="The Privilege" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Message us</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Call<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Email<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>On the visit we check with you</h3><ul><li><b>On site.</b> Visit the plot and its surroundings with us.</li><li><b>On foot.</b> We walk to the old town with you and time it.</li><li><b>On paper.</b> Licence, completion date and the contract, before anything is signed.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sending…" data-success-label="Book a private viewing ✓" data-submitting-message="Sending…" data-success-message="Request received. We’ll send the project file and suggest times for a visit." data-error-message="That did not go through. Please try again, or message us on WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - The Privilege">
+        <input type="hidden" id="f-project" name="project" value="The Privilege">
+        <input type="hidden" name="preferred_area" value="Estepona">
+        <input type="hidden" name="property_type_interest" value="Apartments &amp; Penthouses">
+        <input type="hidden" name="budget_range" value="From EUR 775,500 + VAT">
+        <input type="hidden" name="consent_text" value="I agree that Nueva Living may store these details to answer my request.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hello Nueva Living, I would like information about The Privilege." data-base="Hello Nueva Living, I would like information about The Privilege.">
+        <h3>Your details</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">First Name</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Last Name</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Email</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Phone (optional, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Which home?</label><select id="v2-f-unit" name="unit_interest"><option value="">Not sure yet, send me everything</option><option value="Ground A">Ground A: €2,084,500</option><option value="Ground B">Ground B: €1,408,000</option><option value="1D">1D: €1,097,250</option><option value="1G">1G: €1,149,500</option><option value="2D">2D: €1,127,500</option><option value="2E">2E: €775,500</option><option value="2G">2G: €1,249,500</option><option value="3A">3A: €1,420,650</option><option value="3B">3B: €1,193,500</option><option value="3D">3D: €1,127,500</option><option value="3G">3G: €1,179,000</option><option value="4B">4B: €1,290,800</option><option value="4C">4C: €1,290,800</option><option value="4E">4E: €1,721,500</option><option value="4F">4F: €1,230,000</option><option value="4G">4G: €1,230,000</option><option value="4H">4H: €1,908,500</option></select></div>
+        <fieldset class="field"><legend>The home would be</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">To live in</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">A holiday home</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">An investment</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>How should we reply?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Phone call</label>
+          <label><input type="radio" name="preferred_contact" value="email">Email</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>I agree that Nueva Living may store these details to answer my request. <a href="privacy-policy.html">Privacy policy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Also tell me if availability or prices change at The Privilege.</label>
+        <button class="btn btn-primary btn-block" type="submit">Book a private viewing</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Why This Project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Why this project <em>matters</em></h2>
-          <p class="project-lead">Two- and three-bedroom homes next to the old town of Estepona, each with two garage spaces and a storage room, and a communal gym, spa and coworking space.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Why It Fits</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Who it is for</h3><p>Buyers who want a new two- or three-bedroom home next to the old town of Estepona, to live in or as a second home, from a ground-floor home with a garden to a penthouse with a rooftop pool.</p></article>
-              <article class="why-point reveal-soft"><h3>What makes it different</h3><p>One building of 32 homes with a private garden and pool on the ground floor, a private rooftop solarium and pool for each penthouse, and a gym, a spa, a social club and a coworking space for residents.</p></article>
-              <article class="why-point reveal-soft"><h3>Why location matters</h3><p>The developer’s brochure puts the marina, Playa Beach and La Rada beach under ten minutes away, next to the old town, with the A-7 and the AP-7 close by.</p></article>
-              <article class="why-point reveal-soft"><h3>Why check the details</h3><p>The documents give no completion date or payment schedule, and the brochure and the basement plans disagree on the number of parking spaces, so we confirm these with the developer before any reservation.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investment Case</h3></div>
-            <p class="why-group-note">The documents we hold do not set out the developer’s terms, so we confirm them in writing before you reserve.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservation and payment schedule</h3><p>The documents we hold give no reservation amount and no payment schedule. We obtain the developer’s terms and send them to you in writing before you reserve.</p></article>
-              <article class="why-point reveal-soft"><h3>VAT</h3><p>The price list states that its prices do not include the 10% IVA, the rate for new homes. We confirm the tax and the other purchase costs in writing.</p></article>
-              <article class="why-point reveal-soft"><h3>Parking and storage</h3><p>The price list gives each listed home two garage spaces and a storage room, by number. We confirm the spaces and the room of the home you choose.</p></article>
-              <article class="why-point reveal-soft"><h3>The specification</h3><p>The quality specification says that the materials may be changed by the project management as long as their quality is not reduced, and that it is not contractual. We ask for the final specification.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Trust & Diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Licence and works</h3><p>The documents we hold do not say whether the building licence has been granted or whether the works have started, and the quality specification is written in the future tense. We ask for the licence, its status and the start date of the works.</p></article>
-              <article class="why-point reveal-soft"><h3>The completion date</h3><p>None of the developer’s documents gives a completion date, so we ask for the contractual date before any reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>The areas</h3><p>The price list and the plans differ on a few figures: the terrace of Ground A, Ground B, 3A and 4E, and the built area of 2D and 3D, which is 103.26 sqm on the list and 103.49 sqm on the plans. The plans also give usable and built areas under Decree 218/2005, for example 147.11 sqm built for Ground A against 134.62 sqm on the list. We confirm which figures the contract uses.</p></article>
-              <article class="why-point reveal-soft"><h3>Parking and storage</h3><p>The brochure counts 76 parking spaces and 35 storage rooms, while the basement plans number 86 spaces and 37 storage rooms and the price list uses space numbers up to 84 and room numbers up to 37. Each listed home has two spaces and a room. We ask which count is right.</p></article>
-            </div>
-            <p class="why-group-note">New to buying off-plan in Spain? <a href="guide-how-buying-works.html">How buying a new-build works</a> sets out the seven steps, and <a href="guide-off-plan-vs-resale.html">off-plan versus resale</a> covers the deposits, guarantees and timelines involved.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Images are supplied by the developer and may be computer-generated">
+    <p>Images are supplied by the developer and may be computer-generated; final design, finishes, landscaping and views may vary. You are entitled to a copy of the Documento Informativo Abreviado (DIA) for any home on this page, available from Nueva Living on request.</p>
+    <p>Availability checked with the seller on September 2026; we reconfirm it before any reservation.</p>
+    <p>Prices, bedrooms, built areas, terraces, solariums and gardens are transcribed from the developer’s price list headed September 2026, which gives 17 of the 32 homes a price and marks the other 15 as reserved. The list states that prices exclude 10% IVA. It calls the two ground-floor homes Bajo A and Bajo B and gives each home’s staircase, 1 or 2. The interior areas and the pools are taken from the developer’s plans, which the list does not give. The built area is the plans’ total built area, without a share of the communal areas. Where the plans or the brochure differ from the list, the list is followed in the table and both figures are given above.</p>
+    <p>Information on this page is for general marketing purposes and is not legal, financial or investment advice. Prices, availability and delivery dates can change without notice.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/the-privilege/media/street-facade-day.jpg" alt="Computer-generated view of the building from the street, with angular bronze-toned frames around the terraces and palm trees along the pavement" width="2000" height="1125" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architecture preview</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bronze-toned frames, <em>planted terraces</em></h2>
-          <p>The developer’s brochure calls the design innovative and avant-garde, and eminently contemporary. In its computer-generated images the building has angular bronze-toned frames around the terraces on every floor, planted balustrades and a large frame around the roof.</p>
-<p>The specification describes a curtain-wall facade with sliding and opening panels where the living room and kitchen meet the terrace, with the tracks hidden in the floor, so that the room runs on into the outdoors.</p>
-          <ul class="feature-list">
-            <li>Structure — Reinforced concrete built to current regulations and the Technical Building Code, on foundations designed from the geotechnical study.</li>
-            <li>Facade — Multilayer: an outer brick wall, interior insulation, an air cavity and a plasterboard lining, finished in glass and cladding such as lacquered aluminium or GRC panels, to be fixed by the project management.</li>
-            <li>Glazing — Lacquered aluminium frames with a thermal break and double glazing with low-emissivity and solar-control treatment, and motorised blackout blinds in the bedrooms and living rooms.</li>
-            <li>Roofs — Inverted flat roofs, waterproofed and insulated, with gravel where nobody walks and non-slip ceramic flooring where they are walkable.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Project request actions">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20The%20Privilege." target="_blank" rel="noopener" data-whatsapp-advisor data-project="The Privilege" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Call</a>
+    <a class="ab-btn ab-primary" href="#enquire" data-prefill>Book a viewing</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/the-privilege/media/main-bedroom.jpg" alt="Computer-generated main bedroom with a double bed, a panelled headboard wall and glass doors to a balcony with a view of the hills" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Cinematic Presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">See the <em>area and the plans</em></h2>
-            <p>A visit is about the location, the plans and the stage of the works.</p>
-            <div class="viewing-insights">
-              <div><span>On site</span><p>Visit the plot and its surroundings with us.</p></div>
-              <div><span>On foot</span><p>We walk to the old town with you and time it.</p></div>
-              <div><span>On paper</span><p>Licence, completion date and the contract, before anything is signed.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="index.html#private-viewing=1&amp;project=the-privilege">Cinematic Presentation</a>
-              <a class="btn project-btn ghost" href="#enquire" data-prefill>Request Project Material</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Gallery" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Close">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image">›</button>
+    <div class="lb-cats" role="group" aria-label="Gallery"><button type="button" data-cat="Exteriors">Exteriors</button><button type="button" data-cat="Amenities">Amenities</button><button type="button" data-cat="Terraces">Terraces</button><button type="button" data-cat="Interiors">Interiors</button><button type="button" data-cat="Bedrooms">Bedrooms</button><button type="button" data-cat="Bathrooms">Bathrooms</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/the-privilege/media/terrace-pool-mountain-view.jpg" alt="Computer-generated terrace with sun loungers, armchairs and a pool, with a view over hills and mountains" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Lifestyle</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">A pool, a spa <em>and room to work</em></h2>
-            <p>The shared areas are planned around a communal pool, a gym, a spa with a sauna, a social club and a coworking space.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Next Steps</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What happens <em>next</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Request the project file</h3>
-            <p>The plans of the homes that interest you, the quality specification and the price list.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare the options</h3>
-            <p>See this alongside the other Estepona projects we hold.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Private viewing</h3>
-            <p>See the area with us, and the plans against the stage of the works.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserve</h3>
-            <p>We confirm the reservation terms and the payment schedule in writing, then the private purchase contract.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Common <em>buyer questions</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Can foreigners buy property in Spain?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is an NIE number and do I need one?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What costs should I budget for on top of the purchase price?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Can I get a mortgage in Spain as a non-resident?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is the difference between off-plan and completed properties?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How does the reservation and payment process work?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Can I rent out the property after purchase?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Do I need a lawyer?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How many homes are available?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The building has 32 homes and 17 are listed with a price: five with two bedrooms and twelve with three, from EUR 775,500 to EUR 2,084,500 plus VAT. The other 15 are marked as reserved on the developer’s list.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is VAT included?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. The price list states that its prices exclude the 10% IVA. We confirm the tax and the other purchase costs in writing.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is there parking and storage?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes. The price list gives each of the 17 homes two garage spaces and a storage room, and the specification includes pre-installation for electric-car charging in the garage.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>When will it be finished?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>None of the developer’s documents gives a completion date. We ask for the contractual date and the stage of the works and put them in writing.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is the payment schedule?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The documents we hold do not give one. We ask the developer and confirm it in writing before you reserve.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Enquire</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Ask about <em>The Privilege</em></h2>
-          <p class="body-copy">Tell us what you need and we will come back with current availability, the floorplans and the price list.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, founder of Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Founder, Nueva Living</p>
-            <h3 id="advisor-heading">Prefer to talk it through?</h3>
-            <p class="advisor-copy">Choose what fits and message me on WhatsApp. I will start from there.</p>
-            <div class="advisor-group" role="group" aria-label="I am looking for">
-              <span class="advisor-group-label">I am looking for</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">A home to live in</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">A holiday home</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">An investment</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under €500,000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€500,000 – €1,000,000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over €1,000,000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20The%20Privilege." target="_blank" rel="noopener" data-whatsapp-advisor data-project="The Privilege" data-intent="speak with an advisor">Message me on WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - The Privilege">
-
-          <input type="hidden" id="f-project" name="project" value="The Privilege">
-          <input type="hidden" name="preferred_area" value="Estepona">
-          <input type="hidden" name="property_type_interest" value="Apartments &amp; Penthouses">
-          <input type="hidden" name="budget_range" value="From EUR 775,500 + VAT">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">First Name</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="First Name" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Last Name</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Last Name" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Hello Nueva Living, I would like information about The Privilege.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>I agree to be contacted and for my data to be stored.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>I would also like to receive occasional project updates from Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Submit Request</button>
-            <span class="form-note">We reply personally, usually the same day.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"Ground A","title":"Ground A · Staircase 1, Ground floor","sub":"3 bed · 135 m²","price":2084500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-ground-a.jpg","label":""}]},{"id":"u1","ref":"Ground B","title":"Ground B · Staircase 1, Ground floor","sub":"3 bed · 105 m²","price":1408000,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-ground-b.jpg","label":""}]},{"id":"u2","ref":"1D","title":"1D · Staircase 2, First floor","sub":"3 bed · 103 m²","price":1097250,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-1d.jpg","label":""}]},{"id":"u3","ref":"1G","title":"1G · Staircase 1, First floor","sub":"3 bed · 103 m²","price":1149500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-1g.jpg","label":""}]},{"id":"u4","ref":"2D","title":"2D · Staircase 2, Second floor","sub":"3 bed · 103 m²","price":1127500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-2d.jpg","label":""}]},{"id":"u5","ref":"2E","title":"2E · Staircase 2, Second floor","sub":"2 bed · 79 m²","price":775500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-2e.jpg","label":""}]},{"id":"u6","ref":"2G","title":"2G · Staircase 1, Second floor","sub":"3 bed · 103 m²","price":1249500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-2g.jpg","label":""}]},{"id":"u7","ref":"3A","title":"3A · Staircase 1, Third floor","sub":"3 bed · 135 m²","price":1420650,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-3a.jpg","label":""}]},{"id":"u8","ref":"3B","title":"3B · Staircase 1, Third floor","sub":"3 bed · 105 m²","price":1193500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-3b.jpg","label":""}]},{"id":"u9","ref":"3D","title":"3D · Staircase 2, Third floor","sub":"3 bed · 103 m²","price":1127500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-3d.jpg","label":""}]},{"id":"u10","ref":"3G","title":"3G · Staircase 1, Third floor","sub":"3 bed · 103 m²","price":1179000,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-3g.jpg","label":""}]},{"id":"u11","ref":"4B","title":"4B · Staircase 1, Fourth floor, Penthouse","sub":"2 bed · 79 m²","price":1290800,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-4b.jpg","label":""}]},{"id":"u12","ref":"4C","title":"4C · Staircase 2, Fourth floor, Penthouse","sub":"2 bed · 79 m²","price":1290800,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-4c.jpg","label":""}]},{"id":"u13","ref":"4E","title":"4E · Staircase 2, Fourth floor, Penthouse","sub":"3 bed · 103 m²","price":1721500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-4e.jpg","label":""}]},{"id":"u14","ref":"4F","title":"4F · Staircase 2, Fourth floor, Penthouse","sub":"2 bed · 79 m²","price":1230000,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-4f.jpg","label":""}]},{"id":"u15","ref":"4G","title":"4G · Staircase 1, Fourth floor, Penthouse","sub":"2 bed · 79 m²","price":1230000,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-4g.jpg","label":""}]},{"id":"u16","ref":"4H","title":"4H · Staircase 1, Fourth floor, Penthouse","sub":"3 bed · 103 m²","price":1908500,"plans":[{"src":"assets/liora/projects/the-privilege/floorplans/home-4h.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/the-privilege/media/garden-facade-day.webp","alt":"Computer-generated view of the building from the garden, with planted terraces on every floor, a lawn and a pool in front","caption":"The building from the garden","cat":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/street-facade-day.webp","alt":"Computer-generated view of the building from the street, with angular bronze-toned frames around the terraces and palm trees along the pavement","caption":"The facade on the street","cat":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/street-corner-entrance.webp","alt":"Computer-generated view of a street corner with the building above a sign at the entrance, palm trees and a parked car","caption":"The corner and the entrance","cat":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/corner-and-gate.webp","alt":"Computer-generated view of the building from a street crossing, with a bronze-toned roof frame, a wall sign at the entrance and a car on the road","caption":"The building from the crossing","cat":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/facade-over-communal-pool.webp","alt":"Computer-generated view of the building across a long communal pool with sun loungers and white parasols","caption":"The building across the communal pool","cat":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/garden-facade-dusk.webp","alt":"Computer-generated view of the building at dusk with lit windows, planted terraces and a pool and lawn in front","caption":"The building at dusk","cat":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/aerial-plot-view.webp","alt":"Aerial photograph of the plot in Estepona with the computer-generated building placed on it, between the street and an open green space","caption":"The plot from the air","cat":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/pool-lounge-pavilion.webp","alt":"Computer-generated communal pool with white loungers beside a concrete and timber pavilion, with hills beyond","caption":"The communal pool and a pavilion","cat":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/coworking-space.webp","alt":"Computer-generated coworking space with a long desk, brown leather chairs, pendant lights and a wall of timber panelling","caption":"The coworking space","cat":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/gym.webp","alt":"Computer-generated gym with exercise bikes, yoga mats and a punch bag behind a patterned glass wall","caption":"The gym","cat":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/spa-pool-lounge.webp","alt":"Computer-generated spa with an indoor pool, a lounge of low sofas and a lattice screen with plants","caption":"The spa","cat":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn.webp","alt":"Computer-generated covered terrace with a dining table, a long narrow pool and a lawn with round white seats, and mountains beyond","caption":"A terrace with a pool and a lawn","cat":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/terrace-pool-mountain-view.webp","alt":"Computer-generated terrace with sun loungers, armchairs and a pool, with a view over hills and mountains","caption":"A terrace with a pool and a view of the mountains","cat":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/garden-terrace-with-plunge-pool.webp","alt":"Computer-generated paved terrace with two sun loungers and a small pool with steps, under a slatted ceiling","caption":"A terrace with a small pool","cat":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/terrace-living-room.webp","alt":"Computer-generated terrace with lounge seating and a dining table under a slatted roof, in front of a glazed living room, with hills beyond","caption":"A terrace and the living room beyond","cat":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/terrace-in-facade-frame.webp","alt":"Computer-generated view of a furnished terrace set inside an angular bronze-toned frame in the facade, with climbing plants","caption":"A terrace inside the facade frame","cat":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/living-room.webp","alt":"Computer-generated open living and dining room with a curved sofa, a marble dining table and glass doors to the terrace","caption":"Living and dining room","cat":"Interiors"},{"src":"assets/liora/projects/the-privilege/media/kitchen-island-and-terrace.webp","alt":"Computer-generated kitchen with a marble island and bar stools, a timber wall of units and a terrace with a dining table","caption":"Kitchen and terrace","cat":"Interiors"},{"src":"assets/liora/projects/the-privilege/media/main-bedroom.webp","alt":"Computer-generated main bedroom with a double bed, a panelled headboard wall and glass doors to a balcony with a view of the hills","caption":"Main bedroom","cat":"Bedrooms"},{"src":"assets/liora/projects/the-privilege/media/main-bathroom.webp","alt":"Computer-generated bathroom with a wall-hung stone vanity with two basins, a long mirror and a walk-in shower beside a glass wall","caption":"Bathroom","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€","sep":",","post":""},"i18n":{"askAbout":"Ask about {ref}","plusVat":"Plus VAT","totalPrice":"Total price","vatOnStages":"Plus VAT on the stage payments","onRequest":"On Request","imageOf":"{i} of {n}","floorPlan":"Floor plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="The Privilege media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Close">Close</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Previous image">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Next image">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/the-privilege/media/garden-facade-day.jpg","webp":"assets/liora/projects/the-privilege/media/garden-facade-day-960.webp","alt":"Computer-generated view of the building from the garden, with planted terraces on every floor, a lawn and a pool in front","width":2000,"height":1125,"caption":"The building from the garden","category":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/street-facade-day.jpg","webp":"assets/liora/projects/the-privilege/media/street-facade-day-960.webp","alt":"Computer-generated view of the building from the street, with angular bronze-toned frames around the terraces and palm trees along the pavement","width":2000,"height":1125,"caption":"The facade on the street","category":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/street-corner-entrance.jpg","webp":"assets/liora/projects/the-privilege/media/street-corner-entrance-960.webp","alt":"Computer-generated view of a street corner with the building above a sign at the entrance, palm trees and a parked car","width":2000,"height":1125,"caption":"The corner and the entrance","category":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/corner-and-gate.jpg","webp":"assets/liora/projects/the-privilege/media/corner-and-gate-960.webp","alt":"Computer-generated view of the building from a street crossing, with a bronze-toned roof frame, a wall sign at the entrance and a car on the road","width":2000,"height":1125,"caption":"The building from the crossing","category":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/facade-over-communal-pool.jpg","webp":"assets/liora/projects/the-privilege/media/facade-over-communal-pool-960.webp","alt":"Computer-generated view of the building across a long communal pool with sun loungers and white parasols","width":2000,"height":1125,"caption":"The building across the communal pool","category":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/garden-facade-dusk.jpg","webp":"assets/liora/projects/the-privilege/media/garden-facade-dusk-960.webp","alt":"Computer-generated view of the building at dusk with lit windows, planted terraces and a pool and lawn in front","width":2000,"height":1125,"caption":"The building at dusk","category":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/aerial-plot-view.jpg","webp":"assets/liora/projects/the-privilege/media/aerial-plot-view-960.webp","alt":"Aerial photograph of the plot in Estepona with the computer-generated building placed on it, between the street and an open green space","width":1920,"height":1080,"caption":"The plot from the air","category":"Exteriors"},{"src":"assets/liora/projects/the-privilege/media/pool-lounge-pavilion.jpg","webp":"assets/liora/projects/the-privilege/media/pool-lounge-pavilion-960.webp","alt":"Computer-generated communal pool with white loungers beside a concrete and timber pavilion, with hills beyond","width":2000,"height":1125,"caption":"The communal pool and a pavilion","category":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/coworking-space.jpg","webp":"assets/liora/projects/the-privilege/media/coworking-space-960.webp","alt":"Computer-generated coworking space with a long desk, brown leather chairs, pendant lights and a wall of timber panelling","width":2000,"height":1125,"caption":"The coworking space","category":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/gym.jpg","webp":"assets/liora/projects/the-privilege/media/gym-960.webp","alt":"Computer-generated gym with exercise bikes, yoga mats and a punch bag behind a patterned glass wall","width":2000,"height":1125,"caption":"The gym","category":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/spa-pool-lounge.jpg","webp":"assets/liora/projects/the-privilege/media/spa-pool-lounge-960.webp","alt":"Computer-generated spa with an indoor pool, a lounge of low sofas and a lattice screen with plants","width":2000,"height":1125,"caption":"The spa","category":"Amenities"},{"src":"assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn.jpg","webp":"assets/liora/projects/the-privilege/media/terrace-with-pool-and-lawn-960.webp","alt":"Computer-generated covered terrace with a dining table, a long narrow pool and a lawn with round white seats, and mountains beyond","width":2000,"height":1125,"caption":"A terrace with a pool and a lawn","category":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/terrace-pool-mountain-view.jpg","webp":"assets/liora/projects/the-privilege/media/terrace-pool-mountain-view-960.webp","alt":"Computer-generated terrace with sun loungers, armchairs and a pool, with a view over hills and mountains","width":2000,"height":1125,"caption":"A terrace with a pool and a view of the mountains","category":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/garden-terrace-with-plunge-pool.jpg","webp":"assets/liora/projects/the-privilege/media/garden-terrace-with-plunge-pool-960.webp","alt":"Computer-generated paved terrace with two sun loungers and a small pool with steps, under a slatted ceiling","width":2000,"height":1125,"caption":"A terrace with a small pool","category":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/terrace-living-room.jpg","webp":"assets/liora/projects/the-privilege/media/terrace-living-room-960.webp","alt":"Computer-generated terrace with lounge seating and a dining table under a slatted roof, in front of a glazed living room, with hills beyond","width":2000,"height":1125,"caption":"A terrace and the living room beyond","category":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/terrace-in-facade-frame.jpg","webp":"assets/liora/projects/the-privilege/media/terrace-in-facade-frame-960.webp","alt":"Computer-generated view of a furnished terrace set inside an angular bronze-toned frame in the facade, with climbing plants","width":2000,"height":1125,"caption":"A terrace inside the facade frame","category":"Terraces"},{"src":"assets/liora/projects/the-privilege/media/living-room.jpg","webp":"assets/liora/projects/the-privilege/media/living-room-960.webp","alt":"Computer-generated open living and dining room with a curved sofa, a marble dining table and glass doors to the terrace","width":2000,"height":1125,"caption":"Living and dining room","category":"Interiors"},{"src":"assets/liora/projects/the-privilege/media/kitchen-island-and-terrace.jpg","webp":"assets/liora/projects/the-privilege/media/kitchen-island-and-terrace-960.webp","alt":"Computer-generated kitchen with a marble island and bar stools, a timber wall of units and a terrace with a dining table","width":2000,"height":1125,"caption":"Kitchen and terrace","category":"Interiors"},{"src":"assets/liora/projects/the-privilege/media/main-bedroom.jpg","webp":"assets/liora/projects/the-privilege/media/main-bedroom-960.webp","alt":"Computer-generated main bedroom with a double bed, a panelled headboard wall and glass doors to a balcony with a view of the hills","width":2000,"height":1125,"caption":"Main bedroom","category":"Bedrooms"},{"src":"assets/liora/projects/the-privilege/media/main-bathroom.jpg","webp":"assets/liora/projects/the-privilege/media/main-bathroom-960.webp","alt":"Computer-generated bathroom with a wall-hung stone vanity with two basins, a long mirror and a walk-in shower beside a glass wall","width":2000,"height":1125,"caption":"Bathroom","category":"Bathrooms"},{"src":"assets/liora/projects/the-privilege/floorplans/home-ground-a.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-ground-a-960.webp","alt":"Floorplan of home Ground A","width":2000,"height":1421,"caption":"Home Ground A","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-ground-b.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-ground-b-960.webp","alt":"Floorplan of home Ground B","width":2000,"height":666,"caption":"Home Ground B","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-1d.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-1d-960.webp","alt":"Floorplan of home 1D","width":2000,"height":957,"caption":"Home 1D","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-1g.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-1g-960.webp","alt":"Floorplan of home 1G","width":2000,"height":1706,"caption":"Home 1G","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-2d.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-2d-960.webp","alt":"Floorplan of home 2D","width":2000,"height":981,"caption":"Home 2D","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-2e.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-2e-960.webp","alt":"Floorplan of home 2E","width":2000,"height":894,"caption":"Home 2E","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-2g.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-2g-960.webp","alt":"Floorplan of home 2G","width":2000,"height":1760,"caption":"Home 2G","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-3a.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-3a-960.webp","alt":"Floorplan of home 3A","width":2000,"height":1110,"caption":"Home 3A","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-3b.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-3b-960.webp","alt":"Floorplan of home 3B","width":2000,"height":1088,"caption":"Home 3B","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-3d.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-3d-960.webp","alt":"Floorplan of home 3D","width":2000,"height":975,"caption":"Home 3D","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-3g.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-3g-960.webp","alt":"Floorplan of home 3G","width":2000,"height":1760,"caption":"Home 3G","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-4b.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-4b-960.webp","alt":"Floorplan of home 4B","width":2000,"height":1728,"caption":"Home 4B","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-4c.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-4c-960.webp","alt":"Floorplan of home 4C","width":2000,"height":1728,"caption":"Home 4C","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-4e.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-4e-960.webp","alt":"Floorplan of home 4E","width":2000,"height":1921,"caption":"Home 4E","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-4f.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-4f-960.webp","alt":"Floorplan of home 4F","width":2000,"height":1767,"caption":"Home 4F","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-4g.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-4g-960.webp","alt":"Floorplan of home 4G","width":2000,"height":1767,"caption":"Home 4G","category":"Floorplans"},{"src":"assets/liora/projects/the-privilege/floorplans/home-4h.jpg","webp":"assets/liora/projects/the-privilege/floorplans/home-4h-960.webp","alt":"Floorplan of home 4H","width":2000,"height":1260,"caption":"Home 4H","category":"Floorplans"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Project request actions">
-    <a href="#enquire" data-prefill>Ask About a Home</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20The%20Privilege." target="_blank" rel="noopener" data-whatsapp-advisor data-project="The Privilege" data-intent="speak with an advisor">Speak With Advisor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien de logements sont disponibles ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Calandria Residences"
   data-project-message="Bonjour Nueva Living, je souhaiterais recevoir des informations sur Calandria Residences."
@@ -459,399 +396,140 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Calandria Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-calandria-residences.html#top">Calandria Residences<span>À partir de 378 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-calandria-residences.html#overview">Aperçu</a><a href="fr/property-calandria-residences.html#availability">Prix</a><a href="fr/property-calandria-residences.html#gallery">Galerie</a><a href="fr/property-calandria-residences.html#location">Emplacement</a><a href="fr/property-calandria-residences.html#onsite">Sur place</a><a href="fr/property-calandria-residences.html#view">Notre avis</a><a href="fr/property-calandria-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-calandria-residences.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Calandria Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk-640.webp 640w, assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk-960.webp 960w, assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.webp 1200w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.jpg" alt="Vue de synthèse de la cour au crépuscule, avec une piscine, des transats et des parasols sur la pelouse, des palmiers et des terrasses plantées qui s’étagent sur les bâtiments courbes qui l’entourent" width="1200" height="632" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.jpg" alt="Vue de synthèse de la cour au crépuscule, avec une piscine, des transats et des parasols sur la pelouse, des palmiers et des terrasses plantées qui s’étagent sur les bâtiments courbes qui l’entourent" width="1200" height="632" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">4 logements sur la liste de prix</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Calandria <em>Residences</em></span>
-            <span class="hero-title-context">Appartements à Torremolinos</span>
-          </h1>
-          <p class="hero-positioning">Appartements d’une à quatre chambres avec terrasse à Torremolinos, à cinq minutes à pied de la plage de La Carihuela, dans un ensemble de 353 logements avec piscines extérieures, piscine intérieure chauffée, salle de sport et espace de coworking. Quatre logements figurent sur la liste de prix du promoteur de novembre 2026, à partir de 378 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-calandria-residences.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=calandria-residences">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-calandria-residences.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>Torremolinos</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 378 000 €</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Appartements</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Livraison à confirmer</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-calandria-residences.html#media">Galerie</a>
-        <a href="fr/property-calandria-residences.html#location">Emplacement</a>
-        <a href="fr/property-calandria-residences.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-calandria-residences.html#overview">Aperçu</a>
-          <a href="fr/property-calandria-residences.html#residences">Résidences</a>
-          <a href="fr/property-calandria-residences.html#calculator">Financement</a>
-          <a href="fr/property-calandria-residences.html#amenities">Équipements</a>
-          <a href="fr/property-calandria-residences.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-calandria-residences.html#architecture">Architecture</a>
-          <a href="fr/property-calandria-residences.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-calandria-residences.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-calandria-residences.html#faq">FAQ</a>
-          <a href="fr/property-calandria-residences.html#enquire">Nous contacter</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>1-4 chambres</strong></div>
-          <div class="quick-fact"><span>Surface construite</span><strong>55,38 - 121,94 m² construits</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>4 logements sur la liste de prix</strong></div>
-          <div class="quick-fact"><span>Logements annoncés</span><strong>4</strong></div>
-          <div class="quick-fact"><span>Fourchette de prix</span><strong>378 000 € - 1 040 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-calandria-residences.html#enquire" data-prefill>Demander la documentation</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">4 logements sur la <em>liste de prix</em></h2>
-          <p class="project-lead">La brochure du promoteur présente un ensemble contemporain d’appartements aux grandes baies vitrées et aux terrasses généreuses à Torremolinos, à environ cinq minutes à pied de la plage de La Carihuela et, selon elle, à moins de dix minutes en voiture de l’aéroport de Malaga. La page du portail annonce 353 logements au total, d’une à quatre chambres.</p>
-          <p class="project-lead">La liste de prix dont nous disposons, de novembre 2026, compte quatre logements : un appartement d’une chambre et un de deux chambres au niveau que les plans appellent -2, un de trois chambres au premier étage et un de quatre chambres au cinquième. Aucun document n’indique de permis, d’état d’avancement des travaux ni de date de livraison.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">L’ensemble <em>en images</em></h2>
-          </div>
-          <p class="project-lead">Vues de synthèse du bâtiment, des piscines, de la salle de sport et des intérieurs, issues des images du promoteur, et les plans des quatre logements de la liste de prix.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 5 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk-640.webp 640w, assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk-960.webp 960w, assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.jpg" alt="Vue de synthèse de la cour au crépuscule, avec une piscine, des transats et des parasols sur la pelouse, des palmiers et des terrasses plantées qui s’étagent sur les bâtiments courbes qui l’entourent" width="1200" height="632" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>La piscine et les jardins</strong>
-                <span class="project-media-card-cta">5 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Voir 1 images dans Terrasses">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view-640.webp 640w, assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view-960.webp 960w, assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view.jpg" alt="Vue de synthèse d’une grande terrasse avec un canapé courbe, une table basse et une table à manger, face à la mer au coucher du soleil" width="1200" height="562" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasses</small>
-                <strong>Une terrasse avec vue sur la mer</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 3 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen-640.webp 640w, assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen-960.webp 960w, assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen.jpg" alt="Séjour ouvert en image de synthèse avec une cuisine blanche et un îlot effet marbre, un canapé, une table à manger et une fenêtre sur la mer" width="1200" height="636" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Séjour et cuisine</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Voir 4 images dans Chambres">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom-640.webp 640w, assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom-960.webp 960w, assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom.jpg" alt="Chambre principale en image de synthèse avec un lit double, un mur de placards et une vasque en pierre ouverte sur la chambre, à côté d’une porte vitrée sur une terrasse" width="1200" height="762" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Chambres</small>
-                <strong>Chambre principale et salle de bains</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Voir 3 images dans Équipements">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/indoor-pool-640.webp 640w, assets/liora/projects/calandria-residences/media/indoor-pool-960.webp 960w, assets/liora/projects/calandria-residences/media/indoor-pool.webp 1000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/calandria-residences/media/indoor-pool.jpg" alt="Vue de synthèse de la piscine intérieure chauffée, avec des banquettes en pierre garnies de coussins d’un côté et une paroi vitrée sur un jardin tropical" width="1000" height="920" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Équipements</small>
-                <strong>La piscine intérieure chauffée</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Voir 4 images dans Plans">
-              <img src="assets/liora/projects/calandria-residences/floorplans/16-2D-thumb.jpg" alt="Plan du logement 16-2D" width="2000" height="1414" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plans</small>
-                <strong>Logement 16-2D</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 20 images</button>
-          <p class="media-note">Les visuels sont des illustrations de synthèse, pas des photographies du bâtiment achevé ; la vue aérienne insère le projet dans une photographie réelle. La brochure précise que ses images sont indicatives et montrent des options, du mobilier, de la décoration et des aménagements paysagers non compris dans le prix. Les plans sont ceux du promoteur, découpés de leurs planches pour qu’il n’y reste aucun logo ni nom de projet ; les pièces sont nommées en espagnol, et les plans indiquent qu’ils sont informatifs et non contractuels, que leurs surfaces sont approximatives et peuvent varier pour des raisons techniques, juridiques ou d’exécution, et que le mobilier ne fait pas partie de la vente.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Torremolinos, <em>près de La Carihuela</em></h2>
-          <p class="project-lead">Les plans du promoteur donnent pour adresse Av. Carlota Alessandri 109, à Torremolinos, sur un îlot entre cette avenue, la calle Nerja, la calle Puerto Real et l’Av. de España ; le repère sur la carte est placé à l’intérieur et reste approximatif. La brochure indique environ cinq minutes à pied jusqu’à la plage de La Carihuela, moins de dix minutes en voiture jusqu’à l’aéroport de Malaga et une quinzaine jusqu’au centre de Malaga. Nous confirmons les temps à pied et en voiture lors d’une visite.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-calandria-residences" data-locmap='{&quot;site&quot;:[36.6043,-4.5116],&quot;sea&quot;:[36.5773,-4.5116],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.60728,-4.50436],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;860 m · 12 min à pied&quot;}]}' role="img" aria-label="Carte indicative de localisation de Calandria Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Calandria Residences</h3>
-            <p class="locmap-place">Torremolinos, près de La Carihuela</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>860 m</bdi> <em><bdi>12 min à pied</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Málaga</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>21 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Appartements d’une à <em>quatre chambres</em></h2>
-          <p class="project-lead">Les quatre logements de la liste de prix, avec la surface construite et la terrasse issues des plans du promoteur. La page du portail décrit aussi l’ensemble : des logements aux étages intermédiaires avec de grandes terrasses donnant sur Torremolinos et les jardins, et des penthouses avec des terrasses privées équipées d’une piscine et d’un jacuzzi. Aucun penthouse ne figure sur la liste dont nous disposons.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Au niveau -2</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-calandria-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Aux étages supérieurs</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-calandria-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Sur tous les plans</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-calandria-residences.html#availability">Voir les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-calandria-residences.html#availability">Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">4 logements sur la <em>liste de prix</em></h2>
-          <p class="project-lead">La liste de prix du promoteur, à novembre 2026, compte quatre logements, d’une, deux, trois et quatre chambres. Disponibilité et prix proviennent de la liste du promoteur à novembre 2026 et sont confirmés avant réservation.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>4</strong></div>
-            <div><span>Prix à partir de</span><strong>378 000 €</strong></div>
-            <div><span>Fourchette de prix</span><strong>378 000 € - 1 040 000 €</strong></div>
-            <div><span>Vérifié</span><strong>25 novembre 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 4 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Logements disponibles">
-              <article class="unit-card" data-unit data-price="378000">
-                <a class="unit-card-plan" href="assets/liora/projects/calandria-residences/floorplans/16-2D.pdf" target="_blank" rel="noopener" aria-label="Plan de 16-2D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/calandria-residences/floorplans/16-2D-thumb-640.webp 640w, assets/liora/projects/calandria-residences/floorplans/16-2D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/calandria-residences/floorplans/16-2D-thumb.jpg" alt="Plan de 16-2D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">16-2D</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>1 chambre</dd></div>
-                    <div><dt>Construits</dt><dd>55,38 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>13,28 m²</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 16, niveau -2</dd></div>
-                  </dl>
-                  <p class="unit-card-price">378 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Calandria%20Residences%20-%2016-2D">Se renseigner sur 16-2D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="472000">
-                <a class="unit-card-plan" href="assets/liora/projects/calandria-residences/floorplans/13-2B.pdf" target="_blank" rel="noopener" aria-label="Plan de 13-2B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/calandria-residences/floorplans/13-2B-thumb-640.webp 640w, assets/liora/projects/calandria-residences/floorplans/13-2B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/calandria-residences/floorplans/13-2B-thumb.jpg" alt="Plan de 13-2B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">13-2B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>2 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>71,40 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>12,97 m²</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 13, niveau -2</dd></div>
-                  </dl>
-                  <p class="unit-card-price">472 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Calandria%20Residences%20-%2013-2B">Se renseigner sur 13-2B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="597000">
-                <a class="unit-card-plan" href="assets/liora/projects/calandria-residences/floorplans/11B.pdf" target="_blank" rel="noopener" aria-label="Plan de 11B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/calandria-residences/floorplans/11B-thumb-640.webp 640w, assets/liora/projects/calandria-residences/floorplans/11B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/calandria-residences/floorplans/11B-thumb.jpg" alt="Plan de 11B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">11B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>3 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>104,73 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>8,33 m²</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 1, premier étage</dd></div>
-                  </dl>
-                  <p class="unit-card-price">597 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Calandria%20Residences%20-%2011B">Se renseigner sur 11B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1040000">
-                <a class="unit-card-plan" href="assets/liora/projects/calandria-residences/floorplans/35C.pdf" target="_blank" rel="noopener" aria-label="Plan de 35C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/calandria-residences/floorplans/35C-thumb-640.webp 640w, assets/liora/projects/calandria-residences/floorplans/35C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/calandria-residences/floorplans/35C-thumb.jpg" alt="Plan de 35C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">35C</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>4 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>121,94 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>30,79 m²</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 3, cinquième étage</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 040 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Calandria%20Residences%20-%2035C">Se renseigner sur 35C</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>16 photos</button>
+          <a class="chip" href="fr/property-calandria-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plans</a>
+          <a class="chip" href="fr/property-calandria-residences.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
           
-          <p class="availability-source-note">Prix, étages, chambres et salles de bains transcrits du tableau de prix du portail agents du promoteur, copié le 25 novembre 2026, qui indique les quatre logements comme disponibles. La liste ne précise pas si la TVA est incluse, ni si le parking ou la cave le sont ; nous confirmons ces deux points par écrit. Les surfaces construites et les terrasses proviennent des plans du promoteur : la liste donne 66,00 et 87,00 m² construits et 13,00 m² de terrasse pour 16-2D et 13-2B, chiffres qui incluent une quote-part des parties communes, contre 55,38 et 71,40 m² construits et 13,28 et 12,97 m² de terrasse sur leurs plans.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-calandria-residences.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Calandria%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Calandria Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Calandria</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Appartements d’une à quatre chambres avec terrasse à Torremolinos, à cinq minutes à pied de la plage de La Carihuela, dans un ensemble de 353 logements avec piscines extérieures, piscine intérieure chauffée, salle de sport et espace de coworking.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 378 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>1 à 4</dd><dd class="sub"><span>Appartements</span></dd></div><div><dt>Livraison</dt><dd>à confirmer</dd><dd class="sub">Permis : nous le vérifions avant votre réservation</dd></div><div><dt>Biens restants</dt><dd>4 proposés</dd><dd class="sub">Vérifié le 25 novembre 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-calandria-residences.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Calandria%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Calandria Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">La brochure du promoteur présente un ensemble contemporain d’appartements aux grandes baies vitrées et aux terrasses généreuses à Torremolinos, à environ cinq minutes à pied de la plage de La Carihuela et, selon elle, à moins de dix minutes en voiture de l’aéroport de Malaga. La page du portail annonce 353 logements au total, d’une à quatre chambres.</p>
+    <p class="lede-2">La liste de prix dont nous disposons, de novembre 2026, compte quatre logements : un appartement d’une chambre et un de deux chambres au niveau que les plans appellent -2, un de trois chambres au premier étage et un de quatre chambres au cinquième. Aucun document n’indique de permis, d’état d’avancement des travaux ni de date de livraison.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Des terrasses courbes, une cour de jardins</span></summary><p>La brochure évoque des lignes épurées, des espaces ouverts et des logements conçus pour la lumière naturelle, avec de grandes baies et des terrasses qui prolongent le séjour vers l’extérieur. Elle cite des menuiseries performantes, une climatisation efficace par aérothermie et des matériaux durables, sans fournir de descriptif technique.</p><p>Dans les images de synthèse du promoteur, le bâtiment entoure un îlot de longues dalles de terrasse courbes, de garde-corps blancs, de panneaux verticaux cannelés et de végétation sur les toits, autour d’une cour plantée avec piscine. Ses plans numérotent les logements par cage d’escalier, de 1 à 17 au moins, et par niveau, à partir du niveau -2.</p><ul><li>Terrasses: Tous les logements de la liste ont une terrasse : de 8,33 m² pour 11B à 30,79 m² en deux parties pour 35C, d’après les plans du promoteur.</li><li>Lumière: De grandes baies et des terrasses généreuses, que la brochure présente comme le prolongement des pièces de vie.</li><li>Climatisation: Aérothermie et climatisation efficace, telles que la brochure les nomme ; nous n’avons pas pu obtenir le descriptif technique.</li><li>Agencement: Des séjours ouverts avec la cuisine et des chambres desservies par un dégagement séparé, sur les quatre plans.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>378 000 € – 1 040 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>4 proposés</span><small>Vérifié le 25 novembre 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartements</span></dd></div><div><dt>Surfaces</dt><dd><span>55 – 122 m²</span><small>Surface construite</small></dd></div><div><dt>Livraison</dt><dd><span>à confirmer</span></dd></div><div><dt>Permis</dt><dd><span>Non précisé</span><small>Nous le vérifions avant votre réservation</small></dd></div><div><dt>Acomptes</dt><dd><span>Garantie bancaire</span><small>Exigée par la loi espagnole</small></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">La liste de prix du promoteur, à novembre 2026, compte quatre logements, d’une, deux, trois et quatre chambres. Disponibilité et prix proviennent de la liste du promoteur à novembre 2026 et sont confirmés avant réservation. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="1" data-price="378000" data-size="55.38" data-ppm="6826" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/calandria-residences/floorplans/16-2D-thumb.jpg">
+            <th scope="row"><span class="u-name">16-2D</span><span class="u-loc">Appartement · Cage 16, niveau -2</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">55 m²</td>
+            <td data-label="Prix" class="u-price num">378 000 €</td>
+            <td data-label="Par m²" class="num">6 826 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/calandria-residences/floorplans/16-2D.pdf" target="_blank" rel="noopener" aria-label="Plan de 16-2D"><img src="assets/liora/projects/calandria-residences/floorplans/16-2D-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="472000" data-size="71.4" data-ppm="6611" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/calandria-residences/floorplans/13-2B-thumb.jpg">
+            <th scope="row"><span class="u-name">13-2B</span><span class="u-loc">Appartement · Cage 13, niveau -2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">71 m²</td>
+            <td data-label="Prix" class="u-price num">472 000 €</td>
+            <td data-label="Par m²" class="num">6 611 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/calandria-residences/floorplans/13-2B.pdf" target="_blank" rel="noopener" aria-label="Plan de 13-2B"><img src="assets/liora/projects/calandria-residences/floorplans/13-2B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="597000" data-size="104.73" data-ppm="5700" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/calandria-residences/floorplans/11B-thumb.jpg">
+            <th scope="row"><span class="u-name">11B</span><span class="u-loc">Appartement · Cage 1, premier étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">105 m²</td>
+            <td data-label="Prix" class="u-price num">597 000 €</td>
+            <td data-label="Par m²" class="num">5 700 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/calandria-residences/floorplans/11B.pdf" target="_blank" rel="noopener" aria-label="Plan de 11B"><img src="assets/liora/projects/calandria-residences/floorplans/11B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="4" data-price="1040000" data-size="121.94" data-ppm="8529" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/calandria-residences/floorplans/35C-thumb.jpg">
+            <th scope="row"><span class="u-name">35C</span><span class="u-loc">Appartement · Cage 3, cinquième étage</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">122 m²</td>
+            <td data-label="Prix" class="u-price num">1 040 000 €</td>
+            <td data-label="Par m²" class="num">8 529 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/calandria-residences/floorplans/35C.pdf" target="_blank" rel="noopener" aria-label="Plan de 35C"><img src="assets/liora/projects/calandria-residences/floorplans/35C-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>Appartements d’une à quatre chambres</span></summary><p>Les quatre logements de la liste de prix, avec la surface construite et la terrasse issues des plans du promoteur. La page du portail décrit aussi l’ensemble : des logements aux étages intermédiaires avec de grandes terrasses donnant sur Torremolinos et les jardins, et des penthouses avec des terrasses privées équipées d’une piscine et d’un jacuzzi. Aucun penthouse ne figure sur la liste dont nous disposons.</p><div class="res-types"><div class="res-type"><h3>Au niveau -2</h3><ul><li>16-2D compte une chambre et une salle de bains, 55,38 m² construits et une terrasse de 13,28 m², en partie couverte et bordée de végétation sur son plan, pour 378 000 €.</li><li>13-2B compte deux chambres et deux salles de bains, 71,40 m² construits et une terrasse couverte de 12,97 m² le long de ses trois pièces principales, pour 472 000 €. Les documents ne disent pas si le niveau -2 donne sur la rue ou sur le jardin ; nous le vérifions lors d’une visite.</li></ul></div><div class="res-type"><h3>Aux étages supérieurs</h3><ul><li>11B, au premier étage, compte trois chambres et deux salles de bains, 104,73 m² construits et une terrasse couverte de 8,33 m² attenante au séjour, pour 597 000 €.</li><li>35C, au cinquième étage, compte quatre chambres, deux salles de bains et un WC indépendant, 121,94 m² construits et 30,79 m² de terrasse couverte en deux parties, pour 1 040 000 €.</li></ul></div><div class="res-type"><h3>Sur tous les plans</h3><ul><li>Une pièce ouverte séjour-salle à manger-cuisine, avec les chambres et les salles de bains autour d’un dégagement.</li><li>Les plans donnent aussi une surface construite incluant une quote-part des parties communes ; elle n’est pas reprise ici.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">L’échéancier du promoteur est disponible sur demande ; nous vous l’envoyons avec la grille de prix.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-calandria-residences.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -911,388 +589,183 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine extérieure</h3>
-              <p class="amenity-note">À ciel ouvert</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="La piscine et les jardins"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk-640.webp 640w, assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk-960.webp 960w, assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.jpg" alt="Vue de synthèse de la cour au crépuscule, avec une piscine, des transats et des parasols sur la pelouse, des palmiers et des terrasses plantées qui s’étagent sur les bâtiments courbes qui l’entourent" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Séjour et cuisine"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen-640.webp 640w, assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen-960.webp 960w, assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen.jpg" alt="Séjour ouvert en image de synthèse avec une cuisine blanche et un îlot effet marbre, un canapé, une table à manger et une fenêtre sur la mer" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Une terrasse avec vue sur la mer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view-640.webp 640w, assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view-960.webp 960w, assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view.jpg" alt="Vue de synthèse d’une grande terrasse avec un canapé courbe, une table basse et une table à manger, face à la mer au coucher du soleil" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="13" aria-label="La piscine intérieure chauffée"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/indoor-pool-640.webp 640w, assets/liora/projects/calandria-residences/media/indoor-pool-960.webp 960w, assets/liora/projects/calandria-residences/media/indoor-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/calandria-residences/media/indoor-pool.jpg" alt="Vue de synthèse de la piscine intérieure chauffée, avec des banquettes en pierre garnies de coussins d’un côté et une paroi vitrée sur un jardin tropical" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Chambre principale et salle de bains"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom-640.webp 640w, assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom-960.webp 960w, assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom.jpg" alt="Chambre principale en image de synthèse avec un lit double, un mur de placards et une vasque en pierre ouverte sur la chambre, à côté d’une porte vitrée sur une terrasse" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 16 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Extérieurs (5)</button><button type="button" data-open-cat="Terraces">Terrasses (1)</button><button type="button" data-open-cat="Interiors">Intérieurs (3)</button><button type="button" data-open-cat="Bedrooms">Chambres (4)</button><button type="button" data-open-cat="Amenities">Équipements (3)</button></div>
+    
+    <p class="caption">Les visuels sont des illustrations de synthèse, pas des photographies du bâtiment achevé ; la vue aérienne insère le projet dans une photographie réelle. La brochure précise que ses images sont indicatives et montrent des options, du mobilier, de la décoration et des aménagements paysagers non compris dans le prix. Les plans sont ceux du promoteur, découpés de leurs planches pour qu’il n’y reste aucun logo ni nom de projet ; les pièces sont nommées en espagnol, et les plans indiquent qu’ils sont informatifs et non contractuels, que leurs surfaces sont approximatives et peuvent varier pour des raisons techniques, juridiques ou d’exécution, et que le mobilier ne fait pas partie de la vente.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">Les plans du promoteur donnent pour adresse Av. Carlota Alessandri 109, à Torremolinos, sur un îlot entre cette avenue, la calle Nerja, la calle Puerto Real et l’Av. de España ; le repère sur la carte est placé à l’intérieur et reste approximatif. La brochure indique environ cinq minutes à pied jusqu’à la plage de La Carihuela, moins de dix minutes en voiture jusqu’à l’aéroport de Malaga et une quinzaine jusqu’au centre de Malaga. Nous confirmons les temps à pied et en voiture lors d’une visite.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-calandria-residences" data-locmap='{&quot;site&quot;:[36.6043,-4.5116],&quot;sea&quot;:[36.5773,-4.5116],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.60728,-4.50436],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;860 m · 12 min à pied&quot;}]}' role="img" aria-label="Carte indicative de localisation de Calandria Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Calandria Residences</h3>
+            <p class="locmap-place">Torremolinos, près de La Carihuela</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>860 m</bdi> <em><bdi>12 min à pied</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine intérieure chauffée</h3>
-              <p class="amenity-note">Eau chaude à l’abri</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Málaga</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>21 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bien-être</span>
-              <h3 class="amenity-name">Salle de sport entièrement équipée</h3>
-              <p class="amenity-note">Cardio et musculation</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Bien-être</span>
-              <h3 class="amenity-name">Espace fitness extérieur</h3>
-              <p class="amenity-note">Au sein du programme</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardins paysagers</h3>
-              <p class="amenity-note">Espaces communs paysagers</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Espace de coworking</h3>
-              <p class="amenity-note">Des bureaux hors du logement</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Système aérothermique</h3>
-              <p class="amenity-note">Chauffage, climatisation et eau chaude</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Services</span>
-              <h3 class="amenity-name">Gastro-bar de la résidence</h3>
-              <p class="amenity-note">Se restaurer dans l’enceinte</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Plage de La Carihuela</th><td>Environ 5 minutes à pied</td></tr><tr><th scope="row">Aéroport de Malaga</th><td>Moins de 10 minutes en voiture</td></tr><tr><th scope="row">Centre de Malaga</th><td>Environ 15 minutes en voiture</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">La brochure énumère les espaces communs sans dimensions ni horaires ; nous confirmons donc ce qui est construit et ouvert avant toute réservation.</p>
+    <div class="life-panels"><div><h3>Les piscines</h3><p>La brochure cite des piscines extérieures et une piscine intérieure chauffée. Les images du promoteur montrent une piscine dans une cour plantée et une autre sur un deck face à la mer.</p></div><div><h3>La salle de sport</h3><p>Une salle de sport équipée et des espaces sportifs en plein air, tels que la brochure les énumère, sans dimensions ni équipements.</p></div><div><h3>Coworking et gastroteca</h3><p>Un espace de coworking et une gastroteca, un espace partagé pour manger et boire, tous deux cités dans la brochure.</p></div><div><h3>La plage</h3><p>La plage de La Carihuela, à environ cinq minutes à pied selon le plan du promoteur, avec la marina de Benalmádena le long de la côte.</p></div></div>
+    <ul class="amen-top"><li>Piscine extérieure</li><li>Piscine intérieure chauffée</li><li>Salle de sport entièrement équipée</li><li>Espace de coworking</li><li>Gastro-bar de la résidence</li><li>Espace fitness extérieur</li></ul>
+    <details class="amen-all"><summary>Tout afficher (8)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">4</span></h3><ul><li>Piscine extérieure</li><li>Piscine intérieure chauffée</li><li>Salle de sport entièrement équipée</li><li>Espace fitness extérieur</li></ul></div><div><h3>Extérieurs<span class="count">1</span></h3><ul><li>Jardins paysagers</li></ul></div><div><h3>Au quotidien<span class="count">2</span></h3><ul><li>Espace de coworking</li><li>Système aérothermique</li></ul></div><div><h3>Services<span class="count">1</span></h3><ul><li>Gastro-bar de la résidence</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>À qui s'adresse ce projet</b><span>Les acheteurs qui recherchent un appartement neuf près de la plage et de l’aéroport, comme résidence principale ou secondaire, avec piscines et salle de sport partagées plutôt qu’un jardin privé.</span></li><li><b>Ce qui le distingue</b><span>Sa taille et son emplacement : un ensemble de 353 logements sur une grande avenue de Torremolinos, avec les espaces communs à l’intérieur de l’îlot, à cinq minutes à pied de La Carihuela selon le plan du promoteur.</span></li><li><b>Le logement de quatre chambres</b><span>35C, au cinquième étage, compte quatre chambres, deux salles de bains et un WC indépendant, 121,94 m² construits et deux terrasses couvertes, une à chaque extrémité, totalisant 30,79 m², pour 1 040 000 €.</span></li><li><b>Pourquoi vérifier la disponibilité</b><span>Les quatre logements sont ceux que le portail agents du promoteur affichait le 25 novembre 2026, sur 353. Nous confirmons le prix et la disponibilité, et demandons ce qui est mis en vente par ailleurs, avant toute réservation.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Disponibilité</b><span>Quatre logements figurent sur la liste, sur 353 : une chambre à 378 000 €, deux chambres à 472 000 €, trois chambres à 597 000 € et quatre chambres à 1 040 000 €.</span></li><li><b>Les taxes et le prix</b><span>La liste de prix ne précise pas si la TVA est incluse et ne mentionne ni parking ni cave. Avec une TVA de 10% et un droit de timbre de 1,20%, un prix de 378 000 € hors TVA passerait à environ 420 000 €, avant les frais de notaire et d’enregistrement. Nous confirmons ces deux points par écrit.</span></li><li><b>Pas encore de dates</b><span>Aucun document n’indique de permis, d’état d’avancement des travaux ni de date de livraison.</span></li><li><b>Les prix peuvent évoluer</b><span>Le tableau est une copie du portail du promoteur au 25 novembre 2026. Nous reconfirmons le montant auprès du vendeur avant que vous ne réserviez.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>TVA, parking et cave</b><span>La liste de prix ne précise pas si ses prix incluent la TVA, ni si un parking ou une cave accompagne le logement. Les images du promoteur montrent un parking souterrain. Nous demandons les trois points par écrit.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Le permis et les travaux</b><span>Aucun document n’indique de permis de construire, d’état d’avancement des travaux ni de date de livraison. Nous demandons le permis, le calendrier des travaux et la date de livraison contractuelle.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les plans et la liste</b><span>Pour 11B et 35C, la surface construite de la liste est celle du logement sur le plan. Pour 16-2D et 13-2B, la liste donne 66,00 et 87,00 m², proches des chiffres des plans parties communes comprises (66,30 et 87,07 m²), alors que les plans donnent 55,38 et 71,40 m² pour le logement lui-même ; la liste arrondit leurs terrasses à 13,00 m², les plans donnent 13,28 et 12,97 m². Cette page reprend les deux chiffres des plans.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Niveau -2</b><span>Les deux logements les moins chers sont au niveau que les plans appellent -2. Leurs plans montrent des terrasses bordées de végétation, mais aucun document ne dit sur quoi elles donnent ni quelle lumière elles reçoivent. Nous le vérifions sur place.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Le descriptif technique</b><span>Le descriptif technique n’a pas pu être obtenu ; cette page n’indique donc ni finitions, ni équipements, ni électroménager. Nous le demandons avant toute réservation.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Demandez le dossier</h3><p>Les plans des logements qui vous intéressent, la brochure et la liste de prix.</p></li><li><h3>Comparez les options</h3><p>Comparez-le avec les autres projets que nous proposons entre Malaga et Marbella.</p></li><li><h3>Visite privée</h3><p>Découvrez le secteur avec nous, et confrontez les plans à l’avancement des travaux.</p></li><li><h3>Réservez</h3><p>Nous confirmons par écrit le montant de la réservation et l’échéancier de paiement, puis le contrat de vente.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plans<small>4 biens sur 4</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Échéancier<small>Pas encore fourni</small><small>En attente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-calandria-residences.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Calandria</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien de logements sont disponibles ?</summary><p>Quatre figurent sur la liste de prix du promoteur à novembre 2026, sur les 353 de l’ensemble : un appartement d’une chambre à 378 000 €, un de deux chambres à 472 000 €, un de trois à 597 000 € et un de quatre à 1 040 000 €. Nous demandons ce qui est mis en vente par ailleurs.</p></details><details class="segment-faq-item"><summary>La TVA est-elle incluse ?</summary><p>La liste de prix ne le précise pas. La TVA sur un logement neuf est de 10% et le droit de timbre de 1,20%, auxquels s’ajoutent les frais de notaire et d’enregistrement. Nous confirmons par écrit si les prix incluent la TVA, ainsi que les frais d’acquisition.</p></details><details class="segment-faq-item"><summary>Le parking et le débarras sont-ils compris ?</summary><p>La liste de prix ne les mentionne pas. Les images du promoteur montrent un parking souterrain ; nous confirmons par écrit ce qui accompagne le logement que vous choisissez.</p></details><details class="segment-faq-item"><summary>Quand sera-t-il achevé ?</summary><p>Aucun document ne donne de date de livraison, de date de permis ni l’état d’avancement des travaux ; cette page dit donc seulement que l’achèvement reste à confirmer. Nous demandons la date contractuelle par écrit avant toute réservation.</p></details><details class="segment-faq-item"><summary>À quelle distance se trouve la plage ?</summary><p>La brochure indique environ cinq minutes à pied jusqu’à la plage de La Carihuela. Nous faisons le trajet avec vous lors d’une visite.</p></details></div>
+    <details class="faq2-more"><summary>Voir toutes les questions (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Le mobilier est-il inclus ?</summary><p>Non. La brochure précise que ses images montrent du mobilier, de la décoration, des aménagements paysagers et des options non compris dans le prix, et les plans indiquent que le mobilier dessiné ne fait pas partie de la vente.</p></details><details class="segment-faq-item"><summary>Les prix peuvent-ils changer ?</summary><p>Oui. La liste est une copie du portail du promoteur au 25 novembre 2026. Nous reconfirmons le prix avant que vous ne réserviez.</p></details></div></details>
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">378 000 €</p>
+      <p class="rail-note">Hors TVA. · Vérifié le 25 novembre 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-calandria-residences.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Calandria%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Calandria Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Calandria%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Calandria Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Sur place.</b> Visitez avec nous le terrain et ses alentours.</li><li><b>Sur le papier.</b> Permis, date de livraison et contrat, avant toute signature.</li><li><b>Sur les plans.</b> Nous parcourons avec vous le logement que vous choisissez, pièce par pièce, plan en main.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Calandria Residences">
+        <input type="hidden" id="f-project" name="project" value="Calandria Residences">
+        <input type="hidden" name="preferred_area" value="Torremolinos">
+        <input type="hidden" name="property_type_interest" value="Appartements">
+        <input type="hidden" name="budget_range" value="À partir de 378 000 €">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Bonjour Nueva Living, je souhaiterais recevoir des informations sur Calandria Residences." data-base="Bonjour Nueva Living, je souhaiterais recevoir des informations sur Calandria Residences.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="16-2D">16-2D: 378 000 €</option><option value="13-2B">13-2B: 472 000 €</option><option value="11B">11B: 597 000 €</option><option value="35C">35C: 1 040 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Calandria.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Des appartements neufs avec terrasse à quelques pas de la plage de La Carihuela, à Torremolinos, près de l’aéroport de Malaga, dans un ensemble avec piscines extérieures, piscine intérieure chauffée, salle de sport et espace de coworking.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Les acheteurs qui recherchent un appartement neuf près de la plage et de l’aéroport, comme résidence principale ou secondaire, avec piscines et salle de sport partagées plutôt qu’un jardin privé.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce qui le distingue</h3><p>Sa taille et son emplacement : un ensemble de 353 logements sur une grande avenue de Torremolinos, avec les espaces communs à l’intérieur de l’îlot, à cinq minutes à pied de La Carihuela selon le plan du promoteur.</p></article>
-              <article class="why-point reveal-soft"><h3>Le logement de quatre chambres</h3><p>35C, au cinquième étage, compte quatre chambres, deux salles de bains et un WC indépendant, 121,94 m² construits et deux terrasses couvertes, une à chaque extrémité, totalisant 30,79 m², pour 1 040 000 €.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi vérifier la disponibilité</h3><p>Les quatre logements sont ceux que le portail agents du promoteur affichait le 25 novembre 2026, sur 353. Nous confirmons le prix et la disponibilité, et demandons ce qui est mis en vente par ailleurs, avant toute réservation.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Une note factuelle sur ce que les documents disent et ne disent pas ; Nueva Living ne promet ni rendement locatif ni plus-value.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Disponibilité</h3><p>Quatre logements figurent sur la liste, sur 353 : une chambre à 378 000 €, deux chambres à 472 000 €, trois chambres à 597 000 € et quatre chambres à 1 040 000 €.</p></article>
-              <article class="why-point reveal-soft"><h3>Les taxes et le prix</h3><p>La liste de prix ne précise pas si la TVA est incluse et ne mentionne ni parking ni cave. Avec une TVA de 10% et un droit de timbre de 1,20%, un prix de 378 000 € hors TVA passerait à environ 420 000 €, avant les frais de notaire et d’enregistrement. Nous confirmons ces deux points par écrit.</p></article>
-              <article class="why-point reveal-soft"><h3>Pas encore de dates</h3><p>Aucun document n’indique de permis, d’état d’avancement des travaux ni de date de livraison.</p></article>
-              <article class="why-point reveal-soft"><h3>Les prix peuvent évoluer</h3><p>Le tableau est une copie du portail du promoteur au 25 novembre 2026. Nous reconfirmons le montant auprès du vendeur avant que vous ne réserviez.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>TVA, parking et cave</h3><p>La liste de prix ne précise pas si ses prix incluent la TVA, ni si un parking ou une cave accompagne le logement. Les images du promoteur montrent un parking souterrain. Nous demandons les trois points par écrit.</p></article>
-              <article class="why-point reveal-soft"><h3>Le permis et les travaux</h3><p>Aucun document n’indique de permis de construire, d’état d’avancement des travaux ni de date de livraison. Nous demandons le permis, le calendrier des travaux et la date de livraison contractuelle.</p></article>
-              <article class="why-point reveal-soft"><h3>Les plans et la liste</h3><p>Pour 11B et 35C, la surface construite de la liste est celle du logement sur le plan. Pour 16-2D et 13-2B, la liste donne 66,00 et 87,00 m², proches des chiffres des plans parties communes comprises (66,30 et 87,07 m²), alors que les plans donnent 55,38 et 71,40 m² pour le logement lui-même ; la liste arrondit leurs terrasses à 13,00 m², les plans donnent 13,28 et 12,97 m². Cette page reprend les deux chiffres des plans.</p></article>
-              <article class="why-point reveal-soft"><h3>Niveau -2</h3><p>Les deux logements les moins chers sont au niveau que les plans appellent -2. Leurs plans montrent des terrasses bordées de végétation, mais aucun document ne dit sur quoi elles donnent ni quelle lumière elles reçoivent. Nous le vérifions sur place.</p></article>
-              <article class="why-point reveal-soft"><h3>Le descriptif technique</h3><p>Le descriptif technique n’a pas pu être obtenu ; cette page n’indique donc ni finitions, ni équipements, ni électroménager. Nous le demandons avant toute réservation.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le 25 novembre 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Prix, étages, chambres et salles de bains transcrits du tableau de prix du portail agents du promoteur, copié le 25 novembre 2026, qui indique les quatre logements comme disponibles. La liste ne précise pas si la TVA est incluse, ni si le parking ou la cave le sont ; nous confirmons ces deux points par écrit. Les surfaces construites et les terrasses proviennent des plans du promoteur : la liste donne 66,00 et 87,00 m² construits et 13,00 m² de terrasse pour 16-2D et 13-2B, chiffres qui incluent une quote-part des parties communes, contre 55,38 et 71,40 m² construits et 13,28 et 12,97 m² de terrasse sur leurs plans.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/calandria-residences/media/corner-facade.jpg" alt="Vue de synthèse d’un angle du bâtiment, avec des terrasses courbes, des garde-corps blancs, des panneaux verticaux cannelés et de la végétation le long du toit" width="1200" height="680" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Aperçu architectural</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Des terrasses courbes, <em>une cour de jardins</em></h2>
-          <p>La brochure évoque des lignes épurées, des espaces ouverts et des logements conçus pour la lumière naturelle, avec de grandes baies et des terrasses qui prolongent le séjour vers l’extérieur. Elle cite des menuiseries performantes, une climatisation efficace par aérothermie et des matériaux durables, sans fournir de descriptif technique.</p>
-<p>Dans les images de synthèse du promoteur, le bâtiment entoure un îlot de longues dalles de terrasse courbes, de garde-corps blancs, de panneaux verticaux cannelés et de végétation sur les toits, autour d’une cour plantée avec piscine. Ses plans numérotent les logements par cage d’escalier, de 1 à 17 au moins, et par niveau, à partir du niveau -2.</p>
-          <ul class="feature-list">
-            <li>Terrasses — Tous les logements de la liste ont une terrasse : de 8,33 m² pour 11B à 30,79 m² en deux parties pour 35C, d’après les plans du promoteur.</li>
-            <li>Lumière — De grandes baies et des terrasses généreuses, que la brochure présente comme le prolongement des pièces de vie.</li>
-            <li>Climatisation — Aérothermie et climatisation efficace, telles que la brochure les nomme ; nous n’avons pas pu obtenir le descriptif technique.</li>
-            <li>Agencement — Des séjours ouverts avec la cuisine et des chambres desservies par un dégagement séparé, sur les quatre plans.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Calandria%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Calandria Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-calandria-residences.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view.jpg" alt="Vue de synthèse d’une grande terrasse avec un canapé courbe, une table basse et une table à manger, face à la mer au coucher du soleil" width="1200" height="562" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Découvrez <em>le quartier et les plans</em></h2>
-            <p>Une visite porte sur l’emplacement, les plans et l’état d’avancement des travaux.</p>
-            <div class="viewing-insights">
-              <div><span>Sur place</span><p>Visitez avec nous le terrain et ses alentours.</p></div>
-              <div><span>Sur le papier</span><p>Permis, date de livraison et contrat, avant toute signature.</p></div>
-              <div><span>Sur les plans</span><p>Nous parcourons avec vous le logement que vous choisissez, pièce par pièce, plan en main.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=calandria-residences">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-calandria-residences.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Terraces">Terrasses</button><button type="button" data-cat="Interiors">Intérieurs</button><button type="button" data-cat="Bedrooms">Chambres</button><button type="button" data-cat="Amenities">Équipements</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/calandria-residences/media/indoor-pool.jpg" alt="Vue de synthèse de la piscine intérieure chauffée, avec des banquettes en pierre garnies de coussins d’un côté et une paroi vitrée sur un jardin tropical" width="1000" height="920" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Piscines, salle de sport <em>et espace de coworking</em></h2>
-            <p>La brochure énumère les espaces communs sans dimensions ni horaires ; nous confirmons donc ce qui est construit et ouvert avant toute réservation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Demandez le dossier</h3>
-            <p>Les plans des logements qui vous intéressent, la brochure et la liste de prix.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Comparez les options</h3>
-            <p>Comparez-le avec les autres projets que nous proposons entre Malaga et Marbella.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visite privée</h3>
-            <p>Découvrez le secteur avec nous, et confrontez les plans à l’avancement des travaux.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Réservez</h3>
-            <p>Nous confirmons par écrit le montant de la réservation et l’échéancier de paiement, puis le contrat de vente.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien de logements sont disponibles ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Quatre figurent sur la liste de prix du promoteur à novembre 2026, sur les 353 de l’ensemble : un appartement d’une chambre à 378 000 €, un de deux chambres à 472 000 €, un de trois à 597 000 € et un de quatre à 1 040 000 €. Nous demandons ce qui est mis en vente par ailleurs.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>La TVA est-elle incluse ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La liste de prix ne le précise pas. La TVA sur un logement neuf est de 10% et le droit de timbre de 1,20%, auxquels s’ajoutent les frais de notaire et d’enregistrement. Nous confirmons par écrit si les prix incluent la TVA, ainsi que les frais d’acquisition.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le parking et le débarras sont-ils compris ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La liste de prix ne les mentionne pas. Les images du promoteur montrent un parking souterrain ; nous confirmons par écrit ce qui accompagne le logement que vous choisissez.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quand sera-t-il achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Aucun document ne donne de date de livraison, de date de permis ni l’état d’avancement des travaux ; cette page dit donc seulement que l’achèvement reste à confirmer. Nous demandons la date contractuelle par écrit avant toute réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>À quelle distance se trouve la plage ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La brochure indique environ cinq minutes à pied jusqu’à la plage de La Carihuela. Nous faisons le trajet avec vous lors d’une visite.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le mobilier est-il inclus ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Non. La brochure précise que ses images montrent du mobilier, de la décoration, des aménagements paysagers et des options non compris dans le prix, et les plans indiquent que le mobilier dessiné ne fait pas partie de la vente.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Les prix peuvent-ils changer ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. La liste est une copie du portail du promoteur au 25 novembre 2026. Nous reconfirmons le prix avant que vous ne réserviez.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Renseignez-vous sur <em>Calandria Residences</em></h2>
-          <p class="body-copy">Dites-nous ce dont vous avez besoin et nous reviendrons vers vous avec la disponibilité actuelle, les plans et la liste de prix.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Calandria%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Calandria Residences" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Calandria Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Calandria Residences">
-          <input type="hidden" name="preferred_area" value="Torremolinos">
-          <input type="hidden" name="property_type_interest" value="Appartements">
-          <input type="hidden" name="budget_range" value="À partir de 378 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Bonjour Nueva Living, je souhaiterais recevoir des informations sur Calandria Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Nous répondons personnellement, généralement le jour même.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"16-2D","title":"16-2D · Appartement · Cage 16, niveau -2","sub":"1 ch. · 55 m²","price":378000,"plans":[{"src":"assets/liora/projects/calandria-residences/floorplans/16-2D.pdf","label":""}]},{"id":"u1","ref":"13-2B","title":"13-2B · Appartement · Cage 13, niveau -2","sub":"2 ch. · 71 m²","price":472000,"plans":[{"src":"assets/liora/projects/calandria-residences/floorplans/13-2B.pdf","label":""}]},{"id":"u2","ref":"11B","title":"11B · Appartement · Cage 1, premier étage","sub":"3 ch. · 105 m²","price":597000,"plans":[{"src":"assets/liora/projects/calandria-residences/floorplans/11B.pdf","label":""}]},{"id":"u3","ref":"35C","title":"35C · Appartement · Cage 3, cinquième étage","sub":"4 ch. · 122 m²","price":1040000,"plans":[{"src":"assets/liora/projects/calandria-residences/floorplans/35C.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.webp","alt":"Vue de synthèse de la cour au crépuscule, avec une piscine, des transats et des parasols sur la pelouse, des palmiers et des terrasses plantées qui s’étagent sur les bâtiments courbes qui l’entourent","caption":"La piscine et les jardins","cat":"Exteriors"},{"src":"assets/liora/projects/calandria-residences/media/aerial-view-towards-the-marina.webp","alt":"Image de synthèse du projet insérée dans une photographie aérienne au crépuscule : un long bâtiment courbe avec une piscine dans sa cour, au bord d’une grande avenue, les rues de Torremolinos autour et, au loin, la marina et la mer","caption":"Le site, vers la marina","cat":"Exteriors"},{"src":"assets/liora/projects/calandria-residences/media/corner-facade.webp","alt":"Vue de synthèse d’un angle du bâtiment, avec des terrasses courbes, des garde-corps blancs, des panneaux verticaux cannelés et de la végétation le long du toit","caption":"Le bâtiment vu de l’angle de la rue","cat":"Exteriors"},{"src":"assets/liora/projects/calandria-residences/media/street-facade.webp","alt":"Vue de synthèse du bâtiment le long d’une avenue bordée de palmiers, avec six niveaux de terrasses courbes et des fenêtres éclairées","caption":"Le bâtiment le long de l’avenue","cat":"Exteriors"},{"src":"assets/liora/projects/calandria-residences/media/pool-deck-with-sea-view.webp","alt":"Vue de synthèse d’une piscine sur un deck en bois avec transats et parasols, face à la mer et à la côte derrière un garde-corps vitré","caption":"Un deck avec piscine face à la mer","cat":"Exteriors"},{"src":"assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view.webp","alt":"Vue de synthèse d’une grande terrasse avec un canapé courbe, une table basse et une table à manger, face à la mer au coucher du soleil","caption":"Une terrasse avec vue sur la mer","cat":"Terraces"},{"src":"assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen.webp","alt":"Séjour ouvert en image de synthèse avec une cuisine blanche et un îlot effet marbre, un canapé, une table à manger et une fenêtre sur la mer","caption":"Séjour et cuisine","cat":"Interiors"},{"src":"assets/liora/projects/calandria-residences/media/living-room-with-kitchen-wall.webp","alt":"Séjour en image de synthèse avec un canapé courbe, des tables basses rondes, un mur de cuisine en bois et une porte vitrée sur une terrasse avec les collines au loin","caption":"Séjour et terrasse","cat":"Interiors"},{"src":"assets/liora/projects/calandria-residences/media/living-and-dining-room.webp","alt":"Séjour et espace repas en image de synthèse avec une table ronde effet marbre, un canapé courbe et une porte vitrée sur une terrasse face aux collines","caption":"Séjour et espace repas","cat":"Interiors"},{"src":"assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom.webp","alt":"Chambre principale en image de synthèse avec un lit double, un mur de placards et une vasque en pierre ouverte sur la chambre, à côté d’une porte vitrée sur une terrasse","caption":"Chambre principale et salle de bains","cat":"Bedrooms"},{"src":"assets/liora/projects/calandria-residences/media/main-bedroom.webp","alt":"Chambre en image de synthèse avec un lit double sur une estrade en bois, un mur en bois et une porte vitrée sur un balcon avec les collines au loin","caption":"Chambre principale","cat":"Bedrooms"},{"src":"assets/liora/projects/calandria-residences/media/twin-bedroom.webp","alt":"Chambre en image de synthèse avec deux lits simples, un tapis rond et une porte vitrée sur une terrasse","caption":"Chambre à lits jumeaux","cat":"Bedrooms"},{"src":"assets/liora/projects/calandria-residences/media/bedroom-with-desk.webp","alt":"Chambre en image de synthèse avec un lit simple, un bureau et une porte vitrée sur un balcon avec les collines au loin","caption":"Chambre avec bureau","cat":"Bedrooms"},{"src":"assets/liora/projects/calandria-residences/media/indoor-pool.webp","alt":"Vue de synthèse de la piscine intérieure chauffée, avec des banquettes en pierre garnies de coussins d’un côté et une paroi vitrée sur un jardin tropical","caption":"La piscine intérieure chauffée","cat":"Amenities"},{"src":"assets/liora/projects/calandria-residences/media/gym.webp","alt":"Vue de synthèse de la salle de sport, avec des appareils de musculation, des tapis de course, un espace de poids libres et des tapis de sol, et des fenêtres sur le jardin","caption":"La salle de sport","cat":"Amenities"},{"src":"assets/liora/projects/calandria-residences/media/entrance-hall.webp","alt":"Vue de synthèse d’un hall d’entrée avec un mur de boîtes aux lettres habillé de bois, des murs en pierre et une paroi vitrée sur le jardin","caption":"Un hall d’entrée","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Calandria Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk.jpg","webp":"assets/liora/projects/calandria-residences/media/pool-and-gardens-at-dusk-960.webp","alt":"Vue de synthèse de la cour au crépuscule, avec une piscine, des transats et des parasols sur la pelouse, des palmiers et des terrasses plantées qui s’étagent sur les bâtiments courbes qui l’entourent","width":1200,"height":632,"caption":"La piscine et les jardins","category":"Extérieurs"},{"src":"assets/liora/projects/calandria-residences/media/aerial-view-towards-the-marina.jpg","webp":"assets/liora/projects/calandria-residences/media/aerial-view-towards-the-marina-960.webp","alt":"Image de synthèse du projet insérée dans une photographie aérienne au crépuscule : un long bâtiment courbe avec une piscine dans sa cour, au bord d’une grande avenue, les rues de Torremolinos autour et, au loin, la marina et la mer","width":1200,"height":628,"caption":"Le site, vers la marina","category":"Extérieurs"},{"src":"assets/liora/projects/calandria-residences/media/corner-facade.jpg","webp":"assets/liora/projects/calandria-residences/media/corner-facade-960.webp","alt":"Vue de synthèse d’un angle du bâtiment, avec des terrasses courbes, des garde-corps blancs, des panneaux verticaux cannelés et de la végétation le long du toit","width":1200,"height":680,"caption":"Le bâtiment vu de l’angle de la rue","category":"Extérieurs"},{"src":"assets/liora/projects/calandria-residences/media/street-facade.jpg","webp":"assets/liora/projects/calandria-residences/media/street-facade-960.webp","alt":"Vue de synthèse du bâtiment le long d’une avenue bordée de palmiers, avec six niveaux de terrasses courbes et des fenêtres éclairées","width":1200,"height":540,"caption":"Le bâtiment le long de l’avenue","category":"Extérieurs"},{"src":"assets/liora/projects/calandria-residences/media/pool-deck-with-sea-view.jpg","webp":"assets/liora/projects/calandria-residences/media/pool-deck-with-sea-view-960.webp","alt":"Vue de synthèse d’une piscine sur un deck en bois avec transats et parasols, face à la mer et à la côte derrière un garde-corps vitré","width":1200,"height":562,"caption":"Un deck avec piscine face à la mer","category":"Extérieurs"},{"src":"assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view.jpg","webp":"assets/liora/projects/calandria-residences/media/terrace-lounge-with-sea-view-960.webp","alt":"Vue de synthèse d’une grande terrasse avec un canapé courbe, une table basse et une table à manger, face à la mer au coucher du soleil","width":1200,"height":562,"caption":"Une terrasse avec vue sur la mer","category":"Terrasses"},{"src":"assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen.jpg","webp":"assets/liora/projects/calandria-residences/media/open-plan-living-room-and-kitchen-960.webp","alt":"Séjour ouvert en image de synthèse avec une cuisine blanche et un îlot effet marbre, un canapé, une table à manger et une fenêtre sur la mer","width":1200,"height":636,"caption":"Séjour et cuisine","category":"Intérieurs"},{"src":"assets/liora/projects/calandria-residences/media/living-room-with-kitchen-wall.jpg","webp":"assets/liora/projects/calandria-residences/media/living-room-with-kitchen-wall-960.webp","alt":"Séjour en image de synthèse avec un canapé courbe, des tables basses rondes, un mur de cuisine en bois et une porte vitrée sur une terrasse avec les collines au loin","width":1200,"height":619,"caption":"Séjour et terrasse","category":"Intérieurs"},{"src":"assets/liora/projects/calandria-residences/media/living-and-dining-room.jpg","webp":"assets/liora/projects/calandria-residences/media/living-and-dining-room-960.webp","alt":"Séjour et espace repas en image de synthèse avec une table ronde effet marbre, un canapé courbe et une porte vitrée sur une terrasse face aux collines","width":1200,"height":625,"caption":"Séjour et espace repas","category":"Intérieurs"},{"src":"assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom.jpg","webp":"assets/liora/projects/calandria-residences/media/main-bedroom-with-open-bathroom-960.webp","alt":"Chambre principale en image de synthèse avec un lit double, un mur de placards et une vasque en pierre ouverte sur la chambre, à côté d’une porte vitrée sur une terrasse","width":1200,"height":762,"caption":"Chambre principale et salle de bains","category":"Chambres"},{"src":"assets/liora/projects/calandria-residences/media/main-bedroom.jpg","webp":"assets/liora/projects/calandria-residences/media/main-bedroom-960.webp","alt":"Chambre en image de synthèse avec un lit double sur une estrade en bois, un mur en bois et une porte vitrée sur un balcon avec les collines au loin","width":1200,"height":630,"caption":"Chambre principale","category":"Chambres"},{"src":"assets/liora/projects/calandria-residences/media/twin-bedroom.jpg","webp":"assets/liora/projects/calandria-residences/media/twin-bedroom-960.webp","alt":"Chambre en image de synthèse avec deux lits simples, un tapis rond et une porte vitrée sur une terrasse","width":1200,"height":637,"caption":"Chambre à lits jumeaux","category":"Chambres"},{"src":"assets/liora/projects/calandria-residences/media/bedroom-with-desk.jpg","webp":"assets/liora/projects/calandria-residences/media/bedroom-with-desk-960.webp","alt":"Chambre en image de synthèse avec un lit simple, un bureau et une porte vitrée sur un balcon avec les collines au loin","width":1200,"height":634,"caption":"Chambre avec bureau","category":"Chambres"},{"src":"assets/liora/projects/calandria-residences/media/indoor-pool.jpg","webp":"assets/liora/projects/calandria-residences/media/indoor-pool-960.webp","alt":"Vue de synthèse de la piscine intérieure chauffée, avec des banquettes en pierre garnies de coussins d’un côté et une paroi vitrée sur un jardin tropical","width":1000,"height":920,"caption":"La piscine intérieure chauffée","category":"Équipements"},{"src":"assets/liora/projects/calandria-residences/media/gym.jpg","webp":"assets/liora/projects/calandria-residences/media/gym-960.webp","alt":"Vue de synthèse de la salle de sport, avec des appareils de musculation, des tapis de course, un espace de poids libres et des tapis de sol, et des fenêtres sur le jardin","width":1200,"height":769,"caption":"La salle de sport","category":"Équipements"},{"src":"assets/liora/projects/calandria-residences/media/entrance-hall.jpg","webp":"assets/liora/projects/calandria-residences/media/entrance-hall-960.webp","alt":"Vue de synthèse d’un hall d’entrée avec un mur de boîtes aux lettres habillé de bois, des murs en pierre et une paroi vitrée sur le jardin","width":1200,"height":637,"caption":"Un hall d’entrée","category":"Équipements"},{"src":"assets/liora/projects/calandria-residences/floorplans/16-2D-thumb.jpg","webp":"assets/liora/projects/calandria-residences/floorplans/16-2D-thumb-960.webp","alt":"Plan du logement 16-2D","width":2000,"height":1414,"caption":"Logement 16-2D","category":"Plans"},{"src":"assets/liora/projects/calandria-residences/floorplans/13-2B-thumb.jpg","webp":"assets/liora/projects/calandria-residences/floorplans/13-2B-thumb-960.webp","alt":"Plan du logement 13-2B","width":2000,"height":1414,"caption":"Logement 13-2B","category":"Plans"},{"src":"assets/liora/projects/calandria-residences/floorplans/11B-thumb.jpg","webp":"assets/liora/projects/calandria-residences/floorplans/11B-thumb-960.webp","alt":"Plan du logement 11B","width":2000,"height":1414,"caption":"Logement 11B","category":"Plans"},{"src":"assets/liora/projects/calandria-residences/floorplans/35C-thumb.jpg","webp":"assets/liora/projects/calandria-residences/floorplans/35C-thumb-960.webp","alt":"Plan du logement 35C","width":2000,"height":1414,"caption":"Logement 35C","category":"Plans"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-calandria-residences.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Calandria%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Calandria Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

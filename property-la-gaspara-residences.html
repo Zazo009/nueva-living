@@ -34,13 +34,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -153,78 +154,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Can foreigners buy property in Spain?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is an NIE number and do I need one?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What costs should I budget for on top of the purchase price?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I get a mortgage in Spain as a non-resident?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between off-plan and completed properties?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the reservation and payment process work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I rent out the property after purchase?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need a lawyer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What do the homes cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "From €406,000 to €726,000 for the home alone, excluding IVA and purchase costs."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "How many are available?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -309,7 +238,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="en"
   data-project-name="La Gaspara Residences"
   data-project-message="I would like to receive the latest project information for La Gaspara Residences."
@@ -466,482 +395,230 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="La Gaspara Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="#top">La Gaspara Residences<span>From €406,000 · Plus VAT</span></a>
+      <nav class="hdr-proj" aria-label="Project sections"><a href="#overview">Overview</a><a href="#availability">Prices</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#onsite">On site</a><a href="#view">Our view</a><a href="#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="#enquire" data-prefill>Book a private viewing</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="La Gaspara Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.webp 1593w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.jpg" alt="Terraced white blocks above the communal pool and loungers on the lawn, a computer-generated image" width="1593" height="961" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.jpg" alt="Terraced white blocks above the communal pool and loungers on the lawn, a computer-generated image" width="1593" height="961" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Fifteen homes available / gated scheme</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">La Gaspara <em>Residences</em></span>
-            <span class="hero-title-context">Fifteen Homes, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Fifteen apartments available in the second phase of a gated scheme in La Gaspara, on the western side of Estepona, of two and three bedrooms and 107.45 to 144.67 sqm built, every home with a terrace of 27.79 to 98.60 sqm, in a scheme with two adult pools, a children's pool, a gym and a social club.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="#availability">View Available Homes</a>
-            <a class="btn project-btn ghost" href="index.html#private-viewing=1&amp;project=la-gaspara-residences">Cinematic Presentation</a>
-            <a class="btn project-btn ghost" href="#media">All Images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Project key facts">
-          <div class="hero-fact"><span>Location</span><strong>La Gaspara, Estepona</strong></div>
-          <div class="hero-fact"><span>Starting Price</span><strong>From EUR 406,000</strong></div>
-          <div class="hero-fact"><span>Property Type</span><strong>Apartments</strong></div>
-          <div class="hero-fact"><span>Delivery</span><strong>Completion to be confirmed</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Project sections">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Jump to</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="#media">Media</a>
-        <a href="#location">Location</a>
-        <a href="#construction-timeline">Payment Terms</a>
-        <a href="#availability">Availability</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">More</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="#overview">Overview</a>
-          <a href="#residences">Residences</a>
-          <a href="#calculator">Affordability</a>
-          <a href="#amenities">Amenities</a>
-          <a href="#why-this-project">Why</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#private-viewing">Cinematic Presentation</a>
-          <a href="#lifestyle">Lifestyle</a>
-          <a href="#faq">FAQ</a>
-          <a href="#enquire">Enquire</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Project quick facts">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Bedrooms</span><strong>2-3 bedrooms</strong></div>
-          <div class="quick-fact"><span>Bathrooms</span><strong>2 bathrooms</strong></div>
-          <div class="quick-fact"><span>Built area</span><strong>107.45 - 144.67 sqm</strong></div>
-          <div class="quick-fact"><span>Terraces</span><strong>27.79 - 98.60 sqm</strong></div>
-          <div class="quick-fact"><span>Availability</span><strong>15 available</strong></div>
-          <div class="quick-fact"><span>Usable area</span><strong>81.35 - 110.67 sqm</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="#enquire" data-prefill>Request Project Material</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overview</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fifteen homes, <em>second phase</em></h2>
-          <p class="project-lead">La Gaspara Residences is the second phase of a gated scheme in La Gaspara, beside the A-7 on the western side of Estepona. The developer's dossier describes 105 homes over the two phases; fifteen apartments in this second phase are available.</p>
-          <p class="project-lead">The available homes have two or three bedrooms and two bathrooms, from 107.45 to 144.67 sqm built with 81.35 to 110.67 sqm of usable interior. Every one has a terrace, from 27.79 to 98.60 sqm, and twelve of the fifteen face south-west, the other three south.</p>
-          <p class="project-lead">The communal areas described for the scheme are two adult pools, a children's pool, a gym, a social club, landscaped gardens, bicycle storage and a gatehouse at the entrance. Each home is listed with a parking space and a storeroom, priced as separate lines.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">The homes in <em>detail</em></h2>
-          </div>
-          <p class="project-lead">Computer-generated images from the developer's dossier, which covers both phases of the scheme. They illustrate the design and are not the finished building; furniture and decoration are indicative and are not included in the sale.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="View 4 images in Exteriors">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.webp 1593w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.jpg" alt="Terraced white blocks above the communal pool and loungers on the lawn, a computer-generated image" width="1593" height="961" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriors</small>
-                <strong>The blocks</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="View 2 images in Terraces">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast.webp 1531w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast.jpg" alt="A covered terrace with sofas, looking over the coast to the sea, a computer-generated image" width="1531" height="766" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terraces</small>
-                <strong>A terrace</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="View 6 images in Interiors">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-living-room-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-living-room-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-living-room.webp 1590w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/la-gaspara-residences/media/the-living-room.jpg" alt="The living room with a corner sofa and sliding doors to the terrace, a computer-generated image" width="1590" height="959" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiors</small>
-                <strong>The living room</strong>
-                <span class="project-media-card-cta">6 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="View 1 images in Amenities">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-gym-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-gym-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-gym.webp 1490w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/la-gaspara-residences/media/the-gym.jpg" alt="The residents' gym, with bikes and a treadmill along a glass wall, a computer-generated image" width="1490" height="894" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Amenities</small>
-                <strong>The gym</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>View all 13 images</button>
-          <p class="media-note">Images are supplied by the developer and may be computer-generated. Final design, finishes, landscaping and views may vary, and furniture is not included.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Location</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">La Gaspara, <em>Estepona</em></h2>
-          <p class="project-lead">A gated scheme in La Gaspara on the western side of Estepona, beside the A-7, with the coast below.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="en">
-          <div class="locmap-map" id="locmap-la-gaspara-residences" data-locmap='{&quot;site&quot;:[36.4135,-5.1852],&quot;sea&quot;:[36.3865,-5.1852],&quot;seaLabel&quot;:&quot;Mediterranean&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centre&quot;,&quot;sub&quot;:&quot;6.6 km · 11 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5.2 km · 7 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Estepona golf&quot;,&quot;sub&quot;:&quot;3.9 km · 8 min&quot;},{&quot;ll&quot;:[36.4106,-5.18261],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Beach&quot;,&quot;sub&quot;:&quot;630 m · 8 min walk&quot;}]}' role="img" aria-label="Indicative location map for La Gaspara Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicative location</span>
-            <h3 class="locmap-name">La Gaspara Residences</h3>
-            <p class="locmap-place">La Gaspara, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Beach</span>
-              <span class="locmap-row-figure"><bdi>630 m</bdi> <em><bdi>8 min walk</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>5.2 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona centre</span>
-              <span class="locmap-row-figure"><bdi>6.6 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona golf</span>
-              <span class="locmap-row-figure"><bdi>3.9 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Finca Cortesín golf</span>
-              <span class="locmap-row-figure"><bdi>7.5 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar airport</span>
-              <span class="locmap-row-figure"><bdi>39 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances measured by road from the plot boundary. Map for orientation only; boundaries indicative.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Timeline</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Where the project <em>stands</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Second phase</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">Release</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">In progress</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M8 24V6" stroke-linecap="round"/><path d="M8 6 22 8" stroke-linecap="round"/><path d="M20 8v6" stroke-linecap="round"/><path d="M4 24h10" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">Under construction</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.18s">
-          <span class="timeline-label">To be confirmed</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">Delivery</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Residences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Two bedrooms <em>and three</em></h2>
-          <p class="project-lead">Seven two-bedroom and eight three-bedroom apartments, on the ground to third floors of four blocks. The table below follows the developer's current list.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>The apartments</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="#availability">View Floorplans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Private Material</span>
-            <p>Current layouts, view positions and unit availability should be reviewed against the latest developer file before shortlisting.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="#availability">View Floorplans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Availability</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">15 homes <em>available</em></h2>
-          <p class="project-lead">Fifteen apartments in the second phase are available, and the developer prices each of them. Each is listed with one parking space and one storeroom, sold as separate lines. Nueva Living reconfirms price and availability before any viewing or reservation.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Current release summary">
-            <div><span>Available Homes</span><strong>15</strong></div>
-            <div><span>Starting Price</span><strong>EUR 406,000</strong></div>
-            <div><span>Price Range</span><strong>EUR 406,000 - EUR 726,000</strong></div>
-            <div><span>Checked</span><strong>November 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>View All 15 Available Homes</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filter available homes"
-              data-availability-filters
-              data-count-template="Showing {shown} of {total}">
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Bedrooms</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 bed</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 bed</button>
-                </div>
-              </div>
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Price</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">All</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-500000" aria-pressed="false">Under €500k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="500000-600000" aria-pressed="false">€500k – €600k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="600000-" aria-pressed="false">€600k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Clear filters</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Available homes at La Gaspara Residences</caption>
-                <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Size</th><th scope="col">Price</th><th scope="col">Status</th><th scope="col">Floorplan</th></tr></thead>
-                <tbody>
-              <tr data-beds="2" data-price="521000">
-                <td data-label="Reference"><strong>4-7-2-B</strong></td>
-                <td data-label="Floor">Second Floor, Block 4, Portal 7</td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>107.45 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>81.35 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>27.79 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 521,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="2" data-price="531000">
-                <td data-label="Reference"><strong>4-8-2-B</strong></td>
-                <td data-label="Floor">Second Floor, Block 4, Portal 8</td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>107.45 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>81.35 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>28.84 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 531,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="2" data-price="406000">
-                <td data-label="Reference"><strong>4-9-0-B</strong></td>
-                <td data-label="Floor">Ground Floor, Block 4, Portal 9</td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>111.24 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>83.84 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>43.63 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 406,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-0-b-floorplan.pdf" target="_blank" rel="noopener">View PDF</a></td>
-              </tr>
-              <tr data-beds="3" data-price="526000">
-                <td data-label="Reference"><strong>4-9-1-A</strong></td>
-                <td data-label="Floor">First Floor, Block 4, Portal 9</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>136.01 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>101.97 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>98.60 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 526,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="2" data-price="466000">
-                <td data-label="Reference"><strong>4-9-1-B</strong></td>
-                <td data-label="Floor">First Floor, Block 4, Portal 9</td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>107.45 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>81.35 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>89.14 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 466,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-1-b-floorplan.pdf" target="_blank" rel="noopener">View PDF</a></td>
-              </tr>
-              <tr data-beds="3" data-price="576000">
-                <td data-label="Reference"><strong>4-9-2-A</strong></td>
-                <td data-label="Floor">Second Floor, Block 4, Portal 9</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>136.01 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>101.97 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>33.53 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 576,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="3" data-price="726000">
-                <td data-label="Reference"><strong>4-9-3-B</strong></td>
-                <td data-label="Floor">Third Floor, Block 4, Portal 9</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>144.67 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>110.67 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>54.73 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 726,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-3-b-floorplan.pdf" target="_blank" rel="noopener">View PDF</a></td>
-              </tr>
-              <tr data-beds="2" data-price="471000">
-                <td data-label="Reference"><strong>5-10-2-B</strong></td>
-                <td data-label="Floor">Second Floor, Block 5, Portal 10</td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>107.45 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>81.35 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>27.79 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 471,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="3" data-price="526000">
-                <td data-label="Reference"><strong>5-11-2-A</strong></td>
-                <td data-label="Floor">Second Floor, Block 5, Portal 11</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>133.92 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>102.13 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>30.94 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 526,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/la-gaspara-residences/floorplans/unit-5-11-2-a-floorplan.pdf" target="_blank" rel="noopener">View PDF</a></td>
-              </tr>
-              <tr data-beds="2" data-price="471000">
-                <td data-label="Reference"><strong>5-11-2-B</strong></td>
-                <td data-label="Floor">Second Floor, Block 5, Portal 11</td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>107.45 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>81.35 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>28.84 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 471,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="3" data-price="716000">
-                <td data-label="Reference"><strong>5-11-3-A</strong></td>
-                <td data-label="Floor">Third Floor, Block 5, Portal 11</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>130.98 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>99.37 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>63.95 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 716,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="3" data-price="581000">
-                <td data-label="Reference"><strong>5-12-2-A</strong></td>
-                <td data-label="Floor">Second Floor, Block 5, Portal 12</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>136.01 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>101.97 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>33.53 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 581,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="3" data-price="580000">
-                <td data-label="Reference"><strong>6-14-2-A</strong></td>
-                <td data-label="Floor">Second Floor, Block 6, Portal 14</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>136.01 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>101.97 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>33.55 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 580,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/la-gaspara-residences/floorplans/unit-6-14-2-a-floorplan.pdf" target="_blank" rel="noopener">View PDF</a></td>
-              </tr>
-              <tr data-beds="3" data-price="556000">
-                <td data-label="Reference"><strong>7-16-1-A</strong></td>
-                <td data-label="Floor">First Floor, Block 7, Portal 16</td>
-                <td data-label="Bedrooms">3 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>136.01 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>101.97 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>98.29 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 556,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-              <tr data-beds="2" data-price="476000">
-                <td data-label="Reference"><strong>7-16-1-B</strong></td>
-                <td data-label="Floor">First Floor, Block 7, Portal 16</td>
-                <td data-label="Bedrooms">2 bedrooms</td>
-                <td data-label="Size"><span class="unit-size-part"><strong>107.45 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>81.35 sqm</strong> <em>Usable</em></span><span class="unit-size-part"><strong>89.26 sqm</strong> <em>Terrace</em></span></td>
-                <td data-label="Price"><strong>EUR 476,000</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
-                <td data-label="Floorplan"></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>13 photos</button>
+          <a class="chip" href="#availability"><svg><use href="#v2-i-plan"/></svg>Floor plans</a>
+          <a class="chip" href="#location"><svg><use href="#v2-pin"/></svg>Map</a>
           
-          <p class="availability-source-note">Availability and prices as listed in the developer's agent portal on 13 November 2026, reconfirmed before reservation; floors, areas, bedrooms, bathrooms and orientation come from the same list. The portal states that its price list is for information only and has no legal value. The prices are for the home alone and exclude IVA and purchase costs. Every home is listed with one parking space and one storeroom, and with them the list's subtotal is EUR 24,000 higher on every line, from EUR 430,000 to EUR 750,000. The built area is the list's own figure: the developer's drawing for home 6-14-2-A agrees with the list on the usable interior and the terrace, but gives 147.83 sqm built under the Andalusian housing decree and 173.54 sqm including common areas, against 136.01 sqm on the list. Home 6-14-2-A is shown with its own drawing. Homes 4-9-0-B, 4-9-1-B, 4-9-3-B and 5-11-2-A are shown with the drawing of another home on the same floor whose usable area and terrace are identical to the hundredth; the title and site plan on those drawings, which locate the other home, are masked, and the layout may be mirrored. That drawing for 4-9-0-B also shows a garden of 69.97 sqm that the list does not mention, and the one for 5-11-2-A labels its terrace 32.42 sqm on the plan against 30.94 sqm in its own table and on the list. The other ten homes have no drawing in the documents we hold. Nueva Living reconfirms price, status, layout and terms before any reservation.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="#enquire" data-prefill>Ask About a Home</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20La%20Gaspara%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="La Gaspara Residences" data-intent="speak with an advisor">Speak With Advisor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Affordability</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimate your <em>monthly payment</em></h2>
-          <p class="body-copy">A quick indicative estimate only. Confirm exact terms with your lender before making any decision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">La Gaspara</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Fifteen apartments available in the second phase of a gated scheme in La Gaspara, on the western side of Estepona, of two and three bedrooms and 107.45 to 144.67 sqm built, every home with a terrace of 27.79 to 98.60 sqm, in a scheme with two adult pools, a children's pool, a gym and a social club.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Price</dt><dd class="num">From €406,000</dd><dd class="sub">Plus VAT</dd></div><div><dt>Bedrooms</dt><dd>2 to 3</dd><dd class="sub"><span>Apartments</span></dd></div><div><dt>Completion</dt><dd>to be confirmed</dd><dd class="sub">Licence: we confirm it before you reserve</dd></div><div><dt>Homes left</dt><dd>15 listed</dd><dd class="sub">Checked November 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="#enquire" data-prefill>Book a private viewing</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20La%20Gaspara%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="La Gaspara Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">The development</h2>
+    <p class="lede">La Gaspara Residences is the second phase of a gated scheme in La Gaspara, beside the A-7 on the western side of Estepona. The developer's dossier describes 105 homes over the two phases; fifteen apartments in this second phase are available.</p>
+    <p class="lede-2">The available homes have two or three bedrooms and two bathrooms, from 107.45 to 144.67 sqm built with 81.35 to 110.67 sqm of usable interior. Every one has a terrace, from 27.79 to 98.60 sqm, and twelve of the fifteen face south-west, the other three south.</p><p class="lede-2">The communal areas described for the scheme are two adult pools, a children's pool, a gym, a social club, landscaped gardens, bicycle storage and a gatehouse at the entrance. Each home is listed with a parking space and a storeroom, priced as separate lines.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Terraces, floor by floor</span></summary><p>Long, low blocks step back floor by floor, so the terraces run the length of each façade. The façades are a painted render over a double leaf of brick and drywall, with an insulated air cavity between them.</p><ul><li>The scheme: 105 homes over two phases in the developer's dossier, of two, three and four bedrooms; this phase lists fifteen apartments of two and three bedrooms.</li><li>The terraces: From 27.79 to 98.60 sqm on the available homes, paved in non-slip stoneware, with water, drainage, lighting, a power socket and a TV socket on each.</li><li>Inside: Porcelain stoneware floors, suspended ceilings throughout, white lacquered doors 220 cm high and fitted wardrobes with modular interiors.</li><li>Climate: Warm-water underfloor heating, electric in the bathrooms, with ducted cooling to the living room and bedrooms.</li><li>Energy: An aerothermal heat pump for hot water, thermally broken aluminium with double glazing and motorised insulated blinds; the drawings carry a provisional A rating.</li><li>The garage: Automatic garage doors on a remote control, a parking space and a storeroom listed with every home, and pre-installation for electric vehicle charging.</li></ul></details>
+    <dl class="kfacts"><div><dt>Price</dt><dd><span>€406,000 – €726,000</span><small>Plus VAT</small></dd></div><div><dt>Available</dt><dd><span>15 listed</span><small>Checked November 2026</small></dd></div><div><dt>Homes</dt><dd><span>Apartments</span></dd></div><div><dt>Sizes</dt><dd><span>107 – 145 m²</span><small>Built area</small></dd></div><div><dt>Completion</dt><dd><span>to be confirmed</span></dd></div><div><dt>Licence</dt><dd><span>Not stated</span><small>We confirm it before you reserve</small></dd></div><div><dt>Deposits</dt><dd><span>Bank guarantee</span><small>Required by Spanish law</small></dd></div><div><dt>Parking</dt><dd><span>Garage Space</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Homes and prices</h2>
+    <p class="sec-sub">Fifteen apartments in the second phase are available, and the developer prices each of them. Each is listed with one parking space and one storeroom, sold as separate lines. Nueva Living reconfirms price and availability before any viewing or reservation. Select a home to see its payment schedule and total cost.</p>
+    
+    <div class="ufilter" role="group" aria-label="Filter by bedrooms"><button type="button" aria-pressed="true" data-beds="">All <span>15</span></button><button type="button" aria-pressed="false" data-beds="2">2 bed <span>7</span></button><button type="button" aria-pressed="false" data-beds="3">3 bed <span>8</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Homes for sale, with size and price. Select a row for the payment schedule.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Home</th>
+          <th scope="col" data-sort="beds">Bedrooms</th>
+          <th scope="col" data-sort="size">Size</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Price</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="521000" data-size="107.45" data-ppm="4849" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">4-7-2-B</span><span class="u-loc">Second Floor, Block 4, Portal 7</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">107 m²</td>
+            <td data-label="Price" class="u-price num">€521,000</td>
+            <td data-label="Per m²" class="num">€4,849</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="531000" data-size="107.45" data-ppm="4942" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">4-8-2-B</span><span class="u-loc">Second Floor, Block 4, Portal 8</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">107 m²</td>
+            <td data-label="Price" class="u-price num">€531,000</td>
+            <td data-label="Per m²" class="num">€4,942</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="406000" data-size="111.24" data-ppm="3650" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-0-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">4-9-0-B</span><span class="u-loc">Ground Floor, Block 4, Portal 9</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">111 m²</td>
+            <td data-label="Price" class="u-price num">€406,000</td>
+            <td data-label="Per m²" class="num">€3,650</td>
+            <td class="u-plan"><a href="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-0-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 4-9-0-B"><img src="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-0-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="526000" data-size="136.01" data-ppm="3867" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">4-9-1-A</span><span class="u-loc">First Floor, Block 4, Portal 9</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">136 m²</td>
+            <td data-label="Price" class="u-price num">€526,000</td>
+            <td data-label="Per m²" class="num">€3,867</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="466000" data-size="107.45" data-ppm="4337" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-1-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">4-9-1-B</span><span class="u-loc">First Floor, Block 4, Portal 9</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">107 m²</td>
+            <td data-label="Price" class="u-price num">€466,000</td>
+            <td data-label="Per m²" class="num">€4,337</td>
+            <td class="u-plan"><a href="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-1-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 4-9-1-B"><img src="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-1-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="576000" data-size="136.01" data-ppm="4235" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">4-9-2-A</span><span class="u-loc">Second Floor, Block 4, Portal 9</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">136 m²</td>
+            <td data-label="Price" class="u-price num">€576,000</td>
+            <td data-label="Per m²" class="num">€4,235</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="726000" data-size="144.67" data-ppm="5018" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-3-b-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">4-9-3-B</span><span class="u-loc">Third Floor, Block 4, Portal 9</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">145 m²</td>
+            <td data-label="Price" class="u-price num">€726,000</td>
+            <td data-label="Per m²" class="num">€5,018</td>
+            <td class="u-plan"><a href="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-3-b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 4-9-3-B"><img src="assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-3-b-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="471000" data-size="107.45" data-ppm="4383" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">5-10-2-B</span><span class="u-loc">Second Floor, Block 5, Portal 10</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">107 m²</td>
+            <td data-label="Price" class="u-price num">€471,000</td>
+            <td data-label="Per m²" class="num">€4,383</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="526000" data-size="133.92" data-ppm="3928" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/la-gaspara-residences/floorplans/unit-5-11-2-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">5-11-2-A</span><span class="u-loc">Second Floor, Block 5, Portal 11</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">134 m²</td>
+            <td data-label="Price" class="u-price num">€526,000</td>
+            <td data-label="Per m²" class="num">€3,928</td>
+            <td class="u-plan"><a href="assets/liora/projects/la-gaspara-residences/floorplans/unit-5-11-2-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 5-11-2-A"><img src="assets/liora/projects/la-gaspara-residences/floorplans/unit-5-11-2-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="471000" data-size="107.45" data-ppm="4383" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">5-11-2-B</span><span class="u-loc">Second Floor, Block 5, Portal 11</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">107 m²</td>
+            <td data-label="Price" class="u-price num">€471,000</td>
+            <td data-label="Per m²" class="num">€4,383</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="716000" data-size="130.98" data-ppm="5466" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">5-11-3-A</span><span class="u-loc">Third Floor, Block 5, Portal 11</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">131 m²</td>
+            <td data-label="Price" class="u-price num">€716,000</td>
+            <td data-label="Per m²" class="num">€5,466</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u11" data-beds="3" data-price="581000" data-size="136.01" data-ppm="4272" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">5-12-2-A</span><span class="u-loc">Second Floor, Block 5, Portal 12</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">136 m²</td>
+            <td data-label="Price" class="u-price num">€581,000</td>
+            <td data-label="Per m²" class="num">€4,272</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u12" data-beds="3" data-price="580000" data-size="136.01" data-ppm="4264" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/la-gaspara-residences/floorplans/unit-6-14-2-a-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">6-14-2-A</span><span class="u-loc">Second Floor, Block 6, Portal 14</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">136 m²</td>
+            <td data-label="Price" class="u-price num">€580,000</td>
+            <td data-label="Per m²" class="num">€4,264</td>
+            <td class="u-plan"><a href="assets/liora/projects/la-gaspara-residences/floorplans/unit-6-14-2-a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 6-14-2-A"><img src="assets/liora/projects/la-gaspara-residences/floorplans/unit-6-14-2-a-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u13" data-beds="3" data-price="556000" data-size="136.01" data-ppm="4088" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">7-16-1-A</span><span class="u-loc">First Floor, Block 7, Portal 16</span></th>
+            <td data-label="Bedrooms">3 bed</td>
+            <td data-label="Size" class="num">136 m²</td>
+            <td data-label="Price" class="u-price num">€556,000</td>
+            <td data-label="Per m²" class="num">€4,088</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u14" data-beds="2" data-price="476000" data-size="107.45" data-ppm="4430" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">7-16-1-B</span><span class="u-loc">First Floor, Block 7, Portal 16</span></th>
+            <td data-label="Bedrooms">2 bed</td>
+            <td data-label="Size" class="num">107 m²</td>
+            <td data-label="Price" class="u-price num">€476,000</td>
+            <td data-label="Per m²" class="num">€4,430</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Residences · <span>Two bedrooms and three</span></summary><p>Seven two-bedroom and eight three-bedroom apartments, on the ground to third floors of four blocks. The table below follows the developer's current list.</p><div class="res-types"><div class="res-type"><h3>The apartments</h3><ul><li>Two or three bedrooms and two bathrooms, with the living room, dining area and kitchen as one room opening to the terrace, and a separate utility room.</li><li>A terrace on every home, from 27.79 to 98.60 sqm; on some of the drawings a jacuzzi is drawn on the terrace as an option, not included in the price.</li><li>Twelve of the fifteen face south-west and three face south, according to the developer's list.</li><li>Warm-water underfloor heating, electric in the bathrooms, with ducted cooling to the living room and bedrooms, and hot water from an aerothermal heat pump.</li><li>A fitted kitchen with induction hob, extractor hood, oven and microwave in a column, panelled dishwasher and fridge, and a washing machine.</li><li>Motorised insulated blinds in the living room and bedrooms, and basic home automation for lights and blinds, controlled from a phone.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">The developer’s payment schedule is on request; we send it with the price list.</p>
+      
+      <ol class="ct-strip" aria-label="Construction milestones"><li class="is-mile"><b>Release</b><span>Second phase</span></li><li class="is-mile"><b>Under construction</b><span>In progress</span></li><li class="is-mile"><b>Delivery</b><span>To be confirmed</span></li></ol>
+      <p class="ct-note">The documents we hold give no delivery date and no payment schedule for this phase; the developer's portal shows construction as started. Nueva Living asks for both in writing, along with the building licence, before any money moves, and will not quote a date we cannot show you.</p></div>
+      <div class="cost-wrap"><p class="cap">What it costs in total</p>
+      <dl class="cost-lines num">
+        <div><dt>Price</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>VAT, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stamp duty (AJD), 1.2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total before notary, land registry and legal fees</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="#enquire" data-prefill>Ask about this home</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Floor plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financing? Mortgage calculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Purchase price</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1001,441 +678,199 @@
               <div class="calculator-result"><span>Taxes & purchase costs</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Amenities</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What the development <em>offers you</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Children's Pool</h3>
-              <p class="amenity-note">Shallow water for the young</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Gallery</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="The blocks"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.jpg" alt="Terraced white blocks above the communal pool and loungers on the lawn, a computer-generated image" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="The living room"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-living-room-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-living-room-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-living-room.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/la-gaspara-residences/media/the-living-room.jpg" alt="The living room with a corner sofa and sliding doors to the terrace, a computer-generated image" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="A terrace"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast.jpg" alt="A covered terrace with sofas, looking over the coast to the sea, a computer-generated image" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="The gym"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-gym-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-gym-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-gym.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/la-gaspara-residences/media/the-gym.jpg" alt="The residents' gym, with bikes and a treadmill along a glass wall, a computer-generated image" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="The terraces from below"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/la-gaspara-residences/media/the-terraced-facade-640.webp 640w, assets/liora/projects/la-gaspara-residences/media/the-terraced-facade-960.webp 960w, assets/liora/projects/la-gaspara-residences/media/the-terraced-facade.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/la-gaspara-residences/media/the-terraced-facade.jpg" alt="The terraced façade stepping back floor by floor above the pool, a computer-generated image" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>View all 13 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriors (4)</button><button type="button" data-open-cat="Terraces">Terraces (2)</button><button type="button" data-open-cat="Interiors">Interiors (6)</button><button type="button" data-open-cat="Amenities">Amenities (1)</button></div>
+    
+    <p class="caption">Images are supplied by the developer and may be computer-generated. Final design, finishes, landscaping and views may vary, and furniture is not included.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Location</h2>
+    <p class="sec-sub">A gated scheme in La Gaspara on the western side of Estepona, beside the A-7, with the coast below.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="en">
+          <div class="locmap-map" id="locmap-la-gaspara-residences" data-locmap='{&quot;site&quot;:[36.4135,-5.1852],&quot;sea&quot;:[36.3865,-5.1852],&quot;seaLabel&quot;:&quot;Mediterranean&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centre&quot;,&quot;sub&quot;:&quot;6.6 km · 11 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5.2 km · 7 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Estepona golf&quot;,&quot;sub&quot;:&quot;3.9 km · 8 min&quot;},{&quot;ll&quot;:[36.4106,-5.18261],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Beach&quot;,&quot;sub&quot;:&quot;630 m · 8 min walk&quot;}]}' role="img" aria-label="Indicative location map for La Gaspara Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicative location</span>
+            <h3 class="locmap-name">La Gaspara Residences</h3>
+            <p class="locmap-place">La Gaspara, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Beach</span>
+              <span class="locmap-row-figure"><bdi>630 m</bdi> <em><bdi>8 min walk</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inside the development</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>5.2 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Outdoors</span>
-              <h3 class="amenity-name">Two Outdoor Pools</h3>
-              <p class="amenity-note">Open to the sky</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona centre</span>
+              <span class="locmap-row-figure"><bdi>6.6 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Outdoors</span>
-              <h3 class="amenity-name">Landscaped Gardens</h3>
-              <p class="amenity-note">Planted communal grounds</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona golf</span>
+              <span class="locmap-row-figure"><bdi>3.9 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Everyday</span>
-              <h3 class="amenity-name">Bicycle Storage</h3>
-              <p class="amenity-note">A place to leave the bike</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Finca Cortesín golf</span>
+              <span class="locmap-row-figure"><bdi>7.5 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Everyday</span>
-              <h3 class="amenity-name">Underfloor Heating</h3>
-              <p class="amenity-note">Warmth from the floor up</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar airport</span>
+              <span class="locmap-row-figure"><bdi>39 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Everyday</span>
-              <h3 class="amenity-name">Aerothermal Hot Water</h3>
-              <p class="amenity-note">Hot water from the air</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Everyday</span>
-              <h3 class="amenity-name">Air Conditioning</h3>
-              <p class="amenity-note">Cooling and heating by duct</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Everyday</span>
-              <h3 class="amenity-name">Equipped Kitchen</h3>
-              <p class="amenity-note">Fitted and applianced</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Everyday</span>
-              <h3 class="amenity-name">Home Automation</h3>
-              <p class="amenity-note">Lighting and climate from a phone</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Everyday</span>
-              <h3 class="amenity-name">Pre-Installation For Electric Vehicle Charging</h3>
-              <p class="amenity-note">A point for the car</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Everyday</span>
-              <h3 class="amenity-name">Garage Space</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Everyday</span>
-              <h3 class="amenity-name">Storage Room</h3>
-              <p class="amenity-note">A lockable store</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Services</span>
-              <h3 class="amenity-name">Multi-Use Room</h3>
-              <p class="amenity-note">A room to gather in</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Services</span>
-              <h3 class="amenity-name">Gated Community</h3>
-              <p class="amenity-note">Controlled entrance</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances measured by road from the plot boundary. Map for orientation only; boundaries indicative.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">The beach</th><td>Approx. 8 minutes on foot</td></tr><tr><th scope="row">Estepona port</th><td>Approx. 7 minutes</td></tr><tr><th scope="row">Estepona town centre</th><td>Approx. 11 minutes</td></tr><tr><th scope="row">Estepona golf</th><td>Approx. 8 minutes</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">On site</h2>
+    <p class="sec-sub">The western side of Estepona, with the A-7 alongside, the beach a short walk below and the town and its port a few minutes' drive east.</p>
+    <div class="life-panels"><div><h3>The beach</h3><p>The nearest beach is about eight minutes on foot, on the far side of the A-7.</p></div><div><h3>Golf</h3><p>Estepona Golf is about eight minutes by car and Finca Cortesín about ten.</p></div><div><h3>Getting around</h3><p>The port of Estepona is about seven minutes and the town centre about eleven, the A-7 runs alongside towards Marbella and Sotogrande, and Gibraltar airport is about forty-two minutes.</p></div></div>
+    <ul class="amen-top"><li>Two Outdoor Pools</li><li>Children's Pool</li><li>Gym</li><li>Multi-Use Room</li><li>Landscaped Gardens</li><li>Bicycle Storage</li></ul>
+    <details class="amen-all"><summary>Show all 15</summary><div class="amen-groups"><div><h3>Wellness<span class="count">2</span></h3><ul><li>Children's Pool</li><li>Gym</li></ul></div><div><h3>Outdoors<span class="count">2</span></h3><ul><li>Two Outdoor Pools</li><li>Landscaped Gardens</li></ul></div><div><h3>Everyday<span class="count">9</span></h3><ul><li>Bicycle Storage</li><li>Underfloor Heating</li><li>Aerothermal Hot Water</li><li>Air Conditioning</li><li>Equipped Kitchen</li><li>Home Automation</li><li>Pre-Installation For Electric Vehicle Charging</li><li>Garage Space</li><li>Storage Room</li></ul></div><div><h3>Services<span class="count">2</span></h3><ul><li>Multi-Use Room</li><li>Gated Community</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Our view</h2>
+    <p class="sec-sub">What we would weigh before reserving here, and the checks we make on your behalf.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Our view">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Stands out</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Plan for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Checks</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Why it stands out</h3><ul class="points"><li><b>What it is</b><span>Fifteen apartments available in the second phase of a gated scheme of 105 homes over two phases.</span></li><li><b>Who it is for</b><span>Buyers who want a deep terrace and a full set of communal amenities on the western side of Estepona.</span></li><li><b>What makes it different</b><span>Warm-water underfloor heating, terraces of up to 98.60 sqm, and two adult pools, a children's pool, a gym and a social club inside the gates.</span></li><li><b>Why location matters</b><span>The beach is about eight minutes on foot, the port of Estepona about seven minutes by car and the town centre about eleven.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>What to plan for</h3><ul class="points"><li><b>Why timing matters</b><span>Fifteen homes are listed in this phase, so the choice of floor, terrace and orientation is limited to those.</span></li><li><b>Current information</b><span>Nueva Living reconfirms live prices, availability and payment terms before any reservation.</span></li><li><b>Long-term appeal</b><span>La Gaspara lies on the western side of Estepona with the A-7 alongside, which puts Marbella one way and Sotogrande the other.</span></li><li><b>Personal use and rental</b><span>Suits a second home or a letting, subject to the community rules and the local licence, both of which we check.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Checks before any money moves</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>The licence</b><span>The building licence, and the first occupation licence at delivery, confirmed in writing before any money moves.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>What is registered</b><span>That the home, its terrace, its parking space and its storeroom are registered as described.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>The delivery date</b><span>The documents give none for this phase; we ask for it in writing and put it in the contract.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Payment terms</b><span>The reservation, the private contract and the balance, confirmed before reservation.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Request the project file</h3><p>The price list, the drawings we hold for the available homes and the payment terms.</p></li><li><h3>See the site</h3><p>We arrange the visit and walk the scheme and the communal areas with you.</p></li><li><h3>Reserve with advice</h3><p>Reservation, contract and delivery date reviewed before you sign.</p></li></ol>
+      <div class="docs card"><h3>Documents you’ll receive</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Price list</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Floor plans<small>5 of 15 homes</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Payment schedule<small>Not issued yet</small><small>Pending</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>The official summary every buyer in Andalucía is entitled to</small></span></li></ul><a class="btn btn-primary" href="#enquire" data-prefill>Get the project file</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions about La Gaspara</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>How many are available?</summary><p>Fifteen apartments in the second phase of the scheme.</p></details><details class="segment-faq-item"><summary>How big are the homes?</summary><p>From 107.45 to 144.67 sqm built, with 81.35 to 110.67 sqm of usable interior and terraces of 27.79 to 98.60 sqm.</p></details><details class="segment-faq-item"><summary>Is parking included?</summary><p>Each home is listed with one parking space and one storeroom, sold as separate lines. With them the list's subtotal is €24,000 above the price of the home, from €430,000 to €750,000 before IVA.</p></details><details class="segment-faq-item"><summary>Which way do the homes face?</summary><p>Twelve face south-west and three face south, according to the developer's list.</p></details><details class="segment-faq-item"><summary>How are the homes heated and cooled?</summary><p>Warm-water underfloor heating, electric in the bathrooms, with ducted cooling to the living room and bedrooms.</p></details></div>
+    <details class="faq2-more"><summary>Show all questions (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>When is delivery?</summary><p>The documents we hold give no date for this phase. We ask for it in writing before any reservation.</p></details><details class="segment-faq-item"><summary>What are the payment terms?</summary><p>The developer has not published them for this release. We confirm them in writing before you commit.</p></details></div></details>
+    <p class="faq2-guide">More on buying a new build in Spain → <a class="textlink" href="guide-how-buying-works.html">Buying guide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Book a private viewing">
+    <div class="card">
+      <p class="rail-price-label">Price from</p>
+      <p class="rail-price num">€406,000</p>
+      <p class="rail-note">Plus VAT. · Checked November 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="#enquire" data-prefill>Book a private viewing</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20La%20Gaspara%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="La Gaspara Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Message us on WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, founder</strong>We reply to every enquiry ourselves.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Book a private viewing</h2>
+        <p>Tell us which home interests you. We send the project file, then walk the site with you.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, founder of Nueva Living</strong>We reply to every enquiry ourselves.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20La%20Gaspara%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="La Gaspara Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Message us</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Call<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Email<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>On the visit we check with you</h3><ul><li><b>On site.</b> See where the second-phase blocks sit within the scheme and how far apart they are.</li><li><b>The outlook.</b> Compare what each floor and orientation looks at, towards the sea or the hills.</li><li><b>The amenities.</b> Walk the pools, the gym and the social club.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sending…" data-success-label="Book a private viewing ✓" data-submitting-message="Sending…" data-success-message="Request received. We’ll send the project file and suggest times for a visit." data-error-message="That did not go through. Please try again, or message us on WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - La Gaspara Residences">
+        <input type="hidden" id="f-project" name="project" value="La Gaspara Residences">
+        <input type="hidden" name="preferred_area" value="La Gaspara, Estepona">
+        <input type="hidden" name="property_type_interest" value="Apartments">
+        <input type="hidden" name="budget_range" value="From EUR 406,000">
+        <input type="hidden" name="consent_text" value="I agree that Nueva Living may store these details to answer my request.">
+        <input type="hidden" name="message" id="v2-f-message" value="I would like to receive the latest project information for La Gaspara Residences." data-base="I would like to receive the latest project information for La Gaspara Residences.">
+        <h3>Your details</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">First Name</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Last Name</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Email</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Phone (optional, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Which home?</label><select id="v2-f-unit" name="unit_interest"><option value="">Not sure yet, send me everything</option><option value="4-7-2-B">4-7-2-B: €521,000</option><option value="4-8-2-B">4-8-2-B: €531,000</option><option value="4-9-0-B">4-9-0-B: €406,000</option><option value="4-9-1-A">4-9-1-A: €526,000</option><option value="4-9-1-B">4-9-1-B: €466,000</option><option value="4-9-2-A">4-9-2-A: €576,000</option><option value="4-9-3-B">4-9-3-B: €726,000</option><option value="5-10-2-B">5-10-2-B: €471,000</option><option value="5-11-2-A">5-11-2-A: €526,000</option><option value="5-11-2-B">5-11-2-B: €471,000</option><option value="5-11-3-A">5-11-3-A: €716,000</option><option value="5-12-2-A">5-12-2-A: €581,000</option><option value="6-14-2-A">6-14-2-A: €580,000</option><option value="7-16-1-A">7-16-1-A: €556,000</option><option value="7-16-1-B">7-16-1-B: €476,000</option></select></div>
+        <fieldset class="field"><legend>The home would be</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">To live in</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">A holiday home</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">An investment</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>How should we reply?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Phone call</label>
+          <label><input type="radio" name="preferred_contact" value="email">Email</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>I agree that Nueva Living may store these details to answer my request. <a href="privacy-policy.html">Privacy policy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Also tell me if availability or prices change at La Gaspara.</label>
+        <button class="btn btn-primary btn-block" type="submit">Book a private viewing</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Why This Project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Why this project <em>matters</em></h2>
-          <p class="project-lead">A factual look at what makes these homes relevant now, without any promise of future returns.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Why It Fits</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>What it is</h3><p>Fifteen apartments available in the second phase of a gated scheme of 105 homes over two phases.</p></article>
-              <article class="why-point reveal-soft"><h3>Who it is for</h3><p>Buyers who want a deep terrace and a full set of communal amenities on the western side of Estepona.</p></article>
-              <article class="why-point reveal-soft"><h3>What makes it different</h3><p>Warm-water underfloor heating, terraces of up to 98.60 sqm, and two adult pools, a children's pool, a gym and a social club inside the gates.</p></article>
-              <article class="why-point reveal-soft"><h3>Why location matters</h3><p>The beach is about eight minutes on foot, the port of Estepona about seven minutes by car and the town centre about eleven.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investment Case</h3></div>
-            <p class="why-group-note">A factual look at what makes these apartments and their location relevant now, without any promise of future returns.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Why timing matters</h3><p>Fifteen homes are listed in this phase, so the choice of floor, terrace and orientation is limited to those.</p></article>
-              <article class="why-point reveal-soft"><h3>Current information</h3><p>Nueva Living reconfirms live prices, availability and payment terms before any reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Long-term appeal</h3><p>La Gaspara lies on the western side of Estepona with the A-7 alongside, which puts Marbella one way and Sotogrande the other.</p></article>
-              <article class="why-point reveal-soft"><h3>Personal use and rental</h3><p>Suits a second home or a letting, subject to the community rules and the local licence, both of which we check.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Trust & Diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>The licence</h3><p>The building licence, and the first occupation licence at delivery, confirmed in writing before any money moves.</p></article>
-              <article class="why-point reveal-soft"><h3>What is registered</h3><p>That the home, its terrace, its parking space and its storeroom are registered as described.</p></article>
-              <article class="why-point reveal-soft"><h3>The delivery date</h3><p>The documents give none for this phase; we ask for it in writing and put it in the contract.</p></article>
-              <article class="why-point reveal-soft"><h3>Payment terms</h3><p>The reservation, the private contract and the balance, confirmed before reservation.</p></article>
-            </div>
-            <p class="why-group-note">New to buying off-plan in Spain? <a href="guide-how-buying-works.html">How buying a new-build works</a> sets out the seven steps, and <a href="guide-off-plan-vs-resale.html">off-plan versus resale</a> covers the deposits, guarantees and timelines involved.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Images are supplied by the developer and may be computer-generated">
+    <p>Images are supplied by the developer and may be computer-generated; final design, finishes, landscaping and views may vary. You are entitled to a copy of the Documento Informativo Abreviado (DIA) for any home on this page, available from Nueva Living on request.</p>
+    <p>Availability checked with the seller on November 2026; we reconfirm it before any reservation.</p>
+    <p>Availability and prices as listed in the developer's agent portal on 13 November 2026, reconfirmed before reservation; floors, areas, bedrooms, bathrooms and orientation come from the same list. The portal states that its price list is for information only and has no legal value. The prices are for the home alone and exclude IVA and purchase costs. Every home is listed with one parking space and one storeroom, and with them the list's subtotal is EUR 24,000 higher on every line, from EUR 430,000 to EUR 750,000. The built area is the list's own figure: the developer's drawing for home 6-14-2-A agrees with the list on the usable interior and the terrace, but gives 147.83 sqm built under the Andalusian housing decree and 173.54 sqm including common areas, against 136.01 sqm on the list. Home 6-14-2-A is shown with its own drawing. Homes 4-9-0-B, 4-9-1-B, 4-9-3-B and 5-11-2-A are shown with the drawing of another home on the same floor whose usable area and terrace are identical to the hundredth; the title and site plan on those drawings, which locate the other home, are masked, and the layout may be mirrored. That drawing for 4-9-0-B also shows a garden of 69.97 sqm that the list does not mention, and the one for 5-11-2-A labels its terrace 32.42 sqm on the plan against 30.94 sqm in its own table and on the list. The other ten homes have no drawing in the documents we hold. Nueva Living reconfirms price, status, layout and terms before any reservation.</p>
+    <p>Information on this page is for general marketing purposes and is not legal, financial or investment advice. Prices, availability and delivery dates can change without notice.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/la-gaspara-residences/media/the-terraced-facade.jpg" alt="The terraced façade stepping back floor by floor above the pool, a computer-generated image" width="1646" height="1270" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architecture preview</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terraces, <em>floor by floor</em></h2>
-          <p>Long, low blocks step back floor by floor, so the terraces run the length of each façade. The façades are a painted render over a double leaf of brick and drywall, with an insulated air cavity between them.</p>
-          <ul class="feature-list">
-            <li>The scheme — 105 homes over two phases in the developer's dossier, of two, three and four bedrooms; this phase lists fifteen apartments of two and three bedrooms.</li>
-            <li>The terraces — From 27.79 to 98.60 sqm on the available homes, paved in non-slip stoneware, with water, drainage, lighting, a power socket and a TV socket on each.</li>
-            <li>Inside — Porcelain stoneware floors, suspended ceilings throughout, white lacquered doors 220 cm high and fitted wardrobes with modular interiors.</li>
-            <li>Climate — Warm-water underfloor heating, electric in the bathrooms, with ducted cooling to the living room and bedrooms.</li>
-            <li>Energy — An aerothermal heat pump for hot water, thermally broken aluminium with double glazing and motorised insulated blinds; the drawings carry a provisional A rating.</li>
-            <li>The garage — Automatic garage doors on a remote control, a parking space and a storeroom listed with every home, and pre-installation for electric vehicle charging.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Project request actions">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20La%20Gaspara%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="La Gaspara Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Call</a>
+    <a class="ab-btn ab-primary" href="#enquire" data-prefill>Book a viewing</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast.jpg" alt="A covered terrace with sofas, looking over the coast to the sea, a computer-generated image" width="1531" height="766" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Cinematic Presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">See the <em>site</em></h2>
-            <p>Standing on the site is the fastest way to judge what each terrace looks at and how the blocks sit around the pools.</p>
-            <div class="viewing-insights">
-              <div><span>On site</span><p>See where the second-phase blocks sit within the scheme and how far apart they are.</p></div>
-              <div><span>The outlook</span><p>Compare what each floor and orientation looks at, towards the sea or the hills.</p></div>
-              <div><span>The amenities</span><p>Walk the pools, the gym and the social club.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="index.html#private-viewing=1&amp;project=la-gaspara-residences">Cinematic Presentation</a>
-              <a class="btn project-btn ghost" href="#enquire" data-prefill>Request Project Material</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Gallery" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Close">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous image">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Next image">›</button>
+    <div class="lb-cats" role="group" aria-label="Gallery"><button type="button" data-cat="Exteriors">Exteriors</button><button type="button" data-cat="Terraces">Terraces</button><button type="button" data-cat="Interiors">Interiors</button><button type="button" data-cat="Amenities">Amenities</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/la-gaspara-residences/media/the-gardens-at-dusk.jpg" alt="The gardens and the pool at dusk, lit paths between the planting and the sea beyond, a computer-generated image" width="1616" height="909" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Lifestyle</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">La Gaspara, <em>western Estepona</em></h2>
-            <p>The western side of Estepona, with the A-7 alongside, the beach a short walk below and the town and its port a few minutes' drive east.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Next Steps</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">What happens <em>next</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Request the project file</h3>
-            <p>The price list, the drawings we hold for the available homes and the payment terms.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>See the site</h3>
-            <p>We arrange the visit and walk the scheme and the communal areas with you.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Reserve with advice</h3>
-            <p>Reservation, contract and delivery date reviewed before you sign.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Common <em>buyer questions</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Can foreigners buy property in Spain?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is an NIE number and do I need one?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What costs should I budget for on top of the purchase price?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Can I get a mortgage in Spain as a non-resident?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What is the difference between off-plan and completed properties?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How does the reservation and payment process work?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Can I rent out the property after purchase?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Do I need a lawyer?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What do the homes cost?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>From €406,000 to €726,000 for the home alone, excluding IVA and purchase costs.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How many are available?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Fifteen apartments in the second phase of the scheme.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How big are the homes?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>From 107.45 to 144.67 sqm built, with 81.35 to 110.67 sqm of usable interior and terraces of 27.79 to 98.60 sqm.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is parking included?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Each home is listed with one parking space and one storeroom, sold as separate lines. With them the list's subtotal is €24,000 above the price of the home, from €430,000 to €750,000 before IVA.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Which way do the homes face?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Twelve face south-west and three face south, according to the developer's list.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>How are the homes heated and cooled?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Warm-water underfloor heating, electric in the bathrooms, with ducted cooling to the living room and bedrooms.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>When is delivery?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The documents we hold give no date for this phase. We ask for it in writing before any reservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>What are the payment terms?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>The developer has not published them for this release. We confirm them in writing before you commit.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Enquire</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Ask about <em>the homes</em></h2>
-          <p class="body-copy">Share your details and we will send you the current project information.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, founder of Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Founder, Nueva Living</p>
-            <h3 id="advisor-heading">Prefer to talk it through?</h3>
-            <p class="advisor-copy">Choose what fits and message me on WhatsApp. I will start from there.</p>
-            <div class="advisor-group" role="group" aria-label="I am looking for">
-              <span class="advisor-group-label">I am looking for</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">A home to live in</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">A holiday home</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">An investment</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under €500,000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€500,000 – €1,000,000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over €1,000,000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20La%20Gaspara%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="La Gaspara Residences" data-intent="speak with an advisor">Message me on WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - La Gaspara Residences">
-
-          <input type="hidden" id="f-project" name="project" value="La Gaspara Residences">
-          <input type="hidden" name="preferred_area" value="La Gaspara, Estepona">
-          <input type="hidden" name="property_type_interest" value="Apartments">
-          <input type="hidden" name="budget_range" value="From EUR 406,000">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">First Name</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="First Name" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Last Name</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Last Name" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">I would like to receive the latest project information for La Gaspara Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>I agree to be contacted and for my data to be stored.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>I would also like to receive occasional project updates from Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Submit Request</button>
-            <span class="form-note">Project context: La Gaspara Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"4-7-2-B","title":"4-7-2-B · Second Floor, Block 4, Portal 7","sub":"2 bed · 107 m²","price":521000,"plans":[]},{"id":"u1","ref":"4-8-2-B","title":"4-8-2-B · Second Floor, Block 4, Portal 8","sub":"2 bed · 107 m²","price":531000,"plans":[]},{"id":"u2","ref":"4-9-0-B","title":"4-9-0-B · Ground Floor, Block 4, Portal 9","sub":"2 bed · 111 m²","price":406000,"plans":[{"src":"assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-0-b-floorplan.pdf","label":""}]},{"id":"u3","ref":"4-9-1-A","title":"4-9-1-A · First Floor, Block 4, Portal 9","sub":"3 bed · 136 m²","price":526000,"plans":[]},{"id":"u4","ref":"4-9-1-B","title":"4-9-1-B · First Floor, Block 4, Portal 9","sub":"2 bed · 107 m²","price":466000,"plans":[{"src":"assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-1-b-floorplan.pdf","label":""}]},{"id":"u5","ref":"4-9-2-A","title":"4-9-2-A · Second Floor, Block 4, Portal 9","sub":"3 bed · 136 m²","price":576000,"plans":[]},{"id":"u6","ref":"4-9-3-B","title":"4-9-3-B · Third Floor, Block 4, Portal 9","sub":"3 bed · 145 m²","price":726000,"plans":[{"src":"assets/liora/projects/la-gaspara-residences/floorplans/unit-4-9-3-b-floorplan.pdf","label":""}]},{"id":"u7","ref":"5-10-2-B","title":"5-10-2-B · Second Floor, Block 5, Portal 10","sub":"2 bed · 107 m²","price":471000,"plans":[]},{"id":"u8","ref":"5-11-2-A","title":"5-11-2-A · Second Floor, Block 5, Portal 11","sub":"3 bed · 134 m²","price":526000,"plans":[{"src":"assets/liora/projects/la-gaspara-residences/floorplans/unit-5-11-2-a-floorplan.pdf","label":""}]},{"id":"u9","ref":"5-11-2-B","title":"5-11-2-B · Second Floor, Block 5, Portal 11","sub":"2 bed · 107 m²","price":471000,"plans":[]},{"id":"u10","ref":"5-11-3-A","title":"5-11-3-A · Third Floor, Block 5, Portal 11","sub":"3 bed · 131 m²","price":716000,"plans":[]},{"id":"u11","ref":"5-12-2-A","title":"5-12-2-A · Second Floor, Block 5, Portal 12","sub":"3 bed · 136 m²","price":581000,"plans":[]},{"id":"u12","ref":"6-14-2-A","title":"6-14-2-A · Second Floor, Block 6, Portal 14","sub":"3 bed · 136 m²","price":580000,"plans":[{"src":"assets/liora/projects/la-gaspara-residences/floorplans/unit-6-14-2-a-floorplan.pdf","label":""}]},{"id":"u13","ref":"7-16-1-A","title":"7-16-1-A · First Floor, Block 7, Portal 16","sub":"3 bed · 136 m²","price":556000,"plans":[]},{"id":"u14","ref":"7-16-1-B","title":"7-16-1-B · First Floor, Block 7, Portal 16","sub":"2 bed · 107 m²","price":476000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.webp","alt":"Terraced white blocks above the communal pool and loungers on the lawn, a computer-generated image","caption":"The blocks","cat":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-terraced-facade.webp","alt":"The terraced façade stepping back floor by floor above the pool, a computer-generated image","caption":"The terraces from below","cat":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-pool-and-the-pergolas.webp","alt":"The communal pool with pergolas and palms, the blocks behind, a computer-generated image","caption":"The pool","cat":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-gardens-at-dusk.webp","alt":"The gardens and the pool at dusk, lit paths between the planting and the sea beyond, a computer-generated image","caption":"The gardens at dusk","cat":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast.webp","alt":"A covered terrace with sofas, looking over the coast to the sea, a computer-generated image","caption":"A terrace","cat":"Terraces"},{"src":"assets/liora/projects/la-gaspara-residences/media/terrace-dining-at-sunset.webp","alt":"A long dining table on a covered terrace at sunset, with seating and the sea beyond, a computer-generated image","caption":"Terrace dining","cat":"Terraces"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-living-room.webp","alt":"The living room with a corner sofa and sliding doors to the terrace, a computer-generated image","caption":"The living room","cat":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-kitchen-and-living-room.webp","alt":"The open kitchen, dining table and living room as one space, a computer-generated image","caption":"The kitchen","cat":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-main-bedroom.webp","alt":"The main bedroom with doors to the terrace and the sea in the distance, a computer-generated image","caption":"The main bedroom","cat":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/a-bedroom-with-a-view.webp","alt":"A bedroom with a green headboard and a window over the hills, a computer-generated image","caption":"A bedroom","cat":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/a-bathroom-with-a-window.webp","alt":"A bathroom in pale stone tile with a walk-in shower and a tall window, a computer-generated image","caption":"A bathroom","cat":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-shower-room.webp","alt":"A white bathroom with a wall-hung vanity and a glass shower screen, a computer-generated image","caption":"The shower room","cat":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-gym.webp","alt":"The residents\u0027 gym, with bikes and a treadmill along a glass wall, a computer-generated image","caption":"The gym","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€","sep":",","post":""},"i18n":{"askAbout":"Ask about {ref}","plusVat":"Plus VAT","totalPrice":"Total price","vatOnStages":"Plus VAT on the stage payments","onRequest":"On Request","imageOf":"{i} of {n}","floorPlan":"Floor plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="La Gaspara Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Close">Close</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Previous image">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Next image">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-blocks-above-the-pool-960.webp","alt":"Terraced white blocks above the communal pool and loungers on the lawn, a computer-generated image","width":1593,"height":961,"caption":"The blocks","category":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-terraced-facade.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-terraced-facade-960.webp","alt":"The terraced façade stepping back floor by floor above the pool, a computer-generated image","width":1646,"height":1270,"caption":"The terraces from below","category":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-pool-and-the-pergolas.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-pool-and-the-pergolas-960.webp","alt":"The communal pool with pergolas and palms, the blocks behind, a computer-generated image","width":1706,"height":1707,"caption":"The pool","category":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-gardens-at-dusk.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-gardens-at-dusk-960.webp","alt":"The gardens and the pool at dusk, lit paths between the planting and the sea beyond, a computer-generated image","width":1616,"height":909,"caption":"The gardens at dusk","category":"Exteriors"},{"src":"assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/a-terrace-over-the-coast-960.webp","alt":"A covered terrace with sofas, looking over the coast to the sea, a computer-generated image","width":1531,"height":766,"caption":"A terrace","category":"Terraces"},{"src":"assets/liora/projects/la-gaspara-residences/media/terrace-dining-at-sunset.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/terrace-dining-at-sunset-960.webp","alt":"A long dining table on a covered terrace at sunset, with seating and the sea beyond, a computer-generated image","width":1590,"height":964,"caption":"Terrace dining","category":"Terraces"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-living-room.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-living-room-960.webp","alt":"The living room with a corner sofa and sliding doors to the terrace, a computer-generated image","width":1590,"height":959,"caption":"The living room","category":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-kitchen-and-living-room.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-kitchen-and-living-room-960.webp","alt":"The open kitchen, dining table and living room as one space, a computer-generated image","width":1616,"height":909,"caption":"The kitchen","category":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-main-bedroom.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-main-bedroom-960.webp","alt":"The main bedroom with doors to the terrace and the sea in the distance, a computer-generated image","width":1531,"height":1009,"caption":"The main bedroom","category":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/a-bedroom-with-a-view.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/a-bedroom-with-a-view-960.webp","alt":"A bedroom with a green headboard and a window over the hills, a computer-generated image","width":1588,"height":1036,"caption":"A bedroom","category":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/a-bathroom-with-a-window.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/a-bathroom-with-a-window-960.webp","alt":"A bathroom in pale stone tile with a walk-in shower and a tall window, a computer-generated image","width":1183,"height":1478,"caption":"A bathroom","category":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-shower-room.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-shower-room-960.webp","alt":"A white bathroom with a wall-hung vanity and a glass shower screen, a computer-generated image","width":1053,"height":1057,"caption":"The shower room","category":"Interiors"},{"src":"assets/liora/projects/la-gaspara-residences/media/the-gym.jpg","webp":"assets/liora/projects/la-gaspara-residences/media/the-gym-960.webp","alt":"The residents' gym, with bikes and a treadmill along a glass wall, a computer-generated image","width":1490,"height":894,"caption":"The gym","category":"Amenities"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Project request actions">
-    <a href="#enquire" data-prefill>Ask About a Home</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20La%20Gaspara%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="La Gaspara Residences" data-intent="speak with an advisor">Speak With Advisor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlendinger kjøpe eiendom i Spania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er et NIE-nummer, og trenger jeg et?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg få boliglån i Spania som ikke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvordan fungerer reservasjons- og betalingsprosessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg leie ut boligen etter kjøp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Trenger jeg advokat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hvor mange boliger er tilgjengelige?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="no"
   data-project-name="Altamira Hills Residences"
   data-project-message="Hei Nueva Living, jeg vil gjerne ha informasjon om Altamira Hills Residences."
@@ -443,895 +380,252 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Altamira Hills Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="no/property-altamira-hills-residences.html#top">Altamira Hills Residences<span>Fra 458 000 € · Ekskl. mva</span></a>
+      <nav class="hdr-proj" aria-label="Prosjektseksjoner"><a href="no/property-altamira-hills-residences.html#overview">Oversikt</a><a href="no/property-altamira-hills-residences.html#availability">Priser</a><a href="no/property-altamira-hills-residences.html#specs">Utførelse</a><a href="no/property-altamira-hills-residences.html#gallery">Galleri</a><a href="no/property-altamira-hills-residences.html#location">Beliggenhet</a><a href="no/property-altamira-hills-residences.html#onsite">På stedet</a><a href="no/property-altamira-hills-residences.html#view">Vår vurdering</a><a href="no/property-altamira-hills-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Bestill en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Altamira Hills Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.jpg" alt="Datagenerert bilde av en hvit, trappetrinnsformet leilighetsbygning med lange terrasser, sett over beplantede hager" width="2000" height="1157" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.jpg" alt="Datagenerert bilde av en hvit, trappetrinnsformet leilighetsbygning med lange terrasser, sett over beplantede hager" width="2000" height="1157" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">18 boliger til salgs</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Altamira Hills <em>Residences</em></span>
-            <span class="hero-title-context">Leiligheter og toppleiligheter · Altos de los Monteros, Marbella</span>
-          </h1>
-          <p class="hero-positioning">18 leiligheter og toppleiligheter med to og tre soverom er til salgs i et anlegg i feriestedsstil i den øvre delen av Los Monteros i Marbella, med terrasser mot havet, innendørs og utendørs basseng, spa, treningsrom og coworking-område. Fra 458 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="no/property-altamira-hills-residences.html#availability">Se tilgjengelige boliger</a>
-            <a class="btn project-btn ghost" href="no/index.html#private-viewing=1&amp;project=altamira-hills-residences">Filmatisk presentasjon</a>
-            <a class="btn project-btn ghost" href="no/property-altamira-hills-residences.html#media">Alle bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktige prosjektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Altos de los Monteros, Marbella</strong></div>
-          <div class="hero-fact"><span>Pris fra</span><strong>Fra 458 000 €</strong></div>
-          <div class="hero-fact"><span>Boligtype</span><strong>Leiligheter og toppleiligheter</strong></div>
-          <div class="hero-fact"><span>Overtakelse</span><strong>Ferdigstillelse ikke bekreftet</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Prosjektseksjoner">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Gå til</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="no/property-altamira-hills-residences.html#media">Media</a>
-        <a href="no/property-altamira-hills-residences.html#location">Beliggenhet</a>
-        <a href="no/property-altamira-hills-residences.html#availability">Tilgjengelighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="no/property-altamira-hills-residences.html#overview">Oversikt</a>
-          <a href="no/property-altamira-hills-residences.html#residences">Boliger</a>
-          <a href="no/property-altamira-hills-residences.html#quality-specifications">Utførelse</a>
-          <a href="no/property-altamira-hills-residences.html#calculator">Finansiering</a>
-          <a href="no/property-altamira-hills-residences.html#amenities">Fasiliteter</a>
-          <a href="no/property-altamira-hills-residences.html#why-this-project">Hvorfor</a>
-          <a href="no/property-altamira-hills-residences.html#architecture">Arkitektur</a>
-          <a href="no/property-altamira-hills-residences.html#private-viewing">Filmatisk presentasjon</a>
-          <a href="no/property-altamira-hills-residences.html#lifestyle">Livsstil</a>
-          <a href="no/property-altamira-hills-residences.html#faq">FAQ</a>
-          <a href="no/property-altamira-hills-residences.html#enquire">Forespørsel</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Rask prosjektfakta">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Soverom</span><strong>2-3 soverom</strong></div>
-          <div class="quick-fact"><span>Bebygd areal</span><strong>82,40 - 197,25 m²</strong></div>
-          <div class="quick-fact"><span>Terrasser</span><strong>24,10 - 121,90 m²</strong></div>
-          <div class="quick-fact"><span>Tilgjengelighet</span><strong>18 boliger til salgs</strong></div>
-          <div class="quick-fact"><span>Utendørsliv</span><strong>Store terrasser, og hager til noen av boligene i første etasje</strong></div>
-          <div class="quick-fact"><span>Prisspenn</span><strong>458 000 € - 1 065 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Oversikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Atten boliger <em>med pris</em></h2>
-          <p class="project-lead">Altamira Hills Residences er et anlegg med leiligheter og toppleiligheter over to plan i den øvre delen av Los Monteros, øst for Marbella. Boligene som er til salgs har to eller tre soverom, to bad og store terrasser med utsikt mot havet, og noen av boligene i første etasje har også en privat hage. Byggene stiger oppover åssiden i fire høyder.</p>
-          <p class="project-lead">Fellesområdet har et utendørs basseng, et oppvarmet innendørs basseng, et spa, et treningsrom med egen terrasse, en bassengbar og et coworking-område, i opparbeidede hager. Utbyggerens dokumenter oppgir ingen overleveringsdato.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Boligene <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datagenererte bilder av byggene, fellesfasilitetene og interiørene, to fotografier av åssiden og plantegningene til 17 av de 18 boligene som er til salgs.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Vis 4 bilder i Eksteriør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.jpg" alt="Datagenerert bilde av en hvit, trappetrinnsformet leilighetsbygning med lange terrasser, sett over beplantede hager" width="2000" height="1157" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Eksteriør</small>
-                <strong>Bygningen sett fra hagene</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Vis 5 bilder i Fasiliteter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk.jpg" alt="Datagenerert bilde av et buet utendørs basseng i skumringen, med fossekant, solsenger og et opplyst treningsrom ved siden av" width="1200" height="667" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Fasiliteter</small>
-                <strong>Utendørsbassenget i skumringen</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Vis 3 bilder i Interiør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/living-room-sea-view-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/living-room-sea-view-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/living-room-sea-view.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/living-room-sea-view.jpg" alt="Datagenerert bilde av en stue og spisestue med en lang sofa, et spisebord, en peis og glassdører med utsikt mot havet" width="1200" height="614" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiør</small>
-                <strong>Stue og spiseplass</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Vis 2 bilder i Soverom">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/main-bedroom.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/main-bedroom.jpg" alt="Datagenerert bilde av et soverom med dobbeltseng, walk-in-garderobe og en skyvedør i glass ut til en terrasse" width="1200" height="615" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Soverom</small>
-                <strong>Hovedsoverommet</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Vis 1 bilder i Bad">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/main-bathroom-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/main-bathroom-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/main-bathroom.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/main-bathroom.jpg" alt="Datagenerert bilde av et bad med dobbel servant, hengende toalett og en gulvflush dusj med glassvegg" width="1200" height="774" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bad</small>
-                <strong>Hovedbadet</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Vis 2 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/terrace-sea-view-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/terrace-sea-view-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/terrace-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/terrace-sea-view.jpg" alt="Datagenerert bilde av en terrasse med loungemøbler, et glassrekkverk og vid utsikt over kysten og havet" width="2000" height="1000" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En terrasse mot havet</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Solarium" aria-label="Vis 1 bilder i Solarium">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/solarium-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/solarium-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/solarium.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/solarium.jpg" alt="Datagenerert bilde av en solterrasse med en sofa, et salongbord og utsikt mot havet" width="1200" height="615" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Solarium</small>
-                <strong>En solterrasse</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Vis 3 bilder i Omgivelser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/hillside-coast-view-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/hillside-coast-view-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/hillside-coast-view.webp 1200w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altamira-hills-residences/media/hillside-coast-view.jpg" alt="Fotografi av en skogkledd åsside med utsikt over kysten, med en vei og havet i det fjerne" width="1200" height="506" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Omgivelser</small>
-                <strong>Åssiden over kysten</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Vis 17 bilder i Plantegninger">
-              <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg" alt="Plantegning av bolig 154B" width="2000" height="1496" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plantegninger</small>
-                <strong>Bolig 154B</strong>
-                <span class="project-media-card-cta">17 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Vis alle 38 bilder</button>
-          <p class="media-note">Bortsett fra de to fotografiene av åssiden er alle bildene datagenererte, og møblene og dekorasjonen på dem er illustrasjoner og følger ikke med. Plantegningene er utbyggerens, og arealene på dem er omtrentlige og med forbehold om det endelige prosjektet. Romnavnene på plantegningene er på spansk.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Beliggenhet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Altos de los Monteros, <em>over kysten</em></h2>
-          <p class="project-lead">Anlegget ligger i den øvre delen av Los Monteros, omtrent 10 minutter fra sentrum av Marbella og gamlebyen. Utbyggerens side plasserer stranden, golfbanen Río Real og kjøpesenteret La Cañada omtrent fem minutter unna; brosjyren oppgir 8 km til Río Real Golf og 7 km til La Cañada.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="no">
-          <div class="locmap-map" id="locmap-altamira-hills-residences" data-locmap='{&quot;site&quot;:[36.52938,-4.83667],&quot;sea&quot;:[36.50238,-4.83667],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51029,-4.84404],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Río Real&quot;,&quot;sub&quot;:&quot;3,4 km · 12 min&quot;},{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella sentrum&quot;,&quot;sub&quot;:&quot;8,8 km · 17 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;10 km · 20 min&quot;},{&quot;ll&quot;:[36.50391,-4.84507],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;5,1 km · 11 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Altamira Hills Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Veiledende beliggenhet</span>
-            <h3 class="locmap-name">Altamira Hills Residences</h3>
-            <p class="locmap-place">Altos de los Monteros</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>5,1 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
-              <span class="locmap-row-figure"><bdi>10 km</bdi> <em><bdi>20 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Marbella sentrum</span>
-              <span class="locmap-row-figure"><bdi>8,8 km</bdi> <em><bdi>17 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Río Real</span>
-              <span class="locmap-row-figure"><bdi>3,4 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Santa Clara</span>
-              <span class="locmap-row-figure"><bdi>5,9 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga lufthavn</span>
-              <span class="locmap-row-figure"><bdi>50 km</bdi> <em><bdi>46 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Boliger</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tre typer boliger, <em>ett område</em></h2>
-          <p class="project-lead">Boligene faller i tre grupper. Tabellen under viser alle med priser.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Leiligheter med to soverom</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-altamira-hills-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Leiligheter med tre soverom</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-altamira-hills-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Toppleiligheter</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-altamira-hills-residences.html#availability">Vis plantegninger</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat materiale</span>
-            <p>Gjeldende planløsninger, utsiktsposisjoner og tilgjengelighet bør sjekkes mot utviklerens siste fil før man setter opp en shortlist.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="no/property-altamira-hills-residences.html#availability">Vis plantegninger</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggebeskrivelse</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva boligene <em>er bygget av</em></h2>
-          <p class="project-lead">Utbyggerens egen kvalitetsspesifikasjon, oppsummert etter deler av boligen.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Gulv og vegger<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gulv av storformat porselensfliser i tre fargealternativer, med hvitlakkerte gulvlister, og isolerte innvendige vegger av gipsplater.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dører og skap<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En sikkerhetsinngangsdør med sikkerhetslås, lakkerte innerdører og modulære lakkerte garderobeskap med hylle, kleshenger og innvendig kledning.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kjøkken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et kjøkken med store underskap og overskap og en benkeplate i Solid Surface.</li>
-              <li>Hvitevarer inkludert: stekeovn, mikrobølgeovn, induksjonstopp, vaskemaskin, oppvaskmaskin og kjøleskap.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Bad<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Hovedbadet er flislagt fra gulv til tak, med dobbel servant i Solid Surface, bakgrunnsbelyst speil, hengende toalett og dusjkar i Solid Surface.</li>
-              <li>Dusjvegger i glass i alle bad og veggmonterte termostatblandebatterier i dusjene.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klima og energi<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et aerotermisk system for varmtvann og gulvvarme, og klimaanlegg med varmepumpe, kanaler og sonestyring.</li>
-              <li>Utbyggeren anslår energimerke B; sertifiseringen pågår.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Elektrisk og smarthus<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Antrasittgrå brytere, LED-lys på terrassene og videodørtelefon.</li>
-              <li>Smarthusstyring av persienner, brannvarsling og stuebelysning, styrt fra telefon eller med en stemmeassistent.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fellesområder<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et felles basseng, store hageområder og et treningsrom med utendørs terrasse og et rom for planlagte aktiviteter.</li>
-              <li>Et felles garasjeanlegg med automatisk port, og boder.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Kilde: utbyggerens kvalitetsbeskrivelse for dette anlegget, som ikke er datert. Den er veiledende og ikke kontraktsfestet, og materialene kan byttes ut med likeverdige eller bedre.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tilgjengelighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Atten boliger <em>til salgs nå</em></h2>
-          <p class="project-lead">Prisene er de i utbyggerens prisliste fra oktober 2026 og bekreftes før reservasjon. Atten boliger med to eller tre soverom og to bad er til salgs; utbyggerens dokumenter oppgir ikke hvor mange boliger hele anlegget har.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.jpg" alt="Datagenerert bilde av en hvit, trappetrinnsformet leilighetsbygning med lange terrasser, sett over beplantede hager" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>21 bilder</button>
+          <a class="chip" href="no/property-altamira-hills-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plantegninger</a>
+          <a class="chip" href="no/property-altamira-hills-residences.html#location"><svg><use href="#v2-pin"/></svg>Kart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammendrag av gjeldende fase">
-            <div><span>Tilgjengelige boliger</span><strong>18</strong></div>
-            <div><span>Pris fra</span><strong>458 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>458 000 € - 1 065 000 €</strong></div>
-            <div><span>Kontrollert</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Se alle 18 tilgjengelige boliger</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrer tilgjengelige boliger"
-              data-availability-filters
-              data-count-template="Viser {shown} av {total}">
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Boligtype</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Leilighet</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">Toetasjes leilighet</button>
-                </div>
-              </div>
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Pris</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Alle</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-600000" aria-pressed="false">Under €600k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="600000-800000" aria-pressed="false">€600k – €800k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="800000-" aria-pressed="false">€800k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Fjern filtre</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Ingen boliger samsvarer med disse filtrene.</p>
-            <div class="unit-card-grid" role="list" aria-label="Tilgjengelige boliger">
-              <article class="unit-card" data-unit data-type="apartment" data-price="499000">
-                
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">150B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>84,60 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>24,10 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">499 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20150B">Spør om 150B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="duplex" data-price="1035000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 154B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-154b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-154b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg" alt="Plantegning for 154B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">154B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>197,25 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>117,60 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>121,90 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 15, duplex-toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 035 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20154B">Spør om 154B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="duplex" data-price="1065000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-164b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 164B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-164b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-164b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-164b.jpg" alt="Plantegning for 164B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">164B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>197,25 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>117,60 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>121,90 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 16, duplex-toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 065 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20164B">Spør om 164B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="509000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-160b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 160B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-160b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-160b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-160b.jpg" alt="Plantegning for 160B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">160B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>115,25 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>74,30 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>24,30 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 16, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">509 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20160B">Spør om 160B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="759000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-162a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 162A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-162a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-162a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-162a.jpg" alt="Plantegning for 162A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">162A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>154,23 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>99,30 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>100,70 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 16, tredje etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">759 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20162A">Spør om 162A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="829000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-163b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 163B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-163b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-163b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-163b.jpg" alt="Plantegning for 163B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">163B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>157,25 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>93,80 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>50,70 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 16, fjerde etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">829 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20163B">Spør om 163B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="636000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-410a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 410A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-410a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-410a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-410a.jpg" alt="Plantegning for 410A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">410A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>102,40 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>82,70 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>63,20 m²</dd></div>
-                    <div><dt>Hage</dt><dd>63,40 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 1, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">636 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20410A">Spør om 410A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="527000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-410b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 410B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-410b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-410b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-410b.jpg" alt="Plantegning for 410B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">410B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>82,40 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>71,40 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>46,20 m²</dd></div>
-                    <div><dt>Hage</dt><dd>42,20 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 1, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">527 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20410B">Spør om 410B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="721000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-412b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 412B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-412b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-412b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-412b.jpg" alt="Plantegning for 412B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">412B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>101,70 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>88,30 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>114,70 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 1, tredje etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">721 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20412B">Spør om 412B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="585000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-413a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 413A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-413a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-413a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-413a.jpg" alt="Plantegning for 413A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">413A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>100,90 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>82,60 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>49,70 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 1, fjerde etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">585 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20413A">Spør om 413A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="duplex" data-price="892000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-414b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 414B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-414b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-414b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-414b.jpg" alt="Plantegning for 414B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">414B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>117,60 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>92,40 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>62,30 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 1, duplex-toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">892 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20414B">Spør om 414B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="613000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-420a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 420A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-420a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-420a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-420a.jpg" alt="Plantegning for 420A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">420A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>102,40 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>82,70 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>61,00 m²</dd></div>
-                    <div><dt>Hage</dt><dd>46,00 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 2, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">613 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20420A">Spør om 420A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="634000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-422a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 422A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-422a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-422a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-422a.jpg" alt="Plantegning for 422A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">422A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>102,20 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>82,40 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>100,40 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 2, tredje etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">634 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20422A">Spør om 422A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="duplex" data-price="867000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-424b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 424B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-424b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-424b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-424b.jpg" alt="Plantegning for 424B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">424B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>117,60 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>92,40 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>62,30 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 2, duplex-toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">867 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20424B">Spør om 424B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="563000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-430a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 430A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-430a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-430a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-430a.jpg" alt="Plantegning for 430A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">430A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>98,00 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>82,40 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>59,70 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">563 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20430A">Spør om 430A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="458000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-430b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 430B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-430b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-430b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-430b.jpg" alt="Plantegning for 430B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">430B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>82,70 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>70,90 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>46,00 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">458 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20430B">Spør om 430B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="591000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-431d.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 431D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-431d-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-431d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-431d.jpg" alt="Plantegning for 431D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">431D</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>100,00 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>83,60 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>60,20 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, andre etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">591 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20431D">Spør om 431D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="861000">
-                <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-434a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 434A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-434a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-434a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/altamira-hills-residences/floorplans/home-434a.jpg" alt="Plantegning for 434A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">434A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>117,00 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>98,30 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>33,00 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">861 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20434A">Spør om 434A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Prisene, bebygde arealer og terrasser er hentet fra utbyggerens prisliste slik den sto på portalen i oktober 2026. Listen sier ikke om mva er inkludert. For bolig 422A oppgir den en terrasse på 1 004,00 m²; plantegningen til boligen viser terrasser på 10,6, 51,2 og 38,6 m², til sammen 100,4 m², så tabellen viser 100,40 m². Der listen og en plantegning avviker litt, følger tabellen listen: bolig 431D er 100,0 m² bygd ifølge listen og 100,1 ifølge plantegningen; bolig 434A er 117,00 m² med en terrasse på 33,00 m² ifølge listen og 117,1 og 33,1 ifølge plantegningen; bolig 420A har en terrasse og en hage på 61,00 og 46,00 m² ifølge listen og 61,1 og 46,1 ifølge plantegningen; og bolig 163B er 157,25 m² ifølge listen og 157,4 ifølge plantegningen. Plantegningene til boligene 154B og 164B viser tre bad der listen oppgir to. De innvendige arealene er de brukbare innvendige arealene fra plantegningene.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Spør om en bolig</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Altamira%20Hills%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altamira Hills Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beregn din <em>månedlige betaling</em></h2>
-          <p class="body-copy">Kun et veiledende anslag. Bekreft de eksakte vilkårene med din långiver før du tar en beslutning.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Altamira Hills</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">18 leiligheter og toppleiligheter med to og tre soverom er til salgs i et anlegg i feriestedsstil i den øvre delen av Los Monteros i Marbella, med terrasser mot havet, innendørs og utendørs basseng, spa, treningsrom og coworking-område.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Fra 458 000 €</dd><dd class="sub">Ekskl. mva</dd></div><div><dt>Soverom</dt><dd>2 til 3</dd><dd class="sub"><span>Leiligheter og toppleiligheter</span></dd></div><div><dt>Ferdigstillelse</dt><dd>ikke bekreftet</dd><dd class="sub">Tillatelse: vi bekrefter den før du reserverer</dd></div><div><dt>Boliger igjen</dt><dd>18 oppført</dd><dd class="sub">Kontrollert oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Bestill en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Altamira%20Hills%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altamira Hills Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Prosjektet</h2>
+    <p class="lede">Altamira Hills Residences er et anlegg med leiligheter og toppleiligheter over to plan i den øvre delen av Los Monteros, øst for Marbella. Boligene som er til salgs har to eller tre soverom, to bad og store terrasser med utsikt mot havet, og noen av boligene i første etasje har også en privat hage. Byggene stiger oppover åssiden i fire høyder.</p>
+    <p class="lede-2">Fellesområdet har et utendørs basseng, et oppvarmet innendørs basseng, et spa, et treningsrom med egen terrasse, en bassengbar og et coworking-område, i opparbeidede hager. Utbyggerens dokumenter oppgir ingen overleveringsdato.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Hvite terrasser, trappet mot havet</span></summary><p>Byggene er tegnet rundt lys og utsikt, i fire høyder, med en toppleilighet over to plan med solterrasse øverst. Brede terrasser løper langs hver etasje, og stuene åpner seg mot dem gjennom store skyvedører.</p><p>Bildene viser hvite volumer med mørke detaljer, glassrekkverk og beplantede hager mellom byggene.</p><ul><li>Fasade: Et sammenhengende mørtelbelegg over varmeisolasjon av høy kvalitet, med isolert gipsplatekledning innvendig.</li><li>Terrasser: Store heller av sklisikker porselensfliser, med en sammenhengende flate mellom terrasse og stue.</li><li>Vinduer: Lakkerte aluminiumsrammer med kuldebro-brudd og lydisolerende dobbeltglass.</li><li>Konstruksjon: Fundament og bæresystem i armert betong.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>458 000 € – 1 065 000 €</span><small>Ekskl. mva</small></dd></div><div><dt>Tilgjengelig</dt><dd><span>18 oppført</span><small>Kontrollert oktober 2026</small></dd></div><div><dt>Boliger</dt><dd><span>Leiligheter og toppleiligheter</span></dd></div><div><dt>Størrelser</dt><dd><span>82 – 197 m²</span><small>Bebygd areal</small></dd></div><div><dt>Ferdigstillelse</dt><dd><span>ikke bekreftet</span></dd></div><div><dt>Tillatelse</dt><dd><span>Ikke oppgitt</span><small>Vi bekrefter det før du reserverer</small></dd></div><div><dt>Forskudd</dt><dd><span>Bankgaranti</span><small>Påkrevd etter spansk lov</small></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Boliger og priser</h2>
+    <p class="sec-sub">Prisene er de i utbyggerens prisliste fra oktober 2026 og bekreftes før reservasjon. Atten boliger med to eller tre soverom og to bad er til salgs; utbyggerens dokumenter oppgir ikke hvor mange boliger hele anlegget har. Velg en bolig for å se betalingsplan og totalkostnad.</p>
+    
+    <div class="ufilter" role="group" aria-label="Filtrer på soverom"><button type="button" aria-pressed="true" data-beds="">Alle <span>18</span></button><button type="button" aria-pressed="false" data-beds="2">2 sov. <span>10</span></button><button type="button" aria-pressed="false" data-beds="3">3 sov. <span>8</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Boliger til salgs med størrelse og pris. Velg en rad for å se betalingsplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bolig</th>
+          <th scope="col" data-sort="beds">Soverom</th>
+          <th scope="col" data-sort="size">Størrelse</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Tegning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="499000" data-size="84.6" data-ppm="5898" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">150B</span><span class="u-loc">Første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">85 m²</td>
+            <td data-label="Pris" class="u-price num">499 000 €</td>
+            <td data-label="Per m²" class="num">5 898 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="1035000" data-size="197.25" data-ppm="5247" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-154b-640.webp">
+            <th scope="row"><span class="u-name">154B</span><span class="u-loc">Oppgang 15, duplex-toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">197 m²</td>
+            <td data-label="Pris" class="u-price num">1 035 000 €</td>
+            <td data-label="Per m²" class="num">5 247 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 154B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-154b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="1065000" data-size="197.25" data-ppm="5399" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-164b-640.webp">
+            <th scope="row"><span class="u-name">164B</span><span class="u-loc">Oppgang 16, duplex-toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">197 m²</td>
+            <td data-label="Pris" class="u-price num">1 065 000 €</td>
+            <td data-label="Per m²" class="num">5 399 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-164b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 164B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-164b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="509000" data-size="115.25" data-ppm="4416" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-160b-640.webp">
+            <th scope="row"><span class="u-name">160B</span><span class="u-loc">Oppgang 16, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">115 m²</td>
+            <td data-label="Pris" class="u-price num">509 000 €</td>
+            <td data-label="Per m²" class="num">4 416 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-160b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 160B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-160b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="759000" data-size="154.23" data-ppm="4921" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-162a-640.webp">
+            <th scope="row"><span class="u-name">162A</span><span class="u-loc">Oppgang 16, tredje etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">154 m²</td>
+            <td data-label="Pris" class="u-price num">759 000 €</td>
+            <td data-label="Per m²" class="num">4 921 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-162a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 162A"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-162a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="829000" data-size="157.25" data-ppm="5272" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-163b-640.webp">
+            <th scope="row"><span class="u-name">163B</span><span class="u-loc">Oppgang 16, fjerde etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">157 m²</td>
+            <td data-label="Pris" class="u-price num">829 000 €</td>
+            <td data-label="Per m²" class="num">5 272 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-163b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 163B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-163b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="636000" data-size="102.4" data-ppm="6211" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-410a-640.webp">
+            <th scope="row"><span class="u-name">410A</span><span class="u-loc">Hus 1, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">102 m²</td>
+            <td data-label="Pris" class="u-price num">636 000 €</td>
+            <td data-label="Per m²" class="num">6 211 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-410a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 410A"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-410a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="527000" data-size="82.4" data-ppm="6396" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-410b-640.webp">
+            <th scope="row"><span class="u-name">410B</span><span class="u-loc">Hus 1, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">82 m²</td>
+            <td data-label="Pris" class="u-price num">527 000 €</td>
+            <td data-label="Per m²" class="num">6 396 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-410b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 410B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-410b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="721000" data-size="101.7" data-ppm="7089" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-412b-640.webp">
+            <th scope="row"><span class="u-name">412B</span><span class="u-loc">Hus 1, tredje etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">102 m²</td>
+            <td data-label="Pris" class="u-price num">721 000 €</td>
+            <td data-label="Per m²" class="num">7 089 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-412b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 412B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-412b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="585000" data-size="100.9" data-ppm="5798" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-413a-640.webp">
+            <th scope="row"><span class="u-name">413A</span><span class="u-loc">Hus 1, fjerde etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">101 m²</td>
+            <td data-label="Pris" class="u-price num">585 000 €</td>
+            <td data-label="Per m²" class="num">5 798 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-413a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 413A"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-413a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="892000" data-size="117.6" data-ppm="7585" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-414b-640.webp">
+            <th scope="row"><span class="u-name">414B</span><span class="u-loc">Hus 1, duplex-toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">118 m²</td>
+            <td data-label="Pris" class="u-price num">892 000 €</td>
+            <td data-label="Per m²" class="num">7 585 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-414b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 414B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-414b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u11" data-beds="2" data-price="613000" data-size="102.4" data-ppm="5986" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-420a-640.webp">
+            <th scope="row"><span class="u-name">420A</span><span class="u-loc">Hus 2, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">102 m²</td>
+            <td data-label="Pris" class="u-price num">613 000 €</td>
+            <td data-label="Per m²" class="num">5 986 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-420a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 420A"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-420a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u12" data-beds="2" data-price="634000" data-size="102.2" data-ppm="6204" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-422a-640.webp">
+            <th scope="row"><span class="u-name">422A</span><span class="u-loc">Hus 2, tredje etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">102 m²</td>
+            <td data-label="Pris" class="u-price num">634 000 €</td>
+            <td data-label="Per m²" class="num">6 204 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-422a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 422A"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-422a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u13" data-beds="3" data-price="867000" data-size="117.6" data-ppm="7372" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-424b-640.webp">
+            <th scope="row"><span class="u-name">424B</span><span class="u-loc">Hus 2, duplex-toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">118 m²</td>
+            <td data-label="Pris" class="u-price num">867 000 €</td>
+            <td data-label="Per m²" class="num">7 372 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-424b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 424B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-424b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u14" data-beds="2" data-price="563000" data-size="98" data-ppm="5745" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-430a-640.webp">
+            <th scope="row"><span class="u-name">430A</span><span class="u-loc">Hus 3, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">98 m²</td>
+            <td data-label="Pris" class="u-price num">563 000 €</td>
+            <td data-label="Per m²" class="num">5 745 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-430a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 430A"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-430a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u15" data-beds="2" data-price="458000" data-size="82.7" data-ppm="5538" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-430b-640.webp">
+            <th scope="row"><span class="u-name">430B</span><span class="u-loc">Hus 3, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">83 m²</td>
+            <td data-label="Pris" class="u-price num">458 000 €</td>
+            <td data-label="Per m²" class="num">5 538 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-430b.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 430B"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-430b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u16" data-beds="2" data-price="591000" data-size="100" data-ppm="5910" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-431d-640.webp">
+            <th scope="row"><span class="u-name">431D</span><span class="u-loc">Hus 3, andre etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">100 m²</td>
+            <td data-label="Pris" class="u-price num">591 000 €</td>
+            <td data-label="Per m²" class="num">5 910 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-431d.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 431D"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-431d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u17" data-beds="3" data-price="861000" data-size="117" data-ppm="7359" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altamira-hills-residences/floorplans/home-434a-640.webp">
+            <th scope="row"><span class="u-name">434A</span><span class="u-loc">Hus 3, toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">117 m²</td>
+            <td data-label="Pris" class="u-price num">861 000 €</td>
+            <td data-label="Per m²" class="num">7 359 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altamira-hills-residences/floorplans/home-434a.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 434A"><img src="assets/liora/projects/altamira-hills-residences/floorplans/home-434a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Boliger · <span>Tre typer boliger, ett område</span></summary><p>Boligene faller i tre grupper. Tabellen under viser alle med priser.</p><div class="res-types"><div class="res-type"><h3>Leiligheter med to soverom</h3><ul><li>10 boliger med to soverom og to bad, fra 82,40 til 115,25 m² bygd ifølge prislisten og fra 70,90 til 83,60 m² innvendig ifølge plantegningene til ni av dem; bolig 150B har ingen plantegning.</li><li>Terrasser fra 24,10 til 100,40 m², og private hager på 63,40, 42,20 og 46,00 m² for boligene 410A, 410B og 420A.</li><li>Prisene går fra 458 000 € til 636 000 €.</li></ul></div><div class="res-type"><h3>Leiligheter med tre soverom</h3><ul><li>3 boliger med tre soverom og to bad: 412B, 162A og 163B, med 101,70, 154,23 og 157,25 m² bygd og 88,30, 99,30 og 93,80 m² innvendig.</li><li>Terrasser på 114,70, 100,70 og 50,70 m².</li><li>Prisene går fra 721 000 € til 829 000 €.</li></ul></div><div class="res-type"><h3>Toppleiligheter</h3><ul><li>5 toppleiligheter med tre soverom, fra 117,00 til 197,25 m² bygd og fra 92,40 til 117,60 m² innvendig. Plantegningene til 154B, 164B, 414B og 424B viser to plan, plantegningen til 434A viser ett.</li><li>Terrasser fra 33,00 til 121,90 m².</li><li>Prisene går fra 861 000 € til 1 065 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Utbyggerens betalingsplan fås på forespørsel; vi sender den sammen med prislisten.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Hva det koster totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>mva, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Dokumentavgift (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt før notar, tinglysing og advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Spør om denne boligen</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plantegning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Boliglånskalkulator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Kjøpesum</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1391,419 +685,227 @@
               <div class="calculator-result"><span>Skatter & kjøpskostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Fasiliteter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva prosjektet <em>gir deg</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Velvære</span>
-              <h3 class="amenity-name">Felles utendørsbasseng</h3>
-              <p class="amenity-note">Under åpen himmel</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utførelse</h2>
+    <p class="sec-sub">Utbyggerens egen kvalitetsspesifikasjon, oppsummert etter deler av boligen.</p>
+    <div class="tabs" role="tablist" aria-label="Utførelse"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Gulv og vegger</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Dører og skap</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Kjøkken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Bad</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Klima og energi</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Elektrisk og smarthus</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Fellesområder</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Gulv av storformat porselensfliser i tre fargealternativer, med hvitlakkerte gulvlister, og isolerte innvendige vegger av gipsplater.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>En sikkerhetsinngangsdør med sikkerhetslås, lakkerte innerdører og modulære lakkerte garderobeskap med hylle, kleshenger og innvendig kledning.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Et kjøkken med store underskap og overskap og en benkeplate i Solid Surface.</li><li>Hvitevarer inkludert: stekeovn, mikrobølgeovn, induksjonstopp, vaskemaskin, oppvaskmaskin og kjøleskap.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Hovedbadet er flislagt fra gulv til tak, med dobbel servant i Solid Surface, bakgrunnsbelyst speil, hengende toalett og dusjkar i Solid Surface.</li><li>Dusjvegger i glass i alle bad og veggmonterte termostatblandebatterier i dusjene.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Et aerotermisk system for varmtvann og gulvvarme, og klimaanlegg med varmepumpe, kanaler og sonestyring.</li><li>Utbyggeren anslår energimerke B; sertifiseringen pågår.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Antrasittgrå brytere, LED-lys på terrassene og videodørtelefon.</li><li>Smarthusstyring av persienner, brannvarsling og stuebelysning, styrt fra telefon eller med en stemmeassistent.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Et felles basseng, store hageområder og et treningsrom med utendørs terrasse og et rom for planlagte aktiviteter.</li><li>Et felles garasjeanlegg med automatisk port, og boder.</li></ul>
+      
+    </div>
+    <p class="caption">Kilde: utbyggerens kvalitetsbeskrivelse for dette anlegget, som ikke er datert. Den er veiledende og ikke kontraktsfestet, og materialene kan byttes ut med likeverdige eller bedre.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Bygningen sett fra hagene"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.jpg" alt="Datagenerert bilde av en hvit, trappetrinnsformet leilighetsbygning med lange terrasser, sett over beplantede hager" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Stue og spiseplass"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/living-room-sea-view-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/living-room-sea-view-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/living-room-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altamira-hills-residences/media/living-room-sea-view.jpg" alt="Datagenerert bilde av en stue og spisestue med en lang sofa, et spisebord, en peis og glassdører med utsikt mot havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="15" aria-label="En terrasse mot havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/terrace-sea-view-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/terrace-sea-view-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altamira-hills-residences/media/terrace-sea-view.jpg" alt="Datagenerert bilde av en terrasse med loungemøbler, et glassrekkverk og vid utsikt over kysten og havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Utendørsbassenget i skumringen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk.jpg" alt="Datagenerert bilde av et buet utendørs basseng i skumringen, med fossekant, solsenger og et opplyst treningsrom ved siden av" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="Hovedsoverommet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/altamira-hills-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/altamira-hills-residences/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altamira-hills-residences/media/main-bedroom.jpg" alt="Datagenerert bilde av et soverom med dobbeltseng, walk-in-garderobe og en skyvedør i glass ut til en terrasse" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Se alle 21 bildene</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Eksteriør (4)</button><button type="button" data-open-cat="Amenities">Fasiliteter (5)</button><button type="button" data-open-cat="Interiors">Interiør (3)</button><button type="button" data-open-cat="Bedrooms">Soverom (2)</button><button type="button" data-open-cat="Bathrooms">Bad (1)</button><button type="button" data-open-cat="Terraces">Terrasser (2)</button><button type="button" data-open-cat="Solarium">Solarium (1)</button><button type="button" data-open-cat="Location">Omgivelser (3)</button></div>
+    
+    <p class="caption">Bortsett fra de to fotografiene av åssiden er alle bildene datagenererte, og møblene og dekorasjonen på dem er illustrasjoner og følger ikke med. Plantegningene er utbyggerens, og arealene på dem er omtrentlige og med forbehold om det endelige prosjektet. Romnavnene på plantegningene er på spansk.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Beliggenhet</h2>
+    <p class="sec-sub">Anlegget ligger i den øvre delen av Los Monteros, omtrent 10 minutter fra sentrum av Marbella og gamlebyen. Utbyggerens side plasserer stranden, golfbanen Río Real og kjøpesenteret La Cañada omtrent fem minutter unna; brosjyren oppgir 8 km til Río Real Golf og 7 km til La Cañada.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="no">
+          <div class="locmap-map" id="locmap-altamira-hills-residences" data-locmap='{&quot;site&quot;:[36.52938,-4.83667],&quot;sea&quot;:[36.50238,-4.83667],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51029,-4.84404],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Río Real&quot;,&quot;sub&quot;:&quot;3,4 km · 12 min&quot;},{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella sentrum&quot;,&quot;sub&quot;:&quot;8,8 km · 17 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;10 km · 20 min&quot;},{&quot;ll&quot;:[36.50391,-4.84507],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;5,1 km · 11 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Altamira Hills Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Veiledende beliggenhet</span>
+            <h3 class="locmap-name">Altamira Hills Residences</h3>
+            <p class="locmap-place">Altos de los Monteros</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>5,1 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Velvære</span>
-              <h3 class="amenity-name">Oppvarmet innendørsbasseng</h3>
-              <p class="amenity-note">Varmt vann under tak</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
+              <span class="locmap-row-figure"><bdi>10 km</bdi> <em><bdi>20 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Velvære</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtsoner for restitusjon</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Marbella sentrum</span>
+              <span class="locmap-row-figure"><bdi>8,8 km</bdi> <em><bdi>17 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Velvære</span>
-              <h3 class="amenity-name">Utstyrt treningsrom i fellesareal</h3>
-              <p class="amenity-note">Inne i prosjektet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Río Real</span>
+              <span class="locmap-row-figure"><bdi>3,4 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Velvære</span>
-              <h3 class="amenity-name">Poolbar</h3>
-              <p class="amenity-note">Servert uten å forlate vannet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Santa Clara</span>
+              <span class="locmap-row-figure"><bdi>5,9 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Utendørs</span>
-              <h3 class="amenity-name">Opparbeidede fellesehager</h3>
-              <p class="amenity-note">Opparbeidede fellesarealer</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga lufthavn</span>
+              <span class="locmap-row-figure"><bdi>50 km</bdi> <em><bdi>46 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Utendørs</span>
-              <h3 class="amenity-name">Solterrasse</h3>
-              <p class="amenity-note">Åpen takterrasse for sol</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Utendørs</span>
-              <h3 class="amenity-name">Sjøutsikt</h3>
-              <p class="amenity-note">Mot Middelhavet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Hverdag</span>
-              <h3 class="amenity-name">Coworkingområde</h3>
-              <p class="amenity-note">Arbeidsplasser utenfor boligen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Hverdag</span>
-              <h3 class="amenity-name">Husautomasjon</h3>
-              <p class="amenity-note">Lys og klima fra mobilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Hverdag</span>
-              <h3 class="amenity-name">Klimaanlegg</h3>
-              <p class="amenity-note">Kjøling og oppvarming via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Hverdag</span>
-              <h3 class="amenity-name">Luft-til-vann-varmepumpe</h3>
-              <p class="amenity-note">Oppvarming, kjøling og varmtvann</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Hverdag</span>
-              <h3 class="amenity-name">Utstyrt kjøkken</h3>
-              <p class="amenity-note">Innredet og med hvitevarer</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Marbella sentrum</th><td>6 km</td></tr><tr><th scope="row">Puerto Banús</th><td>16 km</td></tr><tr><th scope="row">Málaga lufthavn</th><td>52 km</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">På stedet</h2>
+    <p class="sec-sub">Livet her foregår ute og i fellesområdet, med havet foran terrassene.</p>
+    <div class="life-panels"><div><h3>Terrassene</h3><p>Store terrasser som forlenger stuen, med utsikt mot havet.</p></div><div><h3>Bassengene</h3><p>Et utendørs basseng og et oppvarmet innendørs basseng, med en bassengbar.</p></div><div><h3>Velvære</h3><p>Et spa og et treningsrom med utendørs terrasse og et rom for planlagte aktiviteter.</p></div><div><h3>Hjemmekontor</h3><p>Et coworking-område i fellesområdet, slik at arbeid ikke betyr å forlate anlegget.</p></div></div>
+    <ul class="amen-top"><li>Felles utendørsbasseng</li><li>Oppvarmet innendørsbasseng</li><li>Spa</li><li>Utstyrt treningsrom i fellesareal</li><li>Poolbar</li><li>Coworkingområde</li></ul>
+    <details class="amen-all"><summary>Vis alle 13</summary><div class="amen-groups"><div><h3>Velvære<span class="count">5</span></h3><ul><li>Felles utendørsbasseng</li><li>Oppvarmet innendørsbasseng</li><li>Spa</li><li>Utstyrt treningsrom i fellesareal</li><li>Poolbar</li></ul></div><div><h3>Utendørs<span class="count">3</span></h3><ul><li>Opparbeidede fellesehager</li><li>Solterrasse</li><li>Sjøutsikt</li></ul></div><div><h3>Hverdag<span class="count">5</span></h3><ul><li>Coworkingområde</li><li>Husautomasjon</li><li>Klimaanlegg</li><li>Luft-til-vann-varmepumpe</li><li>Utstyrt kjøkken</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår vurdering</h2>
+    <p class="sec-sub">Det vi ville vurdert før du reserverer her, og det vi sjekker for deg.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår vurdering">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrker</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planlegg for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Hva som skiller det ut</h3><ul class="points"><li><b>Hvem det passer for</b><span>Kjøpere som vil ha en romslig bolig med to eller tre soverom, en stor terrasse og utsikt mot havet, og et basseng, et spa og et treningsrom i fellesområdet.</span></li><li><b>Hva som gjør det annerledes</b><span>Store terrasser: 13 av de 18 boligene har 49,70 m² eller mer, og toppleilighetene opptil 121,90 m².</span></li><li><b>Hvorfor beliggenheten betyr noe</b><span>Anlegget ligger i den øvre delen av Los Monteros, omtrent 10 minutter fra sentrum av Marbella og gamlebyen, i en åsside med utsikt mot havet.</span></li><li><b>Hvorfor sjekke tilgjengelighet</b><span>Prisene er hentet fra utbyggerens liste slik den sto på portalen i oktober 2026, og boligene er ikke bygget ennå. Nueva Living bekrefter pris og tilgjengelighet på nytt før enhver visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Hva du bør planlegge for</h3><ul class="points"><li><b>Reservasjon og betalingsplan</b><span>Dokumentene vi har, oppgir verken reservasjonsbeløp eller betalingsplan. Vi innhenter utbyggerens vilkår og sender dem skriftlig før reservasjon.</span></li><li><b>Mva og skatter</b><span>Prislisten sier ikke om mva er inkludert. Nueva Living bekrefter skatter og kjøpskostnader skriftlig.</span></li><li><b>Garasje og bod</b><span>Kvalitetsbeskrivelsen beskriver et felles garasjeanlegg med automatisk port og boder. Den sier ikke om en plass eller en bod er inkludert i prisen, så vi spør om det for boligen som velges.</span></li><li><b>Beskrivelsen</b><span>Kvalitetsbeskrivelsen sier at materialene kan byttes ut med likeverdige eller bedre, og at den ikke er kontraktsfestet. Vi ber om den endelige beskrivelsen.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller før penger betales</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Tillatelse og arbeider</b><span>Dokumentene vi har, sier ikke om byggetillatelsen er gitt eller om arbeidene har startet; plantegningene er tegnet etter grunnprosjektet. Vi ber om tillatelsen, statusen og startdatoen for arbeidene.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ferdigstillelsesdatoen</b><span>Ingen av utbyggerens dokumenter oppgir en overleveringsdato, så vi ber om den kontraktfestede datoen før enhver reservasjon.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Hvilke boliger, hvilken fase</b><span>Utbyggerens side presenterer dette salget som fase 4. Plantegningene til 12 av de 18 boligene har overskriften fase IV, i byggene 1 til 3; de seks andre har referanser fra oppgangene 15 og 16, plantegningene deres nevner ingen fase, og bolig 150B har ingen plantegning. Brosjyren beskriver 39 boliger i tre bygg som første fase. Vi spør utbyggeren hvor mange boliger hver fase har.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Arealene</b><span>Prislisten oppgir ett bebygd areal og ett terrassetall for hver bolig, men ikke på samme grunnlag: for boligene i byggene 1 til 3 er det det bygde innvendige arealet, og for boligene i oppgangene 15 og 16 inkluderer det en andel av fellesarealene. Plantegningene oppgir et større tall med fellesarealene, og arealer etter dekret 218/2005. Vi bekrefter hvilket tall kontrakten bruker.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Be om prosjektdokumentasjonen</h3><p>Plantegningene til boligene du er interessert i, kvalitetsspesifikasjonen og prislisten.</p></li><li><h3>Sammenlign alternativene</h3><p>Se det sammen med de andre prosjektene i Marbella vi har.</p></li><li><h3>Privat visning</h3><p>Se området sammen med oss, og sammenlign plantegningene med byggestatus.</p></li><li><h3>Reserver</h3><p>Vi bekrefter reservasjonsvilkårene og betalingsplanen skriftlig, deretter kommer den private kjøpekontrakten.</p></li></ol>
+      <div class="docs card"><h3>Dokumenter du får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prisliste</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plantegninger<small>17 av 18 boliger</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsplan<small>Ikke utstedt ennå</small><small>Venter</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggebeskrivelse</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Det offisielle sammendraget alle kjøpere i Andalucía har krav på</small></span></li></ul><a class="btn btn-primary" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Få prosjektmappen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Spørsmål om Altamira Hills</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hvor mange boliger er tilgjengelige?</summary><p>Atten boliger er til salgs med pris: ti leiligheter med to soverom, tre leiligheter med tre soverom og fem toppleiligheter, fra 458 000 € til 1 065 000 €. Dokumentene oppgir ikke hvor mange boliger hele anlegget har.</p></details><details class="segment-faq-item"><summary>Er mva inkludert?</summary><p>Prislisten sier det ikke. Vi bekrefter skatter og kjøpskostnader skriftlig før reservasjon.</p></details><details class="segment-faq-item"><summary>Er det parkering?</summary><p>Kvalitetsbeskrivelsen beskriver et felles garasjeanlegg og boder, men sier ikke om en plass er inkludert i prisen. Vi spør om det for boligen som velges.</p></details><details class="segment-faq-item"><summary>Når blir det ferdig?</summary><p>Ingen av utbyggerens dokumenter oppgir en overleveringsdato. Vi ber om den kontraktfestede datoen og byggestatusen.</p></details><details class="segment-faq-item"><summary>Hvilke fasiliteter har fellesområdet?</summary><p>Et utendørs basseng, et oppvarmet innendørs basseng, et spa, et treningsrom med utendørs terrasse, en bassengbar og et coworking-område, i opparbeidede hager.</p></details></div>
+    
+    <p class="faq2-guide">Mer om å kjøpe nybygg i Spania → <a class="textlink" href="no/guide-how-buying-works.html">Kjøpsguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Bestill en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris fra</p>
+      <p class="rail-price num">458 000 €</p>
+      <p class="rail-note">Ekskl. mva. · Kontrollert oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Bestill en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Altamira%20Hills%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altamira Hills Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Send oss en melding på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger</strong>Vi svarer selv på hver henvendelse.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Bestill en privat visning</h2>
+        <p>Fortell oss hvilken bolig som interesserer deg. Vi sender prosjektmappen og går deretter over området sammen med deg.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger av Nueva Living</strong>Vi svarer selv på hver henvendelse.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Altamira%20Hills%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altamira Hills Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Send oss en melding</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>På visningen sjekker vi sammen</h3><ul><li><b>På stedet.</b> Gå over åssiden og se hvor terrassene vender mot havet.</li><li><b>Med bil.</b> Vi kjører til sentrum av Marbella og stranden og tar tiden.</li><li><b>På papiret.</b> Tillatelse, garanti og kontrakt, før noe undertegnes.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sender…" data-success-label="Bestill en privat visning ✓" data-submitting-message="Sender…" data-success-message="Forespørsel mottatt. Vi sender prosjektmappen og foreslår tider for visning." data-error-message="Det gikk ikke. Prøv igjen, eller send oss en melding på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Altamira Hills Residences">
+        <input type="hidden" id="f-project" name="project" value="Altamira Hills Residences">
+        <input type="hidden" name="preferred_area" value="Altos de los Monteros, Marbella">
+        <input type="hidden" name="property_type_interest" value="Leiligheter og toppleiligheter">
+        <input type="hidden" name="budget_range" value="Fra 458 000 €">
+        <input type="hidden" name="consent_text" value="Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hei Nueva Living, jeg vil gjerne ha informasjon om Altamira Hills Residences." data-base="Hei Nueva Living, jeg vil gjerne ha informasjon om Altamira Hills Residences.">
+        <h3>Dine opplysninger</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Fornavn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Etternavn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valgfritt, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Hvilken bolig?</label><select id="v2-f-unit" name="unit_interest"><option value="">Ikke sikker ennå, send meg alt</option><option value="150B">150B: 499 000 €</option><option value="154B">154B: 1 035 000 €</option><option value="164B">164B: 1 065 000 €</option><option value="160B">160B: 509 000 €</option><option value="162A">162A: 759 000 €</option><option value="163B">163B: 829 000 €</option><option value="410A">410A: 636 000 €</option><option value="410B">410B: 527 000 €</option><option value="412B">412B: 721 000 €</option><option value="413A">413A: 585 000 €</option><option value="414B">414B: 892 000 €</option><option value="420A">420A: 613 000 €</option><option value="422A">422A: 634 000 €</option><option value="424B">424B: 867 000 €</option><option value="430A">430A: 563 000 €</option><option value="430B">430B: 458 000 €</option><option value="431D">431D: 591 000 €</option><option value="434A">434A: 861 000 €</option></select></div>
+        <fieldset class="field"><legend>Boligen blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Til å bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Et feriehjem</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hvordan skal vi svare?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefonsamtale</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min. <a href="no/privacy-policy.html">Personvernerklæring</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Gi meg også beskjed hvis tilgjengelighet eller priser endres i Altamira Hills.</label>
+        <button class="btn btn-primary btn-block" type="submit">Bestill en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Hvorfor dette prosjektet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvorfor dette prosjektet <em>betyr noe</em></h2>
-          <p class="project-lead">Store terrasser mot havet i åsene over Marbella, med fasilitetene til et feriested.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Hvorfor det passer</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvem det passer for</h3><p>Kjøpere som vil ha en romslig bolig med to eller tre soverom, en stor terrasse og utsikt mot havet, og et basseng, et spa og et treningsrom i fellesområdet.</p></article>
-              <article class="why-point reveal-soft"><h3>Hva som gjør det annerledes</h3><p>Store terrasser: 13 av de 18 boligene har 49,70 m² eller mer, og toppleilighetene opptil 121,90 m².</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor beliggenheten betyr noe</h3><p>Anlegget ligger i den øvre delen av Los Monteros, omtrent 10 minutter fra sentrum av Marbella og gamlebyen, i en åsside med utsikt mot havet.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor sjekke tilgjengelighet</h3><p>Prisene er hentet fra utbyggerens liste slik den sto på portalen i oktober 2026, og boligene er ikke bygget ennå. Nueva Living bekrefter pris og tilgjengelighet på nytt før enhver visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Dokumentene vi har, inneholder ikke utbyggerens vilkår, så vi bekrefter dem skriftlig før reservasjon.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservasjon og betalingsplan</h3><p>Dokumentene vi har, oppgir verken reservasjonsbeløp eller betalingsplan. Vi innhenter utbyggerens vilkår og sender dem skriftlig før reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Mva og skatter</h3><p>Prislisten sier ikke om mva er inkludert. Nueva Living bekrefter skatter og kjøpskostnader skriftlig.</p></article>
-              <article class="why-point reveal-soft"><h3>Garasje og bod</h3><p>Kvalitetsbeskrivelsen beskriver et felles garasjeanlegg med automatisk port og boder. Den sier ikke om en plass eller en bod er inkludert i prisen, så vi spør om det for boligen som velges.</p></article>
-              <article class="why-point reveal-soft"><h3>Beskrivelsen</h3><p>Kvalitetsbeskrivelsen sier at materialene kan byttes ut med likeverdige eller bedre, og at den ikke er kontraktsfestet. Vi ber om den endelige beskrivelsen.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Tillit og gjennomgang</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillatelse og arbeider</h3><p>Dokumentene vi har, sier ikke om byggetillatelsen er gitt eller om arbeidene har startet; plantegningene er tegnet etter grunnprosjektet. Vi ber om tillatelsen, statusen og startdatoen for arbeidene.</p></article>
-              <article class="why-point reveal-soft"><h3>Ferdigstillelsesdatoen</h3><p>Ingen av utbyggerens dokumenter oppgir en overleveringsdato, så vi ber om den kontraktfestede datoen før enhver reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvilke boliger, hvilken fase</h3><p>Utbyggerens side presenterer dette salget som fase 4. Plantegningene til 12 av de 18 boligene har overskriften fase IV, i byggene 1 til 3; de seks andre har referanser fra oppgangene 15 og 16, plantegningene deres nevner ingen fase, og bolig 150B har ingen plantegning. Brosjyren beskriver 39 boliger i tre bygg som første fase. Vi spør utbyggeren hvor mange boliger hver fase har.</p></article>
-              <article class="why-point reveal-soft"><h3>Arealene</h3><p>Prislisten oppgir ett bebygd areal og ett terrassetall for hver bolig, men ikke på samme grunnlag: for boligene i byggene 1 til 3 er det det bygde innvendige arealet, og for boligene i oppgangene 15 og 16 inkluderer det en andel av fellesarealene. Plantegningene oppgir et større tall med fellesarealene, og arealer etter dekret 218/2005. Vi bekrefter hvilket tall kontrakten bruker.</p></article>
-            </div>
-            <p class="why-group-note">Første gang du kjøper på prospekt i Spania? <a href="no/guide-how-buying-works.html">Slik foregår et nybyggkjøp</a> beskriver de sju trinnene, og <a href="no/guide-off-plan-vs-resale.html">nybygg sammenlignet med bruktbolig</a> tar for seg forskudd, garantier og tidsplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bildene kommer fra utbyggeren og kan være datagenererte">
+    <p>Bildene kommer fra utbyggeren og kan være datagenererte; endelig utforming, overflater, uteområder og utsikt kan avvike. Du har krav på en kopi av Documento Informativo Abreviado (DIA) for hver bolig på denne siden; Nueva Living sender den på forespørsel.</p>
+    <p>Tilgjengeligheten kontrollert hos selgeren oktober 2026; vi bekrefter den på nytt før enhver reservasjon.</p>
+    <p>Prisene, bebygde arealer og terrasser er hentet fra utbyggerens prisliste slik den sto på portalen i oktober 2026. Listen sier ikke om mva er inkludert. For bolig 422A oppgir den en terrasse på 1 004,00 m²; plantegningen til boligen viser terrasser på 10,6, 51,2 og 38,6 m², til sammen 100,4 m², så tabellen viser 100,40 m². Der listen og en plantegning avviker litt, følger tabellen listen: bolig 431D er 100,0 m² bygd ifølge listen og 100,1 ifølge plantegningen; bolig 434A er 117,00 m² med en terrasse på 33,00 m² ifølge listen og 117,1 og 33,1 ifølge plantegningen; bolig 420A har en terrasse og en hage på 61,00 og 46,00 m² ifølge listen og 61,1 og 46,1 ifølge plantegningen; og bolig 163B er 157,25 m² ifølge listen og 157,4 ifølge plantegningen. Plantegningene til boligene 154B og 164B viser tre bad der listen oppgir to. De innvendige arealene er de brukbare innvendige arealene fra plantegningene.</p>
+    <p>Informasjonen på denne siden er generell markedsføring og ikke juridisk, økonomisk eller investeringsrådgivning. Priser, tilgjengelighet og ferdigstillelsesdatoer kan endres uten varsel.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/altamira-hills-residences/media/terraced-blocks-aerial.jpg" alt="Datagenerert bilde av et flyfoto av hvite leilighetsbygg som trapper seg nedover en skråning, med store terrasser i hver etasje og havet bak" width="2000" height="1419" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Forhåndsvisning av arkitektur</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvite terrasser, <em>trappet mot havet</em></h2>
-          <p>Byggene er tegnet rundt lys og utsikt, i fire høyder, med en toppleilighet over to plan med solterrasse øverst. Brede terrasser løper langs hver etasje, og stuene åpner seg mot dem gjennom store skyvedører.</p>
-<p>Bildene viser hvite volumer med mørke detaljer, glassrekkverk og beplantede hager mellom byggene.</p>
-          <ul class="feature-list">
-            <li>Fasade — Et sammenhengende mørtelbelegg over varmeisolasjon av høy kvalitet, med isolert gipsplatekledning innvendig.</li>
-            <li>Terrasser — Store heller av sklisikker porselensfliser, med en sammenhengende flate mellom terrasse og stue.</li>
-            <li>Vinduer — Lakkerte aluminiumsrammer med kuldebro-brudd og lydisolerende dobbeltglass.</li>
-            <li>Konstruksjon — Fundament og bæresystem i armert betong.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Handlinger for prosjektforespørsel">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Altamira%20Hills%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altamira Hills Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Bestill visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/altamira-hills-residences/media/living-room-sea-view.jpg" alt="Datagenerert bilde av en stue og spisestue med en lang sofa, et spisebord, en peis og glassdører med utsikt mot havet" width="1200" height="614" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmatisk presentasjon</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>åssiden og området</em></h2>
-            <p>Boligene er ikke bygget ennå, så en visning handler om beliggenheten, plantegningene og framdriften i arbeidene.</p>
-            <div class="viewing-insights">
-              <div><span>På stedet</span><p>Gå over åssiden og se hvor terrassene vender mot havet.</p></div>
-              <div><span>Med bil</span><p>Vi kjører til sentrum av Marbella og stranden og tar tiden.</p></div>
-              <div><span>På papiret</span><p>Tillatelse, garanti og kontrakt, før noe undertegnes.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="no/index.html#private-viewing=1&amp;project=altamira-hills-residences">Filmatisk presentasjon</a>
-              <a class="btn project-btn ghost" href="no/property-altamira-hills-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Lukk">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Forrige bilde">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Neste bilde">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Eksteriør</button><button type="button" data-cat="Amenities">Fasiliteter</button><button type="button" data-cat="Interiors">Interiør</button><button type="button" data-cat="Bedrooms">Soverom</button><button type="button" data-cat="Bathrooms">Bad</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Solarium">Solarium</button><button type="button" data-cat="Location">Omgivelser</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/altamira-hills-residences/media/pool-sea-view.jpg" alt="Datagenerert bilde av et buet basseng med tredekk og en hvit bygning, med havet i horisonten" width="1200" height="717" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Terrasser, <em>basseng</em> og havet i sikte</h2>
-            <p>Livet her foregår ute og i fellesområdet, med havet foran terrassene.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Neste steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva som skjer <em>videre</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Be om prosjektdokumentasjonen</h3>
-            <p>Plantegningene til boligene du er interessert i, kvalitetsspesifikasjonen og prislisten.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Sammenlign alternativene</h3>
-            <p>Se det sammen med de andre prosjektene i Marbella vi har.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se området sammen med oss, og sammenlign plantegningene med byggestatus.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserver</h3>
-            <p>Vi bekrefter reservasjonsvilkårene og betalingsplanen skriftlig, deretter kommer den private kjøpekontrakten.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Ofte stilte spørsmål</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanlige <em>spørsmål fra kjøpere</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlendinger kjøpe eiendom i Spania?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er et NIE-nummer, og trenger jeg et?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg få boliglån i Spania som ikke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer reservasjons- og betalingsprosessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg leie ut boligen etter kjøp?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Trenger jeg advokat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange boliger er tilgjengelige?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Atten boliger er til salgs med pris: ti leiligheter med to soverom, tre leiligheter med tre soverom og fem toppleiligheter, fra 458 000 € til 1 065 000 €. Dokumentene oppgir ikke hvor mange boliger hele anlegget har.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er mva inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Prislisten sier det ikke. Vi bekrefter skatter og kjøpskostnader skriftlig før reservasjon.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er det parkering?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kvalitetsbeskrivelsen beskriver et felles garasjeanlegg og boder, men sier ikke om en plass er inkludert i prisen. Vi spør om det for boligen som velges.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Når blir det ferdig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ingen av utbyggerens dokumenter oppgir en overleveringsdato. Vi ber om den kontraktfestede datoen og byggestatusen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke fasiliteter har fellesområdet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et utendørs basseng, et oppvarmet innendørs basseng, et spa, et treningsrom med utendørs terrasse, en bassengbar og et coworking-område, i opparbeidede hager.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Forespørsel</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Spør om <em>Altamira Hills Residences</em></h2>
-          <p class="body-copy">Fortell oss hva du trenger, så kommer vi tilbake med gjeldende tilgjengelighet, plantegningene og prislisten.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grunnlegger av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grunnlegger, Nueva Living</p>
-            <h3 id="advisor-heading">Vil du heller snakke det gjennom?</h3>
-            <p class="advisor-copy">Velg det som passer, og send meg en melding på WhatsApp. Jeg tar utgangspunkt i det.</p>
-            <div class="advisor-group" role="group" aria-label="Jeg søker">
-              <span class="advisor-group-label">Jeg søker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">En bolig å bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">En feriebolig</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budsjett">
-              <span class="advisor-group-label">Budsjett</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Altamira%20Hills%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altamira Hills Residences" data-intent="speak with an advisor">Send meg en melding på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Altamira Hills Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Altamira Hills Residences">
-          <input type="hidden" name="preferred_area" value="Altos de los Monteros, Marbella">
-          <input type="hidden" name="property_type_interest" value="Leiligheter og toppleiligheter">
-          <input type="hidden" name="budget_range" value="Fra 458 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Fornavn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Fornavn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Etternavn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Etternavn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Melding</label>
-              <textarea id="f-msg" name="message">Hei Nueva Living, jeg vil gjerne ha informasjon om Altamira Hills Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jeg samtykker til å bli kontaktet og til at mine data lagres.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jeg vil også gjerne motta sporadiske prosjektoppdateringer fra Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Send forespørsel</button>
-            <span class="form-note">Vi svarer personlig, vanligvis samme dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"150B","title":"150B · Første etasje","sub":"2 sov. · 85 m²","price":499000,"plans":[]},{"id":"u1","ref":"154B","title":"154B · Oppgang 15, duplex-toppleilighet","sub":"3 sov. · 197 m²","price":1035000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg","label":""}]},{"id":"u2","ref":"164B","title":"164B · Oppgang 16, duplex-toppleilighet","sub":"3 sov. · 197 m²","price":1065000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-164b.jpg","label":""}]},{"id":"u3","ref":"160B","title":"160B · Oppgang 16, første etasje","sub":"2 sov. · 115 m²","price":509000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-160b.jpg","label":""}]},{"id":"u4","ref":"162A","title":"162A · Oppgang 16, tredje etasje","sub":"3 sov. · 154 m²","price":759000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-162a.jpg","label":""}]},{"id":"u5","ref":"163B","title":"163B · Oppgang 16, fjerde etasje","sub":"3 sov. · 157 m²","price":829000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-163b.jpg","label":""}]},{"id":"u6","ref":"410A","title":"410A · Hus 1, første etasje","sub":"2 sov. · 102 m²","price":636000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-410a.jpg","label":""}]},{"id":"u7","ref":"410B","title":"410B · Hus 1, første etasje","sub":"2 sov. · 82 m²","price":527000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-410b.jpg","label":""}]},{"id":"u8","ref":"412B","title":"412B · Hus 1, tredje etasje","sub":"3 sov. · 102 m²","price":721000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-412b.jpg","label":""}]},{"id":"u9","ref":"413A","title":"413A · Hus 1, fjerde etasje","sub":"2 sov. · 101 m²","price":585000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-413a.jpg","label":""}]},{"id":"u10","ref":"414B","title":"414B · Hus 1, duplex-toppleilighet","sub":"3 sov. · 118 m²","price":892000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-414b.jpg","label":""}]},{"id":"u11","ref":"420A","title":"420A · Hus 2, første etasje","sub":"2 sov. · 102 m²","price":613000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-420a.jpg","label":""}]},{"id":"u12","ref":"422A","title":"422A · Hus 2, tredje etasje","sub":"2 sov. · 102 m²","price":634000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-422a.jpg","label":""}]},{"id":"u13","ref":"424B","title":"424B · Hus 2, duplex-toppleilighet","sub":"3 sov. · 118 m²","price":867000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-424b.jpg","label":""}]},{"id":"u14","ref":"430A","title":"430A · Hus 3, første etasje","sub":"2 sov. · 98 m²","price":563000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-430a.jpg","label":""}]},{"id":"u15","ref":"430B","title":"430B · Hus 3, første etasje","sub":"2 sov. · 83 m²","price":458000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-430b.jpg","label":""}]},{"id":"u16","ref":"431D","title":"431D · Hus 3, andre etasje","sub":"2 sov. · 100 m²","price":591000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-431d.jpg","label":""}]},{"id":"u17","ref":"434A","title":"434A · Hus 3, toppleilighet","sub":"3 sov. · 117 m²","price":861000,"plans":[{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-434a.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.webp","alt":"Datagenerert bilde av en hvit, trappetrinnsformet leilighetsbygning med lange terrasser, sett over beplantede hager","caption":"Bygningen sett fra hagene","cat":"Exteriors"},{"src":"assets/liora/projects/altamira-hills-residences/media/terraced-blocks-aerial.webp","alt":"Datagenerert bilde av et flyfoto av hvite leilighetsbygg som trapper seg nedover en skråning, med store terrasser i hver etasje og havet bak","caption":"De terrassede byggene ovenfra","cat":"Exteriors"},{"src":"assets/liora/projects/altamira-hills-residences/media/aerial-day.webp","alt":"Datagenerert bilde av et flyfoto av to trappetrinnsformede leilighetsbygg på en skogkledd åsside over havet","caption":"De to byggene i dagslys","cat":"Exteriors"},{"src":"assets/liora/projects/altamira-hills-residences/media/aerial-dusk.webp","alt":"Datagenerert bilde av et flyfoto i skumringen av de trappetrinnsformede byggene, med opplyste terrasser, et basseng og skogkledde åser bak","caption":"Byggene i skumringen","cat":"Exteriors"},{"src":"assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk.webp","alt":"Datagenerert bilde av et buet utendørs basseng i skumringen, med fossekant, solsenger og et opplyst treningsrom ved siden av","caption":"Utendørsbassenget i skumringen","cat":"Amenities"},{"src":"assets/liora/projects/altamira-hills-residences/media/pool-sea-view.webp","alt":"Datagenerert bilde av et buet basseng med tredekk og en hvit bygning, med havet i horisonten","caption":"Bassenget og havet","cat":"Amenities"},{"src":"assets/liora/projects/altamira-hills-residences/media/pool-gardens.webp","alt":"Datagenerert bilde av utsikt over et basseng mot beplantede hager med blomstrende trær og en bygning bak","caption":"Bassenget og hagene","cat":"Amenities"},{"src":"assets/liora/projects/altamira-hills-residences/media/gym-terrace.webp","alt":"Datagenerert bilde av et treningsrom med store glassdører ut til en terrasse med yogamatter","caption":"Treningsrommet og terrassen","cat":"Amenities"},{"src":"assets/liora/projects/altamira-hills-residences/media/coworking-lounge.webp","alt":"Datagenerert bilde av et lounge- og arbeidsområde med lenestoler, høye bord og en vegg av trelameller","caption":"Coworking-området","cat":"Amenities"},{"src":"assets/liora/projects/altamira-hills-residences/media/living-room-sea-view.webp","alt":"Datagenerert bilde av en stue og spisestue med en lang sofa, et spisebord, en peis og glassdører med utsikt mot havet","caption":"Stue og spiseplass","cat":"Interiors"},{"src":"assets/liora/projects/altamira-hills-residences/media/living-room-terrace.webp","alt":"Datagenerert bilde av en stue med skyvedører i glass ut til en møblert terrasse og havet","caption":"Stuen og terrassen","cat":"Interiors"},{"src":"assets/liora/projects/altamira-hills-residences/media/kitchen.webp","alt":"Datagenerert bilde av et hvitt kjøkken med øy og barstoler, overskap i trelook og et vindu","caption":"Kjøkkenet","cat":"Interiors"},{"src":"assets/liora/projects/altamira-hills-residences/media/main-bedroom.webp","alt":"Datagenerert bilde av et soverom med dobbeltseng, walk-in-garderobe og en skyvedør i glass ut til en terrasse","caption":"Hovedsoverommet","cat":"Bedrooms"},{"src":"assets/liora/projects/altamira-hills-residences/media/second-bedroom.webp","alt":"Datagenerert bilde av et soverom med dobbeltseng, en hodegavlvegg av trelameller og en skyvedør i glass ut til en terrasse med utsikt mot havet","caption":"Et soverom nummer to","cat":"Bedrooms"},{"src":"assets/liora/projects/altamira-hills-residences/media/main-bathroom.webp","alt":"Datagenerert bilde av et bad med dobbel servant, hengende toalett og en gulvflush dusj med glassvegg","caption":"Hovedbadet","cat":"Bathrooms"},{"src":"assets/liora/projects/altamira-hills-residences/media/terrace-sea-view.webp","alt":"Datagenerert bilde av en terrasse med loungemøbler, et glassrekkverk og vid utsikt over kysten og havet","caption":"En terrasse mot havet","cat":"Terraces"},{"src":"assets/liora/projects/altamira-hills-residences/media/covered-terrace.webp","alt":"Datagenerert bilde av en stor overbygd terrasse med sofaer og lave bord, som åpner seg mot stuen","caption":"En overbygd terrasse","cat":"Terraces"},{"src":"assets/liora/projects/altamira-hills-residences/media/solarium.webp","alt":"Datagenerert bilde av en solterrasse med en sofa, et salongbord og utsikt mot havet","caption":"En solterrasse","cat":"Solarium"},{"src":"assets/liora/projects/altamira-hills-residences/media/hillside-coast-view.webp","alt":"Fotografi av en skogkledd åsside med utsikt over kysten, med en vei og havet i det fjerne","caption":"Åssiden over kysten","cat":"Location"},{"src":"assets/liora/projects/altamira-hills-residences/media/hillside-clearing.webp","alt":"Fotografi av en ryddet del av åssiden med kratt og oliventrær, og havet i horisonten","caption":"En ryddet del av åssiden","cat":"Location"},{"src":"assets/liora/projects/altamira-hills-residences/media/site-plan.webp","alt":"Masterplan over byggene, bassengene og fellesarealene, med spanske betegnelser","caption":"Masterplan over byggene og fellesarealene","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Spør om {ref}","plusVat":"Ekskl. mva","totalPrice":"Totalpris","vatOnStages":"Pluss mva på hver delbetaling","onRequest":"På forespørsel","imageOf":"{i} av {n}","floorPlan":"Plantegning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Altamira Hills Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Lukk">Lukk</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Forrige bilde">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Neste bilde">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/stepped-facade-gardens-960.webp","alt":"Datagenerert bilde av en hvit, trappetrinnsformet leilighetsbygning med lange terrasser, sett over beplantede hager","width":2000,"height":1157,"caption":"Bygningen sett fra hagene","category":"Eksteriør"},{"src":"assets/liora/projects/altamira-hills-residences/media/terraced-blocks-aerial.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/terraced-blocks-aerial-960.webp","alt":"Datagenerert bilde av et flyfoto av hvite leilighetsbygg som trapper seg nedover en skråning, med store terrasser i hver etasje og havet bak","width":2000,"height":1419,"caption":"De terrassede byggene ovenfra","category":"Eksteriør"},{"src":"assets/liora/projects/altamira-hills-residences/media/aerial-day.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/aerial-day-960.webp","alt":"Datagenerert bilde av et flyfoto av to trappetrinnsformede leilighetsbygg på en skogkledd åsside over havet","width":1200,"height":655,"caption":"De to byggene i dagslys","category":"Eksteriør"},{"src":"assets/liora/projects/altamira-hills-residences/media/aerial-dusk.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/aerial-dusk-960.webp","alt":"Datagenerert bilde av et flyfoto i skumringen av de trappetrinnsformede byggene, med opplyste terrasser, et basseng og skogkledde åser bak","width":1200,"height":753,"caption":"Byggene i skumringen","category":"Eksteriør"},{"src":"assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/pool-terrace-dusk-960.webp","alt":"Datagenerert bilde av et buet utendørs basseng i skumringen, med fossekant, solsenger og et opplyst treningsrom ved siden av","width":1200,"height":667,"caption":"Utendørsbassenget i skumringen","category":"Fasiliteter"},{"src":"assets/liora/projects/altamira-hills-residences/media/pool-sea-view.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/pool-sea-view-960.webp","alt":"Datagenerert bilde av et buet basseng med tredekk og en hvit bygning, med havet i horisonten","width":1200,"height":717,"caption":"Bassenget og havet","category":"Fasiliteter"},{"src":"assets/liora/projects/altamira-hills-residences/media/pool-gardens.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/pool-gardens-960.webp","alt":"Datagenerert bilde av utsikt over et basseng mot beplantede hager med blomstrende trær og en bygning bak","width":2000,"height":1000,"caption":"Bassenget og hagene","category":"Fasiliteter"},{"src":"assets/liora/projects/altamira-hills-residences/media/gym-terrace.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/gym-terrace-960.webp","alt":"Datagenerert bilde av et treningsrom med store glassdører ut til en terrasse med yogamatter","width":1200,"height":635,"caption":"Treningsrommet og terrassen","category":"Fasiliteter"},{"src":"assets/liora/projects/altamira-hills-residences/media/coworking-lounge.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/coworking-lounge-960.webp","alt":"Datagenerert bilde av et lounge- og arbeidsområde med lenestoler, høye bord og en vegg av trelameller","width":1200,"height":600,"caption":"Coworking-området","category":"Fasiliteter"},{"src":"assets/liora/projects/altamira-hills-residences/media/living-room-sea-view.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/living-room-sea-view-960.webp","alt":"Datagenerert bilde av en stue og spisestue med en lang sofa, et spisebord, en peis og glassdører med utsikt mot havet","width":1200,"height":614,"caption":"Stue og spiseplass","category":"Interiør"},{"src":"assets/liora/projects/altamira-hills-residences/media/living-room-terrace.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/living-room-terrace-960.webp","alt":"Datagenerert bilde av en stue med skyvedører i glass ut til en møblert terrasse og havet","width":1200,"height":614,"caption":"Stuen og terrassen","category":"Interiør"},{"src":"assets/liora/projects/altamira-hills-residences/media/kitchen.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/kitchen-960.webp","alt":"Datagenerert bilde av et hvitt kjøkken med øy og barstoler, overskap i trelook og et vindu","width":1200,"height":754,"caption":"Kjøkkenet","category":"Interiør"},{"src":"assets/liora/projects/altamira-hills-residences/media/main-bedroom.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/main-bedroom-960.webp","alt":"Datagenerert bilde av et soverom med dobbeltseng, walk-in-garderobe og en skyvedør i glass ut til en terrasse","width":1200,"height":615,"caption":"Hovedsoverommet","category":"Soverom"},{"src":"assets/liora/projects/altamira-hills-residences/media/second-bedroom.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/second-bedroom-960.webp","alt":"Datagenerert bilde av et soverom med dobbeltseng, en hodegavlvegg av trelameller og en skyvedør i glass ut til en terrasse med utsikt mot havet","width":1200,"height":724,"caption":"Et soverom nummer to","category":"Soverom"},{"src":"assets/liora/projects/altamira-hills-residences/media/main-bathroom.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/main-bathroom-960.webp","alt":"Datagenerert bilde av et bad med dobbel servant, hengende toalett og en gulvflush dusj med glassvegg","width":1200,"height":774,"caption":"Hovedbadet","category":"Bad"},{"src":"assets/liora/projects/altamira-hills-residences/media/terrace-sea-view.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/terrace-sea-view-960.webp","alt":"Datagenerert bilde av en terrasse med loungemøbler, et glassrekkverk og vid utsikt over kysten og havet","width":2000,"height":1000,"caption":"En terrasse mot havet","category":"Terrasser"},{"src":"assets/liora/projects/altamira-hills-residences/media/covered-terrace.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/covered-terrace-960.webp","alt":"Datagenerert bilde av en stor overbygd terrasse med sofaer og lave bord, som åpner seg mot stuen","width":2000,"height":1000,"caption":"En overbygd terrasse","category":"Terrasser"},{"src":"assets/liora/projects/altamira-hills-residences/media/solarium.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/solarium-960.webp","alt":"Datagenerert bilde av en solterrasse med en sofa, et salongbord og utsikt mot havet","width":1200,"height":615,"caption":"En solterrasse","category":"Solarium"},{"src":"assets/liora/projects/altamira-hills-residences/media/hillside-coast-view.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/hillside-coast-view-960.webp","alt":"Fotografi av en skogkledd åsside med utsikt over kysten, med en vei og havet i det fjerne","width":1200,"height":506,"caption":"Åssiden over kysten","category":"Omgivelser"},{"src":"assets/liora/projects/altamira-hills-residences/media/hillside-clearing.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/hillside-clearing-960.webp","alt":"Fotografi av en ryddet del av åssiden med kratt og oliventrær, og havet i horisonten","width":1200,"height":461,"caption":"En ryddet del av åssiden","category":"Omgivelser"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-154b-960.webp","alt":"Plantegning av bolig 154B","width":2000,"height":1496,"caption":"Bolig 154B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-164b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-164b-960.webp","alt":"Plantegning av bolig 164B","width":2000,"height":1493,"caption":"Bolig 164B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-160b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-160b-960.webp","alt":"Plantegning av bolig 160B","width":1364,"height":2000,"caption":"Bolig 160B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-162a.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-162a-960.webp","alt":"Plantegning av bolig 162A","width":1332,"height":2000,"caption":"Bolig 162A","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-163b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-163b-960.webp","alt":"Plantegning av bolig 163B","width":1363,"height":2000,"caption":"Bolig 163B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-410a.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-410a-960.webp","alt":"Plantegning av bolig 410A","width":1419,"height":2000,"caption":"Bolig 410A","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-410b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-410b-960.webp","alt":"Plantegning av bolig 410B","width":1018,"height":2000,"caption":"Bolig 410B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-412b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-412b-960.webp","alt":"Plantegning av bolig 412B","width":1367,"height":2000,"caption":"Bolig 412B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-413a.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-413a-960.webp","alt":"Plantegning av bolig 413A","width":1362,"height":2000,"caption":"Bolig 413A","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-414b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-414b-960.webp","alt":"Plantegning av bolig 414B","width":2000,"height":1085,"caption":"Bolig 414B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-420a.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-420a-960.webp","alt":"Plantegning av bolig 420A","width":1106,"height":2000,"caption":"Bolig 420A","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-422a.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-422a-960.webp","alt":"Plantegning av bolig 422A","width":1358,"height":2000,"caption":"Bolig 422A","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-424b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-424b-960.webp","alt":"Plantegning av bolig 424B","width":2000,"height":1051,"caption":"Bolig 424B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-430a.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-430a-960.webp","alt":"Plantegning av bolig 430A","width":1635,"height":2000,"caption":"Bolig 430A","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-430b.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-430b-960.webp","alt":"Plantegning av bolig 430B","width":1349,"height":2000,"caption":"Bolig 430B","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-431d.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-431d-960.webp","alt":"Plantegning av bolig 431D","width":1611,"height":2000,"caption":"Bolig 431D","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/floorplans/home-434a.jpg","webp":"assets/liora/projects/altamira-hills-residences/floorplans/home-434a-960.webp","alt":"Plantegning av bolig 434A","width":1641,"height":2000,"caption":"Bolig 434A","category":"Plantegninger"},{"src":"assets/liora/projects/altamira-hills-residences/media/site-plan.jpg","webp":"assets/liora/projects/altamira-hills-residences/media/site-plan-960.webp","alt":"Masterplan over byggene, bassengene og fellesarealene, med spanske betegnelser","width":2000,"height":1229,"caption":"Masterplan over byggene og fellesarealene","category":"Omgivelser"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Handlinger for prosjektforespørsel">
-    <a href="no/property-altamira-hills-residences.html#enquire" data-prefill>Spør om en bolig</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Altamira%20Hills%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altamira Hills Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

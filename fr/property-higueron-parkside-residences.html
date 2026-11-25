@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien de logements sont disponibles ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Higueron Parkside Residences"
   data-project-message="Bonjour Nueva Living, je souhaiterais des informations sur Higueron Parkside Residences."
@@ -443,715 +380,412 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Higueron Parkside Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-higueron-parkside-residences.html#top">Higueron Parkside Residences<span>À partir de 499 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-higueron-parkside-residences.html#overview">Aperçu</a><a href="fr/property-higueron-parkside-residences.html#availability">Prix</a><a href="fr/property-higueron-parkside-residences.html#specs">Finitions</a><a href="fr/property-higueron-parkside-residences.html#gallery">Galerie</a><a href="fr/property-higueron-parkside-residences.html#location">Emplacement</a><a href="fr/property-higueron-parkside-residences.html#onsite">Sur place</a><a href="fr/property-higueron-parkside-residences.html#view">Notre avis</a><a href="fr/property-higueron-parkside-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Higueron Parkside Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/infinity-pool-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/infinity-pool-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/infinity-pool.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/higueron-parkside-residences/media/infinity-pool.jpg" alt="Vue de synthèse de la piscine à débordement et de la mer, avec un immeuble à balcons à gauche" width="1920" height="1022" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/higueron-parkside-residences/media/infinity-pool.jpg" alt="Vue de synthèse de la piscine à débordement et de la mer, avec un immeuble à balcons à gauche" width="1920" height="1022" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">38 logements disponibles sur 214</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Higueron <em>Parkside Residences</em></span>
-            <span class="hero-title-context">Appartements et logements du dernier étage · El Higuerón, Fuengirola</span>
-          </h1>
-          <p class="hero-positioning">38 appartements, logements avec jardin et logements du dernier étage prêts à habiter, de deux et trois chambres, à El Higuerón, Fuengirola, dans un ensemble de 214 logements avec piscines, jardins paysagers et aire de jeux pour enfants. À partir de 499 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-higueron-parkside-residences.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=higueron-parkside-residences">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-higueron-parkside-residences.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>El Higuerón, Fuengirola</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 499 000 €</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Appartements et logements du dernier étage</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Prête à habiter</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-higueron-parkside-residences.html#media">Galerie</a>
-        <a href="fr/property-higueron-parkside-residences.html#location">Emplacement</a>
-        <a href="fr/property-higueron-parkside-residences.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-higueron-parkside-residences.html#overview">Aperçu</a>
-          <a href="fr/property-higueron-parkside-residences.html#residences">Résidences</a>
-          <a href="fr/property-higueron-parkside-residences.html#quality-specifications">Finitions</a>
-          <a href="fr/property-higueron-parkside-residences.html#calculator">Financement</a>
-          <a href="fr/property-higueron-parkside-residences.html#amenities">Équipements</a>
-          <a href="fr/property-higueron-parkside-residences.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-higueron-parkside-residences.html#architecture">Architecture</a>
-          <a href="fr/property-higueron-parkside-residences.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-higueron-parkside-residences.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-higueron-parkside-residences.html#faq">FAQ</a>
-          <a href="fr/property-higueron-parkside-residences.html#enquire">Nous contacter</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>1-3 chambres</strong></div>
-          <div class="quick-fact"><span>Surface intérieure</span><strong>72,39 - 126,46 m²</strong></div>
-          <div class="quick-fact"><span>Terrasses</span><strong>28,08 - 96,76 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>38 logements disponibles sur 214</strong></div>
-          <div class="quick-fact"><span>Vie extérieure</span><strong>Une terrasse pour chaque logement</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Demander la documentation</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Un logement terminé, <em>et 38 au choix</em></h2>
-          <p class="project-lead">Higueron Parkside Residences fait partie d'un ensemble de 214 logements de deux et trois chambres à El Higuerón, à Fuengirola, répartis en 11 bâtiments de quatre niveaux. Les derniers étages sont des Sky Villas, les rez-de-chaussée des Garden Homes avec jardin privé, et chaque logement a une terrasse.</p>
-          <p class="project-lead">38 logements sont indiqués comme disponibles, de 499 000 € à 995 000 €, dans les cages 2 à 11. Le portail du promoteur les indique comme prêts à habiter, et le dossier mentionne plusieurs piscines extérieures, des jardins paysagers, des espaces de repos et une aire de jeux pour enfants.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Les logements <em>en détail</em></h2>
-          </div>
-          <p class="project-lead">Vues de synthèse de la piscine, des jardins et des terrasses, et intérieurs meublés des séjours, chambres et salles de bains.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Voir 1 images dans Équipements">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/infinity-pool-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/infinity-pool-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/infinity-pool.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/higueron-parkside-residences/media/infinity-pool.jpg" alt="Vue de synthèse de la piscine à débordement et de la mer, avec un immeuble à balcons à gauche" width="1920" height="1022" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Équipements</small>
-                <strong>La piscine à débordement</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 2 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn.webp 1873w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn.jpg" alt="Vue de synthèse d'un logement en rez-de-chaussée avec terrasse couverte et pelouse avec transats" width="1873" height="1054" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>Un logement avec jardin</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Voir 4 images dans Terrasses">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view.jpg" alt="Vue de synthèse d'une terrasse sur le toit avec des fauteuils et vue sur la côte" width="1920" height="1022" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasses</small>
-                <strong>Une terrasse sur le toit</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 4 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table.jpg" alt="Séjour meublé avec télévision, canapé et table à manger ovale près d'une porte coulissante" width="1920" height="1022" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Séjour et table à manger</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Voir 5 images dans Chambres">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door.jpg" alt="Chambre avec lit double, suspension tressée et porte coulissante donnant sur une terrasse avec vue sur la mer" width="1920" height="1022" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Chambres</small>
-                <strong>Chambre avec terrasse</strong>
-                <span class="project-media-card-cta">5 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Voir 1 images dans Salles de bains">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/bathroom-double-vanity-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/bathroom-double-vanity-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/bathroom-double-vanity.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/higueron-parkside-residences/media/bathroom-double-vanity.jpg" alt="Salle de bains avec double vasque sur un meuble en bois, WC suspendu et douche à l'italienne" width="1920" height="1022" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Salles de bains</small>
-                <strong>Salle de bains avec double vasque</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 17 images</button>
-          <p class="media-note">Toutes les vues sont de synthèse et illustratives, et le mobilier représenté ne fait pas partie de la vente. Le promoteur n'a pas fourni de plans pour ces logements.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">El Higuerón, <em>entre deux villes</em></h2>
-          <p class="project-lead">El Higuerón est un quartier résidentiel de Fuengirola, entre Fuengirola et Benalmádena. Le dossier indique que l'ensemble est orienté sud-est et sud-ouest, vers la mer et les espaces verts environnants.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-higueron-parkside-residences" data-locmap='{&quot;site&quot;:[36.5739127,-4.594887],&quot;sea&quot;:[36.54691,-4.594887],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.60003,-4.6329],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Mijas&quot;,&quot;sub&quot;:&quot;7,0 km · 9 min&quot;},{&quot;ll&quot;:[36.56872,-4.5924],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;940 m · 12 min à pied&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;4,9 km · 12 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Higueron Parkside Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Higueron Parkside Residences</h3>
-            <p class="locmap-place">El Higuerón, Fuengirola</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>940 m</bdi> <em><bdi>12 min à pied</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>4,9 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centre de Mijas Pueblo</span>
-              <span class="locmap-row-figure"><bdi>7,0 km</bdi> <em><bdi>9 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Málaga</span>
-              <span class="locmap-row-figure"><bdi>21 km</bdi> <em><bdi>22 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Trois types de logements, <em>une terrasse chacun</em></h2>
-          <p class="project-lead">17 logements du dernier étage, 12 appartements et 9 logements avec jardin sont disponibles. Le promoteur n'a pas fourni de plans ; le tableau donne donc la surface intérieure et le prix de chaque logement.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Logements du dernier étage</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Demander les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Appartements</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Demander les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Logements avec jardin</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Demander les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Descriptif des prestations</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce qui compose <em>les logements</em></h2>
-          <p class="project-lead">Le descriptif de la qualité du promoteur lui-même, résumé par partie du logement.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Sols et faïences<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Carreaux de grès cérame de 75 par 75 cm dans tout le logement.</li>
-              <li>Murs de salle de bains carrelés par endroits, avec cinq gammes de formats et de tons au choix.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatisation et énergie<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Un système aérothermique combiné pour la climatisation chaud-froid dans les chambres et le séjour, et pour l'eau chaude.</li>
-              <li>Chauffage électrique par le sol dans les salles de bains, avec en option un chauffage hydraulique par le sol dans le reste du logement.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cuisine<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Cuisines équipées avec meubles hauts et bas et plan de travail de type Silestone, intégrées au séjour.</li>
-              <li>Appareils : plaque vitrocéramique, four, micro-ondes, hotte, réfrigérateur, lave-vaisselle et lave-linge séchant, de classe énergétique A ou supérieure, avec option d'améliorer la cuisine.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Salles de bain<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>WC suspendus avec réservoir intégré et robinetterie de type Teka, receveurs de douche extra-plats et parois.</li>
-              <li>Double vasque dans la salle de bains principale et meuble suspendu avec tiroirs dans la seconde.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Menuiseries extérieures et intérieures<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Fenêtres en aluminium laqué de couleur à hautes performances thermiques, ouvertures coulissantes dans toutes les pièces sauf les salles de bains, et double vitrage thermique et acoustique.</li>
-              <li>Portes intérieures laquées de 2,10 m de haut, placards intégrés à l'intérieur habillé, et pré-installation de stores motorisés dans les chambres et les séjours.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Technologie<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Domotique avec détection de fumée et capteur d'inondation, évolutive avec commande depuis une application sur téléphone.</li>
-              <li>Prises TV dans le séjour, les chambres et la terrasse, avec interrupteurs et prises de type Jung.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Parking et espaces communs<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Deux places de parking et un cellier, selon la notice descriptive ; le dossier indique que le cellier est disponible dans la plupart des logements.</li>
-              <li>Pré-installation de recharge pour véhicules électriques, éclairage à détecteurs de présence dans les parties communes, piscines avec solarium et jardins paysagers avec espaces de repos.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Source : les notices descriptives du promoteur pour les phases 5A et 5B, qui sont identiques, et son dossier. Elles précisent que les finitions peuvent être remplacées par d'autres de qualité égale ou supérieure, et Nueva Living demande par écrit la version en vigueur avant toute réservation.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">38 logements sur 214 <em>disponibles actuellement</em></h2>
-          <p class="project-lead">17 logements du dernier étage, 12 appartements et 9 logements avec jardin, dans les cages 2 à 11. Les prix sont ceux des listes de prix du promoteur des 2 et 3 septembre 2026. Nueva Living reconfirme le statut et le prix avant toute visite ou réservation.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/higueron-parkside-residences/media/living-dining-and-kitchen.jpg" alt="Séjour, salle à manger et cuisine ouverts avec meubles blancs et portes coulissantes donnant sur une terrasse" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>17 photos</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>38</strong></div>
-            <div><span>Prix à partir de</span><strong>499 000 €</strong></div>
-            <div><span>Fourchette de prix</span><strong>499 000 € - 995 000 €</strong></div>
-            <div><span>Vérifié</span><strong>octobre 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 38 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrer les biens disponibles"
-              data-availability-filters
-              data-count-template="Affichage de {shown} sur {total}">
-              
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Prix</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Toutes</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-500000" aria-pressed="false">Moins de €500k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="500000-800000" aria-pressed="false">€500k – €800k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="800000-" aria-pressed="false">€800k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Effacer les filtres</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Aucun bien ne correspond à ces filtres.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Logements disponibles à Higueron Parkside Residences</caption>
-                <thead><tr><th scope="col">Référence</th><th scope="col">Étage</th><th scope="col">Chambres</th><th scope="col">Surface</th><th scope="col">Prix</th><th scope="col">Statut</th></tr></thead>
-                <tbody>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>24</strong></td>
-                <td data-label="Étage">Cage 2, rez-de-chaussée</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="899000">
-                <td data-label="Référence"><strong>51</strong></td>
-                <td data-label="Étage">Cage 3, troisième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">124,24 m² intérieur</td>
-                <td data-label="Prix"><strong>899 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="795000">
-                <td data-label="Référence"><strong>68</strong></td>
-                <td data-label="Étage">Cage 4, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">95,19 m² intérieur</td>
-                <td data-label="Prix"><strong>795 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="749000">
-                <td data-label="Référence"><strong>69</strong></td>
-                <td data-label="Étage">Cage 4, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">95,07 m² intérieur</td>
-                <td data-label="Prix"><strong>749 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="750000">
-                <td data-label="Référence"><strong>70</strong></td>
-                <td data-label="Étage">Cage 4, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">95,51 m² intérieur</td>
-                <td data-label="Prix"><strong>750 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="595000">
-                <td data-label="Référence"><strong>89</strong></td>
-                <td data-label="Étage">Cage 5, troisième étage</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface">72,39 m² intérieur</td>
-                <td data-label="Prix"><strong>595 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="798000">
-                <td data-label="Référence"><strong>90</strong></td>
-                <td data-label="Étage">Cage 5, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">90,66 m² intérieur</td>
-                <td data-label="Prix"><strong>798 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="740000">
-                <td data-label="Référence"><strong>91</strong></td>
-                <td data-label="Étage">Cage 5, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">90,66 m² intérieur</td>
-                <td data-label="Prix"><strong>740 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="825000">
-                <td data-label="Référence"><strong>92</strong></td>
-                <td data-label="Étage">Cage 5, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">95,19 m² intérieur</td>
-                <td data-label="Prix"><strong>825 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>101</strong></td>
-                <td data-label="Étage">Cage 6-A, deuxième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,89 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="995000">
-                <td data-label="Référence"><strong>105</strong></td>
-                <td data-label="Étage">Cage 6-A, troisième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">106,90 m² intérieur</td>
-                <td data-label="Prix"><strong>995 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="695000">
-                <td data-label="Référence"><strong>106</strong></td>
-                <td data-label="Étage">Cage 6-A, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">85,27 m² intérieur</td>
-                <td data-label="Prix"><strong>695 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>111</strong></td>
-                <td data-label="Étage">Cage 6-B, premier étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">81,12 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="500000">
-                <td data-label="Référence"><strong>115</strong></td>
-                <td data-label="Étage">Cage 6-B, deuxième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,89 m² intérieur</td>
-                <td data-label="Prix"><strong>500 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="995000">
-                <td data-label="Référence"><strong>119</strong></td>
-                <td data-label="Étage">Cage 6-B, troisième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">121,35 m² intérieur</td>
-                <td data-label="Prix"><strong>995 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>123</strong></td>
-                <td data-label="Étage">Cage 7-A, rez-de-chaussée</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>124</strong></td>
-                <td data-label="Étage">Cage 7-A, rez-de-chaussée</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">81,31 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>140</strong></td>
-                <td data-label="Étage">Cage 7-B, premier étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="500000">
-                <td data-label="Référence"><strong>145</strong></td>
-                <td data-label="Étage">Cage 7-B, deuxième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>500 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="995000">
-                <td data-label="Référence"><strong>178</strong></td>
-                <td data-label="Étage">Cage 9, troisième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">126,46 m² intérieur</td>
-                <td data-label="Prix"><strong>995 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="599000">
-                <td data-label="Référence"><strong>180</strong></td>
-                <td data-label="Étage">Cage 10, rez-de-chaussée</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">100,94 m² intérieur</td>
-                <td data-label="Prix"><strong>599 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>181</strong></td>
-                <td data-label="Étage">Cage 10, rez-de-chaussée</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>182</strong></td>
-                <td data-label="Étage">Cage 10, rez-de-chaussée</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">79,05 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>183</strong></td>
-                <td data-label="Étage">Cage 10, rez-de-chaussée</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="599000">
-                <td data-label="Référence"><strong>184</strong></td>
-                <td data-label="Étage">Cage 10, rez-de-chaussée</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">99,94 m² intérieur</td>
-                <td data-label="Prix"><strong>599 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>186</strong></td>
-                <td data-label="Étage">Cage 10, premier étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>188</strong></td>
-                <td data-label="Étage">Cage 10, premier étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="549000">
-                <td data-label="Référence"><strong>190</strong></td>
-                <td data-label="Étage">Cage 10, deuxième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">100,94 m² intérieur</td>
-                <td data-label="Prix"><strong>549 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="825000">
-                <td data-label="Référence"><strong>195</strong></td>
-                <td data-label="Étage">Cage 10, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">95,19 m² intérieur</td>
-                <td data-label="Prix"><strong>825 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="799000">
-                <td data-label="Référence"><strong>196</strong></td>
-                <td data-label="Étage">Cage 10, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">95,07 m² intérieur</td>
-                <td data-label="Prix"><strong>799 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="798000">
-                <td data-label="Référence"><strong>197</strong></td>
-                <td data-label="Étage">Cage 10, troisième étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">95,91 m² intérieur</td>
-                <td data-label="Prix"><strong>798 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="550000">
-                <td data-label="Référence"><strong>201</strong></td>
-                <td data-label="Étage">Cage 11, rez-de-chaussée</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">80,43 m² intérieur</td>
-                <td data-label="Prix"><strong>550 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="549000">
-                <td data-label="Référence"><strong>203</strong></td>
-                <td data-label="Étage">Cage 11, premier étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">99,94 m² intérieur</td>
-                <td data-label="Prix"><strong>549 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="499000">
-                <td data-label="Référence"><strong>205</strong></td>
-                <td data-label="Étage">Cage 11, premier étage</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">79,05 m² intérieur</td>
-                <td data-label="Prix"><strong>499 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="549000">
-                <td data-label="Référence"><strong>207</strong></td>
-                <td data-label="Étage">Cage 11, premier étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">100,94 m² intérieur</td>
-                <td data-label="Prix"><strong>549 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="549000">
-                <td data-label="Référence"><strong>208</strong></td>
-                <td data-label="Étage">Cage 11, deuxième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">99,94 m² intérieur</td>
-                <td data-label="Prix"><strong>549 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="995000">
-                <td data-label="Référence"><strong>213</strong></td>
-                <td data-label="Étage">Cage 11, troisième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">124,24 m² intérieur</td>
-                <td data-label="Prix"><strong>995 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-price="995000">
-                <td data-label="Référence"><strong>214</strong></td>
-                <td data-label="Étage">Cage 11, troisième étage</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">124,24 m² intérieur</td>
-                <td data-label="Prix"><strong>995 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="fr/property-higueron-parkside-residences.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
           
-          <p class="availability-source-note">Les prix, chambres et surfaces intérieures sont reportés des deux listes de prix du promoteur, la 5A du 3 septembre 2026 et la 5B du 2 septembre 2026, pour les logements indiqués comme disponibles dans les cages 2 à 11. Chaque logement a la surface intérieure que donnent les listes ; elles donnent aussi une surface extérieure, de 28,08 à 96,76 m², communiquée par logement sur demande. Les listes n'indiquent pas si la TVA et les frais d'achat sont inclus, et Nueva Living le confirme avant toute réservation.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Higueron%20Parkside%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Higueron Parkside Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Higueron Parkside</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">38 appartements, logements avec jardin et logements du dernier étage prêts à habiter, de deux et trois chambres, à El Higuerón, Fuengirola, dans un ensemble de 214 logements avec piscines, jardins paysagers et aire de jeux pour enfants.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 499 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>1 à 3</dd><dd class="sub"><span>Appartements et logements du dernier étage</span></dd></div><div><dt>Livraison</dt><dd>Clés en main</dd><dd class="sub">Bâtiment achevé ; permis de première occupation à confirmer</dd></div><div><dt>Biens restants</dt><dd>38 sur 214</dd><dd class="sub">Vérifié le octobre 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Higueron%20Parkside%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Higueron Parkside Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">Higueron Parkside Residences fait partie d'un ensemble de 214 logements de deux et trois chambres à El Higuerón, à Fuengirola, répartis en 11 bâtiments de quatre niveaux. Les derniers étages sont des Sky Villas, les rez-de-chaussée des Garden Homes avec jardin privé, et chaque logement a une terrasse.</p>
+    <p class="lede-2">38 logements sont indiqués comme disponibles, de 499 000 € à 995 000 €, dans les cages 2 à 11. Le portail du promoteur les indique comme prêts à habiter, et le dossier mentionne plusieurs piscines extérieures, des jardins paysagers, des espaces de repos et une aire de jeux pour enfants.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Des immeubles blancs, des terrasses et des jardins</span></summary><p>L'ensemble compte onze bâtiments de quatre niveaux, en enduit blanc, avec des jardins privés au rez-de-chaussée et une terrasse pour chaque logement.</p><p>Les garde-corps des terrasses associent serrurerie et verre, et les fenêtres sont en aluminium laqué de couleur, coulissantes dans toutes les pièces sauf les salles de bains.</p><ul><li>Façades: Enduit de mortier blanc à l'extérieur.</li><li>Terrasses: Une terrasse pour chaque logement, avec des garde-corps en serrurerie et verre.</li><li>Logements avec jardin: Logements en rez-de-chaussée avec jardin privé et terrasse couverte.</li><li>Sky Villas: Logements du dernier étage avec terrasse et vue sur la mer.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>499 000 € – 995 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>38 biens sur 214</span><small>Vérifié le octobre 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartements et logements du dernier étage</span></dd></div><div><dt>Surfaces</dt><dd><span>72 – 126 m²</span><small>Intérieur</small></dd></div><div><dt>Livraison</dt><dd><span>Clés en main</span></dd></div><div><dt>Permis</dt><dd><span>Bâtiment achevé</span><small>Permis de première occupation à confirmer</small></dd></div><div><dt>Acomptes</dt><dd><span>Sans objet</span><small>Bâtiment achevé</small></dd></div><div><dt>Stationnement</dt><dd><span>Deux places de stationnement</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">17 logements du dernier étage, 12 appartements et 9 logements avec jardin, dans les cages 2 à 11. Les prix sont ceux des listes de prix du promoteur des 2 et 3 septembre 2026. Nueva Living reconfirme le statut et le prix avant toute visite ou réservation. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    
+    <div class="ufilter" role="group" aria-label="Filtrer par chambres"><button type="button" aria-pressed="true" data-beds="">Toutes <span>38</span></button><button type="button" aria-pressed="false" data-beds="1">1 ch. <span>1</span></button><button type="button" aria-pressed="false" data-beds="2">2 ch. <span>25</span></button><button type="button" aria-pressed="false" data-beds="3">3 ch. <span>12</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="499000" data-size="80.43" data-ppm="6204" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">24</span><span class="u-loc">Cage 2, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 204 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="899000" data-size="124.24" data-ppm="7236" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">51</span><span class="u-loc">Cage 3, troisième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">124 m²</td>
+            <td data-label="Prix" class="u-price num">899 000 €</td>
+            <td data-label="Par m²" class="num">7 236 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="795000" data-size="95.19" data-ppm="8352" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">68</span><span class="u-loc">Cage 4, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">95 m²</td>
+            <td data-label="Prix" class="u-price num">795 000 €</td>
+            <td data-label="Par m²" class="num">8 352 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="749000" data-size="95.07" data-ppm="7878" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">69</span><span class="u-loc">Cage 4, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">95 m²</td>
+            <td data-label="Prix" class="u-price num">749 000 €</td>
+            <td data-label="Par m²" class="num">7 878 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="750000" data-size="95.51" data-ppm="7853" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">70</span><span class="u-loc">Cage 4, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">96 m²</td>
+            <td data-label="Prix" class="u-price num">750 000 €</td>
+            <td data-label="Par m²" class="num">7 853 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="1" data-price="595000" data-size="72.39" data-ppm="8219" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">89</span><span class="u-loc">Cage 5, troisième étage</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">72 m²</td>
+            <td data-label="Prix" class="u-price num">595 000 €</td>
+            <td data-label="Par m²" class="num">8 219 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="798000" data-size="90.66" data-ppm="8802" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">90</span><span class="u-loc">Cage 5, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">91 m²</td>
+            <td data-label="Prix" class="u-price num">798 000 €</td>
+            <td data-label="Par m²" class="num">8 802 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="740000" data-size="90.66" data-ppm="8162" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">91</span><span class="u-loc">Cage 5, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">91 m²</td>
+            <td data-label="Prix" class="u-price num">740 000 €</td>
+            <td data-label="Par m²" class="num">8 162 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u8" data-beds="2" data-price="825000" data-size="95.19" data-ppm="8667" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">92</span><span class="u-loc">Cage 5, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">95 m²</td>
+            <td data-label="Prix" class="u-price num">825 000 €</td>
+            <td data-label="Par m²" class="num">8 667 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="499000" data-size="80.89" data-ppm="6169" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">101</span><span class="u-loc">Cage 6-A, deuxième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">81 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 169 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="995000" data-size="106.9" data-ppm="9308" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">105</span><span class="u-loc">Cage 6-A, troisième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">107 m²</td>
+            <td data-label="Prix" class="u-price num">995 000 €</td>
+            <td data-label="Par m²" class="num">9 308 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u11" data-beds="2" data-price="695000" data-size="85.27" data-ppm="8151" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">106</span><span class="u-loc">Cage 6-A, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">85 m²</td>
+            <td data-label="Prix" class="u-price num">695 000 €</td>
+            <td data-label="Par m²" class="num">8 151 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u12" data-beds="2" data-price="499000" data-size="81.12" data-ppm="6151" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">111</span><span class="u-loc">Cage 6-B, premier étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">81 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 151 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u13" data-beds="2" data-price="500000" data-size="80.89" data-ppm="6181" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">115</span><span class="u-loc">Cage 6-B, deuxième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">81 m²</td>
+            <td data-label="Prix" class="u-price num">500 000 €</td>
+            <td data-label="Par m²" class="num">6 181 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u14" data-beds="3" data-price="995000" data-size="121.35" data-ppm="8199" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">119</span><span class="u-loc">Cage 6-B, troisième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">121 m²</td>
+            <td data-label="Prix" class="u-price num">995 000 €</td>
+            <td data-label="Par m²" class="num">8 199 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u15" data-beds="2" data-price="499000" data-size="80.43" data-ppm="6204" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">123</span><span class="u-loc">Cage 7-A, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 204 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u16" data-beds="2" data-price="499000" data-size="81.31" data-ppm="6137" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">124</span><span class="u-loc">Cage 7-A, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">81 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 137 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u17" data-beds="2" data-price="499000" data-size="80.43" data-ppm="6204" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">140</span><span class="u-loc">Cage 7-B, premier étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 204 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u18" data-beds="2" data-price="500000" data-size="80.43" data-ppm="6217" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">145</span><span class="u-loc">Cage 7-B, deuxième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">500 000 €</td>
+            <td data-label="Par m²" class="num">6 217 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u19" data-beds="3" data-price="995000" data-size="126.46" data-ppm="7868" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">178</span><span class="u-loc">Cage 9, troisième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">126 m²</td>
+            <td data-label="Prix" class="u-price num">995 000 €</td>
+            <td data-label="Par m²" class="num">7 868 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u20" data-beds="3" data-price="599000" data-size="100.94" data-ppm="5934" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">180</span><span class="u-loc">Cage 10, rez-de-chaussée</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">101 m²</td>
+            <td data-label="Prix" class="u-price num">599 000 €</td>
+            <td data-label="Par m²" class="num">5 934 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u21" data-beds="2" data-price="499000" data-size="80.43" data-ppm="6204" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">181</span><span class="u-loc">Cage 10, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 204 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u22" data-beds="2" data-price="499000" data-size="79.05" data-ppm="6312" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">182</span><span class="u-loc">Cage 10, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">79 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 312 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u23" data-beds="2" data-price="499000" data-size="80.43" data-ppm="6204" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">183</span><span class="u-loc">Cage 10, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 204 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u24" data-beds="3" data-price="599000" data-size="99.94" data-ppm="5994" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">184</span><span class="u-loc">Cage 10, rez-de-chaussée</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">100 m²</td>
+            <td data-label="Prix" class="u-price num">599 000 €</td>
+            <td data-label="Par m²" class="num">5 994 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u25" data-beds="2" data-price="499000" data-size="80.43" data-ppm="6204" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">186</span><span class="u-loc">Cage 10, premier étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 204 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u26" data-beds="2" data-price="499000" data-size="80.43" data-ppm="6204" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">188</span><span class="u-loc">Cage 10, premier étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 204 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u27" data-beds="3" data-price="549000" data-size="100.94" data-ppm="5439" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">190</span><span class="u-loc">Cage 10, deuxième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">101 m²</td>
+            <td data-label="Prix" class="u-price num">549 000 €</td>
+            <td data-label="Par m²" class="num">5 439 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u28" data-beds="2" data-price="825000" data-size="95.19" data-ppm="8667" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">195</span><span class="u-loc">Cage 10, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">95 m²</td>
+            <td data-label="Prix" class="u-price num">825 000 €</td>
+            <td data-label="Par m²" class="num">8 667 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u29" data-beds="2" data-price="799000" data-size="95.07" data-ppm="8404" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">196</span><span class="u-loc">Cage 10, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">95 m²</td>
+            <td data-label="Prix" class="u-price num">799 000 €</td>
+            <td data-label="Par m²" class="num">8 404 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u30" data-beds="2" data-price="798000" data-size="95.91" data-ppm="8320" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">197</span><span class="u-loc">Cage 10, troisième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">96 m²</td>
+            <td data-label="Prix" class="u-price num">798 000 €</td>
+            <td data-label="Par m²" class="num">8 320 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u31" data-beds="2" data-price="550000" data-size="80.43" data-ppm="6838" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">201</span><span class="u-loc">Cage 11, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">550 000 €</td>
+            <td data-label="Par m²" class="num">6 838 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u32" data-beds="3" data-price="549000" data-size="99.94" data-ppm="5493" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">203</span><span class="u-loc">Cage 11, premier étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">100 m²</td>
+            <td data-label="Prix" class="u-price num">549 000 €</td>
+            <td data-label="Par m²" class="num">5 493 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u33" data-beds="2" data-price="499000" data-size="79.05" data-ppm="6312" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">205</span><span class="u-loc">Cage 11, premier étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">79 m²</td>
+            <td data-label="Prix" class="u-price num">499 000 €</td>
+            <td data-label="Par m²" class="num">6 312 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u34" data-beds="3" data-price="549000" data-size="100.94" data-ppm="5439" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">207</span><span class="u-loc">Cage 11, premier étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">101 m²</td>
+            <td data-label="Prix" class="u-price num">549 000 €</td>
+            <td data-label="Par m²" class="num">5 439 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u35" data-beds="3" data-price="549000" data-size="99.94" data-ppm="5493" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">208</span><span class="u-loc">Cage 11, deuxième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">100 m²</td>
+            <td data-label="Prix" class="u-price num">549 000 €</td>
+            <td data-label="Par m²" class="num">5 493 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u36" data-beds="3" data-price="995000" data-size="124.24" data-ppm="8009" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">213</span><span class="u-loc">Cage 11, troisième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">124 m²</td>
+            <td data-label="Prix" class="u-price num">995 000 €</td>
+            <td data-label="Par m²" class="num">8 009 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u37" data-beds="3" data-price="995000" data-size="124.24" data-ppm="8009" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">214</span><span class="u-loc">Cage 11, troisième étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">124 m²</td>
+            <td data-label="Prix" class="u-price num">995 000 €</td>
+            <td data-label="Par m²" class="num">8 009 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>Trois types de logements, une terrasse chacun</span></summary><p>17 logements du dernier étage, 12 appartements et 9 logements avec jardin sont disponibles. Le promoteur n'a pas fourni de plans ; le tableau donne donc la surface intérieure et le prix de chaque logement.</p><div class="res-types"><div class="res-type"><h3>Logements du dernier étage</h3><ul><li>17 logements du dernier étage d'une, deux ou trois chambres, de 72,39 à 126,46 m² intérieurs et de 40,52 à 96,76 m² de terrasse.</li><li>Le dossier du promoteur les appelle Sky Villas et indique que chacune a une terrasse avec vue sur la mer ; il évoque un jacuzzi et un barbecue.</li><li>Les prix vont de 595 000 € à 995 000 €.</li></ul></div><div class="res-type"><h3>Appartements</h3><ul><li>12 appartements au premier et au deuxième étage de deux ou trois chambres, de 79,05 à 100,94 m² intérieurs et de 28,08 à 36,25 m² de terrasse.</li><li>Les prix vont de 499 000 € à 549 000 €.</li></ul></div><div class="res-type"><h3>Logements avec jardin</h3><ul><li>9 logements en rez-de-chaussée de deux ou trois chambres, de 79,05 à 100,94 m² intérieurs et de 33,56 à 59,04 m² de terrasse et de jardin.</li><li>Chacun s'ouvre sur un jardin privé par des portes coulissantes.</li><li>Les prix vont de 499 000 € à 599 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">L’échéancier du promoteur est disponible sur demande ; nous vous l’envoyons avec la grille de prix.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1211,395 +845,219 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine commune</h3>
-              <p class="amenity-note">Partagée par les résidents</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Finitions</h2>
+    <p class="sec-sub">Le descriptif de la qualité du promoteur lui-même, résumé par partie du logement.</p>
+    <div class="tabs" role="tablist" aria-label="Finitions"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Sols et faïences</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Climatisation et énergie</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Cuisine</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Salles de bain</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Menuiseries extérieures et intérieures</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Technologie</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Parking et espaces communs</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Carreaux de grès cérame de 75 par 75 cm dans tout le logement.</li><li>Murs de salle de bains carrelés par endroits, avec cinq gammes de formats et de tons au choix.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Un système aérothermique combiné pour la climatisation chaud-froid dans les chambres et le séjour, et pour l'eau chaude.</li><li>Chauffage électrique par le sol dans les salles de bains, avec en option un chauffage hydraulique par le sol dans le reste du logement.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Cuisines équipées avec meubles hauts et bas et plan de travail de type Silestone, intégrées au séjour.</li><li>Appareils : plaque vitrocéramique, four, micro-ondes, hotte, réfrigérateur, lave-vaisselle et lave-linge séchant, de classe énergétique A ou supérieure, avec option d'améliorer la cuisine.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>WC suspendus avec réservoir intégré et robinetterie de type Teka, receveurs de douche extra-plats et parois.</li><li>Double vasque dans la salle de bains principale et meuble suspendu avec tiroirs dans la seconde.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Fenêtres en aluminium laqué de couleur à hautes performances thermiques, ouvertures coulissantes dans toutes les pièces sauf les salles de bains, et double vitrage thermique et acoustique.</li><li>Portes intérieures laquées de 2,10 m de haut, placards intégrés à l'intérieur habillé, et pré-installation de stores motorisés dans les chambres et les séjours.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Domotique avec détection de fumée et capteur d'inondation, évolutive avec commande depuis une application sur téléphone.</li><li>Prises TV dans le séjour, les chambres et la terrasse, avec interrupteurs et prises de type Jung.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Deux places de parking et un cellier, selon la notice descriptive ; le dossier indique que le cellier est disponible dans la plupart des logements.</li><li>Pré-installation de recharge pour véhicules électriques, éclairage à détecteurs de présence dans les parties communes, piscines avec solarium et jardins paysagers avec espaces de repos.</li></ul>
+      
+    </div>
+    <p class="caption">Source : les notices descriptives du promoteur pour les phases 5A et 5B, qui sont identiques, et son dossier. Elles précisent que les finitions peuvent être remplacées par d'autres de qualité égale ou supérieure, et Nueva Living demande par écrit la version en vigueur avant toute réservation.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="1" aria-label="Un logement avec jardin"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn.jpg" alt="Vue de synthèse d'un logement en rez-de-chaussée avec terrasse couverte et pelouse avec transats" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Séjour et table à manger"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table.jpg" alt="Séjour meublé avec télévision, canapé et table à manger ovale près d'une porte coulissante" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Une terrasse sur le toit"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view.jpg" alt="Vue de synthèse d'une terrasse sur le toit avec des fauteuils et vue sur la côte" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="0" aria-label="La piscine à débordement"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/infinity-pool-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/infinity-pool-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/infinity-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/higueron-parkside-residences/media/infinity-pool.jpg" alt="Vue de synthèse de la piscine à débordement et de la mer, avec un immeuble à balcons à gauche" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="11" aria-label="Chambre avec terrasse"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door-640.webp 640w, assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door-960.webp 960w, assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door.jpg" alt="Chambre avec lit double, suspension tressée et porte coulissante donnant sur une terrasse avec vue sur la mer" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 17 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Amenities">Équipements (1)</button><button type="button" data-open-cat="Exteriors">Extérieurs (2)</button><button type="button" data-open-cat="Terraces">Terrasses (4)</button><button type="button" data-open-cat="Interiors">Intérieurs (4)</button><button type="button" data-open-cat="Bedrooms">Chambres (5)</button><button type="button" data-open-cat="Bathrooms">Salles de bains (1)</button></div>
+    
+    <p class="caption">Toutes les vues sont de synthèse et illustratives, et le mobilier représenté ne fait pas partie de la vente. Le promoteur n'a pas fourni de plans pour ces logements.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">El Higuerón est un quartier résidentiel de Fuengirola, entre Fuengirola et Benalmádena. Le dossier indique que l'ensemble est orienté sud-est et sud-ouest, vers la mer et les espaces verts environnants.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-higueron-parkside-residences" data-locmap='{&quot;site&quot;:[36.5739127,-4.594887],&quot;sea&quot;:[36.54691,-4.594887],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.60003,-4.6329],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Mijas&quot;,&quot;sub&quot;:&quot;7,0 km · 9 min&quot;},{&quot;ll&quot;:[36.56872,-4.5924],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;940 m · 12 min à pied&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;4,9 km · 12 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Higueron Parkside Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Higueron Parkside Residences</h3>
+            <p class="locmap-place">El Higuerón, Fuengirola</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>940 m</bdi> <em><bdi>12 min à pied</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine à débordement</h3>
-              <p class="amenity-note">Un bord qui disparaît</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>4,9 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Solarium</h3>
-              <p class="amenity-note">Terrasse de toit ouverte au soleil</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Mijas Pueblo</span>
+              <span class="locmap-row-figure"><bdi>7,0 km</bdi> <em><bdi>9 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"/><path d="M8.5 14a4.5 4.5 0 0 0 7 0"/><path d="M9 9.5h.01"/><path d="M15 9.5h.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Aire de jeux</h3>
-              <p class="amenity-note">Aménagé pour jouer</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Málaga</span>
+              <span class="locmap-row-figure"><bdi>21 km</bdi> <em><bdi>22 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardins collectifs paysagers</h3>
-              <p class="amenity-note">Espaces communs paysagers</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Vue sur la mer</h3>
-              <p class="amenity-note">Vers la Méditerranée</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Système aérothermique</h3>
-              <p class="amenity-note">Chauffage, climatisation et eau chaude</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Chauffage au sol</h3>
-              <p class="amenity-note">La chaleur par le sol</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Pré-installation pour borne de recharge</h3>
-              <p class="amenity-note">Une borne pour la voiture</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Deux places de stationnement</h3>
-              <p class="amenity-note">De la place pour deux voitures</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">Les espaces communs s'organisent autour de plusieurs piscines extérieures, d'un solarium et de jardins paysagers avec espaces de repos.</p>
+    <div class="life-panels"><div><h3>Les piscines</h3><p>Plusieurs piscines extérieures avec solarium, dont une piscine à débordement face à la mer.</p></div><div><h3>Les jardins</h3><p>Jardins communs paysagers, espaces de repos et une aire de jeux pour enfants.</p></div><div><h3>Parking</h3><p>Deux places de parking avec le logement et un cellier selon la notice descriptive.</p></div><div><h3>Recharge</h3><p>Pré-installation de recharge pour véhicules électriques.</p></div></div>
+    <ul class="amen-top"><li>Piscine commune</li><li>Piscine à débordement</li><li>Solarium</li><li>Aire de jeux</li><li>Jardins collectifs paysagers</li><li>Système aérothermique</li></ul>
+    <details class="amen-all"><summary>Tout afficher (10)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">2</span></h3><ul><li>Piscine commune</li><li>Piscine à débordement</li></ul></div><div><h3>Extérieurs<span class="count">4</span></h3><ul><li>Solarium</li><li>Aire de jeux</li><li>Jardins collectifs paysagers</li><li>Vue sur la mer</li></ul></div><div><h3>Au quotidien<span class="count">4</span></h3><ul><li>Système aérothermique</li><li>Chauffage au sol</li><li>Pré-installation pour borne de recharge</li><li>Deux places de stationnement</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>À qui s'adresse ce projet</b><span>Acheteurs qui veulent emménager bientôt, avec un choix d'étages et de tailles dans un même ensemble.</span></li><li><b>Ce qui le distingue</b><span>38 logements sont disponibles en même temps, à partir de 499 000 €, dans 11 cages, avec vue sur la mer depuis les étages supérieurs.</span></li><li><b>Pourquoi l'emplacement compte</b><span>El Higuerón se situe entre Fuengirola et Benalmádena, avec des vues au sud-est et au sud-ouest vers la mer et les espaces verts environnants.</span></li><li><b>Pourquoi vérifier la disponibilité</b><span>38 logements sur 214 sont indiqués aujourd'hui. Nueva Living reconfirme le prix et le statut auprès du promoteur avant toute visite.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Réservation et contrat</b><span>Nous confirmons auprès du promoteur l'acompte de réservation et l'échéancier de paiement, et nous les mettons par écrit avant votre réservation.</span></li><li><b>Logements prêts</b><span>Le portail du promoteur indique ces logements comme prêts à habiter. Nous demandons la licence de première occupation et le certificat énergétique du logement que vous choisissez.</span></li><li><b>Ce que le prix comprend</b><span>La liste de prix donne un seul prix par logement et n'indique pas si la TVA est incluse. La notice descriptive mentionne deux places de parking et un cellier, tandis que le dossier indique que le cellier est disponible dans la plupart des logements ; nous confirmons les deux par écrit.</span></li><li><b>Charges annuelles</b><span>La liste de prix n'indique aucune charge de copropriété. Nous demandons le budget avant votre réservation.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Le permis</b><span>Que la licence de première occupation a été délivrée pour la cage et le logement que vous choisissez.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>La liste de prix</b><span>Si le prix indiqué comprend la TVA, et quelles places de parking et quel cellier accompagnent chaque logement.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les chambres</b><span>Le dossier décrit des logements de deux et trois chambres, alors que la liste de prix comprend une Sky Villa d'une chambre. Nous confirmons la distribution du logement que vous choisissez.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Pas encore de plans</b><span>Le promoteur n'a pas fourni de plans ; nous demandons donc le plan du logement que vous choisissez avant votre réservation.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Demandez le dossier</h3><p>La liste de prix, la notice descriptive et le plan des logements que vous choisissez.</p></li><li><h3>Comparez les options</h3><p>Comparez-le avec les autres projets d'El Higuerón que nous suivons.</p></li><li><h3>Visite privée</h3><p>Visitez un logement terminé avec nous, ainsi que le trajet jusqu'à la plage.</p></li><li><h3>Réservez</h3><p>Dépôt de réservation, puis contrat d'achat, avec paiements garantis par une banque.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Plans<small>Pas encore fourni</small><small>En attente</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Échéancier<small>Pas encore fourni</small><small>En attente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Descriptif des prestations</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Higueron Parkside</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien de logements sont disponibles ?</summary><p>38 des 214 logements sont indiqués comme disponibles : 17 logements du dernier étage, 12 appartements et 9 logements avec jardin, de 499 000 € à 995 000 €.</p></details><details class="segment-faq-item"><summary>Les logements sont-ils prêts ?</summary><p>Le portail du promoteur les indique comme prêtes à habiter. Nous demandons la licence de première occupation et le certificat énergétique du logement que vous choisissez.</p></details><details class="segment-faq-item"><summary>Que comprend le logement ?</summary><p>Selon la notice descriptive, deux places de parking et un cellier ; le dossier indique que le cellier est disponible dans la plupart des logements. Chaque logement a une terrasse, et ceux du rez-de-chaussée un jardin privé.</p></details><details class="segment-faq-item"><summary>Y a-t-il un plan pour chaque logement ?</summary><p>Pas encore. Le promoteur n'a pas fourni de plans ; le tableau donne donc la surface intérieure de chaque logement, et nous demandons le plan du logement que vous choisissez.</p></details><details class="segment-faq-item"><summary>Que comprend la notice descriptive ?</summary><p>Une cuisine équipée avec appareils de classe énergétique A ou supérieure, un système aérothermique chaud et froid, des sols en grès cérame, un double vitrage, des placards intégrés et une pré-installation de recharge pour véhicules électriques.</p></details></div>
+    
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">499 000 €</p>
+      <p class="rail-note">Hors TVA. Il reste 38 biens sur 214 · Vérifié le octobre 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Higueron%20Parkside%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Higueron Parkside Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Higueron%20Parkside%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Higueron Parkside Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Sur place.</b> Parcourez l'ensemble et la cage que vous envisagez.</li><li><b>À pied.</b> Nous parcourons avec vous le trajet jusqu'à la plage.</li><li><b>Sur le papier.</b> Le permis, la garantie bancaire et l'échéancier de paiement, avant toute signature.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Higueron Parkside Residences">
+        <input type="hidden" id="f-project" name="project" value="Higueron Parkside Residences">
+        <input type="hidden" name="preferred_area" value="El Higuerón, Fuengirola">
+        <input type="hidden" name="property_type_interest" value="Appartements et logements du dernier étage">
+        <input type="hidden" name="budget_range" value="À partir de 499 000 €">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Bonjour Nueva Living, je souhaiterais des informations sur Higueron Parkside Residences." data-base="Bonjour Nueva Living, je souhaiterais des informations sur Higueron Parkside Residences.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="24">24: 499 000 €</option><option value="51">51: 899 000 €</option><option value="68">68: 795 000 €</option><option value="69">69: 749 000 €</option><option value="70">70: 750 000 €</option><option value="89">89: 595 000 €</option><option value="90">90: 798 000 €</option><option value="91">91: 740 000 €</option><option value="92">92: 825 000 €</option><option value="101">101: 499 000 €</option><option value="105">105: 995 000 €</option><option value="106">106: 695 000 €</option><option value="111">111: 499 000 €</option><option value="115">115: 500 000 €</option><option value="119">119: 995 000 €</option><option value="123">123: 499 000 €</option><option value="124">124: 499 000 €</option><option value="140">140: 499 000 €</option><option value="145">145: 500 000 €</option><option value="178">178: 995 000 €</option><option value="180">180: 599 000 €</option><option value="181">181: 499 000 €</option><option value="182">182: 499 000 €</option><option value="183">183: 499 000 €</option><option value="184">184: 599 000 €</option><option value="186">186: 499 000 €</option><option value="188">188: 499 000 €</option><option value="190">190: 549 000 €</option><option value="195">195: 825 000 €</option><option value="196">196: 799 000 €</option><option value="197">197: 798 000 €</option><option value="201">201: 550 000 €</option><option value="203">203: 549 000 €</option><option value="205">205: 499 000 €</option><option value="207">207: 549 000 €</option><option value="208">208: 549 000 €</option><option value="213">213: 995 000 €</option><option value="214">214: 995 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Higueron Parkside.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Un large choix de logements terminés à El Higuerón, chacun avec terrasse, deux places de parking et des piscines communes.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Acheteurs qui veulent emménager bientôt, avec un choix d'étages et de tailles dans un même ensemble.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce qui le distingue</h3><p>38 logements sont disponibles en même temps, à partir de 499 000 €, dans 11 cages, avec vue sur la mer depuis les étages supérieurs.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi l'emplacement compte</h3><p>El Higuerón se situe entre Fuengirola et Benalmádena, avec des vues au sud-est et au sud-ouest vers la mer et les espaces verts environnants.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi vérifier la disponibilité</h3><p>38 logements sur 214 sont indiqués aujourd'hui. Nueva Living reconfirme le prix et le statut auprès du promoteur avant toute visite.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Les conditions figurent dans le contrat de vente du promoteur. Nous confirmons par écrit les montants et les dates en vigueur avant que vous ne réserviez.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Réservation et contrat</h3><p>Nous confirmons auprès du promoteur l'acompte de réservation et l'échéancier de paiement, et nous les mettons par écrit avant votre réservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Logements prêts</h3><p>Le portail du promoteur indique ces logements comme prêts à habiter. Nous demandons la licence de première occupation et le certificat énergétique du logement que vous choisissez.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce que le prix comprend</h3><p>La liste de prix donne un seul prix par logement et n'indique pas si la TVA est incluse. La notice descriptive mentionne deux places de parking et un cellier, tandis que le dossier indique que le cellier est disponible dans la plupart des logements ; nous confirmons les deux par écrit.</p></article>
-              <article class="why-point reveal-soft"><h3>Charges annuelles</h3><p>La liste de prix n'indique aucune charge de copropriété. Nous demandons le budget avant votre réservation.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Le permis</h3><p>Que la licence de première occupation a été délivrée pour la cage et le logement que vous choisissez.</p></article>
-              <article class="why-point reveal-soft"><h3>La liste de prix</h3><p>Si le prix indiqué comprend la TVA, et quelles places de parking et quel cellier accompagnent chaque logement.</p></article>
-              <article class="why-point reveal-soft"><h3>Les chambres</h3><p>Le dossier décrit des logements de deux et trois chambres, alors que la liste de prix comprend une Sky Villa d'une chambre. Nous confirmons la distribution du logement que vous choisissez.</p></article>
-              <article class="why-point reveal-soft"><h3>Pas encore de plans</h3><p>Le promoteur n'a pas fourni de plans ; nous demandons donc le plan du logement que vous choisissez avant votre réservation.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le octobre 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Les prix, chambres et surfaces intérieures sont reportés des deux listes de prix du promoteur, la 5A du 3 septembre 2026 et la 5B du 2 septembre 2026, pour les logements indiqués comme disponibles dans les cages 2 à 11. Chaque logement a la surface intérieure que donnent les listes ; elles donnent aussi une surface extérieure, de 28,08 à 96,76 m², communiquée par logement sur demande. Les listes n'indiquent pas si la TVA et les frais d'achat sont inclus, et Nueva Living le confirme avant toute réservation.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn.jpg" alt="Vue de synthèse d'un logement en rez-de-chaussée avec terrasse couverte et pelouse avec transats" width="1873" height="1054" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Aperçu architectural</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Des immeubles blancs, <em>des terrasses et des jardins</em></h2>
-          <p>L'ensemble compte onze bâtiments de quatre niveaux, en enduit blanc, avec des jardins privés au rez-de-chaussée et une terrasse pour chaque logement.</p>
-<p>Les garde-corps des terrasses associent serrurerie et verre, et les fenêtres sont en aluminium laqué de couleur, coulissantes dans toutes les pièces sauf les salles de bains.</p>
-          <ul class="feature-list">
-            <li>Façades — Enduit de mortier blanc à l'extérieur.</li>
-            <li>Terrasses — Une terrasse pour chaque logement, avec des garde-corps en serrurerie et verre.</li>
-            <li>Logements avec jardin — Logements en rez-de-chaussée avec jardin privé et terrasse couverte.</li>
-            <li>Sky Villas — Logements du dernier étage avec terrasse et vue sur la mer.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Higueron%20Parkside%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Higueron Parkside Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/higueron-parkside-residences/media/garden-at-sunset.jpg" alt="Vue de synthèse de deux transats sur une pelouse au coucher du soleil, avec la côte en contrebas" width="1920" height="1022" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Le voir <em>sur place</em></h2>
-            <p>Les logements sont indiqués comme prêts ; une visite montre donc le bâtiment terminé et la vue depuis l'étage que vous envisagez.</p>
-            <div class="viewing-insights">
-              <div><span>Sur place</span><p>Parcourez l'ensemble et la cage que vous envisagez.</p></div>
-              <div><span>À pied</span><p>Nous parcourons avec vous le trajet jusqu'à la plage.</p></div>
-              <div><span>Sur le papier</span><p>Le permis, la garantie bancaire et l'échéancier de paiement, avant toute signature.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=higueron-parkside-residences">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Amenities">Équipements</button><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Terraces">Terrasses</button><button type="button" data-cat="Interiors">Intérieurs</button><button type="button" data-cat="Bedrooms">Chambres</button><button type="button" data-cat="Bathrooms">Salles de bains</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/higueron-parkside-residences/media/terrace-with-loungers.jpg" alt="Vue de synthèse d'une terrasse avec transats, table à manger et la mer au loin" width="1920" height="1022" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Piscines, jardins <em>et aire de jeux</em></h2>
-            <p>Les espaces communs s'organisent autour de plusieurs piscines extérieures, d'un solarium et de jardins paysagers avec espaces de repos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Demandez le dossier</h3>
-            <p>La liste de prix, la notice descriptive et le plan des logements que vous choisissez.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Comparez les options</h3>
-            <p>Comparez-le avec les autres projets d'El Higuerón que nous suivons.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visite privée</h3>
-            <p>Visitez un logement terminé avec nous, ainsi que le trajet jusqu'à la plage.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Réservez</h3>
-            <p>Dépôt de réservation, puis contrat d'achat, avec paiements garantis par une banque.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien de logements sont disponibles ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>38 des 214 logements sont indiqués comme disponibles : 17 logements du dernier étage, 12 appartements et 9 logements avec jardin, de 499 000 € à 995 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Les logements sont-ils prêts ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le portail du promoteur les indique comme prêtes à habiter. Nous demandons la licence de première occupation et le certificat énergétique du logement que vous choisissez.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Que comprend le logement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Selon la notice descriptive, deux places de parking et un cellier ; le dossier indique que le cellier est disponible dans la plupart des logements. Chaque logement a une terrasse, et ceux du rez-de-chaussée un jardin privé.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Y a-t-il un plan pour chaque logement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Pas encore. Le promoteur n'a pas fourni de plans ; le tableau donne donc la surface intérieure de chaque logement, et nous demandons le plan du logement que vous choisissez.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Que comprend la notice descriptive ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Une cuisine équipée avec appareils de classe énergétique A ou supérieure, un système aérothermique chaud et froid, des sols en grès cérame, un double vitrage, des placards intégrés et une pré-installation de recharge pour véhicules électriques.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Renseignez-vous sur <em>Higueron Parkside Residences</em></h2>
-          <p class="body-copy">Dites-nous ce dont vous avez besoin et nous reviendrons vers vous avec la disponibilité actuelle, la notice descriptive et le plan des logements que vous choisissez.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Higueron%20Parkside%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Higueron Parkside Residences" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Higueron Parkside Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Higueron Parkside Residences">
-          <input type="hidden" name="preferred_area" value="El Higuerón, Fuengirola">
-          <input type="hidden" name="property_type_interest" value="Appartements et logements du dernier étage">
-          <input type="hidden" name="budget_range" value="À partir de 499 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Bonjour Nueva Living, je souhaiterais des informations sur Higueron Parkside Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Nous répondons personnellement, généralement le jour même.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"24","title":"24 · Cage 2, rez-de-chaussée","sub":"2 ch. · 80 m²","price":499000,"plans":[]},{"id":"u1","ref":"51","title":"51 · Cage 3, troisième étage","sub":"3 ch. · 124 m²","price":899000,"plans":[]},{"id":"u2","ref":"68","title":"68 · Cage 4, troisième étage","sub":"2 ch. · 95 m²","price":795000,"plans":[]},{"id":"u3","ref":"69","title":"69 · Cage 4, troisième étage","sub":"2 ch. · 95 m²","price":749000,"plans":[]},{"id":"u4","ref":"70","title":"70 · Cage 4, troisième étage","sub":"2 ch. · 96 m²","price":750000,"plans":[]},{"id":"u5","ref":"89","title":"89 · Cage 5, troisième étage","sub":"1 ch. · 72 m²","price":595000,"plans":[]},{"id":"u6","ref":"90","title":"90 · Cage 5, troisième étage","sub":"2 ch. · 91 m²","price":798000,"plans":[]},{"id":"u7","ref":"91","title":"91 · Cage 5, troisième étage","sub":"2 ch. · 91 m²","price":740000,"plans":[]},{"id":"u8","ref":"92","title":"92 · Cage 5, troisième étage","sub":"2 ch. · 95 m²","price":825000,"plans":[]},{"id":"u9","ref":"101","title":"101 · Cage 6-A, deuxième étage","sub":"2 ch. · 81 m²","price":499000,"plans":[]},{"id":"u10","ref":"105","title":"105 · Cage 6-A, troisième étage","sub":"3 ch. · 107 m²","price":995000,"plans":[]},{"id":"u11","ref":"106","title":"106 · Cage 6-A, troisième étage","sub":"2 ch. · 85 m²","price":695000,"plans":[]},{"id":"u12","ref":"111","title":"111 · Cage 6-B, premier étage","sub":"2 ch. · 81 m²","price":499000,"plans":[]},{"id":"u13","ref":"115","title":"115 · Cage 6-B, deuxième étage","sub":"2 ch. · 81 m²","price":500000,"plans":[]},{"id":"u14","ref":"119","title":"119 · Cage 6-B, troisième étage","sub":"3 ch. · 121 m²","price":995000,"plans":[]},{"id":"u15","ref":"123","title":"123 · Cage 7-A, rez-de-chaussée","sub":"2 ch. · 80 m²","price":499000,"plans":[]},{"id":"u16","ref":"124","title":"124 · Cage 7-A, rez-de-chaussée","sub":"2 ch. · 81 m²","price":499000,"plans":[]},{"id":"u17","ref":"140","title":"140 · Cage 7-B, premier étage","sub":"2 ch. · 80 m²","price":499000,"plans":[]},{"id":"u18","ref":"145","title":"145 · Cage 7-B, deuxième étage","sub":"2 ch. · 80 m²","price":500000,"plans":[]},{"id":"u19","ref":"178","title":"178 · Cage 9, troisième étage","sub":"3 ch. · 126 m²","price":995000,"plans":[]},{"id":"u20","ref":"180","title":"180 · Cage 10, rez-de-chaussée","sub":"3 ch. · 101 m²","price":599000,"plans":[]},{"id":"u21","ref":"181","title":"181 · Cage 10, rez-de-chaussée","sub":"2 ch. · 80 m²","price":499000,"plans":[]},{"id":"u22","ref":"182","title":"182 · Cage 10, rez-de-chaussée","sub":"2 ch. · 79 m²","price":499000,"plans":[]},{"id":"u23","ref":"183","title":"183 · Cage 10, rez-de-chaussée","sub":"2 ch. · 80 m²","price":499000,"plans":[]},{"id":"u24","ref":"184","title":"184 · Cage 10, rez-de-chaussée","sub":"3 ch. · 100 m²","price":599000,"plans":[]},{"id":"u25","ref":"186","title":"186 · Cage 10, premier étage","sub":"2 ch. · 80 m²","price":499000,"plans":[]},{"id":"u26","ref":"188","title":"188 · Cage 10, premier étage","sub":"2 ch. · 80 m²","price":499000,"plans":[]},{"id":"u27","ref":"190","title":"190 · Cage 10, deuxième étage","sub":"3 ch. · 101 m²","price":549000,"plans":[]},{"id":"u28","ref":"195","title":"195 · Cage 10, troisième étage","sub":"2 ch. · 95 m²","price":825000,"plans":[]},{"id":"u29","ref":"196","title":"196 · Cage 10, troisième étage","sub":"2 ch. · 95 m²","price":799000,"plans":[]},{"id":"u30","ref":"197","title":"197 · Cage 10, troisième étage","sub":"2 ch. · 96 m²","price":798000,"plans":[]},{"id":"u31","ref":"201","title":"201 · Cage 11, rez-de-chaussée","sub":"2 ch. · 80 m²","price":550000,"plans":[]},{"id":"u32","ref":"203","title":"203 · Cage 11, premier étage","sub":"3 ch. · 100 m²","price":549000,"plans":[]},{"id":"u33","ref":"205","title":"205 · Cage 11, premier étage","sub":"2 ch. · 79 m²","price":499000,"plans":[]},{"id":"u34","ref":"207","title":"207 · Cage 11, premier étage","sub":"3 ch. · 101 m²","price":549000,"plans":[]},{"id":"u35","ref":"208","title":"208 · Cage 11, deuxième étage","sub":"3 ch. · 100 m²","price":549000,"plans":[]},{"id":"u36","ref":"213","title":"213 · Cage 11, troisième étage","sub":"3 ch. · 124 m²","price":995000,"plans":[]},{"id":"u37","ref":"214","title":"214 · Cage 11, troisième étage","sub":"3 ch. · 124 m²","price":995000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/higueron-parkside-residences/media/infinity-pool.webp","alt":"Vue de synthèse de la piscine à débordement et de la mer, avec un immeuble à balcons à gauche","caption":"La piscine à débordement","cat":"Amenities"},{"src":"assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn.webp","alt":"Vue de synthèse d\u0027un logement en rez-de-chaussée avec terrasse couverte et pelouse avec transats","caption":"Un logement avec jardin","cat":"Exteriors"},{"src":"assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view.webp","alt":"Vue de synthèse d\u0027une terrasse sur le toit avec des fauteuils et vue sur la côte","caption":"Une terrasse sur le toit","cat":"Terraces"},{"src":"assets/liora/projects/higueron-parkside-residences/media/terrace-dining-sea-view.webp","alt":"Vue de synthèse d\u0027une terrasse avec table à manger et vue sur la côte et la mer","caption":"Une terrasse avec vue sur la mer","cat":"Terraces"},{"src":"assets/liora/projects/higueron-parkside-residences/media/terrace-with-loungers.webp","alt":"Vue de synthèse d\u0027une terrasse avec transats, table à manger et la mer au loin","caption":"Une terrasse avec transats","cat":"Terraces"},{"src":"assets/liora/projects/higueron-parkside-residences/media/terrace-hot-tub.webp","alt":"Vue de synthèse d\u0027une terrasse sur le toit avec jacuzzi, table à manger et la mer au loin","caption":"Une terrasse avec jacuzzi","cat":"Terraces"},{"src":"assets/liora/projects/higueron-parkside-residences/media/garden-at-sunset.webp","alt":"Vue de synthèse de deux transats sur une pelouse au coucher du soleil, avec la côte en contrebas","caption":"Le jardin au coucher du soleil","cat":"Exteriors"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table.webp","alt":"Séjour meublé avec télévision, canapé et table à manger ovale près d\u0027une porte coulissante","caption":"Séjour et table à manger","cat":"Interiors"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-room-sea-view.webp","alt":"Séjour meublé avec un mur de télévision et des portes coulissantes donnant sur une terrasse avec palmiers et vue sur la mer","caption":"Séjour avec vue sur la mer","cat":"Interiors"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-room-and-dining-table.webp","alt":"Séjour meublé avec un miroir rond, une table à manger en verre et des portes coulissantes donnant sur le jardin","caption":"Séjour et table à manger, deuxième vue","cat":"Interiors"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-dining-and-kitchen.webp","alt":"Séjour, salle à manger et cuisine ouverts avec meubles blancs et portes coulissantes donnant sur une terrasse","caption":"Séjour, salle à manger et cuisine","cat":"Interiors"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door.webp","alt":"Chambre avec lit double, suspension tressée et porte coulissante donnant sur une terrasse avec vue sur la mer","caption":"Chambre avec terrasse","cat":"Bedrooms"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-wallpaper.webp","alt":"Chambre avec lit double, un mur de papier peint à motifs et une fenêtre","caption":"Chambre avec un mur décoratif","cat":"Bedrooms"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-built-in-shelves.webp","alt":"Chambre avec lit double, mur de tête de lit habillé de panneaux et étagères encastrées","caption":"Chambre avec étagères encastrées","cat":"Bedrooms"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-armchair.webp","alt":"Chambre avec lit double, fauteuil et porte coulissante donnant sur une terrasse","caption":"Chambre avec fauteuil","cat":"Bedrooms"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-mirror.webp","alt":"Chambre avec lit double, miroir en pied et tableaux au mur","caption":"Chambre avec miroir","cat":"Bedrooms"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bathroom-double-vanity.webp","alt":"Salle de bains avec double vasque sur un meuble en bois, WC suspendu et douche à l\u0027italienne","caption":"Salle de bains avec double vasque","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Higueron Parkside Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/higueron-parkside-residences/media/infinity-pool.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/infinity-pool-960.webp","alt":"Vue de synthèse de la piscine à débordement et de la mer, avec un immeuble à balcons à gauche","width":1920,"height":1022,"caption":"La piscine à débordement","category":"Équipements"},{"src":"assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/garden-home-terrace-and-lawn-960.webp","alt":"Vue de synthèse d'un logement en rez-de-chaussée avec terrasse couverte et pelouse avec transats","width":1873,"height":1054,"caption":"Un logement avec jardin","category":"Extérieurs"},{"src":"assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/roof-terrace-sea-view-960.webp","alt":"Vue de synthèse d'une terrasse sur le toit avec des fauteuils et vue sur la côte","width":1920,"height":1022,"caption":"Une terrasse sur le toit","category":"Terrasses"},{"src":"assets/liora/projects/higueron-parkside-residences/media/terrace-dining-sea-view.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/terrace-dining-sea-view-960.webp","alt":"Vue de synthèse d'une terrasse avec table à manger et vue sur la côte et la mer","width":1920,"height":1022,"caption":"Une terrasse avec vue sur la mer","category":"Terrasses"},{"src":"assets/liora/projects/higueron-parkside-residences/media/terrace-with-loungers.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/terrace-with-loungers-960.webp","alt":"Vue de synthèse d'une terrasse avec transats, table à manger et la mer au loin","width":1920,"height":1022,"caption":"Une terrasse avec transats","category":"Terrasses"},{"src":"assets/liora/projects/higueron-parkside-residences/media/terrace-hot-tub.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/terrace-hot-tub-960.webp","alt":"Vue de synthèse d'une terrasse sur le toit avec jacuzzi, table à manger et la mer au loin","width":1013,"height":1547,"caption":"Une terrasse avec jacuzzi","category":"Terrasses"},{"src":"assets/liora/projects/higueron-parkside-residences/media/garden-at-sunset.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/garden-at-sunset-960.webp","alt":"Vue de synthèse de deux transats sur une pelouse au coucher du soleil, avec la côte en contrebas","width":1920,"height":1022,"caption":"Le jardin au coucher du soleil","category":"Extérieurs"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/living-room-with-dining-table-960.webp","alt":"Séjour meublé avec télévision, canapé et table à manger ovale près d'une porte coulissante","width":1920,"height":1022,"caption":"Séjour et table à manger","category":"Intérieurs"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-room-sea-view.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/living-room-sea-view-960.webp","alt":"Séjour meublé avec un mur de télévision et des portes coulissantes donnant sur une terrasse avec palmiers et vue sur la mer","width":1920,"height":1022,"caption":"Séjour avec vue sur la mer","category":"Intérieurs"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-room-and-dining-table.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/living-room-and-dining-table-960.webp","alt":"Séjour meublé avec un miroir rond, une table à manger en verre et des portes coulissantes donnant sur le jardin","width":1920,"height":1022,"caption":"Séjour et table à manger, deuxième vue","category":"Intérieurs"},{"src":"assets/liora/projects/higueron-parkside-residences/media/living-dining-and-kitchen.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/living-dining-and-kitchen-960.webp","alt":"Séjour, salle à manger et cuisine ouverts avec meubles blancs et portes coulissantes donnant sur une terrasse","width":1920,"height":1022,"caption":"Séjour, salle à manger et cuisine","category":"Intérieurs"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-terrace-door-960.webp","alt":"Chambre avec lit double, suspension tressée et porte coulissante donnant sur une terrasse avec vue sur la mer","width":1920,"height":1022,"caption":"Chambre avec terrasse","category":"Chambres"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-wallpaper.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-wallpaper-960.webp","alt":"Chambre avec lit double, un mur de papier peint à motifs et une fenêtre","width":1920,"height":1022,"caption":"Chambre avec un mur décoratif","category":"Chambres"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-built-in-shelves.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-built-in-shelves-960.webp","alt":"Chambre avec lit double, mur de tête de lit habillé de panneaux et étagères encastrées","width":1920,"height":1022,"caption":"Chambre avec étagères encastrées","category":"Chambres"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-armchair.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-armchair-960.webp","alt":"Chambre avec lit double, fauteuil et porte coulissante donnant sur une terrasse","width":1920,"height":1022,"caption":"Chambre avec fauteuil","category":"Chambres"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-mirror.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/bedroom-with-mirror-960.webp","alt":"Chambre avec lit double, miroir en pied et tableaux au mur","width":1920,"height":1022,"caption":"Chambre avec miroir","category":"Chambres"},{"src":"assets/liora/projects/higueron-parkside-residences/media/bathroom-double-vanity.jpg","webp":"assets/liora/projects/higueron-parkside-residences/media/bathroom-double-vanity-960.webp","alt":"Salle de bains avec double vasque sur un meuble en bois, WC suspendu et douche à l'italienne","width":1920,"height":1022,"caption":"Salle de bains avec double vasque","category":"Salles de bains"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-higueron-parkside-residences.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Higueron%20Parkside%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Higueron Parkside Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

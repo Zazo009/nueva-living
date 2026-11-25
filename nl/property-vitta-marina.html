@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn er?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Vitta Marina"
   data-project-message="Hallo Nueva Living, ik ontvang graag informatie over Vitta Marina."
@@ -443,539 +380,148 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Vitta Marina">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-vitta-marina.html#top">Vitta Marina<span>Vanaf € 483.500 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-vitta-marina.html#overview">Overzicht</a><a href="nl/property-vitta-marina.html#availability">Prijzen</a><a href="nl/property-vitta-marina.html#specs">Afwerking</a><a href="nl/property-vitta-marina.html#gallery">Galerij</a><a href="nl/property-vitta-marina.html#location">Locatie</a><a href="nl/property-vitta-marina.html#onsite">Op het terrein</a><a href="nl/property-vitta-marina.html#view">Onze kijk</a><a href="nl/property-vitta-marina.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-vitta-marina.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Vitta Marina">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom" width="2000" height="1000" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom" width="2000" height="1000" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">5 van de 72 woningen beschikbaar</span>
-          <h1 class="hero-title" style="--hero-title-run: 6">
-            <span class="hero-title-name">Vitta <em>Marina</em></span>
-            <span class="hero-title-context">Appartementen &amp; penthouses · Cala de Mijas</span>
-          </h1>
-          <p class="hero-positioning">Een besloten complex van 72 woningen met twee, drie of vier slaapkamers in Cala de Mijas, volgens de ontwikkelaar op twee minuten lopen van het strand, met gemeenschappelijk zwembad, fitnessruimte en gemeenschappelijke ruimte. Vijf woningen met twee en drie slaapkamers staan op de lijst, vanaf € 483.500 plus btw.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-vitta-marina.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=vitta-marina">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-vitta-marina.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Cala de Mijas</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 483.500 + btw</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartementen &amp; penthouses</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Oplevering nog te bevestigen</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-vitta-marina.html#media">Media</a>
-        <a href="nl/property-vitta-marina.html#location">Locatie</a>
-        <a href="nl/property-vitta-marina.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-vitta-marina.html#overview">Overzicht</a>
-          <a href="nl/property-vitta-marina.html#residences">Woningen</a>
-          <a href="nl/property-vitta-marina.html#quality-specifications">Afwerking</a>
-          <a href="nl/property-vitta-marina.html#calculator">Financiering</a>
-          <a href="nl/property-vitta-marina.html#amenities">Voorzieningen</a>
-          <a href="nl/property-vitta-marina.html#why-this-project">Waarom</a>
-          <a href="nl/property-vitta-marina.html#architecture">Architectuur</a>
-          <a href="nl/property-vitta-marina.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-vitta-marina.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-vitta-marina.html#faq">FAQ</a>
-          <a href="nl/property-vitta-marina.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>2-3 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Bebouwde oppervlakte</span><strong>100,00 - 114,00 m²</strong></div>
-          <div class="quick-fact"><span>Terras</span><strong>16,60 - 99,90 m²</strong></div>
-          <div class="quick-fact"><span>Parkeren</span><strong>Parkeerplaats en berging inbegrepen bij elke woning</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>5 van de 72 woningen beschikbaar</strong></div>
-          <div class="quick-fact"><span>Prijsklasse</span><strong>€ 483.500 - € 749.000</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-vitta-marina.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tweeënzeventig woningen, <em>vijf op de lijst</em></h2>
-          <p class="project-lead">Dit is een besloten woongebouwencomplex van 72 woningen met twee, drie en vier slaapkamers, op de begane grond, de eerste en tweede verdieping en als penthouses, in Cala de Mijas tussen Fuengirola en La Cala. Volgens de ontwikkelaar liggen alle woningen op het zuiden of zuidwesten en hebben veel ervan zeezicht. De woningen op de begane grond hebben een tuin en de penthouses ruime terrassen.</p>
-          <p class="project-lead">De bewoners delen een zwembad, een fitnessruimte en een gemeenschappelijke ruimte met keuken, en elke woning heeft minstens één parkeerplaats en een berging. Vijf woningen staan met een prijs op de lijst en de documenten van de ontwikkelaar geven geen opleverdatum.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">De woningen <em>in detail</em></h2>
-          </div>
-          <p class="project-lead">Computergegenereerde beelden van het gebouw, de gemeenschappelijke ruimten en de interieurs, en de plattegronden van de vijf woningen op de lijst.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 4 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom" width="2000" height="1000" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Het gemeenschappelijk zwembad en het gebouw</strong>
-                <span class="project-media-card-cta">4 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Bekijk 1 afbeeldingen in Terrassen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/terrace-sea-view-640.webp 640w, assets/liora/projects/vitta-marina/media/terrace-sea-view-960.webp 960w, assets/liora/projects/vitta-marina/media/terrace-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/terrace-sea-view.jpg" alt="Computergegenereerd beeld van een overdekt terras met rieten stoelen en een ronde tafel, met uitzicht over palmbomen op de zee" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrassen</small>
-                <strong>Een terras met zeezicht</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 2 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/living-room-640.webp 640w, assets/liora/projects/vitta-marina/media/living-room-960.webp 960w, assets/liora/projects/vitta-marina/media/living-room.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/living-room.jpg" alt="Computergegenereerde woonkamer met een hoekbank, een ronde salontafel en een glazen schuifdeur naar het terras" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>Woonkamer</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Bekijk 2 afbeeldingen in Slaapkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/main-bedroom-640.webp 640w, assets/liora/projects/vitta-marina/media/main-bedroom-960.webp 960w, assets/liora/projects/vitta-marina/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/main-bedroom.jpg" alt="Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een raam" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Slaapkamers</small>
-                <strong>Tweepersoonsslaapkamer</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Bekijk 2 afbeeldingen in Badkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/bathroom-shower-640.webp 640w, assets/liora/projects/vitta-marina/media/bathroom-shower-960.webp 960w, assets/liora/projects/vitta-marina/media/bathroom-shower.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/bathroom-shower.jpg" alt="Computergegenereerde badkamer met een inloopdouche, een toilet en een wastafelmeubel met spiegel" width="2000" height="1334" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badkamers</small>
-                <strong>Badkamer met douche</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Bekijk 3 afbeeldingen in Voorzieningen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/gym-interior-640.webp 640w, assets/liora/projects/vitta-marina/media/gym-interior-960.webp 960w, assets/liora/projects/vitta-marina/media/gym-interior.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/gym-interior.jpg" alt="Computergegenereerd beeld van de fitnessruimte voor bewoners met hometrainers, een loopband, een rekstok en glazen wanden naar de tuin" width="2000" height="1000" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Voorzieningen</small>
-                <strong>De fitnessruimte</strong>
-                <span class="project-media-card-cta">3 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Bekijk 5 afbeeldingen in Plattegronden">
-              <img src="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" alt="Plattegrond van woning 2, begane grond" width="1120" height="1780" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plattegronden</small>
-                <strong>Woning 2, begane grond</strong>
-                <span class="project-media-card-cta">5 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 19 afbeeldingen</button>
-          <p class="media-note">Alle beelden zijn computergegenereerde illustraties en geen foto’s van het voltooide gebouw, en het meubilair en de inrichting erop zijn illustratief en niet inbegrepen. De ontwikkelaar geeft aan dat zijn tekeningen van de gemeenschappelijke ruimten niet de definitieve details tonen. De plattegronden zijn de plannen van de ontwikkelaar in projectfase en de oppervlakten erop zijn bij benadering en onder voorbehoud van het definitieve project. De namen van de ruimten op de plattegronden zijn in het Spaans.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Cala de Mijas, <em>aan zee tussen Fuengirola en La Cala</em></h2>
-          <p class="project-lead">De woningen liggen in Cala de Mijas, aan de kust tussen Fuengirola en La Cala. De brochure van de ontwikkelaar plaatst het strand op twee minuten lopen, het centrum van Cala de Mijas op 1,6 km, drie minuten rijden, en de A-7 en de AP-7 vlakbij. Ze noemt Chaparral Golf Club op minder dan twee kilometer, met winkelcentra, supermarkten, restaurants, een gezondheidscentrum en apotheken in de buurt, de luchthaven van Málaga op minder dan 25 minuten rijden en het station María Zambrano op 40 minuten. Fuengirola ligt volgens het portaal van de ontwikkelaar op ongeveer tien minuten rijden.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-vitta-marina" data-locmap='{&quot;site&quot;:[36.5105,-4.6508],&quot;sea&quot;:[36.4835,-4.6508],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan La Cala&quot;,&quot;sub&quot;:&quot;11 km · 18 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Fuengirola&quot;,&quot;sub&quot;:&quot;12 km · 16 min&quot;},{&quot;ll&quot;:[36.50618,-4.65167],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,4 km · 8 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Cabopino&quot;,&quot;sub&quot;:&quot;11 km · 14 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Vitta Marina"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Vitta Marina</h3>
-            <p class="locmap-place">Cala de Mijas, Mijas Costa</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Cabopino</span>
-              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan La Cala</span>
-              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>18 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Málaga</span>
-              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>37 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Drie soorten woningen, <em>vijf op de lijst</em></h2>
-          <p class="project-lead">De vijf woningen op de lijst vallen in drie groepen, naargelang hun plaats in het gebouw. De tabel hieronder toont ze allemaal met hun prijzen.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Begane grond, met tuin</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-vitta-marina.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Tweede verdieping</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-vitta-marina.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Het penthouse</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-vitta-marina.html#availability">Plattegronden bekijken</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-vitta-marina.html#availability">Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Technische omschrijving</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarmee de woningen <em>gebouwd zijn</em></h2>
-          <p class="project-lead">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Structuur, gevel en daken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een constructie van gewapend beton en een gevel van baksteen, aan de buitenzijde afgewerkt, met thermische isolatie aan de binnenzijde, een luchtspouw en een voorzetwand van gipsplaat op metalen profielen.</li>
-              <li>Platte daken afgewerkt met grind waar ze niet toegankelijk zijn, en antislip keramische vloertegels op de betreedbare daken.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Scheidingswanden en ramen<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Scheidingswanden van gipsplaat op een metalen frame met thermische en akoestische isolatie binnen de woning, en bakstenen muren met een voorzetwand van gipsplaat en isolatie tussen woningen en tussen een woning en de gemeenschappelijke ruimten.</li>
-              <li>PVC-kozijnen met dubbele beglazing en een luchtkamer, die warmteuitwisseling en lawaai van buiten beperken, en rolluiken in de kleur van de kozijnen op alle slaapkamer- en woonkamerramen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Deuren en kasten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een wit gelakte gepantserde voordeur met beveiligingsbeslag, buitengreep en kijkgaatje, vlakke witte binnendeuren en bijpassende modulaire kasten met draai- of schuifdeuren, binnenin van melamine, met een koffervak en een kledingstang.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Vloeren en wanden<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een vloer van keramische tegels in de woonkamer, de slaapkamers, de hal, de gang en de badkamers, en antislip keramische tegels op de terrassen.</li>
-              <li>Gladde muurverf in een zachte kleur op de wanden en in wit op de plafonds, met verf of keramische tegels op de natte wanden van keuken en badkamers, en een toegankelijk verlaagd plafond in de badkamer waarin de klimaatapparatuur zit.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Keuken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een gemeubileerde keuken met onder- en bovenkasten, een werkblad van postforming in de werkzone, een roestvrijstalen spoelbak en een eengreepskraan.</li>
-              <li>Apparaten: een elektrische oven, een keramische kookplaat, een afzuigkap, een koelkast, een wasmachine en een vaatwasser.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badkamers<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Wit sanitair, een in een meubel geïntegreerde wastafel in de hoofdbadkamer en een hangende wastafel in de tweede, in beide een spiegel, verchroomde kranen, eengreepsmengkranen op het bad en de wastafels en thermostatische kranen op de douches.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimaat en energie<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Warm water via een aerothermisch systeem in elke woning, verwarming en koeling met een kanaalwarmtepomp en een individueel mechanisch ventilatiesysteem.</li>
-              <li>Het gebouw staat vermeld met energielabel B, bereikt met een verbeterde thermische schil, efficiënte beglazing en zeer efficiënte installaties. De ontwikkelaar raamt de besparing ten opzichte van een woning met label F.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Elektriciteit en telecom<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een elektrische installatie volgens de laagspanningsvoorschriften, telecomaansluitingen in de woonkamer, de slaapkamers en de keuken, een voorbereiding voor een satellietschotel, een videofoon bij de ingangen van het complex en de blokken, en een lamp, een stopcontact en een tv-antenne-aansluiting op het terras van de woonkamer.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gemeenschappelijke ruimten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een volledig omsloten en omheind complex met zuinige verlichting bij de toegangen, de interne wegen en de tuinen, bewegingsmelders in de portieken, de verdiepingshallen en de garage, en tuinen met bewatering en droogtebestendige beplanting met inheemse struiken en bomen.</li>
-              <li>Een zonnig gemeenschappelijk buitenzwembad voor volwassenen met zoutelektrolyse en nachtverlichting, een uitgeruste fitnessruimte, een gemeenschappelijke ruimte met keuken, toiletten en wifi, en een ruimte met een externe defibrillator.</li>
-              <li>Een garage met geforceerde ventilatie, koolmonoxidedetectie, brandbeveiliging en noodverlichting, en een voorbereiding voor het laden van elektrische voertuigen zoals de regelgeving voorschrijft.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Bron: de kwaliteitsspecificatie van de ontwikkelaar, editie 00. Ze is voorlopig en kan wijzigen door vergunningseisen of naar goeddunken van de projectleiding, zonder de kwaliteit te verminderen.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vijf woningen <em>momenteel op de lijst</em></h2>
-          <p class="project-lead">De prijzen zijn die van de prijslijst van de ontwikkelaar van oktober 2026 en worden vóór de reservering bevestigd. Vijf van de 72 woningen staan op de lijst; de documenten van de ontwikkelaar zeggen niet dat de overige 67 verkocht zijn.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>14 foto's</button>
+          <a class="chip" href="nl/property-vitta-marina.html#availability"><svg><use href="#v2-i-plan"/></svg>Plattegronden</a>
+          <a class="chip" href="nl/property-vitta-marina.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>5</strong></div>
-            <div><span>Startprijs</span><strong>€ 483.500 + btw</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 483.500 - € 749.000 + btw</strong></div>
-            <div><span>Gecontroleerd</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 5 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-type="apartment" data-price="495500">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-2-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" alt="Plattegrond van 2" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>100,00 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>74,10 m²</dd></div>
-                    <div><dt>Terras</dt><dd>18,70 m²</dd></div>
-                    <div><dt>Tuin</dt><dd>43,20 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 495.500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%202">Vraag naar 2</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="497500">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-3.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-3-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-3-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-3.jpg" alt="Plattegrond van 3" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>100,00 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>74,10 m²</dd></div>
-                    <div><dt>Terras</dt><dd>18,70 m²</dd></div>
-                    <div><dt>Tuin</dt><dd>44,20 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 497.500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%203">Vraag naar 3</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="502000">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-15.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 15">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-15-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-15-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-15.jpg" alt="Plattegrond van 15" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">15</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>114,00 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>82,60 m²</dd></div>
-                    <div><dt>Terras</dt><dd>16,60 m²</dd></div>
-                    <div><dt>Tuin</dt><dd>14,90 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 502.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%2015">Vraag naar 15</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="483500">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-54.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 54">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-54-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-54-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-54.jpg" alt="Plattegrond van 54" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">54</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>103,00 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>76,40 m²</dd></div>
-                    <div><dt>Terras</dt><dd>16,70 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
-                    <div><dt>Verdieping</dt><dd>Tweede verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 483.500</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%2054">Vraag naar 54</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="749000">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-57.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 57">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-57-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-57-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-57.jpg" alt="Plattegrond van 57" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">57</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>107,00 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>77,50 m²</dd></div>
-                    <div><dt>Terras</dt><dd>99,90 m²</dd></div>
-                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
-                    <div><dt>Verdieping</dt><dd>Penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 749.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%2057">Vraag naar 57</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">De prijzen zijn overgenomen uit de prijslijst van de ontwikkelaar zoals die in oktober 2026 op zijn portaal stond, en zijn exclusief btw. De oppervlakten zijn die van de plattegrond van elke woning: de binnenoppervlakte is de bruikbare oppervlakte van de woning, de bebouwde oppervlakte omvat een deel van de gemeenschappelijke ruimten en het terras is het overdekte en het onoverdekte terras samen. Het portaal geeft voor dezelfde woningen andere bebouwde en binnenoppervlakten, en woning 57 verschilt tussen de plattegrond en de brochure; de verschillen staan bij de controles hierboven.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-vitta-marina.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Vitta Marina</span></h1>
+        <p class="hero-by">Een besloten complex van 72 woningen met twee, drie of vier slaapkamers in Cala de Mijas, volgens de ontwikkelaar op twee minuten lopen van het strand, met gemeenschappelijk zwembad, fitnessruimte en gemeenschappelijke ruimte.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 483.500</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>2 tot 3</dd><dd class="sub"><span>Appartementen &amp; penthouses</span></dd></div><div><dt>Oplevering</dt><dd>nog te bevestigen</dd><dd class="sub">Vergunning: wij bevestigen dit voordat u reserveert</dd></div><div><dt>Nog beschikbaar</dt><dd>5 van 72</dd><dd class="sub">Gecontroleerd op oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-vitta-marina.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Dit is een besloten woongebouwencomplex van 72 woningen met twee, drie en vier slaapkamers, op de begane grond, de eerste en tweede verdieping en als penthouses, in Cala de Mijas tussen Fuengirola en La Cala. Volgens de ontwikkelaar liggen alle woningen op het zuiden of zuidwesten en hebben veel ervan zeezicht. De woningen op de begane grond hebben een tuin en de penthouses ruime terrassen.</p>
+    <p class="lede-2">De bewoners delen een zwembad, een fitnessruimte en een gemeenschappelijke ruimte met keuken, en elke woning heeft minstens één parkeerplaats en een berging. Vijf woningen staan met een prijs op de lijst en de documenten van de ontwikkelaar geven geen opleverdatum.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Witte blokken, terrassen op het zuiden</span></summary><p>In de computergegenereerde beelden van de ontwikkelaar liggen de woningen in witte blokken van maximaal vier lagen, met lange terrassen en pergola’s, op een aangelegde helling boven de kust. De ontwikkelaar geeft aan dat alle woningen op het zuiden of zuidwesten liggen.</p><p>De woningen op de begane grond openen naar een tuin en de penthouses naar grote terrassen, en elke woning op de lijst heeft een terras op de plattegrond.</p><ul><li>Structuur: Gewapend beton, met tweewegplaten of massieve platen volgens de constructieberekening.</li><li>Gevel: Metselwerk van baksteen, aan de buitenzijde afgewerkt zoals in het project bepaald, met thermische isolatie aan de binnenzijde, een luchtspouw en een voorzetwand van gipsplaat.</li><li>Beglazing: PVC-kozijnen met dubbele beglazing en rolluiken op alle slaapkamer- en woonkamerramen in de kleur van de kozijnen.</li><li>Terrassen: Terrasborstweringen van metselwerk of hekwerk, naargelang het gevelontwerp.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 483.500 – € 749.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>5 van 72 woningen</span><small>Gecontroleerd op oktober 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartementen &amp; penthouses</span></dd></div><div><dt>Oppervlakten</dt><dd><span>100 – 114 m²</span><small>Bebouwde oppervlakte</small></dd></div><div><dt>Oplevering</dt><dd><span>nog te bevestigen</span></dd></div><div><dt>Vergunning</dt><dd><span>Niet vermeld</span><small>Wij bevestigen dit voordat u reserveert</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Parkeerplaats en berging inbegrepen bij elke woning</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">De prijzen zijn die van de prijslijst van de ontwikkelaar van oktober 2026 en worden vóór de reservering bevestigd. Vijf van de 72 woningen staan op de lijst; de documenten van de ontwikkelaar zeggen niet dat de overige 67 verkocht zijn. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    <div class="scarcity" role="img" aria-label="5 van 72 nog te koop"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>5 van 72 nog te koop</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="495500" data-size="100" data-ppm="4955" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-2-640.webp">
+            <th scope="row"><span class="u-name">2</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">100 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 495.500</td>
+            <td data-label="Per m²" class="num">€ 4.955</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2"><img src="assets/liora/projects/vitta-marina/floorplans/home-2-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="497500" data-size="100" data-ppm="4975" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-3-640.webp">
+            <th scope="row"><span class="u-name">3</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">100 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 497.500</td>
+            <td data-label="Per m²" class="num">€ 4.975</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-3.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3"><img src="assets/liora/projects/vitta-marina/floorplans/home-3-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="502000" data-size="114" data-ppm="4404" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-15-640.webp">
+            <th scope="row"><span class="u-name">15</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">114 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 502.000</td>
+            <td data-label="Per m²" class="num">€ 4.404</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-15.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 15"><img src="assets/liora/projects/vitta-marina/floorplans/home-15-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="483500" data-size="103" data-ppm="4694" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-54-640.webp">
+            <th scope="row"><span class="u-name">54</span><span class="u-loc">Tweede verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">103 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 483.500</td>
+            <td data-label="Per m²" class="num">€ 4.694</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-54.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 54"><img src="assets/liora/projects/vitta-marina/floorplans/home-54-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="749000" data-size="107" data-ppm="7000" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-57-640.webp">
+            <th scope="row"><span class="u-name">57</span><span class="u-loc">Penthouse</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">107 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 749.000</td>
+            <td data-label="Per m²" class="num">€ 7.000</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-57.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 57"><img src="assets/liora/projects/vitta-marina/floorplans/home-57-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Drie soorten woningen, vijf op de lijst</span></summary><p>De vijf woningen op de lijst vallen in drie groepen, naargelang hun plaats in het gebouw. De tabel hieronder toont ze allemaal met hun prijzen.</p><div class="res-types"><div class="res-type"><h3>Begane grond, met tuin</h3><ul><li>Woningen 2 en 3 hebben twee slaapkamers en twee badkamers, 100,00 m² bebouwd en 74,10 m² binnen, met een overdekt terras van 10,60 m², een onoverdekt terras van 8,10 m² en een tuin van 43,20 en 44,20 m².</li><li>Woning 15 heeft drie slaapkamers en twee badkamers, 114,00 m² bebouwd en 82,60 m² binnen, met een overdekt terras van 16,60 m² en een tuin van 14,90 m².</li><li>De prijzen zijn € 495.500, € 497.500 en € 502.000.</li></ul></div><div class="res-type"><h3>Tweede verdieping</h3><ul><li>Woning 54 heeft twee slaapkamers en twee badkamers, 103,00 m² bebouwd en 76,40 m² binnen, met een onoverdekt terras van 16,70 m².</li><li>De prijs is € 483.500.</li></ul></div><div class="res-type"><h3>Het penthouse</h3><ul><li>Woning 57 heeft drie slaapkamers en twee badkamers, 107,00 m² bebouwd en 77,50 m² binnen, met een onoverdekt terras van 99,90 m².</li><li>De prijs is € 749.000.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-vitta-marina.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1035,416 +581,229 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk buitenzwembad met zoutelektrolyse</h3>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Afwerking</h2>
+    <p class="sec-sub">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
+    <div class="tabs" role="tablist" aria-label="Afwerking"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Structuur, gevel en daken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Scheidingswanden en ramen</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Deuren en kasten</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Vloeren en wanden</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Keuken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Badkamers</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Klimaat en energie</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Elektriciteit en telecom</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-8">Gemeenschappelijke ruimten</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Een constructie van gewapend beton en een gevel van baksteen, aan de buitenzijde afgewerkt, met thermische isolatie aan de binnenzijde, een luchtspouw en een voorzetwand van gipsplaat op metalen profielen.</li><li>Platte daken afgewerkt met grind waar ze niet toegankelijk zijn, en antislip keramische vloertegels op de betreedbare daken.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Scheidingswanden van gipsplaat op een metalen frame met thermische en akoestische isolatie binnen de woning, en bakstenen muren met een voorzetwand van gipsplaat en isolatie tussen woningen en tussen een woning en de gemeenschappelijke ruimten.</li><li>PVC-kozijnen met dubbele beglazing en een luchtkamer, die warmteuitwisseling en lawaai van buiten beperken, en rolluiken in de kleur van de kozijnen op alle slaapkamer- en woonkamerramen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Een wit gelakte gepantserde voordeur met beveiligingsbeslag, buitengreep en kijkgaatje, vlakke witte binnendeuren en bijpassende modulaire kasten met draai- of schuifdeuren, binnenin van melamine, met een koffervak en een kledingstang.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Een vloer van keramische tegels in de woonkamer, de slaapkamers, de hal, de gang en de badkamers, en antislip keramische tegels op de terrassen.</li><li>Gladde muurverf in een zachte kleur op de wanden en in wit op de plafonds, met verf of keramische tegels op de natte wanden van keuken en badkamers, en een toegankelijk verlaagd plafond in de badkamer waarin de klimaatapparatuur zit.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Een gemeubileerde keuken met onder- en bovenkasten, een werkblad van postforming in de werkzone, een roestvrijstalen spoelbak en een eengreepskraan.</li><li>Apparaten: een elektrische oven, een keramische kookplaat, een afzuigkap, een koelkast, een wasmachine en een vaatwasser.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Wit sanitair, een in een meubel geïntegreerde wastafel in de hoofdbadkamer en een hangende wastafel in de tweede, in beide een spiegel, verchroomde kranen, eengreepsmengkranen op het bad en de wastafels en thermostatische kranen op de douches.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Warm water via een aerothermisch systeem in elke woning, verwarming en koeling met een kanaalwarmtepomp en een individueel mechanisch ventilatiesysteem.</li><li>Het gebouw staat vermeld met energielabel B, bereikt met een verbeterde thermische schil, efficiënte beglazing en zeer efficiënte installaties. De ontwikkelaar raamt de besparing ten opzichte van een woning met label F.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Een elektrische installatie volgens de laagspanningsvoorschriften, telecomaansluitingen in de woonkamer, de slaapkamers en de keuken, een voorbereiding voor een satellietschotel, een videofoon bij de ingangen van het complex en de blokken, en een lamp, een stopcontact en een tv-antenne-aansluiting op het terras van de woonkamer.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-8" role="tabpanel" hidden>
+      <ul><li>Een volledig omsloten en omheind complex met zuinige verlichting bij de toegangen, de interne wegen en de tuinen, bewegingsmelders in de portieken, de verdiepingshallen en de garage, en tuinen met bewatering en droogtebestendige beplanting met inheemse struiken en bomen.</li><li>Een zonnig gemeenschappelijk buitenzwembad voor volwassenen met zoutelektrolyse en nachtverlichting, een uitgeruste fitnessruimte, een gemeenschappelijke ruimte met keuken, toiletten en wifi, en een ruimte met een externe defibrillator.</li><li>Een garage met geforceerde ventilatie, koolmonoxidedetectie, brandbeveiliging en noodverlichting, en een voorbereiding voor het laden van elektrische voertuigen zoals de regelgeving voorschrijft.</li></ul>
+      
+    </div>
+    <p class="caption">Bron: de kwaliteitsspecificatie van de ontwikkelaar, editie 00. Ze is voorlopig en kan wijzigen door vergunningseisen of naar goeddunken van de projectleiding, zonder de kwaliteit te verminderen.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Het gemeenschappelijk zwembad en het gebouw"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Woonkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/living-room-640.webp 640w, assets/liora/projects/vitta-marina/media/living-room-960.webp 960w, assets/liora/projects/vitta-marina/media/living-room.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/living-room.jpg" alt="Computergegenereerde woonkamer met een hoekbank, een ronde salontafel en een glazen schuifdeur naar het terras" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Een terras met zeezicht"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/terrace-sea-view-640.webp 640w, assets/liora/projects/vitta-marina/media/terrace-sea-view-960.webp 960w, assets/liora/projects/vitta-marina/media/terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/terrace-sea-view.jpg" alt="Computergegenereerd beeld van een overdekt terras met rieten stoelen en een ronde tafel, met uitzicht over palmbomen op de zee" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="11" aria-label="De fitnessruimte"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/gym-interior-640.webp 640w, assets/liora/projects/vitta-marina/media/gym-interior-960.webp 960w, assets/liora/projects/vitta-marina/media/gym-interior.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/gym-interior.jpg" alt="Computergegenereerd beeld van de fitnessruimte voor bewoners met hometrainers, een loopband, een rekstok en glazen wanden naar de tuin" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Tweepersoonsslaapkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/main-bedroom-640.webp 640w, assets/liora/projects/vitta-marina/media/main-bedroom-960.webp 960w, assets/liora/projects/vitta-marina/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/main-bedroom.jpg" alt="Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een raam" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 14 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (4)</button><button type="button" data-open-cat="Terraces">Terrassen (1)</button><button type="button" data-open-cat="Interiors">Interieur (2)</button><button type="button" data-open-cat="Bedrooms">Slaapkamers (2)</button><button type="button" data-open-cat="Bathrooms">Badkamers (2)</button><button type="button" data-open-cat="Amenities">Voorzieningen (3)</button></div>
+    
+    <p class="caption">Alle beelden zijn computergegenereerde illustraties en geen foto’s van het voltooide gebouw, en het meubilair en de inrichting erop zijn illustratief en niet inbegrepen. De ontwikkelaar geeft aan dat zijn tekeningen van de gemeenschappelijke ruimten niet de definitieve details tonen. De plattegronden zijn de plannen van de ontwikkelaar in projectfase en de oppervlakten erop zijn bij benadering en onder voorbehoud van het definitieve project. De namen van de ruimten op de plattegronden zijn in het Spaans.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">De woningen liggen in Cala de Mijas, aan de kust tussen Fuengirola en La Cala. De brochure van de ontwikkelaar plaatst het strand op twee minuten lopen, het centrum van Cala de Mijas op 1,6 km, drie minuten rijden, en de A-7 en de AP-7 vlakbij. Ze noemt Chaparral Golf Club op minder dan twee kilometer, met winkelcentra, supermarkten, restaurants, een gezondheidscentrum en apotheken in de buurt, de luchthaven van Málaga op minder dan 25 minuten rijden en het station María Zambrano op 40 minuten. Fuengirola ligt volgens het portaal van de ontwikkelaar op ongeveer tien minuten rijden.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-vitta-marina" data-locmap='{&quot;site&quot;:[36.5105,-4.6508],&quot;sea&quot;:[36.4835,-4.6508],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan La Cala&quot;,&quot;sub&quot;:&quot;11 km · 18 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Fuengirola&quot;,&quot;sub&quot;:&quot;12 km · 16 min&quot;},{&quot;ll&quot;:[36.50618,-4.65167],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,4 km · 8 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Cabopino&quot;,&quot;sub&quot;:&quot;11 km · 14 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Vitta Marina"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Vitta Marina</h3>
+            <p class="locmap-place">Cala de Mijas, Mijas Costa</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Uitgeruste fitnessruimte in gemeenschappelijke zone</h3>
-              <p class="amenity-note">Binnen het project</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Buiten</span>
-              <h3 class="amenity-name">Aangelegde tuinen met inheemse, waterzuinige beplanting</h3>
-              <p class="amenity-note">Beplante gemeenschappelijke grond</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Cabopino</span>
+              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Buiten</span>
-              <h3 class="amenity-name">Tuin voor privégebruik bij de woningen op de begane grond</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan La Cala</span>
+              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>18 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Buiten</span>
-              <h3 class="amenity-name">Zeezicht</h3>
-              <p class="amenity-note">Richting de Middellandse Zee</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Málaga</span>
+              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>37 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Parkeerplaats en berging inbegrepen bij elke woning</h3>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Warm water via warmtepomp</h3>
-              <p class="amenity-note">Warm water uit de lucht</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Airconditioning</h3>
-              <p class="amenity-note">Koelen en verwarmen via kanalen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Voorbereiding voor laadpunt</h3>
-              <p class="amenity-note">Een punt voor de auto</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Uitgeruste keuken</h3>
-              <p class="amenity-note">Ingericht en voorzien van apparatuur</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Diensten</span>
-              <h3 class="amenity-name">Gemeenschapsruimte</h3>
-              <p class="amenity-note">Een ruimte om samen te komen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Diensten</span>
-              <h3 class="amenity-name">Besloten project</h3>
-              <p class="amenity-note">Gecontroleerde toegang</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Diensten</span>
-              <h3 class="amenity-name">Defibrillator op het terrein</h3>
-            </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Strand</th><td>2 minuten lopen, volgens de ontwikkelaar</td></tr><tr><th scope="row">Cala de Mijas</th><td>1,6 km, ongeveer 3 minuten met de auto</td></tr><tr><th scope="row">Fuengirola</th><td>Ca. 10 minuten</td></tr><tr><th scope="row">Chaparral Golf Club</th><td>Minder dan 2 km</td></tr><tr><th scope="row">Luchthaven Málaga</th><td>Minder dan 25 minuten</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">Het leven hier speelt zich buiten af, tussen een privétuin of terras, het gedeelde zwembad en het strand.</p>
+    <div class="life-panels"><div><h3>De tuin en het terras</h3><p>De woningen op de begane grond hebben een privétuin en de penthouses ruime terrassen, en elke woning op de lijst heeft een terras op de plattegrond.</p></div><div><h3>Het zwembad</h3><p>Een zonnig gemeenschappelijk buitenzwembad voor volwassenen, met zoutelektrolyse en nachtverlichting.</p></div><div><h3>De fitnessruimte en de gemeenschappelijke ruimte</h3><p>Een uitgeruste fitnessruimte en een gemeenschappelijke ruimte met keuken, toiletten en wifi voor gedeelde maaltijden en bijeenkomsten.</p></div><div><h3>Parkeren en berging</h3><p>Elke woning heeft minstens één parkeerplaats en een berging, en de garage heeft een voorbereiding voor het laden van elektrische auto’s.</p></div></div>
+    <ul class="amen-top"><li>Gemeenschappelijk buitenzwembad met zoutelektrolyse</li><li>Uitgeruste fitnessruimte in gemeenschappelijke zone</li><li>Gemeenschapsruimte</li><li>Aangelegde tuinen met inheemse, waterzuinige beplanting</li><li>Tuin voor privégebruik bij de woningen op de begane grond</li><li>Parkeerplaats en berging inbegrepen bij elke woning</li></ul>
+    <details class="amen-all"><summary>Alle 13 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">2</span></h3><ul><li>Gemeenschappelijk buitenzwembad met zoutelektrolyse</li><li>Uitgeruste fitnessruimte in gemeenschappelijke zone</li></ul></div><div><h3>Buiten<span class="count">3</span></h3><ul><li>Aangelegde tuinen met inheemse, waterzuinige beplanting</li><li>Tuin voor privégebruik bij de woningen op de begane grond</li><li>Zeezicht</li></ul></div><div><h3>Dagelijks<span class="count">5</span></h3><ul><li>Parkeerplaats en berging inbegrepen bij elke woning</li><li>Warm water via warmtepomp</li><li>Airconditioning</li><li>Voorbereiding voor laadpunt</li><li>Uitgeruste keuken</li></ul></div><div><h3>Diensten<span class="count">3</span></h3><ul><li>Gemeenschapsruimte</li><li>Besloten project</li><li>Defibrillator op het terrein</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een nieuwe woning zoeken op korte loopafstand van het strand, van een woning op de begane grond met tuin tot een penthouse met een groot terras.</span></li><li><b>Wat het anders maakt</b><span>Tuinen op de begane grond, een penthouseterras van bijna 100 m², een gemeenschappelijk zwembad, een fitnessruimte en een gemeenschappelijke ruimte met keuken, en bij elke woning een parkeerplaats en een berging.</span></li><li><b>Waarom de locatie ertoe doet</b><span>De ontwikkelaar plaatst het strand op twee minuten lopen en het complex naast de A-7 en de AP-7, met Fuengirola op ongeveer tien minuten rijden en de luchthaven van Málaga op minder dan 25 minuten.</span></li><li><b>Waarom de details controleren</b><span>De documenten geven geen opleverdatum en de specificatie is voorlopig, dus we bevestigen de vergunning, de stand van de werken en de datum vóór elke reservering.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Reservering</b><span>De reservering bedraagt € 6.000 plus 10% btw, in totaal € 6.600. De documenten vermelden niet of ze van de eerste termijn wordt afgetrokken, dus vragen we het na.</span></li><li><b>Betalingsschema</b><span>30% plus btw bij ondertekening van de onderhandse koopovereenkomst en 70% plus btw bij de akte bij de notaris.</span></li><li><b>Btw</b><span>De prijzen zijn exclusief btw. De ontwikkelaar vermeldt 10% btw op de reservering en noemt de overige termijnen plus btw. Nueva Living bevestigt de belastingen en aankoopkosten schriftelijk.</span></li><li><b>Parkeren en berging</b><span>De ontwikkelaar geeft aan dat elke woning minstens één parkeerplaats en een berging heeft. Wij bevestigen de plaats en de berging van de woning die u kiest.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vergunning en werken</b><span>In de documenten waarover wij beschikken staat niet of de bouwvergunning is verleend of in welke fase de werken zijn, en de kwaliteitsspecificatie is voorlopig. Wij vragen de vergunning, de status ervan en de startdatum van de werken op.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De opleveringsdatum</b><span>Geen van de documenten van de ontwikkelaar noemt een opleveringsdatum, dus wij vragen de contractuele datum op vóór elke reservering.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De oppervlakten</b><span>De plattegronden geven een bebouwde oppervlakte die een deel van de gemeenschappelijke ruimten omvat en een tweede, grotere bebouwde oppervlakte volgens decreet 218/2005: 110,58 m² tegenover 100,00 m² bij de woningen 2 en 3. Het portaal van de ontwikkelaar geeft nog andere cijfers, 85 m² bebouwd voor de woningen 2 en 3. Voor woning 57 geeft de plattegrond 107,00 m² bebouwd, 77,50 binnen en een terras van 99,90 m², de brochure 109,00, 77,30 en 97,20, en het portaal 109, 77 en 97. Wij bevestigen welke cijfers het contract hanteert.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De afstanden</b><span>De afstanden in de tekst zijn die van de ontwikkelaar zelf: twee minuten lopen naar het strand, ongeveer tien minuten rijden naar Fuengirola en minder dan 25 minuten naar de luchthaven van Málaga. De wegcijfers naast de kaart zijn gemeten vanaf een bij benadering geplaatste markering van het perceel en wijken ervan af, dus bevestigen we de afstanden bij een bezichtiging.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De slaapkamers</b><span>Het portaal van de ontwikkelaar vermeldt woning 2 met drie slaapkamers, terwijl de plattegrond twee slaapkamers en twee badkamers toont, dezelfde indeling als woning 3. Deze pagina toont de twee slaapkamers van de plattegrond en wij bevestigen dat schriftelijk.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>De plattegronden van de woningen die u interesseren, de kwaliteitsspecificatie en de prijslijst.</p></li><li><h3>Vergelijk de opties</h3><p>Vergelijk het met de andere projecten in Mijas en Fuengirola die we beheren.</p></li><li><h3>Privébezichtiging</h3><p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p></li><li><h3>Reserveren</h3><p>Wij bevestigen de reservering van € 6.000 plus btw en het betalingsschema schriftelijk, daarna volgt de onderhandse koopovereenkomst.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plattegronden<small>5 van 5 woningen</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Technische omschrijving</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-vitta-marina.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Vitta Marina</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn er?</summary><p>Het project telt 72 woningen met twee, drie en vier slaapkamers, en vijf staan met een prijs op de lijst: drie met twee en twee met drie slaapkamers, van € 483.500 tot € 749.000 plus btw.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>Nee. De prijzen zijn exclusief btw, die de ontwikkelaar bij de reservering op 10% stelt. We bevestigen de belastingen en aankoopkosten schriftelijk.</p></details><details class="segment-faq-item"><summary>Is er parkeergelegenheid?</summary><p>Ja. De ontwikkelaar geeft aan dat elke woning minstens één parkeerplaats en een berging heeft.</p></details><details class="segment-faq-item"><summary>Wanneer is het klaar?</summary><p>Geen van de documenten van de ontwikkelaar geeft een opleverdatum. We vragen naar de contractuele datum, de status van de vergunning en de stand van de werken.</p></details><details class="segment-faq-item"><summary>Wat is het betalingsschema?</summary><p>De reservering bedraagt € 6.000 plus 10% btw. Daarna 30% plus btw bij de onderhandse overeenkomst en 70% plus btw bij oplevering ten overstaan van de notaris.</p></details></div>
+    
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 483.500</p>
+      <p class="rail-note">Excl. btw. Nog 5 van 72 woningen · Gecontroleerd op oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-vitta-marina.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Bezoek met ons het terrein en de omgeving.</li><li><b>Te voet.</b> We lopen met u naar het strand en nemen de tijd op.</li><li><b>Op papier.</b> Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Vitta Marina">
+        <input type="hidden" id="f-project" name="project" value="Vitta Marina">
+        <input type="hidden" name="preferred_area" value="Cala de Mijas">
+        <input type="hidden" name="property_type_interest" value="Appartementen &amp; penthouses">
+        <input type="hidden" name="budget_range" value="Vanaf € 483.500 + btw">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hallo Nueva Living, ik ontvang graag informatie over Vitta Marina." data-base="Hallo Nueva Living, ik ontvang graag informatie over Vitta Marina.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="2">2: € 495.500</option><option value="3">3: € 497.500</option><option value="15">15: € 502.000</option><option value="54">54: € 483.500</option><option value="57">57: € 749.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Vitta Marina veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Nieuwe woningen met twee en drie slaapkamers dicht bij het strand in Cala de Mijas, elk met een parkeerplaats en een berging.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een nieuwe woning zoeken op korte loopafstand van het strand, van een woning op de begane grond met tuin tot een penthouse met een groot terras.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>Tuinen op de begane grond, een penthouseterras van bijna 100 m², een gemeenschappelijk zwembad, een fitnessruimte en een gemeenschappelijke ruimte met keuken, en bij elke woning een parkeerplaats en een berging.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>De ontwikkelaar plaatst het strand op twee minuten lopen en het complex naast de A-7 en de AP-7, met Fuengirola op ongeveer tien minuten rijden en de luchthaven van Málaga op minder dan 25 minuten.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de details controleren</h3><p>De documenten geven geen opleverdatum en de specificatie is voorlopig, dus we bevestigen de vergunning, de stand van de werken en de datum vóór elke reservering.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">De voorwaarden zijn die van het betalingsschema van de ontwikkelaar. We bevestigen de actuele bedragen en data schriftelijk voordat u reserveert.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservering</h3><p>De reservering bedraagt € 6.000 plus 10% btw, in totaal € 6.600. De documenten vermelden niet of ze van de eerste termijn wordt afgetrokken, dus vragen we het na.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalingsschema</h3><p>30% plus btw bij ondertekening van de onderhandse koopovereenkomst en 70% plus btw bij de akte bij de notaris.</p></article>
-              <article class="why-point reveal-soft"><h3>Btw</h3><p>De prijzen zijn exclusief btw. De ontwikkelaar vermeldt 10% btw op de reservering en noemt de overige termijnen plus btw. Nueva Living bevestigt de belastingen en aankoopkosten schriftelijk.</p></article>
-              <article class="why-point reveal-soft"><h3>Parkeren en berging</h3><p>De ontwikkelaar geeft aan dat elke woning minstens één parkeerplaats en een berging heeft. Wij bevestigen de plaats en de berging van de woning die u kiest.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vergunning en werken</h3><p>In de documenten waarover wij beschikken staat niet of de bouwvergunning is verleend of in welke fase de werken zijn, en de kwaliteitsspecificatie is voorlopig. Wij vragen de vergunning, de status ervan en de startdatum van de werken op.</p></article>
-              <article class="why-point reveal-soft"><h3>De opleveringsdatum</h3><p>Geen van de documenten van de ontwikkelaar noemt een opleveringsdatum, dus wij vragen de contractuele datum op vóór elke reservering.</p></article>
-              <article class="why-point reveal-soft"><h3>De oppervlakten</h3><p>De plattegronden geven een bebouwde oppervlakte die een deel van de gemeenschappelijke ruimten omvat en een tweede, grotere bebouwde oppervlakte volgens decreet 218/2005: 110,58 m² tegenover 100,00 m² bij de woningen 2 en 3. Het portaal van de ontwikkelaar geeft nog andere cijfers, 85 m² bebouwd voor de woningen 2 en 3. Voor woning 57 geeft de plattegrond 107,00 m² bebouwd, 77,50 binnen en een terras van 99,90 m², de brochure 109,00, 77,30 en 97,20, en het portaal 109, 77 en 97. Wij bevestigen welke cijfers het contract hanteert.</p></article>
-              <article class="why-point reveal-soft"><h3>De afstanden</h3><p>De afstanden in de tekst zijn die van de ontwikkelaar zelf: twee minuten lopen naar het strand, ongeveer tien minuten rijden naar Fuengirola en minder dan 25 minuten naar de luchthaven van Málaga. De wegcijfers naast de kaart zijn gemeten vanaf een bij benadering geplaatste markering van het perceel en wijken ervan af, dus bevestigen we de afstanden bij een bezichtiging.</p></article>
-              <article class="why-point reveal-soft"><h3>De slaapkamers</h3><p>Het portaal van de ontwikkelaar vermeldt woning 2 met drie slaapkamers, terwijl de plattegrond twee slaapkamers en twee badkamers toont, dezelfde indeling als woning 3. Deze pagina toont de twee slaapkamers van de plattegrond en wij bevestigen dat schriftelijk.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op oktober 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>De prijzen zijn overgenomen uit de prijslijst van de ontwikkelaar zoals die in oktober 2026 op zijn portaal stond, en zijn exclusief btw. De oppervlakten zijn die van de plattegrond van elke woning: de binnenoppervlakte is de bruikbare oppervlakte van de woning, de bebouwde oppervlakte omvat een deel van de gemeenschappelijke ruimten en het terras is het overdekte en het onoverdekte terras samen. Het portaal geeft voor dezelfde woningen andere bebouwde en binnenoppervlakten, en woning 57 verschilt tussen de plattegrond en de brochure; de verschillen staan bij de controles hierboven.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/aerial-coast-view.jpg" alt="Computergegenereerd luchtbeeld van de witte blokken op een beboomde helling boven de kust, met de zee erachter" width="2000" height="1000" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Witte blokken, <em>terrassen op het zuiden</em></h2>
-          <p>In de computergegenereerde beelden van de ontwikkelaar liggen de woningen in witte blokken van maximaal vier lagen, met lange terrassen en pergola’s, op een aangelegde helling boven de kust. De ontwikkelaar geeft aan dat alle woningen op het zuiden of zuidwesten liggen.</p>
-<p>De woningen op de begane grond openen naar een tuin en de penthouses naar grote terrassen, en elke woning op de lijst heeft een terras op de plattegrond.</p>
-          <ul class="feature-list">
-            <li>Structuur — Gewapend beton, met tweewegplaten of massieve platen volgens de constructieberekening.</li>
-            <li>Gevel — Metselwerk van baksteen, aan de buitenzijde afgewerkt zoals in het project bepaald, met thermische isolatie aan de binnenzijde, een luchtspouw en een voorzetwand van gipsplaat.</li>
-            <li>Beglazing — PVC-kozijnen met dubbele beglazing en rolluiken op alle slaapkamer- en woonkamerramen in de kleur van de kozijnen.</li>
-            <li>Terrassen — Terrasborstweringen van metselwerk of hekwerk, naargelang het gevelontwerp.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-vitta-marina.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/main-bedroom.jpg" alt="Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een raam" width="2000" height="1124" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>de omgeving en de plattegronden</em></h2>
-            <p>Bij een bezoek gaat het om de ligging, de plattegronden en de stand van de werken.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Bezoek met ons het terrein en de omgeving.</p></div>
-              <div><span>Te voet</span><p>We lopen met u naar het strand en nemen de tijd op.</p></div>
-              <div><span>Op papier</span><p>Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=vitta-marina">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-vitta-marina.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Terraces">Terrassen</button><button type="button" data-cat="Interiors">Interieur</button><button type="button" data-cat="Bedrooms">Slaapkamers</button><button type="button" data-cat="Bathrooms">Badkamers</button><button type="button" data-cat="Amenities">Voorzieningen</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/living-room.jpg" alt="Computergegenereerde woonkamer met een hoekbank, een ronde salontafel en een glazen schuifdeur naar het terras" width="2000" height="1124" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Tuinen, <em>een zwembad</em> en het strand in de buurt</h2>
-            <p>Het leven hier speelt zich buiten af, tussen een privétuin of terras, het gedeelde zwembad en het strand.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>De plattegronden van de woningen die u interesseren, de kwaliteitsspecificatie en de prijslijst.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de opties</h3>
-            <p>Vergelijk het met de andere projecten in Mijas en Fuengirola die we beheren.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserveren</h3>
-            <p>Wij bevestigen de reservering van € 6.000 plus btw en het betalingsschema schriftelijk, daarna volgt de onderhandse koopovereenkomst.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn er?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Het project telt 72 woningen met twee, drie en vier slaapkamers, en vijf staan met een prijs op de lijst: drie met twee en twee met drie slaapkamers, van € 483.500 tot € 749.000 plus btw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. De prijzen zijn exclusief btw, die de ontwikkelaar bij de reservering op 10% stelt. We bevestigen de belastingen en aankoopkosten schriftelijk.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is er parkeergelegenheid?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. De ontwikkelaar geeft aan dat elke woning minstens één parkeerplaats en een berging heeft.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is het klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Geen van de documenten van de ontwikkelaar geeft een opleverdatum. We vragen naar de contractuele datum, de status van de vergunning en de stand van de werken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het betalingsschema?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De reservering bedraagt € 6.000 plus 10% btw. Daarna 30% plus btw bij de onderhandse overeenkomst en 70% plus btw bij oplevering ten overstaan van de notaris.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>Vitta Marina</em></h2>
-          <p class="body-copy">Vertel ons wat u nodig heeft en we komen bij u terug met de actuele beschikbaarheid, de plattegronden en de prijslijst.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Vitta Marina">
-
-          <input type="hidden" id="f-project" name="project" value="Vitta Marina">
-          <input type="hidden" name="preferred_area" value="Cala de Mijas">
-          <input type="hidden" name="property_type_interest" value="Appartementen &amp; penthouses">
-          <input type="hidden" name="budget_range" value="Vanaf € 483.500 + btw">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Hallo Nueva Living, ik ontvang graag informatie over Vitta Marina.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Wij reageren persoonlijk, meestal dezelfde dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"2","title":"2 · Begane grond","sub":"2 slk. · 100 m²","price":495500,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-2.jpg","label":""}]},{"id":"u1","ref":"3","title":"3 · Begane grond","sub":"2 slk. · 100 m²","price":497500,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-3.jpg","label":""}]},{"id":"u2","ref":"15","title":"15 · Begane grond","sub":"3 slk. · 114 m²","price":502000,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-15.jpg","label":""}]},{"id":"u3","ref":"54","title":"54 · Tweede verdieping","sub":"2 slk. · 103 m²","price":483500,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-54.jpg","label":""}]},{"id":"u4","ref":"57","title":"57 · Penthouse","sub":"3 slk. · 107 m²","price":749000,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-57.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/vitta-marina/media/pool-and-building.webp","alt":"Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom","caption":"Het gemeenschappelijk zwembad en het gebouw","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/garden-facade.webp","alt":"Computergegenereerd beeld van twee witte appartementengebouwen met lange terrassen en pergola’s boven een aangelegd grasveld","caption":"De blokken vanuit de tuin","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-view.webp","alt":"Computergegenereerd luchtbeeld van de witte blokken op een beboomde helling boven de kust, met de zee erachter","caption":"De blokken boven de kust","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-pool.webp","alt":"Computergegenereerd luchtbeeld van de witte blokken met het gemeenschappelijk zwembad ervoor en de zich uitstrekkende kustlijn","caption":"De blokken en het zwembad vanuit de lucht","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/terrace-sea-view.webp","alt":"Computergegenereerd beeld van een overdekt terras met rieten stoelen en een ronde tafel, met uitzicht over palmbomen op de zee","caption":"Een terras met zeezicht","cat":"Terraces"},{"src":"assets/liora/projects/vitta-marina/media/living-room.webp","alt":"Computergegenereerde woonkamer met een hoekbank, een ronde salontafel en een glazen schuifdeur naar het terras","caption":"Woonkamer","cat":"Interiors"},{"src":"assets/liora/projects/vitta-marina/media/kitchen-dining.webp","alt":"Computergegenereerde open keuken met witte kastjes en een houten werkblad, en een eettafel met stoelen","caption":"Keuken- en eetgedeelte","cat":"Interiors"},{"src":"assets/liora/projects/vitta-marina/media/main-bedroom.webp","alt":"Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een raam","caption":"Tweepersoonsslaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/vitta-marina/media/twin-bedroom.webp","alt":"Computergegenereerde slaapkamer met twee eenpersoonsbedden en een gedessineerde wand, met een raam naar de tuin","caption":"Tweepersoonskamer","cat":"Bedrooms"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-shower.webp","alt":"Computergegenereerde badkamer met een inloopdouche, een toilet en een wastafelmeubel met spiegel","caption":"Badkamer met douche","cat":"Bathrooms"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-bath.webp","alt":"Computergegenereerde badkamer met een bad en douche, een toilet en een hangende wastafel","caption":"Badkamer met bad","cat":"Bathrooms"},{"src":"assets/liora/projects/vitta-marina/media/gym-interior.webp","alt":"Computergegenereerd beeld van de fitnessruimte voor bewoners met hometrainers, een loopband, een rekstok en glazen wanden naar de tuin","caption":"De fitnessruimte","cat":"Amenities"},{"src":"assets/liora/projects/vitta-marina/media/social-room-lounge.webp","alt":"Computergegenereerd beeld van de gemeenschappelijke ruimte met een zithoek en eettafels naast glazen wanden naar het zwembad","caption":"De gemeenschappelijke ruimte","cat":"Amenities"},{"src":"assets/liora/projects/vitta-marina/media/social-room-terrace.webp","alt":"Computergegenereerd beeld van een bestraat terras onder een pergola naast de gemeenschappelijke ruimte, met zitmeubilair en het zwembad erachter","caption":"Het terras bij de gemeenschappelijke ruimte","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Vitta Marina media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/vitta-marina/media/pool-and-building.jpg","webp":"assets/liora/projects/vitta-marina/media/pool-and-building-960.webp","alt":"Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom","width":2000,"height":1000,"caption":"Het gemeenschappelijk zwembad en het gebouw","category":"Exterieur"},{"src":"assets/liora/projects/vitta-marina/media/garden-facade.jpg","webp":"assets/liora/projects/vitta-marina/media/garden-facade-960.webp","alt":"Computergegenereerd beeld van twee witte appartementengebouwen met lange terrassen en pergola’s boven een aangelegd grasveld","width":2000,"height":1000,"caption":"De blokken vanuit de tuin","category":"Exterieur"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-view.jpg","webp":"assets/liora/projects/vitta-marina/media/aerial-coast-view-960.webp","alt":"Computergegenereerd luchtbeeld van de witte blokken op een beboomde helling boven de kust, met de zee erachter","width":2000,"height":1000,"caption":"De blokken boven de kust","category":"Exterieur"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-pool.jpg","webp":"assets/liora/projects/vitta-marina/media/aerial-coast-pool-960.webp","alt":"Computergegenereerd luchtbeeld van de witte blokken met het gemeenschappelijk zwembad ervoor en de zich uitstrekkende kustlijn","width":2000,"height":1575,"caption":"De blokken en het zwembad vanuit de lucht","category":"Exterieur"},{"src":"assets/liora/projects/vitta-marina/media/terrace-sea-view.jpg","webp":"assets/liora/projects/vitta-marina/media/terrace-sea-view-960.webp","alt":"Computergegenereerd beeld van een overdekt terras met rieten stoelen en een ronde tafel, met uitzicht over palmbomen op de zee","width":2000,"height":1124,"caption":"Een terras met zeezicht","category":"Terrassen"},{"src":"assets/liora/projects/vitta-marina/media/living-room.jpg","webp":"assets/liora/projects/vitta-marina/media/living-room-960.webp","alt":"Computergegenereerde woonkamer met een hoekbank, een ronde salontafel en een glazen schuifdeur naar het terras","width":2000,"height":1124,"caption":"Woonkamer","category":"Interieur"},{"src":"assets/liora/projects/vitta-marina/media/kitchen-dining.jpg","webp":"assets/liora/projects/vitta-marina/media/kitchen-dining-960.webp","alt":"Computergegenereerde open keuken met witte kastjes en een houten werkblad, en een eettafel met stoelen","width":2000,"height":1124,"caption":"Keuken- en eetgedeelte","category":"Interieur"},{"src":"assets/liora/projects/vitta-marina/media/main-bedroom.jpg","webp":"assets/liora/projects/vitta-marina/media/main-bedroom-960.webp","alt":"Computergegenereerde slaapkamer met een tweepersoonsbed, een inbouwkast en een raam","width":2000,"height":1124,"caption":"Tweepersoonsslaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/vitta-marina/media/twin-bedroom.jpg","webp":"assets/liora/projects/vitta-marina/media/twin-bedroom-960.webp","alt":"Computergegenereerde slaapkamer met twee eenpersoonsbedden en een gedessineerde wand, met een raam naar de tuin","width":2000,"height":1124,"caption":"Tweepersoonskamer","category":"Slaapkamers"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-shower.jpg","webp":"assets/liora/projects/vitta-marina/media/bathroom-shower-960.webp","alt":"Computergegenereerde badkamer met een inloopdouche, een toilet en een wastafelmeubel met spiegel","width":2000,"height":1334,"caption":"Badkamer met douche","category":"Badkamers"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-bath.jpg","webp":"assets/liora/projects/vitta-marina/media/bathroom-bath-960.webp","alt":"Computergegenereerde badkamer met een bad en douche, een toilet en een hangende wastafel","width":2000,"height":1334,"caption":"Badkamer met bad","category":"Badkamers"},{"src":"assets/liora/projects/vitta-marina/media/gym-interior.jpg","webp":"assets/liora/projects/vitta-marina/media/gym-interior-960.webp","alt":"Computergegenereerd beeld van de fitnessruimte voor bewoners met hometrainers, een loopband, een rekstok en glazen wanden naar de tuin","width":2000,"height":1000,"caption":"De fitnessruimte","category":"Voorzieningen"},{"src":"assets/liora/projects/vitta-marina/media/social-room-lounge.jpg","webp":"assets/liora/projects/vitta-marina/media/social-room-lounge-960.webp","alt":"Computergegenereerd beeld van de gemeenschappelijke ruimte met een zithoek en eettafels naast glazen wanden naar het zwembad","width":2000,"height":1000,"caption":"De gemeenschappelijke ruimte","category":"Voorzieningen"},{"src":"assets/liora/projects/vitta-marina/media/social-room-terrace.jpg","webp":"assets/liora/projects/vitta-marina/media/social-room-terrace-960.webp","alt":"Computergegenereerd beeld van een bestraat terras onder een pergola naast de gemeenschappelijke ruimte, met zitmeubilair en het zwembad erachter","width":2000,"height":1000,"caption":"Het terras bij de gemeenschappelijke ruimte","category":"Voorzieningen"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-2.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-2-960.webp","alt":"Plattegrond van woning 2, begane grond","width":1120,"height":1780,"caption":"Woning 2, begane grond","category":"Plattegronden"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-3.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-3-960.webp","alt":"Plattegrond van woning 3, begane grond","width":1110,"height":1756,"caption":"Woning 3, begane grond","category":"Plattegronden"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-15.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-15-960.webp","alt":"Plattegrond van woning 15, begane grond","width":940,"height":1860,"caption":"Woning 15, begane grond","category":"Plattegronden"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-54.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-54-960.webp","alt":"Plattegrond van woning 54, tweede verdieping","width":1070,"height":1230,"caption":"Woning 54, tweede verdieping","category":"Plattegronden"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-57.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-57-960.webp","alt":"Plattegrond van woning 57, penthouse","width":1610,"height":1820,"caption":"Woning 57, penthouse","category":"Plattegronden"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-vitta-marina.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

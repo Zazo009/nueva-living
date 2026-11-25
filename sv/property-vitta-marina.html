@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder finns det?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Vitta Marina"
   data-project-message="Hej Nueva Living, jag vill gärna ha information om Vitta Marina."
@@ -443,534 +380,148 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Vitta Marina">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-vitta-marina.html#top">Vitta Marina<span>Från 483 500 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-vitta-marina.html#overview">Översikt</a><a href="sv/property-vitta-marina.html#availability">Priser</a><a href="sv/property-vitta-marina.html#specs">Utförande</a><a href="sv/property-vitta-marina.html#gallery">Galleri</a><a href="sv/property-vitta-marina.html#location">Läge</a><a href="sv/property-vitta-marina.html#onsite">I området</a><a href="sv/property-vitta-marina.html#view">Vår bedömning</a><a href="sv/property-vitta-marina.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-vitta-marina.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Vitta Marina">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm" width="2000" height="1000" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm" width="2000" height="1000" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">5 av 72 bostäder lediga</span>
-          <h1 class="hero-title" style="--hero-title-run: 6">
-            <span class="hero-title-name">Vitta <em>Marina</em></span>
-            <span class="hero-title-context">Lägenheter och takvåningar · Cala de Mijas</span>
-          </h1>
-          <p class="hero-positioning">En bevakad anläggning med 72 bostäder med två, tre eller fyra sovrum i Cala de Mijas, enligt exploatören två minuters promenad från stranden, med gemensam pool, gym och gemensamhetsrum. Fem bostäder med två och tre sovrum är listade, från 483 500 € plus IVA.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-vitta-marina.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=vitta-marina">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-vitta-marina.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Cala de Mijas</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 483 500 € + IVA</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenheter och takvåningar</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Färdigställande ej bekräftat</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-vitta-marina.html#media">Media</a>
-        <a href="sv/property-vitta-marina.html#location">Läge</a>
-        <a href="sv/property-vitta-marina.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-vitta-marina.html#overview">Översikt</a>
-          <a href="sv/property-vitta-marina.html#residences">Bostäder</a>
-          <a href="sv/property-vitta-marina.html#quality-specifications">Utförande</a>
-          <a href="sv/property-vitta-marina.html#calculator">Finansiering</a>
-          <a href="sv/property-vitta-marina.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-vitta-marina.html#why-this-project">Varför</a>
-          <a href="sv/property-vitta-marina.html#architecture">Arkitektur</a>
-          <a href="sv/property-vitta-marina.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-vitta-marina.html#lifestyle">Livsstil</a>
-          <a href="sv/property-vitta-marina.html#faq">FAQ</a>
-          <a href="sv/property-vitta-marina.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2-3 sovrum</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>100,00 - 114,00 m²</strong></div>
-          <div class="quick-fact"><span>Terrass</span><strong>16,60 - 99,90 m²</strong></div>
-          <div class="quick-fact"><span>Parkering</span><strong>Parkeringsplats och förråd ingår till varje bostad</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>5 av 72 bostäder lediga</strong></div>
-          <div class="quick-fact"><span>Prisspann</span><strong>483 500 € - 749 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-vitta-marina.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Sjuttiotvå bostäder, <em>fem listade</em></h2>
-          <p class="project-lead">Detta är ett bevakat bostadskomplex med 72 bostäder med två, tre och fyra sovrum, på bottenvåningen, första och andra våningen och som takvåningar, i Cala de Mijas mellan Fuengirola och La Cala. Exploatören anger att alla bostäder vetter mot söder eller sydväst och att många har havsutsikt. Bostäderna på bottenvåningen har trädgård och takvåningarna stora terrasser.</p>
-          <p class="project-lead">De boende delar en pool, ett gym och ett gemensamhetsrum med kök, och varje bostad har minst en parkeringsplats och ett förråd. Fem bostäder är listade med pris, och exploatörens dokument anger inget slutdatum.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bostäderna <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datorgenererade vyer av byggnaden, de gemensamma ytorna och interiörerna, och planritningar över de fem bostäderna på listan.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 4 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm" width="2000" height="1000" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Den gemensamma poolen och byggnaden</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Visa 1 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/terrace-sea-view-640.webp 640w, assets/liora/projects/vitta-marina/media/terrace-sea-view-960.webp 960w, assets/liora/projects/vitta-marina/media/terrace-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/terrace-sea-view.jpg" alt="Datorgenererad vy av en övertäckt terrass med korgstolar och ett runt bord, med utsikt över palmer mot havet" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En terrass med havsutsikt</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 2 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/living-room-640.webp 640w, assets/liora/projects/vitta-marina/media/living-room-960.webp 960w, assets/liora/projects/vitta-marina/media/living-room.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/living-room.jpg" alt="Datorgenererat vardagsrum med hörnsoffa, ett runt soffbord och en glasskjutdörr till terrassen" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrum</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Visa 2 bilder i Sovrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/main-bedroom-640.webp 640w, assets/liora/projects/vitta-marina/media/main-bedroom-960.webp 960w, assets/liora/projects/vitta-marina/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/main-bedroom.jpg" alt="Datorgenererat sovrum med dubbelsäng, inbyggd garderob och ett fönster" width="2000" height="1124" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Sovrum</small>
-                <strong>Dubbelsovrum</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Visa 2 bilder i Badrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/bathroom-shower-640.webp 640w, assets/liora/projects/vitta-marina/media/bathroom-shower-960.webp 960w, assets/liora/projects/vitta-marina/media/bathroom-shower.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/bathroom-shower.jpg" alt="Datorgenererat badrum med inloppsdusch, toalett och tvättställsskåp med spegel" width="2000" height="1334" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badrum</small>
-                <strong>Badrum med dusch</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 3 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/gym-interior-640.webp 640w, assets/liora/projects/vitta-marina/media/gym-interior-960.webp 960w, assets/liora/projects/vitta-marina/media/gym-interior.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/vitta-marina/media/gym-interior.jpg" alt="Datorgenererad vy av de boendes gym med motionscyklar, ett löpband, ribbstolar och glasväggar mot trädgården" width="2000" height="1000" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Gymmet</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Visa 5 bilder i Planritningar">
-              <img src="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" alt="Planritning för bostad 2, bottenvåning" width="1120" height="1780" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planritningar</small>
-                <strong>Bostad 2, bottenvåning</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 19 bilder</button>
-          <p class="media-note">Alla bilder är datagenererade illustrationer och inte fotografier av den färdiga byggnaden, och möblerna och inredningen på dem är illustrativa och ingår inte. Exploatören anger att dess ritningar av de gemensamma ytorna inte visar de slutliga detaljerna. Planritningarna är exploatörens projektplaner, och ytorna på dem är ungefärliga och beroende av det slutliga projektet. Rumsnamnen på planritningarna är på spanska.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Cala de Mijas, <em>vid havet mellan Fuengirola och La Cala</em></h2>
-          <p class="project-lead">Bostäderna ligger i Cala de Mijas, vid kusten mellan Fuengirola och La Cala. Exploatörens broschyr anger stranden två minuters promenad bort, centrala Cala de Mijas 1,6 km bort, tre minuter med bil, och A-7 och AP-7 alldeles intill. Den nämner Chaparral Golf Club på under två kilometers avstånd, med köpcentrum, stormarknader, restauranger, en vårdcentral och apotek i området, Málagas flygplats på under 25 minuter med bil och stationen María Zambrano på 40 minuter. Fuengirola ligger ungefär tio minuter bort med bil, enligt exploatörens portal.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-vitta-marina" data-locmap='{&quot;site&quot;:[36.5105,-4.6508],&quot;sea&quot;:[36.4835,-4.6508],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Cala&quot;,&quot;sub&quot;:&quot;11 km · 18 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centrum&quot;,&quot;sub&quot;:&quot;12 km · 16 min&quot;},{&quot;ll&quot;:[36.50618,-4.65167],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,4 km · 8 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Cabopino&quot;,&quot;sub&quot;:&quot;11 km · 14 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Vitta Marina"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Vitta Marina</h3>
-            <p class="locmap-place">Cala de Mijas, Mijas Costa</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Fuengirola centrum</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Cabopino</span>
-              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan La Cala</span>
-              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>18 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga flygplats</span>
-              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>37 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tre typer av bostäder, <em>fem listade</em></h2>
-          <p class="project-lead">De fem listade bostäderna delas in i tre grupper efter var de ligger i byggnaden. Tabellen nedan listar alla med deras priser.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Bottenvåning, med trädgård</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-vitta-marina.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Andra våningen</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-vitta-marina.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Takvåningen</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-vitta-marina.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-vitta-marina.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Konstruktion, fasad och tak<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En stomme av armerad betong och en fasad av tegel med utvändig beklädnad, invändig värmeisolering, luftspalt och innerbeklädnad av gipsskivor på metallprofiler.</li>
-              <li>Platta tak med grustäckning där det saknas tillträde och halkfritt stengods på de tak som går att beträda.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Mellanväggar och fönster<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Mellanväggar av gipsskivor på metallstomme med värme- och ljudisolering inne i bostaden, samt tegelväggar med innerbeklädnad av gipsskivor och isolering mellan bostäderna och mellan en bostad och de gemensamma ytorna.</li>
-              <li>PVC-fönsterkarmar med dubbelglas och luftkammare, som minskar värmeutbyte och buller utifrån, och rullgardiner i karmarnas färg på alla sovrums- och vardagsrumsfönster.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dörrar och garderober<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En vitlackerad pansardörr med säkerhetsbeslag, utvändigt handtag och titthål, släta vita innerdörrar och matchande moduluppbyggda garderober med slag- eller skjutdörrar, med melamin invändigt, resväskhylla och klädstång.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Golv och väggar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Stengodsgolv i vardagsrummet, sovrummen, hallen, korridoren och badrummen samt halkfritt keramiskt stengods på terrasserna.</li>
-              <li>Slät plastfärg i en dämpad kulör på väggarna och vit i taken, med färg eller keramiska plattor på de våta väggarna i kök och badrum, samt ett åtkomligt undertak i badrummet som rymmer klimatutrustningen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kök<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Ett möblerat kök med över- och underskåp, en bänkskiva i postforming i arbetszonen, en diskho i rostfritt stål och en enhandsblandare.</li>
-              <li>Vitvaror: en elugn, en keramisk spishäll, en köksfläkt, ett kylskåp, en tvättmaskin och en diskmaskin.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Vit sanitetsporslin, ett tvättställ integrerat i ett skåp i huvudbadrummet och ett väggmonterat tvättställ i det andra, spegel i båda, kromade blandare, enhandsblandare på badkar och tvättställ och termostatblandare i duscharna.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och energi<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Varmvatten från ett aerotermiskt system i varje bostad, uppvärmning och kylning med en kanalvärmepump och ett individuellt mekaniskt ventilationssystem.</li>
-              <li>Byggnaden är listad med energiklass B, som uppnås med ett förbättrat klimatskal, effektiva fönster och högeffektiva installationer. Exploatören uppskattar besparingen jämfört med en bostad med klass F.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>El och telekom<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En elinstallation enligt lågspänningsföreskrifterna, teleuttag i vardagsrummet, sovrummen och köket, förberedelse för parabolantenn, porttelefon med video vid ingångarna till anläggningen och husen, samt en armatur, ett eluttag och ett tv-antennuttag på vardagsrumsterrassen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gemensamma ytor<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En helt avgränsad och inhägnad anläggning med lågenergibelysning vid tillfarterna, de interna vägarna och trädgårdarna, rörelsedetektorer i trapphus, våningsplan och garage, samt trädgårdar med bevattning och torktålig planering av inhemska buskar och träd.</li>
-              <li>En stor, solig gemensam utomhuspool för vuxna med saltklorering och nattbelysning, ett utrustat gym, ett gemensamhetsrum med kök, toaletter och wifi samt ett utrymme med en extern hjärtstartare.</li>
-              <li>Ett garage med forcerad ventilation, kolmonoxiddetektering, brandskydd och nödbelysning samt förberedelse för laddning av elfordon enligt föreskrifterna.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: exploatörens kvalitetsspecifikation, utgåva 00. Den är preliminär och kan ändras på grund av krav i bygglovet eller efter projektledningens bedömning, utan att kvaliteten försämras.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fem bostäder <em>listade just nu</em></h2>
-          <p class="project-lead">Priserna är de i exploatörens prislista från oktober 2026 och bekräftas före reservation. Fem av de 72 bostäderna är listade; exploatörens dokument säger inte att de övriga 67 är sålda.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>14 bilder</button>
+          <a class="chip" href="sv/property-vitta-marina.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-vitta-marina.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>5</strong></div>
-            <div><span>Pris från</span><strong>483 500 € + IVA</strong></div>
-            <div><span>Prisintervall</span><strong>483 500 € - 749 000 € + IVA</strong></div>
-            <div><span>Kontrollerad</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 5 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="495500">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-2-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" alt="Planritning för 2" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>100,00 m²</dd></div>
-                    <div><dt>Inomhus</dt><dd>74,10 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>18,70 m²</dd></div>
-                    <div><dt>Trädgård</dt><dd>43,20 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Bottenvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">495 500 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%202">Fråga om 2</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="497500">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-3.jpg" target="_blank" rel="noopener" aria-label="Planritning för 3">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-3-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-3-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-3.jpg" alt="Planritning för 3" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>100,00 m²</dd></div>
-                    <div><dt>Inomhus</dt><dd>74,10 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>18,70 m²</dd></div>
-                    <div><dt>Trädgård</dt><dd>44,20 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Bottenvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">497 500 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%203">Fråga om 3</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="502000">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-15.jpg" target="_blank" rel="noopener" aria-label="Planritning för 15">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-15-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-15-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-15.jpg" alt="Planritning för 15" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">15</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>114,00 m²</dd></div>
-                    <div><dt>Inomhus</dt><dd>82,60 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>16,60 m²</dd></div>
-                    <div><dt>Trädgård</dt><dd>14,90 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Bottenvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">502 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%2015">Fråga om 15</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="483500">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-54.jpg" target="_blank" rel="noopener" aria-label="Planritning för 54">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-54-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-54-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-54.jpg" alt="Planritning för 54" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">54</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>103,00 m²</dd></div>
-                    <div><dt>Inomhus</dt><dd>76,40 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>16,70 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Andra våningen</dd></div>
-                  </dl>
-                  <p class="unit-card-price">483 500 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%2054">Fråga om 54</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="749000">
-                <a class="unit-card-plan" href="assets/liora/projects/vitta-marina/floorplans/home-57.jpg" target="_blank" rel="noopener" aria-label="Planritning för 57">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/vitta-marina/floorplans/home-57-640.webp 640w, assets/liora/projects/vitta-marina/floorplans/home-57-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/vitta-marina/floorplans/home-57.jpg" alt="Planritning för 57" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">57</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>107,00 m²</dd></div>
-                    <div><dt>Inomhus</dt><dd>77,50 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>99,90 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Takvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">749 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Vitta%20Marina%20-%2057">Fråga om 57</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Priserna är hämtade från exploatörens prislista så som den stod på hans portal i oktober 2026, och inkluderar inte IVA. Ytorna är de från planritningen för varje bostad: den inomhusytan är bostadens boyta, byggytan inkluderar en andel av de gemensamma ytorna och terrassen är den övertäckta och den öppna terrassen tillsammans. Portalen anger andra byggytor och inomhusytor för samma bostäder, och bostad 57 skiljer sig mellan sin planritning och broschyren; skillnaderna redovisas under kontrollpunkterna ovan.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-vitta-marina.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Vitta Marina</span></h1>
+        <p class="hero-by">En bevakad anläggning med 72 bostäder med två, tre eller fyra sovrum i Cala de Mijas, enligt exploatören två minuters promenad från stranden, med gemensam pool, gym och gemensamhetsrum.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 483 500 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2 till 3</dd><dd class="sub"><span>Lägenheter och takvåningar</span></dd></div><div><dt>Inflyttning</dt><dd>ej bekräftat</dd><dd class="sub">Bygglov: vi bekräftar det innan ni reserverar</dd></div><div><dt>Bostäder kvar</dt><dd>5 av 72</dd><dd class="sub">Kontrollerat oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-vitta-marina.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Detta är ett bevakat bostadskomplex med 72 bostäder med två, tre och fyra sovrum, på bottenvåningen, första och andra våningen och som takvåningar, i Cala de Mijas mellan Fuengirola och La Cala. Exploatören anger att alla bostäder vetter mot söder eller sydväst och att många har havsutsikt. Bostäderna på bottenvåningen har trädgård och takvåningarna stora terrasser.</p>
+    <p class="lede-2">De boende delar en pool, ett gym och ett gemensamhetsrum med kök, och varje bostad har minst en parkeringsplats och ett förråd. Fem bostäder är listade med pris, och exploatörens dokument anger inget slutdatum.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Vita hus, terrasser mot söder</span></summary><p>På exploatörens datorgenererade bilder ligger bostäderna i vita hus på upp till fyra nivåer, med långa terrasser och pergolor, i en anlagd sluttning ovanför kusten. Exploatören anger att alla bostäder vetter mot söder eller sydväst.</p><p>Bostäderna på bottenvåningen öppnar sig mot en trädgård och takvåningarna mot stora terrasser, och varje listad bostad har en terrass på sin planritning.</p><ul><li>Konstruktion: Armerad betong, med tvåvägsbjälklag eller massiva plattor enligt konstruktionsberäkningen.</li><li>Fasad: Tegelmurverk, klätt utvändigt enligt projektet, med invändig värmeisolering, luftspalt och innerbeklädnad av gipsskivor.</li><li>Fönster: PVC-karmar med dubbelglas och rullgardiner på alla sovrums- och vardagsrumsfönster i karmarnas färg.</li><li>Terrasser: Terrassräcken av murverk eller metallräcken, enligt fasadens utformning.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>483 500 € – 749 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>5 av 72 bostäder</span><small>Kontrollerat oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenheter och takvåningar</span></dd></div><div><dt>Storlekar</dt><dd><span>100 – 114 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>ej bekräftat</span></dd></div><div><dt>Tillstånd</dt><dd><span>Ej angivet</span><small>Vi bekräftar det innan ni reserverar</small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Parkeringsplats och förråd ingår till varje bostad</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Priserna är de i exploatörens prislista från oktober 2026 och bekräftas före reservation. Fem av de 72 bostäderna är listade; exploatörens dokument säger inte att de övriga 67 är sålda. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="5 av 72 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>5 av 72 till salu</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="495500" data-size="100" data-ppm="4955" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-2-640.webp">
+            <th scope="row"><span class="u-name">2</span><span class="u-loc">Bottenvåning</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">100 m²</td>
+            <td data-label="Pris" class="u-price num">495 500 €</td>
+            <td data-label="Per m²" class="num">4 955 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-2.jpg" target="_blank" rel="noopener" aria-label="Planritning för 2"><img src="assets/liora/projects/vitta-marina/floorplans/home-2-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="497500" data-size="100" data-ppm="4975" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-3-640.webp">
+            <th scope="row"><span class="u-name">3</span><span class="u-loc">Bottenvåning</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">100 m²</td>
+            <td data-label="Pris" class="u-price num">497 500 €</td>
+            <td data-label="Per m²" class="num">4 975 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-3.jpg" target="_blank" rel="noopener" aria-label="Planritning för 3"><img src="assets/liora/projects/vitta-marina/floorplans/home-3-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="502000" data-size="114" data-ppm="4404" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-15-640.webp">
+            <th scope="row"><span class="u-name">15</span><span class="u-loc">Bottenvåning</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">114 m²</td>
+            <td data-label="Pris" class="u-price num">502 000 €</td>
+            <td data-label="Per m²" class="num">4 404 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-15.jpg" target="_blank" rel="noopener" aria-label="Planritning för 15"><img src="assets/liora/projects/vitta-marina/floorplans/home-15-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="483500" data-size="103" data-ppm="4694" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-54-640.webp">
+            <th scope="row"><span class="u-name">54</span><span class="u-loc">Andra våningen</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">103 m²</td>
+            <td data-label="Pris" class="u-price num">483 500 €</td>
+            <td data-label="Per m²" class="num">4 694 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-54.jpg" target="_blank" rel="noopener" aria-label="Planritning för 54"><img src="assets/liora/projects/vitta-marina/floorplans/home-54-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="749000" data-size="107" data-ppm="7000" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/vitta-marina/floorplans/home-57-640.webp">
+            <th scope="row"><span class="u-name">57</span><span class="u-loc">Takvåning</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">107 m²</td>
+            <td data-label="Pris" class="u-price num">749 000 €</td>
+            <td data-label="Per m²" class="num">7 000 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/vitta-marina/floorplans/home-57.jpg" target="_blank" rel="noopener" aria-label="Planritning för 57"><img src="assets/liora/projects/vitta-marina/floorplans/home-57-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Tre typer av bostäder, fem listade</span></summary><p>De fem listade bostäderna delas in i tre grupper efter var de ligger i byggnaden. Tabellen nedan listar alla med deras priser.</p><div class="res-types"><div class="res-type"><h3>Bottenvåning, med trädgård</h3><ul><li>Bostad 2 och 3 har två sovrum och två badrum, 100,00 m² byggyta och 74,10 m² inomhus, med en övertäckt terrass på 10,60 m², en öppen terrass på 8,10 m² och en trädgård på 43,20 respektive 44,20 m².</li><li>Bostad 15 har tre sovrum och två badrum, 114,00 m² byggyta och 82,60 m² inomhus, med en övertäckt terrass på 16,60 m² och en trädgård på 14,90 m².</li><li>Priserna är 495 500 €, 497 500 € och 502 000 €.</li></ul></div><div class="res-type"><h3>Andra våningen</h3><ul><li>Bostad 54 har två sovrum och två badrum, 103,00 m² byggyta och 76,40 m² inomhus, med en öppen terrass på 16,70 m².</li><li>Priset är 483 500 €.</li></ul></div><div class="res-type"><h3>Takvåningen</h3><ul><li>Bostad 57 har tre sovrum och två badrum, 107,00 m² byggyta och 77,50 m² inomhus, med en öppen terrass på 99,90 m².</li><li>Priset är 749 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-vitta-marina.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1030,416 +581,229 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Gemensam utomhuspool med saltklorering</h3>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Konstruktion, fasad och tak</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Mellanväggar och fönster</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Dörrar och garderober</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Golv och väggar</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Kök</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Klimat och energi</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">El och telekom</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-8">Gemensamma ytor</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>En stomme av armerad betong och en fasad av tegel med utvändig beklädnad, invändig värmeisolering, luftspalt och innerbeklädnad av gipsskivor på metallprofiler.</li><li>Platta tak med grustäckning där det saknas tillträde och halkfritt stengods på de tak som går att beträda.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Mellanväggar av gipsskivor på metallstomme med värme- och ljudisolering inne i bostaden, samt tegelväggar med innerbeklädnad av gipsskivor och isolering mellan bostäderna och mellan en bostad och de gemensamma ytorna.</li><li>PVC-fönsterkarmar med dubbelglas och luftkammare, som minskar värmeutbyte och buller utifrån, och rullgardiner i karmarnas färg på alla sovrums- och vardagsrumsfönster.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>En vitlackerad pansardörr med säkerhetsbeslag, utvändigt handtag och titthål, släta vita innerdörrar och matchande moduluppbyggda garderober med slag- eller skjutdörrar, med melamin invändigt, resväskhylla och klädstång.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Stengodsgolv i vardagsrummet, sovrummen, hallen, korridoren och badrummen samt halkfritt keramiskt stengods på terrasserna.</li><li>Slät plastfärg i en dämpad kulör på väggarna och vit i taken, med färg eller keramiska plattor på de våta väggarna i kök och badrum, samt ett åtkomligt undertak i badrummet som rymmer klimatutrustningen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Ett möblerat kök med över- och underskåp, en bänkskiva i postforming i arbetszonen, en diskho i rostfritt stål och en enhandsblandare.</li><li>Vitvaror: en elugn, en keramisk spishäll, en köksfläkt, ett kylskåp, en tvättmaskin och en diskmaskin.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Vit sanitetsporslin, ett tvättställ integrerat i ett skåp i huvudbadrummet och ett väggmonterat tvättställ i det andra, spegel i båda, kromade blandare, enhandsblandare på badkar och tvättställ och termostatblandare i duscharna.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Varmvatten från ett aerotermiskt system i varje bostad, uppvärmning och kylning med en kanalvärmepump och ett individuellt mekaniskt ventilationssystem.</li><li>Byggnaden är listad med energiklass B, som uppnås med ett förbättrat klimatskal, effektiva fönster och högeffektiva installationer. Exploatören uppskattar besparingen jämfört med en bostad med klass F.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>En elinstallation enligt lågspänningsföreskrifterna, teleuttag i vardagsrummet, sovrummen och köket, förberedelse för parabolantenn, porttelefon med video vid ingångarna till anläggningen och husen, samt en armatur, ett eluttag och ett tv-antennuttag på vardagsrumsterrassen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-8" role="tabpanel" hidden>
+      <ul><li>En helt avgränsad och inhägnad anläggning med lågenergibelysning vid tillfarterna, de interna vägarna och trädgårdarna, rörelsedetektorer i trapphus, våningsplan och garage, samt trädgårdar med bevattning och torktålig planering av inhemska buskar och träd.</li><li>En stor, solig gemensam utomhuspool för vuxna med saltklorering och nattbelysning, ett utrustat gym, ett gemensamhetsrum med kök, toaletter och wifi samt ett utrymme med en extern hjärtstartare.</li><li>Ett garage med forcerad ventilation, kolmonoxiddetektering, brandskydd och nödbelysning samt förberedelse för laddning av elfordon enligt föreskrifterna.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: exploatörens kvalitetsspecifikation, utgåva 00. Den är preliminär och kan ändras på grund av krav i bygglovet eller efter projektledningens bedömning, utan att kvaliteten försämras.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Den gemensamma poolen och byggnaden"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Vardagsrum"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/living-room-640.webp 640w, assets/liora/projects/vitta-marina/media/living-room-960.webp 960w, assets/liora/projects/vitta-marina/media/living-room.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/living-room.jpg" alt="Datorgenererat vardagsrum med hörnsoffa, ett runt soffbord och en glasskjutdörr till terrassen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="En terrass med havsutsikt"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/terrace-sea-view-640.webp 640w, assets/liora/projects/vitta-marina/media/terrace-sea-view-960.webp 960w, assets/liora/projects/vitta-marina/media/terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/terrace-sea-view.jpg" alt="Datorgenererad vy av en övertäckt terrass med korgstolar och ett runt bord, med utsikt över palmer mot havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="11" aria-label="Gymmet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/gym-interior-640.webp 640w, assets/liora/projects/vitta-marina/media/gym-interior-960.webp 960w, assets/liora/projects/vitta-marina/media/gym-interior.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/gym-interior.jpg" alt="Datorgenererad vy av de boendes gym med motionscyklar, ett löpband, ribbstolar och glasväggar mot trädgården" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Dubbelsovrum"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/main-bedroom-640.webp 640w, assets/liora/projects/vitta-marina/media/main-bedroom-960.webp 960w, assets/liora/projects/vitta-marina/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/vitta-marina/media/main-bedroom.jpg" alt="Datorgenererat sovrum med dubbelsäng, inbyggd garderob och ett fönster" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 14 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (4)</button><button type="button" data-open-cat="Terraces">Terrasser (1)</button><button type="button" data-open-cat="Interiors">Interiör (2)</button><button type="button" data-open-cat="Bedrooms">Sovrum (2)</button><button type="button" data-open-cat="Bathrooms">Badrum (2)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (3)</button></div>
+    
+    <p class="caption">Alla bilder är datagenererade illustrationer och inte fotografier av den färdiga byggnaden, och möblerna och inredningen på dem är illustrativa och ingår inte. Exploatören anger att dess ritningar av de gemensamma ytorna inte visar de slutliga detaljerna. Planritningarna är exploatörens projektplaner, och ytorna på dem är ungefärliga och beroende av det slutliga projektet. Rumsnamnen på planritningarna är på spanska.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Bostäderna ligger i Cala de Mijas, vid kusten mellan Fuengirola och La Cala. Exploatörens broschyr anger stranden två minuters promenad bort, centrala Cala de Mijas 1,6 km bort, tre minuter med bil, och A-7 och AP-7 alldeles intill. Den nämner Chaparral Golf Club på under två kilometers avstånd, med köpcentrum, stormarknader, restauranger, en vårdcentral och apotek i området, Málagas flygplats på under 25 minuter med bil och stationen María Zambrano på 40 minuter. Fuengirola ligger ungefär tio minuter bort med bil, enligt exploatörens portal.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-vitta-marina" data-locmap='{&quot;site&quot;:[36.5105,-4.6508],&quot;sea&quot;:[36.4835,-4.6508],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54175,-4.72258],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Cala&quot;,&quot;sub&quot;:&quot;11 km · 18 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centrum&quot;,&quot;sub&quot;:&quot;12 km · 16 min&quot;},{&quot;ll&quot;:[36.50618,-4.65167],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,4 km · 8 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Cabopino&quot;,&quot;sub&quot;:&quot;11 km · 14 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Vitta Marina"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Vitta Marina</h3>
+            <p class="locmap-place">Cala de Mijas, Mijas Costa</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Utrustat gym i gemensam yta</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Fuengirola centrum</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda trädgårdar med inhemska, vattensnåla växter</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Cabopino</span>
+              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Utomhus</span>
-              <h3 class="amenity-name">Trädgård för privat bruk till bostäderna på bottenplan</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan La Cala</span>
+              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>18 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utomhus</span>
-              <h3 class="amenity-name">Havsutsikt</h3>
-              <p class="amenity-note">Mot Medelhavet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga flygplats</span>
+              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>37 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Vardag</span>
-              <h3 class="amenity-name">Parkeringsplats och förråd ingår till varje bostad</h3>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Vardag</span>
-              <h3 class="amenity-name">Varmvatten från värmepump</h3>
-              <p class="amenity-note">Varmvatten ur luften</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Vardag</span>
-              <h3 class="amenity-name">Förberett för laddplats</h3>
-              <p class="amenity-note">En punkt för bilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Vardag</span>
-              <h3 class="amenity-name">Utrustat kök</h3>
-              <p class="amenity-note">Inredd med vitvaror</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Service</span>
-              <h3 class="amenity-name">Gemensamhetslokal</h3>
-              <p class="amenity-note">Ett rum att samlas i</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Service</span>
-              <h3 class="amenity-name">Bevakad anläggning</h3>
-              <p class="amenity-note">Bevakad infart</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Service</span>
-              <h3 class="amenity-name">Hjärtstartare på området</h3>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Strand</th><td>2 minuters promenad, enligt exploatören</td></tr><tr><th scope="row">Cala de Mijas</th><td>1,6 km, cirka 3 minuter med bil</td></tr><tr><th scope="row">Fuengirola</th><td>Ca 10 minuter</td></tr><tr><th scope="row">Chaparral Golf Club</th><td>Under 2 km</td></tr><tr><th scope="row">Málagas flygplats</th><td>Under 25 minuter</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Livet här tillbringas utomhus, mellan en privat trädgård eller terrass, den gemensamma poolen och stranden.</p>
+    <div class="life-panels"><div><h3>Trädgården och terrassen</h3><p>Bostäderna på bottenvåningen har privat trädgård och takvåningarna stora terrasser, och varje listad bostad har en terrass på sin planritning.</p></div><div><h3>Poolen</h3><p>En stor, solig gemensam utomhuspool för vuxna, med saltklorering och nattbelysning.</p></div><div><h3>Gymmet och gemensamhetsrummet</h3><p>Ett utrustat gym och ett gemensamhetsrum med kök, toaletter och wifi för gemensamma måltider och sammankomster.</p></div><div><h3>Garage och förråd</h3><p>Varje bostad har minst en parkeringsplats och ett förråd, och garaget har förberedelse för laddning av elbilar.</p></div></div>
+    <ul class="amen-top"><li>Gemensam utomhuspool med saltklorering</li><li>Utrustat gym i gemensam yta</li><li>Gemensamhetslokal</li><li>Anlagda trädgårdar med inhemska, vattensnåla växter</li><li>Trädgård för privat bruk till bostäderna på bottenplan</li><li>Parkeringsplats och förråd ingår till varje bostad</li></ul>
+    <details class="amen-all"><summary>Visa alla 13</summary><div class="amen-groups"><div><h3>Välmående<span class="count">2</span></h3><ul><li>Gemensam utomhuspool med saltklorering</li><li>Utrustat gym i gemensam yta</li></ul></div><div><h3>Utomhus<span class="count">3</span></h3><ul><li>Anlagda trädgårdar med inhemska, vattensnåla växter</li><li>Trädgård för privat bruk till bostäderna på bottenplan</li><li>Havsutsikt</li></ul></div><div><h3>Vardag<span class="count">5</span></h3><ul><li>Parkeringsplats och förråd ingår till varje bostad</li><li>Varmvatten från värmepump</li><li>Luftkonditionering</li><li>Förberett för laddplats</li><li>Utrustat kök</li></ul></div><div><h3>Service<span class="count">3</span></h3><ul><li>Gemensamhetslokal</li><li>Bevakad anläggning</li><li>Hjärtstartare på området</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en ny bostad på kort promenadavstånd från stranden, från en bostad på bottenvåningen med trädgård till en takvåning med stor terrass.</span></li><li><b>Vad som skiljer det från andra</b><span>Trädgårdar på bottenvåningen, en takterrass på nästan 100 m², gemensam pool, gym och gemensamhetsrum med kök, samt en parkeringsplats och ett förråd till varje bostad.</span></li><li><b>Varför läget spelar roll</b><span>Exploatören anger stranden två minuters promenad bort och anläggningen intill A-7 och AP-7, med Fuengirola ungefär tio minuter bort med bil och Málagas flygplats på under 25 minuter.</span></li><li><b>Varför kontrollera detaljerna</b><span>Dokumenten anger inget slutdatum och specifikationen är preliminär, så vi bekräftar bygglovet, byggstadiet och datumet före varje reservation.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Bokning</b><span>Reservationen är 6 000 € plus 10 % IVA (spansk moms), sammanlagt 6 600 €. Dokumenten anger inte om den dras av från första delbetalningen, så vi frågar om det.</span></li><li><b>Betalningsplan</b><span>30 % plus IVA vid undertecknandet av det privata köpeavtalet och 70 % plus IVA vid lagfarten hos notarien.</span></li><li><b>IVA</b><span>Priserna inkluderar inte IVA. Exploatören anger 10 % IVA på reservationen och anger övriga betalningar plus IVA. Nueva Living bekräftar skatter och köpkostnader skriftligen.</span></li><li><b>Garage och förråd</b><span>Exploatören anger att varje bostad har minst en parkeringsplats och ett förråd. Vi bekräftar platsen och förrådet för den bostad ni väljer.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bygglov och arbeten</b><span>De handlingar vi har anger inte om bygglovet har beviljats eller vilket stadium arbetena har nått, och kvalitetsspecifikationen är preliminär. Vi begär bygglovet, dess status och startdatum för arbetena.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Färdigställandedatumet</b><span>Inget av exploatörens dokument anger ett leveransdatum, så vi ber om det avtalade datumet före varje reservation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ytorna</b><span>Ritningarna anger en byggyta som inkluderar en andel av de gemensamma ytorna och en andra, större byggyta enligt dekret 218/2005: 110,58 m² mot 100,00 m² för bostad 2 och 3. Exploatörens portal anger ytterligare andra siffror, 85 m² byggyta för bostad 2 och 3. För bostad 57 anger ritningen 107,00 m² byggyta, 77,50 inomhus och en terrass på 99,90 m², broschyren 109,00, 77,30 och 97,20, och portalen 109, 77 och 97. Vi bekräftar vilka siffror avtalet använder.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Avstånden</b><span>Avstånden i texten är exploatörens egna: två minuters promenad till stranden, ungefär tio minuter med bil till Fuengirola och under 25 minuter till Málagas flygplats. Vägsiffrorna bredvid kartan mäts från en ungefärlig tomtmarkör och avviker från dem, så vi bekräftar avstånden vid ett besök.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Sovrummen</b><span>Exploatörens portal listar bostad 2 med tre sovrum, medan dess planritning visar två sovrum och två badrum, samma planlösning som bostad 3. Den här sidan visar planritningens två sovrum, och vi bekräftar det skriftligen.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Planritningarna för de bostäder som intresserar er, kvalitetsspecifikationen och prislistan.</p></li><li><h3>Jämför alternativen</h3><p>Se det tillsammans med de andra projekten i Mijas och Fuengirola som vi representerar.</p></li><li><h3>Privat visning</h3><p>Se området tillsammans med oss och jämför planritningarna med byggstadiet.</p></li><li><h3>Boka</h3><p>Vi bekräftar reservationen på 6 000 € plus IVA och betalningsplanen skriftligen, därefter det privata köpeavtalet.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>5 av 5 bostäder</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-vitta-marina.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Vitta Marina</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder finns det?</summary><p>Projektet har 72 bostäder med två, tre och fyra sovrum, och fem är listade med pris: tre med två och två med tre sovrum, från 483 500 € till 749 000 € plus IVA.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Nej. Priserna inkluderar inte IVA, som exploatören anger till 10 % på reservationen. Vi bekräftar skatter och köpkostnader skriftligen.</p></details><details class="segment-faq-item"><summary>Finns det parkering?</summary><p>Ja. Exploatören anger att varje bostad har minst en parkeringsplats och ett förråd.</p></details><details class="segment-faq-item"><summary>När blir det färdigt?</summary><p>Inget av exploatörens dokument anger ett slutdatum. Vi ber om det avtalade datumet, bygglovets status och byggstadiet.</p></details><details class="segment-faq-item"><summary>Hur ser betalningsplanen ut?</summary><p>Reservationen är 6 000 € plus 10 % IVA. Därefter 30 % plus IVA vid det privata avtalet och 70 % plus IVA hos notarien vid tillträdet.</p></details></div>
+    
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">483 500 €</p>
+      <p class="rail-note">Exkl. IVA. 5 av 72 bostäder kvar · Kontrollerat oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-vitta-marina.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Besök tomten och omgivningarna tillsammans med oss.</li><li><b>Till fots.</b> Vi går till stranden tillsammans med er och tar tid.</li><li><b>På papper.</b> Bygglov, tillträdesdatum och avtal, innan något skrivs under.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Vitta Marina">
+        <input type="hidden" id="f-project" name="project" value="Vitta Marina">
+        <input type="hidden" name="preferred_area" value="Cala de Mijas">
+        <input type="hidden" name="property_type_interest" value="Lägenheter och takvåningar">
+        <input type="hidden" name="budget_range" value="Från 483 500 € + IVA">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag vill gärna ha information om Vitta Marina." data-base="Hej Nueva Living, jag vill gärna ha information om Vitta Marina.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="2">2: 495 500 €</option><option value="3">3: 497 500 €</option><option value="15">15: 502 000 €</option><option value="54">54: 483 500 €</option><option value="57">57: 749 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Vitta Marina.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">Nya bostäder med två och tre sovrum nära stranden i Cala de Mijas, var och en med en parkeringsplats och ett förråd.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en ny bostad på kort promenadavstånd från stranden, från en bostad på bottenvåningen med trädgård till en takvåning med stor terrass.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Trädgårdar på bottenvåningen, en takterrass på nästan 100 m², gemensam pool, gym och gemensamhetsrum med kök, samt en parkeringsplats och ett förråd till varje bostad.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Exploatören anger stranden två minuters promenad bort och anläggningen intill A-7 och AP-7, med Fuengirola ungefär tio minuter bort med bil och Málagas flygplats på under 25 minuter.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför kontrollera detaljerna</h3><p>Dokumenten anger inget slutdatum och specifikationen är preliminär, så vi bekräftar bygglovet, byggstadiet och datumet före varje reservation.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">Villkoren är de i exploatörens betalningsplan. Vi bekräftar gällande belopp och datum skriftligen innan ni reserverar.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bokning</h3><p>Reservationen är 6 000 € plus 10 % IVA (spansk moms), sammanlagt 6 600 €. Dokumenten anger inte om den dras av från första delbetalningen, så vi frågar om det.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningsplan</h3><p>30 % plus IVA vid undertecknandet av det privata köpeavtalet och 70 % plus IVA vid lagfarten hos notarien.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA</h3><p>Priserna inkluderar inte IVA. Exploatören anger 10 % IVA på reservationen och anger övriga betalningar plus IVA. Nueva Living bekräftar skatter och köpkostnader skriftligen.</p></article>
-              <article class="why-point reveal-soft"><h3>Garage och förråd</h3><p>Exploatören anger att varje bostad har minst en parkeringsplats och ett förråd. Vi bekräftar platsen och förrådet för den bostad ni väljer.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bygglov och arbeten</h3><p>De handlingar vi har anger inte om bygglovet har beviljats eller vilket stadium arbetena har nått, och kvalitetsspecifikationen är preliminär. Vi begär bygglovet, dess status och startdatum för arbetena.</p></article>
-              <article class="why-point reveal-soft"><h3>Färdigställandedatumet</h3><p>Inget av exploatörens dokument anger ett leveransdatum, så vi ber om det avtalade datumet före varje reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Ytorna</h3><p>Ritningarna anger en byggyta som inkluderar en andel av de gemensamma ytorna och en andra, större byggyta enligt dekret 218/2005: 110,58 m² mot 100,00 m² för bostad 2 och 3. Exploatörens portal anger ytterligare andra siffror, 85 m² byggyta för bostad 2 och 3. För bostad 57 anger ritningen 107,00 m² byggyta, 77,50 inomhus och en terrass på 99,90 m², broschyren 109,00, 77,30 och 97,20, och portalen 109, 77 och 97. Vi bekräftar vilka siffror avtalet använder.</p></article>
-              <article class="why-point reveal-soft"><h3>Avstånden</h3><p>Avstånden i texten är exploatörens egna: två minuters promenad till stranden, ungefär tio minuter med bil till Fuengirola och under 25 minuter till Málagas flygplats. Vägsiffrorna bredvid kartan mäts från en ungefärlig tomtmarkör och avviker från dem, så vi bekräftar avstånden vid ett besök.</p></article>
-              <article class="why-point reveal-soft"><h3>Sovrummen</h3><p>Exploatörens portal listar bostad 2 med tre sovrum, medan dess planritning visar två sovrum och två badrum, samma planlösning som bostad 3. Den här sidan visar planritningens två sovrum, och vi bekräftar det skriftligen.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Priserna är hämtade från exploatörens prislista så som den stod på hans portal i oktober 2026, och inkluderar inte IVA. Ytorna är de från planritningen för varje bostad: den inomhusytan är bostadens boyta, byggytan inkluderar en andel av de gemensamma ytorna och terrassen är den övertäckta och den öppna terrassen tillsammans. Portalen anger andra byggytor och inomhusytor för samma bostäder, och bostad 57 skiljer sig mellan sin planritning och broschyren; skillnaderna redovisas under kontrollpunkterna ovan.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/aerial-coast-view.jpg" alt="Datorgenererad flygvy av de vita husen i en skogsbeklädd sluttning ovanför kusten, med havet bakom" width="2000" height="1000" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vita hus, <em>terrasser mot söder</em></h2>
-          <p>På exploatörens datorgenererade bilder ligger bostäderna i vita hus på upp till fyra nivåer, med långa terrasser och pergolor, i en anlagd sluttning ovanför kusten. Exploatören anger att alla bostäder vetter mot söder eller sydväst.</p>
-<p>Bostäderna på bottenvåningen öppnar sig mot en trädgård och takvåningarna mot stora terrasser, och varje listad bostad har en terrass på sin planritning.</p>
-          <ul class="feature-list">
-            <li>Konstruktion — Armerad betong, med tvåvägsbjälklag eller massiva plattor enligt konstruktionsberäkningen.</li>
-            <li>Fasad — Tegelmurverk, klätt utvändigt enligt projektet, med invändig värmeisolering, luftspalt och innerbeklädnad av gipsskivor.</li>
-            <li>Fönster — PVC-karmar med dubbelglas och rullgardiner på alla sovrums- och vardagsrumsfönster i karmarnas färg.</li>
-            <li>Terrasser — Terrassräcken av murverk eller metallräcken, enligt fasadens utformning.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-vitta-marina.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/main-bedroom.jpg" alt="Datorgenererat sovrum med dubbelsäng, inbyggd garderob och ett fönster" width="2000" height="1124" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>området och ritningarna</em></h2>
-            <p>Ett besök handlar om läget, ritningarna och hur långt arbetena har kommit.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Besök tomten och omgivningarna tillsammans med oss.</p></div>
-              <div><span>Till fots</span><p>Vi går till stranden tillsammans med er och tar tid.</p></div>
-              <div><span>På papper</span><p>Bygglov, tillträdesdatum och avtal, innan något skrivs under.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=vitta-marina">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-vitta-marina.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Bedrooms">Sovrum</button><button type="button" data-cat="Bathrooms">Badrum</button><button type="button" data-cat="Amenities">Bekvämligheter</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/vitta-marina/media/living-room.jpg" alt="Datorgenererat vardagsrum med hörnsoffa, ett runt soffbord och en glasskjutdörr till terrassen" width="2000" height="1124" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Trädgårdar, <em>en pool</em> och stranden nära</h2>
-            <p>Livet här tillbringas utomhus, mellan en privat trädgård eller terrass, den gemensamma poolen och stranden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Planritningarna för de bostäder som intresserar er, kvalitetsspecifikationen och prislistan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se det tillsammans med de andra projekten i Mijas och Fuengirola som vi representerar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se området tillsammans med oss och jämför planritningarna med byggstadiet.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>Vi bekräftar reservationen på 6 000 € plus IVA och betalningsplanen skriftligen, därefter det privata köpeavtalet.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder finns det?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Projektet har 72 bostäder med två, tre och fyra sovrum, och fem är listade med pris: tre med två och två med tre sovrum, från 483 500 € till 749 000 € plus IVA.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Priserna inkluderar inte IVA, som exploatören anger till 10 % på reservationen. Vi bekräftar skatter och köpkostnader skriftligen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Finns det parkering?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Exploatören anger att varje bostad har minst en parkeringsplats och ett förråd.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När blir det färdigt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Inget av exploatörens dokument anger ett slutdatum. Vi ber om det avtalade datumet, bygglovets status och byggstadiet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur ser betalningsplanen ut?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservationen är 6 000 € plus 10 % IVA. Därefter 30 % plus IVA vid det privata avtalet och 70 % plus IVA hos notarien vid tillträdet.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Vitta Marina</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, planritningarna och prislistan.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Vitta Marina">
-
-          <input type="hidden" id="f-project" name="project" value="Vitta Marina">
-          <input type="hidden" name="preferred_area" value="Cala de Mijas">
-          <input type="hidden" name="property_type_interest" value="Lägenheter och takvåningar">
-          <input type="hidden" name="budget_range" value="Från 483 500 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag vill gärna ha information om Vitta Marina.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"2","title":"2 · Bottenvåning","sub":"2 sovrum · 100 m²","price":495500,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-2.jpg","label":""}]},{"id":"u1","ref":"3","title":"3 · Bottenvåning","sub":"2 sovrum · 100 m²","price":497500,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-3.jpg","label":""}]},{"id":"u2","ref":"15","title":"15 · Bottenvåning","sub":"3 sovrum · 114 m²","price":502000,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-15.jpg","label":""}]},{"id":"u3","ref":"54","title":"54 · Andra våningen","sub":"2 sovrum · 103 m²","price":483500,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-54.jpg","label":""}]},{"id":"u4","ref":"57","title":"57 · Takvåning","sub":"3 sovrum · 107 m²","price":749000,"plans":[{"src":"assets/liora/projects/vitta-marina/floorplans/home-57.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/vitta-marina/media/pool-and-building.webp","alt":"Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm","caption":"Den gemensamma poolen och byggnaden","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/garden-facade.webp","alt":"Datorgenererad vy av två vita flerbostadshus med långa terrasser och pergolor ovanför en anlagd gräsmatta","caption":"Husen från trädgården","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-view.webp","alt":"Datorgenererad flygvy av de vita husen i en skogsbeklädd sluttning ovanför kusten, med havet bakom","caption":"Husen ovanför kusten","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-pool.webp","alt":"Datorgenererad flygvy av de vita husen med den gemensamma poolen framför och kustlinjen som sträcker sig bort","caption":"Husen och poolen från luften","cat":"Exteriors"},{"src":"assets/liora/projects/vitta-marina/media/terrace-sea-view.webp","alt":"Datorgenererad vy av en övertäckt terrass med korgstolar och ett runt bord, med utsikt över palmer mot havet","caption":"En terrass med havsutsikt","cat":"Terraces"},{"src":"assets/liora/projects/vitta-marina/media/living-room.webp","alt":"Datorgenererat vardagsrum med hörnsoffa, ett runt soffbord och en glasskjutdörr till terrassen","caption":"Vardagsrum","cat":"Interiors"},{"src":"assets/liora/projects/vitta-marina/media/kitchen-dining.webp","alt":"Datorgenererat öppet kök med vita skåp och en bänkskiva i trä, samt ett matbord med stolar","caption":"Kök- och matplatsyta","cat":"Interiors"},{"src":"assets/liora/projects/vitta-marina/media/main-bedroom.webp","alt":"Datorgenererat sovrum med dubbelsäng, inbyggd garderob och ett fönster","caption":"Dubbelsovrum","cat":"Bedrooms"},{"src":"assets/liora/projects/vitta-marina/media/twin-bedroom.webp","alt":"Datorgenererat sovrum med två enkelsängar och en mönstrad vägg, med ett fönster mot trädgården","caption":"Sovrum med två sängar","cat":"Bedrooms"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-shower.webp","alt":"Datorgenererat badrum med inloppsdusch, toalett och tvättställsskåp med spegel","caption":"Badrum med dusch","cat":"Bathrooms"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-bath.webp","alt":"Datorgenererat badrum med badkar och dusch, toalett och väggmonterat tvättställ","caption":"Badrum med badkar","cat":"Bathrooms"},{"src":"assets/liora/projects/vitta-marina/media/gym-interior.webp","alt":"Datorgenererad vy av de boendes gym med motionscyklar, ett löpband, ribbstolar och glasväggar mot trädgården","caption":"Gymmet","cat":"Amenities"},{"src":"assets/liora/projects/vitta-marina/media/social-room-lounge.webp","alt":"Datorgenererad vy av gemensamhetsrummet med en sittgrupp och matbord intill glasväggar mot poolen","caption":"Gemensamhetsrummet","cat":"Amenities"},{"src":"assets/liora/projects/vitta-marina/media/social-room-terrace.webp","alt":"Datorgenererad vy av en stensatt terrass under en pergola bredvid gemensamhetsrummet, med sittmöbler och poolen bakom","caption":"Terrassen vid gemensamhetsrummet","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Vitta Marina media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/vitta-marina/media/pool-and-building.jpg","webp":"assets/liora/projects/vitta-marina/media/pool-and-building-960.webp","alt":"Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm","width":2000,"height":1000,"caption":"Den gemensamma poolen och byggnaden","category":"Exteriör"},{"src":"assets/liora/projects/vitta-marina/media/garden-facade.jpg","webp":"assets/liora/projects/vitta-marina/media/garden-facade-960.webp","alt":"Datorgenererad vy av två vita flerbostadshus med långa terrasser och pergolor ovanför en anlagd gräsmatta","width":2000,"height":1000,"caption":"Husen från trädgården","category":"Exteriör"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-view.jpg","webp":"assets/liora/projects/vitta-marina/media/aerial-coast-view-960.webp","alt":"Datorgenererad flygvy av de vita husen i en skogsbeklädd sluttning ovanför kusten, med havet bakom","width":2000,"height":1000,"caption":"Husen ovanför kusten","category":"Exteriör"},{"src":"assets/liora/projects/vitta-marina/media/aerial-coast-pool.jpg","webp":"assets/liora/projects/vitta-marina/media/aerial-coast-pool-960.webp","alt":"Datorgenererad flygvy av de vita husen med den gemensamma poolen framför och kustlinjen som sträcker sig bort","width":2000,"height":1575,"caption":"Husen och poolen från luften","category":"Exteriör"},{"src":"assets/liora/projects/vitta-marina/media/terrace-sea-view.jpg","webp":"assets/liora/projects/vitta-marina/media/terrace-sea-view-960.webp","alt":"Datorgenererad vy av en övertäckt terrass med korgstolar och ett runt bord, med utsikt över palmer mot havet","width":2000,"height":1124,"caption":"En terrass med havsutsikt","category":"Terrasser"},{"src":"assets/liora/projects/vitta-marina/media/living-room.jpg","webp":"assets/liora/projects/vitta-marina/media/living-room-960.webp","alt":"Datorgenererat vardagsrum med hörnsoffa, ett runt soffbord och en glasskjutdörr till terrassen","width":2000,"height":1124,"caption":"Vardagsrum","category":"Interiör"},{"src":"assets/liora/projects/vitta-marina/media/kitchen-dining.jpg","webp":"assets/liora/projects/vitta-marina/media/kitchen-dining-960.webp","alt":"Datorgenererat öppet kök med vita skåp och en bänkskiva i trä, samt ett matbord med stolar","width":2000,"height":1124,"caption":"Kök- och matplatsyta","category":"Interiör"},{"src":"assets/liora/projects/vitta-marina/media/main-bedroom.jpg","webp":"assets/liora/projects/vitta-marina/media/main-bedroom-960.webp","alt":"Datorgenererat sovrum med dubbelsäng, inbyggd garderob och ett fönster","width":2000,"height":1124,"caption":"Dubbelsovrum","category":"Sovrum"},{"src":"assets/liora/projects/vitta-marina/media/twin-bedroom.jpg","webp":"assets/liora/projects/vitta-marina/media/twin-bedroom-960.webp","alt":"Datorgenererat sovrum med två enkelsängar och en mönstrad vägg, med ett fönster mot trädgården","width":2000,"height":1124,"caption":"Sovrum med två sängar","category":"Sovrum"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-shower.jpg","webp":"assets/liora/projects/vitta-marina/media/bathroom-shower-960.webp","alt":"Datorgenererat badrum med inloppsdusch, toalett och tvättställsskåp med spegel","width":2000,"height":1334,"caption":"Badrum med dusch","category":"Badrum"},{"src":"assets/liora/projects/vitta-marina/media/bathroom-bath.jpg","webp":"assets/liora/projects/vitta-marina/media/bathroom-bath-960.webp","alt":"Datorgenererat badrum med badkar och dusch, toalett och väggmonterat tvättställ","width":2000,"height":1334,"caption":"Badrum med badkar","category":"Badrum"},{"src":"assets/liora/projects/vitta-marina/media/gym-interior.jpg","webp":"assets/liora/projects/vitta-marina/media/gym-interior-960.webp","alt":"Datorgenererad vy av de boendes gym med motionscyklar, ett löpband, ribbstolar och glasväggar mot trädgården","width":2000,"height":1000,"caption":"Gymmet","category":"Bekvämligheter"},{"src":"assets/liora/projects/vitta-marina/media/social-room-lounge.jpg","webp":"assets/liora/projects/vitta-marina/media/social-room-lounge-960.webp","alt":"Datorgenererad vy av gemensamhetsrummet med en sittgrupp och matbord intill glasväggar mot poolen","width":2000,"height":1000,"caption":"Gemensamhetsrummet","category":"Bekvämligheter"},{"src":"assets/liora/projects/vitta-marina/media/social-room-terrace.jpg","webp":"assets/liora/projects/vitta-marina/media/social-room-terrace-960.webp","alt":"Datorgenererad vy av en stensatt terrass under en pergola bredvid gemensamhetsrummet, med sittmöbler och poolen bakom","width":2000,"height":1000,"caption":"Terrassen vid gemensamhetsrummet","category":"Bekvämligheter"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-2.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-2-960.webp","alt":"Planritning för bostad 2, bottenvåning","width":1120,"height":1780,"caption":"Bostad 2, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-3.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-3-960.webp","alt":"Planritning för bostad 3, bottenvåning","width":1110,"height":1756,"caption":"Bostad 3, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-15.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-15-960.webp","alt":"Planritning för bostad 15, bottenvåning","width":940,"height":1860,"caption":"Bostad 15, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-54.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-54-960.webp","alt":"Planritning för bostad 54, andra våningen","width":1070,"height":1230,"caption":"Bostad 54, andra våningen","category":"Planritningar"},{"src":"assets/liora/projects/vitta-marina/floorplans/home-57.jpg","webp":"assets/liora/projects/vitta-marina/floorplans/home-57-960.webp","alt":"Planritning för bostad 57, takvåning","width":1610,"height":1820,"caption":"Bostad 57, takvåning","category":"Planritningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-vitta-marina.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Vitta%20Marina." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Vitta Marina" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

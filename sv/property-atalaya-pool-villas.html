@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många villor är tillgängliga?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Atalaya Pool Villas"
   data-project-message="Hej Nueva Living, jag vill gärna få information om Atalaya Pool Villas."
@@ -443,535 +380,148 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Atalaya Pool Villas">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-atalaya-pool-villas.html#top">Atalaya Pool Villas<span>Från 1 530 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-atalaya-pool-villas.html#overview">Översikt</a><a href="sv/property-atalaya-pool-villas.html#availability">Priser</a><a href="sv/property-atalaya-pool-villas.html#specs">Utförande</a><a href="sv/property-atalaya-pool-villas.html#gallery">Galleri</a><a href="sv/property-atalaya-pool-villas.html#location">Läge</a><a href="sv/property-atalaya-pool-villas.html#onsite">I området</a><a href="sv/property-atalaya-pool-villas.html#view">Vår bedömning</a><a href="sv/property-atalaya-pool-villas.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Atalaya Pool Villas">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg" alt="Fristående villa med infinitypool och trädgård i Atalaya, Estepona" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg" alt="Fristående villa med infinitypool och trädgård i Atalaya, Estepona" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">5 av 7 villor lediga</span>
-          <h1 class="hero-title" style="--hero-title-run: 7">
-            <span class="hero-title-name">Atalaya Pool<br><em>Villas</em></span>
-            <span class="hero-title-context">Fristående villor · Atalaya, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Sju fristående villor i Atalaya, Estepona, med tre eller fyra sovrum, egen infinitypool, trädgård och solterrass på taket. Fem är just nu tillgängliga, från 1 530 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-atalaya-pool-villas.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=atalaya-pool-villas">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-atalaya-pool-villas.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Atalaya, Estepona</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 1 530 000 €</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Fristående villor</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>K4 2027 / K1 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-atalaya-pool-villas.html#media">Media</a>
-        <a href="sv/property-atalaya-pool-villas.html#location">Läge</a>
-        <a href="sv/property-atalaya-pool-villas.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-atalaya-pool-villas.html#overview">Översikt</a>
-          <a href="sv/property-atalaya-pool-villas.html#residences">Bostäder</a>
-          <a href="sv/property-atalaya-pool-villas.html#quality-specifications">Utförande</a>
-          <a href="sv/property-atalaya-pool-villas.html#calculator">Finansiering</a>
-          <a href="sv/property-atalaya-pool-villas.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-atalaya-pool-villas.html#why-this-project">Varför</a>
-          <a href="sv/property-atalaya-pool-villas.html#architecture">Arkitektur</a>
-          <a href="sv/property-atalaya-pool-villas.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-atalaya-pool-villas.html#lifestyle">Livsstil</a>
-          <a href="sv/property-atalaya-pool-villas.html#faq">FAQ</a>
-          <a href="sv/property-atalaya-pool-villas.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>3-4 sovrum</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>450 - 656 m²</strong></div>
-          <div class="quick-fact"><span>Tomt</span><strong>536 - 795 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>5 av 7 villor lediga</strong></div>
-          <div class="quick-fact"><span>Samling</span><strong>7 fristående villor</strong></div>
-          <div class="quick-fact"><span>Utomhusliv</span><strong>Egen infinitypool, trädgård och solterrass på taket</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Sju villor, <em>var och en på sin egen tomt</em></h2>
-          <p class="project-lead">Atalaya Pool Villas är ett projekt med sju fristående villor i Atalaya, Estepona, på den del av Costa del Sol som ligger mellan Estepona och Marbella. Varje villa står på sin egen inhägnade tomt på 536 till 795 m², med privat trädgård, infinitypool och solterrass på taket, och varje villa har sin egen planlösning.</p>
-          <p class="project-lead">Varje villa är fördelad på källare, bottenvåning, första våningen och en solterrass som nås via en övertäckt trappa. På bottenvåningen öppnar sig vardagsrummet och matplatsen, som delvis har dubbel takhöjd, mot en övertäckt veranda och poolen, och där finns ett sovrum med tillgång till terrassen. Fem av de sju villorna är just nu tillgängliga: fyra med tre sovrum och en med fyra.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Villorna <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Visualiseringar av poolterrasserna, solterrassen på taket och interiörerna, två flygvyer och planritningar över alla våningar i de fem tillgängliga villorna, var och en med en tomtplan.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 5 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg" alt="Fristående villa med infinitypool och trädgård i Atalaya, Estepona" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Poolterrassen i dagsljus</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Solarium" aria-label="Visa 1 bilder i Solarium">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/solarium-terrace-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/solarium-terrace-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/solarium-terrace.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/atalaya-pool-villas/media/solarium-terrace.jpg" alt="Solterrass på taket med loungeyta, matbord och bubbelpool" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Solarium</small>
-                <strong>Solterrassen på taket</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 5 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/interior-living-room-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/interior-living-room-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/interior-living-room.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/atalaya-pool-villas/media/interior-living-room.jpg" alt="Vardagsrum och matplats som öppnar sig mot poolterrassen" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrum och terrass</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Visa 25 bilder i Planritningar">
-              <img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor.jpg" alt="Planritning Villa 02, bottenvåning" width="2000" height="1605" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planritningar</small>
-                <strong>Villa 02, bottenvåning</strong>
-                <span class="project-media-card-cta">25 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 36 bilder</button>
-          <p class="media-note">Möbler, bubbelpooler och landskapsutformning i visualiseringarna är illustrativa och inte avtalsenliga; de möblerade rummen visar ett valfritt möbelpaket. Flygbilderna visar villorna inmonterade i ett fotografi av platsen. Planritningarna är exploatörens, och ytorna på dem är ungefärliga.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Atalaya, <em>mellan Estepona och Marbella</em></h2>
-          <p class="project-lead">Atalaya är ett etablerat bostadsområde med golf och stora tomter, på den del av Costa del Sol som ligger mellan Estepona, Marbella och Benahavís. Vägen till Benahavís ligger 500 m bort, A-7 1 km och AP-7 8 km, och Málagas flygplats är ungefär 40 minuter bort med bil.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-atalaya-pool-villas" data-locmap='{&quot;site&quot;:[36.4766,-5.017],&quot;sea&quot;:[36.4496,-5.017],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.48916,-4.957],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Banús&quot;,&quot;sub&quot;:&quot;8,8 km · 9 min&quot;},{&quot;ll&quot;:[36.48676,-4.99008],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;San Pedro&quot;,&quot;sub&quot;:&quot;5,7 km · 7 min&quot;},{&quot;ll&quot;:[36.48125,-5.01756],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Atalaya&quot;,&quot;sub&quot;:&quot;560 m · 1 min&quot;},{&quot;ll&quot;:[36.46207,-5.01655],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,7 km · 7 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Atalaya Pool Villas"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Atalaya Pool Villas</h3>
-            <p class="locmap-place">Atalaya, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto Banús</span>
-              <span class="locmap-row-figure"><bdi>8,8 km</bdi> <em><bdi>9 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">San Pedro de Alcántara centrum</span>
-              <span class="locmap-row-figure"><bdi>5,7 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Atalaya</span>
-              <span class="locmap-row-figure"><bdi>560 m</bdi> <em><bdi>1 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan El Paraíso</span>
-              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>3 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar flygplats</span>
-              <span class="locmap-row-figure"><bdi>59 km</bdi> <em><bdi>52 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tre eller fyra sovrum, <em>på fyra nivåer</em></h2>
-          <p class="project-lead">De fem tillgängliga villorna är Villa 02 med fyra sovrum och Villa 03, 05, 06 och 07 med tre. Var och en har källare, bottenvåning, första våning och solterrass på taket.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Villa 02</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>4</strong></div>
-<div><span>Byggyta</span><strong>656 m²</strong></div>
-<div><span>Tomt</span><strong>795 m²</strong></div>
-<div><span>Pris</span><strong>2 220 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Bottenvåning: vardagsrum och matplats på 46,31 m² med en del i dubbel takhöjd, kök på 8,80 m², ett sovrum på 14,36 m² med eget badrum och en övertäckt veranda mot trädgården och poolen.</li>
-            <li>Första våningen: tre sovrum på 19,13, 16,04 och 14,84 m², vart och ett med eget badrum, och en klädkammare på 6,98 m² till huvudsovrummet.</li>
-            <li>Källare: privat garage på 41,90 m² för två bilar, allrum på 33,10 m², tvättstuga på 5,46 m² och förråd.</li>
-            <li>Utomhus: solterrass på 95 m², trädgård på 513 m² och infinitypool på 10 x 4 m.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-atalaya-pool-villas.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Villa 03</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>3</strong></div>
-<div><span>Byggyta</span><strong>456 m²</strong></div>
-<div><span>Tomt</span><strong>580 m²</strong></div>
-<div><span>Pris</span><strong>1 695 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li>
-            <li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li>
-            <li>Källare: privat garage för två bilar, allrum, tvättstuga och förråd.</li>
-            <li>Utomhus: solterrass på 49 m², trädgård på 374 m² och infinitypool på 8 x 4 m.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-atalaya-pool-villas.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Villa 05</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>3</strong></div>
-<div><span>Byggyta</span><strong>450 m²</strong></div>
-<div><span>Tomt</span><strong>580 m²</strong></div>
-<div><span>Pris</span><strong>1 600 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li>
-            <li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li>
-            <li>Källare: privat garage för två bilar, allrum, tvättstuga och förråd.</li>
-            <li>Utomhus: solterrass på 49 m², trädgård på 380 m² och infinitypool på 8 x 4 m.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-atalaya-pool-villas.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Villa 06</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>3</strong></div>
-<div><span>Byggyta</span><strong>469 m²</strong></div>
-<div><span>Tomt</span><strong>536 m²</strong></div>
-<div><span>Pris</span><strong>1 530 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li>
-            <li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li>
-            <li>Källare: privat garage för två bilar, tvättstuga och förråd, utan allrum.</li>
-            <li>Utomhus: solterrass på 56 m², trädgård på 317 m² och infinitypool på 8 x 4 m.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-atalaya-pool-villas.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Villa 07</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>3</strong></div>
-<div><span>Byggyta</span><strong>454 m²</strong></div>
-<div><span>Tomt</span><strong>536 m²</strong></div>
-<div><span>Pris</span><strong>1 595 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li>
-            <li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li>
-            <li>Parkering: två platser på marknivå under en pergola, som planritningarna och exploatörens informationsbrev visar; den här villan har inget garage i källaren.</li>
-            <li>Källare: allrum, tvättstuga och förråd.</li>
-            <li>Utomhus: solterrass på 56 m², trädgård på 330 m² och infinitypool på 8 x 4 m.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-atalaya-pool-villas.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-atalaya-pool-villas.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen specifikation, sammanfattad efter bostadens delar.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Golv och interiör<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Golv av storformatigt porslinsgolv och storformatigt keramiskt kakel på väggarna.</li>
-              <li>Innerdörrar med en höjd på 2,20 m.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och energi<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Luftkonditionering och varmvatten från en luft-vattenvärmepump, med styrning rum för rum.</li>
-              <li>Golvvärme i hela huset utom källaren, och elektrisk golvvärme i badrummen.</li>
-              <li>Elinstallation på 11,50 kW.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kök och tvättstuga<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Designkök med Siemens-apparater inkluderade.</li>
-              <li>Tvättstuga i källaren med tvättmaskin och torktumlare inkluderade.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Väggmonterade tvättställsskåp med infälld LED-belysning och spegel, i huvudbadrummet med bakgrundsbelysning och imfri.</li>
-              <li>Väggmonterade toaletter med dold cistern. Huvudbadrummet har dusch och inbyggt badkar, utom i villa 06 och 07, där det bara har dusch.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fönster, dörrar och säkerhet<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Stora lyft-skjutdörrar i vardagsrummet med motoriserad mörkläggningsrullgardin, och motoriserade rullgardiner på övriga fönster och dörrar.</li>
-              <li>Porttelefon med video och ett larm anslutet till en larmcentral.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Trädgård, pool och solterrass<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Privat trädgård med naturlig gräsmatta, planteringar, belysning och automatisk bevattning.</li>
-              <li>Infinitypool med belysning i poolen och förberedelse för uppvärmning: 10 x 4 m vid villan med fyra sovrum och 8 x 4 m vid de övriga.</li>
-              <li>Inbyggd gasolgrill på verandan.</li>
-              <li>Solterrass som nås via en övertäckt trappa med motoriserat tak, med dusch, ett inbyggt förvaringsskåp, TV- och eluttag och förberedelse för bubbelpool.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Vad som är tillval<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Hemautomation kopplad till klimat, multimedia, larm, vatten, belysning och persienner finns mot tillägg.</li>
-              <li>Konstruktionen är förberedd för en hiss som stannar på alla plan utom vid solterrassen; själva hissen ingår inte.</li>
-              <li>Anpassning av material, med och utan tillägg, är möjlig via exploatörens katalog inom fastställda tidsfrister. Möbelpaket prissätts separat.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: exploatörens informationsbrev om dessa villor, daterat maj 2024. Den slutliga specifikationen är exploatörens kvalitetsbeskrivning, som vi begär skriftligt före varje reservation. Bilder, möbler och landskapsutformning i visualiseringarna är illustrativa.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fem villor <em>tillgängliga just nu</em></h2>
-          <p class="project-lead">Villa 02, 03, 05, 06 och 07 är de tillgängliga villorna. Villa 01 och 04 är inte längre listade. Priserna är de i exploatörens prislista, utan det separata utrustningsbelopp den anger.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea.jpg" alt="Flygvy över de sju villorna och deras tomter" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>11 bilder</button>
+          <a class="chip" href="sv/property-atalaya-pool-villas.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-atalaya-pool-villas.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>5</strong></div>
-            <div><span>Pris från</span><strong>1 530 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>1 530 000 € - 2 220 000 €</strong></div>
-            <div><span>Kontrollerad</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 5 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="2220000">
-                <a class="unit-card-plan" href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 02">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor-640.webp 640w, assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor.jpg" alt="Planritning för Villa 02" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Villa 02</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>4 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>656 m²</dd></div>
-                    <div><dt>Tomt</dt><dd>795 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">2 220 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Pool%20Villas%20-%20Villa%2002">Fråga om Villa 02</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1695000">
-                <a class="unit-card-plan" href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 03">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor-640.webp 640w, assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor.jpg" alt="Planritning för Villa 03" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Villa 03</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>456 m²</dd></div>
-                    <div><dt>Tomt</dt><dd>580 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 695 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Pool%20Villas%20-%20Villa%2003">Fråga om Villa 03</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1600000">
-                <a class="unit-card-plan" href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 05">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor-640.webp 640w, assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor.jpg" alt="Planritning för Villa 05" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Villa 05</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>450 m²</dd></div>
-                    <div><dt>Tomt</dt><dd>580 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 600 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Pool%20Villas%20-%20Villa%2005">Fråga om Villa 05</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1530000">
-                <a class="unit-card-plan" href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 06">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor-640.webp 640w, assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor.jpg" alt="Planritning för Villa 06" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Villa 06</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>469 m²</dd></div>
-                    <div><dt>Tomt</dt><dd>536 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 530 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Pool%20Villas%20-%20Villa%2006">Fråga om Villa 06</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1595000">
-                <a class="unit-card-plan" href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 07">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor-640.webp 640w, assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor.jpg" alt="Planritning för Villa 07" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Villa 07</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>454 m²</dd></div>
-                    <div><dt>Tomt</dt><dd>536 m²</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 595 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Pool%20Villas%20-%20Villa%2007">Fråga om Villa 07</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Priserna och leveransmånaderna är avskrivna från exploatörens prislista av den 8 oktober 2026 för de fem villor som anges som tillgängliga. Listan anger inte om IVA och köpkostnader ingår, och Nueva Living bekräftar det före varje reservation. Den visar också ett separat utrustningsbelopp för varje villa (56 500 €, och 72 400 € för Villa 02), som inte ingår här. Byggd yta är exploatörens totalsiffra: invändiga ytor, terrasser, verandor och solterrass. Exploatörens informationsbrev från maj 2024 angav leverans i mars 2026, vilket den nuvarande prislistan ersätter.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Atalaya%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Atalaya Pool Villas" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Atalaya Pool</span> <span class="h1-b">Villas</span></h1>
+        <p class="hero-by">Sju fristående villor i Atalaya, Estepona, med tre eller fyra sovrum, egen infinitypool, trädgård och solterrass på taket.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 1 530 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>3 till 4</dd><dd class="sub"><span>Fristående villor</span></dd></div><div><dt>Inflyttning</dt><dd>K4 2027 / K1 2028</dd><dd class="sub">Bygglov: vi bekräftar det innan ni reserverar</dd></div><div><dt>Bostäder kvar</dt><dd>5 av 7</dd><dd class="sub">Kontrollerat oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Atalaya%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Atalaya Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Atalaya Pool Villas är ett projekt med sju fristående villor i Atalaya, Estepona, på den del av Costa del Sol som ligger mellan Estepona och Marbella. Varje villa står på sin egen inhägnade tomt på 536 till 795 m², med privat trädgård, infinitypool och solterrass på taket, och varje villa har sin egen planlösning.</p>
+    <p class="lede-2">Varje villa är fördelad på källare, bottenvåning, första våningen och en solterrass som nås via en övertäckt trappa. På bottenvåningen öppnar sig vardagsrummet och matplatsen, som delvis har dubbel takhöjd, mot en övertäckt veranda och poolen, och där finns ett sovrum med tillgång till terrassen. Fem av de sju villorna är just nu tillgängliga: fyra med tre sovrum och en med fyra.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Samtida linjer, medelhavsmaterial</span></summary><p>Fasaderna kombinerar vit cementputs med fasadpaneler och skärmar i trälook, och pergolor med bjälkar i trälook ger skugga åt terrasserna. Stora skjutdörrar och fönster i vardagsrummet och sovrummen släpper in ljus och ger genomluftning, och räcken av murverk och glas bevarar utsikten mot poolen och trädgården inifrån huset.</p><ul><li>Fasader: Vit cementputs och färg, med fasadpaneler och yttre skärmar i trälook.</li><li>Terrasser: Pergolor med bjälkar i trälook, och räcken av murverk och glas mot poolen och trädgården.</li><li>Ljus och luft: Stora öppningar i vardagsrummet och sovrummen, och genomluftning i hela huset.</li><li>Orientering: Alla villor vetter mot söder, med huvudrummen mot trädgården.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>1 530 000 € – 2 220 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>5 av 7 bostäder</span><small>Kontrollerat oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Fristående villor</span></dd></div><div><dt>Storlekar</dt><dd><span>450 – 656 m²</span><small>Byggd yta</small></dd></div><div><dt>Tomt</dt><dd><span>536 - 795 m²</span></dd></div><div><dt>Inflyttning</dt><dd><span>K4 2027 / K1 2028</span></dd></div><div><dt>Tillstånd</dt><dd><span>Ej angivet</span><small>Vi bekräftar det innan ni reserverar</small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Två parkeringsplatser</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Villa 02, 03, 05, 06 och 07 är de tillgängliga villorna. Villa 01 och 04 är inte längre listade. Priserna är de i exploatörens prislista, utan det separata utrustningsbelopp den anger. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="5 av 7 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>5 av 7 till salu</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="4" data-price="2220000" data-size="656" data-ppm="3384" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor-640.webp">
+            <th scope="row"><span class="u-name">Villa 02</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">4 sovrum</td>
+            <td data-label="Storlek" class="num">656 m²</td>
+            <td data-label="Pris" class="u-price num">2 220 000 €</td>
+            <td data-label="Per m²" class="num">3 384 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 02"><img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="1695000" data-size="456" data-ppm="3717" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor-640.webp">
+            <th scope="row"><span class="u-name">Villa 03</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">456 m²</td>
+            <td data-label="Pris" class="u-price num">1 695 000 €</td>
+            <td data-label="Per m²" class="num">3 717 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 03"><img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="1600000" data-size="450" data-ppm="3556" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor-640.webp">
+            <th scope="row"><span class="u-name">Villa 05</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">450 m²</td>
+            <td data-label="Pris" class="u-price num">1 600 000 €</td>
+            <td data-label="Per m²" class="num">3 556 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 05"><img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="1530000" data-size="469" data-ppm="3262" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor-640.webp">
+            <th scope="row"><span class="u-name">Villa 06</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">469 m²</td>
+            <td data-label="Pris" class="u-price num">1 530 000 €</td>
+            <td data-label="Per m²" class="num">3 262 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 06"><img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="1595000" data-size="454" data-ppm="3513" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor-640.webp">
+            <th scope="row"><span class="u-name">Villa 07</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">454 m²</td>
+            <td data-label="Pris" class="u-price num">1 595 000 €</td>
+            <td data-label="Per m²" class="num">3 513 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor.jpg" target="_blank" rel="noopener" aria-label="Planritning för Villa 07"><img src="assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Tre eller fyra sovrum, på fyra nivåer</span></summary><p>De fem tillgängliga villorna är Villa 02 med fyra sovrum och Villa 03, 05, 06 och 07 med tre. Var och en har källare, bottenvåning, första våning och solterrass på taket.</p><div class="res-types"><div class="res-type"><h3>Villa 02</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>4</dd></div><div><dt>Byggyta</dt><dd>656 m²</dd></div><div><dt>Tomt</dt><dd>795 m²</dd></div><div><dt>Pris</dt><dd>2 220 000 €</dd></div></dl><ul><li>Bottenvåning: vardagsrum och matplats på 46,31 m² med en del i dubbel takhöjd, kök på 8,80 m², ett sovrum på 14,36 m² med eget badrum och en övertäckt veranda mot trädgården och poolen.</li><li>Första våningen: tre sovrum på 19,13, 16,04 och 14,84 m², vart och ett med eget badrum, och en klädkammare på 6,98 m² till huvudsovrummet.</li><li>Källare: privat garage på 41,90 m² för två bilar, allrum på 33,10 m², tvättstuga på 5,46 m² och förråd.</li><li>Utomhus: solterrass på 95 m², trädgård på 513 m² och infinitypool på 10 x 4 m.</li></ul></div><div class="res-type"><h3>Villa 03</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>3</dd></div><div><dt>Byggyta</dt><dd>456 m²</dd></div><div><dt>Tomt</dt><dd>580 m²</dd></div><div><dt>Pris</dt><dd>1 695 000 €</dd></div></dl><ul><li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li><li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li><li>Källare: privat garage för två bilar, allrum, tvättstuga och förråd.</li><li>Utomhus: solterrass på 49 m², trädgård på 374 m² och infinitypool på 8 x 4 m.</li></ul></div><div class="res-type"><h3>Villa 05</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>3</dd></div><div><dt>Byggyta</dt><dd>450 m²</dd></div><div><dt>Tomt</dt><dd>580 m²</dd></div><div><dt>Pris</dt><dd>1 600 000 €</dd></div></dl><ul><li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li><li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li><li>Källare: privat garage för två bilar, allrum, tvättstuga och förråd.</li><li>Utomhus: solterrass på 49 m², trädgård på 380 m² och infinitypool på 8 x 4 m.</li></ul></div><div class="res-type"><h3>Villa 06</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>3</dd></div><div><dt>Byggyta</dt><dd>469 m²</dd></div><div><dt>Tomt</dt><dd>536 m²</dd></div><div><dt>Pris</dt><dd>1 530 000 €</dd></div></dl><ul><li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li><li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li><li>Källare: privat garage för två bilar, tvättstuga och förråd, utan allrum.</li><li>Utomhus: solterrass på 56 m², trädgård på 317 m² och infinitypool på 8 x 4 m.</li></ul></div><div class="res-type"><h3>Villa 07</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>3</dd></div><div><dt>Byggyta</dt><dd>454 m²</dd></div><div><dt>Tomt</dt><dd>536 m²</dd></div><div><dt>Pris</dt><dd>1 595 000 €</dd></div></dl><ul><li>Bottenvåning: vardagsrum och matplats med en del i dubbel takhöjd, kök, ett sovrum med tillgång till terrassen, ett badrum och en övertäckt veranda med inbyggd gasolgrill.</li><li>Första våningen: två sovrum, vart och ett med eget badrum, huvudsovrummet med klädkammare.</li><li>Parkering: två platser på marknivå under en pergola, som planritningarna och exploatörens informationsbrev visar; den här villan har inget garage i källaren.</li><li>Källare: allrum, tvättstuga och förråd.</li><li>Utomhus: solterrass på 56 m², trädgård på 330 m² och infinitypool på 8 x 4 m.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1031,398 +581,227 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Privat pool</h3>
-              <p class="amenity-note">Hör till bostaden</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen specifikation, sammanfattad efter bostadens delar.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Golv och interiör</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Klimat och energi</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Kök och tvättstuga</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Fönster, dörrar och säkerhet</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Trädgård, pool och solterrass</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Vad som är tillval</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Golv av storformatigt porslinsgolv och storformatigt keramiskt kakel på väggarna.</li><li>Innerdörrar med en höjd på 2,20 m.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Luftkonditionering och varmvatten från en luft-vattenvärmepump, med styrning rum för rum.</li><li>Golvvärme i hela huset utom källaren, och elektrisk golvvärme i badrummen.</li><li>Elinstallation på 11,50 kW.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Designkök med Siemens-apparater inkluderade.</li><li>Tvättstuga i källaren med tvättmaskin och torktumlare inkluderade.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Väggmonterade tvättställsskåp med infälld LED-belysning och spegel, i huvudbadrummet med bakgrundsbelysning och imfri.</li><li>Väggmonterade toaletter med dold cistern. Huvudbadrummet har dusch och inbyggt badkar, utom i villa 06 och 07, där det bara har dusch.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Stora lyft-skjutdörrar i vardagsrummet med motoriserad mörkläggningsrullgardin, och motoriserade rullgardiner på övriga fönster och dörrar.</li><li>Porttelefon med video och ett larm anslutet till en larmcentral.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Privat trädgård med naturlig gräsmatta, planteringar, belysning och automatisk bevattning.</li><li>Infinitypool med belysning i poolen och förberedelse för uppvärmning: 10 x 4 m vid villan med fyra sovrum och 8 x 4 m vid de övriga.</li><li>Inbyggd gasolgrill på verandan.</li></ul>
+      <details class="more"><summary>1 till</summary><ul><li>Solterrass som nås via en övertäckt trappa med motoriserat tak, med dusch, ett inbyggt förvaringsskåp, TV- och eluttag och förberedelse för bubbelpool.</li></ul></details>
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Hemautomation kopplad till klimat, multimedia, larm, vatten, belysning och persienner finns mot tillägg.</li><li>Konstruktionen är förberedd för en hiss som stannar på alla plan utom vid solterrassen; själva hissen ingår inte.</li><li>Anpassning av material, med och utan tillägg, är möjlig via exploatörens katalog inom fastställda tidsfrister. Möbelpaket prissätts separat.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: exploatörens informationsbrev om dessa villor, daterat maj 2024. Den slutliga specifikationen är exploatörens kvalitetsbeskrivning, som vi begär skriftligt före varje reservation. Bilder, möbler och landskapsutformning i visualiseringarna är illustrativa.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Poolterrassen i dagsljus"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg" alt="Fristående villa med infinitypool och trädgård i Atalaya, Estepona" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Vardagsrum och terrass"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/interior-living-room-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/interior-living-room-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/interior-living-room.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/atalaya-pool-villas/media/interior-living-room.jpg" alt="Vardagsrum och matplats som öppnar sig mot poolterrassen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Fasad, veranda och pool"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool.jpg" alt="Villans fasad med övertäckt veranda och infinitypool" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Villan i skymningen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/exterior-dusk-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/exterior-dusk-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/exterior-dusk.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/atalaya-pool-villas/media/exterior-dusk.jpg" alt="Villan och poolterrassen i skymningen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="De sju villorna och kusten"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea.jpg" alt="Flygvy över de sju villorna, med kusten bortom" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 11 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (5)</button><button type="button" data-open-cat="Solarium">Solarium (1)</button><button type="button" data-open-cat="Interiors">Interiör (5)</button></div>
+    
+    <p class="caption">Möbler, bubbelpooler och landskapsutformning i visualiseringarna är illustrativa och inte avtalsenliga; de möblerade rummen visar ett valfritt möbelpaket. Flygbilderna visar villorna inmonterade i ett fotografi av platsen. Planritningarna är exploatörens, och ytorna på dem är ungefärliga.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Atalaya är ett etablerat bostadsområde med golf och stora tomter, på den del av Costa del Sol som ligger mellan Estepona, Marbella och Benahavís. Vägen till Benahavís ligger 500 m bort, A-7 1 km och AP-7 8 km, och Málagas flygplats är ungefär 40 minuter bort med bil.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-atalaya-pool-villas" data-locmap='{&quot;site&quot;:[36.4766,-5.017],&quot;sea&quot;:[36.4496,-5.017],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.48916,-4.957],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Banús&quot;,&quot;sub&quot;:&quot;8,8 km · 9 min&quot;},{&quot;ll&quot;:[36.48676,-4.99008],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;San Pedro&quot;,&quot;sub&quot;:&quot;5,7 km · 7 min&quot;},{&quot;ll&quot;:[36.48125,-5.01756],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Atalaya&quot;,&quot;sub&quot;:&quot;560 m · 1 min&quot;},{&quot;ll&quot;:[36.46207,-5.01655],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,7 km · 7 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Atalaya Pool Villas"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Atalaya Pool Villas</h3>
+            <p class="locmap-place">Atalaya, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Infinitypool</h3>
-              <p class="amenity-note">En kant som försvinner</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Banús</span>
+              <span class="locmap-row-figure"><bdi>8,8 km</bdi> <em><bdi>9 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Utomhus</span>
-              <h3 class="amenity-name">Egen trädgård</h3>
-              <p class="amenity-note">Inhägnad och bostadens egen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">San Pedro de Alcántara centrum</span>
+              <span class="locmap-row-figure"><bdi>5,7 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Utomhus</span>
-              <h3 class="amenity-name">Solterrass på taket</h3>
-              <p class="amenity-note">Sol på översta planet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Atalaya</span>
+              <span class="locmap-row-figure"><bdi>560 m</bdi> <em><bdi>1 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utomhus</span>
-              <h3 class="amenity-name">Inbyggd grill</h3>
-              <p class="amenity-note">Fast monterad, inte flyttbar</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan El Paraíso</span>
+              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>3 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Vardag</span>
-              <h3 class="amenity-name">Golvvärme</h3>
-              <p class="amenity-note">Värme underifrån</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar flygplats</span>
+              <span class="locmap-row-figure"><bdi>59 km</bdi> <em><bdi>52 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Vardag</span>
-              <h3 class="amenity-name">Källarplan i varje villa</h3>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Vardag</span>
-              <h3 class="amenity-name">Två parkeringsplatser</h3>
-              <p class="amenity-note">Plats för två bilar</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 18h16"/><path d="M6 18a6 6 0 0 1 12 0"/><path d="M12 8V6"/><path d="M10.5 6h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Service</span>
-              <h3 class="amenity-name">Tvättstuga</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Service</span>
-              <h3 class="amenity-name">Säkerhetssystem</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Service</span>
-              <h3 class="amenity-name">Inhägnad tomt</h3>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Atalaya Golf</th><td>Gångavstånd</td></tr><tr><th scope="row">Puerto Banús</th><td>Ca 8 minuter</td></tr><tr><th scope="row">San Pedro Alcántara</th><td>Ca 8 minuter</td></tr><tr><th scope="row">Saladillostranden</th><td>1,9 km till fots</td></tr><tr><th scope="row">Málagas flygplats</th><td>Ca 40 minuter</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Varje villa är planerad kring sin egen pool, sin trädgård och sin övertäckta veranda, med en solterrass på taket.</p>
+    <div class="life-panels"><div><h3>Pool och trädgård</h3><p>En infinitypool i en privat trädgård med naturlig gräsmatta, med belysning, automatisk bevattning och förberedelse för uppvärmning.</p></div><div><h3>Veranda och grill</h3><p>En övertäckt veranda vid vardagsrummet, med inbyggd gasolgrill vänd mot trädgården och poolen.</p></div><div><h3>Solterrass på taket</h3><p>Nås via en övertäckt trappa med motoriserat tak, med dusch, förvaringsskåp och förberedelse för bubbelpool.</p></div><div><h3>Golf och strand</h3><p>Atalaya Golf ligger 600 m bort, och stranden vid Saladillo är 1,9 km till fots, med korsning av A-7 via en gångbro.</p></div></div>
+    <ul class="amen-top"><li>Privat pool</li><li>Infinitypool</li><li>Egen trädgård</li><li>Solterrass på taket</li><li>Inbyggd grill</li><li>Golvvärme</li></ul>
+    <details class="amen-all"><summary>Visa alla 11</summary><div class="amen-groups"><div><h3>Välmående<span class="count">2</span></h3><ul><li>Privat pool</li><li>Infinitypool</li></ul></div><div><h3>Utomhus<span class="count">3</span></h3><ul><li>Egen trädgård</li><li>Solterrass på taket</li><li>Inbyggd grill</li></ul></div><div><h3>Vardag<span class="count">3</span></h3><ul><li>Golvvärme</li><li>Källarplan i varje villa</li><li>Två parkeringsplatser</li></ul></div><div><h3>Service<span class="count">3</span></h3><ul><li>Tvättstuga</li><li>Säkerhetssystem</li><li>Inhägnad tomt</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en fristående villa med egen pool och trädgård på en egen tomt, snarare än en bostad i ett större område.</span></li><li><b>Vad som skiljer det från andra</b><span>Sju villor, var och en olik de andra och med egen tillfart, i ett etablerat bostadsområde snarare än inne i ett stort resort.</span></li><li><b>Varför läget spelar roll</b><span>Atalaya Golf ligger 600 m bort, Puerto Banús och San Pedro de Alcántara är ungefär åtta minuter med bil och stranden ligger 1,9 km till fots.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>Fem av de sju villorna är just nu angivna som tillgängliga. Nueva Living bekräftar pris, leveransmånad och parkering på nytt med exploatören före varje visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Reservation och avtal</b><span>Exploatörens informationsbrev från maj 2024 fastställde handpenningen vid bokning till 50 000 €, och de stegvisa betalningarna följer sedan i köpeavtalet.</span></li><li><b>Garanterade betalningar</b><span>Exploatören förbinder sig att garantera de belopp som betalats på förskott genom en bank, enligt spansk byggnadslag, inom 20 dagar efter varje betalning.</span></li><li><b>Kostnader utöver priset</b><span>Köparen betalar notarie, fastighetsregister och köpskatter. Säljaren betalar plusvalía-skatten och registreringen av nybygget och dess uppdelning i enheter.</span></li><li><b>Årliga avgifter</b><span>De sju tomterna tillhör områdets samfällighet för underhåll av bostadsområdet, med en årlig avgift på ungefär 183 € till 272 € per tomt, enligt exploatörens informationsbrev från 2024.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Tillstånd och status</b><span>Bygglovet, det aktuella byggskedet och leveransmånaden för den villa ni väljer.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bankgarantin</b><span>Garantin som täcker era stegvisa betalningar, namngiven och daterad, inom 20 dagar efter varje betalning.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Parkeringen på Villa 07</b><span>Om de två platserna ligger på marknivå under en pergola, som planritningarna och exploatörens informationsbrev visar, eller om den ena ligger i källaren, som exploatörens broschyr från april 2026 antyder.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Prislistan</b><span>Om det angivna priset inkluderar IVA och vad det separata utrustningsbeloppet i exploatörens prislista omfattar.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Planritningar för alla fem tillgängliga villor, specifikationen och betalningsplanen.</p></li><li><h3>Jämför alternativen</h3><p>Se detta tillsammans med de andra villaprojekten i Estepona och Marbella som vi representerar.</p></li><li><h3>Privat visning</h3><p>Gå runt tomten och bygget tillsammans med oss, och träffa exploatören.</p></li><li><h3>Boka</h3><p>Handpenning vid bokning, därefter köpeavtalet, med betalningar garanterade av en bank.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>5 av 5 bostäder</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Atalaya Pool Villas</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många villor är tillgängliga?</summary><p>Projektet består av sju villor och fem är just nu angivna som tillgängliga: Villa 02 med fyra sovrum och Villa 03, 05, 06 och 07 med tre, från 1 530 000 € till 2 220 000 €. Villa 01 och 04 är inte längre listade.</p></details><details class="segment-faq-item"><summary>När är villorna klara?</summary><p>Exploatörens nuvarande prislista anger en leveransmånad för varje villa: oktober 2027 för Villa 05, november 2027 för Villa 03, januari 2028 för Villa 07 och februari 2028 för Villa 02 och 06. Tidigare material från exploatören angav mars 2026, vilket den nuvarande listan ersätter.</p></details><details class="segment-faq-item"><summary>Ingår solterrassen?</summary><p>Ja. Varje villa har en solterrass på taket på 49 till 95 m², som nås via en övertäckt trappa, med dusch, förvaringsskåp och förberedelse för bubbelpool. Själva bubbelpoolen ingår inte.</p></details><details class="segment-faq-item"><summary>Var finns parkeringen?</summary><p>Villa 02, 03, 05 och 06 har garage i källaren för två bilar. Villa 07 har enligt planritningarna och exploatörens informationsbrev två platser på marknivå under en pergola, medan exploatörens broschyr beskriver en villa med en plats i källaren och en utanför. Vi bekräftar Villa 07 skriftligt.</p></details><details class="segment-faq-item"><summary>Är varje tomt privat?</summary><p>Varje villa står på sin egen inhägnade tomt med privat trädgård och egen tillfart. Tomterna delar skiljemurar med grannarna och tillhör områdets samfällighet för underhåll av bostadsområdet.</p></details></div>
+    
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">1 530 000 €</p>
+      <p class="rail-note">Exkl. IVA. 5 av 7 bostäder kvar · Kontrollerat oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Atalaya%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Atalaya Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Atalaya%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Atalaya Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Gå runt tomten, byggskedet och infarten från grinden.</li><li><b>Till fots.</b> Vi går vägen till golfklubben och till stranden tillsammans med er.</li><li><b>På papper.</b> Bygglov, bankgaranti och betalningsplan, innan något skrivs under.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Atalaya Pool Villas">
+        <input type="hidden" id="f-project" name="project" value="Atalaya Pool Villas">
+        <input type="hidden" name="preferred_area" value="Atalaya, Estepona">
+        <input type="hidden" name="property_type_interest" value="Fristående villor">
+        <input type="hidden" name="budget_range" value="Från 1 530 000 €">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag vill gärna få information om Atalaya Pool Villas." data-base="Hej Nueva Living, jag vill gärna få information om Atalaya Pool Villas.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="Villa 02">Villa 02: 2 220 000 €</option><option value="Villa 03">Villa 03: 1 695 000 €</option><option value="Villa 05">Villa 05: 1 600 000 €</option><option value="Villa 06">Villa 06: 1 530 000 €</option><option value="Villa 07">Villa 07: 1 595 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Atalaya Pool Villas.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">Fristående villor med egen pool, egen trädgård och solterrass på taket, i ett golfområde några minuter från Puerto Banús.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en fristående villa med egen pool och trädgård på en egen tomt, snarare än en bostad i ett större område.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Sju villor, var och en olik de andra och med egen tillfart, i ett etablerat bostadsområde snarare än inne i ett stort resort.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Atalaya Golf ligger 600 m bort, Puerto Banús och San Pedro de Alcántara är ungefär åtta minuter med bil och stranden ligger 1,9 km till fots.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>Fem av de sju villorna är just nu angivna som tillgängliga. Nueva Living bekräftar pris, leveransmånad och parkering på nytt med exploatören före varje visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">Betalningsstegen framgår av exploatörens köpeavtal. Vi bekräftar gällande belopp och datum skriftligt innan ni reserverar.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservation och avtal</h3><p>Exploatörens informationsbrev från maj 2024 fastställde handpenningen vid bokning till 50 000 €, och de stegvisa betalningarna följer sedan i köpeavtalet.</p></article>
-              <article class="why-point reveal-soft"><h3>Garanterade betalningar</h3><p>Exploatören förbinder sig att garantera de belopp som betalats på förskott genom en bank, enligt spansk byggnadslag, inom 20 dagar efter varje betalning.</p></article>
-              <article class="why-point reveal-soft"><h3>Kostnader utöver priset</h3><p>Köparen betalar notarie, fastighetsregister och köpskatter. Säljaren betalar plusvalía-skatten och registreringen av nybygget och dess uppdelning i enheter.</p></article>
-              <article class="why-point reveal-soft"><h3>Årliga avgifter</h3><p>De sju tomterna tillhör områdets samfällighet för underhåll av bostadsområdet, med en årlig avgift på ungefär 183 € till 272 € per tomt, enligt exploatörens informationsbrev från 2024.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillstånd och status</h3><p>Bygglovet, det aktuella byggskedet och leveransmånaden för den villa ni väljer.</p></article>
-              <article class="why-point reveal-soft"><h3>Bankgarantin</h3><p>Garantin som täcker era stegvisa betalningar, namngiven och daterad, inom 20 dagar efter varje betalning.</p></article>
-              <article class="why-point reveal-soft"><h3>Parkeringen på Villa 07</h3><p>Om de två platserna ligger på marknivå under en pergola, som planritningarna och exploatörens informationsbrev visar, eller om den ena ligger i källaren, som exploatörens broschyr från april 2026 antyder.</p></article>
-              <article class="why-point reveal-soft"><h3>Prislistan</h3><p>Om det angivna priset inkluderar IVA och vad det separata utrustningsbeloppet i exploatörens prislista omfattar.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Priserna och leveransmånaderna är avskrivna från exploatörens prislista av den 8 oktober 2026 för de fem villor som anges som tillgängliga. Listan anger inte om IVA och köpkostnader ingår, och Nueva Living bekräftar det före varje reservation. Den visar också ett separat utrustningsbelopp för varje villa (56 500 €, och 72 400 € för Villa 02), som inte ingår här. Byggd yta är exploatörens totalsiffra: invändiga ytor, terrasser, verandor och solterrass. Exploatörens informationsbrev från maj 2024 angav leverans i mars 2026, vilket den nuvarande prislistan ersätter.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool.jpg" alt="Villans fasad med övertäckt veranda och infinitypool" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Samtida linjer, <em>medelhavsmaterial</em></h2>
-          <p>Fasaderna kombinerar vit cementputs med fasadpaneler och skärmar i trälook, och pergolor med bjälkar i trälook ger skugga åt terrasserna. Stora skjutdörrar och fönster i vardagsrummet och sovrummen släpper in ljus och ger genomluftning, och räcken av murverk och glas bevarar utsikten mot poolen och trädgården inifrån huset.</p>
-          <ul class="feature-list">
-            <li>Fasader — Vit cementputs och färg, med fasadpaneler och yttre skärmar i trälook.</li>
-            <li>Terrasser — Pergolor med bjälkar i trälook, och räcken av murverk och glas mot poolen och trädgården.</li>
-            <li>Ljus och luft — Stora öppningar i vardagsrummet och sovrummen, och genomluftning i hela huset.</li>
-            <li>Orientering — Alla villor vetter mot söder, med huvudrummen mot trädgården.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Atalaya%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Atalaya Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/atalaya-pool-villas/media/exterior-dusk.jpg" alt="Villan och poolterrassen i skymningen" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se den <em>på tomten</em></h2>
-            <p>Det snabbaste sättet att bedöma en villa under uppförande är att stå på tomten: orienteringen, grannarna, hur nära stranden verkligen är till fots.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Gå runt tomten, byggskedet och infarten från grinden.</p></div>
-              <div><span>Till fots</span><p>Vi går vägen till golfklubben och till stranden tillsammans med er.</p></div>
-              <div><span>På papper</span><p>Bygglov, bankgaranti och betalningsplan, innan något skrivs under.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=atalaya-pool-villas">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Solarium">Solarium</button><button type="button" data-cat="Interiors">Interiör</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/atalaya-pool-villas/media/solarium-terrace.jpg" alt="Solterrass på taket med loungeyta, matbord och bubbelpool" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Byggd kring <em>utomhuslivet</em></h2>
-            <p>Varje villa är planerad kring sin egen pool, sin trädgård och sin övertäckta veranda, med en solterrass på taket.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Planritningar för alla fem tillgängliga villor, specifikationen och betalningsplanen.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se detta tillsammans med de andra villaprojekten i Estepona och Marbella som vi representerar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Gå runt tomten och bygget tillsammans med oss, och träffa exploatören.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>Handpenning vid bokning, därefter köpeavtalet, med betalningar garanterade av en bank.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många villor är tillgängliga?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Projektet består av sju villor och fem är just nu angivna som tillgängliga: Villa 02 med fyra sovrum och Villa 03, 05, 06 och 07 med tre, från 1 530 000 € till 2 220 000 €. Villa 01 och 04 är inte längre listade.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När är villorna klara?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Exploatörens nuvarande prislista anger en leveransmånad för varje villa: oktober 2027 för Villa 05, november 2027 för Villa 03, januari 2028 för Villa 07 och februari 2028 för Villa 02 och 06. Tidigare material från exploatören angav mars 2026, vilket den nuvarande listan ersätter.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår solterrassen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Varje villa har en solterrass på taket på 49 till 95 m², som nås via en övertäckt trappa, med dusch, förvaringsskåp och förberedelse för bubbelpool. Själva bubbelpoolen ingår inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Var finns parkeringen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Villa 02, 03, 05 och 06 har garage i källaren för två bilar. Villa 07 har enligt planritningarna och exploatörens informationsbrev två platser på marknivå under en pergola, medan exploatörens broschyr beskriver en villa med en plats i källaren och en utanför. Vi bekräftar Villa 07 skriftligt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är varje tomt privat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Varje villa står på sin egen inhägnade tomt med privat trädgård och egen tillfart. Tomterna delar skiljemurar med grannarna och tillhör områdets samfällighet för underhåll av bostadsområdet.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Atalaya Pool Villas</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, den fullständiga specifikationen och planritningar.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Atalaya%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Atalaya Pool Villas" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Atalaya Pool Villas">
-
-          <input type="hidden" id="f-project" name="project" value="Atalaya Pool Villas">
-          <input type="hidden" name="preferred_area" value="Atalaya, Estepona">
-          <input type="hidden" name="property_type_interest" value="Fristående villor">
-          <input type="hidden" name="budget_range" value="Från 1 530 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag vill gärna få information om Atalaya Pool Villas.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"Villa 02","title":"Villa 02","sub":"4 sovrum · 656 m²","price":2220000,"plans":[{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor.jpg","label":""}]},{"id":"u1","ref":"Villa 03","title":"Villa 03","sub":"3 sovrum · 456 m²","price":1695000,"plans":[{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor.jpg","label":""}]},{"id":"u2","ref":"Villa 05","title":"Villa 05","sub":"3 sovrum · 450 m²","price":1600000,"plans":[{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor.jpg","label":""}]},{"id":"u3","ref":"Villa 06","title":"Villa 06","sub":"3 sovrum · 469 m²","price":1530000,"plans":[{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor.jpg","label":""}]},{"id":"u4","ref":"Villa 07","title":"Villa 07","sub":"3 sovrum · 454 m²","price":1595000,"plans":[{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.webp","alt":"Fristående villa med infinitypool och trädgård i Atalaya, Estepona","caption":"Poolterrassen i dagsljus","cat":"Exteriors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool.webp","alt":"Villans fasad med övertäckt veranda och infinitypool","caption":"Fasad, veranda och pool","cat":"Exteriors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/exterior-dusk.webp","alt":"Villan och poolterrassen i skymningen","caption":"Villan i skymningen","cat":"Exteriors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea.webp","alt":"Flygvy över de sju villorna, med kusten bortom","caption":"De sju villorna och kusten","cat":"Exteriors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-mountains.webp","alt":"Flygvy över de sju villorna, med kullarna bakom","caption":"De sju villorna och kullarna bakom","cat":"Exteriors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/solarium-terrace.webp","alt":"Solterrass på taket med loungeyta, matbord och bubbelpool","caption":"Solterrassen på taket","cat":"Solarium"},{"src":"assets/liora/projects/atalaya-pool-villas/media/interior-living-room.webp","alt":"Vardagsrum och matplats som öppnar sig mot poolterrassen","caption":"Vardagsrum och terrass","cat":"Interiors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/interior-bedroom-terrace.webp","alt":"Sovrum med skjutdörr till en terrass","caption":"Sovrum med terrass","cat":"Interiors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/furnished-living-room.webp","alt":"Vardagsrum med det valfria möbelpaketet","caption":"Vardagsrum, möblerat","cat":"Interiors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/furnished-dining-room.webp","alt":"Matplats och kök med det valfria möbelpaketet","caption":"Matplats, möblerad","cat":"Interiors"},{"src":"assets/liora/projects/atalaya-pool-villas/media/furnished-main-bedroom.webp","alt":"Huvudsovrum med det valfria möbelpaketet","caption":"Huvudsovrum, möblerat","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Atalaya Pool Villas media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-960.webp","alt":"Fristående villa med infinitypool och trädgård i Atalaya, Estepona","width":1920,"height":1080,"caption":"Poolterrassen i dagsljus","category":"Exteriör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/exterior-facade-pool-960.webp","alt":"Villans fasad med övertäckt veranda och infinitypool","width":1920,"height":1080,"caption":"Fasad, veranda och pool","category":"Exteriör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/exterior-dusk.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/exterior-dusk-960.webp","alt":"Villan och poolterrassen i skymningen","width":1920,"height":1080,"caption":"Villan i skymningen","category":"Exteriör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-sea-960.webp","alt":"Flygvy över de sju villorna, med kusten bortom","width":1920,"height":1080,"caption":"De sju villorna och kusten","category":"Exteriör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-mountains.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/aerial-villas-and-mountains-960.webp","alt":"Flygvy över de sju villorna, med kullarna bakom","width":1920,"height":1080,"caption":"De sju villorna och kullarna bakom","category":"Exteriör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/solarium-terrace.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/solarium-terrace-960.webp","alt":"Solterrass på taket med loungeyta, matbord och bubbelpool","width":1920,"height":1080,"caption":"Solterrassen på taket","category":"Solarium"},{"src":"assets/liora/projects/atalaya-pool-villas/media/interior-living-room.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/interior-living-room-960.webp","alt":"Vardagsrum och matplats som öppnar sig mot poolterrassen","width":1920,"height":1080,"caption":"Vardagsrum och terrass","category":"Interiör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/interior-bedroom-terrace.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/interior-bedroom-terrace-960.webp","alt":"Sovrum med skjutdörr till en terrass","width":1920,"height":1080,"caption":"Sovrum med terrass","category":"Interiör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/furnished-living-room.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/furnished-living-room-960.webp","alt":"Vardagsrum med det valfria möbelpaketet","width":2000,"height":1667,"caption":"Vardagsrum, möblerat","category":"Interiör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/furnished-dining-room.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/furnished-dining-room-960.webp","alt":"Matplats och kök med det valfria möbelpaketet","width":2000,"height":1667,"caption":"Matplats, möblerad","category":"Interiör"},{"src":"assets/liora/projects/atalaya-pool-villas/media/furnished-main-bedroom.jpg","webp":"assets/liora/projects/atalaya-pool-villas/media/furnished-main-bedroom-960.webp","alt":"Huvudsovrum med det valfria möbelpaketet","width":2000,"height":1667,"caption":"Huvudsovrum, möblerat","category":"Interiör"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-ground-floor-960.webp","alt":"Planritning Villa 02, bottenvåning","width":2000,"height":1605,"caption":"Villa 02, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-first-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-first-floor-960.webp","alt":"Planritning Villa 02, första våningen","width":2000,"height":1513,"caption":"Villa 02, första våningen","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-solarium.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-solarium-960.webp","alt":"Planritning Villa 02, solterrass","width":2000,"height":1801,"caption":"Villa 02, solterrass","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-basement.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-basement-960.webp","alt":"Planritning Villa 02, källare","width":2000,"height":1814,"caption":"Villa 02, källare","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-site-plan.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-02-site-plan-960.webp","alt":"Tomtplan för Villa 02","width":2000,"height":1678,"caption":"Villa 02, tomtplan","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-ground-floor-960.webp","alt":"Planritning Villa 03, bottenvåning","width":2000,"height":1014,"caption":"Villa 03, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-first-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-first-floor-960.webp","alt":"Planritning Villa 03, första våningen","width":2000,"height":1241,"caption":"Villa 03, första våningen","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-solarium.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-solarium-960.webp","alt":"Planritning Villa 03, solterrass","width":2000,"height":1241,"caption":"Villa 03, solterrass","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-basement.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-basement-960.webp","alt":"Planritning Villa 03, källare","width":2000,"height":1211,"caption":"Villa 03, källare","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-site-plan.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-03-site-plan-960.webp","alt":"Tomtplan för Villa 03","width":2000,"height":1399,"caption":"Villa 03, tomtplan","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-ground-floor-960.webp","alt":"Planritning Villa 05, bottenvåning","width":2000,"height":1789,"caption":"Villa 05, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-first-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-first-floor-960.webp","alt":"Planritning Villa 05, första våningen","width":2000,"height":1239,"caption":"Villa 05, första våningen","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-solarium.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-solarium-960.webp","alt":"Planritning Villa 05, solterrass","width":2000,"height":1251,"caption":"Villa 05, solterrass","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-basement.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-basement-960.webp","alt":"Planritning Villa 05, källare","width":2000,"height":1194,"caption":"Villa 05, källare","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-site-plan.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-05-site-plan-960.webp","alt":"Tomtplan för Villa 05","width":2000,"height":1506,"caption":"Villa 05, tomtplan","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-ground-floor-960.webp","alt":"Planritning Villa 06, bottenvåning","width":1736,"height":2000,"caption":"Villa 06, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-first-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-first-floor-960.webp","alt":"Planritning Villa 06, första våningen","width":2000,"height":1878,"caption":"Villa 06, första våningen","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-solarium.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-solarium-960.webp","alt":"Planritning Villa 06, solterrass","width":1639,"height":1523,"caption":"Villa 06, solterrass","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-basement.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-basement-960.webp","alt":"Planritning Villa 06, källare","width":1639,"height":1179,"caption":"Villa 06, källare","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-site-plan.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-06-site-plan-960.webp","alt":"Tomtplan för Villa 06","width":2000,"height":1678,"caption":"Villa 06, tomtplan","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-ground-floor-960.webp","alt":"Planritning Villa 07, bottenvåning","width":1861,"height":2000,"caption":"Villa 07, bottenvåning","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-first-floor.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-first-floor-960.webp","alt":"Planritning Villa 07, första våningen","width":1639,"height":1539,"caption":"Villa 07, första våningen","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-solarium.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-solarium-960.webp","alt":"Planritning Villa 07, solterrass","width":1639,"height":1523,"caption":"Villa 07, solterrass","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-basement.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-basement-960.webp","alt":"Planritning Villa 07, källare","width":1631,"height":1283,"caption":"Villa 07, källare","category":"Planritningar"},{"src":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-site-plan.jpg","webp":"assets/liora/projects/atalaya-pool-villas/floorplans/villa-07-site-plan-960.webp","alt":"Tomtplan för Villa 07","width":1493,"height":2000,"caption":"Villa 07, tomtplan","category":"Planritningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-atalaya-pool-villas.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Atalaya%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Atalaya Pool Villas" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

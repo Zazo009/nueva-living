@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlendinger kjøpe eiendom i Spania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er et NIE-nummer, og trenger jeg et?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg få boliglån i Spania som ikke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvordan fungerer reservasjons- og betalingsprosessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg leie ut boligen etter kjøp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Trenger jeg advokat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hvor mange boliger er det?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="no"
   data-project-name="Retama Residences"
   data-project-message="Jeg vil gjerne ha oppdatert tilgjengelighet og priser for Retama Residences."
@@ -459,726 +396,191 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Retama Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="no/property-retama-residences.html#top">Retama Residences<span>Fra 341 000 € · Ekskl. mva</span></a>
+      <nav class="hdr-proj" aria-label="Prosjektseksjoner"><a href="no/property-retama-residences.html#overview">Oversikt</a><a href="no/property-retama-residences.html#availability">Priser</a><a href="no/property-retama-residences.html#specs">Utførelse</a><a href="no/property-retama-residences.html#gallery">Galleri</a><a href="no/property-retama-residences.html#location">Beliggenhet</a><a href="no/property-retama-residences.html#onsite">På stedet</a><a href="no/property-retama-residences.html#view">Vår vurdering</a><a href="no/property-retama-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="no/property-retama-residences.html#enquire" data-prefill>Bestill en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Retama Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1400w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Datagenerert bilde av to felles bassenger med solsenger og parasoller foran en lang blokk med terrasseleiligheter, med havet i horisonten" width="1400" height="787" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Datagenerert bilde av to felles bassenger med solsenger og parasoller foran en lang blokk med terrasseleiligheter, med havet i horisonten" width="1400" height="787" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">10 av 120 boliger ledige</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Retama <em>Residences</em></span>
-            <span class="hero-title-context">Boliger med spa og bassenger i Mijas Costa</span>
-          </h1>
-          <p class="hero-positioning">Et inngjerdet anlegg med 120 leiligheter og toppleiligheter under bygging i en åsside i Mijas Costa, med to utendørs bassenger, spa, treningsrom og en coworking-lounge. Ti boliger med ett til tre soverom står på utbyggerens prisliste, fra 341 000 € før mva.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="no/property-retama-residences.html#availability">Se tilgjengelige boliger</a>
-            <a class="btn project-btn ghost" href="no/index.html#private-viewing=1&amp;project=retama-residences">Filmatisk presentasjon</a>
-            <a class="btn project-btn ghost" href="no/property-retama-residences.html#media">Alle bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktige prosjektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Mijas Costa</strong></div>
-          <div class="hero-fact"><span>Pris fra</span><strong>Fra 341 000 €</strong></div>
-          <div class="hero-fact"><span>Boligtype</span><strong>Leiligheter og takleiligheter</strong></div>
-          <div class="hero-fact"><span>Overtakelse</span><strong>Ferdigstillelse september 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Prosjektseksjoner">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Gå til</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="no/property-retama-residences.html#media">Media</a>
-        <a href="no/property-retama-residences.html#location">Beliggenhet</a>
-        <a href="no/property-retama-residences.html#construction-timeline">Betalingsvilkår</a>
-        <a href="no/property-retama-residences.html#availability">Tilgjengelighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="no/property-retama-residences.html#overview">Oversikt</a>
-          <a href="no/property-retama-residences.html#residences">Boliger</a>
-          <a href="no/property-retama-residences.html#quality-specifications">Utførelse</a>
-          <a href="no/property-retama-residences.html#calculator">Finansiering</a>
-          <a href="no/property-retama-residences.html#amenities">Fasiliteter</a>
-          <a href="no/property-retama-residences.html#why-this-project">Hvorfor</a>
-          <a href="no/property-retama-residences.html#architecture">Arkitektur</a>
-          <a href="no/property-retama-residences.html#private-viewing">Filmatisk presentasjon</a>
-          <a href="no/property-retama-residences.html#lifestyle">Livsstil</a>
-          <a href="no/property-retama-residences.html#faq">FAQ</a>
-          <a href="no/property-retama-residences.html#enquire">Forespørsel</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Rask prosjektfakta">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Soverom</span><strong>1-3 soverom</strong></div>
-          <div class="quick-fact"><span>Bebygd areal</span><strong>46,78 - 101,62 m²</strong></div>
-          <div class="quick-fact"><span>Tilgjengelighet</span><strong>10 av 120 boliger ledige</strong></div>
-          <div class="quick-fact"><span>Tilgjengelig</span><strong>10 boliger</strong></div>
-          <div class="quick-fact"><span>Prisspenn</span><strong>341 000 € - 885 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="no/property-retama-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Oversikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">En åsside med 120 boliger, <em>ti på listen</em></h2>
-          <p class="project-lead">Retama Residences er et inngjerdet anlegg med 120 boliger i lave blokker på en tomt på 31 000 m² i Mijas Costa, nær golfbanen Cerrado del Águila. Brosjyren plasserer bygningene rundt en stor hage, med stier til fellesområdene og et utsiktspunkt, og lar en del av tomten være naturområde.</p>
-          <p class="project-lead">Utbyggerens prisliste av 14. september 2026 viser ti boliger, alle ledige: leiligheter med ett til tre soverom i første, andre og tredje etasje fra 341 000 €, og tre toppleiligheter med store terrasser fra 780 000 € til 885 000 €, alt før mva. Utbyggerens portal oppgir byggetillatelsen som gitt, byggestart 11. november 2025 og ferdigstillelse i september 2028.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Anlegget i <em>bilder</em></h2>
-          </div>
-          <p class="project-lead">Datagenererte bilder av blokkene, bassengene, terrassene, interiørene og fellesområdene, et flyfoto av tomten og planløsningene for de ti boligene på prislisten.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Vis 6 bilder i Eksteriør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Datagenerert bilde av to felles bassenger med solsenger og parasoller foran en lang blokk med terrasseleiligheter, med havet i horisonten" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Eksteriør</small>
-                <strong>De to bassengene og en blokk</strong>
-                <span class="project-media-card-cta">6 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Vis 3 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-640.webp 640w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-960.webp 960w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.jpg" alt="Datagenerert terrasse i første etasje med et langt spisebord og en utesofa på plenen, under balkonger med takvifter, med havet i det fjerne" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En terrasse og hage i første etasje</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Vis 1 bilder i Interiør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-640.webp 640w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-960.webp 960w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.jpg" alt="Datagenerert åpen stue med sofa, spisebord og kjøkken med marmorlignende kjøkkenøy, åpen mot en terrasse gjennom skyvedører i glass" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiør</small>
-                <strong>Stue og kjøkken</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Vis 1 bilder i Soverom">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-640.webp 640w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-960.webp 960w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.jpg" alt="Datagenerert soverom med dobbeltseng mot en ribbet trevegg og en skyvedør i glass til en terrasse med havutsikt" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Soverom</small>
-                <strong>Soverom</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Vis 1 bilder i Bad">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower-640.webp 640w, assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower-960.webp 960w, assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.jpg" alt="Datagenerert bad med marmorlignende fliser, en walk-in-dusj med glassvegg og et vegghengt servantskap" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bad</small>
-                <strong>Bad</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Vis 8 bilder i Fasiliteter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-640.webp 640w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-960.webp 960w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.jpg" alt="Datagenerert spa med oppvarmet innendørsbasseng, solsenger på steingulv og en badstue med glassfront" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Fasiliteter</small>
-                <strong>Spaet</strong>
-                <span class="project-media-card-cta">8 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Vis 10 bilder i Plantegninger">
-              <img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg" alt="Planløsning for bolig 101" width="1665" height="2000" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plantegninger</small>
-                <strong>Bolig 101</strong>
-                <span class="project-media-card-cta">10 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Vis alle 30 bilder</button>
-          <p class="media-note">Bildene er datagenererte, unntatt flyfotoet, der de planlagte bygningene er satt inn i et fotografi av omgivelsene. Møbler, dekor og beplantning er illustrasjoner og ikke inkludert. Planløsningene er utbyggerens, laget ut fra byggets forprosjekt, uten utbyggerens logoer og prosjektnavnet; utbyggeren skriver at de er veiledende og ikke endelige, at arealene er omtrentlige, og romnavnene står på spansk.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Beliggenhet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Mijas Costa, <em>blant golfbanene</em></h2>
-          <p class="project-lead">Brosjyren plasserer anlegget mellom Fuengirola og La Cala de Mijas, i naturlige omgivelser mellom golfbaner. Kartet viser Cerrado del Águila Golf 2 km unna og en annen golfbane 3 km unna, og utbyggerens reguleringsplan viser tomten vest for galoppbanen på Costa del Sol. Dokumentene oppgir ingen adresse, så plasseringen på kartet vårt er omtrentlig.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="no">
-          <div class="locmap-map" id="locmap-retama-residences" data-locmap='{&quot;site&quot;:[36.521,-4.664],&quot;sea&quot;:[36.494,-4.664],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;6,1 km · 14 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola sentrum&quot;,&quot;sub&quot;:&quot;5,7 km · 13 min&quot;},{&quot;ll&quot;:[36.50609,-4.66035],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;4,8 km · 12 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Cabopino&quot;,&quot;sub&quot;:&quot;12 km · 19 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Retama Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Veiledende beliggenhet</span>
-            <h3 class="locmap-name">Retama Residences</h3>
-            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Fuengirola sentrum</span>
-              <span class="locmap-row-figure"><bdi>5,7 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Cabopino</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>19 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga lufthavn</span>
-              <span class="locmap-row-figure"><bdi>31 km</bdi> <em><bdi>34 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Tidslinje</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fra byggestart <em>til nøklene</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Byggestart</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">November 2025</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">Ferdigstillelse</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">September 2028</span>
-        </div>
-      </div>
-      <div class="project-inner timeline-payment-terms reveal-soft">
-        <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">Betalingsvilkår</span>
-          <span class="timeline-payment-total">10 000 € + mva reservasjon, pluss 100% av prisen fordelt over 3 betalinger</span>
-        </div>
-        <div class="timeline-payment-grid">
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">01</span>
-            <span class="timeline-payment-label">Reservasjon</span>
-            <strong class="timeline-payment-value">10 000 € + mva</strong>
-            <span class="timeline-payment-note">Ved reservasjon av boligen</span>
-            
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">02</span>
-            <span class="timeline-payment-label">Ved Privat Kontrakt</span>
-            <strong class="timeline-payment-value">30% + mva</strong>
-            <span class="timeline-payment-note">Ved den private kontrakten, som planen knytter til byggetillatelsen</span>
-            <span class="timeline-payment-running">Løpende total: 30%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">03</span>
-            <span class="timeline-payment-label">Utsatt termin</span>
-            <strong class="timeline-payment-value">10% + mva</strong>
-            <span class="timeline-payment-note">Seks måneder etter den private kontrakten</span>
-            <span class="timeline-payment-running">Løpende total: 40%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">04</span>
-            <span class="timeline-payment-label">Ved Overlevering</span>
-            <strong class="timeline-payment-value">60% + mva</strong>
-            <span class="timeline-payment-note">Ved brukstillatelsen og signering av skjøtet</span>
-            <span class="timeline-payment-running">Løpende total: 100%</span>
-          </div>
-        </div>
-        <p class="timeline-payment-disclaimer">Planen sier at det kommer mva på hvert beløp. Den sier ikke om reservasjonen trekkes fra de 30 %, om forskuddsbetalinger er sikret, eller hva kjøpskostnadene utover prisen utgjør. Nueva Living ber om hvert punkt skriftlig før du reserverer.</p>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Boliger</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ti boliger, <em>fire nivåer</em></h2>
-          <p class="project-lead">De ti boligene på listen spenner fra en leilighet med ett soverom i andre etasje til toppleiligheter med tre soverom. Hver linje på listen nummererer også en garasjeplass og en bod. Tabellen nedenfor viser hver bolig med pris.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>En bolig med ett soverom</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-retama-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Boliger med to soverom</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-retama-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Boliger med tre soverom</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-retama-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Toppleiligheter</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-retama-residences.html#availability">Vis plantegninger</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat materiale</span>
-            <p>Gjeldende planløsninger, utsiktsposisjoner og tilgjengelighet bør sjekkes mot utviklerens siste fil før man setter opp en shortlist.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="no/property-retama-residences.html#availability">Vis plantegninger</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggebeskrivelse</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva boligene <em>er bygget av</em></h2>
-          <p class="project-lead">Utviklerens egen spesifikasjon, oppsummert etter deler av boligen.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Fasade og konstruksjon<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Bærekonstruksjon i armert betong og en todelt fasade av pusset hulltegl med sprøytet polyuretanisolasjon, kledd innvendig med gipsplater og mineralull.</li>
-              <li>Tredobbelte skillevegger mellom boligene med akustisk membran, og innervegger av gipsplater med mineralullisolasjon i hver bolig.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gulv og fliser<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Storformat porselensfliser på gulvene i hele boligen med hvitlakkerte gulvlister, og sklisikre fliser av samme modell på terrassene.</li>
-              <li>Rettkantede storformat porselensfliser på badeveggene, og nedforede tak i entré, gang, kjøkken og bad.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kjøkken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Over- og underskap i to farger å velge mellom, med benkeplate og vegg mellom skapene i Silestone, Compac eller tilsvarende.</li>
-              <li>Hvitevarer fra Bosch, Teka eller tilsvarende: kjøkkenvifte, induksjonstopp, elektrisk stekeovn, mikrobølgeovn, oppvaskmaskin, kjøleskap og innfelt stålvask.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Bad<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et skuffeskap med integrert servant, sanitærutstyr i hvitt porselen og et lavt dusjkar i kompositt.</li>
-              <li>Forkrommede ettgrepsbatterier med vannsparere og et system som reduserer forbruket av varmtvann, og innebygde dusjbatterier.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Snekkerarbeid<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Sikkerhetsdør med trepunktslås og glatte, hvitlakkerte innerdører med kromfargede håndtak.</li>
-              <li>Innebygde garderobeskap i hvitlakkert tre med skyve- eller foldedører, hylle og klesstang, og lakkerte aluminiumsrullegardiner på soverommene.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klima og varmtvann<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Kanalbasert klimaanlegg for varme og kjøling med varmepumpe, rister i hvert rom og én termostat i stuen.</li>
-              <li>Varmtvann fra en luft-til-vann-varmepumpe i hver bolig, og et ventilasjonsanlegg med ett luftstrømsystem som tar inn frisk luft og trekker ut brukt luft.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fellesarealer<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et spa med basseng oppvarmet av luft-til-vann-varmepumpe, finsk badstue, dusjer og garderober, og to utendørs bassenger med saltklorering og undervannsbelysning.</li>
-              <li>Et chill-out-område med grill, hager med stedegne arter som trenger mindre vann, oppsamling av regnvann til vanning og et resepsjonsområde for byggets tjenester.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Kilde: utbyggerens byggebeskrivelse, på engelsk og spansk, uten trykt dato. Den sier at utførelsen kan endres eller erstattes med elementer av samme eller høyere kvalitet, og at møbler, dekor og beplantning på bildene ikke er en del av tilbudet.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tilgjengelighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">10 boliger <em>tilgjengelige nå</em></h2>
-          <p class="project-lead">Prisene er hentet fra utbyggerens prisliste datert 14. september 2026, som viser 10 boliger, alle ledige, i et anlegg med 120. Vi bekrefter priser og tilgjengelighet før enhver reservasjon. Prisene er før mva.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammendrag av gjeldende fase">
-            <div><span>Tilgjengelige boliger</span><strong>10</strong></div>
-            <div><span>Pris fra</span><strong>341 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>341 000 € - 885 000 €</strong></div>
-            <div><span>Kontrollert</span><strong>14 september 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Se alle 10 tilgjengelige boliger</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrer tilgjengelige boliger"
-              data-availability-filters
-              data-count-template="Viser {shown} av {total}">
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Boligtype</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Leilighet</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Toppleilighet</button>
-                </div>
-              </div>
-              
-              
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Fjern filtre</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Ingen boliger samsvarer med disse filtrene.</p>
-            <div class="unit-card-grid" role="list" aria-label="Tilgjengelige boliger">
-              <article class="unit-card" data-unit data-type="apartment" data-price="595000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 101">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg" alt="Plantegning for 101" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">101</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>96,76 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>64,78 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 1, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">595 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20101">Spør om 101</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="490000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 222">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg" alt="Plantegning for 222" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">222</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>72,41 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 2, tredje etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">490 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20222">Spør om 222</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="885000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 231">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg" alt="Plantegning for 231" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">231</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>99,51 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>98,41 m²</dd></div>
-                    <div><dt>Solterrasse</dt><dd>87,42 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Toppleilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 2, toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">885 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20231">Spør om 231</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="780000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 232">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg" alt="Plantegning for 232" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">232</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>80,00 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>103,43 m²</dd></div>
-                    <div><dt>Solterrasse</dt><dd>65,85 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Toppleilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 2, toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">780 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20232">Spør om 232</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="480000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 303">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg" alt="Plantegning for 303" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">303</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>72,28 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>45,59 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 3, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">480 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20303">Spør om 303</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="451000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 403">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg" alt="Plantegning for 403" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">403</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>72,41 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>41,85 m²</dd></div>
-                    <div><dt>Hage</dt><dd>59,91 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 4, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">451 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20403">Spør om 403</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="795000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 531">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg" alt="Plantegning for 531" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">531</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>99,51 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>98,56 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Toppleilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 5, toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">795 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20531">Spør om 531</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="485000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 624">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg" alt="Plantegning for 624" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">624</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>80,26 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>26,71 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 6, tredje etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">485 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20624">Spør om 624</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="341000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 912">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg" alt="Plantegning for 912" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">912</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>1 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>46,78 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>14,30 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 9, andre etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">341 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20912">Spør om 912</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="581000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 914">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg" alt="Plantegning for 914" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">914</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygget</dt><dd>101,62 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>16,50 m²</dd></div>
-                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
-                    <div><dt>Etasje</dt><dd>Oppgang 9, andre etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">581 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20914">Spør om 914</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>20 bilder</button>
+          <a class="chip" href="no/property-retama-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plantegninger</a>
+          <a class="chip" href="no/property-retama-residences.html#location"><svg><use href="#v2-pin"/></svg>Kart</a>
           
-          <p class="availability-source-note">Alle tall er hentet fra utbyggerens prisliste datert 14. september 2026. Den viser ti boliger, alle merket som ledige, og oppgir at prisene er netto, uten mva, dokumentavgift og andre kostnader, og at listen kan endres så lenge det første depositumet ikke er mottatt. I Andalucía gjelder mva på 10 % og stempelavgift på 1,20 %, slik at leiligheten til 341 000 € koster omkring 379 000 € og toppleiligheten til 885 000 € omkring 984 000 €, før notar- og tinglysingskostnader. Bygget areal er listens innvendige bygde areal, inkludert vaskerom der det finnes; terrassen er summen av listens overbygde og åpne terrasser, med solterrassen og hagen oppgitt for seg. Hver bolig på listen har en nummerert garasjeplass og bod på samme linje som prisen; dokumentene sier ikke uttrykkelig at begge er inkludert.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="no/property-retama-residences.html#enquire" data-prefill>Spør om en bolig</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beregn din <em>månedlige betaling</em></h2>
-          <p class="body-copy">Kun et veiledende anslag. Bekreft de eksakte vilkårene med din långiver før du tar en beslutning.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Retama</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Et inngjerdet anlegg med 120 leiligheter og toppleiligheter under bygging i en åsside i Mijas Costa, med to utendørs bassenger, spa, treningsrom og en coworking-lounge.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts has5"><div data-nl-price><dt>Pris</dt><dd class="num">Fra 341 000 €</dd><dd class="sub">Ekskl. mva</dd></div><div><dt>Soverom</dt><dd>1 til 3</dd><dd class="sub"><span>Leiligheter og takleiligheter</span></dd></div><div><dt>Ferdigstillelse</dt><dd>september 2028</dd><dd class="sub">Byggetillatelse gitt</dd></div><div><dt>Boliger igjen</dt><dd>10 av 120</dd><dd class="sub">Kontrollert 14 september 2026</dd></div><div><dt>Betalinger</dt><dd>60% · Ved Overlevering</dd><dd class="sub">10 000 € for å reservere</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="no/property-retama-residences.html#enquire" data-prefill>Bestill en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Prosjektet</h2>
+    <p class="lede">Retama Residences er et inngjerdet anlegg med 120 boliger i lave blokker på en tomt på 31 000 m² i Mijas Costa, nær golfbanen Cerrado del Águila. Brosjyren plasserer bygningene rundt en stor hage, med stier til fellesområdene og et utsiktspunkt, og lar en del av tomten være naturområde.</p>
+    <p class="lede-2">Utbyggerens prisliste av 14. september 2026 viser ti boliger, alle ledige: leiligheter med ett til tre soverom i første, andre og tredje etasje fra 341 000 €, og tre toppleiligheter med store terrasser fra 780 000 € til 885 000 €, alt før mva. Utbyggerens portal oppgir byggetillatelsen som gitt, byggestart 11. november 2025 og ferdigstillelse i september 2028.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Lave blokker rundt en hage</span></summary><p>Brosjyren beskriver bygninger med lite volum rundt et stort grøntområde, med hagen som hovedelement og stier gjennom den til fellesområdene og et utsiktspunkt. På bildene har blokkene dype terrasser med glassrekkverk, lamellpergolaer og steinfargede vegger, blant oliventrær, lavendel og gress.</p><p>Situasjonsplanen nummererer ni oppganger, og prislisten nevner fire nivåer: første etasje, andre etasje, tredje etasje og toppleilighet. To av toppleilighetene på listen har i tillegg en solterrasse over boligen, som tegningene viser med en vindeltrapp opp.</p><ul><li>Et inngjerdet og lukket anlegg med adgangskontroll for gående og kjøretøy og videoovervåking.</li><li>Elektriske heiser for åtte personer til alle etasjer, med automatiske dører i rustfritt stål, tilpasset personer med nedsatt bevegelighet.</li><li>Automatisk garasjeport med fjernkontroll og forberedelse for lading av elbil fra boligens egen måler.</li><li>Aluminiumsvinduer med kuldebrudd og lavemisjonsglass, og solcellepaneler på takene over parkeringen til fellesområdene.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>341 000 € – 885 000 €</span><small>Ekskl. mva</small></dd></div><div><dt>Tilgjengelig</dt><dd><span>10 av 120 boliger</span><small>Kontrollert 14 september 2026</small></dd></div><div><dt>Boliger</dt><dd><span>Leiligheter og takleiligheter</span></dd></div><div><dt>Størrelser</dt><dd><span>47 – 102 m²</span><small>Bebygd areal</small></dd></div><div><dt>Ferdigstillelse</dt><dd><span>september 2028</span></dd></div><div><dt>Tillatelse</dt><dd><span><span class="ok">Byggetillatelse</span></span><small>Gitt</small></dd></div><div><dt>Betalinger</dt><dd><span>4 delbetalinger</span><small>60% · Ved Overlevering · <a href="no/property-retama-residences.html#plan">betalingsplan</a></small></dd></div><div><dt>Forskudd</dt><dd><span>Bankgaranti</span><small>Påkrevd etter spansk lov</small></dd></div><div><dt>Parkering</dt><dd><span>Garasjeplass</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Boliger og priser</h2>
+    <p class="sec-sub">Prisene er hentet fra utbyggerens prisliste datert 14. september 2026, som viser 10 boliger, alle ledige, i et anlegg med 120. Vi bekrefter priser og tilgjengelighet før enhver reservasjon. Prisene er før mva. Velg en bolig for å se betalingsplan og totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="10 av 120 fortsatt til salgs"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>10 av 120 fortsatt til salgs</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrer på soverom"><button type="button" aria-pressed="true" data-beds="">Alle <span>10</span></button><button type="button" aria-pressed="false" data-beds="1">1 sov. <span>1</span></button><button type="button" aria-pressed="false" data-beds="2">2 sov. <span>5</span></button><button type="button" aria-pressed="false" data-beds="3">3 sov. <span>4</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Boliger til salgs med størrelse og pris. Velg en rad for å se betalingsplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bolig</th>
+          <th scope="col" data-sort="beds">Soverom</th>
+          <th scope="col" data-sort="size">Størrelse</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Tegning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="595000" data-size="96.76" data-ppm="6149" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">101</span><span class="u-loc">Leilighet · Oppgang 1, første etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">97 m²</td>
+            <td data-label="Pris" class="u-price num">595 000 €</td>
+            <td data-label="Per m²" class="num">6 149 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 101"><img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="490000" data-size="72.41" data-ppm="6767" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">222</span><span class="u-loc">Leilighet · Oppgang 2, tredje etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">72 m²</td>
+            <td data-label="Pris" class="u-price num">490 000 €</td>
+            <td data-label="Per m²" class="num">6 767 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 222"><img src="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="885000" data-size="99.51" data-ppm="8894" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">231</span><span class="u-loc">Toppleilighet · Oppgang 2, toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">100 m²</td>
+            <td data-label="Pris" class="u-price num">885 000 €</td>
+            <td data-label="Per m²" class="num">8 894 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 231"><img src="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="780000" data-size="80" data-ppm="9750" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">232</span><span class="u-loc">Toppleilighet · Oppgang 2, toppleilighet</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">80 m²</td>
+            <td data-label="Pris" class="u-price num">780 000 €</td>
+            <td data-label="Per m²" class="num">9 750 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 232"><img src="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="480000" data-size="72.28" data-ppm="6641" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">303</span><span class="u-loc">Leilighet · Oppgang 3, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">72 m²</td>
+            <td data-label="Pris" class="u-price num">480 000 €</td>
+            <td data-label="Per m²" class="num">6 641 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 303"><img src="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="451000" data-size="72.41" data-ppm="6228" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">403</span><span class="u-loc">Leilighet · Oppgang 4, første etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">72 m²</td>
+            <td data-label="Pris" class="u-price num">451 000 €</td>
+            <td data-label="Per m²" class="num">6 228 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 403"><img src="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="795000" data-size="99.51" data-ppm="7989" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">531</span><span class="u-loc">Toppleilighet · Oppgang 5, toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">100 m²</td>
+            <td data-label="Pris" class="u-price num">795 000 €</td>
+            <td data-label="Per m²" class="num">7 989 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 531"><img src="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="485000" data-size="80.26" data-ppm="6043" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">624</span><span class="u-loc">Leilighet · Oppgang 6, tredje etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">80 m²</td>
+            <td data-label="Pris" class="u-price num">485 000 €</td>
+            <td data-label="Per m²" class="num">6 043 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 624"><img src="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="1" data-price="341000" data-size="46.78" data-ppm="7289" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">912</span><span class="u-loc">Leilighet · Oppgang 9, andre etasje</span></th>
+            <td data-label="Soverom">1 sov.</td>
+            <td data-label="Størrelse" class="num">47 m²</td>
+            <td data-label="Pris" class="u-price num">341 000 €</td>
+            <td data-label="Per m²" class="num">7 289 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 912"><img src="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="581000" data-size="101.62" data-ppm="5717" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">914</span><span class="u-loc">Leilighet · Oppgang 9, andre etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">102 m²</td>
+            <td data-label="Pris" class="u-price num">581 000 €</td>
+            <td data-label="Per m²" class="num">5 717 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plantegning for 914"><img src="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Boliger · <span>Ti boliger, fire nivåer</span></summary><p>De ti boligene på listen spenner fra en leilighet med ett soverom i andre etasje til toppleiligheter med tre soverom. Hver linje på listen nummererer også en garasjeplass og en bod. Tabellen nedenfor viser hver bolig med pris.</p><div class="res-types"><div class="res-type"><h3>En bolig med ett soverom</h3><ul><li>Bolig 912, oppgang 9, andre etasje: ett soverom og ett bad, med 46,78 m² bygget.</li><li>En terrasse på 14,30 m², delvis overbygd og delvis åpen, for 341 000 € før mva.</li></ul></div><div class="res-type"><h3>Boliger med to soverom</h3><ul><li>Fire boliger med to soverom og to bad, fra 72,28 til 80,26 m² bygget, fra 451 000 € til 490 000 € før mva.</li><li>Bolig 403 i første etasje i oppgang 4 har en terrasse på 41,85 m² og en hage på 59,91 m²; bolig 303, også i første etasje, har en terrasse på 45,59 m².</li><li>Bolig 222 og 624 ligger i tredje etasje, med terrasser på 21,65 og 26,71 m².</li></ul></div><div class="res-type"><h3>Boliger med tre soverom</h3><ul><li>Bolig 101 i første etasje i oppgang 1, med 96,76 m² bygget inkludert vaskerom og en terrasse på 64,78 m², for 595 000 € før mva.</li><li>Bolig 914 i andre etasje i oppgang 9, med 101,62 m² bygget inkludert vaskerom og en terrasse på 16,50 m², for 581 000 € før mva.</li></ul></div><div class="res-type"><h3>Toppleiligheter</h3><ul><li>Tre toppleiligheter med terrasser på rundt 100 m²: bolig 531 med tre soverom og 99,51 m² bygget for 795 000 €, og bolig 231 og 232 i oppgang 2.</li><li>Bolig 231, med tre soverom, har i tillegg en solterrasse på 87,42 m², for 885 000 €; bolig 232, med to soverom, en solterrasse på 65,85 m², for 780 000 €, begge før mva.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><table class="sched num"><caption>Betalingsplan for denne boligen</caption><tbody id="v2-p-sched"></tbody></table>
+      <p class="caption">Planen sier at det kommer mva på hvert beløp. Den sier ikke om reservasjonen trekkes fra de 30 %, om forskuddsbetalinger er sikret, eller hva kjøpskostnadene utover prisen utgjør. Nueva Living ber om hvert punkt skriftlig før du reserverer.</p>
+      
+      <ol class="ct-strip" aria-label="Byggeetapper"><li class="is-mile"><b>November 2025</b><span>Byggestart</span></li><li class="is-mile"><b>September 2028</b><span>Ferdigstillelse</span></li></ol>
+      <p class="ct-note">Utbyggerens portal oppgir byggetillatelsen som gitt, byggestart 11. november 2025 og ferdigstillelse i september 2028. Betalingsplanen knytter de siste 60 % til brukstillatelsen og skjøtet. Nueva Living ber om tillatelsen, fremdriftsplanen og overtakelsesdatoen skriftlig og tar datoen inn i kontrakten.</p></div>
+      <div class="cost-wrap"><p class="cap">Hva det koster totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>mva, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Dokumentavgift (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt før notar, tinglysing og advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="no/property-retama-residences.html#enquire" data-prefill>Spør om denne boligen</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plantegning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Boliglånskalkulator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Kjøpesum</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1238,487 +640,223 @@
               <div class="calculator-result"><span>Skatter & kjøpskostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Fasiliteter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva prosjektet <em>gir deg</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Velvære</span>
-              <h3 class="amenity-name">Innendørs spa med oppvarmet basseng</h3>
-              <p class="amenity-note">Våtsoner for restitusjon</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utførelse</h2>
+    <p class="sec-sub">Utviklerens egen spesifikasjon, oppsummert etter deler av boligen.</p>
+    <div class="tabs" role="tablist" aria-label="Utførelse"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Fasade og konstruksjon</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Gulv og fliser</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Kjøkken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Bad</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Snekkerarbeid</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Klima og varmtvann</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Fellesarealer</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Bærekonstruksjon i armert betong og en todelt fasade av pusset hulltegl med sprøytet polyuretanisolasjon, kledd innvendig med gipsplater og mineralull.</li><li>Tredobbelte skillevegger mellom boligene med akustisk membran, og innervegger av gipsplater med mineralullisolasjon i hver bolig.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Storformat porselensfliser på gulvene i hele boligen med hvitlakkerte gulvlister, og sklisikre fliser av samme modell på terrassene.</li><li>Rettkantede storformat porselensfliser på badeveggene, og nedforede tak i entré, gang, kjøkken og bad.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Over- og underskap i to farger å velge mellom, med benkeplate og vegg mellom skapene i Silestone, Compac eller tilsvarende.</li><li>Hvitevarer fra Bosch, Teka eller tilsvarende: kjøkkenvifte, induksjonstopp, elektrisk stekeovn, mikrobølgeovn, oppvaskmaskin, kjøleskap og innfelt stålvask.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Et skuffeskap med integrert servant, sanitærutstyr i hvitt porselen og et lavt dusjkar i kompositt.</li><li>Forkrommede ettgrepsbatterier med vannsparere og et system som reduserer forbruket av varmtvann, og innebygde dusjbatterier.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Sikkerhetsdør med trepunktslås og glatte, hvitlakkerte innerdører med kromfargede håndtak.</li><li>Innebygde garderobeskap i hvitlakkert tre med skyve- eller foldedører, hylle og klesstang, og lakkerte aluminiumsrullegardiner på soverommene.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Kanalbasert klimaanlegg for varme og kjøling med varmepumpe, rister i hvert rom og én termostat i stuen.</li><li>Varmtvann fra en luft-til-vann-varmepumpe i hver bolig, og et ventilasjonsanlegg med ett luftstrømsystem som tar inn frisk luft og trekker ut brukt luft.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Et spa med basseng oppvarmet av luft-til-vann-varmepumpe, finsk badstue, dusjer og garderober, og to utendørs bassenger med saltklorering og undervannsbelysning.</li><li>Et chill-out-område med grill, hager med stedegne arter som trenger mindre vann, oppsamling av regnvann til vanning og et resepsjonsområde for byggets tjenester.</li></ul>
+      
+    </div>
+    <p class="caption">Kilde: utbyggerens byggebeskrivelse, på engelsk og spansk, uten trykt dato. Den sier at utførelsen kan endres eller erstattes med elementer av samme eller høyere kvalitet, og at møbler, dekor og beplantning på bildene ikke er en del av tilbudet.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="De to bassengene og en blokk"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Datagenerert bilde av to felles bassenger med solsenger og parasoller foran en lang blokk med terrasseleiligheter, med havet i horisonten" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Stue og kjøkken"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-640.webp 640w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-960.webp 960w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.jpg" alt="Datagenerert åpen stue med sofa, spisebord og kjøkken med marmorlignende kjøkkenøy, åpen mot en terrasse gjennom skyvedører i glass" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="En terrasse og hage i første etasje"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-640.webp 640w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-960.webp 960w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.jpg" alt="Datagenerert terrasse i første etasje med et langt spisebord og en utesofa på plenen, under balkonger med takvifter, med havet i det fjerne" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="Spaet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-640.webp 640w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-960.webp 960w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.jpg" alt="Datagenerert spa med oppvarmet innendørsbasseng, solsenger på steingulv og en badstue med glassfront" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Soverom"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-640.webp 640w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-960.webp 960w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.jpg" alt="Datagenerert soverom med dobbeltseng mot en ribbet trevegg og en skyvedør i glass til en terrasse med havutsikt" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Se alle 20 bildene</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Eksteriør (6)</button><button type="button" data-open-cat="Terraces">Terrasser (3)</button><button type="button" data-open-cat="Interiors">Interiør (1)</button><button type="button" data-open-cat="Bedrooms">Soverom (1)</button><button type="button" data-open-cat="Bathrooms">Bad (1)</button><button type="button" data-open-cat="Amenities">Fasiliteter (8)</button></div>
+    
+    <p class="caption">Bildene er datagenererte, unntatt flyfotoet, der de planlagte bygningene er satt inn i et fotografi av omgivelsene. Møbler, dekor og beplantning er illustrasjoner og ikke inkludert. Planløsningene er utbyggerens, laget ut fra byggets forprosjekt, uten utbyggerens logoer og prosjektnavnet; utbyggeren skriver at de er veiledende og ikke endelige, at arealene er omtrentlige, og romnavnene står på spansk.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Beliggenhet</h2>
+    <p class="sec-sub">Brosjyren plasserer anlegget mellom Fuengirola og La Cala de Mijas, i naturlige omgivelser mellom golfbaner. Kartet viser Cerrado del Águila Golf 2 km unna og en annen golfbane 3 km unna, og utbyggerens reguleringsplan viser tomten vest for galoppbanen på Costa del Sol. Dokumentene oppgir ingen adresse, så plasseringen på kartet vårt er omtrentlig.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="no">
+          <div class="locmap-map" id="locmap-retama-residences" data-locmap='{&quot;site&quot;:[36.521,-4.664],&quot;sea&quot;:[36.494,-4.664],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;6,1 km · 14 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola sentrum&quot;,&quot;sub&quot;:&quot;5,7 km · 13 min&quot;},{&quot;ll&quot;:[36.50609,-4.66035],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;4,8 km · 12 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Cabopino&quot;,&quot;sub&quot;:&quot;12 km · 19 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Retama Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Veiledende beliggenhet</span>
+            <h3 class="locmap-name">Retama Residences</h3>
+            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Velvære</span>
-              <h3 class="amenity-name">Badstue</h3>
-              <p class="amenity-note">Rom med tørr varme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Velvære</span>
-              <h3 class="amenity-name">Fullt utstyrt treningsrom</h3>
-              <p class="amenity-note">Kondisjon og vekter</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Fuengirola sentrum</span>
+              <span class="locmap-row-figure"><bdi>5,7 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Velvære</span>
-              <h3 class="amenity-name">Puttinggreen</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Cabopino</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>19 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utendørs</span>
-              <h3 class="amenity-name">To utendørsbassenger med saltklorering</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga lufthavn</span>
+              <span class="locmap-row-figure"><bdi>31 km</bdi> <em><bdi>34 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Utendørs</span>
-              <h3 class="amenity-name">Grillområde</h3>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Utendørs</span>
-              <h3 class="amenity-name">Tursti</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Utendørs</span>
-              <h3 class="amenity-name">Opparbeidede hager med stedegne, vannbesparende planter</h3>
-              <p class="amenity-note">Opparbeidede fellesarealer</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Utendørs</span>
-              <h3 class="amenity-name">Sjøutsikt</h3>
-              <p class="amenity-note">Mot Middelhavet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Hverdag</span>
-              <h3 class="amenity-name">Coworking</h3>
-              <p class="amenity-note">Arbeidsplasser utenfor boligen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Hverdag</span>
-              <h3 class="amenity-name">Garasjeplass</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Hverdag</span>
-              <h3 class="amenity-name">Bod</h3>
-              <p class="amenity-note">Et låsbart boderom</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Hverdag</span>
-              <h3 class="amenity-name">Heis</h3>
-              <p class="amenity-note">Alle etasjer nås</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Hverdag</span>
-              <h3 class="amenity-name">Forberedt for elbillading</h3>
-              <p class="amenity-note">Et punkt for bilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Hverdag</span>
-              <h3 class="amenity-name">Klimaanlegg</h3>
-              <p class="amenity-note">Kjøling og oppvarming via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Hverdag</span>
-              <h3 class="amenity-name">Varmtvann fra varmepumpe</h3>
-              <p class="amenity-note">Varmtvann fra luften</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">17 &middot; Hverdag</span>
-              <h3 class="amenity-name">Solcellepaneler</h3>
-              <p class="amenity-note">Strøm fra taket</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">18 &middot; Hverdag</span>
-              <h3 class="amenity-name">Utstyrt kjøkken</h3>
-              <p class="amenity-note">Innredet og med hvitevarer</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">19 &middot; Tjenester</span>
-              <h3 class="amenity-name">Fellesstue</h3>
-              <p class="amenity-note">Et rom å samles i</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">20 &middot; Tjenester</span>
-              <h3 class="amenity-name">Concierge</h3>
-              <p class="amenity-note">Noen i inngangen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">21 &middot; Tjenester</span>
-              <h3 class="amenity-name">Bevoktet anlegg med kameraovervåking</h3>
-              <p class="amenity-note">Kontrollert adkomst</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Cerrado del Águila Golf</th><td>2 km på utbyggerens kart</td></tr><tr><th scope="row">Golfbane</th><td>3 km på utbyggerens kart</td></tr><tr><th scope="row">Mijas Golf</th><td>5 km på utbyggerens kart</td></tr><tr><th scope="row">La Cala Golf Resort</th><td>13 km på utbyggerens kart</td></tr><tr><th scope="row">Málaga</th><td>37 km på utbyggerens kart</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">På stedet</h2>
+    <p class="sec-sub">Fellesområdene ligger i hagen mellom blokkene: to utendørs bassenger, et spa, et treningsrom, en fellesstue med coworking, lekeområder og en sti til et utsiktspunkt.</p>
+    <div class="life-panels"><div><h3>Bassengene</h3><p>To utendørs bassenger med soldekk, det ene med svømmebane og infinitykant, begge med saltklorering, og en sti over en dam fører dit.</p></div><div><h3>Spaet og treningsrommet</h3><p>Et spa med oppvarmet basseng, badstue, garderober og hvileområde, ved siden av et treningsrom med en yogaterrasse foran.</p></div><div><h3>Fellesstuen</h3><p>En salong og et coworking-rom med delte arbeidsbord og terrasse, og en utendørs lounge med grill til sammenkomster.</p></div><div><h3>Lek i hagen</h3><p>En puttinggreen, en sandbane for sandvolleyball og strandpadel, et barneområde og økologiske kjøkkenhager.</p></div><div><h3>Utsiktspunktet</h3><p>En gangsti gjennom hagen fører til et utsiktspunkt med lesekrok, som brosjyren presenterer som et sted å se solnedgangen fra.</p></div><div><h3>Resepsjonen</h3><p>Brosjyren beskriver et resepsjonsområde der vasketjeneste, rengjøring av leiligheter, småreparasjoner og vedlikehold av fellesområdene kan ordnes.</p></div></div>
+    <ul class="amen-top"><li>To utendørsbassenger med saltklorering</li><li>Innendørs spa med oppvarmet basseng</li><li>Badstue</li><li>Fullt utstyrt treningsrom</li><li>Fellesstue</li><li>Coworking</li></ul>
+    <details class="amen-all"><summary>Vis alle 21</summary><div class="amen-groups"><div><h3>Velvære<span class="count">4</span></h3><ul><li>Innendørs spa med oppvarmet basseng</li><li>Badstue</li><li>Fullt utstyrt treningsrom</li><li>Puttinggreen</li></ul></div><div><h3>Utendørs<span class="count">5</span></h3><ul><li>To utendørsbassenger med saltklorering</li><li>Grillområde</li><li>Tursti</li><li>Opparbeidede hager med stedegne, vannbesparende planter</li><li>Sjøutsikt</li></ul></div><div><h3>Hverdag<span class="count">9</span></h3><ul><li>Coworking</li><li>Garasjeplass</li><li>Bod</li><li>Heis</li><li>Forberedt for elbillading</li><li>Klimaanlegg</li><li>Varmtvann fra varmepumpe</li><li>Solcellepaneler</li><li>Utstyrt kjøkken</li></ul></div><div><h3>Tjenester<span class="count">3</span></h3><ul><li>Fellesstue</li><li>Concierge</li><li>Bevoktet anlegg med kameraovervåking</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår vurdering</h2>
+    <p class="sec-sub">Det vi ville vurdert før du reserverer her, og det vi sjekker for deg.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår vurdering">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrker</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planlegg for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Hva som skiller det ut</h3><ul class="points"><li><b>Hvem det passer for</b><span>Kjøpere som ønsker en ny leilighet eller toppleilighet i Mijas Costa å bo i eller som feriebolig, med fasilitetene til et feriested i et inngjerdet anlegg.</span></li><li><b>Byggingen er i gang</b><span>Utbyggerens portal oppgir byggetillatelsen som gitt og byggestart 11. november 2025, med ferdigstillelse i september 2028.</span></li><li><b>Mer enn et basseng</b><span>Et spa med oppvarmet basseng og badstue, treningsrom, en coworking-lounge, en puttinggreen og en sandbane for sandvolleyball og strandpadel, slik utbyggerens dokumenter lister dem opp.</span></li><li><b>Mesteparten av prisen forfaller ved skjøtet</b><span>Etter en reservasjon på 10 000 € betales 30 % ved den private kontrakten og 10 % seks måneder senere; de resterende 60 % forfaller ved brukstillatelsen og skjøtet. Det kommer mva på hver betaling.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Hva du bør planlegge for</h3><ul class="points"><li><b>Prisen er uten mva</b><span>Prislisten oppgir at prisene er netto og ikke inkluderer mva eller dokumentavgift. mva på 10 % og stempelavgift på 1,20 % legger til omkring 38 000 € på den rimeligste boligen og omkring 99 000 € på den dyreste toppleiligheten, før notar- og tinglysingskostnader.</span></li><li><b>Datoene kommer fra portalen</b><span>Byggestart 11. november 2025, byggetillatelsen og ferdigstillelse i september 2028 står på utbyggerens portal, ikke i brosjyren eller prislisten. Derfor ber vi om dem i kontrakten, sammen med hva som skjer hvis datoen glipper.</span></li><li><b>Ti av 120 boliger på listen</b><span>Prislisten viser bare de ti boligene den merker som ledige. Den sier ikke hvor mange av de andre 110 som er solgt eller reservert, og utbyggeren kan endre prisene før en reservasjon.</span></li><li><b>En prisliste fra september</b><span>Listen er datert 14. september 2026. Vi bekrefter hver pris og om boligen er ledig hos utbyggeren før du reserverer.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller før penger betales</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Tillatelsen og byggearbeidene</b><span>Byggetillatelse gitt. Portalen oppgir byggetillatelsen som gitt og byggingen som startet. Vi ber om selve tillatelsen og fremdriftsplanen.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Pengene dine</b><span>Dokumentene sier ikke om beløp som betales på forskudd er garantert. Vi ber om å få se selve bankgarantien før noen betaling.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Tallene</b><span>Priser og arealer er hentet fra prislisten av 14. september 2026. Arealene er bygde arealer; tegningene oppgir også mindre nettoarealer, som vi ikke publiserer.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Garasje og boder</b><span>Hver oppførte bolig har en nummerert garasjeplass og bod på samme linje som prisen. Dokumentene sier ikke med ord at begge er inkludert, så vi får det bekreftet.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bildene og planene</b><span>Bildene er datagenererte, tegningene er laget ut fra forprosjektet og er ikke endelige, og møblene som vises er ikke inkludert.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Fortell oss hva du trenger</h3><p>Antall soverom, etasjen og om du ønsker hage, en stor terrasse eller en solterrasse.</p></li><li><h3>Vi bekrefter listen</h3><p>Gjeldende tilgjengelighet og priser fra utbyggeren, med mva og dokumentavgift lagt til slik at du ser det reelle beløpet.</p></li><li><h3>Se tomten og området</h3><p>Vi går over byggeplassen og området sammen med deg, og stiller utbyggeren spørsmålene om tillatelsen, garantien og datoen.</p></li><li><h3>Reserver</h3><p>Vi bekrefter reservasjonsbeløpet og betalingsdatoene skriftlig før den private kontrakten.</p></li></ol>
+      <div class="docs card"><h3>Dokumenter du får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prisliste</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plantegninger<small>10 av 10 boliger</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Betalingsplan</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggebeskrivelse</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Det offisielle sammendraget alle kjøpere i Andalucía har krav på</small></span></li></ul><a class="btn btn-primary" href="no/property-retama-residences.html#enquire" data-prefill>Få prosjektmappen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Spørsmål om Retama</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hvor mange boliger er det?</summary><p>Ifølge brosjyren har anlegget 120 boliger. Prislisten av 14. september 2026 viser ti, alle ledige: sju leiligheter med ett til tre soverom fra 341 000 € til 595 000 € og tre toppleiligheter fra 780 000 € til 885 000 €.</p></details><details class="segment-faq-item"><summary>Er mva inkludert?</summary><p>Nei. Prislisten oppgir at prisene er netto og ikke inkluderer mva eller dokumentavgift. I tillegg kommer mva på 10 % og stempelavgift på 1,20 %, samt notar- og tinglysingskostnader.</p></details><details class="segment-faq-item"><summary>Er garasjeplass og bod inkludert?</summary><p>Hver bolig på listen har en nummerert garasjeplass og bod på samme linje som prisen, og byggebeskrivelsen omtaler garasjen og bodene. Dokumentene sier ikke uttrykkelig at begge er inkludert i prisen, så vi bekrefter det skriftlig.</p></details><details class="segment-faq-item"><summary>Når blir boligene overlevert?</summary><p>Utbyggerens portal oppgir ferdigstillelse i september 2028, med byggetillatelse gitt og byggestart 11. november 2025. Vi ber om datoen i kontrakten og om hva som skjer hvis den glipper.</p></details><details class="segment-faq-item"><summary>Hvordan fungerer betalingsplanen?</summary><p>10 000 € ved reservasjon, 30 % ved den private kontrakten, 10 % seks måneder senere og 60 % ved brukstillatelsen og skjøtet, med mva på hver betaling.</p></details></div>
+    <details class="faq2-more"><summary>Vis alle spørsmål (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Hva deles?</summary><p>To utendørs bassenger, et spa med oppvarmet basseng og badstue, treningsrom, en fellesstue med coworking, en utendørs lounge med grill, en puttinggreen, en sandbane, et barneområde, kjøkkenhager, et utsiktspunkt og et resepsjonsområde, slik utbyggerens dokumenter lister dem opp.</p></details><details class="segment-faq-item"><summary>Kan prisene endre seg?</summary><p>Prislisten er utbyggerens og kan endres så lenge det første depositumet ikke er mottatt. Nueva Living bekrefter beløpet på nytt hos utbyggeren før du forplikter deg til noe.</p></details></div></details>
+    <p class="faq2-guide">Mer om å kjøpe nybygg i Spania → <a class="textlink" href="no/guide-how-buying-works.html">Kjøpsguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Bestill en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris fra</p>
+      <p class="rail-price num">341 000 €</p>
+      <p class="rail-note">Ekskl. mva. 10 av 120 boliger igjen · Kontrollert 14 september 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="no/property-retama-residences.html#enquire" data-prefill>Bestill en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Send oss en melding på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger</strong>Vi svarer selv på hver henvendelse.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Bestill en privat visning</h2>
+        <p>Fortell oss hvilken bolig som interesserer deg. Vi sender prosjektmappen og går deretter over området sammen med deg.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger av Nueva Living</strong>Vi svarer selv på hver henvendelse.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Send oss en melding</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>På visningen sjekker vi sammen</h3><ul><li><b>På stedet.</b> Se byggeplassen og åssiden, og hvordan blokkene vil vende mot hagen og havet.</li><li><b>På veien.</b> Vi kjører veiene til motorveien, golfbanene og kysten sammen med deg og tar tiden.</li><li><b>På papiret.</b> Tillatelsen, garantien og leveringsdatoen, før noe signeres.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sender…" data-success-label="Bestill en privat visning ✓" data-submitting-message="Sender…" data-success-message="Forespørsel mottatt. Vi sender prosjektmappen og foreslår tider for visning." data-error-message="Det gikk ikke. Prøv igjen, eller send oss en melding på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Retama Residences">
+        <input type="hidden" id="f-project" name="project" value="Retama Residences">
+        <input type="hidden" name="preferred_area" value="Mijas Costa">
+        <input type="hidden" name="property_type_interest" value="Leiligheter og takleiligheter">
+        <input type="hidden" name="budget_range" value="Fra 341 000 €">
+        <input type="hidden" name="consent_text" value="Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min.">
+        <input type="hidden" name="message" id="v2-f-message" value="Jeg vil gjerne ha oppdatert tilgjengelighet og priser for Retama Residences." data-base="Jeg vil gjerne ha oppdatert tilgjengelighet og priser for Retama Residences.">
+        <h3>Dine opplysninger</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Fornavn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Etternavn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valgfritt, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Hvilken bolig?</label><select id="v2-f-unit" name="unit_interest"><option value="">Ikke sikker ennå, send meg alt</option><option value="101">101: 595 000 €</option><option value="222">222: 490 000 €</option><option value="231">231: 885 000 €</option><option value="232">232: 780 000 €</option><option value="303">303: 480 000 €</option><option value="403">403: 451 000 €</option><option value="531">531: 795 000 €</option><option value="624">624: 485 000 €</option><option value="912">912: 341 000 €</option><option value="914">914: 581 000 €</option></select></div>
+        <fieldset class="field"><legend>Boligen blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Til å bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Et feriehjem</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hvordan skal vi svare?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefonsamtale</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min. <a href="no/privacy-policy.html">Personvernerklæring</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Gi meg også beskjed hvis tilgjengelighet eller priser endres i Retama.</label>
+        <button class="btn btn-primary btn-block" type="submit">Bestill en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Hvorfor dette prosjektet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvorfor dette prosjektet <em>betyr noe</em></h2>
-          <p class="project-lead">Nye boliger som allerede er under bygging, spa, treningsrom og to bassenger i anlegget, en nummerert garasjeplass og bod ved hver pris, og 60 % av prisen ved skjøtet.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Hvorfor det passer</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvem det passer for</h3><p>Kjøpere som ønsker en ny leilighet eller toppleilighet i Mijas Costa å bo i eller som feriebolig, med fasilitetene til et feriested i et inngjerdet anlegg.</p></article>
-              <article class="why-point reveal-soft"><h3>Byggingen er i gang</h3><p>Utbyggerens portal oppgir byggetillatelsen som gitt og byggestart 11. november 2025, med ferdigstillelse i september 2028.</p></article>
-              <article class="why-point reveal-soft"><h3>Mer enn et basseng</h3><p>Et spa med oppvarmet basseng og badstue, treningsrom, en coworking-lounge, en puttinggreen og en sandbane for sandvolleyball og strandpadel, slik utbyggerens dokumenter lister dem opp.</p></article>
-              <article class="why-point reveal-soft"><h3>Mesteparten av prisen forfaller ved skjøtet</h3><p>Etter en reservasjon på 10 000 € betales 30 % ved den private kontrakten og 10 % seks måneder senere; de resterende 60 % forfaller ved brukstillatelsen og skjøtet. Det kommer mva på hver betaling.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Hva utbyggerens dokumenter sier om prisen, betalingene og datoene, og hva de utelater.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Prisen er uten mva</h3><p>Prislisten oppgir at prisene er netto og ikke inkluderer mva eller dokumentavgift. mva på 10 % og stempelavgift på 1,20 % legger til omkring 38 000 € på den rimeligste boligen og omkring 99 000 € på den dyreste toppleiligheten, før notar- og tinglysingskostnader.</p></article>
-              <article class="why-point reveal-soft"><h3>Datoene kommer fra portalen</h3><p>Byggestart 11. november 2025, byggetillatelsen og ferdigstillelse i september 2028 står på utbyggerens portal, ikke i brosjyren eller prislisten. Derfor ber vi om dem i kontrakten, sammen med hva som skjer hvis datoen glipper.</p></article>
-              <article class="why-point reveal-soft"><h3>Ti av 120 boliger på listen</h3><p>Prislisten viser bare de ti boligene den merker som ledige. Den sier ikke hvor mange av de andre 110 som er solgt eller reservert, og utbyggeren kan endre prisene før en reservasjon.</p></article>
-              <article class="why-point reveal-soft"><h3>En prisliste fra september</h3><p>Listen er datert 14. september 2026. Vi bekrefter hver pris og om boligen er ledig hos utbyggeren før du reserverer.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Tillit og gjennomgang</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillatelsen og byggearbeidene</h3><p>Portalen oppgir byggetillatelsen som gitt og byggingen som startet. Vi ber om selve tillatelsen og fremdriftsplanen.</p></article>
-              <article class="why-point reveal-soft"><h3>Pengene dine</h3><p>Dokumentene sier ikke om beløp som betales på forskudd er garantert. Vi ber om å få se selve bankgarantien før noen betaling.</p></article>
-              <article class="why-point reveal-soft"><h3>Tallene</h3><p>Priser og arealer er hentet fra prislisten av 14. september 2026. Arealene er bygde arealer; tegningene oppgir også mindre nettoarealer, som vi ikke publiserer.</p></article>
-              <article class="why-point reveal-soft"><h3>Garasje og boder</h3><p>Hver oppførte bolig har en nummerert garasjeplass og bod på samme linje som prisen. Dokumentene sier ikke med ord at begge er inkludert, så vi får det bekreftet.</p></article>
-              <article class="why-point reveal-soft"><h3>Bildene og planene</h3><p>Bildene er datagenererte, tegningene er laget ut fra forprosjektet og er ikke endelige, og møblene som vises er ikke inkludert.</p></article>
-            </div>
-            <p class="why-group-note">Første gang du kjøper på prospekt i Spania? <a href="no/guide-how-buying-works.html">Slik foregår et nybyggkjøp</a> beskriver de sju trinnene, og <a href="no/guide-off-plan-vs-resale.html">nybygg sammenlignet med bruktbolig</a> tar for seg forskudd, garantier og tidsplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bildene kommer fra utbyggeren og kan være datagenererte">
+    <p>Bildene kommer fra utbyggeren og kan være datagenererte; endelig utforming, overflater, uteområder og utsikt kan avvike. Du har krav på en kopi av Documento Informativo Abreviado (DIA) for hver bolig på denne siden; Nueva Living sender den på forespørsel.</p>
+    <p>Tilgjengeligheten kontrollert hos selgeren 14 september 2026; vi bekrefter den på nytt før enhver reservasjon.</p>
+    <p>Alle tall er hentet fra utbyggerens prisliste datert 14. september 2026. Den viser ti boliger, alle merket som ledige, og oppgir at prisene er netto, uten mva, dokumentavgift og andre kostnader, og at listen kan endres så lenge det første depositumet ikke er mottatt. I Andalucía gjelder mva på 10 % og stempelavgift på 1,20 %, slik at leiligheten til 341 000 € koster omkring 379 000 € og toppleiligheten til 885 000 € omkring 984 000 €, før notar- og tinglysingskostnader. Bygget areal er listens innvendige bygde areal, inkludert vaskerom der det finnes; terrassen er summen av listens overbygde og åpne terrasser, med solterrassen og hagen oppgitt for seg. Hver bolig på listen har en nummerert garasjeplass og bod på samme linje som prisen; dokumentene sier ikke uttrykkelig at begge er inkludert.</p>
+    <p>Informasjonen på denne siden er generell markedsføring og ikke juridisk, økonomisk eller investeringsrådgivning. Priser, tilgjengelighet og ferdigstillelsesdatoer kan endres uten varsel.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/retama-residences/media/entrance-court-and-blocks.jpg" alt="Datagenerert bilde av en brolagt inngangsgård med beplantning og oliventrær foran hvite og steinfargede blokker" width="1400" height="787" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Forhåndsvisning av arkitektur</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Lave blokker <em>rundt en hage</em></h2>
-          <p>Brosjyren beskriver bygninger med lite volum rundt et stort grøntområde, med hagen som hovedelement og stier gjennom den til fellesområdene og et utsiktspunkt. På bildene har blokkene dype terrasser med glassrekkverk, lamellpergolaer og steinfargede vegger, blant oliventrær, lavendel og gress.</p>
-<p>Situasjonsplanen nummererer ni oppganger, og prislisten nevner fire nivåer: første etasje, andre etasje, tredje etasje og toppleilighet. To av toppleilighetene på listen har i tillegg en solterrasse over boligen, som tegningene viser med en vindeltrapp opp.</p>
-          <ul class="feature-list">
-            <li>Et inngjerdet og lukket anlegg med adgangskontroll for gående og kjøretøy og videoovervåking.</li>
-            <li>Elektriske heiser for åtte personer til alle etasjer, med automatiske dører i rustfritt stål, tilpasset personer med nedsatt bevegelighet.</li>
-            <li>Automatisk garasjeport med fjernkontroll og forberedelse for lading av elbil fra boligens egen måler.</li>
-            <li>Aluminiumsvinduer med kuldebrudd og lavemisjonsglass, og solcellepaneler på takene over parkeringen til fellesområdene.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Handlinger for prosjektforespørsel">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="no/property-retama-residences.html#enquire" data-prefill>Bestill visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view.jpg" alt="Datagenerert overbygd terrasse med spisebord under en lamellpergola, stuen bak skyvedører i glass og skogkledde åser ned mot havet" width="1400" height="787" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmatisk presentasjon</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>tomten og området</em></h2>
-            <p>Boligene er under bygging, så et besøk handler om beliggenheten, tegningene og fremdriften.</p>
-            <div class="viewing-insights">
-              <div><span>På stedet</span><p>Se byggeplassen og åssiden, og hvordan blokkene vil vende mot hagen og havet.</p></div>
-              <div><span>På veien</span><p>Vi kjører veiene til motorveien, golfbanene og kysten sammen med deg og tar tiden.</p></div>
-              <div><span>På papiret</span><p>Tillatelsen, garantien og leveringsdatoen, før noe signeres.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="no/index.html#private-viewing=1&amp;project=retama-residences">Filmatisk presentasjon</a>
-              <a class="btn project-btn ghost" href="no/property-retama-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Lukk">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Forrige bilde">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Neste bilde">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Eksteriør</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiør</button><button type="button" data-cat="Bedrooms">Soverom</button><button type="button" data-cat="Bathrooms">Bad</button><button type="button" data-cat="Amenities">Fasiliteter</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit.jpg" alt="Datagenerert utendørs lounge i skumringen med buede sofaer rundt et bålsted under en tilgrodd trepergola, med spisebord bak" width="1400" height="787" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">To bassenger, et spa <em>og et utsiktspunkt</em></h2>
-            <p>Fellesområdene ligger i hagen mellom blokkene: to utendørs bassenger, et spa, et treningsrom, en fellesstue med coworking, lekeområder og en sti til et utsiktspunkt.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Neste steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva som skjer <em>videre</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Fortell oss hva du trenger</h3>
-            <p>Antall soverom, etasjen og om du ønsker hage, en stor terrasse eller en solterrasse.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vi bekrefter listen</h3>
-            <p>Gjeldende tilgjengelighet og priser fra utbyggeren, med mva og dokumentavgift lagt til slik at du ser det reelle beløpet.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Se tomten og området</h3>
-            <p>Vi går over byggeplassen og området sammen med deg, og stiller utbyggeren spørsmålene om tillatelsen, garantien og datoen.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserver</h3>
-            <p>Vi bekrefter reservasjonsbeløpet og betalingsdatoene skriftlig før den private kontrakten.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Ofte stilte spørsmål</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanlige <em>spørsmål fra kjøpere</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlendinger kjøpe eiendom i Spania?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er et NIE-nummer, og trenger jeg et?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg få boliglån i Spania som ikke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer reservasjons- og betalingsprosessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg leie ut boligen etter kjøp?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Trenger jeg advokat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange boliger er det?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ifølge brosjyren har anlegget 120 boliger. Prislisten av 14. september 2026 viser ti, alle ledige: sju leiligheter med ett til tre soverom fra 341 000 € til 595 000 € og tre toppleiligheter fra 780 000 € til 885 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er mva inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nei. Prislisten oppgir at prisene er netto og ikke inkluderer mva eller dokumentavgift. I tillegg kommer mva på 10 % og stempelavgift på 1,20 %, samt notar- og tinglysingskostnader.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er garasjeplass og bod inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Hver bolig på listen har en nummerert garasjeplass og bod på samme linje som prisen, og byggebeskrivelsen omtaler garasjen og bodene. Dokumentene sier ikke uttrykkelig at begge er inkludert i prisen, så vi bekrefter det skriftlig.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Når blir boligene overlevert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Utbyggerens portal oppgir ferdigstillelse i september 2028, med byggetillatelse gitt og byggestart 11. november 2025. Vi ber om datoen i kontrakten og om hva som skjer hvis den glipper.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer betalingsplanen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>10 000 € ved reservasjon, 30 % ved den private kontrakten, 10 % seks måneder senere og 60 % ved brukstillatelsen og skjøtet, med mva på hver betaling.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva deles?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>To utendørs bassenger, et spa med oppvarmet basseng og badstue, treningsrom, en fellesstue med coworking, en utendørs lounge med grill, en puttinggreen, en sandbane, et barneområde, kjøkkenhager, et utsiktspunkt og et resepsjonsområde, slik utbyggerens dokumenter lister dem opp.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan prisene endre seg?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Prislisten er utbyggerens og kan endres så lenge det første depositumet ikke er mottatt. Nueva Living bekrefter beløpet på nytt hos utbyggeren før du forplikter deg til noe.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Forespørsel</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Spør om <em>Retama Residences</em></h2>
-          <p class="body-copy">Fortell oss hva du ser etter, så kommer vi tilbake med den aktuelle listen og den fulle kostnaden inkludert mva.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grunnlegger av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grunnlegger, Nueva Living</p>
-            <h3 id="advisor-heading">Vil du heller snakke det gjennom?</h3>
-            <p class="advisor-copy">Velg det som passer, og send meg en melding på WhatsApp. Jeg tar utgangspunkt i det.</p>
-            <div class="advisor-group" role="group" aria-label="Jeg søker">
-              <span class="advisor-group-label">Jeg søker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">En bolig å bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">En feriebolig</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budsjett">
-              <span class="advisor-group-label">Budsjett</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor">Send meg en melding på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Retama Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Retama Residences">
-          <input type="hidden" name="preferred_area" value="Mijas Costa">
-          <input type="hidden" name="property_type_interest" value="Leiligheter og takleiligheter">
-          <input type="hidden" name="budget_range" value="Fra 341 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Fornavn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Fornavn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Etternavn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Etternavn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Melding</label>
-              <textarea id="f-msg" name="message">Jeg vil gjerne ha oppdatert tilgjengelighet og priser for Retama Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jeg samtykker til å bli kontaktet og til at mine data lagres.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jeg vil også gjerne motta sporadiske prosjektoppdateringer fra Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Send forespørsel</button>
-            <span class="form-note">Vi svarer selv på hver henvendelse.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"101","title":"101 · Leilighet · Oppgang 1, første etasje","sub":"3 sov. · 97 m²","price":595000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf","label":""}]},{"id":"u1","ref":"222","title":"222 · Leilighet · Oppgang 2, tredje etasje","sub":"2 sov. · 72 m²","price":490000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf","label":""}]},{"id":"u2","ref":"231","title":"231 · Toppleilighet · Oppgang 2, toppleilighet","sub":"3 sov. · 100 m²","price":885000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf","label":""}]},{"id":"u3","ref":"232","title":"232 · Toppleilighet · Oppgang 2, toppleilighet","sub":"2 sov. · 80 m²","price":780000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf","label":""}]},{"id":"u4","ref":"303","title":"303 · Leilighet · Oppgang 3, første etasje","sub":"2 sov. · 72 m²","price":480000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf","label":""}]},{"id":"u5","ref":"403","title":"403 · Leilighet · Oppgang 4, første etasje","sub":"2 sov. · 72 m²","price":451000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf","label":""}]},{"id":"u6","ref":"531","title":"531 · Toppleilighet · Oppgang 5, toppleilighet","sub":"3 sov. · 100 m²","price":795000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf","label":""}]},{"id":"u7","ref":"624","title":"624 · Leilighet · Oppgang 6, tredje etasje","sub":"2 sov. · 80 m²","price":485000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf","label":""}]},{"id":"u8","ref":"912","title":"912 · Leilighet · Oppgang 9, andre etasje","sub":"1 sov. · 47 m²","price":341000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf","label":""}]},{"id":"u9","ref":"914","title":"914 · Leilighet · Oppgang 9, andre etasje","sub":"3 sov. · 102 m²","price":581000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf","label":""}]}],"stages":[{"label":"Reservasjon","when":"Ved reservasjon av boligen","amountLabel":"10 000 €","fixed":10000},{"label":"Ved Privat Kontrakt","when":"Ved den private kontrakten, som planen knytter til byggetillatelsen, minus reservasjonen","amountLabel":"30%","pct":0.3,"less":10000},{"label":"Utsatt termin","when":"Seks måneder etter den private kontrakten","amountLabel":"10%","pct":0.1},{"label":"Ved Overlevering","when":"Ved brukstillatelsen og signering av skjøtet","amountLabel":"60%","pct":0.6}],"stageLabels":null,"gallery":[{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp","alt":"Datagenerert bilde av to felles bassenger med solsenger og parasoller foran en lang blokk med terrasseleiligheter, med havet i horisonten","caption":"De to bassengene og en blokk","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-at-dusk.webp","alt":"Datagenerert bilde i skumringen over fellesbassenget mot blokker med dype terrasser og glassrekkverk, med solsenger langs vannet","caption":"Bassengene i skumringen","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/aerial-view-towards-the-sea.webp","alt":"Flyfoto av de planlagte blokkene rundt bassenget i en åsside med kratt og furu, med hus, golfbaner og havet i bakgrunnen","caption":"Anlegget fra luften","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/blocks-on-the-hillside.webp","alt":"Datagenerert bilde av de lave blokkene trappet over en grønn åsside rundt bassenget, med solcellepaneler over parkeringen i forgrunnen","caption":"Byggene i skråningen","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/entrance-court-and-blocks.webp","alt":"Datagenerert bilde av en brolagt inngangsgård med beplantning og oliventrær foran hvite og steinfargede blokker","caption":"Inngangsplassen","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/pool-entrance-with-pond.webp","alt":"Datagenerert bilde av en brolagt sti over en dam med vannliljer mot bassengterrassen, med solsenger, oliventrær og havet i det fjerne","caption":"Stien til bassenget","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.webp","alt":"Datagenerert terrasse i første etasje med et langt spisebord og en utesofa på plenen, under balkonger med takvifter, med havet i det fjerne","caption":"En terrasse og hage i første etasje","cat":"Terraces"},{"src":"assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view.webp","alt":"Datagenerert overbygd terrasse med spisebord under en lamellpergola, stuen bak skyvedører i glass og skogkledde åser ned mot havet","caption":"En terrasse med utsikt mot havet","cat":"Terraces"},{"src":"assets/liora/projects/retama-residences/media/penthouse-terrace-with-outdoor-kitchen.webp","alt":"Datagenerert terrasse på en toppleilighet med rundt spisebord, et utekjøkken under et overheng med trebjelker og havet bak et glassrekkverk","caption":"En terrasse på en toppleilighet","cat":"Terraces"},{"src":"assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.webp","alt":"Datagenerert åpen stue med sofa, spisebord og kjøkken med marmorlignende kjøkkenøy, åpen mot en terrasse gjennom skyvedører i glass","caption":"Stue og kjøkken","cat":"Interiors"},{"src":"assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.webp","alt":"Datagenerert soverom med dobbeltseng mot en ribbet trevegg og en skyvedør i glass til en terrasse med havutsikt","caption":"Soverom","cat":"Bedrooms"},{"src":"assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.webp","alt":"Datagenerert bad med marmorlignende fliser, en walk-in-dusj med glassvegg og et vegghengt servantskap","caption":"Bad","cat":"Bathrooms"},{"src":"assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.webp","alt":"Datagenerert spa med oppvarmet innendørsbasseng, solsenger på steingulv og en badstue med glassfront","caption":"Spaet","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/gym.webp","alt":"Datagenerert treningsrom med tak av trelameller, styrkeapparater, tredemøller og glassdører ut mot hagen","caption":"Treningsrommet","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/gym-and-yoga-terrace.webp","alt":"Datagenerert bilde av treningsbygget i én etasje, med yogamatter på et treplatting foran, grønt tak og en leilighetsblokk over","caption":"Treningsrommet og yogaterrassen","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/social-lounge-and-coworking.webp","alt":"Datagenerert fellesstue med lange delte arbeidsbord, saccosekker og en sofa, åpen mot en terrasse","caption":"Fellesstuen og coworking-rommet","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit.webp","alt":"Datagenerert utendørs lounge i skumringen med buede sofaer rundt et bålsted under en tilgrodd trepergola, med spisebord bak","caption":"Uteplassen","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/putting-green.webp","alt":"Datagenerert puttinggreen langs en leilighetsblokk, med to spillere, flagg, en rekke sypresser og havet i det fjerne","caption":"Puttinggreenen","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/viewpoint-pergola.webp","alt":"Datagenerert utsiktspunkt under en pergola dekket av lilla blomster, med trebord og krakker og utsikt over en golfbane mot fjellene","caption":"Utsiktspunktet","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/underground-garage.webp","alt":"Datagenerert garasje med nummererte plasser, boddører og et skilt mot inngangen til en oppgang","caption":"Garasjen","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Spør om {ref}","plusVat":"Ekskl. mva","totalPrice":"Totalpris","vatOnStages":"Pluss mva på hver delbetaling","onRequest":"På forespørsel","imageOf":"{i} av {n}","floorPlan":"Plantegning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Retama Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Lukk">Lukk</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Forrige bilde">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Neste bilde">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg","webp":"assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp","alt":"Datagenerert bilde av to felles bassenger med solsenger og parasoller foran en lang blokk med terrasseleiligheter, med havet i horisonten","width":1400,"height":787,"caption":"De to bassengene og en blokk","category":"Eksteriør"},{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-at-dusk.jpg","webp":"assets/liora/projects/retama-residences/media/pools-and-blocks-at-dusk-960.webp","alt":"Datagenerert bilde i skumringen over fellesbassenget mot blokker med dype terrasser og glassrekkverk, med solsenger langs vannet","width":1400,"height":787,"caption":"Bassengene i skumringen","category":"Eksteriør"},{"src":"assets/liora/projects/retama-residences/media/aerial-view-towards-the-sea.jpg","webp":"assets/liora/projects/retama-residences/media/aerial-view-towards-the-sea-960.webp","alt":"Flyfoto av de planlagte blokkene rundt bassenget i en åsside med kratt og furu, med hus, golfbaner og havet i bakgrunnen","width":1400,"height":787,"caption":"Anlegget fra luften","category":"Eksteriør"},{"src":"assets/liora/projects/retama-residences/media/blocks-on-the-hillside.jpg","webp":"assets/liora/projects/retama-residences/media/blocks-on-the-hillside-960.webp","alt":"Datagenerert bilde av de lave blokkene trappet over en grønn åsside rundt bassenget, med solcellepaneler over parkeringen i forgrunnen","width":1400,"height":728,"caption":"Byggene i skråningen","category":"Eksteriør"},{"src":"assets/liora/projects/retama-residences/media/entrance-court-and-blocks.jpg","webp":"assets/liora/projects/retama-residences/media/entrance-court-and-blocks-960.webp","alt":"Datagenerert bilde av en brolagt inngangsgård med beplantning og oliventrær foran hvite og steinfargede blokker","width":1400,"height":787,"caption":"Inngangsplassen","category":"Eksteriør"},{"src":"assets/liora/projects/retama-residences/media/pool-entrance-with-pond.jpg","webp":"assets/liora/projects/retama-residences/media/pool-entrance-with-pond-960.webp","alt":"Datagenerert bilde av en brolagt sti over en dam med vannliljer mot bassengterrassen, med solsenger, oliventrær og havet i det fjerne","width":1400,"height":787,"caption":"Stien til bassenget","category":"Eksteriør"},{"src":"assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.jpg","webp":"assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-960.webp","alt":"Datagenerert terrasse i første etasje med et langt spisebord og en utesofa på plenen, under balkonger med takvifter, med havet i det fjerne","width":1400,"height":787,"caption":"En terrasse og hage i første etasje","category":"Terrasser"},{"src":"assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view.jpg","webp":"assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view-960.webp","alt":"Datagenerert overbygd terrasse med spisebord under en lamellpergola, stuen bak skyvedører i glass og skogkledde åser ned mot havet","width":1400,"height":787,"caption":"En terrasse med utsikt mot havet","category":"Terrasser"},{"src":"assets/liora/projects/retama-residences/media/penthouse-terrace-with-outdoor-kitchen.jpg","webp":"assets/liora/projects/retama-residences/media/penthouse-terrace-with-outdoor-kitchen-960.webp","alt":"Datagenerert terrasse på en toppleilighet med rundt spisebord, et utekjøkken under et overheng med trebjelker og havet bak et glassrekkverk","width":1400,"height":787,"caption":"En terrasse på en toppleilighet","category":"Terrasser"},{"src":"assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.jpg","webp":"assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-960.webp","alt":"Datagenerert åpen stue med sofa, spisebord og kjøkken med marmorlignende kjøkkenøy, åpen mot en terrasse gjennom skyvedører i glass","width":1400,"height":787,"caption":"Stue og kjøkken","category":"Interiør"},{"src":"assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.jpg","webp":"assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-960.webp","alt":"Datagenerert soverom med dobbeltseng mot en ribbet trevegg og en skyvedør i glass til en terrasse med havutsikt","width":1400,"height":787,"caption":"Soverom","category":"Soverom"},{"src":"assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.jpg","webp":"assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower-960.webp","alt":"Datagenerert bad med marmorlignende fliser, en walk-in-dusj med glassvegg og et vegghengt servantskap","width":1400,"height":787,"caption":"Bad","category":"Bad"},{"src":"assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.jpg","webp":"assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-960.webp","alt":"Datagenerert spa med oppvarmet innendørsbasseng, solsenger på steingulv og en badstue med glassfront","width":1400,"height":787,"caption":"Spaet","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/media/gym.jpg","webp":"assets/liora/projects/retama-residences/media/gym-960.webp","alt":"Datagenerert treningsrom med tak av trelameller, styrkeapparater, tredemøller og glassdører ut mot hagen","width":1400,"height":787,"caption":"Treningsrommet","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/media/gym-and-yoga-terrace.jpg","webp":"assets/liora/projects/retama-residences/media/gym-and-yoga-terrace-960.webp","alt":"Datagenerert bilde av treningsbygget i én etasje, med yogamatter på et treplatting foran, grønt tak og en leilighetsblokk over","width":1400,"height":787,"caption":"Treningsrommet og yogaterrassen","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/media/social-lounge-and-coworking.jpg","webp":"assets/liora/projects/retama-residences/media/social-lounge-and-coworking-960.webp","alt":"Datagenerert fellesstue med lange delte arbeidsbord, saccosekker og en sofa, åpen mot en terrasse","width":1400,"height":787,"caption":"Fellesstuen og coworking-rommet","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit.jpg","webp":"assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit-960.webp","alt":"Datagenerert utendørs lounge i skumringen med buede sofaer rundt et bålsted under en tilgrodd trepergola, med spisebord bak","width":1400,"height":787,"caption":"Uteplassen","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/media/putting-green.jpg","webp":"assets/liora/projects/retama-residences/media/putting-green-960.webp","alt":"Datagenerert puttinggreen langs en leilighetsblokk, med to spillere, flagg, en rekke sypresser og havet i det fjerne","width":1400,"height":787,"caption":"Puttinggreenen","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/media/viewpoint-pergola.jpg","webp":"assets/liora/projects/retama-residences/media/viewpoint-pergola-960.webp","alt":"Datagenerert utsiktspunkt under en pergola dekket av lilla blomster, med trebord og krakker og utsikt over en golfbane mot fjellene","width":1400,"height":787,"caption":"Utsiktspunktet","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/media/underground-garage.jpg","webp":"assets/liora/projects/retama-residences/media/underground-garage-960.webp","alt":"Datagenerert garasje med nummererte plasser, boddører og et skilt mot inngangen til en oppgang","width":1400,"height":787,"caption":"Garasjen","category":"Fasiliteter"},{"src":"assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb-960.webp","alt":"Planløsning for bolig 101","width":1665,"height":2000,"caption":"Bolig 101","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb-960.webp","alt":"Planløsning for bolig 222","width":1916,"height":1953,"caption":"Bolig 222","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb-960.webp","alt":"Planløsning for bolig 231, med solterrassen ved siden av","width":2000,"height":774,"caption":"Bolig 231 og solterrassen","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb-960.webp","alt":"Planløsning for bolig 232, med solterrassen ved siden av","width":2000,"height":694,"caption":"Bolig 232 og solterrassen","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb-960.webp","alt":"Planløsning for bolig 303","width":1689,"height":2000,"caption":"Bolig 303","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb-960.webp","alt":"Planløsning for bolig 403","width":1146,"height":2000,"caption":"Bolig 403","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb-960.webp","alt":"Planløsning for bolig 531","width":2000,"height":1484,"caption":"Bolig 531","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb-960.webp","alt":"Planløsning for bolig 624","width":1632,"height":1850,"caption":"Bolig 624","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb-960.webp","alt":"Planløsning for bolig 912","width":1335,"height":1929,"caption":"Bolig 912","category":"Plantegninger"},{"src":"assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb-960.webp","alt":"Planløsning for bolig 914","width":1744,"height":1911,"caption":"Bolig 914","category":"Plantegninger"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Handlinger for prosjektforespørsel">
-    <a href="no/property-retama-residences.html#enquire" data-prefill>Spør om en bolig</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

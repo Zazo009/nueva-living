@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien d’appartements sont disponibles ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Estepona Seafront Residences"
   data-project-message="Bonjour Nueva Living, je souhaiterais recevoir des informations sur Estepona Seafront Residences."
@@ -451,434 +388,140 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Estepona Seafront Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-estepona-seafront-residences.html#top">Estepona Seafront Residences<span>À partir de 3 200 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-estepona-seafront-residences.html#overview">Aperçu</a><a href="fr/property-estepona-seafront-residences.html#availability">Prix</a><a href="fr/property-estepona-seafront-residences.html#specs">Finitions</a><a href="fr/property-estepona-seafront-residences.html#gallery">Galerie</a><a href="fr/property-estepona-seafront-residences.html#location">Emplacement</a><a href="fr/property-estepona-seafront-residences.html#onsite">Sur place</a><a href="fr/property-estepona-seafront-residences.html#view">Notre avis</a><a href="fr/property-estepona-seafront-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Estepona Seafront Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Photographie d’une terrasse avec des transats en bois et un deck en pierre au-dessus d’un bassin peu profond en carreaux verts, avec une plage et une baie au-delà du garde-corps en verre" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Photographie d’une terrasse avec des transats en bois et un deck en pierre au-dessus d’un bassin peu profond en carreaux verts, avec une plage et une baie au-delà du garde-corps en verre" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">4 appartements disponibles</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Estepona Seafront <em>Residences</em></span>
-            <span class="hero-title-context">Appartements terminés en bord de mer à Estepona</span>
-          </h1>
-          <p class="hero-positioning">Quatre appartements terminés en bord de mer à Estepona, de deux à trois chambres et de 113,99 à 202,69 m², avec de grandes terrasses, une piscine extérieure, une piscine intérieure chauffée, une salle de sport et un spa. La fiche d’information du promoteur indique le permis de construire et la licence de première occupation comme disponibles. À partir de 3 200 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-estepona-seafront-residences.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=estepona-seafront-residences">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-estepona-seafront-residences.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>Front de mer, Estepona</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 3 200 000 €</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Appartements</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Prête à habiter</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-estepona-seafront-residences.html#media">Galerie</a>
-        <a href="fr/property-estepona-seafront-residences.html#location">Emplacement</a>
-        <a href="fr/property-estepona-seafront-residences.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-estepona-seafront-residences.html#overview">Aperçu</a>
-          <a href="fr/property-estepona-seafront-residences.html#residences">Résidences</a>
-          <a href="fr/property-estepona-seafront-residences.html#quality-specifications">Finitions</a>
-          <a href="fr/property-estepona-seafront-residences.html#calculator">Financement</a>
-          <a href="fr/property-estepona-seafront-residences.html#amenities">Équipements</a>
-          <a href="fr/property-estepona-seafront-residences.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-estepona-seafront-residences.html#architecture">Architecture</a>
-          <a href="fr/property-estepona-seafront-residences.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-estepona-seafront-residences.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-estepona-seafront-residences.html#faq">FAQ</a>
-          <a href="fr/property-estepona-seafront-residences.html#enquire">Nous contacter</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>2-3 chambres</strong></div>
-          <div class="quick-fact"><span>Surface indiquée</span><strong>113,99 - 202,69 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>4 appartements disponibles</strong></div>
-          <div class="quick-fact"><span>Statut</span><strong>Terminée, prête à habiter</strong></div>
-          <div class="quick-fact"><span>Fourchette de prix</span><strong>3 200 000 € - 7 300 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Demander la documentation</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Appartements terminés, <em>quatre annoncés</em></h2>
-          <p class="project-lead">La fiche d’information du promoteur décrit un programme terminé et prêt à habiter, de quatre appartements de deux, trois et quatre chambres en première ligne de plage à Estepona, entièrement meublés et avec parking souterrain. Le portail de vente en liste quatre, AT-01, AT-03, AT-04 et AT-05, de 113,99 à 202,69 m², à des prix de 3 200 000 € à 7 300 000 €.</p>
-          <p class="project-lead">La fiche d’information indique le permis de construire et la licence de première occupation comme disponibles et la fin de construction comme achevée. Les espaces communs qu’elle décrit, avec le descriptif technique, sont une piscine extérieure, une piscine intérieure chauffée, une salle de sport, un sauna, un bain turc, des espaces communs paysagers et un service de conciergerie. Les documents divergent sur le nombre de chambres et sur un prix, et les sections suivantes disent où.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Le programme <em>en détail</em></h2>
-          </div>
-          <p class="project-lead">Photographies du bâtiment terminé, de ses terrasses, d’un appartement meublé et des espaces communs, et plans de l’appartement AT-01.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 3 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Photographie d’une terrasse avec des transats en bois et un deck en pierre au-dessus d’un bassin peu profond en carreaux verts, avec une plage et une baie au-delà du garde-corps en verre" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>Une terrasse au-dessus de la plage</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Voir 2 images dans Terrasses">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.jpg" alt="Photographie d’une grande terrasse avec une table à manger en pierre, un deck en bois, des assises et une pergola, avec vue le long de la côte jusqu’à la mer" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasses</small>
-                <strong>Une terrasse repas face à la mer</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Voir 4 images dans Équipements">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg" alt="Photographie d’une piscine extérieure à débordement vers une plage, avec des transats et des parasols sur un deck en pierre, et le bâtiment en gradins à côté" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Équipements</small>
-                <strong>La piscine extérieure</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 2 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.jpg" alt="Photographie d’une cuisine ouverte meublée avec un îlot en pierre noire, une table à manger avec des chaises orange et une baie vitrée sur une terrasse et la mer" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Cuisine et salle a manger</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Voir 3 images dans Chambres">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.jpg" alt="Photographie d’une chambre meublée avec une porte vitrée coulissante sur une terrasse avec un petit bassin et vue sur la baie" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Chambres</small>
-                <strong>Une chambre sur la baie</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Voir 2 images dans Plans">
-              <img src="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg" alt="Plan de l’appartement AT-01 : séjour, salle à manger et cuisine, trois chambres, trois salles de bain, des toilettes, une buanderie et deux terrasses" width="2000" height="1414" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plans</small>
-                <strong>Appartement AT-01</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 16 images</button>
-          <p class="media-note">Les photographies montrent le programme terminé. L’appartement meublé qui y figure n’est pas identifié, et il n’est pas précisé que le mobilier, la décoration et les équipements montrés sont inclus dans le prix. Les plans sont ceux du promoteur, datés du 7 septembre 2026, et n’existent que pour l’appartement AT-01 ; les surfaces qui y figurent sont les chiffres du promoteur.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>en bord de mer</em></h2>
-          <p class="project-lead">Le promoteur situe le programme en première ligne de plage à Estepona, et sa carte le marque près du Puerto Deportivo de Estepona. Les photographies montrent une plage et une baie à côté du bâtiment. Les documents ne donnent ni distances ni temps de trajet, aucun n’est donc indiqué ici.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-estepona-seafront-residences" data-locmap='{&quot;site&quot;:[36.415917,-5.1629184],&quot;sea&quot;:[36.38892,-5.1629184],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;2,7 km · 6 min&quot;},{&quot;ll&quot;:[36.41569,-5.16658],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;410 m · 6 min à pied&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;740 m · 10 min à pied&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;6,1 km · 9 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Estepona Seafront Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Estepona Seafront Residences</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>410 m</bdi> <em><bdi>6 min à pied</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>740 m</bdi> <em><bdi>10 min à pied</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centre de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Estepona</span>
-              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>9 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>9,7 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>41 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Quatre appartements, <em>trois tailles</em></h2>
-          <p class="project-lead">Les appartements annoncés se répartissent en trois tailles. Le tableau ci-dessous liste toutes les références du portail avec leur prix. Seul AT-01 a un plan dans les documents que nous détenons.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Appartement de deux chambres</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-estepona-seafront-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Appartements de trois chambres de 160,54 m²</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-estepona-seafront-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Appartement de trois chambres de 202,69 m²</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-estepona-seafront-residences.html#availability">Voir les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-estepona-seafront-residences.html#availability">Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Descriptif des prestations</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce qui compose <em>les logements</em></h2>
-          <p class="project-lead">Le descriptif du promoteur lui-même, résumé par partie du logement.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Sols et murs<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Marbre grand format au sol à l’intérieur, parquet dans les chambres, marbre antidérapant grand format sur les terrasses privées et marbre grand format sur les murs des salles de bain.</li>
-              <li>Les autres murs sont enduits de perlite projetée et peints, avec une peinture anti-humidité dans les pièces d’eau.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Menuiseries et placards<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Une porte d’entrée blindée en bois, des portes intérieures en chêne ou laquées avec quincaillerie chromée et loqueteau magnétique, et des placards à portes assorties, doublés à l’intérieur et équipés de tiroirs, d’étagères, d’un range-chaussures et de barres de penderie.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Fenêtres<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Profilés en aluminium minimalistes affleurant au sol, à rupture de pont thermique et double vitrage à contrôle solaire.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatisation et ventilation<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Climatisation avec récupération de chaleur dans laquelle chaque pièce a son unité intérieure silencieuse et son thermostat, plancher chauffant à eau et plancher chauffant électrique dans les salles de bain. Le même système produit l’eau chaude.</li>
-              <li>Une unité de ventilation avec récupération de chaleur qui renouvelle et filtre l’air et peut fonctionner lorsque le logement est inoccupé.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Domotique et sécurité<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Un système domotique pour les scénarios d’éclairage, les volets, la climatisation et l’audio, commandé depuis des écrans tactiles et des appareils mobiles, y compris à distance, avec une alarme de fuite d’eau qui coupe l’alimentation de l’appartement.</li>
-              <li>Des répéteurs wifi à l’intérieur et sur les terrasses, un son surround 5.1 dans les salons, un visiophone avec écran, un lecteur d’empreintes digitales pour le bâtiment et pour chaque appartement, et une borne de recharge pour véhicule électrique pour chaque appartement.</li>
-              <li>Éclairage LED basse consommation avec spots encastrés, bandeaux lumineux et appliques murales et de sol.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Salles de bain<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Toilettes suspendues avec réservoirs encastrés et robinetterie et douches en platine sombre mat dans toutes les salles de bain.</li>
-              <li>Un meuble vasque sur mesure et une baignoire îlot dans la salle de bain principale, des vasques encastrées dans le plan dans les salles de bain secondaires et une vasque indépendante avec miroir rétroéclairé dans les toilettes d’invités. Des miroirs antibuée dans les pièces d’eau.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Eau<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Eau potable pompée depuis une cuve traitée, recirculée et désinfectée par un groupe de surpression de trois pompes à vitesse variable, et un filtre autonettoyant et un adoucisseur dans chaque logement qui maintiennent la dureté autour de 10 °F.</li>
-              <li>Le robinet d’arrêt général de chaque appartement se trouve dans son cellier et est commandé par la domotique.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Garage et ascenseur<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Une porte de garage motorisée avec télécommande, un monte-voitures de taille spéciale et une plaque tournante pour voitures, et un ascenseur panoramique à double accès à 180 degrés.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Source : le descriptif technique du promoteur pour ce programme, daté du 15 septembre 2026. Il est rédigé au futur, bien que la fiche d’information dise que le bâtiment est achevé, et cite des marques d’équipement « ou similaire », que ce résumé omet. Il n’a aucune section sur la cuisine, l’électroménager ou le mobilier.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Quatre appartements <em>actuellement disponibles</em></h2>
-          <p class="project-lead">Les surfaces et les prix sont ceux du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Le tableau liste AT-01 deux fois, à 4 200 000 € et à 3 237 000 € ; il n’apparaît ici qu’une fois, à 4 200 000 €, et nous confirmons le prix auprès du promoteur. Le tableau ne dit pas si les surfaces sont construites ou intérieures ni si les prix incluent la TVA.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg" alt="Photographie d’une piscine extérieure à débordement vers une plage, avec des transats et des parasols sur un deck en pierre, et le bâtiment en gradins à côté" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>14 photos</button>
+          <a class="chip" href="fr/property-estepona-seafront-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plans</a>
+          <a class="chip" href="fr/property-estepona-seafront-residences.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>4</strong></div>
-            <div><span>Prix à partir de</span><strong>3 200 000 €</strong></div>
-            <div><span>Fourchette de prix</span><strong>3 200 000 € - 7 300 000 €</strong></div>
-            <div><span>Vérifié</span><strong>octobre 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 4 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Logements disponibles à Estepona Seafront Residences</caption>
-                <thead><tr><th scope="col">Référence</th><th scope="col">Chambres</th><th scope="col">Surface</th><th scope="col">Prix</th><th scope="col">Statut</th><th scope="col">Plan</th></tr></thead>
-                <tbody>
-              <tr data-beds="3" data-price="4200000">
-                <td data-label="Référence"><strong>AT-01</strong></td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>160.54 m²</strong> <em>Construit</em></span><span class="unit-size-part"><strong>47.71 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>4 200 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-beds="2" data-price="3200000">
-                <td data-label="Référence"><strong>AT-03</strong></td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface">113.99 m²</td>
-                <td data-label="Prix"><strong>3 200 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-beds="3" data-price="7300000">
-                <td data-label="Référence"><strong>AT-04</strong></td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">202.69 m²</td>
-                <td data-label="Prix"><strong>7 300 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-              <tr data-beds="3" data-price="4200000">
-                <td data-label="Référence"><strong>AT-05</strong></td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface">160.54 m²</td>
-                <td data-label="Prix"><strong>4 200 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Les surfaces et les prix sont transcrits du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Il liste cinq lignes pour quatre références : AT-01 apparaît deux fois avec les mêmes trois chambres et 160,54 m² mais avec deux prix, 4 200 000 € et 3 237 000 €, et n’est montré qu’une fois avec le premier. AT-05 a la même taille et 4 200 000 €. Le tableau donne les chambres, une surface et un prix pour chaque appartement ; il ne dit pas si la surface est construite ou intérieure, ni si le prix inclut la TVA. La fiche d’information ajoute la TVA au prix de vente dans ses conditions de paiement. Pour AT-01 seulement, le plan du promoteur donne 160,54 m² de surface intérieure construite et 47,71 m² de terrasse. La fiche d’information dit que le programme compte quatre appartements de deux, trois et quatre chambres.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Estepona Seafront</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Quatre appartements terminés en bord de mer à Estepona, de deux à trois chambres et de 113,99 à 202,69 m², avec de grandes terrasses, une piscine extérieure, une piscine intérieure chauffée, une salle de sport et un spa.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 3 200 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>2 à 3</dd><dd class="sub"><span>Appartements</span></dd></div><div><dt>Livraison</dt><dd>Clés en main</dd><dd class="sub">Permis de première occupation délivré</dd></div><div><dt>Biens restants</dt><dd>4 sur 4</dd><dd class="sub">Vérifié le octobre 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">La fiche d’information du promoteur décrit un programme terminé et prêt à habiter, de quatre appartements de deux, trois et quatre chambres en première ligne de plage à Estepona, entièrement meublés et avec parking souterrain. Le portail de vente en liste quatre, AT-01, AT-03, AT-04 et AT-05, de 113,99 à 202,69 m², à des prix de 3 200 000 € à 7 300 000 €.</p>
+    <p class="lede-2">La fiche d’information indique le permis de construire et la licence de première occupation comme disponibles et la fin de construction comme achevée. Les espaces communs qu’elle décrit, avec le descriptif technique, sont une piscine extérieure, une piscine intérieure chauffée, une salle de sport, un sauna, un bain turc, des espaces communs paysagers et un service de conciergerie. Les documents divergent sur le nombre de chambres et sur un prix, et les sections suivantes disent où.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Terrasses en gradins, pierre et bois</span></summary><p>Les photographies montrent des niveaux de terrasses avec des pergolas sombres, des garde-corps en verre, de grandes terrasses en pierre et des decks en bois, juste au-dessus de la plage. Le descriptif donne du marbre grand format pour les sols et montre un nuancier de matériaux avec du marbre et du travertin blanc, un deck en bois et un choix de marbre blanc ou gris.</p><p>Il décrit les terrasses privées avec un mini-bassin, un coin salon, une cheminée à gaz et des miroirs d’eau, selon le projet. Il ne dit pas quel appartement a quoi, et nous le confirmons pour chacun.</p><ul><li>Structure: Une dalle de fondation en béton armé conçue selon le Code technique du bâtiment et l’étude géotechnique, des planchers à caissons, et des voiles et poteaux en béton armé avec quelques poteaux métalliques.</li><li>Murs: Murs extérieurs en brique perforée avec une lame d’air isolée à la mousse de polyuréthane et un enduit de mortier de ciment hydrofuge, et brique perforée insonorisante entre les appartements.</li><li>Menuiseries: Profilés en aluminium minimalistes à rupture de pont thermique, double vitrage à contrôle solaire et garde-corps en verre encastrés dans le sol.</li><li>Terrasses: Toitures-terrasses inversées avec un dallage flottant en marbre et un revêtement de type deck, avec les pentes et les évacuations sous le dallage.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>3 200 000 € – 7 300 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>4 biens sur 4</span><small>Vérifié le octobre 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartements</span></dd></div><div><dt>Surfaces</dt><dd><span>114 – 203 m²</span><small>Surface construite</small></dd></div><div><dt>Livraison</dt><dd><span>Clés en main</span></dd></div><div><dt>Permis</dt><dd><span><span class="ok">Permis de première occupation</span></span><small>Délivré</small></dd></div><div><dt>Acomptes</dt><dd><span>Sans objet</span><small>Bâtiment achevé</small></dd></div><div><dt>Stationnement</dt><dd><span>Parking souterrain</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">Les surfaces et les prix sont ceux du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Le tableau liste AT-01 deux fois, à 4 200 000 € et à 3 237 000 € ; il n’apparaît ici qu’une fois, à 4 200 000 €, et nous confirmons le prix auprès du promoteur. Le tableau ne dit pas si les surfaces sont construites ou intérieures ni si les prix incluent la TVA. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    <div class="scarcity" role="img" aria-label="4 sur 4 encore en vente"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>4 sur 4 encore en vente</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="4200000" data-size="160.54" data-ppm="26162" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan-640.webp">
+            <th scope="row"><span class="u-name">AT-01</span><span class="u-loc"></span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">161 m²</td>
+            <td data-label="Prix" class="u-price num">4 200 000 €</td>
+            <td data-label="Par m²" class="num">26 162 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg" target="_blank" rel="noopener" aria-label="Plan de AT-01"><img src="assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="3200000" data-size="113.99" data-ppm="28073" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AT-03</span><span class="u-loc"></span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">114 m²</td>
+            <td data-label="Prix" class="u-price num">3 200 000 €</td>
+            <td data-label="Par m²" class="num">28 073 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="7300000" data-size="202.69" data-ppm="36016" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AT-04</span><span class="u-loc"></span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">203 m²</td>
+            <td data-label="Prix" class="u-price num">7 300 000 €</td>
+            <td data-label="Par m²" class="num">36 016 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="4200000" data-size="160.54" data-ppm="26162" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">AT-05</span><span class="u-loc"></span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">161 m²</td>
+            <td data-label="Prix" class="u-price num">4 200 000 €</td>
+            <td data-label="Par m²" class="num">26 162 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>Quatre appartements, trois tailles</span></summary><p>Les appartements annoncés se répartissent en trois tailles. Le tableau ci-dessous liste toutes les références du portail avec leur prix. Seul AT-01 a un plan dans les documents que nous détenons.</p><div class="res-types"><div class="res-type"><h3>Appartement de deux chambres</h3><ul><li>Un appartement, AT-03, annoncé à 113,99 m² et 3 200 000 €.</li><li>Le portail ne dit pas si la surface est intérieure ou construite, et aucun plan de cet appartement n’a été fourni.</li></ul></div><div class="res-type"><h3>Appartements de trois chambres de 160,54 m²</h3><ul><li>AT-01 et AT-05 sont tous deux annoncés avec trois chambres et 160,54 m². AT-05 est annoncé à 4 200 000 €, et AT-01 apparaît deux fois, à 4 200 000 € et à 3 237 000 €.</li><li>Le plan de AT-01 donne 160,54 m² de surface intérieure construite, 47,71 m² de terrasses, un cellier de 22,12 m² et deux places de garage de 16,32 et 15,29 m², avec une orientation sud-ouest.</li><li>Le tableau de données du plan indique « rooms: 2 » (« pièces : 2 »), alors que le dessin montre trois chambres.</li></ul></div><div class="res-type"><h3>Appartement de trois chambres de 202,69 m²</h3><ul><li>Un appartement, AT-04, annoncé à 202,69 m² et 7 300 000 €.</li><li>Le portail indique trois chambres, alors que la fiche d’information dit que le programme comprend des appartements de quatre chambres. Nous demandons de quelle distribution il s’agit.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">L’échéancier du promoteur est disponible sur demande ; nous vous l’envoyons avec la grille de prix.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -938,447 +581,230 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine extérieure</h3>
-              <p class="amenity-note">À ciel ouvert</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Finitions</h2>
+    <p class="sec-sub">Le descriptif du promoteur lui-même, résumé par partie du logement.</p>
+    <div class="tabs" role="tablist" aria-label="Finitions"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Sols et murs</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Menuiseries et placards</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Fenêtres</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Climatisation et ventilation</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Domotique et sécurité</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Salles de bain</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Eau</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Garage et ascenseur</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Marbre grand format au sol à l’intérieur, parquet dans les chambres, marbre antidérapant grand format sur les terrasses privées et marbre grand format sur les murs des salles de bain.</li><li>Les autres murs sont enduits de perlite projetée et peints, avec une peinture anti-humidité dans les pièces d’eau.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Une porte d’entrée blindée en bois, des portes intérieures en chêne ou laquées avec quincaillerie chromée et loqueteau magnétique, et des placards à portes assorties, doublés à l’intérieur et équipés de tiroirs, d’étagères, d’un range-chaussures et de barres de penderie.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Profilés en aluminium minimalistes affleurant au sol, à rupture de pont thermique et double vitrage à contrôle solaire.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Climatisation avec récupération de chaleur dans laquelle chaque pièce a son unité intérieure silencieuse et son thermostat, plancher chauffant à eau et plancher chauffant électrique dans les salles de bain. Le même système produit l’eau chaude.</li><li>Une unité de ventilation avec récupération de chaleur qui renouvelle et filtre l’air et peut fonctionner lorsque le logement est inoccupé.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Un système domotique pour les scénarios d’éclairage, les volets, la climatisation et l’audio, commandé depuis des écrans tactiles et des appareils mobiles, y compris à distance, avec une alarme de fuite d’eau qui coupe l’alimentation de l’appartement.</li><li>Des répéteurs wifi à l’intérieur et sur les terrasses, un son surround 5.1 dans les salons, un visiophone avec écran, un lecteur d’empreintes digitales pour le bâtiment et pour chaque appartement, et une borne de recharge pour véhicule électrique pour chaque appartement.</li><li>Éclairage LED basse consommation avec spots encastrés, bandeaux lumineux et appliques murales et de sol.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Toilettes suspendues avec réservoirs encastrés et robinetterie et douches en platine sombre mat dans toutes les salles de bain.</li><li>Un meuble vasque sur mesure et une baignoire îlot dans la salle de bain principale, des vasques encastrées dans le plan dans les salles de bain secondaires et une vasque indépendante avec miroir rétroéclairé dans les toilettes d’invités. Des miroirs antibuée dans les pièces d’eau.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Eau potable pompée depuis une cuve traitée, recirculée et désinfectée par un groupe de surpression de trois pompes à vitesse variable, et un filtre autonettoyant et un adoucisseur dans chaque logement qui maintiennent la dureté autour de 10 °F.</li><li>Le robinet d’arrêt général de chaque appartement se trouve dans son cellier et est commandé par la domotique.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Une porte de garage motorisée avec télécommande, un monte-voitures de taille spéciale et une plaque tournante pour voitures, et un ascenseur panoramique à double accès à 180 degrés.</li></ul>
+      
+    </div>
+    <p class="caption">Source : le descriptif technique du promoteur pour ce programme, daté du 15 septembre 2026. Il est rédigé au futur, bien que la fiche d’information dise que le bâtiment est achevé, et cite des marques d’équipement « ou similaire », que ce résumé omet. Il n’a aucune section sur la cuisine, l’électroménager ou le mobilier.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Une terrasse au-dessus de la plage"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg" alt="Photographie d’une terrasse avec des transats en bois et un deck en pierre au-dessus d’un bassin peu profond en carreaux verts, avec une plage et une baie au-delà du garde-corps en verre" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Cuisine et salle a manger"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.jpg" alt="Photographie d’une cuisine ouverte meublée avec un îlot en pierre noire, une table à manger avec des chaises orange et une baie vitrée sur une terrasse et la mer" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Une terrasse repas face à la mer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.jpg" alt="Photographie d’une grande terrasse avec une table à manger en pierre, un deck en bois, des assises et une pergola, avec vue le long de la côte jusqu’à la mer" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="La piscine extérieure"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg" alt="Photographie d’une piscine extérieure à débordement vers une plage, avec des transats et des parasols sur un deck en pierre, et le bâtiment en gradins à côté" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Une chambre sur la baie"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-640.webp 640w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-960.webp 960w, assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.jpg" alt="Photographie d’une chambre meublée avec une porte vitrée coulissante sur une terrasse avec un petit bassin et vue sur la baie" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 14 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Extérieurs (3)</button><button type="button" data-open-cat="Terraces">Terrasses (2)</button><button type="button" data-open-cat="Amenities">Équipements (4)</button><button type="button" data-open-cat="Interiors">Intérieurs (2)</button><button type="button" data-open-cat="Bedrooms">Chambres (3)</button></div>
+    
+    <p class="caption">Les photographies montrent le programme terminé. L’appartement meublé qui y figure n’est pas identifié, et il n’est pas précisé que le mobilier, la décoration et les équipements montrés sont inclus dans le prix. Les plans sont ceux du promoteur, datés du 7 septembre 2026, et n’existent que pour l’appartement AT-01 ; les surfaces qui y figurent sont les chiffres du promoteur.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">Le promoteur situe le programme en première ligne de plage à Estepona, et sa carte le marque près du Puerto Deportivo de Estepona. Les photographies montrent une plage et une baie à côté du bâtiment. Les documents ne donnent ni distances ni temps de trajet, aucun n’est donc indiqué ici.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-estepona-seafront-residences" data-locmap='{&quot;site&quot;:[36.415917,-5.1629184],&quot;sea&quot;:[36.38892,-5.1629184],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;2,7 km · 6 min&quot;},{&quot;ll&quot;:[36.41569,-5.16658],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;410 m · 6 min à pied&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;740 m · 10 min à pied&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;6,1 km · 9 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Estepona Seafront Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Estepona Seafront Residences</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>410 m</bdi> <em><bdi>6 min à pied</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine intérieure chauffée</h3>
-              <p class="amenity-note">Eau chaude à l’abri</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>740 m</bdi> <em><bdi>10 min à pied</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bien-être</span>
-              <h3 class="amenity-name">Salle de sport</h3>
-              <p class="amenity-note">Au sein du programme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Bien-être</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Espace humide de récupération</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Estepona</span>
+              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>9 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Bien-être</span>
-              <h3 class="amenity-name">Sauna</h3>
-              <p class="amenity-note">Chaleur sèche</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>9,7 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Bien-être</span>
-              <h3 class="amenity-name">Hammam</h3>
-              <p class="amenity-note">Bain de vapeur turc</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>41 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Bien-être</span>
-              <h3 class="amenity-name">Jacuzzi</h3>
-              <p class="amenity-note">Eau chaude à jets</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardins collectifs paysagers</h3>
-              <p class="amenity-note">Espaces communs paysagers</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Vue sur la mer</h3>
-              <p class="amenity-note">Vers la Méditerranée</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Parking souterrain</h3>
-              <p class="amenity-note">Sous le bâtiment</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Ascenseur</h3>
-              <p class="amenity-note">Tous les étages desservis</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Domotique</h3>
-              <p class="amenity-note">Lumière et climat depuis le mobile</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Climatisation</h3>
-              <p class="amenity-note">Froid et chaud par gaines</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Chauffage au sol</h3>
-              <p class="amenity-note">La chaleur par le sol</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Recharge de véhicule électrique</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Services</span>
-              <h3 class="amenity-name">Service de conciergerie</h3>
-              <p class="amenity-note">Quelqu’un à l’entrée</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Plage</th><td>En bord de mer</td></tr><tr><th scope="row">Puerto Deportivo de Estepona</th><td>Indiqué sur la carte du promoteur ; aucune distance donnée</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">Les espaces communs listés par le promoteur, avec le spa et la piscine au niveau inférieur du bâtiment.</p>
+    <div class="life-panels"><div><h3>Les piscines</h3><p>Une piscine extérieure à débordement, traitée au sel et revêtue de pierre naturelle, et une piscine intérieure chauffée dans sa propre salle, avec un jacuzzi.</p></div><div><h3>Le spa et la salle de sport</h3><p>Une salle de sport entièrement équipée, un sauna, un bain turc et un vestiaire, au niveau -3 du plan du promoteur.</p></div><div><h3>Services et parking</h3><p>La fiche d’information liste un service de conciergerie, des espaces communs paysagers et un parking souterrain, et le plan montre du stationnement sur deux niveaux.</p></div><div><h3>Accès et sécurité</h3><p>Un lecteur d’empreintes digitales pour le bâtiment et pour chaque appartement, un visiophone, un ascenseur panoramique et une borne de recharge pour véhicule électrique pour chaque appartement, tels que les décrit le descriptif technique.</p></div></div>
+    <ul class="amen-top"><li>Piscine extérieure</li><li>Piscine intérieure chauffée</li><li>Salle de sport</li><li>Spa</li><li>Sauna</li><li>Hammam</li></ul>
+    <details class="amen-all"><summary>Tout afficher (16)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">7</span></h3><ul><li>Piscine extérieure</li><li>Piscine intérieure chauffée</li><li>Salle de sport</li><li>Spa</li><li>Sauna</li><li>Hammam</li><li>Jacuzzi</li></ul></div><div><h3>Extérieurs<span class="count">2</span></h3><ul><li>Jardins collectifs paysagers</li><li>Vue sur la mer</li></ul></div><div><h3>Au quotidien<span class="count">6</span></h3><ul><li>Parking souterrain</li><li>Ascenseur</li><li>Domotique</li><li>Climatisation</li><li>Chauffage au sol</li><li>Recharge de véhicule électrique</li></ul></div><div><h3>Services<span class="count">1</span></h3><ul><li>Service de conciergerie</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>À qui s'adresse ce projet</b><span>Acheteurs qui veulent un grand appartement terminé en première ligne de plage à Estepona et ne souhaitent pas attendre un chantier.</span></li><li><b>Ce qui le distingue</b><span>Seulement quatre appartements dans le programme, avec de grandes terrasses : le plan de AT-01 donne 47,71 m² de terrasse pour 160,54 m² d’intérieur, et le programme comprend une piscine intérieure et un niveau spa.</span></li><li><b>Pourquoi l'emplacement compte</b><span>Le promoteur situe le programme en première ligne de plage à Estepona, et sa carte le marque près du port de plaisance, le Puerto Deportivo de Estepona. Les documents ne donnent aucune distance.</span></li><li><b>Pourquoi vérifier la disponibilité</b><span>Le portail liste AT-01 à deux prix, et la fiche d’information compte quatre appartements alors que les références vont jusqu’à AT-05. Nueva Living reconfirme le prix et la disponibilité auprès du promoteur avant toute visite.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Réservation</b><span>La réservation est de 10 % du prix de vente, plus la TVA.</span></li><li><b>À l’acte</b><span>Les 90 % restants du prix de vente, plus la TVA, sont dus à la signature de l’acte. La fiche d’information ne donne aucune autre échéance.</span></li><li><b>TVA</b><span>Les conditions de paiement ajoutent la TVA au prix de vente, ce qui indique que les prix annoncés s’entendent hors TVA. Le tableau du portail ne le dit pas, et le taux de TVA n’est pas indiqué. Nueva Living confirme par écrit les taxes et les frais d’achat.</span></li><li><b>Ce que le prix comprend</b><span>Le plan de AT-01 liste un cellier et deux places de garage, et les documents ne disent pas s’ils sont inclus dans le prix ni ce que possèdent les autres appartements. La fiche d’information présente les appartements comme entièrement meublés et ne dit pas si le mobilier est inclus dans le prix.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Permis et achèvement</b><span>Permis de première occupation délivré. La fiche d’information indique le permis de construire et la licence de première occupation comme disponibles et la fin de construction comme achevée. Nous en demandons une copie ainsi que le certificat de fin de travaux.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Le prix de AT-01</b><span>Le portail liste AT-01 deux fois, à 4 200 000 € et à 3 237 000 €, avec les mêmes trois chambres et 160,54 m². AT-05 est annoncé avec la même taille à 4 200 000 €. Cette page indique 4 200 000 € pour AT-01, et nous demandons au promoteur quel chiffre s’applique.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les appartements et leurs chambres</b><span>La fiche d’information parle de quatre appartements de deux, trois et quatre chambres. Le portail liste quatre références, AT-01, AT-03, AT-04 et AT-05, avec deux ou trois chambres et sans AT-02. Le plan de AT-01 indique « rooms: 2 » dans son tableau de données et montre trois chambres. Nous demandons quels appartements existent et combien de chambres chacun a.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les surfaces</b><span>Le portail ne dit pas si ses surfaces sont intérieures ou construites. Le plan de AT-01 donne 160,54 m² de surface intérieure construite, ce qui correspond au portail, et une surface construite totale de 208,25 m² qui ajoute les 47,71 m² de terrasses. Nous confirmons la base des autres appartements et le chiffre retenu par l’acte.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Le descriptif technique</b><span>Le descriptif technique est daté du 15 septembre 2026 et rédigé au futur, alors que la fiche d’information dit que le bâtiment est achevé. Il décrit le traitement de l’eau de la piscine intérieure de deux façons, par dosage de brome et par chloration au sel. Nous demandons le descriptif tel que construit.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Demandez le dossier</h3><p>Le plan de AT-01, le descriptif technique et la liste de prix actuelle.</p></li><li><h3>Comparez les options</h3><p>Découvrez ce programme aux côtés des autres projets d’Estepona que nous suivons.</p></li><li><h3>Visite privée</h3><p>Voyez les appartements, les terrasses et les espaces communs avec nous.</p></li><li><h3>Réservez</h3><p>Une réservation de 10 % du prix de vente plus la TVA, puis l’acte chez le notaire.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plans<small>1 biens sur 4</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Échéancier<small>Pas encore fourni</small><small>En attente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Descriptif des prestations</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Estepona Seafront</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien d’appartements sont disponibles ?</summary><p>La fiche d’information dit que le programme compte quatre appartements, et le portail liste quatre références, AT-01, AT-03, AT-04 et AT-05, de 3 200 000 € à 7 300 000 €. AT-01 apparaît deux fois dans le portail, à deux prix.</p></details><details class="segment-faq-item"><summary>Pourquoi AT-01 n’est-il montré qu’à un seul prix ?</summary><p>Le portail le liste à 4 200 000 € et à 3 237 000 €. La page indique 4 200 000 €, qui est aussi le prix annoncé pour AT-05, un appartement de même taille. Nous demandons au promoteur lequel s’applique et mettons la réponse par écrit.</p></details><details class="segment-faq-item"><summary>La TVA est-elle incluse ?</summary><p>Le tableau du portail ne le dit pas. Les conditions de paiement de la fiche d’information ajoutent la TVA au prix de vente, ce qui indique que les prix s’entendent hors TVA, et le taux de TVA n’est pas indiqué. Nous confirmons par écrit les taxes et les frais d’achat.</p></details><details class="segment-faq-item"><summary>L’immeuble est-il achevé ?</summary><p>La fiche d’information dit que la fin de construction est achevée, que le permis de construire et la licence de première occupation sont disponibles et que les appartements sont prêts à habiter. Nous demandons les licences et le certificat de fin de travaux avant que vous ne réserviez.</p></details><details class="segment-faq-item"><summary>Quelles sont les conditions de paiement ?</summary><p>La réservation est de 10 % du prix de vente plus la TVA, et les 90 % restants plus la TVA sont payés à la signature de l’acte.</p></details></div>
+    <details class="faq2-more"><summary>Voir toutes les questions (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Les appartements sont-ils meublés ?</summary><p>La fiche d’information les présente comme entièrement meublés. Elle ne dit pas ce qui est inclus dans le prix, et l’appartement meublé des photographies n’est pas identifié.</p></details></div></details>
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">3 200 000 €</p>
+      <p class="rail-note">Hors TVA. Il reste 4 biens sur 4 · Vérifié le octobre 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Sur place.</b> Parcourez les terrasses et vérifiez la vue et la lumière à l’heure où vous les utiliseriez.</li><li><b>À pied.</b> Nous parcourons avec vous la plage et le chemin jusqu’au port et nous le chronométrons.</li><li><b>Sur le papier.</b> Licences, certificat de fin de travaux et acte, avant toute signature.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Seafront Residences">
+        <input type="hidden" id="f-project" name="project" value="Estepona Seafront Residences">
+        <input type="hidden" name="preferred_area" value="Front de mer, Estepona">
+        <input type="hidden" name="property_type_interest" value="Appartements">
+        <input type="hidden" name="budget_range" value="À partir de 3 200 000 €">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Bonjour Nueva Living, je souhaiterais recevoir des informations sur Estepona Seafront Residences." data-base="Bonjour Nueva Living, je souhaiterais recevoir des informations sur Estepona Seafront Residences.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="AT-01">AT-01: 4 200 000 €</option><option value="AT-03">AT-03: 3 200 000 €</option><option value="AT-04">AT-04: 7 300 000 €</option><option value="AT-05">AT-05: 4 200 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Estepona Seafront.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Un appartement terminé en bord de mer, dans un programme de quatre, avec les licences indiquées comme disponibles.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Acheteurs qui veulent un grand appartement terminé en première ligne de plage à Estepona et ne souhaitent pas attendre un chantier.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce qui le distingue</h3><p>Seulement quatre appartements dans le programme, avec de grandes terrasses : le plan de AT-01 donne 47,71 m² de terrasse pour 160,54 m² d’intérieur, et le programme comprend une piscine intérieure et un niveau spa.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi l'emplacement compte</h3><p>Le promoteur situe le programme en première ligne de plage à Estepona, et sa carte le marque près du port de plaisance, le Puerto Deportivo de Estepona. Les documents ne donnent aucune distance.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi vérifier la disponibilité</h3><p>Le portail liste AT-01 à deux prix, et la fiche d’information compte quatre appartements alors que les références vont jusqu’à AT-05. Nueva Living reconfirme le prix et la disponibilité auprès du promoteur avant toute visite.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Les conditions sont celles des conditions de paiement de la fiche d’information du promoteur. Nous confirmons par écrit les montants et dates actuels avant que vous ne réserviez.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Réservation</h3><p>La réservation est de 10 % du prix de vente, plus la TVA.</p></article>
-              <article class="why-point reveal-soft"><h3>À l’acte</h3><p>Les 90 % restants du prix de vente, plus la TVA, sont dus à la signature de l’acte. La fiche d’information ne donne aucune autre échéance.</p></article>
-              <article class="why-point reveal-soft"><h3>TVA</h3><p>Les conditions de paiement ajoutent la TVA au prix de vente, ce qui indique que les prix annoncés s’entendent hors TVA. Le tableau du portail ne le dit pas, et le taux de TVA n’est pas indiqué. Nueva Living confirme par écrit les taxes et les frais d’achat.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce que le prix comprend</h3><p>Le plan de AT-01 liste un cellier et deux places de garage, et les documents ne disent pas s’ils sont inclus dans le prix ni ce que possèdent les autres appartements. La fiche d’information présente les appartements comme entièrement meublés et ne dit pas si le mobilier est inclus dans le prix.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Permis et achèvement</h3><p>La fiche d’information indique le permis de construire et la licence de première occupation comme disponibles et la fin de construction comme achevée. Nous en demandons une copie ainsi que le certificat de fin de travaux.</p></article>
-              <article class="why-point reveal-soft"><h3>Le prix de AT-01</h3><p>Le portail liste AT-01 deux fois, à 4 200 000 € et à 3 237 000 €, avec les mêmes trois chambres et 160,54 m². AT-05 est annoncé avec la même taille à 4 200 000 €. Cette page indique 4 200 000 € pour AT-01, et nous demandons au promoteur quel chiffre s’applique.</p></article>
-              <article class="why-point reveal-soft"><h3>Les appartements et leurs chambres</h3><p>La fiche d’information parle de quatre appartements de deux, trois et quatre chambres. Le portail liste quatre références, AT-01, AT-03, AT-04 et AT-05, avec deux ou trois chambres et sans AT-02. Le plan de AT-01 indique « rooms: 2 » dans son tableau de données et montre trois chambres. Nous demandons quels appartements existent et combien de chambres chacun a.</p></article>
-              <article class="why-point reveal-soft"><h3>Les surfaces</h3><p>Le portail ne dit pas si ses surfaces sont intérieures ou construites. Le plan de AT-01 donne 160,54 m² de surface intérieure construite, ce qui correspond au portail, et une surface construite totale de 208,25 m² qui ajoute les 47,71 m² de terrasses. Nous confirmons la base des autres appartements et le chiffre retenu par l’acte.</p></article>
-              <article class="why-point reveal-soft"><h3>Le descriptif technique</h3><p>Le descriptif technique est daté du 15 septembre 2026 et rédigé au futur, alors que la fiche d’information dit que le bâtiment est achevé. Il décrit le traitement de l’eau de la piscine intérieure de deux façons, par dosage de brome et par chloration au sel. Nous demandons le descriptif tel que construit.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le octobre 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Les surfaces et les prix sont transcrits du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Il liste cinq lignes pour quatre références : AT-01 apparaît deux fois avec les mêmes trois chambres et 160,54 m² mais avec deux prix, 4 200 000 € et 3 237 000 €, et n’est montré qu’une fois avec le premier. AT-05 a la même taille et 4 200 000 €. Le tableau donne les chambres, une surface et un prix pour chaque appartement ; il ne dit pas si la surface est construite ou intérieure, ni si le prix inclut la TVA. La fiche d’information ajoute la TVA au prix de vente dans ses conditions de paiement. Pour AT-01 seulement, le plan du promoteur donne 160,54 m² de surface intérieure construite et 47,71 m² de terrasse. La fiche d’information dit que le programme compte quatre appartements de deux, trois et quatre chambres.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk.jpg" alt="Photographie au crépuscule de terrasses en gradins avec des pergolas sombres, des garde-corps en verre et une terrasse en pierre avec des assises, et des montagnes en arrière-plan" width="2000" height="1333" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Aperçu architectural</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terrasses en gradins, <em>pierre et bois</em></h2>
-          <p>Les photographies montrent des niveaux de terrasses avec des pergolas sombres, des garde-corps en verre, de grandes terrasses en pierre et des decks en bois, juste au-dessus de la plage. Le descriptif donne du marbre grand format pour les sols et montre un nuancier de matériaux avec du marbre et du travertin blanc, un deck en bois et un choix de marbre blanc ou gris.</p>
-<p>Il décrit les terrasses privées avec un mini-bassin, un coin salon, une cheminée à gaz et des miroirs d’eau, selon le projet. Il ne dit pas quel appartement a quoi, et nous le confirmons pour chacun.</p>
-          <ul class="feature-list">
-            <li>Structure — Une dalle de fondation en béton armé conçue selon le Code technique du bâtiment et l’étude géotechnique, des planchers à caissons, et des voiles et poteaux en béton armé avec quelques poteaux métalliques.</li>
-            <li>Murs — Murs extérieurs en brique perforée avec une lame d’air isolée à la mousse de polyuréthane et un enduit de mortier de ciment hydrofuge, et brique perforée insonorisante entre les appartements.</li>
-            <li>Menuiseries — Profilés en aluminium minimalistes à rupture de pont thermique, double vitrage à contrôle solaire et garde-corps en verre encastrés dans le sol.</li>
-            <li>Terrasses — Toitures-terrasses inversées avec un dallage flottant en marbre et un revêtement de type deck, avec les pentes et les évacuations sous le dallage.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall.jpg" alt="Photographie d’une allée d’entrée au sol en bois le long d’un mur végétal et d’un canal d’eau en pierre, menant à un ascenseur" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Découvrez les <em>appartements et le front de mer</em></h2>
-            <p>Le bâtiment est achevé, la visite porte donc sur les vues, les terrasses et les finitions.</p>
-            <div class="viewing-insights">
-              <div><span>Sur place</span><p>Parcourez les terrasses et vérifiez la vue et la lumière à l’heure où vous les utiliseriez.</p></div>
-              <div><span>À pied</span><p>Nous parcourons avec vous la plage et le chemin jusqu’au port et nous le chronométrons.</p></div>
-              <div><span>Sur le papier</span><p>Licences, certificat de fin de travaux et acte, avant toute signature.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=estepona-seafront-residences">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Terraces">Terrasses</button><button type="button" data-cat="Amenities">Équipements</button><button type="button" data-cat="Interiors">Intérieurs</button><button type="button" data-cat="Bedrooms">Chambres</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-seafront-residences/media/indoor-pool.jpg" alt="Photographie d’une piscine intérieure dans une longue salle avec mosaïque, transats, un hammam vitré et un mur de fenêtres donnant sur un jardin de galets" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Une piscine intérieure, <em>une salle de sport et un spa</em></h2>
-            <p>Les espaces communs listés par le promoteur, avec le spa et la piscine au niveau inférieur du bâtiment.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Demandez le dossier</h3>
-            <p>Le plan de AT-01, le descriptif technique et la liste de prix actuelle.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Comparez les options</h3>
-            <p>Découvrez ce programme aux côtés des autres projets d’Estepona que nous suivons.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visite privée</h3>
-            <p>Voyez les appartements, les terrasses et les espaces communs avec nous.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Réservez</h3>
-            <p>Une réservation de 10 % du prix de vente plus la TVA, puis l’acte chez le notaire.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien d’appartements sont disponibles ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La fiche d’information dit que le programme compte quatre appartements, et le portail liste quatre références, AT-01, AT-03, AT-04 et AT-05, de 3 200 000 € à 7 300 000 €. AT-01 apparaît deux fois dans le portail, à deux prix.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Pourquoi AT-01 n’est-il montré qu’à un seul prix ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le portail le liste à 4 200 000 € et à 3 237 000 €. La page indique 4 200 000 €, qui est aussi le prix annoncé pour AT-05, un appartement de même taille. Nous demandons au promoteur lequel s’applique et mettons la réponse par écrit.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>La TVA est-elle incluse ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le tableau du portail ne le dit pas. Les conditions de paiement de la fiche d’information ajoutent la TVA au prix de vente, ce qui indique que les prix s’entendent hors TVA, et le taux de TVA n’est pas indiqué. Nous confirmons par écrit les taxes et les frais d’achat.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>L’immeuble est-il achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La fiche d’information dit que la fin de construction est achevée, que le permis de construire et la licence de première occupation sont disponibles et que les appartements sont prêts à habiter. Nous demandons les licences et le certificat de fin de travaux avant que vous ne réserviez.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelles sont les conditions de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La réservation est de 10 % du prix de vente plus la TVA, et les 90 % restants plus la TVA sont payés à la signature de l’acte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Les appartements sont-ils meublés ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La fiche d’information les présente comme entièrement meublés. Elle ne dit pas ce qui est inclus dans le prix, et l’appartement meublé des photographies n’est pas identifié.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Renseignez-vous sur <em>Estepona Seafront Residences</em></h2>
-          <p class="body-copy">Dites-nous ce dont vous avez besoin et nous reviendrons vers vous avec la disponibilité actuelle, les plans et la liste de prix.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Seafront Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Estepona Seafront Residences">
-          <input type="hidden" name="preferred_area" value="Front de mer, Estepona">
-          <input type="hidden" name="property_type_interest" value="Appartements">
-          <input type="hidden" name="budget_range" value="À partir de 3 200 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Bonjour Nueva Living, je souhaiterais recevoir des informations sur Estepona Seafront Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Nous répondons personnellement, généralement le jour même.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"AT-01","title":"AT-01","sub":"3 ch. · 161 m²","price":4200000,"plans":[{"src":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg","label":""}]},{"id":"u1","ref":"AT-03","title":"AT-03","sub":"2 ch. · 114 m²","price":3200000,"plans":[]},{"id":"u2","ref":"AT-04","title":"AT-04","sub":"3 ch. · 203 m²","price":7300000,"plans":[]},{"id":"u3","ref":"AT-05","title":"AT-05","sub":"3 ch. · 161 m²","price":4200000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.webp","alt":"Photographie d’une terrasse avec des transats en bois et un deck en pierre au-dessus d’un bassin peu profond en carreaux verts, avec une plage et une baie au-delà du garde-corps en verre","caption":"Une terrasse au-dessus de la plage","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk.webp","alt":"Photographie au crépuscule de terrasses en gradins avec des pergolas sombres, des garde-corps en verre et une terrasse en pierre avec des assises, et des montagnes en arrière-plan","caption":"Terrasses et pergolas au crépuscule","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.webp","alt":"Photographie d’une grande terrasse avec une table à manger en pierre, un deck en bois, des assises et une pergola, avec vue le long de la côte jusqu’à la mer","caption":"Une terrasse repas face à la mer","cat":"Terraces"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-lounge-water-feature.webp","alt":"Photographie d’une terrasse avec des assises sur du gazon artificiel, de grands pots plantés, des pas japonais au-dessus d’un miroir d’eau peu profond et des montagnes en arrière-plan","caption":"Terrasse avec coin salon et miroir d’eau","cat":"Terraces"},{"src":"assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.webp","alt":"Photographie d’une piscine extérieure à débordement vers une plage, avec des transats et des parasols sur un deck en pierre, et le bâtiment en gradins à côté","caption":"La piscine extérieure","cat":"Amenities"},{"src":"assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall.webp","alt":"Photographie d’une allée d’entrée au sol en bois le long d’un mur végétal et d’un canal d’eau en pierre, menant à un ascenseur","caption":"L’allée d’entrée","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.webp","alt":"Photographie d’une cuisine ouverte meublée avec un îlot en pierre noire, une table à manger avec des chaises orange et une baie vitrée sur une terrasse et la mer","caption":"Cuisine et salle a manger","cat":"Interiors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/living-room-terrace-view.webp","alt":"Photographie d’un salon meublé avec un canapé, une table ronde au plateau en marbre et une baie vitrée coulissante sur une terrasse avec vue sur la mer","caption":"Salon ouvert sur la terrasse","cat":"Interiors"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.webp","alt":"Photographie d’une chambre meublée avec une porte vitrée coulissante sur une terrasse avec un petit bassin et vue sur la baie","caption":"Une chambre sur la baie","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-terrace-sea-view.webp","alt":"Photographie d’une chambre meublée avec un mur capitonné, un banc rembourré et des portes vitrées coulissantes sur une terrasse et la mer","caption":"Une chambre avec terrasse","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-seafront-residences/media/main-bedroom-terrace-sea.webp","alt":"Photographie d’une chambre meublée avec un caisson lumineux au plafond, un panneau rond en pierre derrière le lit et des portes vitrées sur une terrasse face à la mer","caption":"La chambre principale","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-seafront-residences/media/indoor-pool.webp","alt":"Photographie d’une piscine intérieure dans une longue salle avec mosaïque, transats, un hammam vitré et un mur de fenêtres donnant sur un jardin de galets","caption":"La piscine intérieure","cat":"Amenities"},{"src":"assets/liora/projects/estepona-seafront-residences/media/gym.webp","alt":"Photographie d’une salle de sport avec un tapis de course, des vélos d’appartement, des bancs de musculation et un râtelier de poids, avec une baie vitrée sur la végétation","caption":"La salle de sport","cat":"Amenities"},{"src":"assets/liora/projects/estepona-seafront-residences/media/steam-room.webp","alt":"Photographie d’une salle de vapeur au plafond voûté avec un banc maçonné, vue à travers une vitre depuis la salle de la piscine intérieure","caption":"Une salle de vapeur à côté de la piscine intérieure","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Estepona Seafront Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terrace-pool-bay-view-960.webp","alt":"Photographie d’une terrasse avec des transats en bois et un deck en pierre au-dessus d’un bassin peu profond en carreaux verts, avec une plage et une baie au-delà du garde-corps en verre","width":2000,"height":1333,"caption":"Une terrasse au-dessus de la plage","category":"Extérieurs"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terraces-and-pergolas-at-dusk-960.webp","alt":"Photographie au crépuscule de terrasses en gradins avec des pergolas sombres, des garde-corps en verre et une terrasse en pierre avec des assises, et des montagnes en arrière-plan","width":2000,"height":1333,"caption":"Terrasses et pergolas au crépuscule","category":"Extérieurs"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terrace-dining-sea-view-960.webp","alt":"Photographie d’une grande terrasse avec une table à manger en pierre, un deck en bois, des assises et une pergola, avec vue le long de la côte jusqu’à la mer","width":2000,"height":1125,"caption":"Une terrasse repas face à la mer","category":"Terrasses"},{"src":"assets/liora/projects/estepona-seafront-residences/media/terrace-lounge-water-feature.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/terrace-lounge-water-feature-960.webp","alt":"Photographie d’une terrasse avec des assises sur du gazon artificiel, de grands pots plantés, des pas japonais au-dessus d’un miroir d’eau peu profond et des montagnes en arrière-plan","width":2000,"height":1125,"caption":"Terrasse avec coin salon et miroir d’eau","category":"Terrasses"},{"src":"assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/outdoor-pool-sea-edge-960.webp","alt":"Photographie d’une piscine extérieure à débordement vers une plage, avec des transats et des parasols sur un deck en pierre, et le bâtiment en gradins à côté","width":2000,"height":1125,"caption":"La piscine extérieure","category":"Équipements"},{"src":"assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/entrance-walkway-green-wall-960.webp","alt":"Photographie d’une allée d’entrée au sol en bois le long d’un mur végétal et d’un canal d’eau en pierre, menant à un ascenseur","width":2000,"height":1125,"caption":"L’allée d’entrée","category":"Extérieurs"},{"src":"assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/kitchen-and-dining-sea-view-960.webp","alt":"Photographie d’une cuisine ouverte meublée avec un îlot en pierre noire, une table à manger avec des chaises orange et une baie vitrée sur une terrasse et la mer","width":2000,"height":1125,"caption":"Cuisine et salle a manger","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-seafront-residences/media/living-room-terrace-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/living-room-terrace-view-960.webp","alt":"Photographie d’un salon meublé avec un canapé, une table ronde au plateau en marbre et une baie vitrée coulissante sur une terrasse avec vue sur la mer","width":2000,"height":1333,"caption":"Salon ouvert sur la terrasse","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/bedroom-bay-view-960.webp","alt":"Photographie d’une chambre meublée avec une porte vitrée coulissante sur une terrasse avec un petit bassin et vue sur la baie","width":2000,"height":1125,"caption":"Une chambre sur la baie","category":"Chambres"},{"src":"assets/liora/projects/estepona-seafront-residences/media/bedroom-terrace-sea-view.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/bedroom-terrace-sea-view-960.webp","alt":"Photographie d’une chambre meublée avec un mur capitonné, un banc rembourré et des portes vitrées coulissantes sur une terrasse et la mer","width":2000,"height":1125,"caption":"Une chambre avec terrasse","category":"Chambres"},{"src":"assets/liora/projects/estepona-seafront-residences/media/main-bedroom-terrace-sea.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/main-bedroom-terrace-sea-960.webp","alt":"Photographie d’une chambre meublée avec un caisson lumineux au plafond, un panneau rond en pierre derrière le lit et des portes vitrées sur une terrasse face à la mer","width":2000,"height":1333,"caption":"La chambre principale","category":"Chambres"},{"src":"assets/liora/projects/estepona-seafront-residences/media/indoor-pool.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/indoor-pool-960.webp","alt":"Photographie d’une piscine intérieure dans une longue salle avec mosaïque, transats, un hammam vitré et un mur de fenêtres donnant sur un jardin de galets","width":2000,"height":1125,"caption":"La piscine intérieure","category":"Équipements"},{"src":"assets/liora/projects/estepona-seafront-residences/media/gym.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/gym-960.webp","alt":"Photographie d’une salle de sport avec un tapis de course, des vélos d’appartement, des bancs de musculation et un râtelier de poids, avec une baie vitrée sur la végétation","width":2000,"height":1125,"caption":"La salle de sport","category":"Équipements"},{"src":"assets/liora/projects/estepona-seafront-residences/media/steam-room.jpg","webp":"assets/liora/projects/estepona-seafront-residences/media/steam-room-960.webp","alt":"Photographie d’une salle de vapeur au plafond voûté avec un banc maçonné, vue à travers une vitre depuis la salle de la piscine intérieure","width":2000,"height":1333,"caption":"Une salle de vapeur à côté de la piscine intérieure","category":"Équipements"},{"src":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan.jpg","webp":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-apartment-plan-960.webp","alt":"Plan de l’appartement AT-01 : séjour, salle à manger et cuisine, trois chambres, trois salles de bain, des toilettes, une buanderie et deux terrasses","width":2000,"height":1414,"caption":"Appartement AT-01","category":"Plans"},{"src":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-spa-and-parking-levels.jpg","webp":"assets/liora/projects/estepona-seafront-residences/floorplans/at-01-spa-and-parking-levels-960.webp","alt":"Plans des niveaux -3 et -2 avec la piscine intérieure, la salle de sport, le sauna, le hammam et le vestiaire, les places de parking et le cellier de l’appartement AT-01","width":2000,"height":1414,"caption":"Niveaux -3 et -2 : spa, parking et cellier","category":"Plans"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-estepona-seafront-residences.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Seafront%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Seafront Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

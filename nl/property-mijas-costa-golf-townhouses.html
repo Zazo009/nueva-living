@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -152,70 +153,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn beschikbaar?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -300,7 +237,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Mijas Costa Golf Townhouses"
   data-project-message="Hallo Nueva Living, ik wil graag informatie over Mijas Costa Golf Townhouses."
@@ -457,356 +394,116 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Mijas Costa Golf Townhouses">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-mijas-costa-golf-townhouses.html#top">Mijas Costa Golf Townhouses<span>Vanaf € 891.000 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-mijas-costa-golf-townhouses.html#overview">Overzicht</a><a href="nl/property-mijas-costa-golf-townhouses.html#availability">Prijzen</a><a href="nl/property-mijas-costa-golf-townhouses.html#specs">Afwerking</a><a href="nl/property-mijas-costa-golf-townhouses.html#gallery">Galerij</a><a href="nl/property-mijas-costa-golf-townhouses.html#location">Locatie</a><a href="nl/property-mijas-costa-golf-townhouses.html#onsite">Op het terrein</a><a href="nl/property-mijas-costa-golf-townhouses.html#view">Onze kijk</a><a href="nl/property-mijas-costa-golf-townhouses.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Mijas Costa Golf Townhouses">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.jpg" alt="Foto van het gemeenschappelijke zwembad op de voorgrond en daarachter, achter een gabionenmuur, een rij tweelaagse woningen met luifels van latten en glazen balustrades, onder een heldere blauwe lucht" width="1920" height="1281" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.jpg" alt="Foto van het gemeenschappelijke zwembad op de voorgrond en daarachter, achter een gabionenmuur, een rij tweelaagse woningen met luifels van latten en glazen balustrades, onder een heldere blauwe lucht" width="1920" height="1281" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">1 van de 80 beschikbaar</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Mijas Costa Golf <em>Townhouses</em></span>
-            <span class="hero-title-context">Rijwoning · Mijas Costa</span>
-          </h1>
-          <p class="hero-positioning">Er staat één woning met drie slaapkamers vermeld in een project van 80 rijwoningen met drie en vier slaapkamers, in eerstelijns golf in Mijas Costa: 170,90 m² voor € 891.000. Het verkoopportaal vermeldt het project als gebouwd. De andere 79 woningen worden hier niet aangeboden.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-mijas-costa-golf-townhouses.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=mijas-costa-golf-townhouses">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-mijas-costa-golf-townhouses.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Mijas Costa</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 891.000</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Rijwoning</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Afgerond</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-mijas-costa-golf-townhouses.html#media">Media</a>
-        <a href="nl/property-mijas-costa-golf-townhouses.html#location">Locatie</a>
-        <a href="nl/property-mijas-costa-golf-townhouses.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-mijas-costa-golf-townhouses.html#overview">Overzicht</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#residences">Woningen</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#quality-specifications">Afwerking</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#calculator">Financiering</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#amenities">Voorzieningen</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#why-this-project">Waarom</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#architecture">Architectuur</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#faq">FAQ</a>
-          <a href="nl/property-mijas-costa-golf-townhouses.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>3 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Opgegeven oppervlakte</span><strong>170,90 m²</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>1 van de 80 beschikbaar</strong></div>
-          <div class="quick-fact"><span>Project</span><strong>80 rijwoningen</strong></div>
-          <div class="quick-fact"><span>Hier vermeld</span><strong>1 woning</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tachtig rijwoningen, <em>één hier vermeld</em></h2>
-          <p class="project-lead">Deze pagina vermeldt één woning: een woning met drie slaapkamers van 170,90 m² voor € 891.000, referentie EH-20. Ze maakt deel uit van een project van 80 rijwoningen met drie en vier slaapkamers in Mijas Costa, in eerstelijns golf. De andere woningen van het project worden hier niet aangeboden, en we hebben van hen geen oppervlakte, prijs of plattegrond.</p>
-          <p class="project-lead">Het verkoopportaal vermeldt het project als gebouwd, en de foto’s die wij hebben tonen afgewerkte gebouwen en een gemeenschappelijk zwembad. Het infoblad van de ontwikkelaar geeft de start van de bouw in K3 2022 en het einde in K3 2024, en zegt dat de datum in de onderhandse koopovereenkomst voorrang heeft.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Het project <em>in foto’s</em></h2>
-          </div>
-          <p class="project-lead">Foto’s van de afgewerkte gebouwen, het gemeenschappelijke zwembad, de tuinen en de entree. De documenten die wij hebben bevatten geen beeld van het interieur van een woning en geen plattegrond van de vermelde woning.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Bekijk 4 afbeeldingen in Voorzieningen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.jpg" alt="Foto van het gemeenschappelijke zwembad op de voorgrond en daarachter, achter een gabionenmuur, een rij tweelaagse woningen met luifels van latten en glazen balustrades, onder een heldere blauwe lucht" width="1920" height="1281" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Voorzieningen</small>
-                <strong>Het gemeenschappelijke zwembad en een rij woningen</strong>
-                <span class="project-media-card-cta">4 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Bekijk 5 afbeeldingen in Locatie">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course.jpg" alt="Luchtfoto van de rijen witte woningen met een plat dak langs de rand van een golfbaan, met de zee erachter en de kust rechts" width="1920" height="1079" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Locatie</small>
-                <strong>Het project naast de golfbaan</strong>
-                <span class="project-media-card-cta">5 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 8 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies.jpg" alt="Foto van het uiteinde van een rij tweelaagse woningen met een glazen schuifwand op de begane grond, een tuin met haag achter een gaashek, een gabionen keermuur en luifels van gouden latten" width="1920" height="1281" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Tuinen op de begane grond en luifels</strong>
-                <span class="project-media-card-cta">8 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 17 afbeeldingen</button>
-          <p class="media-note">De foto’s tonen het project, niet de vermelde woning. Sommige beelden tonen gemeubileerde terrassen en, buiten het project, percelen waar nog wordt gebouwd. De documenten van de ontwikkelaar vermelden dat zijn plattegronden en beelden indicatief zijn en niet bindend.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Aan de kust van Mijas Costa, <em>naast een golfbaan</em></h2>
-          <p class="project-lead">Het project ligt in Mijas, in de provincie Málaga. De kaart van het infoblad plaatst het aan de kust van Mijas Costa, bij de urbanisatie El Chaparral, en noemt de golfclub El Chaparral als verkoopkantoor. De documenten noemen geen afstanden of reistijden. Het infoblad verwijst naar een Google Maps-punt zonder te zeggen of dat de kavel of het verkoopkantoor markeert, dus de kaart toont de omgeving, niet de kavel.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-mijas-costa-golf-townhouses" data-locmap='{&quot;site&quot;:[36.5139,-4.6602],&quot;sea&quot;:[36.4869,-4.6602],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;12 km · 19 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Fuengirola&quot;,&quot;sub&quot;:&quot;12 km · 17 min&quot;},{&quot;ll&quot;:[36.50609,-4.66035],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;5,3 km · 10 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Cabopino&quot;,&quot;sub&quot;:&quot;11 km · 15 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Mijas Costa Golf Townhouses"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Mijas Costa Golf Townhouses</h3>
-            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>5,3 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>19 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>17 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Cabopino</span>
-              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>15 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan La Cala</span>
-              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>19 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Málaga</span>
-              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>38 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Eén woning, <em>die hier vermeld staat</em></h2>
-          <p class="project-lead">Het infoblad beschrijft het project als 80 rijwoningen met drie en vier slaapkamers. Het verkoopportaal vermeldt één woning, EH-20, met drie slaapkamers. Geen enkel document dat wij hebben zegt van welk type ze is, of geeft de verdieping, de terrassen of de tuin.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Woning EH-20</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Plattegronden aanvragen</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>De rest van het project</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Plattegronden aanvragen</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Technische omschrijving</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarmee de woningen <em>gebouwd zijn</em></h2>
-          <p class="project-lead">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Vloeren, wanden en plafonds<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gerectificeerde porseleinen tegels van 75 x 75 cm in de hele woning, met witte houten plinten, en antislip tegels van hetzelfde formaat op de terrassen. De badkamervloeren zijn in hetzelfde formaat betegeld, in badkamers 2 en 3 in een ander model.</li>
-              <li>In de badkamers gerectificeerde tegels van witte massa van 40 x 120 cm op de douche- en wastafelwanden, met gladde verf op de rest, en porseleinen tegels van 30 x 90 cm bij de wastafel in het gastentoilet. Verlaagde plafonds van gipsplaat in de hele woning, met een omlopende verdieping in de woonkamer en de hoofdslaapkamer, met verf in zachte kleuren op de wanden en wit op de plafonds.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Deuren en kasten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een veiligheidsvoordeur met groothoekspion, gladde gelakte massief houten binnendeuren met een akoestische rubberen afdichting en verborgen scharnieren, en inbouwkasten in dezelfde afwerking als de deuren, met een bagageplank en een kleerstang.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Keuken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een eilandkeuken die gemeubileerd wordt opgeleverd, met ruime bovenkasten en onderkasten in een laminaatafwerking en een werkblad van Silestone-kwarts met achterwand van hetzelfde materiaal.</li>
-              <li>Een grote roestvrijstalen onderbouwspoelbak van Franke met uittrekbare kraan en Siemens-apparatuur: een geïntegreerde afzuigkap, een oven, een magnetron, een inductiekookplaat, een vrijstaande wasmachine, een inbouwvaatwasser en een inbouwkoel-vriescombinatie.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badkamers<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>In de hoofdbadkamer een dubbele wastafel van Porcelanosa van 120 x 50 cm of 150 x 50 cm, afhankelijk van het type woning, op een onderkast, met een douche op een mineraalhars douchebak, een inbouwthermostaatkraan met plafondregendouche en handdouche, een vast douchescherm en een anti-condensspiegel.</li>
-              <li>Afhankelijk van het type woning heeft badkamer 2 een enkele wastafel en een douche of een bad, badkamer 3 een wastafel en een bad, en kan er een gastentoilet zijn. Alle toiletten zijn hangend, met een inbouwreservoir.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimaat en installaties<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Airconditioning voor koelen en verwarmen via kanalen die in het verlaagde plafond verborgen zijn, met uitblaasroosters in de woonkamer en de slaapkamer en een digitale thermostaat, warm water via een aerothermisch systeem en elektrische vloerverwarming in de badkamers.</li>
-              <li>Stopcontacten met USB-lader in de woonkamer en de slaapkamers, ledverlichting in de keuken en de badkamers, een kleurenvideofoon, tv-, radio- en telefoonaansluitingen, eenvoudige domotica, waterkranen op de terrassen en de privébuitenruimtes en een parkeerplaats met laadpunt voor elektrische voertuigen voor elke woning.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Buitenruimte en gemeenschappelijke delen<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gemeenschappelijke delen beplant met inheemse soorten die weinig water nodig hebben en met automatische druppelirrigatie, kunstgras in de gemeenschappelijke tuinen en de privétuinen, een gemeenschappelijk zwembad voor volwassenen, groenzones en een zonnebadzone, een controlepost en gesloten televisiecircuit.</li>
-              <li>Een voertuigtoegang met een automatische poort met afstandsbediening en liften met automatische deuren in het complex. De specificatie zegt dat de gemeenschappelijke delen zo zijn ontworpen dat de servicekosten zo laag mogelijk blijven; een bedrag noemt ze niet.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Bron: de kwaliteitsspecificatie van de ontwikkelaar voor dit project, in het Spaans en het Engels, die geen gedrukte datum draagt. Daarin staat dat de referenties en beelden indicatief zijn, dat de ontwikkelaar materialen om technische of juridische redenen mag wijzigen en dat elke vervanging van gelijke of hogere kwaliteit zal zijn. Ze beschrijft de woningen in het algemeen en zegt niet van welk type EH-20 is, dus wat van het type afhangt, is als zodanig aangeduid.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Eén woning <em>momenteel vermeld</em></h2>
-          <p class="project-lead">EH-20 is de enige woning die wij in dit project van 80 vermelden. De oppervlakte en de prijs zijn die van de beschikbaarheidstabel in het verkoopportaal, geraadpleegd op 18 oktober 2026. De tabel geeft geen verdieping, plattegrond of terrasoppervlakte, en zegt niet of de prijs btw bevat.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind.jpg" alt="Foto van het gemeenschappelijke zwembad met trappen en leuningen en daarachter een rij tweelaagse woningen achter een lage stenen muur en hoge palmen, onder een heldere hemel" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>17 foto's</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>1</strong></div>
-            <div><span>Startprijs</span><strong>€ 891.000</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 891.000</strong></div>
-            <div><span>Gecontroleerd</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 1 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Beschikbare woningen bij Mijas Costa Golf Townhouses</caption>
-                <thead><tr><th scope="col">Referentie</th><th scope="col">Slaapkamers</th><th scope="col">Oppervlakte</th><th scope="col">Prijs</th><th scope="col">Status</th></tr></thead>
-                <tbody>
-              <tr data-beds="3" data-price="891000">
-                <td data-label="Referentie"><strong>EH-20</strong></td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte">170,90 m²</td>
-                <td data-label="Prijs"><strong>€ 891.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="nl/property-mijas-costa-golf-townhouses.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-          <p class="availability-source-note">De oppervlakte en de prijs zijn overgenomen uit de beschikbaarheidstabel in het verkoopportaal, geraadpleegd op 18 oktober 2026. Die vermeldt één woning, EH-20, met drie slaapkamers, een oppervlakte van 170,90 m² en een prijs van € 891.000. Ze zegt niet of de oppervlakte bebouwd of binnen is, noch of de prijs btw bevat; het infoblad vermeldt de betaling bij oplevering plus btw. Geen enkel document dat wij hebben geeft de verdieping, het type of de plattegrond van EH-20. Het infoblad beschrijft het project als 80 rijwoningen met drie en vier slaapkamers, en de andere 79 woningen worden hier niet aangeboden.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Costa%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Costa Golf Townhouses" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Mijas Costa Golf</span> <span class="h1-b">Townhouses</span></h1>
+        <p class="hero-by">Er staat één woning met drie slaapkamers vermeld in een project van 80 rijwoningen met drie en vier slaapkamers, in eerstelijns golf in Mijas Costa: 170,90 m² voor € 891.000.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 891.000</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>3</dd><dd class="sub"><span>Rijwoning</span></dd></div><div><dt>Oplevering</dt><dd>Sleutelklaar</dd><dd class="sub">Afgebouwd; vergunning eerste bewoning nog te bevestigen</dd></div><div><dt>Nog beschikbaar</dt><dd>1 van 80</dd><dd class="sub">Gecontroleerd op oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Costa%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Costa Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Deze pagina vermeldt één woning: een woning met drie slaapkamers van 170,90 m² voor € 891.000, referentie EH-20. Ze maakt deel uit van een project van 80 rijwoningen met drie en vier slaapkamers in Mijas Costa, in eerstelijns golf. De andere woningen van het project worden hier niet aangeboden, en we hebben van hen geen oppervlakte, prijs of plattegrond.</p>
+    <p class="lede-2">Het verkoopportaal vermeldt het project als gebouwd, en de foto’s die wij hebben tonen afgewerkte gebouwen en een gemeenschappelijk zwembad. Het infoblad van de ontwikkelaar geeft de start van de bouw in K3 2022 en het einde in K3 2024, en zegt dat de datum in de onderhandse koopovereenkomst voorrang heeft.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Tweelaagse rijen, luifels van latten en stenen muren</span></summary><p>Op de foto’s vormen de woningen witte, tweelaagse rijen met een plat dak, met luifels en schermen van gouden latten, glazen balustrades op de bovenste terrassen en gabionen keermuren tussen de terrassen en de paden.</p><p>De kwaliteitsspecificatie zegt dat haar referenties en beelden indicatief zijn en dat de ontwikkelaar materialen om technische of juridische redenen mag wijzigen en vervangen door andere van gelijke of hogere kwaliteit.</p><ul><li>Structuur: Gewapend beton volgens de geldende regelgeving en de Spaanse technische bouwcode, op een fundering die is ontworpen op basis van het geotechnisch onderzoek.</li><li>Gevel: Meerlaags metselwerk met isolatie aan de binnenzijde, een spouw en een bekleding van gipsplaat, afgewerkt met een pleisterlaag en bekleding of panelen.</li><li>Beglazing: Donker gelakte aluminium kozijnen met thermische onderbreking en dubbele beglazing van het type Climalit met een low-e-coating, schuifdeuren van de woonkamers en slaapkamers naar de terrassen en gemotoriseerde aluminium rolluiken, met beveiligingsrolluiken op de begane grond.</li><li>Daken: Omgekeerde platte daken, waterdicht en geïsoleerd, met grind op de niet-begaanbare delen en antislip keramische vloeren op de begaanbare delen.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 891.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>1 van 80 woningen</span><small>Gecontroleerd op oktober 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Rijwoning</span></dd></div><div><dt>Oppervlakten</dt><dd><span>171 m²</span></dd></div><div><dt>Oplevering</dt><dd><span>Sleutelklaar</span></dd></div><div><dt>Vergunning</dt><dd><span>Afgebouwd</span><small>Vergunning eerste bewoning nog te bevestigen</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Niet van toepassing</span><small>Afgebouwd</small></dd></div><div><dt>Parkeren</dt><dd><span>Parkeergelegenheid</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">EH-20 is de enige woning die wij in dit project van 80 vermelden. De oppervlakte en de prijs zijn die van de beschikbaarheidstabel in het verkoopportaal, geraadpleegd op 18 oktober 2026. De tabel geeft geen verdieping, plattegrond of terrasoppervlakte, en zegt niet of de prijs btw bevat. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    <div class="scarcity" role="img" aria-label="1 van 80 nog te koop"><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>1 van 80 nog te koop</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="891000" data-size="170.9" data-ppm="5214" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">EH-20</span><span class="u-loc"></span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">171 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 891.000</td>
+            <td data-label="Per m²" class="num">€ 5.214</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Eén woning, die hier vermeld staat</span></summary><p>Het infoblad beschrijft het project als 80 rijwoningen met drie en vier slaapkamers. Het verkoopportaal vermeldt één woning, EH-20, met drie slaapkamers. Geen enkel document dat wij hebben zegt van welk type ze is, of geeft de verdieping, de terrassen of de tuin.</p><div class="res-types"><div class="res-type"><h3>Woning EH-20</h3><ul><li>Drie slaapkamers, 170,90 m², € 891.000.</li><li>Het portaal geeft één oppervlakte en zegt niet of die bebouwd of binnen is, noch of terrassen of tuin zijn inbegrepen.</li></ul></div><div class="res-type"><h3>De rest van het project</h3><ul><li>Het infoblad vermeldt 80 woningen met drie en vier slaapkamers. De andere 79 worden hier niet aangeboden, en we hebben van hen geen oppervlakte, prijs of plattegrond.</li><li>Als u een woning met vier slaapkamers of een ander perceel zoekt, vraag het ons en we vertellen u wat de ontwikkelaar momenteel kan aanbieden.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -866,418 +563,224 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Buitenzwembad</h3>
-              <p class="amenity-note">In de open lucht</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Afwerking</h2>
+    <p class="sec-sub">De eigen kwaliteitsspecificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
+    <div class="tabs" role="tablist" aria-label="Afwerking"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Vloeren, wanden en plafonds</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Deuren en kasten</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Keuken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Badkamers</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Klimaat en installaties</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Buitenruimte en gemeenschappelijke delen</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Gerectificeerde porseleinen tegels van 75 x 75 cm in de hele woning, met witte houten plinten, en antislip tegels van hetzelfde formaat op de terrassen. De badkamervloeren zijn in hetzelfde formaat betegeld, in badkamers 2 en 3 in een ander model.</li><li>In de badkamers gerectificeerde tegels van witte massa van 40 x 120 cm op de douche- en wastafelwanden, met gladde verf op de rest, en porseleinen tegels van 30 x 90 cm bij de wastafel in het gastentoilet. Verlaagde plafonds van gipsplaat in de hele woning, met een omlopende verdieping in de woonkamer en de hoofdslaapkamer, met verf in zachte kleuren op de wanden en wit op de plafonds.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Een veiligheidsvoordeur met groothoekspion, gladde gelakte massief houten binnendeuren met een akoestische rubberen afdichting en verborgen scharnieren, en inbouwkasten in dezelfde afwerking als de deuren, met een bagageplank en een kleerstang.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Een eilandkeuken die gemeubileerd wordt opgeleverd, met ruime bovenkasten en onderkasten in een laminaatafwerking en een werkblad van Silestone-kwarts met achterwand van hetzelfde materiaal.</li><li>Een grote roestvrijstalen onderbouwspoelbak van Franke met uittrekbare kraan en Siemens-apparatuur: een geïntegreerde afzuigkap, een oven, een magnetron, een inductiekookplaat, een vrijstaande wasmachine, een inbouwvaatwasser en een inbouwkoel-vriescombinatie.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>In de hoofdbadkamer een dubbele wastafel van Porcelanosa van 120 x 50 cm of 150 x 50 cm, afhankelijk van het type woning, op een onderkast, met een douche op een mineraalhars douchebak, een inbouwthermostaatkraan met plafondregendouche en handdouche, een vast douchescherm en een anti-condensspiegel.</li><li>Afhankelijk van het type woning heeft badkamer 2 een enkele wastafel en een douche of een bad, badkamer 3 een wastafel en een bad, en kan er een gastentoilet zijn. Alle toiletten zijn hangend, met een inbouwreservoir.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Airconditioning voor koelen en verwarmen via kanalen die in het verlaagde plafond verborgen zijn, met uitblaasroosters in de woonkamer en de slaapkamer en een digitale thermostaat, warm water via een aerothermisch systeem en elektrische vloerverwarming in de badkamers.</li><li>Stopcontacten met USB-lader in de woonkamer en de slaapkamers, ledverlichting in de keuken en de badkamers, een kleurenvideofoon, tv-, radio- en telefoonaansluitingen, eenvoudige domotica, waterkranen op de terrassen en de privébuitenruimtes en een parkeerplaats met laadpunt voor elektrische voertuigen voor elke woning.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Gemeenschappelijke delen beplant met inheemse soorten die weinig water nodig hebben en met automatische druppelirrigatie, kunstgras in de gemeenschappelijke tuinen en de privétuinen, een gemeenschappelijk zwembad voor volwassenen, groenzones en een zonnebadzone, een controlepost en gesloten televisiecircuit.</li><li>Een voertuigtoegang met een automatische poort met afstandsbediening en liften met automatische deuren in het complex. De specificatie zegt dat de gemeenschappelijke delen zo zijn ontworpen dat de servicekosten zo laag mogelijk blijven; een bedrag noemt ze niet.</li></ul>
+      
+    </div>
+    <p class="caption">Bron: de kwaliteitsspecificatie van de ontwikkelaar voor dit project, in het Spaans en het Engels, die geen gedrukte datum draagt. Daarin staat dat de referenties en beelden indicatief zijn, dat de ontwikkelaar materialen om technische of juridische redenen mag wijzigen en dat elke vervanging van gelijke of hogere kwaliteit zal zijn. Ze beschrijft de woningen in het algemeen en zegt niet van welk type EH-20 is, dus wat van het type afhangt, is als zodanig aangeduid.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="2" aria-label="Tuinen op de begane grond en luifels"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies.jpg" alt="Foto van het uiteinde van een rij tweelaagse woningen met een glazen schuifwand op de begane grond, een tuin met haag achter een gaashek, een gabionen keermuur en luifels van gouden latten" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="0" aria-label="Het gemeenschappelijke zwembad en een rij woningen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.jpg" alt="Foto van het gemeenschappelijke zwembad op de voorgrond en daarachter, achter een gabionenmuur, een rij tweelaagse woningen met luifels van latten en glazen balustrades, onder een heldere blauwe lucht" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Het project naast de golfbaan"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course.jpg" alt="Luchtfoto van de rijen witte woningen met een plat dak langs de rand van een golfbaan, met de zee erachter en de kust rechts" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="De entree"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames.jpg" alt="Foto van de entree, omlijst door portalen van latten en gabionenmuren, met daarachter een trap en een glazen lift en erboven rijen woningen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Het gemeenschappelijke zwembad"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind-640.webp 640w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind-960.webp 960w, assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind.jpg" alt="Foto van het gemeenschappelijke zwembad met trappen en leuningen en daarachter een rij tweelaagse woningen achter een lage stenen muur en hoge palmen, onder een heldere hemel" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 17 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Amenities">Voorzieningen (4)</button><button type="button" data-open-cat="Location">Locatie (5)</button><button type="button" data-open-cat="Exteriors">Exterieur (8)</button></div>
+    
+    <p class="caption">De foto’s tonen het project, niet de vermelde woning. Sommige beelden tonen gemeubileerde terrassen en, buiten het project, percelen waar nog wordt gebouwd. De documenten van de ontwikkelaar vermelden dat zijn plattegronden en beelden indicatief zijn en niet bindend.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">Het project ligt in Mijas, in de provincie Málaga. De kaart van het infoblad plaatst het aan de kust van Mijas Costa, bij de urbanisatie El Chaparral, en noemt de golfclub El Chaparral als verkoopkantoor. De documenten noemen geen afstanden of reistijden. Het infoblad verwijst naar een Google Maps-punt zonder te zeggen of dat de kavel of het verkoopkantoor markeert, dus de kaart toont de omgeving, niet de kavel.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-mijas-costa-golf-townhouses" data-locmap='{&quot;site&quot;:[36.5139,-4.6602],&quot;sea&quot;:[36.4869,-4.6602],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;12 km · 19 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Fuengirola&quot;,&quot;sub&quot;:&quot;12 km · 17 min&quot;},{&quot;ll&quot;:[36.50609,-4.66035],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;5,3 km · 10 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Cabopino&quot;,&quot;sub&quot;:&quot;11 km · 15 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Mijas Costa Golf Townhouses"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Mijas Costa Golf Townhouses</h3>
+            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>5,3 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Buiten</span>
-              <h3 class="amenity-name">Eerstelijns golf</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>19 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Buiten</span>
-              <h3 class="amenity-name">Privétuin</h3>
-              <p class="amenity-note">Omsloten en eigen aan de woning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>17 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Buiten</span>
-              <h3 class="amenity-name">Aangelegde gemeenschappelijke tuinen</h3>
-              <p class="amenity-note">Beplante gemeenschappelijke grond</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Cabopino</span>
+              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>15 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Parkeergelegenheid</h3>
-              <p class="amenity-note">Een plek voor de auto</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan La Cala</span>
+              <span class="locmap-row-figure"><bdi>11 km</bdi> <em><bdi>19 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Laadpunt</h3>
-              <p class="amenity-note">Een punt voor de auto</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Málaga</span>
+              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>38 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Uitgeruste keuken</h3>
-              <p class="amenity-note">Ingericht en voorzien van apparatuur</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Vloerverwarming</h3>
-              <p class="amenity-note">Warmte vanuit de vloer</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Airconditioning</h3>
-              <p class="amenity-note">Koelen en verwarmen via kanalen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Warm water via warmtepomp</h3>
-              <p class="amenity-note">Warm water uit de lucht</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Domotica</h3>
-              <p class="amenity-note">Verlichting en klimaat via de telefoon</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Diensten</span>
-              <h3 class="amenity-name">Besloten complex met camerabewaking</h3>
-              <p class="amenity-note">Gecontroleerde toegang</p>
-            </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Voorzieningen</th><td>Omschreven als dichtbij; geen afstanden vermeld</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">Wat de documenten van de ontwikkelaar over de gemeenschappelijke delen vermelden en wat de foto’s tonen.</p>
+    <div class="life-panels"><div><h3>Het zwembad en de tuinen</h3><p>Een gemeenschappelijk zwembad voor volwassenen, groenzones en een zonnebadzone, beplant met inheemse soorten die weinig water nodig hebben en voorzien van kunstgras om het onderhoud te beperken. Het infoblad vermeldt een buitenzwembad en privétuinen.</p></div><div><h3>Golf</h3><p>Het infoblad vermeldt het project als eerstelijns golf, en de foto’s tonen de rijen woningen langs de rand van een golfbaan. Het noemt de baan niet en geeft geen afstand.</p></div><div><h3>De sociale club</h3><p>Het infoblad vermeldt toegang tot een sociale club. Meer zegt het niet: wat die omvat, of er een bijdrage is en waar hij ligt.</p></div><div><h3>Beveiliging en toegang</h3><p>Een controlepost, een gesloten televisiecircuit en een voertuigtoegang met een automatische poort met afstandsbediening.</p></div></div>
+    <ul class="amen-top"><li>Eerstelijns golf</li><li>Buitenzwembad</li><li>Privétuin</li><li>Aangelegde gemeenschappelijke tuinen</li><li>Besloten complex met camerabewaking</li><li>Parkeergelegenheid</li></ul>
+    <details class="amen-all"><summary>Alle 12 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">1</span></h3><ul><li>Buitenzwembad</li></ul></div><div><h3>Buiten<span class="count">3</span></h3><ul><li>Eerstelijns golf</li><li>Privétuin</li><li>Aangelegde gemeenschappelijke tuinen</li></ul></div><div><h3>Dagelijks<span class="count">7</span></h3><ul><li>Parkeergelegenheid</li><li>Laadpunt</li><li>Uitgeruste keuken</li><li>Vloerverwarming</li><li>Airconditioning</li><li>Warm water via warmtepomp</li><li>Domotica</li></ul></div><div><h3>Diensten<span class="count">1</span></h3><ul><li>Besloten complex met camerabewaking</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een afgewerkte woning met drie slaapkamers zoeken in Mijas Costa, naast een golfbaan, en die vóór het reserveren het type woning, de btw en de vergunningen bevestigen.</span></li><li><b>Wat het anders maakt</b><span>Het infoblad vermeldt privétuinen, een buitenzwembad, toegang tot een sociale club en vloerverwarming in de badkamers, en de kwaliteitsspecificatie vermeldt een gemeubileerde eilandkeuken met Siemens-apparatuur en een parkeerplaats met laadpunt voor elke woning.</span></li><li><b>Waarom de locatie ertoe doet</b><span>Het infoblad vermeldt de ligging als eerstelijns golf, en de kaart plaatst het project aan de kust van Mijas Costa, bij de urbanisatie El Chaparral. Er worden geen afstanden genoemd.</span></li><li><b>Waarom beschikbaarheid checken</b><span>Eén van de 80 woningen wordt momenteel aangeboden, voor € 891.000. Nueva Living bevestigt prijs en beschikbaarheid opnieuw bij de ontwikkelaar vóór elke bezichtiging.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Onderhandse koopovereenkomst</b><span>De onderhandse koopovereenkomst (CPCV) wordt ondertekend met een betaling van € 9.000. Het infoblad zegt dat de betaalde bedragen gewaarborgd zijn door een bankgarantie, en zegt niet of de € 9.000 btw bevatten.</span></li><li><b>Bij oplevering</b><span>Het saldo is 100% van de prijs plus btw, min de reeds betaalde € 9.000, binnen 45 dagen. Het infoblad zegt niet vanaf welke datum de 45 dagen lopen.</span></li><li><b>Btw</b><span>Het infoblad vermeldt de betaling bij oplevering plus btw, wat erop wijst dat de genoemde prijs exclusief btw is. Het verkoopportaal zegt dit niet, dus bevestigen we het schriftelijk.</span></li><li><b>Wat de prijs omvat</b><span>De documenten zeggen niet of een parkeerplaats of een berging is inbegrepen. Ze vermelden een parkeerplaats met laadpunt voor elke woning en een gemeubileerde keuken met apparatuur.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vergunningen</b><span>Het infoblad vermeldt de bouwvergunning als verleend op 10 juni 2022 en laat de vergunning voor eerste ingebruikname leeg. We vragen om een kopie van beide en om het opleveringscertificaat.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De data</b><span>Het infoblad is een vroeg document: het kondigt de bouw nog als begonnen aan, met de start in K3 2022 en het einde in K3 2024, en zegt dat de datum in het contract voorrang heeft. Het verkoopportaal vermeldt het project als gebouwd. We vragen om de contractuele datum en om bevestiging dat de woning klaar is om te betrekken.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De woning</b><span>Het portaal geeft één oppervlakte en zegt niet of die bebouwd of binnen is, noch het type woning, de verdieping, de terrassen of de tuin. We vragen om de plattegrond van EH-20 en de oppervlakten die het contract gebruikt.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Parkeren en berging</b><span>De kwaliteitsspecificatie vermeldt een parkeerplaats met laadpunt voor elke woning. De documenten zeggen niet waar die ligt, of er een berging is, of een van beide in de prijs zit. We vragen het schriftelijk.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>Wat wij hebben: het infoblad, de kwaliteitsspecificatie, het situatieplan en de beschikbaarheidstabel.</p></li><li><h3>Vergelijk de opties</h3><p>Vergelijk het met de andere projecten in Mijas en Fuengirola die we beheren.</p></li><li><h3>Privébezichtiging</h3><p>Bekijk met ons de woning, de gemeenschappelijke delen en de golfbaan.</p></li><li><h3>Reserveren</h3><p>De onderhandse koopovereenkomst met een betaling van € 9.000, nadat we de vergunningen, de data, de oppervlakten en de bankgarantie schriftelijk hebben bevestigd.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Plattegronden<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Technische omschrijving</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Mijas Costa Golf</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn beschikbaar?</summary><p>Momenteel staat hier één woning vermeld: EH-20, met drie slaapkamers en 170,90 m², voor € 891.000. Het project heeft 80 rijwoningen, de andere 79 worden hier niet aangeboden.</p></details><details class="segment-faq-item"><summary>Is het project klaar?</summary><p>Het verkoopportaal vermeldt het als gebouwd, en de foto’s die wij hebben tonen afgewerkte gebouwen en een zwembad. Het infoblad geeft het einde van de bouw in K3 2024 en laat de vergunning voor eerste ingebruikname leeg. We vragen om de vergunning en het opleveringscertificaat.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>De beschikbaarheidstabel zegt dit niet. Het infoblad vermeldt de betaling bij oplevering plus btw, wat wijst op een prijs exclusief btw. We bevestigen de belastingen en de aankoopkosten schriftelijk.</p></details><details class="segment-faq-item"><summary>Wat is het betalingsschema?</summary><p>Een betaling van € 9.000 bij de onderhandse koopovereenkomst en daarna het saldo van 100% plus btw, min die € 9.000, binnen 45 dagen. Het infoblad zegt dat de betaalde bedragen gewaarborgd zijn door een bankgarantie.</p></details><details class="segment-faq-item"><summary>Welke voorzieningen staan vermeld?</summary><p>Een buitenzwembad voor volwassenen, groenzones en een zonnebadzone, privétuinen, toegang tot een sociale club en een controlepost met gesloten televisiecircuit, in eerstelijns golf. Het infoblad vermeldt ook vloerverwarming in de badkamers.</p></details></div>
+    <details class="faq2-more"><summary>Alle vragen tonen (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Van welk type is EH-20?</summary><p>Geen enkel document zegt het. Het infoblad beschrijft het project als rijwoningen met drie en vier slaapkamers, en het portaal vermeldt EH-20 met drie slaapkamers.</p></details><details class="segment-faq-item"><summary>Zijn er plattegronden of beelden van het interieur?</summary><p>Niet in de documenten die wij hebben: het algemene plan van de ontwikkelaar toont de daken van de rijen en het zwembad, maar geen plattegrond van een woning, en de foto’s tonen alleen de buitenkant. We vragen de plattegrond van EH-20.</p></details></div></details>
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 891.000</p>
+      <p class="rail-note">Excl. btw. Nog 1 van 80 woningen · Gecontroleerd op oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Costa%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Costa Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Costa%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Costa Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Loop door de woning, langs het gemeenschappelijke zwembad en de entree en zie hoe de rijen naast de golfbaan liggen.</li><li><b>Op de plattegronden.</b> De plattegrond van EH-20 en de oppervlakten die het contract gebruikt, die de documenten die wij hebben niet bevatten.</li><li><b>Op papier.</b> De vergunningen, het opleveringscertificaat, de bankgarantie en het contract, voordat er iets wordt ondertekend.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Mijas Costa Golf Townhouses">
+        <input type="hidden" id="f-project" name="project" value="Mijas Costa Golf Townhouses">
+        <input type="hidden" name="preferred_area" value="Mijas Costa">
+        <input type="hidden" name="property_type_interest" value="Rijwoning">
+        <input type="hidden" name="budget_range" value="Vanaf € 891.000">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hallo Nueva Living, ik wil graag informatie over Mijas Costa Golf Townhouses." data-base="Hallo Nueva Living, ik wil graag informatie over Mijas Costa Golf Townhouses.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="EH-20">EH-20: € 891.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Mijas Costa Golf veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Eén afgewerkte woning met drie slaapkamers in eerstelijns golf in Mijas Costa, in een project van 80 rijwoningen dat hier verder niet wordt aangeboden.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een afgewerkte woning met drie slaapkamers zoeken in Mijas Costa, naast een golfbaan, en die vóór het reserveren het type woning, de btw en de vergunningen bevestigen.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>Het infoblad vermeldt privétuinen, een buitenzwembad, toegang tot een sociale club en vloerverwarming in de badkamers, en de kwaliteitsspecificatie vermeldt een gemeubileerde eilandkeuken met Siemens-apparatuur en een parkeerplaats met laadpunt voor elke woning.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>Het infoblad vermeldt de ligging als eerstelijns golf, en de kaart plaatst het project aan de kust van Mijas Costa, bij de urbanisatie El Chaparral. Er worden geen afstanden genoemd.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom beschikbaarheid checken</h3><p>Eén van de 80 woningen wordt momenteel aangeboden, voor € 891.000. Nueva Living bevestigt prijs en beschikbaarheid opnieuw bij de ontwikkelaar vóór elke bezichtiging.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">De voorwaarden zijn die van het infoblad van de ontwikkelaar, een vroeg document dat de bouw nog als begonnen aankondigt. We bevestigen de actuele bedragen en data schriftelijk voordat u reserveert.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Onderhandse koopovereenkomst</h3><p>De onderhandse koopovereenkomst (CPCV) wordt ondertekend met een betaling van € 9.000. Het infoblad zegt dat de betaalde bedragen gewaarborgd zijn door een bankgarantie, en zegt niet of de € 9.000 btw bevatten.</p></article>
-              <article class="why-point reveal-soft"><h3>Bij oplevering</h3><p>Het saldo is 100% van de prijs plus btw, min de reeds betaalde € 9.000, binnen 45 dagen. Het infoblad zegt niet vanaf welke datum de 45 dagen lopen.</p></article>
-              <article class="why-point reveal-soft"><h3>Btw</h3><p>Het infoblad vermeldt de betaling bij oplevering plus btw, wat erop wijst dat de genoemde prijs exclusief btw is. Het verkoopportaal zegt dit niet, dus bevestigen we het schriftelijk.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat de prijs omvat</h3><p>De documenten zeggen niet of een parkeerplaats of een berging is inbegrepen. Ze vermelden een parkeerplaats met laadpunt voor elke woning en een gemeubileerde keuken met apparatuur.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vergunningen</h3><p>Het infoblad vermeldt de bouwvergunning als verleend op 10 juni 2022 en laat de vergunning voor eerste ingebruikname leeg. We vragen om een kopie van beide en om het opleveringscertificaat.</p></article>
-              <article class="why-point reveal-soft"><h3>De data</h3><p>Het infoblad is een vroeg document: het kondigt de bouw nog als begonnen aan, met de start in K3 2022 en het einde in K3 2024, en zegt dat de datum in het contract voorrang heeft. Het verkoopportaal vermeldt het project als gebouwd. We vragen om de contractuele datum en om bevestiging dat de woning klaar is om te betrekken.</p></article>
-              <article class="why-point reveal-soft"><h3>De woning</h3><p>Het portaal geeft één oppervlakte en zegt niet of die bebouwd of binnen is, noch het type woning, de verdieping, de terrassen of de tuin. We vragen om de plattegrond van EH-20 en de oppervlakten die het contract gebruikt.</p></article>
-              <article class="why-point reveal-soft"><h3>Parkeren en berging</h3><p>De kwaliteitsspecificatie vermeldt een parkeerplaats met laadpunt voor elke woning. De documenten zeggen niet waar die ligt, of er een berging is, of een van beide in de prijs zit. We vragen het schriftelijk.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op oktober 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>De oppervlakte en de prijs zijn overgenomen uit de beschikbaarheidstabel in het verkoopportaal, geraadpleegd op 18 oktober 2026. Die vermeldt één woning, EH-20, met drie slaapkamers, een oppervlakte van 170,90 m² en een prijs van € 891.000. Ze zegt niet of de oppervlakte bebouwd of binnen is, noch of de prijs btw bevat; het infoblad vermeldt de betaling bij oplevering plus btw. Geen enkel document dat wij hebben geeft de verdieping, het type of de plattegrond van EH-20. Het infoblad beschrijft het project als 80 rijwoningen met drie en vier slaapkamers, en de andere 79 woningen worden hier niet aangeboden.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies.jpg" alt="Foto van het uiteinde van een rij tweelaagse woningen met een glazen schuifwand op de begane grond, een tuin met haag achter een gaashek, een gabionen keermuur en luifels van gouden latten" width="1920" height="1281" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tweelaagse rijen, <em>luifels van latten en stenen muren</em></h2>
-          <p>Op de foto’s vormen de woningen witte, tweelaagse rijen met een plat dak, met luifels en schermen van gouden latten, glazen balustrades op de bovenste terrassen en gabionen keermuren tussen de terrassen en de paden.</p>
-<p>De kwaliteitsspecificatie zegt dat haar referenties en beelden indicatief zijn en dat de ontwikkelaar materialen om technische of juridische redenen mag wijzigen en vervangen door andere van gelijke of hogere kwaliteit.</p>
-          <ul class="feature-list">
-            <li>Structuur — Gewapend beton volgens de geldende regelgeving en de Spaanse technische bouwcode, op een fundering die is ontworpen op basis van het geotechnisch onderzoek.</li>
-            <li>Gevel — Meerlaags metselwerk met isolatie aan de binnenzijde, een spouw en een bekleding van gipsplaat, afgewerkt met een pleisterlaag en bekleding of panelen.</li>
-            <li>Beglazing — Donker gelakte aluminium kozijnen met thermische onderbreking en dubbele beglazing van het type Climalit met een low-e-coating, schuifdeuren van de woonkamers en slaapkamers naar de terrassen en gemotoriseerde aluminium rolluiken, met beveiligingsrolluiken op de begane grond.</li>
-            <li>Daken — Omgekeerde platte daken, waterdicht en geïsoleerd, met grind op de niet-begaanbare delen en antislip keramische vloeren op de begaanbare delen.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Costa%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Costa Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames.jpg" alt="Foto van de entree, omlijst door portalen van latten en gabionenmuren, met daarachter een trap en een glazen lift en erboven rijen woningen" width="1920" height="1281" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>de woning en de golfbaan</em></h2>
-            <p>Het project is gebouwd, dus een bezichtiging gaat over de woning zelf: haar plaats in de rijen, haar tuin en terrassen en waarop ze uitkijkt.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Loop door de woning, langs het gemeenschappelijke zwembad en de entree en zie hoe de rijen naast de golfbaan liggen.</p></div>
-              <div><span>Op de plattegronden</span><p>De plattegrond van EH-20 en de oppervlakten die het contract gebruikt, die de documenten die wij hebben niet bevatten.</p></div>
-              <div><span>Op papier</span><p>De vergunningen, het opleveringscertificaat, de bankgarantie en het contract, voordat er iets wordt ondertekend.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=mijas-costa-golf-townhouses">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Amenities">Voorzieningen</button><button type="button" data-cat="Location">Locatie</button><button type="button" data-cat="Exteriors">Exterieur</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course.jpg" alt="Luchtfoto van de rijen witte woningen met een plat dak langs de rand van een golfbaan, met de zee erachter en de kust rechts" width="1920" height="1079" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Een gemeenschappelijk zwembad, <em>tuinen en een golfbaan</em></h2>
-            <p>Wat de documenten van de ontwikkelaar over de gemeenschappelijke delen vermelden en wat de foto’s tonen.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>Wat wij hebben: het infoblad, de kwaliteitsspecificatie, het situatieplan en de beschikbaarheidstabel.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de opties</h3>
-            <p>Vergelijk het met de andere projecten in Mijas en Fuengirola die we beheren.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bekijk met ons de woning, de gemeenschappelijke delen en de golfbaan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserveren</h3>
-            <p>De onderhandse koopovereenkomst met een betaling van € 9.000, nadat we de vergunningen, de data, de oppervlakten en de bankgarantie schriftelijk hebben bevestigd.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn beschikbaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Momenteel staat hier één woning vermeld: EH-20, met drie slaapkamers en 170,90 m², voor € 891.000. Het project heeft 80 rijwoningen, de andere 79 worden hier niet aangeboden.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is het project klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Het verkoopportaal vermeldt het als gebouwd, en de foto’s die wij hebben tonen afgewerkte gebouwen en een zwembad. Het infoblad geeft het einde van de bouw in K3 2024 en laat de vergunning voor eerste ingebruikname leeg. We vragen om de vergunning en het opleveringscertificaat.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De beschikbaarheidstabel zegt dit niet. Het infoblad vermeldt de betaling bij oplevering plus btw, wat wijst op een prijs exclusief btw. We bevestigen de belastingen en de aankoopkosten schriftelijk.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het betalingsschema?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een betaling van € 9.000 bij de onderhandse koopovereenkomst en daarna het saldo van 100% plus btw, min die € 9.000, binnen 45 dagen. Het infoblad zegt dat de betaalde bedragen gewaarborgd zijn door een bankgarantie.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Welke voorzieningen staan vermeld?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een buitenzwembad voor volwassenen, groenzones en een zonnebadzone, privétuinen, toegang tot een sociale club en een controlepost met gesloten televisiecircuit, in eerstelijns golf. Het infoblad vermeldt ook vloerverwarming in de badkamers.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Van welk type is EH-20?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Geen enkel document zegt het. Het infoblad beschrijft het project als rijwoningen met drie en vier slaapkamers, en het portaal vermeldt EH-20 met drie slaapkamers.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Zijn er plattegronden of beelden van het interieur?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Niet in de documenten die wij hebben: het algemene plan van de ontwikkelaar toont de daken van de rijen en het zwembad, maar geen plattegrond van een woning, en de foto’s tonen alleen de buitenkant. We vragen de plattegrond van EH-20.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>Mijas Costa Golf Townhouses</em></h2>
-          <p class="body-copy">Vertel ons wat u nodig heeft en we komen bij u terug met de actuele beschikbaarheid, de plattegronden en de prijslijst.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Costa%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Costa Golf Townhouses" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Mijas Costa Golf Townhouses">
-
-          <input type="hidden" id="f-project" name="project" value="Mijas Costa Golf Townhouses">
-          <input type="hidden" name="preferred_area" value="Mijas Costa">
-          <input type="hidden" name="property_type_interest" value="Rijwoning">
-          <input type="hidden" name="budget_range" value="Vanaf € 891.000">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Hallo Nueva Living, ik wil graag informatie over Mijas Costa Golf Townhouses.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Wij reageren persoonlijk, meestal dezelfde dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"EH-20","title":"EH-20","sub":"3 slk. · 171 m²","price":891000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.webp","alt":"Foto van het gemeenschappelijke zwembad op de voorgrond en daarachter, achter een gabionenmuur, een rij tweelaagse woningen met luifels van latten en glazen balustrades, onder een heldere blauwe lucht","caption":"Het gemeenschappelijke zwembad en een rij woningen","cat":"Amenities"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course.webp","alt":"Luchtfoto van de rijen witte woningen met een plat dak langs de rand van een golfbaan, met de zee erachter en de kust rechts","caption":"Het project naast de golfbaan","cat":"Location"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies.webp","alt":"Foto van het uiteinde van een rij tweelaagse woningen met een glazen schuifwand op de begane grond, een tuin met haag achter een gaashek, een gabionen keermuur en luifels van gouden latten","caption":"Tuinen op de begane grond en luifels","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames.webp","alt":"Foto van de entree, omlijst door portalen van latten en gabionenmuren, met daarachter een trap en een glazen lift en erboven rijen woningen","caption":"De entree","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind.webp","alt":"Foto van het gemeenschappelijke zwembad met trappen en leuningen en daarachter een rij tweelaagse woningen achter een lage stenen muur en hoge palmen, onder een heldere hemel","caption":"Het gemeenschappelijke zwembad","cat":"Amenities"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-roofs-pool-and-coast.webp","alt":"Luchtfoto van de met grind bedekte platte daken van de woningen, een gemeenschappelijk zwembad rechtsonder en een lang laag gebouw met een groen dak op de helling, met de zee bij zonsondergang","caption":"De daken en het zwembad, met de zee erachter","cat":"Location"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-all-the-rows-with-mountains-behind.webp","alt":"Luchtfoto van alle rijen witte woningen met een plat dak tussen een weg en een golfbaan, met een bergketen erachter en verderop een perceel in aanbouw","caption":"Het hele project van bovenaf","cat":"Location"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-homes-towards-the-sea.webp","alt":"Luchtfoto van de rijen woningen met hun daken en luifels, links een golffairway en in de verte het dorp en de zee","caption":"De woningen, met de kust in de verte","cat":"Location"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-along-the-coast-road-and-golf-course.webp","alt":"Luchtfoto van een weg die rechts langs de rijen woningen buigt, met daarachter een golffairway, links een lager gelegen wijk en in de verte de kust en de bergen","caption":"De weg, de golfbaan en de kust","cat":"Location"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-pool-and-rows-of-homes.webp","alt":"Luchtfoto van het gemeenschappelijke zwembad met palmen, reddingsboeien en kunstgras, en daarachter de rijen woningen met airconditioningunits op de daken","caption":"Het zwembad en de rijen woningen van bovenaf","cat":"Amenities"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/pool-and-rows-of-homes-with-the-mountains-behind.webp","alt":"Luchtfoto van het gemeenschappelijke zwembad en daarachter de rijen woningen, met parkeerplaatsen onderaan en een berg op de achtergrond","caption":"Het zwembad, de woningen en de bergen","cat":"Amenities"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/lawn-and-terraced-homes-behind-stone-walls.webp","alt":"Foto van een gazon met twee witte banken voor een gabionen keermuur en een rij tweelaagse woningen met luifels van latten, met een palm op de voorgrond","caption":"Gazon en banken onder de woningen","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/terraced-rows-above-a-stone-wall.webp","alt":"Foto van een getrapte rij woningen met terrassen op de eerste verdieping en glazen balustrades boven een lange gabionen keermuur en een voetpad, met een helling vol dennen op de achtergrond","caption":"Getrapte rijen boven de stenen muur","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/stepped-slope-with-stone-walls-and-planting.webp","alt":"Luchtfoto van woningen die langs een helling dalen tussen beplante terrassen die door gabionenmuren worden gedragen, met een voetpad en rechts een lange rij woningen","caption":"Beplante terrassen tussen de rijen","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/parking-courtyard-and-front-doors.webp","alt":"Foto van een bestraat plein met genummerde parkeerplaatsen links en donkere voordeuren met latpanelen en huisnummers rechts, onder een diepblauwe lucht","caption":"Een plein met parkeerplaatsen en voordeuren","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/front-door-and-electric-vehicle-charging-post.webp","alt":"Foto van een donkere voordeur met huisnummer naast een latpaneel, met op de voorgrond een laadpaal voor elektrische voertuigen en daarachter parkeerplaatsen","caption":"Een voordeur en een laadpaal","cat":"Exteriors"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/front-door-with-timber-slat-screen.webp","alt":"Foto van een voordeur onder een donkere luifel met huisnummer, naast een hoog latscherm en een smal raam, op een bestraat looppad","caption":"Een woningentree","cat":"Exteriors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Mijas Costa Golf Townhouses media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-and-terraced-homes-960.webp","alt":"Foto van het gemeenschappelijke zwembad op de voorgrond en daarachter, achter een gabionenmuur, een rij tweelaagse woningen met luifels van latten en glazen balustrades, onder een heldere blauwe lucht","width":1920,"height":1281,"caption":"Het gemeenschappelijke zwembad en een rij woningen","category":"Voorzieningen"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-development-beside-the-golf-course-960.webp","alt":"Luchtfoto van de rijen witte woningen met een plat dak langs de rand van een golfbaan, met de zee erachter en de kust rechts","width":1920,"height":1079,"caption":"Het project naast de golfbaan","category":"Locatie"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/ground-floor-gardens-and-timber-slat-canopies-960.webp","alt":"Foto van het uiteinde van een rij tweelaagse woningen met een glazen schuifwand op de begane grond, een tuin met haag achter een gaashek, een gabionen keermuur en luifels van gouden latten","width":1920,"height":1281,"caption":"Tuinen op de begane grond en luifels","category":"Exterieur"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/entrance-gateway-with-timber-slat-frames-960.webp","alt":"Foto van de entree, omlijst door portalen van latten en gabionenmuren, met daarachter een trap en een glazen lift en erboven rijen woningen","width":1920,"height":1281,"caption":"De entree","category":"Exterieur"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/communal-pool-with-steps-and-homes-behind-960.webp","alt":"Foto van het gemeenschappelijke zwembad met trappen en leuningen en daarachter een rij tweelaagse woningen achter een lage stenen muur en hoge palmen, onder een heldere hemel","width":1920,"height":1281,"caption":"Het gemeenschappelijke zwembad","category":"Voorzieningen"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-roofs-pool-and-coast.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-roofs-pool-and-coast-960.webp","alt":"Luchtfoto van de met grind bedekte platte daken van de woningen, een gemeenschappelijk zwembad rechtsonder en een lang laag gebouw met een groen dak op de helling, met de zee bij zonsondergang","width":1920,"height":1079,"caption":"De daken en het zwembad, met de zee erachter","category":"Locatie"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-all-the-rows-with-mountains-behind.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-all-the-rows-with-mountains-behind-960.webp","alt":"Luchtfoto van alle rijen witte woningen met een plat dak tussen een weg en een golfbaan, met een bergketen erachter en verderop een perceel in aanbouw","width":1920,"height":1079,"caption":"Het hele project van bovenaf","category":"Locatie"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-homes-towards-the-sea.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-homes-towards-the-sea-960.webp","alt":"Luchtfoto van de rijen woningen met hun daken en luifels, links een golffairway en in de verte het dorp en de zee","width":1920,"height":1079,"caption":"De woningen, met de kust in de verte","category":"Locatie"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-along-the-coast-road-and-golf-course.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-along-the-coast-road-and-golf-course-960.webp","alt":"Luchtfoto van een weg die rechts langs de rijen woningen buigt, met daarachter een golffairway, links een lager gelegen wijk en in de verte de kust en de bergen","width":1920,"height":1079,"caption":"De weg, de golfbaan en de kust","category":"Locatie"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-pool-and-rows-of-homes.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/aerial-view-of-the-pool-and-rows-of-homes-960.webp","alt":"Luchtfoto van het gemeenschappelijke zwembad met palmen, reddingsboeien en kunstgras, en daarachter de rijen woningen met airconditioningunits op de daken","width":1920,"height":1079,"caption":"Het zwembad en de rijen woningen van bovenaf","category":"Voorzieningen"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/pool-and-rows-of-homes-with-the-mountains-behind.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/pool-and-rows-of-homes-with-the-mountains-behind-960.webp","alt":"Luchtfoto van het gemeenschappelijke zwembad en daarachter de rijen woningen, met parkeerplaatsen onderaan en een berg op de achtergrond","width":1920,"height":1079,"caption":"Het zwembad, de woningen en de bergen","category":"Voorzieningen"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/lawn-and-terraced-homes-behind-stone-walls.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/lawn-and-terraced-homes-behind-stone-walls-960.webp","alt":"Foto van een gazon met twee witte banken voor een gabionen keermuur en een rij tweelaagse woningen met luifels van latten, met een palm op de voorgrond","width":1920,"height":1281,"caption":"Gazon en banken onder de woningen","category":"Exterieur"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/terraced-rows-above-a-stone-wall.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/terraced-rows-above-a-stone-wall-960.webp","alt":"Foto van een getrapte rij woningen met terrassen op de eerste verdieping en glazen balustrades boven een lange gabionen keermuur en een voetpad, met een helling vol dennen op de achtergrond","width":1920,"height":1079,"caption":"Getrapte rijen boven de stenen muur","category":"Exterieur"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/stepped-slope-with-stone-walls-and-planting.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/stepped-slope-with-stone-walls-and-planting-960.webp","alt":"Luchtfoto van woningen die langs een helling dalen tussen beplante terrassen die door gabionenmuren worden gedragen, met een voetpad en rechts een lange rij woningen","width":1920,"height":1079,"caption":"Beplante terrassen tussen de rijen","category":"Exterieur"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/parking-courtyard-and-front-doors.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/parking-courtyard-and-front-doors-960.webp","alt":"Foto van een bestraat plein met genummerde parkeerplaatsen links en donkere voordeuren met latpanelen en huisnummers rechts, onder een diepblauwe lucht","width":1920,"height":1281,"caption":"Een plein met parkeerplaatsen en voordeuren","category":"Exterieur"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/front-door-and-electric-vehicle-charging-post.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/front-door-and-electric-vehicle-charging-post-960.webp","alt":"Foto van een donkere voordeur met huisnummer naast een latpaneel, met op de voorgrond een laadpaal voor elektrische voertuigen en daarachter parkeerplaatsen","width":1920,"height":1281,"caption":"Een voordeur en een laadpaal","category":"Exterieur"},{"src":"assets/liora/projects/mijas-costa-golf-townhouses/media/front-door-with-timber-slat-screen.jpg","webp":"assets/liora/projects/mijas-costa-golf-townhouses/media/front-door-with-timber-slat-screen-960.webp","alt":"Foto van een voordeur onder een donkere luifel met huisnummer, naast een hoog latscherm en een smal raam, op een bestraat looppad","width":1920,"height":1281,"caption":"Een woningentree","category":"Exterieur"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-mijas-costa-golf-townhouses.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Mijas%20Costa%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Mijas Costa Golf Townhouses" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

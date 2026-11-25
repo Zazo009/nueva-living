@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien de logements au total ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Bahía Serena Residences"
   data-project-message="Je souhaiterais recevoir les dernières informations du projet Bahía Serena Residences."
@@ -451,461 +388,228 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Bahía Serena Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-bahia-serena-residences.html#top">Bahía Serena Residences<span>À partir de 350 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-bahia-serena-residences.html#overview">Aperçu</a><a href="fr/property-bahia-serena-residences.html#availability">Prix</a><a href="fr/property-bahia-serena-residences.html#gallery">Galerie</a><a href="fr/property-bahia-serena-residences.html#location">Emplacement</a><a href="fr/property-bahia-serena-residences.html#onsite">Sur place</a><a href="fr/property-bahia-serena-residences.html#view">Notre avis</a><a href="fr/property-bahia-serena-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Bahía Serena Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp 1350w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Aerial view of the boutique apartment complex with mountain views" width="1350" height="869" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Aerial view of the boutique apartment complex with mountain views" width="1350" height="869" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Nouvelle promotion / résidence fermée</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Bahía Serena <em>Residences</em></span>
-            <span class="hero-title-context">Appartement · Estepona, Costa del Sol</span>
-          </h1>
-          <p class="hero-positioning">Un ensemble boutique exclusif de 25 appartements dans quatre bâtiments à Bahía Dorada, Estepona, à proximité de la plage d'Arroyo Vaquero, avec piscine commune, jardins et salle de sport.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-bahia-serena-residences.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=bahia-serena-residences">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-bahia-serena-residences.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>Estepona, Costa del Sol</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 350 000 €</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Appartement</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Estimée T4 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-bahia-serena-residences.html#media">Galerie</a>
-        <a href="fr/property-bahia-serena-residences.html#location">Emplacement</a>
-        <a href="fr/property-bahia-serena-residences.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-bahia-serena-residences.html#overview">Aperçu</a>
-          <a href="fr/property-bahia-serena-residences.html#residences">Résidences</a>
-          <a href="fr/property-bahia-serena-residences.html#calculator">Financement</a>
-          <a href="fr/property-bahia-serena-residences.html#amenities">Équipements</a>
-          <a href="fr/property-bahia-serena-residences.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-bahia-serena-residences.html#architecture">Architecture</a>
-          <a href="fr/property-bahia-serena-residences.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-bahia-serena-residences.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-bahia-serena-residences.html#faq">FAQ</a>
-          <a href="fr/property-bahia-serena-residences.html#enquire">Nous contacter</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>1-3 chambres</strong></div>
-          <div class="quick-fact"><span>Surface construite</span><strong>46.22 - 111,47 m²</strong></div>
-          <div class="quick-fact"><span>Services</span><strong>Piscine, salle de sport, jardins</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>15 logements sur 25 publiés</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Demander la documentation</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">25 logements, <em>à deux pas de la plage</em></h2>
-          <p class="project-lead">Bahía Serena Residences est un ensemble exclusif de 25 appartements répartis sur quatre bâtiments à Bahía Dorada, Estepona, à environ 10 minutes à pied de la plage d'Arroyo Vaquero, avec des configurations de 1, 2 et 3 chambres.</p>
-          <p class="project-lead">Certains logements en rez-de-chaussée disposent d'un jardin privé, et tous les logements aux étages supérieurs ont leur propre terrasse en toiture. Les résidents partagent une piscine extérieure commune avec éclairage nocturne, des jardins paysagers et une salle de sport, au sein d'une résidence fermée avec garage et cave pour chaque logement.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Les logements en <em>détail</em></h2>
-          </div>
-          <p class="project-lead">Images de synthèse fournies par le promoteur. Le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 3 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp 1350w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Vue aérienne de la résidence boutique avec vue sur la montagne" width="1350" height="869" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>Vue aérienne de la résidence</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Voir 1 images dans Équipements">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg" alt="Toit-terrasse avec vue panoramique sur la mer" width="1920" height="974" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Équipements</small>
-                <strong>Terrasse en toiture avec vue panoramique sur la mer</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 2 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.webp 1292w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg" alt="Terrasse couverte avec salon et vue panoramique sur la mer" width="1292" height="1188" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Salon de terrasse couverte avec vue sur la mer</strong>
-                <span class="project-media-card-cta">2 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Voir 1 images dans Les environs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/site-plan-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/site-plan-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/site-plan.webp 2382w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/site-plan.jpg" alt="Plan masse montrant les quatre bâtiments, les accès et la piscine commune" width="2382" height="1684" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Les environs</small>
-                <strong>Plan de situation des quatre bâtiments et de la piscine commune</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 7 images</button>
-          <p class="media-note">Images fournies par le promoteur, qui peuvent être des images de synthèse. La conception finale, les finitions, les aménagements paysagers et les vues peuvent varier, et le mobilier n'est pas inclus.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>à Bahía Dorada</em></h2>
-          <p class="project-lead">Bahía Serena Residences se situe à Bahía Dorada, à l'extrémité ouest d'Estepona, à environ 10 minutes à pied de la plage d'Arroyo Vaquero.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-bahia-serena-residences" data-locmap='{&quot;site&quot;:[36.406263,-5.1943179],&quot;sea&quot;:[36.37926,-5.1943179],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;6,4 km · 10 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5,0 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;2,1 km · 5 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;1 000 m · 2 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Bahía Serena Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Bahía Serena Residences</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>1 000 m</bdi> <em><bdi>2 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>5,0 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centre de Estepona</span>
-              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>40 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Des <em>appartements d'1 chambre aux attiques duplex</em></h2>
-          <p class="project-lead">Les 25 logements vont d'1 à 3 chambres sur quatre bâtiments. Le promoteur a publié 15 logements avec un prix confirmé jusqu'à present ; les deux exemples ci-dessous montrent le prix d'entrée pour un appartement et pour l'attique duplex.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Appartement</h3>
-            <div class="res-meta">
-              <div><span>Chambres</span><strong>1-2 chambres</strong></div>
-<div><span>Surface construite</span><strong>55.46 - 113,52 m²</strong></div>
-<div><span>À partir de</span><strong>350 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Sejour-salle à manger et cuisine en plan ouvert donnant sur une terrasse.</li>
-            <li>Certains logements en rez-de-chaussée ont un jardin privé.</li>
-            <li>Accès à la piscine commune, aux jardins et à la salle de sport.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-bahia-serena-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Penthouse duplex</h3>
-            <div class="res-meta">
-              <div><span>Chambres</span><strong>3 chambres</strong></div>
-<div><span>Surface construite</span><strong>136,60 m²</strong></div>
-<div><span>À partir de</span><strong>1 100 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Duplex au dernier étage avec deux terrasses totalisant 90,74 m² plus un solarium privé.</li>
-            <li>Sejour-salle à manger avec cuisine en plan ouvert, au niveau inférieur.</li>
-            <li>Accès à la piscine commune, aux jardins et à la salle de sport.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-bahia-serena-residences.html#availability">Voir les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-bahia-serena-residences.html#availability">Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">15 logements <em>actuellement publiés</em></h2>
-          <p class="project-lead">Le promoteur a publié 15 des 25 logements avec un prix confirmé jusqu'à present, dans les quatre bâtiments. Nueva Living reconfirme le prix et la disponibilité actuels avant toute visite ou réservation.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>15</strong></div>
-            <div><span>Prix à partir de</span><strong>350 000 €</strong></div>
-            <div><span>Fourchette de prix</span><strong>350 000 € - 1 100 000 €</strong></div>
-            <div><span>Vérifié</span><strong>août 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 15 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrer les biens disponibles"
-              data-availability-filters
-              data-count-template="Affichage de {shown} sur {total}">
-              
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Prix</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Toutes</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-400000" aria-pressed="false">Moins de €400k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="400000-600000" aria-pressed="false">€400k – €600k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="600000-" aria-pressed="false">€600k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Effacer les filtres</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Aucun bien ne correspond à ces filtres.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Logements disponibles à Bahía Serena Residences</caption>
-                <thead><tr><th scope="col">Référence</th><th scope="col">Étage</th><th scope="col">Chambres</th><th scope="col">Surface</th><th scope="col">Prix</th><th scope="col">Statut</th><th scope="col">Plan</th></tr></thead>
-                <tbody>
-              <tr data-price="615000">
-                <td data-label="Référence"><strong>10A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>113,52 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>23,08 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>615 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="490000">
-                <td data-label="Référence"><strong>10C</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 1</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>111,87 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>33,15 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>490 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10c-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="1100000">
-                <td data-label="Référence"><strong>12A</strong></td>
-                <td data-label="Étage">Deuxième étage et solarium, bloc 1</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>136,60 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>90,74 m²</strong> <em>Terrasses</em></span></td>
-                <td data-label="Prix"><strong>1 100 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-12a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="550000">
-                <td data-label="Référence"><strong>20A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>111,84 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>33,15 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>550 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="350000">
-                <td data-label="Référence"><strong>20B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 2</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>72,10 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>25,93 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>350 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20b-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="595000">
-                <td data-label="Référence"><strong>20C</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 2</td>
-                <td data-label="Chambres">2 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>113,39 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>85,99 m²</strong> <em>Terrasse et jardin</em></span></td>
-                <td data-label="Prix"><strong>595 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20c-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="815000">
-                <td data-label="Référence"><strong>21C</strong></td>
-                <td data-label="Étage">Premier étage, bloc 2</td>
-                <td data-label="Chambres">3 chambres</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>130,75 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>23,12 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>815 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-21c-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Référence"><strong>30A</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 3</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>65,75 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>17,49 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>390 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Référence"><strong>30B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 3</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>58,99 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>25,08 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>390 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30b-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="435000">
-                <td data-label="Référence"><strong>30C</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 3</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>55,46 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>61,68 m²</strong> <em>Terrasse et jardin</em></span></td>
-                <td data-label="Prix"><strong>435 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30c-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="440000">
-                <td data-label="Référence"><strong>31C</strong></td>
-                <td data-label="Étage">Premier étage, bloc 3</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>68,09 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>16,40 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>440 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-31c-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Référence"><strong>40B</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 4</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>92,72 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>25,08 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>390 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40b-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Référence"><strong>40E</strong></td>
-                <td data-label="Étage">Rez-de-chaussée, bloc 4</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>70,49 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>16,94 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>390 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40e-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="550000">
-                <td data-label="Référence"><strong>41A</strong></td>
-                <td data-label="Étage">Premier étage, bloc 4</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>67,51 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>76,03 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>550 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-              <tr data-price="440000">
-                <td data-label="Référence"><strong>41B</strong></td>
-                <td data-label="Étage">Premier étage, bloc 4</td>
-                <td data-label="Chambres">1 chambre</td>
-                <td data-label="Surface"><span class="unit-size-part"><strong>63,49 m²</strong> <em>Construits</em></span><span class="unit-size-part"><strong>16,41 m²</strong> <em>Terrasse</em></span></td>
-                <td data-label="Prix"><strong>440 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-                <td data-label="Plan"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41b-floorplans.pdf" target="_blank" rel="noopener">Voir le PDF</a></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>7 photos</button>
+          <a class="chip" href="fr/property-bahia-serena-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plans</a>
+          <a class="chip" href="fr/property-bahia-serena-residences.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
           
-          <p class="availability-source-note">Références de logement, surfaces et prix transcrits de la liste de prix publiée par le promoteur en août 2026. Les prix excluent la TVA et les frais d'achat applicables et peuvent changer sans préavis ou lors de la vente d'un logement. Nueva Living reconfirme le prix, le statut et les conditions de réservation avant de continuer.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Bahía Serena</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Un ensemble boutique exclusif de 25 appartements dans quatre bâtiments à Bahía Dorada, Estepona, à proximité de la plage d'Arroyo Vaquero, avec piscine commune, jardins et salle de sport.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 350 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>1 à 3</dd><dd class="sub"><span>Appartement</span></dd></div><div><dt>Livraison</dt><dd>Estimée T4 2028</dd><dd class="sub">Permis de construire délivré</dd></div><div><dt>Biens restants</dt><dd>15 sur 25</dd><dd class="sub">Vérifié le août 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">Bahía Serena Residences est un ensemble exclusif de 25 appartements répartis sur quatre bâtiments à Bahía Dorada, Estepona, à environ 10 minutes à pied de la plage d'Arroyo Vaquero, avec des configurations de 1, 2 et 3 chambres.</p>
+    <p class="lede-2">Certains logements en rez-de-chaussée disposent d'un jardin privé, et tous les logements aux étages supérieurs ont leur propre terrasse en toiture. Les résidents partagent une piscine extérieure commune avec éclairage nocturne, des jardins paysagers et une salle de sport, au sein d'une résidence fermée avec garage et cave pour chaque logement.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Quatre bâtiments, orientes vers la mer</span></summary><p>La résidence est répartie sur quatre bâtiments avec une structure en béton armé et des façades en maçonnerie de brique non ventilée, avec isolation thermique et acoustique et finitions décoratives d'enduit à des points spécifiques des façades et des pergolas.</p><p>Les cuisines sont livrées entièrement équipées avec un plan de travail en quartz et des appareils intégrés de gamme Siemens. Les salles de bains associent un carrelage céramique grand format à des douches thermostatiques. L'eau chaude sanitaire est produite par aérothermie, avec un système de climatisation par conduits et un thermostat dans le séjour de chaque logement.</p><ul><li>Piscine extérieure commune avec éclairage nocturne, jardins paysagers et salle de sport.</li><li>Cuisines entièrement équipées avec plan de travail en quartz et appareils intégrés.</li><li>Eau chaude par aerothermie et climatisation par conduits dans tout le logement.</li><li>Garage et cave pour chaque logement, avec preinstallation pour la recharge de vehicules électriques.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>350 000 € – 1 100 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>15 biens sur 25</span><small>Vérifié le août 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartement</span></dd></div><div><dt>Surfaces</dt><dd><span>55 – 137 m²</span><small>Surface construite</small></dd></div><div><dt>Livraison</dt><dd><span>Estimée T4 2028</span></dd></div><div><dt>Permis</dt><dd><span><span class="ok">Permis de construire</span></span><small>Délivré</small></dd></div><div><dt>Acomptes</dt><dd><span>Garantie bancaire</span><small>Exigée par la loi espagnole</small></dd></div><div><dt>Stationnement</dt><dd><span>Parking souterrain et cave</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">Le promoteur a publié 15 des 25 logements avec un prix confirmé jusqu'à present, dans les quatre bâtiments. Nueva Living reconfirme le prix et la disponibilité actuels avant toute visite ou réservation. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    <div class="scarcity" role="img" aria-label="15 sur 25 encore en vente"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>15 sur 25 encore en vente</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrer par chambres"><button type="button" aria-pressed="true" data-beds="">Toutes <span>15</span></button><button type="button" aria-pressed="false" data-beds="1">1 ch. <span>9</span></button><button type="button" aria-pressed="false" data-beds="2">2 ch. <span>4</span></button><button type="button" aria-pressed="false" data-beds="3">3 ch. <span>2</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="615000" data-size="113.52" data-ppm="5418" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">10A</span><span class="u-loc">Rez-de-chaussée, bloc 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">114 m²</td>
+            <td data-label="Prix" class="u-price num">615 000 €</td>
+            <td data-label="Par m²" class="num">5 418 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 10A">Plan</a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="490000" data-size="111.87" data-ppm="4380" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">10C</span><span class="u-loc">Rez-de-chaussée, bloc 1</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">112 m²</td>
+            <td data-label="Prix" class="u-price num">490 000 €</td>
+            <td data-label="Par m²" class="num">4 380 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 10C">Plan</a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="1100000" data-size="136.6" data-ppm="8053" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">12A</span><span class="u-loc">Deuxième étage et solarium, bloc 1</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">137 m²</td>
+            <td data-label="Prix" class="u-price num">1 100 000 €</td>
+            <td data-label="Par m²" class="num">8 053 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-12a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 12A">Plan</a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="550000" data-size="111.84" data-ppm="4918" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20A</span><span class="u-loc">Rez-de-chaussée, bloc 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">112 m²</td>
+            <td data-label="Prix" class="u-price num">550 000 €</td>
+            <td data-label="Par m²" class="num">4 918 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 20A">Plan</a></td>
+          </tr>
+          <tr data-id="u4" data-beds="1" data-price="350000" data-size="72.1" data-ppm="4854" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20B</span><span class="u-loc">Rez-de-chaussée, bloc 2</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">72 m²</td>
+            <td data-label="Prix" class="u-price num">350 000 €</td>
+            <td data-label="Par m²" class="num">4 854 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 20B">Plan</a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="595000" data-size="113.39" data-ppm="5247" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20C</span><span class="u-loc">Rez-de-chaussée, bloc 2</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">113 m²</td>
+            <td data-label="Prix" class="u-price num">595 000 €</td>
+            <td data-label="Par m²" class="num">5 247 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 20C">Plan</a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="815000" data-size="130.75" data-ppm="6233" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">21C</span><span class="u-loc">Premier étage, bloc 2</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">131 m²</td>
+            <td data-label="Prix" class="u-price num">815 000 €</td>
+            <td data-label="Par m²" class="num">6 233 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-21c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 21C">Plan</a></td>
+          </tr>
+          <tr data-id="u7" data-beds="1" data-price="390000" data-size="65.75" data-ppm="5932" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">30A</span><span class="u-loc">Rez-de-chaussée, bloc 3</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">66 m²</td>
+            <td data-label="Prix" class="u-price num">390 000 €</td>
+            <td data-label="Par m²" class="num">5 932 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 30A">Plan</a></td>
+          </tr>
+          <tr data-id="u8" data-beds="1" data-price="390000" data-size="58.99" data-ppm="6611" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">30B</span><span class="u-loc">Rez-de-chaussée, bloc 3</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">59 m²</td>
+            <td data-label="Prix" class="u-price num">390 000 €</td>
+            <td data-label="Par m²" class="num">6 611 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 30B">Plan</a></td>
+          </tr>
+          <tr data-id="u9" data-beds="1" data-price="435000" data-size="55.46" data-ppm="7843" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">30C</span><span class="u-loc">Rez-de-chaussée, bloc 3</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">55 m²</td>
+            <td data-label="Prix" class="u-price num">435 000 €</td>
+            <td data-label="Par m²" class="num">7 843 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 30C">Plan</a></td>
+          </tr>
+          <tr data-id="u10" data-beds="1" data-price="440000" data-size="68.09" data-ppm="6462" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">31C</span><span class="u-loc">Premier étage, bloc 3</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">68 m²</td>
+            <td data-label="Prix" class="u-price num">440 000 €</td>
+            <td data-label="Par m²" class="num">6 462 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-31c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 31C">Plan</a></td>
+          </tr>
+          <tr data-id="u11" data-beds="1" data-price="390000" data-size="92.72" data-ppm="4206" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">40B</span><span class="u-loc">Rez-de-chaussée, bloc 4</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">93 m²</td>
+            <td data-label="Prix" class="u-price num">390 000 €</td>
+            <td data-label="Par m²" class="num">4 206 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 40B">Plan</a></td>
+          </tr>
+          <tr data-id="u12" data-beds="1" data-price="390000" data-size="70.49" data-ppm="5533" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">40E</span><span class="u-loc">Rez-de-chaussée, bloc 4</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">70 m²</td>
+            <td data-label="Prix" class="u-price num">390 000 €</td>
+            <td data-label="Par m²" class="num">5 533 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40e-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 40E">Plan</a></td>
+          </tr>
+          <tr data-id="u13" data-beds="1" data-price="550000" data-size="67.51" data-ppm="8147" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">41A</span><span class="u-loc">Premier étage, bloc 4</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">68 m²</td>
+            <td data-label="Prix" class="u-price num">550 000 €</td>
+            <td data-label="Par m²" class="num">8 147 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 41A">Plan</a></td>
+          </tr>
+          <tr data-id="u14" data-beds="1" data-price="440000" data-size="63.49" data-ppm="6930" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">41B</span><span class="u-loc">Premier étage, bloc 4</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">63 m²</td>
+            <td data-label="Prix" class="u-price num">440 000 €</td>
+            <td data-label="Par m²" class="num">6 930 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plan de 41B">Plan</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>Des appartements d'1 chambre aux attiques duplex</span></summary><p>Les 25 logements vont d'1 à 3 chambres sur quatre bâtiments. Le promoteur a publié 15 logements avec un prix confirmé jusqu'à present ; les deux exemples ci-dessous montrent le prix d'entrée pour un appartement et pour l'attique duplex.</p><div class="res-types"><div class="res-type"><h3>Appartement</h3><dl class="res-meta"><div><dt>Chambres</dt><dd>1-2 chambres</dd></div><div><dt>Surface construite</dt><dd>55.46 - 113,52 m²</dd></div><div><dt>À partir de</dt><dd>350 000 €</dd></div></dl><ul><li>Sejour-salle à manger et cuisine en plan ouvert donnant sur une terrasse.</li><li>Certains logements en rez-de-chaussée ont un jardin privé.</li><li>Accès à la piscine commune, aux jardins et à la salle de sport.</li></ul></div><div class="res-type"><h3>Penthouse duplex</h3><dl class="res-meta"><div><dt>Chambres</dt><dd>3 chambres</dd></div><div><dt>Surface construite</dt><dd>136,60 m²</dd></div><div><dt>À partir de</dt><dd>1 100 000 €</dd></div></dl><ul><li>Duplex au dernier étage avec deux terrasses totalisant 90,74 m² plus un solarium privé.</li><li>Sejour-salle à manger avec cuisine en plan ouvert, au niveau inférieur.</li><li>Accès à la piscine commune, aux jardins et à la salle de sport.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">L’échéancier du promoteur est disponible sur demande ; nous vous l’envoyons avec la grille de prix.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -965,413 +669,199 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine extérieure commune avec éclairage nocturne</h3>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Vue aérienne de la résidence"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Vue aérienne de la résidence boutique avec vue sur la montagne" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Salon de terrasse couverte avec vue sur la mer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg" alt="Terrasse couverte avec salon et vue panoramique sur la mer" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Terrasse en toiture avec vue panoramique sur la mer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg" alt="Toit-terrasse avec vue panoramique sur la mer" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Plan de situation des quatre bâtiments et de la piscine commune"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/site-plan-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/site-plan-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/site-plan.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/site-plan.jpg" alt="Plan masse montrant les quatre bâtiments, les accès et la piscine commune" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Vue aérienne le long de la route côtière"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.jpg" alt="Vue aérienne de la résidence en bord de route côtière avec vue mer" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 7 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Extérieurs (3)</button><button type="button" data-open-cat="Amenities">Équipements (1)</button><button type="button" data-open-cat="Interiors">Intérieurs (2)</button><button type="button" data-open-cat="Location">Les environs (1)</button></div>
+    
+    <p class="caption">Images fournies par le promoteur, qui peuvent être des images de synthèse. La conception finale, les finitions, les aménagements paysagers et les vues peuvent varier, et le mobilier n'est pas inclus.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">Bahía Serena Residences se situe à Bahía Dorada, à l'extrémité ouest d'Estepona, à environ 10 minutes à pied de la plage d'Arroyo Vaquero.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-bahia-serena-residences" data-locmap='{&quot;site&quot;:[36.406263,-5.1943179],&quot;sea&quot;:[36.37926,-5.1943179],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;6,4 km · 10 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5,0 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;2,1 km · 5 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;1 000 m · 2 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Bahía Serena Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Bahía Serena Residences</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>1 000 m</bdi> <em><bdi>2 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bien-être</span>
-              <h3 class="amenity-name">Salle de sport</h3>
-              <p class="amenity-note">Au sein du programme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>5,0 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine commune</h3>
-              <p class="amenity-note">Partagée par les résidents</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Estepona</span>
+              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardins paysagers en plantes locales peu gourmandes en eau</h3>
-              <p class="amenity-note">Espaces communs paysagers</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Certains logements en rez-de-chaussée avec jardin privatif</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Tous les logements en étage avec toit-terrasse</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>40 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Solarium</h3>
-              <p class="amenity-note">Terrasse de toit ouverte au soleil</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Vue sur la mer</h3>
-              <p class="amenity-note">Vers la Méditerranée</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Parking souterrain et cave</h3>
-              <p class="amenity-note">Sous le bâtiment</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Pré-installation pour la recharge de véhicules électriques</h3>
-              <p class="amenity-note">Une borne pour la voiture</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Système aérothermique</h3>
-              <p class="amenity-note">Chauffage, climatisation et eau chaude</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Services</span>
-              <h3 class="amenity-name">Résidence fermée avec vidéosurveillance</h3>
-              <p class="amenity-note">Accès contrôlé</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Azata Golf</th><td>Environ 3 minutes</td></tr><tr><th scope="row">Puerto Deportivo de Estepona</th><td>Env. 6 minutes</td></tr><tr><th scope="row">Centre-ville d'Estepona</th><td>Env. 10 minutes</td></tr><tr><th scope="row">Puerto Deportivo de la Duquesa</th><td>Env. 10 minutes</td></tr><tr><th scope="row">Puerto Banús</th><td>Env. 24 minutes</td></tr><tr><th scope="row">Aéroport de Málaga</th><td>Env. 71 minutes</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">Au-delà de la terrasse ou du jardin propre à chaque logement, les résidents de Bahía Serena partagent un ensemble compact et soigné de services.</p>
+    <div class="life-panels"><div><h3>Vie extérieure</h3><p>Une piscine extérieure commune avec éclairage nocturne et espaces verts, au sein de jardins paysagers.</p></div><div><h3>Bien-être</h3><p>Une salle de sport sur place.</p></div><div><h3>Chaque logement</h3><p>Garage et cave inclus, avec preinstallation pour la recharge de vehicules électriques.</p></div></div>
+    <ul class="amen-top"><li>Piscine extérieure commune avec éclairage nocturne</li><li>Salle de sport</li><li>Jardins paysagers en plantes locales peu gourmandes en eau</li><li>Certains logements en rez-de-chaussée avec jardin privatif</li><li>Tous les logements en étage avec toit-terrasse</li><li>Parking souterrain et cave</li></ul>
+    <details class="amen-all"><summary>Tout afficher (12)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">3</span></h3><ul><li>Piscine extérieure commune avec éclairage nocturne</li><li>Salle de sport</li><li>Piscine commune</li></ul></div><div><h3>Extérieurs<span class="count">5</span></h3><ul><li>Jardins paysagers en plantes locales peu gourmandes en eau</li><li>Certains logements en rez-de-chaussée avec jardin privatif</li><li>Tous les logements en étage avec toit-terrasse</li><li>Solarium</li><li>Vue sur la mer</li></ul></div><div><h3>Au quotidien<span class="count">3</span></h3><ul><li>Parking souterrain et cave</li><li>Pré-installation pour la recharge de véhicules électriques</li><li>Système aérothermique</li></ul></div><div><h3>Services<span class="count">1</span></h3><ul><li>Résidence fermée avec vidéosurveillance</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>À qui s'adresse ce projet</b><span>Aux acheteurs qui recherchent un bâtiment à plus petite échelle, à proximité de la plage, avec la possibilité d'un jardin privé ou d'une terrasse en toiture.</span></li><li><b>Ce qui le distingue</b><span>Seulement 25 logements répartis sur quatre bâtiments, plutôt qu'une résidence à grande échelle, sur un site à environ 10 minutes à pied de la plage d'Arroyo Vaquero.</span></li><li><b>Pourquoi l'emplacement compte</b><span>Bahía Serena se situe à Bahía Dorada, à l'extrémité ouest d'Estepona, à proximité du centre d'Estepona, de sa marina et de l'autoroute AP-7.</span></li><li><b>Pourquoi vérifier la disponibilité</b><span>15 des 25 logements sont actuellement publiés avec un prix confirmé ; Nueva Living reconfirme la publication actuelle avant toute visite.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Pourquoi le moment compte</b><span>15 des 25 logements sont actuellement publiés avec un prix confirmé ; la combinaison de plans disponibles evoluera à mesure que de nouvelles phases seront publiées.</span></li><li><b>Information actuelle</b><span>Nueva Living reconfirme le prix, la disponibilité et les spécifications directement auprès du promoteur avant toute visite ou réservation.</span></li><li><b>Attrait à long terme</b><span>Une échelle boutique de 25 logements à proximité de la plage est rare sur ce tronçon de la Costa del Sol, ou la plupart des nouvelles promotions sont bien plus grandes.</span></li><li><b>Usage personnel et location</b><span>Les acheteurs doivent confirmer les règles de location en vigueur pour ce projet directement auprès du promoteur avant d'envisager un plan de rentabilité locative.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Informations sur le promoteur</b><span>Nueva Living dispose de l'identité et des informations de licence du promoteur et les fournit par écrit avant toute réservation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Comment se déroule l'achat</b><span>Un processus d'achat privé en anglais avec un avocat espagnol de votre choix ; Nueva Living coordonne les visites et les documents.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Livraison et garantie</b><span>Permis de construire accordé ; la construction devrait démarrer au deuxième trimestre 2026, avec un achèvement estimé au quatrième trimestre 2028, et le permis de première occupation estimé au quatrième trimestre 2027. Les conditions de paiement diffèrent pour les résidents et les non-résidents, les montants versés étant garantis par une garantie bancaire.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Autres options</b><span>Nueva Living peut comparer Bahía Serena avec d'autres promotions d'Estepona sur demande.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Demandez l'information du projet</h3><p>Demandez la liste de prix actuelle et les plans de la configuration qui vous intéresse.</p></li><li><h3>Comparez les typologies</h3><p>Comparez les plans d'appartement et d'attique selon votre budget et vos besoins d'espace.</p></li><li><h3>Visite privée</h3><p>Découvrez en personne le cadre de Bahía Dorada et la piscine commune avant de décider.</p></li><li><h3>Vérification avant réservation</h3><p>Confirmez par écrit le prix, la disponibilité et la structure de paiement actuels avant toute réservation.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plans<small>15 biens sur 15</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Échéancier<small>Pas encore fourni</small><small>En attente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Bahía Serena</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien de logements au total ?</summary><p>25 appartements répartis sur quatre bâtiments.</p></details><details class="segment-faq-item"><summary>Combien sont disponibles actuellement ?</summary><p>Le promoteur a publié 15 des 25 logements avec un prix confirmé jusqu'à present, dans les quatre bâtiments. Nueva Living reconfirme la disponibilité actuelle avant toute visite.</p></details><details class="segment-faq-item"><summary>Tous les logements ont-ils vue sur mer ?</summary><p>Pas tous -- certains logements orientes vers l'intérieur ont une vue partielle ou aucune vue sur la mer. Nueva Living confirme la vue d'un logement precis avant toute visite.</p></details><details class="segment-faq-item"><summary>Le mobilier est-il inclus ?</summary><p>Non. Les images présentées sont des visuels numeriques ; le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente.</p></details><details class="segment-faq-item"><summary>Quels équipements sont partages ?</summary><p>Une piscine extérieure commune avec éclairage nocturne, des jardins paysagers et une salle de sport.</p></details></div>
+    <details class="faq2-more"><summary>Voir toutes les questions (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Quand à lieu la livraison ?</summary><p>Le permis de construire a été accordé. La construction devrait démarrer au deuxième trimestre 2026, avec un achèvement estimé au quatrième trimestre 2028.</p></details></div></details>
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">350 000 €</p>
+      <p class="rail-note">Hors TVA. Il reste 15 biens sur 25 · Vérifié le août 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Architecture.</b> 4 bâtiments autour d'une piscine commune, à proximité de la plage d'Arroyo Vaquero.</li><li><b>Types de résidences.</b> Appartements et un attique duplex de 1 à 3 chambres, avec jardin ou terrasse en toiture.</li><li><b>Art de vivre.</b> Piscine extérieure commune, jardins paysagers et salle de sport sur place.</li><li><b>Prochaine étape.</b> Demandez la liste de prix actuelle et les plans de la typologie qui vous intéresse.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Bahía Serena Residences">
+        <input type="hidden" id="f-project" name="project" value="Bahía Serena Residences">
+        <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
+        <input type="hidden" name="property_type_interest" value="Appartement">
+        <input type="hidden" name="budget_range" value="À partir de 350 000 €">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Je souhaiterais recevoir les dernières informations du projet Bahía Serena Residences." data-base="Je souhaiterais recevoir les dernières informations du projet Bahía Serena Residences.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="10A">10A: 615 000 €</option><option value="10C">10C: 490 000 €</option><option value="12A">12A: 1 100 000 €</option><option value="20A">20A: 550 000 €</option><option value="20B">20B: 350 000 €</option><option value="20C">20C: 595 000 €</option><option value="21C">21C: 815 000 €</option><option value="30A">30A: 390 000 €</option><option value="30B">30B: 390 000 €</option><option value="30C">30C: 435 000 €</option><option value="31C">31C: 440 000 €</option><option value="40B">40B: 390 000 €</option><option value="40E">40E: 390 000 €</option><option value="41A">41A: 550 000 €</option><option value="41B">41B: 440 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Bahía Serena.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Une collection d'appartements à échelle boutique pour les acheteurs qui veulent la plage à deux pas, sans une grande résidence de taille hôtelière.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Aux acheteurs qui recherchent un bâtiment à plus petite échelle, à proximité de la plage, avec la possibilité d'un jardin privé ou d'une terrasse en toiture.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce qui le distingue</h3><p>Seulement 25 logements répartis sur quatre bâtiments, plutôt qu'une résidence à grande échelle, sur un site à environ 10 minutes à pied de la plage d'Arroyo Vaquero.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi l'emplacement compte</h3><p>Bahía Serena se situe à Bahía Dorada, à l'extrémité ouest d'Estepona, à proximité du centre d'Estepona, de sa marina et de l'autoroute AP-7.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi vérifier la disponibilité</h3><p>15 des 25 logements sont actuellement publiés avec un prix confirmé ; Nueva Living reconfirme la publication actuelle avant toute visite.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Une note factuelle sur les délais et la propriété ; Nueva Living ne promet ni rendement locatif ni plus-value.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Pourquoi le moment compte</h3><p>15 des 25 logements sont actuellement publiés avec un prix confirmé ; la combinaison de plans disponibles evoluera à mesure que de nouvelles phases seront publiées.</p></article>
-              <article class="why-point reveal-soft"><h3>Information actuelle</h3><p>Nueva Living reconfirme le prix, la disponibilité et les spécifications directement auprès du promoteur avant toute visite ou réservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Attrait à long terme</h3><p>Une échelle boutique de 25 logements à proximité de la plage est rare sur ce tronçon de la Costa del Sol, ou la plupart des nouvelles promotions sont bien plus grandes.</p></article>
-              <article class="why-point reveal-soft"><h3>Usage personnel et location</h3><p>Les acheteurs doivent confirmer les règles de location en vigueur pour ce projet directement auprès du promoteur avant d'envisager un plan de rentabilité locative.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Informations sur le promoteur</h3><p>Nueva Living dispose de l'identité et des informations de licence du promoteur et les fournit par écrit avant toute réservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Comment se déroule l'achat</h3><p>Un processus d'achat privé en anglais avec un avocat espagnol de votre choix ; Nueva Living coordonne les visites et les documents.</p></article>
-              <article class="why-point reveal-soft"><h3>Livraison et garantie</h3><p>Permis de construire accordé ; la construction devrait démarrer au deuxième trimestre 2026, avec un achèvement estimé au quatrième trimestre 2028, et le permis de première occupation estimé au quatrième trimestre 2027. Les conditions de paiement diffèrent pour les résidents et les non-résidents, les montants versés étant garantis par une garantie bancaire.</p></article>
-              <article class="why-point reveal-soft"><h3>Autres options</h3><p>Nueva Living peut comparer Bahía Serena avec d'autres promotions d'Estepona sur demande.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le août 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Références de logement, surfaces et prix transcrits de la liste de prix publiée par le promoteur en août 2026. Les prix excluent la TVA et les frais d'achat applicables et peuvent changer sans préavis ou lors de la vente d'un logement. Nueva Living reconfirme le prix, le statut et les conditions de réservation avant de continuer.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden.jpg" alt="Ground-floor home exterior with terrace, garden and sea views" width="1387" height="1194" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Un logement en rez-de-chaussée avec jardin privatif</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Quatre bâtiments, <em>orientes vers la mer</em></h2>
-          <p>La résidence est répartie sur quatre bâtiments avec une structure en béton armé et des façades en maçonnerie de brique non ventilée, avec isolation thermique et acoustique et finitions décoratives d'enduit à des points spécifiques des façades et des pergolas.</p>
-<p>Les cuisines sont livrées entièrement équipées avec un plan de travail en quartz et des appareils intégrés de gamme Siemens. Les salles de bains associent un carrelage céramique grand format à des douches thermostatiques. L'eau chaude sanitaire est produite par aérothermie, avec un système de climatisation par conduits et un thermostat dans le séjour de chaque logement.</p>
-          <ul class="feature-list">
-            <li>Piscine extérieure commune avec éclairage nocturne, jardins paysagers et salle de sport.</li>
-            <li>Cuisines entièrement équipées avec plan de travail en quartz et appareils intégrés.</li>
-            <li>Eau chaude par aerothermie et climatisation par conduits dans tout le logement.</li>
-            <li>Garage et cave pour chaque logement, avec preinstallation pour la recharge de vehicules électriques.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg" alt="Covered terrace lounge with panoramic sea views" width="1292" height="1188" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Découvrez de plus près <em>Bahía Serena</em></h2>
-            <p>Explorez le cadre de Bahía Dorada, la piscine commune et les plans d'appartements avant de demander l'information complète du projet.</p>
-            <div class="viewing-insights">
-              <div><span>Architecture</span><p>4 bâtiments autour d'une piscine commune, à proximité de la plage d'Arroyo Vaquero.</p></div>
-              <div><span>Types de résidences</span><p>Appartements et un attique duplex de 1 à 3 chambres, avec jardin ou terrasse en toiture.</p></div>
-              <div><span>Art de vivre</span><p>Piscine extérieure commune, jardins paysagers et salle de sport sur place.</p></div>
-              <div><span>Prochaine étape</span><p>Demandez la liste de prix actuelle et les plans de la typologie qui vous intéresse.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=bahia-serena-residences">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Amenities">Équipements</button><button type="button" data-cat="Interiors">Intérieurs</button><button type="button" data-cat="Location">Les environs</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg" alt="Roof terrace with panoramic sea views" width="1920" height="974" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Une offre <em>boutique</em> de services</h2>
-            <p>Au-delà de la terrasse ou du jardin propre à chaque logement, les résidents de Bahía Serena partagent un ensemble compact et soigné de services.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Demandez l'information du projet</h3>
-            <p>Demandez la liste de prix actuelle et les plans de la configuration qui vous intéresse.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Comparez les typologies</h3>
-            <p>Comparez les plans d'appartement et d'attique selon votre budget et vos besoins d'espace.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visite privée</h3>
-            <p>Découvrez en personne le cadre de Bahía Dorada et la piscine commune avant de décider.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Vérification avant réservation</h3>
-            <p>Confirmez par écrit le prix, la disponibilité et la structure de paiement actuels avant toute réservation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien de logements au total ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>25 appartements répartis sur quatre bâtiments.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien sont disponibles actuellement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le promoteur a publié 15 des 25 logements avec un prix confirmé jusqu'à present, dans les quatre bâtiments. Nueva Living reconfirme la disponibilité actuelle avant toute visite.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Tous les logements ont-ils vue sur mer ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Pas tous -- certains logements orientes vers l'intérieur ont une vue partielle ou aucune vue sur la mer. Nueva Living confirme la vue d'un logement precis avant toute visite.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le mobilier est-il inclus ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Non. Les images présentées sont des visuels numeriques ; le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels équipements sont partages ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Une piscine extérieure commune avec éclairage nocturne, des jardins paysagers et une salle de sport.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quand à lieu la livraison ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le permis de construire a été accordé. La construction devrait démarrer au deuxième trimestre 2026, avec un achèvement estimé au quatrième trimestre 2028.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Demander des informations sur <em>Bahía Serena Residences</em></h2>
-          <p class="body-copy">Dites-nous quel plan d'appartement vous intéresse et nous vous enverrons la liste de prix et les prestations actuelles.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Bahía Serena Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Bahía Serena Residences">
-          <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
-          <input type="hidden" name="property_type_interest" value="Appartement">
-          <input type="hidden" name="budget_range" value="À partir de 350 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Je souhaiterais recevoir les dernières informations du projet Bahía Serena Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Contexte du projet : Bahía Serena Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"10A","title":"10A · Rez-de-chaussée, bloc 1","sub":"2 ch. · 114 m²","price":615000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-10a-floorplans.pdf","label":""}]},{"id":"u1","ref":"10C","title":"10C · Rez-de-chaussée, bloc 1","sub":"2 ch. · 112 m²","price":490000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-10c-floorplans.pdf","label":""}]},{"id":"u2","ref":"12A","title":"12A · Deuxième étage et solarium, bloc 1","sub":"3 ch. · 137 m²","price":1100000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-12a-floorplans.pdf","label":""}]},{"id":"u3","ref":"20A","title":"20A · Rez-de-chaussée, bloc 2","sub":"2 ch. · 112 m²","price":550000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-20a-floorplans.pdf","label":""}]},{"id":"u4","ref":"20B","title":"20B · Rez-de-chaussée, bloc 2","sub":"1 ch. · 72 m²","price":350000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-20b-floorplans.pdf","label":""}]},{"id":"u5","ref":"20C","title":"20C · Rez-de-chaussée, bloc 2","sub":"2 ch. · 113 m²","price":595000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-20c-floorplans.pdf","label":""}]},{"id":"u6","ref":"21C","title":"21C · Premier étage, bloc 2","sub":"3 ch. · 131 m²","price":815000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-21c-floorplans.pdf","label":""}]},{"id":"u7","ref":"30A","title":"30A · Rez-de-chaussée, bloc 3","sub":"1 ch. · 66 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-30a-floorplans.pdf","label":""}]},{"id":"u8","ref":"30B","title":"30B · Rez-de-chaussée, bloc 3","sub":"1 ch. · 59 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-30b-floorplans.pdf","label":""}]},{"id":"u9","ref":"30C","title":"30C · Rez-de-chaussée, bloc 3","sub":"1 ch. · 55 m²","price":435000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-30c-floorplans.pdf","label":""}]},{"id":"u10","ref":"31C","title":"31C · Premier étage, bloc 3","sub":"1 ch. · 68 m²","price":440000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-31c-floorplans.pdf","label":""}]},{"id":"u11","ref":"40B","title":"40B · Rez-de-chaussée, bloc 4","sub":"1 ch. · 93 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-40b-floorplans.pdf","label":""}]},{"id":"u12","ref":"40E","title":"40E · Rez-de-chaussée, bloc 4","sub":"1 ch. · 70 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-40e-floorplans.pdf","label":""}]},{"id":"u13","ref":"41A","title":"41A · Premier étage, bloc 4","sub":"1 ch. · 68 m²","price":550000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-41a-floorplans.pdf","label":""}]},{"id":"u14","ref":"41B","title":"41B · Premier étage, bloc 4","sub":"1 ch. · 63 m²","price":440000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-41b-floorplans.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp","alt":"Vue aérienne de la résidence boutique avec vue sur la montagne","caption":"Vue aérienne de la résidence","cat":"Exteriors"},{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.webp","alt":"Vue aérienne de la résidence en bord de route côtière avec vue mer","caption":"Vue aérienne le long de la route côtière","cat":"Exteriors"},{"src":"assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden.webp","alt":"Extérieur d’un logement en rez-de-chaussée avec terrasse, jardin et vue mer","caption":"Logement en rez-de-chaussée avec terrasse et jardin","cat":"Exteriors"},{"src":"assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.webp","alt":"Toit-terrasse avec vue panoramique sur la mer","caption":"Terrasse en toiture avec vue panoramique sur la mer","cat":"Amenities"},{"src":"assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.webp","alt":"Terrasse couverte avec salon et vue panoramique sur la mer","caption":"Salon de terrasse couverte avec vue sur la mer","cat":"Interiors"},{"src":"assets/liora/projects/bahia-serena-residences/media/bedroom-sea-view.webp","alt":"Chambre avec vue mer par des baies vitrées toute hauteur","caption":"Chambre avec vue sur la mer","cat":"Interiors"},{"src":"assets/liora/projects/bahia-serena-residences/media/site-plan.webp","alt":"Plan masse montrant les quatre bâtiments, les accès et la piscine commune","caption":"Plan de situation des quatre bâtiments et de la piscine commune","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Bahía Serena Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp","alt":"Vue aérienne de la résidence boutique avec vue sur la montagne","width":1350,"height":869,"caption":"Vue aérienne de la résidence","category":"Extérieurs"},{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road-960.webp","alt":"Vue aérienne de la résidence en bord de route côtière avec vue mer","width":1555,"height":1190,"caption":"Vue aérienne le long de la route côtière","category":"Extérieurs"},{"src":"assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden-960.webp","alt":"Extérieur d’un logement en rez-de-chaussée avec terrasse, jardin et vue mer","width":1387,"height":1194,"caption":"Logement en rez-de-chaussée avec terrasse et jardin","category":"Extérieurs"},{"src":"assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-960.webp","alt":"Toit-terrasse avec vue panoramique sur la mer","width":1920,"height":974,"caption":"Terrasse en toiture avec vue panoramique sur la mer","category":"Équipements"},{"src":"assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-960.webp","alt":"Terrasse couverte avec salon et vue panoramique sur la mer","width":1292,"height":1188,"caption":"Salon de terrasse couverte avec vue sur la mer","category":"Intérieurs"},{"src":"assets/liora/projects/bahia-serena-residences/media/bedroom-sea-view.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/bedroom-sea-view-960.webp","alt":"Chambre avec vue mer par des baies vitrées toute hauteur","width":1535,"height":1189,"caption":"Chambre avec vue sur la mer","category":"Intérieurs"},{"src":"assets/liora/projects/bahia-serena-residences/media/site-plan.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/site-plan-960.webp","alt":"Plan masse montrant les quatre bâtiments, les accès et la piscine commune","width":2382,"height":1684,"caption":"Plan de situation des quatre bâtiments et de la piscine commune","category":"Les environs"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-bahia-serena-residences.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

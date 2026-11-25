@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlendinger kjøpe eiendom i Spania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er et NIE-nummer, og trenger jeg et?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg få boliglån i Spania som ikke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvordan fungerer reservasjons- og betalingsprosessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg leie ut boligen etter kjøp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Trenger jeg advokat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hvor mange boliger er tilgjengelige?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="no"
   data-project-name="Solana Residences"
   data-project-message="Hei Nueva Living, jeg vil gjerne ha informasjon om Solana Residences."
@@ -443,614 +380,172 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Solana Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="no/property-solana-residences.html#top">Solana Residences<span>Fra 645 000 € · Ekskl. mva</span></a>
+      <nav class="hdr-proj" aria-label="Prosjektseksjoner"><a href="no/property-solana-residences.html#overview">Oversikt</a><a href="no/property-solana-residences.html#availability">Priser</a><a href="no/property-solana-residences.html#gallery">Galleri</a><a href="no/property-solana-residences.html#location">Beliggenhet</a><a href="no/property-solana-residences.html#onsite">På stedet</a><a href="no/property-solana-residences.html#view">Vår vurdering</a><a href="no/property-solana-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="no/property-solana-residences.html#enquire" data-prefill>Bestill en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Solana Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/pool-and-sea-view-640.webp 640w, assets/liora/projects/solana-residences/media/pool-and-sea-view-960.webp 960w, assets/liora/projects/solana-residences/media/pool-and-sea-view.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/solana-residences/media/pool-and-sea-view.jpg" alt="Utendørs basseng med havet og kysten i det fjerne og en hvit, terrassert bygning til høyre" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/solana-residences/media/pool-and-sea-view.jpg" alt="Utendørs basseng med havet og kysten i det fjerne og en hvit, terrassert bygning til høyre" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">8 boliger tilgjengelige</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Solana <em>Residences</em></span>
-            <span class="hero-title-context">Leiligheter og toppleiligheter · El Higuerón</span>
-          </h1>
-          <p class="hero-positioning">Åtte ferdigstilte leiligheter og toppleiligheter med to eller tre soverom, store terrasser og havutsikt i El Higuerón, mellom Fuengirola og Benalmádena, med utendørs basseng, oppvarmet innendørs basseng, treningsrom og coworking-område. Ferdigstilt og klare til innflytting, fra 645 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="no/property-solana-residences.html#availability">Se tilgjengelige boliger</a>
-            <a class="btn project-btn ghost" href="no/index.html#private-viewing=1&amp;project=solana-residences">Filmatisk presentasjon</a>
-            <a class="btn project-btn ghost" href="no/property-solana-residences.html#media">Alle bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktige prosjektfakta">
-          <div class="hero-fact"><span>Område</span><strong>El Higuerón</strong></div>
-          <div class="hero-fact"><span>Pris fra</span><strong>Fra 645 000 €</strong></div>
-          <div class="hero-fact"><span>Boligtype</span><strong>Leiligheter og toppleiligheter</strong></div>
-          <div class="hero-fact"><span>Overtakelse</span><strong>Klart til innflytting</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Prosjektseksjoner">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Gå til</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="no/property-solana-residences.html#media">Media</a>
-        <a href="no/property-solana-residences.html#location">Beliggenhet</a>
-        <a href="no/property-solana-residences.html#availability">Tilgjengelighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="no/property-solana-residences.html#overview">Oversikt</a>
-          <a href="no/property-solana-residences.html#residences">Boliger</a>
-          <a href="no/property-solana-residences.html#calculator">Finansiering</a>
-          <a href="no/property-solana-residences.html#amenities">Fasiliteter</a>
-          <a href="no/property-solana-residences.html#why-this-project">Hvorfor</a>
-          <a href="no/property-solana-residences.html#architecture">Arkitektur</a>
-          <a href="no/property-solana-residences.html#private-viewing">Filmatisk presentasjon</a>
-          <a href="no/property-solana-residences.html#lifestyle">Livsstil</a>
-          <a href="no/property-solana-residences.html#faq">FAQ</a>
-          <a href="no/property-solana-residences.html#enquire">Forespørsel</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Rask prosjektfakta">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Soverom</span><strong>2-3 soverom</strong></div>
-          <div class="quick-fact"><span>Bebygd areal</span><strong>113,81 - 177,72 m²</strong></div>
-          <div class="quick-fact"><span>Innvendig areal</span><strong>73,45 - 116,74 m²</strong></div>
-          <div class="quick-fact"><span>Tilgjengelighet</span><strong>8 boliger tilgjengelige</strong></div>
-          <div class="quick-fact"><span>Tilgjengelig</span><strong>8 boliger</strong></div>
-          <div class="quick-fact"><span>Prisspenn</span><strong>645 000 € - 1 254 700 €</strong></div>
-          <div class="quick-fact"><span>Utendørsliv</span><strong>Store terrasser og et privat basseng ved tre av boligene</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="no/property-solana-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Oversikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Åtte boliger, <em>ferdigstilte og tilgjengelige</em></h2>
-          <p class="project-lead">Åtte leiligheter og toppleiligheter er tilgjengelige i tre bygg i El Higuerón, mellom Fuengirola og Benalmádena. Utbyggerens brosjyre beskriver dem som ferdigstilte boliger med umiddelbar tilgjengelighet, og portalen deres oppgir dem som klare til innflytting. Fem har tre soverom og tre har to, alle med to bad og store terrasser.</p>
-          <p class="project-lead">Fellesfasilitetene utbyggeren oppgir er et utendørs basseng, et oppvarmet innendørs basseng, et treningsrom, et coworking-område, et felles oppholdsrom og hager, og prosjektet har en visningsleilighet som kan besøkes.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Boligene <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Bilder av visningsleiligheten, den ferdigstilte bygningen og fellesfasilitetene, og plantegningen for hver av de åtte tilgjengelige boligene.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Vis 3 bilder i Eksteriør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/pool-and-sea-view-640.webp 640w, assets/liora/projects/solana-residences/media/pool-and-sea-view-960.webp 960w, assets/liora/projects/solana-residences/media/pool-and-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/solana-residences/media/pool-and-sea-view.jpg" alt="Utendørs basseng med havet og kysten i det fjerne og en hvit, terrassert bygning til høyre" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Eksteriør</small>
-                <strong>Bassenget og havet</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Vis 3 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/terrace-lounge-sea-view-640.webp 640w, assets/liora/projects/solana-residences/media/terrace-lounge-sea-view-960.webp 960w, assets/liora/projects/solana-residences/media/terrace-lounge-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/solana-residences/media/terrace-lounge-sea-view.jpg" alt="Overbygd terrasse med sofa og lenestoler og utsikt over takene til havet" width="2000" height="1335" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En overbygd terrasse med utsikt mot havet</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Vis 4 bilder i Interiør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/living-dining-sea-view-640.webp 640w, assets/liora/projects/solana-residences/media/living-dining-sea-view-960.webp 960w, assets/liora/projects/solana-residences/media/living-dining-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/solana-residences/media/living-dining-sea-view.jpg" alt="Åpen stue og spiseplass med en skyvbar glassvegg mot en terrasse og havet" width="2000" height="1332" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiør</small>
-                <strong>Stue og spiseplass med havutsikt</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Vis 2 bilder i Soverom">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/solana-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/solana-residences/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/solana-residences/media/main-bedroom.jpg" alt="Soverom med dobbeltseng og en skyvbar glassdør til en terrasse med havutsikt" width="2000" height="1334" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Soverom</small>
-                <strong>Soverom med utsikt mot havet</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Vis 1 bilder i Bad">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/bathroom-640.webp 640w, assets/liora/projects/solana-residences/media/bathroom-960.webp 960w, assets/liora/projects/solana-residences/media/bathroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/solana-residences/media/bathroom.jpg" alt="Bad med åpen dusj, vegghengt toalett og veggmontert servantskap med speil" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bad</small>
-                <strong>Bad</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Vis 5 bilder i Fasiliteter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/indoor-pool-and-sauna-640.webp 640w, assets/liora/projects/solana-residences/media/indoor-pool-and-sauna-960.webp 960w, assets/liora/projects/solana-residences/media/indoor-pool-and-sauna.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/solana-residences/media/indoor-pool-and-sauna.jpg" alt="Innendørs basseng med en badstue bak en glassvegg og treningsutstyr bakenfor" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Fasiliteter</small>
-                <strong>Innendørsbassenget</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Vis 8 bilder i Plantegninger">
-              <img src="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed.jpg" alt="Plantegning av bolig 10A, første etasje, Hus 1" width="2000" height="1509" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plantegninger</small>
-                <strong>Bolig 10A, første etasje, Hus 1</strong>
-                <span class="project-media-card-cta">8 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Vis alle 26 bilder</button>
-          <p class="media-note">Bildene av interiørene og terrassene viser en møblert visningsleilighet, og utbyggerens merknad sier at møbler, dekor og landskapsutforming på bildene ikke er inkludert i prisen. Plantegningene er utbyggerens, og arealene på dem er veiledende og kan endres av tekniske, juridiske eller byggemessige grunner. Romnavnene på plantegningene er på spansk.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Beliggenhet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">El Higuerón, <em>mellom Fuengirola og Benalmádena</em></h2>
-          <p class="project-lead">Utbyggerens portal plasserer boligene i El Higuerón, mellom Fuengirola og Benalmádena. På kartet ligger prosjektet ved siden av AP-7, med Mijas i vest, Málaga lufthavn i nordøst og Marbella markert 20 km unna.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="no">
-          <div class="locmap-map" id="locmap-solana-residences" data-locmap='{&quot;site&quot;:[36.572,-4.596],&quot;sea&quot;:[36.545,-4.596],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.56872,-4.5924],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;810 m · 11 min gange&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;4,9 km · 12 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola sentrum&quot;,&quot;sub&quot;:&quot;5,6 km · 13 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Solana Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Veiledende beliggenhet</span>
-            <h3 class="locmap-name">Solana Residences</h3>
-            <p class="locmap-place">El Higuerón, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>810 m</bdi> <em><bdi>11 min gange</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>4,9 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Fuengirola sentrum</span>
-              <span class="locmap-row-figure"><bdi>5,6 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga lufthavn</span>
-              <span class="locmap-row-figure"><bdi>22 km</bdi> <em><bdi>24 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Boliger</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Åtte boliger, <em>fra første etasje til toppleilighet</em></h2>
-          <p class="project-lead">Fem boliger har tre soverom og tre har to. De tre treromsboligene i første etasje har de største terrassene og et privat basseng på plantegningen, og toppleilighetene ligger i femte etasje i Hus 2 og 3.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 10A</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>3</strong></div>
-<div><span>Bebygd areal</span><strong>177,72 m²</strong></div>
-<div><span>Innvendig areal</span><strong>116,74 m²</strong></div>
-<div><span>Terrasser</span><strong>166,70 m²</strong></div>
-<div><span>Pris</span><strong>1 098 500 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Første etasje, Hus 1. Stue, spiseplass og kjøkken på 47,56 m², tre soverom på 19,32, 14,16 og 14,11 m² og to bad på 4,91 og 5,31 m².</li>
-            <li>En overbygd terrasse på 107,34 m² og åpne terrasser på 51,58 og 7,78 m², med et privat basseng tegnet inn på plantegningen.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 24A</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>2</strong></div>
-<div><span>Bebygd areal</span><strong>114,01 m²</strong></div>
-<div><span>Innvendig areal</span><strong>73,45 m²</strong></div>
-<div><span>Terrasser</span><strong>46,47 m²</strong></div>
-<div><span>Pris</span><strong>1 037 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Toppleilighet i femte etasje, Hus 2. Stue, spiseplass og kjøkken på 34,03 m², to soverom på 13,05 og 9,97 m² og to bad på 4,81 og 4,72 m².</li>
-            <li>En overbygd terrasse på 8,42 m² og en åpen terrasse på 38,05 m², til sammen 46,47 m²; prislisten oppgir 44,47 m².</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 20B</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>3</strong></div>
-<div><span>Bebygd areal</span><strong>167,61 m²</strong></div>
-<div><span>Innvendig areal</span><strong>109,02 m²</strong></div>
-<div><span>Terrasser</span><strong>177,29 m²</strong></div>
-<div><span>Pris</span><strong>1 126 500 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Første etasje, Hus 2. Stue, spiseplass og kjøkken på 51,92 m², tre soverom på 15,31, 10,54 og 14,04 m² og to bad på 4,21 og 4,88 m².</li>
-            <li>En overbygd terrasse på 79,93 m² og en åpen terrasse på 97,36 m², til sammen 177,29 m², med et privat basseng tegnet inn på plantegningen; prislisten oppgir 117,29 m².</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 34A</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>2</strong></div>
-<div><span>Bebygd areal</span><strong>113,81 m²</strong></div>
-<div><span>Innvendig areal</span><strong>73,45 m²</strong></div>
-<div><span>Terrasser</span><strong>46,47 m²</strong></div>
-<div><span>Pris</span><strong>970 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Toppleilighet i femte etasje, Hus 3. Stue, spiseplass og kjøkken på 34,03 m², to soverom på 13,05 og 9,97 m² og to bad på 4,81 og 4,72 m².</li>
-            <li>En overbygd terrasse på 8,42 m² og en åpen terrasse på 38,05 m².</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 34B</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>3</strong></div>
-<div><span>Bebygd areal</span><strong>147,78 m²</strong></div>
-<div><span>Innvendig areal</span><strong>96,50 m²</strong></div>
-<div><span>Terrasser</span><strong>63,86 m²</strong></div>
-<div><span>Pris</span><strong>1 254 700 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Toppleilighet i femte etasje, Hus 3. Stue, spiseplass og kjøkken på 41,01 m², tre soverom på 17,48, 12,73 og 12,40 m² og to bad på 5,31 og 4,80 m².</li>
-            <li>En overbygd terrasse på 13,52 m² og en åpen terrasse på 50,34 m².</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 32A</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>3</strong></div>
-<div><span>Bebygd areal</span><strong>170,49 m²</strong></div>
-<div><span>Innvendig areal</span><strong>110,32 m²</strong></div>
-<div><span>Terrasser</span><strong>86,26 m²</strong></div>
-<div><span>Pris</span><strong>895 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Tredje etasje, Hus 3. Stue, spiseplass og kjøkken på 44,50 m², tre soverom på 21,96, 13,49 og 12,22 m² og to bad på 4,07 og 4,17 m².</li>
-            <li>En overbygd terrasse på 80,06 m² og en åpen terrasse på 6,20 m².</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 31A</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>2</strong></div>
-<div><span>Bebygd areal</span><strong>129,44 m²</strong></div>
-<div><span>Innvendig areal</span><strong>83,21 m²</strong></div>
-<div><span>Terrasser</span><strong>58,01 m²</strong></div>
-<div><span>Pris</span><strong>645 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Andre etasje, Hus 3. Stue, spiseplass og kjøkken på 37,44 m², to soverom på 16,58 og 12,01 m² og to bad på 4,07 og 4,18 m².</li>
-            <li>En overbygd terrasse på 54,47 m² og en åpen terrasse på 3,54 m².</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Bolig 30A</h3>
-            <div class="res-meta">
-              <div><span>Soverom</span><strong>3</strong></div>
-<div><span>Bebygd areal</span><strong>177,41 m²</strong></div>
-<div><span>Innvendig areal</span><strong>116,74 m²</strong></div>
-<div><span>Terrasser</span><strong>164,79 m²</strong></div>
-<div><span>Pris</span><strong>1 099 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Første etasje, Hus 3. Stue, spiseplass og kjøkken på 47,56 m², tre soverom på 19,32, 14,16 og 14,11 m² og to bad på 4,91 og 5,31 m².</li>
-            <li>En overbygd terrasse på 107,34 m² og åpne terrasser på 49,83 og 7,62 m², med et privat basseng tegnet inn på plantegningen.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat materiale</span>
-            <p>Gjeldende planløsninger, utsiktsposisjoner og tilgjengelighet bør sjekkes mot utviklerens siste fil før man setter opp en shortlist.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="no/property-solana-residences.html#availability">Vis plantegninger</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tilgjengelighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Åtte boliger <em>tilgjengelige nå</em></h2>
-          <p class="project-lead">Boligene 10A, 20B, 30A, 31A, 32A, 34A, 34B og 24A er tilgjengelige i Hus 1, 2 og 3. Prisene er de fra utbyggerens portal, per i dag, oktober 2026, og vi bekrefter dem før enhver reservasjon.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/solana-residences/media/building-and-pool.jpg" alt="Hvit, terrassert bygning med trekledde partier og glassrekkverk over utendørsbassenget, med en li bak" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>18 bilder</button>
+          <a class="chip" href="no/property-solana-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plantegninger</a>
+          <a class="chip" href="no/property-solana-residences.html#location"><svg><use href="#v2-pin"/></svg>Kart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammendrag av gjeldende fase">
-            <div><span>Tilgjengelige boliger</span><strong>8</strong></div>
-            <div><span>Pris fra</span><strong>645 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>645 000 € - 1 254 700 €</strong></div>
-            <div><span>Kontrollert</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Se alle 8 tilgjengelige boliger</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tilgjengelige boliger">
-              <article class="unit-card" data-unit data-price="1098500">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 10A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed.jpg" alt="Plantegning for 10A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">10A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>177,72 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>116,74 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>166,70 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 1, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 098 500 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2010A">Spør om 10A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1037000">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 24A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed.jpg" alt="Plantegning for 24A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">24A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>114,01 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>73,45 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>46,47 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 2, toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 037 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2024A">Spør om 24A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1126500">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 20B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed.jpg" alt="Plantegning for 20B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">20B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>167,61 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>109,02 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>177,29 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 2, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 126 500 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2020B">Spør om 20B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="970000">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 34A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed.jpg" alt="Plantegning for 34A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">34A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>113,81 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>73,45 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>46,47 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">970 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2034A">Spør om 34A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1254700">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 34B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed.jpg" alt="Plantegning for 34B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">34B</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>147,78 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>96,50 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>63,86 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, toppleilighet</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 254 700 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2034B">Spør om 34B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="895000">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 32A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed.jpg" alt="Plantegning for 32A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">32A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>170,49 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>110,32 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>86,26 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, tredje etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">895 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2032A">Spør om 32A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="645000">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 31A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed.jpg" alt="Plantegning for 31A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">31A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>2 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>129,44 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>83,21 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>58,01 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, andre etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">645 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2031A">Spør om 31A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1099000">
-                <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 30A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed.jpg" alt="Plantegning for 30A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Vis plantegning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">30A</strong>
-                    <span class="availability-status">Tilgjengelig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Soverom</dt><dd>3 soverom</dd></div>
-                    <div><dt>Bygd</dt><dd>177,41 m²</dd></div>
-                    <div><dt>Innvendig</dt><dd>116,74 m²</dd></div>
-                    <div><dt>Terrasse</dt><dd>164,79 m²</dd></div>
-                    <div><dt>Etasje</dt><dd>Hus 3, første etasje</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 099 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2030A">Spør om 30A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Priser, bebygde areal og terrasseareal er hentet fra prislisten på utbyggerens portal, kopiert 12. oktober 2026, som oppgir åtte boliger i fase 2 som tilgjengelige; brosjyren sier at åtte boliger gjenstår. Innvendige areal og romareal er fra utbyggerens plantegninger. Bebygd areal er tallet i tabellen etter dekret 218/2005 på hver plantegning, og terrassen er den overbygde og den åpne terrassen til sammen. For seks boliger er terrassetallet på portalen lik summen av de to terrassene på plantegningen; for bolig 24A oppgir portalen 44,47 m² mot 46,47 m² på plantegningen, og for 20B 117,29 m² mot 177,29 m² på plantegningen, og denne siden viser tallet fra plantegningen. Portalen oppgir ikke om mva er inkludert. Ferdigstillelsesstatusen er fra brosjyren, som beskriver boligene som ferdigstilte og umiddelbart tilgjengelige, og fra portalen, som oppgir nøkkelferdig og klar til innflytting; ingen av dem oppgir en dato.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="no/property-solana-residences.html#enquire" data-prefill>Spør om en bolig</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Solana%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Solana Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beregn din <em>månedlige betaling</em></h2>
-          <p class="body-copy">Kun et veiledende anslag. Bekreft de eksakte vilkårene med din långiver før du tar en beslutning.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Solana</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Åtte ferdigstilte leiligheter og toppleiligheter med to eller tre soverom, store terrasser og havutsikt i El Higuerón, mellom Fuengirola og Benalmádena, med utendørs basseng, oppvarmet innendørs basseng, treningsrom og coworking-område.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Fra 645 000 €</dd><dd class="sub">Ekskl. mva</dd></div><div><dt>Soverom</dt><dd>2 til 3</dd><dd class="sub"><span>Leiligheter og toppleiligheter</span></dd></div><div><dt>Ferdigstillelse</dt><dd>Innflytningsklar</dd><dd class="sub">Ferdig bygg; brukstillatelse skal bekreftes</dd></div><div><dt>Boliger igjen</dt><dd>8 oppført</dd><dd class="sub">Kontrollert oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="no/property-solana-residences.html#enquire" data-prefill>Bestill en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Solana%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Solana Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Prosjektet</h2>
+    <p class="lede">Åtte leiligheter og toppleiligheter er tilgjengelige i tre bygg i El Higuerón, mellom Fuengirola og Benalmádena. Utbyggerens brosjyre beskriver dem som ferdigstilte boliger med umiddelbar tilgjengelighet, og portalen deres oppgir dem som klare til innflytting. Fem har tre soverom og tre har to, alle med to bad og store terrasser.</p>
+    <p class="lede-2">Fellesfasilitetene utbyggeren oppgir er et utendørs basseng, et oppvarmet innendørs basseng, et treningsrom, et coworking-område, et felles oppholdsrom og hager, og prosjektet har en visningsleilighet som kan besøkes.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Moderne bygg, åpne mot havet</span></summary><p>Utbyggeren beskriver en moderne arkitektur med elegante linjer og store private terrasser som forlenger boligen utendørs. På bildene trapper byggene seg ned i hvite terrasser med glassrekkverk, vendt mot Middelhavet.</p><p>Boligene ligger i Hus 1, 2 og 3, i første, andre og tredje etasje, og som toppleiligheter i femte etasje.</p><ul><li>Arkitektur: Moderne arkitektur med elegante linjer, med utbyggerens ord.</li><li>Terrasser: Store private terrasser, der den overbygde og den åpne delen er målt hver for seg på hver plantegning.</li><li>Private bassenger: Tre boliger i første etasje, 10A, 20B og 30A, har et privat basseng tegnet inn på terrassen på plantegningen.</li><li>Utsikt: Havutsikt, som brosjyren kaller panoramautsikt over Middelhavet.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>645 000 € – 1 254 700 €</span><small>Ekskl. mva</small></dd></div><div><dt>Tilgjengelig</dt><dd><span>8 oppført</span><small>Kontrollert oktober 2026</small></dd></div><div><dt>Boliger</dt><dd><span>Leiligheter og toppleiligheter</span></dd></div><div><dt>Størrelser</dt><dd><span>114 – 178 m²</span><small>Bebygd areal</small></dd></div><div><dt>Ferdigstillelse</dt><dd><span>Innflytningsklar</span></dd></div><div><dt>Tillatelse</dt><dd><span>Ferdig bygg</span><small>Brukstillatelse skal bekreftes</small></dd></div><div><dt>Forskudd</dt><dd><span>Ikke aktuelt</span><small>Ferdig bygg</small></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Boliger og priser</h2>
+    <p class="sec-sub">Boligene 10A, 20B, 30A, 31A, 32A, 34A, 34B og 24A er tilgjengelige i Hus 1, 2 og 3. Prisene er de fra utbyggerens portal, per i dag, oktober 2026, og vi bekrefter dem før enhver reservasjon. Velg en bolig for å se betalingsplan og totalkostnad.</p>
+    
+    <div class="ufilter" role="group" aria-label="Filtrer på soverom"><button type="button" aria-pressed="true" data-beds="">Alle <span>8</span></button><button type="button" aria-pressed="false" data-beds="2">2 sov. <span>3</span></button><button type="button" aria-pressed="false" data-beds="3">3 sov. <span>5</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Boliger til salgs med størrelse og pris. Velg en rad for å se betalingsplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bolig</th>
+          <th scope="col" data-sort="beds">Soverom</th>
+          <th scope="col" data-sort="size">Størrelse</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Tegning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="1098500" data-size="177.72" data-ppm="6181" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed-640.webp">
+            <th scope="row"><span class="u-name">10A</span><span class="u-loc">Hus 1, første etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">178 m²</td>
+            <td data-label="Pris" class="u-price num">1 098 500 €</td>
+            <td data-label="Per m²" class="num">6 181 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 10A"><img src="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="1037000" data-size="114.01" data-ppm="9096" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed-640.webp">
+            <th scope="row"><span class="u-name">24A</span><span class="u-loc">Hus 2, toppleilighet</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">114 m²</td>
+            <td data-label="Pris" class="u-price num">1 037 000 €</td>
+            <td data-label="Per m²" class="num">9 096 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 24A"><img src="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="1126500" data-size="167.61" data-ppm="6721" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed-640.webp">
+            <th scope="row"><span class="u-name">20B</span><span class="u-loc">Hus 2, første etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">168 m²</td>
+            <td data-label="Pris" class="u-price num">1 126 500 €</td>
+            <td data-label="Per m²" class="num">6 721 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 20B"><img src="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="970000" data-size="113.81" data-ppm="8523" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed-640.webp">
+            <th scope="row"><span class="u-name">34A</span><span class="u-loc">Hus 3, toppleilighet</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">114 m²</td>
+            <td data-label="Pris" class="u-price num">970 000 €</td>
+            <td data-label="Per m²" class="num">8 523 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 34A"><img src="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="1254700" data-size="147.78" data-ppm="8490" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed-640.webp">
+            <th scope="row"><span class="u-name">34B</span><span class="u-loc">Hus 3, toppleilighet</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">148 m²</td>
+            <td data-label="Pris" class="u-price num">1 254 700 €</td>
+            <td data-label="Per m²" class="num">8 490 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 34B"><img src="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="895000" data-size="170.49" data-ppm="5250" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed-640.webp">
+            <th scope="row"><span class="u-name">32A</span><span class="u-loc">Hus 3, tredje etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">170 m²</td>
+            <td data-label="Pris" class="u-price num">895 000 €</td>
+            <td data-label="Per m²" class="num">5 250 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 32A"><img src="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="645000" data-size="129.44" data-ppm="4983" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed-640.webp">
+            <th scope="row"><span class="u-name">31A</span><span class="u-loc">Hus 3, andre etasje</span></th>
+            <td data-label="Soverom">2 sov.</td>
+            <td data-label="Størrelse" class="num">129 m²</td>
+            <td data-label="Pris" class="u-price num">645 000 €</td>
+            <td data-label="Per m²" class="num">4 983 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 31A"><img src="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="1099000" data-size="177.41" data-ppm="6195" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed-640.webp">
+            <th scope="row"><span class="u-name">30A</span><span class="u-loc">Hus 3, første etasje</span></th>
+            <td data-label="Soverom">3 sov.</td>
+            <td data-label="Størrelse" class="num">177 m²</td>
+            <td data-label="Pris" class="u-price num">1 099 000 €</td>
+            <td data-label="Per m²" class="num">6 195 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 30A"><img src="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Tegning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Boliger · <span>Åtte boliger, fra første etasje til toppleilighet</span></summary><p>Fem boliger har tre soverom og tre har to. De tre treromsboligene i første etasje har de største terrassene og et privat basseng på plantegningen, og toppleilighetene ligger i femte etasje i Hus 2 og 3.</p><div class="res-types"><div class="res-type"><h3>Bolig 10A</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>3</dd></div><div><dt>Bebygd areal</dt><dd>177,72 m²</dd></div><div><dt>Innvendig areal</dt><dd>116,74 m²</dd></div><div><dt>Terrasser</dt><dd>166,70 m²</dd></div><div><dt>Pris</dt><dd>1 098 500 €</dd></div></dl><ul><li>Første etasje, Hus 1. Stue, spiseplass og kjøkken på 47,56 m², tre soverom på 19,32, 14,16 og 14,11 m² og to bad på 4,91 og 5,31 m².</li><li>En overbygd terrasse på 107,34 m² og åpne terrasser på 51,58 og 7,78 m², med et privat basseng tegnet inn på plantegningen.</li></ul></div><div class="res-type"><h3>Bolig 24A</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>2</dd></div><div><dt>Bebygd areal</dt><dd>114,01 m²</dd></div><div><dt>Innvendig areal</dt><dd>73,45 m²</dd></div><div><dt>Terrasser</dt><dd>46,47 m²</dd></div><div><dt>Pris</dt><dd>1 037 000 €</dd></div></dl><ul><li>Toppleilighet i femte etasje, Hus 2. Stue, spiseplass og kjøkken på 34,03 m², to soverom på 13,05 og 9,97 m² og to bad på 4,81 og 4,72 m².</li><li>En overbygd terrasse på 8,42 m² og en åpen terrasse på 38,05 m², til sammen 46,47 m²; prislisten oppgir 44,47 m².</li></ul></div><div class="res-type"><h3>Bolig 20B</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>3</dd></div><div><dt>Bebygd areal</dt><dd>167,61 m²</dd></div><div><dt>Innvendig areal</dt><dd>109,02 m²</dd></div><div><dt>Terrasser</dt><dd>177,29 m²</dd></div><div><dt>Pris</dt><dd>1 126 500 €</dd></div></dl><ul><li>Første etasje, Hus 2. Stue, spiseplass og kjøkken på 51,92 m², tre soverom på 15,31, 10,54 og 14,04 m² og to bad på 4,21 og 4,88 m².</li><li>En overbygd terrasse på 79,93 m² og en åpen terrasse på 97,36 m², til sammen 177,29 m², med et privat basseng tegnet inn på plantegningen; prislisten oppgir 117,29 m².</li></ul></div><div class="res-type"><h3>Bolig 34A</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>2</dd></div><div><dt>Bebygd areal</dt><dd>113,81 m²</dd></div><div><dt>Innvendig areal</dt><dd>73,45 m²</dd></div><div><dt>Terrasser</dt><dd>46,47 m²</dd></div><div><dt>Pris</dt><dd>970 000 €</dd></div></dl><ul><li>Toppleilighet i femte etasje, Hus 3. Stue, spiseplass og kjøkken på 34,03 m², to soverom på 13,05 og 9,97 m² og to bad på 4,81 og 4,72 m².</li><li>En overbygd terrasse på 8,42 m² og en åpen terrasse på 38,05 m².</li></ul></div><div class="res-type"><h3>Bolig 34B</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>3</dd></div><div><dt>Bebygd areal</dt><dd>147,78 m²</dd></div><div><dt>Innvendig areal</dt><dd>96,50 m²</dd></div><div><dt>Terrasser</dt><dd>63,86 m²</dd></div><div><dt>Pris</dt><dd>1 254 700 €</dd></div></dl><ul><li>Toppleilighet i femte etasje, Hus 3. Stue, spiseplass og kjøkken på 41,01 m², tre soverom på 17,48, 12,73 og 12,40 m² og to bad på 5,31 og 4,80 m².</li><li>En overbygd terrasse på 13,52 m² og en åpen terrasse på 50,34 m².</li></ul></div><div class="res-type"><h3>Bolig 32A</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>3</dd></div><div><dt>Bebygd areal</dt><dd>170,49 m²</dd></div><div><dt>Innvendig areal</dt><dd>110,32 m²</dd></div><div><dt>Terrasser</dt><dd>86,26 m²</dd></div><div><dt>Pris</dt><dd>895 000 €</dd></div></dl><ul><li>Tredje etasje, Hus 3. Stue, spiseplass og kjøkken på 44,50 m², tre soverom på 21,96, 13,49 og 12,22 m² og to bad på 4,07 og 4,17 m².</li><li>En overbygd terrasse på 80,06 m² og en åpen terrasse på 6,20 m².</li></ul></div><div class="res-type"><h3>Bolig 31A</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>2</dd></div><div><dt>Bebygd areal</dt><dd>129,44 m²</dd></div><div><dt>Innvendig areal</dt><dd>83,21 m²</dd></div><div><dt>Terrasser</dt><dd>58,01 m²</dd></div><div><dt>Pris</dt><dd>645 000 €</dd></div></dl><ul><li>Andre etasje, Hus 3. Stue, spiseplass og kjøkken på 37,44 m², to soverom på 16,58 og 12,01 m² og to bad på 4,07 og 4,18 m².</li><li>En overbygd terrasse på 54,47 m² og en åpen terrasse på 3,54 m².</li></ul></div><div class="res-type"><h3>Bolig 30A</h3><dl class="res-meta"><div><dt>Soverom</dt><dd>3</dd></div><div><dt>Bebygd areal</dt><dd>177,41 m²</dd></div><div><dt>Innvendig areal</dt><dd>116,74 m²</dd></div><div><dt>Terrasser</dt><dd>164,79 m²</dd></div><div><dt>Pris</dt><dd>1 099 000 €</dd></div></dl><ul><li>Første etasje, Hus 3. Stue, spiseplass og kjøkken på 47,56 m², tre soverom på 19,32, 14,16 og 14,11 m² og to bad på 4,91 og 5,31 m².</li><li>En overbygd terrasse på 107,34 m² og åpne terrasser på 49,83 og 7,62 m², med et privat basseng tegnet inn på plantegningen.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Utbyggerens betalingsplan fås på forespørsel; vi sender den sammen med prislisten.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Hva det koster totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>mva, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Dokumentavgift (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt før notar, tinglysing og advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="no/property-solana-residences.html#enquire" data-prefill>Spør om denne boligen</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plantegning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Boliglånskalkulator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Kjøpesum</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1110,379 +605,191 @@
               <div class="calculator-result"><span>Skatter & kjøpskostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Fasiliteter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva prosjektet <em>gir deg</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Velvære</span>
-              <h3 class="amenity-name">Felles utendørsbasseng</h3>
-              <p class="amenity-note">Under åpen himmel</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Bassenget og havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/pool-and-sea-view-640.webp 640w, assets/liora/projects/solana-residences/media/pool-and-sea-view-960.webp 960w, assets/liora/projects/solana-residences/media/pool-and-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/solana-residences/media/pool-and-sea-view.jpg" alt="Utendørs basseng med havet og kysten i det fjerne og en hvit, terrassert bygning til høyre" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Stue og spiseplass med havutsikt"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/living-dining-sea-view-640.webp 640w, assets/liora/projects/solana-residences/media/living-dining-sea-view-960.webp 960w, assets/liora/projects/solana-residences/media/living-dining-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/solana-residences/media/living-dining-sea-view.jpg" alt="Åpen stue og spiseplass med en skyvbar glassvegg mot en terrasse og havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="En overbygd terrasse med utsikt mot havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/terrace-lounge-sea-view-640.webp 640w, assets/liora/projects/solana-residences/media/terrace-lounge-sea-view-960.webp 960w, assets/liora/projects/solana-residences/media/terrace-lounge-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/solana-residences/media/terrace-lounge-sea-view.jpg" alt="Overbygd terrasse med sofa og lenestoler og utsikt over takene til havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="13" aria-label="Innendørsbassenget"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/indoor-pool-and-sauna-640.webp 640w, assets/liora/projects/solana-residences/media/indoor-pool-and-sauna-960.webp 960w, assets/liora/projects/solana-residences/media/indoor-pool-and-sauna.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/solana-residences/media/indoor-pool-and-sauna.jpg" alt="Innendørs basseng med en badstue bak en glassvegg og treningsutstyr bakenfor" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Soverom med utsikt mot havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/solana-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/solana-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/solana-residences/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/solana-residences/media/main-bedroom.jpg" alt="Soverom med dobbeltseng og en skyvbar glassdør til en terrasse med havutsikt" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Se alle 18 bildene</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Eksteriør (3)</button><button type="button" data-open-cat="Terraces">Terrasser (3)</button><button type="button" data-open-cat="Interiors">Interiør (4)</button><button type="button" data-open-cat="Bedrooms">Soverom (2)</button><button type="button" data-open-cat="Bathrooms">Bad (1)</button><button type="button" data-open-cat="Amenities">Fasiliteter (5)</button></div>
+    
+    <p class="caption">Bildene av interiørene og terrassene viser en møblert visningsleilighet, og utbyggerens merknad sier at møbler, dekor og landskapsutforming på bildene ikke er inkludert i prisen. Plantegningene er utbyggerens, og arealene på dem er veiledende og kan endres av tekniske, juridiske eller byggemessige grunner. Romnavnene på plantegningene er på spansk.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Beliggenhet</h2>
+    <p class="sec-sub">Utbyggerens portal plasserer boligene i El Higuerón, mellom Fuengirola og Benalmádena. På kartet ligger prosjektet ved siden av AP-7, med Mijas i vest, Málaga lufthavn i nordøst og Marbella markert 20 km unna.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="no">
+          <div class="locmap-map" id="locmap-solana-residences" data-locmap='{&quot;site&quot;:[36.572,-4.596],&quot;sea&quot;:[36.545,-4.596],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.56872,-4.5924],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;810 m · 11 min gange&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;4,9 km · 12 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola sentrum&quot;,&quot;sub&quot;:&quot;5,6 km · 13 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Solana Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Veiledende beliggenhet</span>
+            <h3 class="locmap-name">Solana Residences</h3>
+            <p class="locmap-place">El Higuerón, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>810 m</bdi> <em><bdi>11 min gange</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Velvære</span>
-              <h3 class="amenity-name">Oppvarmet innendørsbasseng</h3>
-              <p class="amenity-note">Varmt vann under tak</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>4,9 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Velvære</span>
-              <h3 class="amenity-name">Treningsrom</h3>
-              <p class="amenity-note">Inne i prosjektet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Fuengirola sentrum</span>
+              <span class="locmap-row-figure"><bdi>5,6 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Velvære</span>
-              <h3 class="amenity-name">Privat basseng</h3>
-              <p class="amenity-note">Tilhører boligen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga lufthavn</span>
+              <span class="locmap-row-figure"><bdi>22 km</bdi> <em><bdi>24 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utendørs</span>
-              <h3 class="amenity-name">Opparbeidede hager</h3>
-              <p class="amenity-note">Opparbeidede fellesarealer</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Utendørs</span>
-              <h3 class="amenity-name">Sjøutsikt</h3>
-              <p class="amenity-note">Mot Middelhavet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Hverdag</span>
-              <h3 class="amenity-name">Coworkingområde</h3>
-              <p class="amenity-note">Arbeidsplasser utenfor boligen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Tjenester</span>
-              <h3 class="amenity-name">Fellesrom</h3>
-              <p class="amenity-note">Et rom å samles i</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Marbella</th><td>20 km, ifølge utbyggerens kart</td></tr><tr><th scope="row">Málaga lufthavn</th><td>Beskrevet som noen minutter unna; ingen tall oppgis</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">På stedet</h2>
+    <p class="sec-sub">Utbyggeren oppgir fellesfasilitetene nedenfor, og bildene viser bassenget, innendørsbassenget og treningsrommet slik de er bygget.</p>
+    <div class="life-panels"><div><h3>Bassengene</h3><p>Et utendørs basseng og et oppvarmet innendørs basseng; på bildet ses en badstue ved siden av innendørsbassenget.</p></div><div><h3>Treningsrom og coworking</h3><p>Et treningsrom med kondisjons- og styrkeutstyr og et coworking-område, begge oppgitt av utbyggeren.</p></div><div><h3>Felles oppholdsrom og hager</h3><p>Utbyggeren oppgir et felles oppholdsrom og hager, og visningsleiligheten kan besøkes.</p></div><div><h3>Strender og golf</h3><p>Utbyggerens kart markerer strendene Carvajal, Torreblanca, Fuengirola og Torremuelle og seks golfbaner rundt prosjektet, uten å oppgi avstander.</p></div></div>
+    <ul class="amen-top"><li>Felles utendørsbasseng</li><li>Oppvarmet innendørsbasseng</li><li>Treningsrom</li><li>Coworkingområde</li><li>Fellesrom</li><li>Opparbeidede hager</li></ul>
+    <details class="amen-all"><summary>Vis alle 8</summary><div class="amen-groups"><div><h3>Velvære<span class="count">4</span></h3><ul><li>Felles utendørsbasseng</li><li>Oppvarmet innendørsbasseng</li><li>Treningsrom</li><li>Privat basseng</li></ul></div><div><h3>Utendørs<span class="count">2</span></h3><ul><li>Opparbeidede hager</li><li>Sjøutsikt</li></ul></div><div><h3>Hverdag<span class="count">1</span></h3><ul><li>Coworkingområde</li></ul></div><div><h3>Tjenester<span class="count">1</span></h3><ul><li>Fellesrom</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår vurdering</h2>
+    <p class="sec-sub">Det vi ville vurdert før du reserverer her, og det vi sjekker for deg.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår vurdering">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrker</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planlegg for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Hva som skiller det ut</h3><ul class="points"><li><b>Hvem det passer for</b><span>Kjøpere som vil flytte inn snart og helst vil se en ferdigstilt bolig og fasilitetene før de forplikter seg.</span></li><li><b>Hva som gjør det annerledes</b><span>Store terrasser ved hver bolig, fra 46 m² på toppleilighetene til 177 m² i første etasje, og tre boliger i første etasje med et privat basseng på plantegningen.</span></li><li><b>Hvorfor beliggenheten betyr noe</b><span>El Higuerón ligger mellom Fuengirola og Benalmádena, ved siden av AP-7 på utbyggerens kart, med flere strender og golfbaner markert rundt.</span></li><li><b>Hvorfor sjekke detaljene</b><span>Utbyggerens dokumenter oppgir verken ferdigstillelsesdato, tillatelse eller betalingsvilkår, og to terrasseareal er forskjellige i prislisten og på plantegningene, så vi bekrefter hvert punkt før en eventuell reservasjon.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Hva du bør planlegge for</h3><ul class="points"><li><b>Priser</b><span>Prisene er de fra utbyggerens portal, og dokumentene oppgir ikke om mva og kjøpskostnader er inkludert. Vi bekrefter dette skriftlig.</span></li><li><b>Møbler og dekor</b><span>Utbyggerens merknad sier at møbler, dekorelementer og landskapsutforming på bildene ikke er inkludert i prisen på boligen.</span></li><li><b>Garasje og bod</b><span>Dokumentene oppgir ikke om hver bolig har en parkeringsplass eller en bod. Vi bekrefter hva som er inkludert.</span></li><li><b>Reservasjon og garanti</b><span>Verken reservasjonsbeløp eller betalingsplan oppgis. Vi ber om dem, og om hvordan hver betaling garanteres gjennom en bank, før noen betaling.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller før penger betales</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ferdigstillelse og sertifikater</b><span>Brosjyren og portalen beskriver begge boligene som ferdigstilte, men ingen av dem oppgir en ferdigstillelsesdato eller nevner en tillatelse. Vi ber om tillatelsen til første bruk og energisertifikatet for den boligen som velges.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>To terrasseareal</b><span>Prislisten oppgir 44,47 m² for terrassene i bolig 24A og 117,29 m² for 20B; plantegningene oppgir 46,47 og 177,29 m². Vi bekrefter hvilke tall kontrakten bruker.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Hvilket areal som teller</b><span>Bebygd areal i prislisten er tallet etter dekret 218/2005 fra hver plantegning, og det innvendige arealet er et annet, mindre tall. Vi bekrefter hvilket kontrakten bruker.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De private bassengene</b><span>Plantegningene for bolig 10A, 20B og 30A viser et privat basseng på terrassen, men prislisten nevner det ikke. Vi bekrefter at det er bygget og inkludert.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Be om prosjektdokumentasjonen</h3><p>Plantegningene for alle åtte tilgjengelige boliger og prislisten.</p></li><li><h3>Sammenlign alternativene</h3><p>Se dette sammen med de andre prosjektene i Fuengirola og Mijas som vi representerer.</p></li><li><h3>Privat visning</h3><p>Besøk visningsleiligheten og fellesfasilitetene sammen med oss.</p></li><li><h3>Reserver</h3><p>Vi bekrefter reservasjonsvilkårene og bankgarantien skriftlig, deretter kjøpskontrakten.</p></li></ol>
+      <div class="docs card"><h3>Dokumenter du får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prisliste</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plantegninger<small>8 av 8 boliger</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsplan<small>Ikke utstedt ennå</small><small>Venter</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Det offisielle sammendraget alle kjøpere i Andalucía har krav på</small></span></li></ul><a class="btn btn-primary" href="no/property-solana-residences.html#enquire" data-prefill>Få prosjektmappen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Spørsmål om Solana</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hvor mange boliger er tilgjengelige?</summary><p>Åtte er oppført som tilgjengelige: med 3 soverom boligene 10A, 20B, 30A, 32A og 34B, og med 2 soverom 24A, 31A og 34A, fra 645 000 € til 1 254 700 €. Dokumentene oppgir ikke hvor mange boliger prosjektet har til sammen.</p></details><details class="segment-faq-item"><summary>Er det ferdigstilt?</summary><p>Utbyggerens brosjyre beskriver ferdigstilte boliger med umiddelbar overlevering, og portalen deres oppgir nøkkelferdig og klar til innflytting. Ingen av dem oppgir en ferdigstillelsesdato, så vi ber om brukstillatelsen og energisertifikatet for den boligen som velges.</p></details><details class="segment-faq-item"><summary>Er mva inkludert?</summary><p>Portalen oppgir det ikke. Vi bekrefter skriftlig om prisene inkluderer mva og hvilke kjøpskostnader som kommer i tillegg.</p></details><details class="segment-faq-item"><summary>Hvilke areal er forskjellige mellom dokumentene?</summary><p>Terrassene i bolig 24A er 44,47 m² i prislisten og 46,47 m² på plantegningen, og de i 20B er 117,29 m² i prislisten og 177,29 m² på plantegningen. Denne siden viser tallene fra plantegningene.</p></details><details class="segment-faq-item"><summary>Hvilke fellesfasiliteter finnes?</summary><p>Utbyggeren oppgir et utendørs basseng, et oppvarmet innendørs basseng, et treningsrom, et coworking-område, et felles oppholdsrom og hager, og tilbyr en visningsleilighet.</p></details></div>
+    
+    <p class="faq2-guide">Mer om å kjøpe nybygg i Spania → <a class="textlink" href="no/guide-how-buying-works.html">Kjøpsguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Bestill en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris fra</p>
+      <p class="rail-price num">645 000 €</p>
+      <p class="rail-note">Ekskl. mva. · Kontrollert oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="no/property-solana-residences.html#enquire" data-prefill>Bestill en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Solana%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Solana Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Send oss en melding på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger</strong>Vi svarer selv på hver henvendelse.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Bestill en privat visning</h2>
+        <p>Fortell oss hvilken bolig som interesserer deg. Vi sender prosjektmappen og går deretter over området sammen med deg.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger av Nueva Living</strong>Vi svarer selv på hver henvendelse.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Solana%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Solana Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Send oss en melding</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>På visningen sjekker vi sammen</h3><ul><li><b>På stedet.</b> Gå gjennom visningsleiligheten, bassengene og treningsrommet.</li><li><b>Terrassen.</b> Se hvor stor terrassen er og utsikten over havet.</li><li><b>På papiret.</b> Bruksbevis, energiattest og bankgaranti, før noe signeres.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sender…" data-success-label="Bestill en privat visning ✓" data-submitting-message="Sender…" data-success-message="Forespørsel mottatt. Vi sender prosjektmappen og foreslår tider for visning." data-error-message="Det gikk ikke. Prøv igjen, eller send oss en melding på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Solana Residences">
+        <input type="hidden" id="f-project" name="project" value="Solana Residences">
+        <input type="hidden" name="preferred_area" value="El Higuerón">
+        <input type="hidden" name="property_type_interest" value="Leiligheter og toppleiligheter">
+        <input type="hidden" name="budget_range" value="Fra 645 000 €">
+        <input type="hidden" name="consent_text" value="Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hei Nueva Living, jeg vil gjerne ha informasjon om Solana Residences." data-base="Hei Nueva Living, jeg vil gjerne ha informasjon om Solana Residences.">
+        <h3>Dine opplysninger</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Fornavn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Etternavn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valgfritt, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Hvilken bolig?</label><select id="v2-f-unit" name="unit_interest"><option value="">Ikke sikker ennå, send meg alt</option><option value="10A">10A: 1 098 500 €</option><option value="24A">24A: 1 037 000 €</option><option value="20B">20B: 1 126 500 €</option><option value="34A">34A: 970 000 €</option><option value="34B">34B: 1 254 700 €</option><option value="32A">32A: 895 000 €</option><option value="31A">31A: 645 000 €</option><option value="30A">30A: 1 099 000 €</option></select></div>
+        <fieldset class="field"><legend>Boligen blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Til å bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Et feriehjem</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hvordan skal vi svare?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefonsamtale</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min. <a href="no/privacy-policy.html">Personvernerklæring</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Gi meg også beskjed hvis tilgjengelighet eller priser endres i Solana.</label>
+        <button class="btn btn-primary btn-block" type="submit">Bestill en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Hvorfor dette prosjektet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvorfor dette prosjektet <em>betyr noe</em></h2>
-          <p class="project-lead">Ferdigstilte boliger med store terrasser og havutsikt, som kan gås gjennom i en visningsleilighet i stedet for å vurderes ut fra en illustrasjon.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Hvorfor det passer</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvem det passer for</h3><p>Kjøpere som vil flytte inn snart og helst vil se en ferdigstilt bolig og fasilitetene før de forplikter seg.</p></article>
-              <article class="why-point reveal-soft"><h3>Hva som gjør det annerledes</h3><p>Store terrasser ved hver bolig, fra 46 m² på toppleilighetene til 177 m² i første etasje, og tre boliger i første etasje med et privat basseng på plantegningen.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor beliggenheten betyr noe</h3><p>El Higuerón ligger mellom Fuengirola og Benalmádena, ved siden av AP-7 på utbyggerens kart, med flere strender og golfbaner markert rundt.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor sjekke detaljene</h3><p>Utbyggerens dokumenter oppgir verken ferdigstillelsesdato, tillatelse eller betalingsvilkår, og to terrasseareal er forskjellige i prislisten og på plantegningene, så vi bekrefter hvert punkt før en eventuell reservasjon.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Utbyggerens dokumenter oppgir ikke betalingsvilkår, så vi ber om dem og bekrefter gjeldende beløp og datoer skriftlig før noen reserverer.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Priser</h3><p>Prisene er de fra utbyggerens portal, og dokumentene oppgir ikke om mva og kjøpskostnader er inkludert. Vi bekrefter dette skriftlig.</p></article>
-              <article class="why-point reveal-soft"><h3>Møbler og dekor</h3><p>Utbyggerens merknad sier at møbler, dekorelementer og landskapsutforming på bildene ikke er inkludert i prisen på boligen.</p></article>
-              <article class="why-point reveal-soft"><h3>Garasje og bod</h3><p>Dokumentene oppgir ikke om hver bolig har en parkeringsplass eller en bod. Vi bekrefter hva som er inkludert.</p></article>
-              <article class="why-point reveal-soft"><h3>Reservasjon og garanti</h3><p>Verken reservasjonsbeløp eller betalingsplan oppgis. Vi ber om dem, og om hvordan hver betaling garanteres gjennom en bank, før noen betaling.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Tillit og gjennomgang</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Ferdigstillelse og sertifikater</h3><p>Brosjyren og portalen beskriver begge boligene som ferdigstilte, men ingen av dem oppgir en ferdigstillelsesdato eller nevner en tillatelse. Vi ber om tillatelsen til første bruk og energisertifikatet for den boligen som velges.</p></article>
-              <article class="why-point reveal-soft"><h3>To terrasseareal</h3><p>Prislisten oppgir 44,47 m² for terrassene i bolig 24A og 117,29 m² for 20B; plantegningene oppgir 46,47 og 177,29 m². Vi bekrefter hvilke tall kontrakten bruker.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvilket areal som teller</h3><p>Bebygd areal i prislisten er tallet etter dekret 218/2005 fra hver plantegning, og det innvendige arealet er et annet, mindre tall. Vi bekrefter hvilket kontrakten bruker.</p></article>
-              <article class="why-point reveal-soft"><h3>De private bassengene</h3><p>Plantegningene for bolig 10A, 20B og 30A viser et privat basseng på terrassen, men prislisten nevner det ikke. Vi bekrefter at det er bygget og inkludert.</p></article>
-            </div>
-            <p class="why-group-note">Første gang du kjøper på prospekt i Spania? <a href="no/guide-how-buying-works.html">Slik foregår et nybyggkjøp</a> beskriver de sju trinnene, og <a href="no/guide-off-plan-vs-resale.html">nybygg sammenlignet med bruktbolig</a> tar for seg forskudd, garantier og tidsplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bildene kommer fra utbyggeren og kan være datagenererte">
+    <p>Bildene kommer fra utbyggeren og kan være datagenererte; endelig utforming, overflater, uteområder og utsikt kan avvike. Du har krav på en kopi av Documento Informativo Abreviado (DIA) for hver bolig på denne siden; Nueva Living sender den på forespørsel.</p>
+    <p>Tilgjengeligheten kontrollert hos selgeren oktober 2026; vi bekrefter den på nytt før enhver reservasjon.</p>
+    <p>Priser, bebygde areal og terrasseareal er hentet fra prislisten på utbyggerens portal, kopiert 12. oktober 2026, som oppgir åtte boliger i fase 2 som tilgjengelige; brosjyren sier at åtte boliger gjenstår. Innvendige areal og romareal er fra utbyggerens plantegninger. Bebygd areal er tallet i tabellen etter dekret 218/2005 på hver plantegning, og terrassen er den overbygde og den åpne terrassen til sammen. For seks boliger er terrassetallet på portalen lik summen av de to terrassene på plantegningen; for bolig 24A oppgir portalen 44,47 m² mot 46,47 m² på plantegningen, og for 20B 117,29 m² mot 177,29 m² på plantegningen, og denne siden viser tallet fra plantegningen. Portalen oppgir ikke om mva er inkludert. Ferdigstillelsesstatusen er fra brosjyren, som beskriver boligene som ferdigstilte og umiddelbart tilgjengelige, og fra portalen, som oppgir nøkkelferdig og klar til innflytting; ingen av dem oppgir en dato.</p>
+    <p>Informasjonen på denne siden er generell markedsføring og ikke juridisk, økonomisk eller investeringsrådgivning. Priser, tilgjengelighet og ferdigstillelsesdatoer kan endres uten varsel.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/solana-residences/media/building-and-pool.jpg" alt="Hvit, terrassert bygning med trekledde partier og glassrekkverk over utendørsbassenget, med en li bak" width="2000" height="1499" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Forhåndsvisning av arkitektur</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Moderne bygg, <em>åpne mot havet</em></h2>
-          <p>Utbyggeren beskriver en moderne arkitektur med elegante linjer og store private terrasser som forlenger boligen utendørs. På bildene trapper byggene seg ned i hvite terrasser med glassrekkverk, vendt mot Middelhavet.</p>
-<p>Boligene ligger i Hus 1, 2 og 3, i første, andre og tredje etasje, og som toppleiligheter i femte etasje.</p>
-          <ul class="feature-list">
-            <li>Arkitektur — Moderne arkitektur med elegante linjer, med utbyggerens ord.</li>
-            <li>Terrasser — Store private terrasser, der den overbygde og den åpne delen er målt hver for seg på hver plantegning.</li>
-            <li>Private bassenger — Tre boliger i første etasje, 10A, 20B og 30A, har et privat basseng tegnet inn på terrassen på plantegningen.</li>
-            <li>Utsikt — Havutsikt, som brosjyren kaller panoramautsikt over Middelhavet.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Handlinger for prosjektforespørsel">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Solana%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Solana Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="no/property-solana-residences.html#enquire" data-prefill>Bestill visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/solana-residences/media/main-bedroom.jpg" alt="Soverom med dobbeltseng og en skyvbar glassdør til en terrasse med havutsikt" width="2000" height="1334" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmatisk presentasjon</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se det <em>ferdig</em></h2>
-            <p>Boligene er bygget og utbyggeren tilbyr en visningsleilighet, så et besøk handler om lyset, terrassen og utsikten.</p>
-            <div class="viewing-insights">
-              <div><span>På stedet</span><p>Gå gjennom visningsleiligheten, bassengene og treningsrommet.</p></div>
-              <div><span>Terrassen</span><p>Se hvor stor terrassen er og utsikten over havet.</p></div>
-              <div><span>På papiret</span><p>Bruksbevis, energiattest og bankgaranti, før noe signeres.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="no/index.html#private-viewing=1&amp;project=solana-residences">Filmatisk presentasjon</a>
-              <a class="btn project-btn ghost" href="no/property-solana-residences.html#enquire" data-prefill>Be om prosjektmateriell</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Lukk">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Forrige bilde">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Neste bilde">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Eksteriør</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiør</button><button type="button" data-cat="Bedrooms">Soverom</button><button type="button" data-cat="Bathrooms">Bad</button><button type="button" data-cat="Amenities">Fasiliteter</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/solana-residences/media/living-dining-sea-view.jpg" alt="Åpen stue og spiseplass med en skyvbar glassvegg mot en terrasse og havet" width="2000" height="1332" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Basseng, <em>treningsrom</em> og kysten rundt</h2>
-            <p>Utbyggeren oppgir fellesfasilitetene nedenfor, og bildene viser bassenget, innendørsbassenget og treningsrommet slik de er bygget.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Neste steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva som skjer <em>videre</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Be om prosjektdokumentasjonen</h3>
-            <p>Plantegningene for alle åtte tilgjengelige boliger og prislisten.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Sammenlign alternativene</h3>
-            <p>Se dette sammen med de andre prosjektene i Fuengirola og Mijas som vi representerer.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Besøk visningsleiligheten og fellesfasilitetene sammen med oss.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserver</h3>
-            <p>Vi bekrefter reservasjonsvilkårene og bankgarantien skriftlig, deretter kjøpskontrakten.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Ofte stilte spørsmål</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanlige <em>spørsmål fra kjøpere</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlendinger kjøpe eiendom i Spania?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er et NIE-nummer, og trenger jeg et?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg få boliglån i Spania som ikke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer reservasjons- og betalingsprosessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg leie ut boligen etter kjøp?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Trenger jeg advokat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange boliger er tilgjengelige?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Åtte er oppført som tilgjengelige: med 3 soverom boligene 10A, 20B, 30A, 32A og 34B, og med 2 soverom 24A, 31A og 34A, fra 645 000 € til 1 254 700 €. Dokumentene oppgir ikke hvor mange boliger prosjektet har til sammen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er det ferdigstilt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Utbyggerens brosjyre beskriver ferdigstilte boliger med umiddelbar overlevering, og portalen deres oppgir nøkkelferdig og klar til innflytting. Ingen av dem oppgir en ferdigstillelsesdato, så vi ber om brukstillatelsen og energisertifikatet for den boligen som velges.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er mva inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Portalen oppgir det ikke. Vi bekrefter skriftlig om prisene inkluderer mva og hvilke kjøpskostnader som kommer i tillegg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke areal er forskjellige mellom dokumentene?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Terrassene i bolig 24A er 44,47 m² i prislisten og 46,47 m² på plantegningen, og de i 20B er 117,29 m² i prislisten og 177,29 m² på plantegningen. Denne siden viser tallene fra plantegningene.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke fellesfasiliteter finnes?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Utbyggeren oppgir et utendørs basseng, et oppvarmet innendørs basseng, et treningsrom, et coworking-område, et felles oppholdsrom og hager, og tilbyr en visningsleilighet.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Forespørsel</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Spør om <em>Solana Residences</em></h2>
-          <p class="body-copy">Fortell oss hva som trengs, så kommer vi tilbake med gjeldende tilgjengelighet og plantegningene.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grunnlegger av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grunnlegger, Nueva Living</p>
-            <h3 id="advisor-heading">Vil du heller snakke det gjennom?</h3>
-            <p class="advisor-copy">Velg det som passer, og send meg en melding på WhatsApp. Jeg tar utgangspunkt i det.</p>
-            <div class="advisor-group" role="group" aria-label="Jeg søker">
-              <span class="advisor-group-label">Jeg søker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">En bolig å bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">En feriebolig</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budsjett">
-              <span class="advisor-group-label">Budsjett</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Solana%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Solana Residences" data-intent="speak with an advisor">Send meg en melding på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Solana Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Solana Residences">
-          <input type="hidden" name="preferred_area" value="El Higuerón">
-          <input type="hidden" name="property_type_interest" value="Leiligheter og toppleiligheter">
-          <input type="hidden" name="budget_range" value="Fra 645 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Fornavn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Fornavn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Etternavn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Etternavn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Melding</label>
-              <textarea id="f-msg" name="message">Hei Nueva Living, jeg vil gjerne ha informasjon om Solana Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jeg samtykker til å bli kontaktet og til at mine data lagres.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jeg vil også gjerne motta sporadiske prosjektoppdateringer fra Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Send forespørsel</button>
-            <span class="form-note">Vi svarer personlig, vanligvis samme dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"10A","title":"10A · Hus 1, første etasje","sub":"3 sov. · 178 m²","price":1098500,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed.jpg","label":""}]},{"id":"u1","ref":"24A","title":"24A · Hus 2, toppleilighet","sub":"2 sov. · 114 m²","price":1037000,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed.jpg","label":""}]},{"id":"u2","ref":"20B","title":"20B · Hus 2, første etasje","sub":"3 sov. · 168 m²","price":1126500,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed.jpg","label":""}]},{"id":"u3","ref":"34A","title":"34A · Hus 3, toppleilighet","sub":"2 sov. · 114 m²","price":970000,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed.jpg","label":""}]},{"id":"u4","ref":"34B","title":"34B · Hus 3, toppleilighet","sub":"3 sov. · 148 m²","price":1254700,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed.jpg","label":""}]},{"id":"u5","ref":"32A","title":"32A · Hus 3, tredje etasje","sub":"3 sov. · 170 m²","price":895000,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed.jpg","label":""}]},{"id":"u6","ref":"31A","title":"31A · Hus 3, andre etasje","sub":"2 sov. · 129 m²","price":645000,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed.jpg","label":""}]},{"id":"u7","ref":"30A","title":"30A · Hus 3, første etasje","sub":"3 sov. · 177 m²","price":1099000,"plans":[{"src":"assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/solana-residences/media/pool-and-sea-view.webp","alt":"Utendørs basseng med havet og kysten i det fjerne og en hvit, terrassert bygning til høyre","caption":"Bassenget og havet","cat":"Exteriors"},{"src":"assets/liora/projects/solana-residences/media/building-and-pool.webp","alt":"Hvit, terrassert bygning med trekledde partier og glassrekkverk over utendørsbassenget, med en li bak","caption":"Den terrasserte bygningen over bassenget","cat":"Exteriors"},{"src":"assets/liora/projects/solana-residences/media/pool-from-above.webp","alt":"Luftfoto rett ovenfra av utendørsbassenget, trappene og bassengterrassen med solsenger","caption":"Utendørsbassenget sett ovenfra","cat":"Exteriors"},{"src":"assets/liora/projects/solana-residences/media/terrace-lounge-sea-view.webp","alt":"Overbygd terrasse med sofa og lenestoler og utsikt over takene til havet","caption":"En overbygd terrasse med utsikt mot havet","cat":"Terraces"},{"src":"assets/liora/projects/solana-residences/media/terrace-barbecue.webp","alt":"Terrasse med utekjøkken og innebygd grill og en skyvbar glassdør inn til boligen","caption":"Terrasse med utekjøkken","cat":"Terraces"},{"src":"assets/liora/projects/solana-residences/media/terrace-plunge-pool.webp","alt":"Terrasse med et hevet stupebasseng og brede trapper ved siden av","caption":"Terrasse med et hevet stupebasseng","cat":"Terraces"},{"src":"assets/liora/projects/solana-residences/media/living-dining-sea-view.webp","alt":"Åpen stue og spiseplass med en skyvbar glassvegg mot en terrasse og havet","caption":"Stue og spiseplass med havutsikt","cat":"Interiors"},{"src":"assets/liora/projects/solana-residences/media/dining-and-island.webp","alt":"Spisebord, kjøkkenøy og stuedel i et åpent rom","caption":"Spisebord og kjøkkenøy","cat":"Interiors"},{"src":"assets/liora/projects/solana-residences/media/living-room-and-kitchen.webp","alt":"Stue med sofa og TV, med spiseplass og kjøkken bakenfor","caption":"Stue og kjøkken","cat":"Interiors"},{"src":"assets/liora/projects/solana-residences/media/kitchen.webp","alt":"Møblert kjøkken med et høyskap med ovn og mikrobølgeovn og en benkeplate med vask","caption":"Kjøkkenet","cat":"Interiors"},{"src":"assets/liora/projects/solana-residences/media/main-bedroom.webp","alt":"Soverom med dobbeltseng og en skyvbar glassdør til en terrasse med havutsikt","caption":"Soverom med utsikt mot havet","cat":"Bedrooms"},{"src":"assets/liora/projects/solana-residences/media/bedroom-terrace-view.webp","alt":"Soverom med dobbeltseng og en skyvbar glassdør til en terrasse og havet","caption":"Soverom med utgang til terrasse","cat":"Bedrooms"},{"src":"assets/liora/projects/solana-residences/media/bathroom.webp","alt":"Bad med åpen dusj, vegghengt toalett og veggmontert servantskap med speil","caption":"Bad","cat":"Bathrooms"},{"src":"assets/liora/projects/solana-residences/media/indoor-pool-and-sauna.webp","alt":"Innendørs basseng med en badstue bak en glassvegg og treningsutstyr bakenfor","caption":"Innendørsbassenget","cat":"Amenities"},{"src":"assets/liora/projects/solana-residences/media/gym-weights.webp","alt":"Treningsrom med et stativ med manualer, en benk og en kabelmaskin, og en speilvegg","caption":"Treningsrommet","cat":"Amenities"},{"src":"assets/liora/projects/solana-residences/media/gym-and-indoor-pool.webp","alt":"Treningsrom med en tredemølle og en crosstrainer, med innendørsbassenget bak en glassvegg","caption":"Treningsrom og innendørsbasseng","cat":"Amenities"},{"src":"assets/liora/projects/solana-residences/media/shared-room-long-table.webp","alt":"Fellesrom med et langt marmorbord, stoler og lenestoler og et vindu mot hagen","caption":"Et fellesrom med et langt bord","cat":"Amenities"},{"src":"assets/liora/projects/solana-residences/media/meeting-room.webp","alt":"Møterom med et langt trebord, lærstoler og to taklamper","caption":"Et møterom","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Spør om {ref}","plusVat":"Ekskl. mva","totalPrice":"Totalpris","vatOnStages":"Pluss mva på hver delbetaling","onRequest":"På forespørsel","imageOf":"{i} av {n}","floorPlan":"Plantegning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Solana Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Lukk">Lukk</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Forrige bilde">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Neste bilde">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/solana-residences/media/pool-and-sea-view.jpg","webp":"assets/liora/projects/solana-residences/media/pool-and-sea-view-960.webp","alt":"Utendørs basseng med havet og kysten i det fjerne og en hvit, terrassert bygning til høyre","width":2000,"height":1333,"caption":"Bassenget og havet","category":"Eksteriør"},{"src":"assets/liora/projects/solana-residences/media/building-and-pool.jpg","webp":"assets/liora/projects/solana-residences/media/building-and-pool-960.webp","alt":"Hvit, terrassert bygning med trekledde partier og glassrekkverk over utendørsbassenget, med en li bak","width":2000,"height":1499,"caption":"Den terrasserte bygningen over bassenget","category":"Eksteriør"},{"src":"assets/liora/projects/solana-residences/media/pool-from-above.jpg","webp":"assets/liora/projects/solana-residences/media/pool-from-above-960.webp","alt":"Luftfoto rett ovenfra av utendørsbassenget, trappene og bassengterrassen med solsenger","width":2000,"height":1500,"caption":"Utendørsbassenget sett ovenfra","category":"Eksteriør"},{"src":"assets/liora/projects/solana-residences/media/terrace-lounge-sea-view.jpg","webp":"assets/liora/projects/solana-residences/media/terrace-lounge-sea-view-960.webp","alt":"Overbygd terrasse med sofa og lenestoler og utsikt over takene til havet","width":2000,"height":1335,"caption":"En overbygd terrasse med utsikt mot havet","category":"Terrasser"},{"src":"assets/liora/projects/solana-residences/media/terrace-barbecue.jpg","webp":"assets/liora/projects/solana-residences/media/terrace-barbecue-960.webp","alt":"Terrasse med utekjøkken og innebygd grill og en skyvbar glassdør inn til boligen","width":2000,"height":1335,"caption":"Terrasse med utekjøkken","category":"Terrasser"},{"src":"assets/liora/projects/solana-residences/media/terrace-plunge-pool.jpg","webp":"assets/liora/projects/solana-residences/media/terrace-plunge-pool-960.webp","alt":"Terrasse med et hevet stupebasseng og brede trapper ved siden av","width":2000,"height":1333,"caption":"Terrasse med et hevet stupebasseng","category":"Terrasser"},{"src":"assets/liora/projects/solana-residences/media/living-dining-sea-view.jpg","webp":"assets/liora/projects/solana-residences/media/living-dining-sea-view-960.webp","alt":"Åpen stue og spiseplass med en skyvbar glassvegg mot en terrasse og havet","width":2000,"height":1332,"caption":"Stue og spiseplass med havutsikt","category":"Interiør"},{"src":"assets/liora/projects/solana-residences/media/dining-and-island.jpg","webp":"assets/liora/projects/solana-residences/media/dining-and-island-960.webp","alt":"Spisebord, kjøkkenøy og stuedel i et åpent rom","width":2000,"height":1335,"caption":"Spisebord og kjøkkenøy","category":"Interiør"},{"src":"assets/liora/projects/solana-residences/media/living-room-and-kitchen.jpg","webp":"assets/liora/projects/solana-residences/media/living-room-and-kitchen-960.webp","alt":"Stue med sofa og TV, med spiseplass og kjøkken bakenfor","width":2000,"height":1334,"caption":"Stue og kjøkken","category":"Interiør"},{"src":"assets/liora/projects/solana-residences/media/kitchen.jpg","webp":"assets/liora/projects/solana-residences/media/kitchen-960.webp","alt":"Møblert kjøkken med et høyskap med ovn og mikrobølgeovn og en benkeplate med vask","width":2000,"height":1333,"caption":"Kjøkkenet","category":"Interiør"},{"src":"assets/liora/projects/solana-residences/media/main-bedroom.jpg","webp":"assets/liora/projects/solana-residences/media/main-bedroom-960.webp","alt":"Soverom med dobbeltseng og en skyvbar glassdør til en terrasse med havutsikt","width":2000,"height":1334,"caption":"Soverom med utsikt mot havet","category":"Soverom"},{"src":"assets/liora/projects/solana-residences/media/bedroom-terrace-view.jpg","webp":"assets/liora/projects/solana-residences/media/bedroom-terrace-view-960.webp","alt":"Soverom med dobbeltseng og en skyvbar glassdør til en terrasse og havet","width":2000,"height":1333,"caption":"Soverom med utgang til terrasse","category":"Soverom"},{"src":"assets/liora/projects/solana-residences/media/bathroom.jpg","webp":"assets/liora/projects/solana-residences/media/bathroom-960.webp","alt":"Bad med åpen dusj, vegghengt toalett og veggmontert servantskap med speil","width":2000,"height":1333,"caption":"Bad","category":"Bad"},{"src":"assets/liora/projects/solana-residences/media/indoor-pool-and-sauna.jpg","webp":"assets/liora/projects/solana-residences/media/indoor-pool-and-sauna-960.webp","alt":"Innendørs basseng med en badstue bak en glassvegg og treningsutstyr bakenfor","width":2000,"height":1333,"caption":"Innendørsbassenget","category":"Fasiliteter"},{"src":"assets/liora/projects/solana-residences/media/gym-weights.jpg","webp":"assets/liora/projects/solana-residences/media/gym-weights-960.webp","alt":"Treningsrom med et stativ med manualer, en benk og en kabelmaskin, og en speilvegg","width":2000,"height":1333,"caption":"Treningsrommet","category":"Fasiliteter"},{"src":"assets/liora/projects/solana-residences/media/gym-and-indoor-pool.jpg","webp":"assets/liora/projects/solana-residences/media/gym-and-indoor-pool-960.webp","alt":"Treningsrom med en tredemølle og en crosstrainer, med innendørsbassenget bak en glassvegg","width":2000,"height":1334,"caption":"Treningsrom og innendørsbasseng","category":"Fasiliteter"},{"src":"assets/liora/projects/solana-residences/media/shared-room-long-table.jpg","webp":"assets/liora/projects/solana-residences/media/shared-room-long-table-960.webp","alt":"Fellesrom med et langt marmorbord, stoler og lenestoler og et vindu mot hagen","width":2000,"height":1335,"caption":"Et fellesrom med et langt bord","category":"Fasiliteter"},{"src":"assets/liora/projects/solana-residences/media/meeting-room.jpg","webp":"assets/liora/projects/solana-residences/media/meeting-room-960.webp","alt":"Møterom med et langt trebord, lærstoler og to taklamper","width":2000,"height":1333,"caption":"Et møterom","category":"Fasiliteter"},{"src":"assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed-960.webp","alt":"Plantegning av bolig 10A, første etasje, Hus 1","width":2000,"height":1509,"caption":"Bolig 10A, første etasje, Hus 1","category":"Plantegninger"},{"src":"assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed-960.webp","alt":"Plantegning av bolig 24A, toppleilighet i femte etasje, Hus 2","width":1545,"height":2000,"caption":"Bolig 24A, toppleilighet i femte etasje, Hus 2","category":"Plantegninger"},{"src":"assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed-960.webp","alt":"Plantegning av bolig 20B, første etasje, Hus 2","width":2000,"height":1795,"caption":"Bolig 20B, første etasje, Hus 2","category":"Plantegninger"},{"src":"assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed-960.webp","alt":"Plantegning av bolig 34A, toppleilighet i femte etasje, Hus 3","width":1546,"height":2000,"caption":"Bolig 34A, toppleilighet i femte etasje, Hus 3","category":"Plantegninger"},{"src":"assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed-960.webp","alt":"Plantegning av bolig 34B, toppleilighet i femte etasje, Hus 3","width":2000,"height":1968,"caption":"Bolig 34B, toppleilighet i femte etasje, Hus 3","category":"Plantegninger"},{"src":"assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed-960.webp","alt":"Plantegning av bolig 32A, tredje etasje, Hus 3","width":1771,"height":2000,"caption":"Bolig 32A, tredje etasje, Hus 3","category":"Plantegninger"},{"src":"assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed-960.webp","alt":"Plantegning av bolig 31A, andre etasje, Hus 3","width":1487,"height":2000,"caption":"Bolig 31A, andre etasje, Hus 3","category":"Plantegninger"},{"src":"assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed.jpg","webp":"assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed-960.webp","alt":"Plantegning av bolig 30A, første etasje, Hus 3","width":2000,"height":1390,"caption":"Bolig 30A, første etasje, Hus 3","category":"Plantegninger"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Handlinger for prosjektforespørsel">
-    <a href="no/property-solana-residences.html#enquire" data-prefill>Spør om en bolig</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Solana%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Solana Residences" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

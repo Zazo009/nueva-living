@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Vad ingår i priset?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Altos Terrace Residences"
   data-project-message="Jag vill gärna ha aktuell tillgänglighet och priser för Altos Terrace Residences."
@@ -459,510 +396,223 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Altos Terrace Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-altos-terrace-residences.html#top">Altos Terrace Residences<span>Från 540 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-altos-terrace-residences.html#overview">Översikt</a><a href="sv/property-altos-terrace-residences.html#availability">Priser</a><a href="sv/property-altos-terrace-residences.html#gallery">Galleri</a><a href="sv/property-altos-terrace-residences.html#location">Läge</a><a href="sv/property-altos-terrace-residences.html#onsite">I området</a><a href="sv/property-altos-terrace-residences.html#view">Vår bedömning</a><a href="sv/property-altos-terrace-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Altos Terrace Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/hero-640.webp 640w, assets/liora/projects/altos-terrace-residences/hero-960.webp 960w, assets/liora/projects/altos-terrace-residences/hero.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/altos-terrace-residences/hero.jpg" alt="De åtta huskropparna i skymningen, trappande uppför sluttningen ovanför poolterrassen" width="2000" height="1415" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/altos-terrace-residences/hero.jpg" alt="De åtta huskropparna i skymningen, trappande uppför sluttningen ovanför poolterrassen" width="2000" height="1415" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">14 av 23 bostäder lediga</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Altos Terrace <em>Residences</em></span>
-            <span class="hero-title-context">Lägenheter och takvåningar i två plan · Altos de los Monteros, Marbella</span>
-          </h1>
-          <p class="hero-positioning">Åttio bostäder i åtta huskroppar som trappar uppför en sluttning i Altos de los Monteros, Marbella, samtliga vända mot havet. Fjorton av de tjugotre som släppts är lediga, från 540 000 € före IVA.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-altos-terrace-residences.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=altos-terrace-residences">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-altos-terrace-residences.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Altos de los Monteros, Marbella</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 540 000 €</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenheter och takvåningar i två plan</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Färdigställande K2 2029</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-altos-terrace-residences.html#media">Media</a>
-        <a href="sv/property-altos-terrace-residences.html#location">Läge</a>
-        <a href="sv/property-altos-terrace-residences.html#construction-timeline">Betalningsvillkor</a>
-        <a href="sv/property-altos-terrace-residences.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-altos-terrace-residences.html#overview">Översikt</a>
-          <a href="sv/property-altos-terrace-residences.html#residences">Bostäder</a>
-          <a href="sv/property-altos-terrace-residences.html#calculator">Finansiering</a>
-          <a href="sv/property-altos-terrace-residences.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-altos-terrace-residences.html#why-this-project">Varför</a>
-          <a href="sv/property-altos-terrace-residences.html#architecture">Arkitektur</a>
-          <a href="sv/property-altos-terrace-residences.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-altos-terrace-residences.html#lifestyle">Livsstil</a>
-          <a href="sv/property-altos-terrace-residences.html#faq">FAQ</a>
-          <a href="sv/property-altos-terrace-residences.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2-3 sovrum</strong></div>
-          <div class="quick-fact"><span>Bostäder</span><strong>80 i 8 huskroppar</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>14 av 23 släppta</strong></div>
-          <div class="quick-fact"><span>Blocks</span><strong>8</strong></div>
-          <div class="quick-fact"><span>Released</span><strong>20</strong></div>
-          <div class="quick-fact"><span>Available</span><strong>14</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Åttio bostäder, <em>åtta huskroppar</em></h2>
-          <p class="project-lead">Åtta huskroppar med tio bostäder vardera i Altos de los Monteros, i sluttningen ovanför Marbellas östra kust.</p>
-          <p class="project-lead">Huskropparna ligger inte i nivå med varandra. Var och en är satt ett steg högre än den som ligger söder om den, så att ingen bostad tittar in i grannens tak och alla åttio är vända mot havet.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Projektet i <em>bilder</em></h2>
-          </div>
-          <p class="project-lead">Exploatörens visualiseringar av huskropparna, terrasserna, bostäderna och gemensamhetsplanet.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Visa 5 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view-640.webp 640w, assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view-960.webp 960w, assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view.jpg" alt="En takvåningsterrass med loungemöbler och kusten bortom" width="2000" height="1013" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En takvåningsterrass med loungemöbler och kusten bortom</strong>
-                <span class="project-media-card-cta">5 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 4 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan-640.webp 640w, assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan-960.webp 960w, assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan.jpg" alt="Öppet kök, matplats och vardagsrum mot terrassen" width="2000" height="834" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Öppet kök, matplats och vardagsrum mot terrassen</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 3 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool-640.webp 640w, assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool-960.webp 960w, assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool.webp 1125w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool.jpg" alt="Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden" width="1125" height="901" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 12 bilder</button>
-          <p class="media-note">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Altos de los Monteros, <em>ovanför kusten</em></h2>
-          <p class="project-lead">I sluttningen bakom Los Monteros, öster om Marbellas centrum, med havet framför och Sierra Blancas utlöpare bakom.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-altos-terrace-residences" data-locmap='{&quot;site&quot;:[36.52938,-4.83667],&quot;sea&quot;:[36.50238,-4.83667],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51029,-4.84404],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Río Real&quot;,&quot;sub&quot;:&quot;3,4 km · 12 min&quot;},{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella centrum&quot;,&quot;sub&quot;:&quot;8,8 km · 17 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;10 km · 20 min&quot;},{&quot;ll&quot;:[36.50391,-4.84507],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;5,1 km · 11 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Altos Terrace Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Altos Terrace Residences</h3>
-            <p class="locmap-place">Altos de los Monteros</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>5,1 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
-              <span class="locmap-row-figure"><bdi>10 km</bdi> <em><bdi>20 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Marbella centrum</span>
-              <span class="locmap-row-figure"><bdi>8,8 km</bdi> <em><bdi>17 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Río Real</span>
-              <span class="locmap-row-figure"><bdi>3,4 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Santa Clara</span>
-              <span class="locmap-row-figure"><bdi>5,9 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga flygplats</span>
-              <span class="locmap-row-figure"><bdi>50 km</bdi> <em><bdi>46 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Tidslinje</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Från ritning till <em>inflyttningsklart</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Bygglov beviljat</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">2026</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">Tillträde</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">2029</span>
-        </div>
-      </div>
-      <div class="project-inner timeline-payment-terms reveal-soft">
-        <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">Betalningsvillkor</span>
-          <span class="timeline-payment-total">20 000 € + IVA bokning, plus 100% av priset fördelat på 4 betalningar</span>
-        </div>
-        <div class="timeline-payment-grid">
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">01</span>
-            <span class="timeline-payment-label">Bokning</span>
-            <strong class="timeline-payment-value">20 000 € + IVA</strong>
-            <span class="timeline-payment-note">22 000 € vid undertecknandet</span>
-            
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">02</span>
-            <span class="timeline-payment-label">Vid privat kontrakt</span>
-            <strong class="timeline-payment-value">20% + IVA</strong>
-            <span class="timeline-payment-note">60 dagar efter bokningen, minus bokningsbeloppet</span>
-            <span class="timeline-payment-running">Löpande summa: 20%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">03</span>
-            <span class="timeline-payment-label">Efter 12 månader</span>
-            <strong class="timeline-payment-value">10% + IVA</strong>
-            <span class="timeline-payment-note">Räknat från det privata avtalet, inte från en byggetapp</span>
-            <span class="timeline-payment-running">Löpande summa: 30%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">04</span>
-            <span class="timeline-payment-label">Efter 18 månader</span>
-            <strong class="timeline-payment-value">10% + IVA</strong>
-            <span class="timeline-payment-note">Räknat från det privata avtalet, inte från en byggetapp</span>
-            <span class="timeline-payment-running">Löpande summa: 40%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">05</span>
-            <span class="timeline-payment-label">Vid tillträde</span>
-            <strong class="timeline-payment-value">60% + IVA</strong>
-            <span class="timeline-payment-note">Betalas vid undertecknandet hos notarien, vid nyckelöverlämningen</span>
-            <span class="timeline-payment-running">Löpande summa: 100%</span>
-          </div>
-        </div>
-        <p class="timeline-payment-disclaimer">Sextio procent förfaller först hos notarien, vilket binder mindre kapital under byggtiden än vad de flesta projekt på den här kusten kräver. De två mellersta delbetalningarna löper på fasta datum från det privata avtalet, inte efter byggetapper. Exploatören uppger att inbetalda belopp är säkrade med bankgaranti och att uppskovet är räntefritt. Nueva Living bekräftar båda delarna i bokningsavtalet innan ni binder er.</p>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline"><em>Bostäderna</em></h2>
-          <p class="project-lead">Lägenheter med två och tre sovrum, och takvåningar i två plan med solterrass.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Lägenheterna</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-altos-terrace-residences.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Takvåningarna i två plan</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-altos-terrace-residences.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-altos-terrace-residences.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">14 av de 23 bostäder som släppts är <em>lediga</em></h2>
-          <p class="project-lead">Säljaren har hittills släppt tjugotre av de åttio bostäderna. Fjorton är lediga, sju sålda och två reserverade. Nueva Living bekräftar pris och tillgänglighet på nytt före varje visning eller bokning.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>14</strong></div>
-            <div><span>Pris från</span><strong>540 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>540 000 € - 1 050 000 €</strong></div>
-            <div><span>Kontrollerad</span><strong>13 oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 14 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrera tillgängliga bostäder"
-              data-availability-filters
-              data-count-template="Visar {shown} av {total}">
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Bostadstyp</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alla</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Lägenhet</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Duplex-takvåning</button>
-                </div>
-              </div>
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Pris</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Alla</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-700000" aria-pressed="false">Under €700k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="700000-800000" aria-pressed="false">€700k – €800k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="800000-" aria-pressed="false">€800k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Rensa filter</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Inga bostäder matchar dessa filter.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Tillgängliga bostäder på Altos Terrace Residences</caption>
-                <thead><tr><th scope="col">Referens</th><th scope="col">Våning</th><th scope="col">Sovrum</th><th scope="col">Storlek</th><th scope="col">Pris</th><th scope="col">Status</th><th scope="col">Planritning</th></tr></thead>
-                <tbody>
-              <tr data-type="apartment" data-price="540000">
-                <td data-label="Referens"><strong>30B</strong></td>
-                <td data-label="Våning">Hus 3</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">98,45 m² invändigt</td>
-                <td data-label="Pris"><strong>540 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/30B.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="apartment" data-price="610000">
-                <td data-label="Referens"><strong>40A</strong></td>
-                <td data-label="Våning">Hus 4</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">102,61 m² invändigt</td>
-                <td data-label="Pris"><strong>610 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/40A.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="apartment" data-price="620000">
-                <td data-label="Referens"><strong>41A</strong></td>
-                <td data-label="Våning">Hus 4</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">93,80 m² invändigt</td>
-                <td data-label="Pris"><strong>620 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-              <tr data-type="apartment" data-price="630000">
-                <td data-label="Referens"><strong>51B</strong></td>
-                <td data-label="Våning">Hus 5</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">97,79 m² invändigt</td>
-                <td data-label="Pris"><strong>630 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/51B.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="apartment" data-price="650000">
-                <td data-label="Referens"><strong>60B</strong></td>
-                <td data-label="Våning">Hus 6</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">98,56 m² invändigt</td>
-                <td data-label="Pris"><strong>650 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/60B.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="apartment" data-price="660000">
-                <td data-label="Referens"><strong>50A</strong></td>
-                <td data-label="Våning">Hus 5</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">102,61 m² invändigt</td>
-                <td data-label="Pris"><strong>660 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/50A.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="apartment" data-price="660000">
-                <td data-label="Referens"><strong>61B</strong></td>
-                <td data-label="Våning">Hus 6</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">98,51 m² invändigt</td>
-                <td data-label="Pris"><strong>660 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-              <tr data-type="apartment" data-price="700000">
-                <td data-label="Referens"><strong>71B</strong></td>
-                <td data-label="Våning">Hus 7</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">98,51 m² invändigt</td>
-                <td data-label="Pris"><strong>700 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-              <tr data-type="apartment" data-price="730000">
-                <td data-label="Referens"><strong>53B</strong></td>
-                <td data-label="Våning">Hus 5</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">100,91 m² invändigt</td>
-                <td data-label="Pris"><strong>730 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"></td>
-              </tr>
-              <tr data-type="apartment" data-price="835000">
-                <td data-label="Referens"><strong>70A</strong></td>
-                <td data-label="Våning">Hus 7</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">124,53 m² invändigt</td>
-                <td data-label="Pris"><strong>835 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/70A.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="apartment" data-price="840000">
-                <td data-label="Referens"><strong>82B</strong></td>
-                <td data-label="Våning">Hus 8</td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">100,32 m² invändigt</td>
-                <td data-label="Pris"><strong>840 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/82B.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="duplex-penthouse" data-price="900000">
-                <td data-label="Referens"><strong>34B</strong></td>
-                <td data-label="Våning">Hus 3</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">118,62 m² invändigt</td>
-                <td data-label="Pris"><strong>900 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/34B.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="apartment" data-price="950000">
-                <td data-label="Referens"><strong>81A</strong></td>
-                <td data-label="Våning">Hus 8</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">117,71 m² invändigt</td>
-                <td data-label="Pris"><strong>950 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/81A.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-              <tr data-type="duplex-penthouse" data-price="1050000">
-                <td data-label="Referens"><strong>64B</strong></td>
-                <td data-label="Våning">Hus 6</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">120,63 m² invändigt</td>
-                <td data-label="Pris"><strong>1 050 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-                <td data-label="Planritning"><a class="availability-floorplan-link" href="assets/liora/projects/altos-terrace-residences/floorplans/64B.pdf" target="_blank" rel="noopener">Visa PDF</a></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>15 bilder</button>
+          <a class="chip" href="sv/property-altos-terrace-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-altos-terrace-residences.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-          <p class="availability-source-note">Varje siffra är avskriven från säljarens egen prislista daterad 13 oktober 2026. Invändiga ytor och terrassytor är exploatörens. Fyra celler lämnas tomma i stället för uppskattade: säljaren har inte utfärdat någon planritning för lägenheterna 41A, 53B, 61B och 71B. Priserna är exklusive IVA. IVA:n är 10 procent och stämpelskatten 1,20 procent, så lägenheten för 540 000 euro kostar omkring 600 000 euro före notarie- och registreringsavgifter, och takvåningen för 1 050 000 euro omkring 1 168 000. Två parkeringsplatser och ett förråd ingår utan extra kostnad i en lägenhet, tre platser och ett förråd i en takvåning.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Altos%20Terrace%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altos Terrace Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Altos Terrace</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Åttio bostäder i åtta huskroppar som trappar uppför en sluttning i Altos de los Monteros, Marbella, samtliga vända mot havet.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts has5"><div data-nl-price><dt>Pris</dt><dd class="num">Från 540 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2 till 3</dd><dd class="sub"><span>Lägenheter och takvåningar i två plan</span></dd></div><div><dt>Inflyttning</dt><dd>K2 2029</dd><dd class="sub">Bygglov beviljat</dd></div><div><dt>Bostäder kvar</dt><dd>14 av 80</dd><dd class="sub">Kontrollerat 13 oktober 2026</dd></div><div><dt>Betalningar</dt><dd>60% · Vid tillträde</dd><dd class="sub">20 000 € för att reservera</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Altos%20Terrace%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altos Terrace Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Åtta huskroppar med tio bostäder vardera i Altos de los Monteros, i sluttningen ovanför Marbellas östra kust.</p>
+    <p class="lede-2">Huskropparna ligger inte i nivå med varandra. Var och en är satt ett steg högre än den som ligger söder om den, så att ingen bostad tittar in i grannens tak och alla åttio är vända mot havet.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Åtta huskroppar, åtta nivåer</span></summary><p>Gatan utanför tomten stiger och faller kraftigt längs hela sin sträckning, vilket gjorde det besvärligt att ställa åtta huskroppar längs den. I stället för att schakta marken plan drog arkitekterna en privat väg inne på tomten, tre meter in och lägre, som jämnar ut lutningen till som mest fyra procent från ände till ände.</p><p>Varje huskropp ligger sedan på sin egen höjd i förhållande till den vägen. Den sydligaste ligger lägst och de stiger norrut, var och en ovanför den under. Ingenting på tomten kräver ramp för att nås, och ingen bostad tittar in i grannens tak.</p><ul><li>Åtta huskroppar med tio bostäder vardera, bottenvåning plus två och ett tornplan.</li><li>Huskropparna indragna minst tre meter, längs en privat intern väg med under fyra procents lutning.</li><li>Ett enda källarplan löper under hela tomten för parkering, förråd och teknik, med två separata infarter.</li><li>Medelhavsfasader i varma stentoner, med djupa terrasser inskurna i byggnadskroppen.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>540 000 € – 1 050 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>14 av 80 bostäder</span><small>Kontrollerat 13 oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenheter och takvåningar i två plan</span></dd></div><div><dt>Storlekar</dt><dd><span>94 – 125 m²</span><small>Inomhus</small></dd></div><div><dt>Inflyttning</dt><dd><span>K2 2029</span></dd></div><div><dt>Tillstånd</dt><dd><span><span class="ok">Bygglov</span></span><small>Beviljat</small></dd></div><div><dt>Betalningar</dt><dd><span>5 delbetalningar</span><small>60% · Vid tillträde · <a href="sv/property-altos-terrace-residences.html#plan">betalplan</a></small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Parkering under mark</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Säljaren har hittills släppt tjugotre av de åttio bostäderna. Fjorton är lediga, sju sålda och två reserverade. Nueva Living bekräftar pris och tillgänglighet på nytt före varje visning eller bokning. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="14 av 80 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>14 av 80 till salu</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrera på sovrum"><button type="button" aria-pressed="true" data-beds="">Alla <span>14</span></button><button type="button" aria-pressed="false" data-beds="2">2 sovrum <span>10</span></button><button type="button" aria-pressed="false" data-beds="3">3 sovrum <span>4</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="540000" data-size="98.45" data-ppm="5485" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/30B-thumb.jpg">
+            <th scope="row"><span class="u-name">30B</span><span class="u-loc">Lägenhet · Hus 3</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">98 m²</td>
+            <td data-label="Pris" class="u-price num">540 000 €</td>
+            <td data-label="Per m²" class="num">5 485 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/30B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 30B"><img src="assets/liora/projects/altos-terrace-residences/floorplans/30B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="610000" data-size="102.61" data-ppm="5945" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/40A-thumb.jpg">
+            <th scope="row"><span class="u-name">40A</span><span class="u-loc">Lägenhet · Hus 4</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">103 m²</td>
+            <td data-label="Pris" class="u-price num">610 000 €</td>
+            <td data-label="Per m²" class="num">5 945 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/40A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 40A"><img src="assets/liora/projects/altos-terrace-residences/floorplans/40A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="620000" data-size="93.8" data-ppm="6610" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">41A</span><span class="u-loc">Lägenhet · Hus 4</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">94 m²</td>
+            <td data-label="Pris" class="u-price num">620 000 €</td>
+            <td data-label="Per m²" class="num">6 610 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="630000" data-size="97.79" data-ppm="6442" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/51B-thumb.jpg">
+            <th scope="row"><span class="u-name">51B</span><span class="u-loc">Lägenhet · Hus 5</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">98 m²</td>
+            <td data-label="Pris" class="u-price num">630 000 €</td>
+            <td data-label="Per m²" class="num">6 442 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/51B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 51B"><img src="assets/liora/projects/altos-terrace-residences/floorplans/51B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="650000" data-size="98.56" data-ppm="6595" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/60B-thumb.jpg">
+            <th scope="row"><span class="u-name">60B</span><span class="u-loc">Lägenhet · Hus 6</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">99 m²</td>
+            <td data-label="Pris" class="u-price num">650 000 €</td>
+            <td data-label="Per m²" class="num">6 595 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/60B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 60B"><img src="assets/liora/projects/altos-terrace-residences/floorplans/60B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="660000" data-size="102.61" data-ppm="6432" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/50A-thumb.jpg">
+            <th scope="row"><span class="u-name">50A</span><span class="u-loc">Lägenhet · Hus 5</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">103 m²</td>
+            <td data-label="Pris" class="u-price num">660 000 €</td>
+            <td data-label="Per m²" class="num">6 432 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/50A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 50A"><img src="assets/liora/projects/altos-terrace-residences/floorplans/50A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="660000" data-size="98.51" data-ppm="6700" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">61B</span><span class="u-loc">Lägenhet · Hus 6</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">99 m²</td>
+            <td data-label="Pris" class="u-price num">660 000 €</td>
+            <td data-label="Per m²" class="num">6 700 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="700000" data-size="98.51" data-ppm="7106" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">71B</span><span class="u-loc">Lägenhet · Hus 7</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">99 m²</td>
+            <td data-label="Pris" class="u-price num">700 000 €</td>
+            <td data-label="Per m²" class="num">7 106 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u8" data-beds="2" data-price="730000" data-size="100.91" data-ppm="7234" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">53B</span><span class="u-loc">Lägenhet · Hus 5</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">101 m²</td>
+            <td data-label="Pris" class="u-price num">730 000 €</td>
+            <td data-label="Per m²" class="num">7 234 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="835000" data-size="124.53" data-ppm="6705" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/70A-thumb.jpg">
+            <th scope="row"><span class="u-name">70A</span><span class="u-loc">Lägenhet · Hus 7</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">125 m²</td>
+            <td data-label="Pris" class="u-price num">835 000 €</td>
+            <td data-label="Per m²" class="num">6 705 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/70A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 70A"><img src="assets/liora/projects/altos-terrace-residences/floorplans/70A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u10" data-beds="2" data-price="840000" data-size="100.32" data-ppm="8373" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/82B-thumb.jpg">
+            <th scope="row"><span class="u-name">82B</span><span class="u-loc">Lägenhet · Hus 8</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">100 m²</td>
+            <td data-label="Pris" class="u-price num">840 000 €</td>
+            <td data-label="Per m²" class="num">8 373 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/82B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 82B"><img src="assets/liora/projects/altos-terrace-residences/floorplans/82B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u11" data-beds="3" data-price="900000" data-size="118.62" data-ppm="7587" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/34B-thumb.jpg">
+            <th scope="row"><span class="u-name">34B</span><span class="u-loc">Duplex-takvåning · Hus 3</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">119 m²</td>
+            <td data-label="Pris" class="u-price num">900 000 €</td>
+            <td data-label="Per m²" class="num">7 587 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/34B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 34B"><img src="assets/liora/projects/altos-terrace-residences/floorplans/34B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u12" data-beds="3" data-price="950000" data-size="117.71" data-ppm="8071" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/81A-thumb.jpg">
+            <th scope="row"><span class="u-name">81A</span><span class="u-loc">Lägenhet · Hus 8</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">118 m²</td>
+            <td data-label="Pris" class="u-price num">950 000 €</td>
+            <td data-label="Per m²" class="num">8 071 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/81A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 81A"><img src="assets/liora/projects/altos-terrace-residences/floorplans/81A-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u13" data-beds="3" data-price="1050000" data-size="120.63" data-ppm="8704" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/altos-terrace-residences/floorplans/64B-thumb.jpg">
+            <th scope="row"><span class="u-name">64B</span><span class="u-loc">Duplex-takvåning · Hus 6</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">121 m²</td>
+            <td data-label="Pris" class="u-price num">1 050 000 €</td>
+            <td data-label="Per m²" class="num">8 704 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/altos-terrace-residences/floorplans/64B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 64B"><img src="assets/liora/projects/altos-terrace-residences/floorplans/64B-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Bostäderna</span></summary><p>Lägenheter med två och tre sovrum, och takvåningar i två plan med solterrass.</p><div class="res-types"><div class="res-type"><h3>Lägenheterna</h3><ul><li>Två och tre sovrum, 96,81 till 124,53 m² invändig yta.</li><li>Terrasser från 22,09 till 67,18 m², täckta, öppna eller både och.</li><li>Öppen planlösning med vardagsrum och kök som går ut mot terrassen.</li><li>Två parkeringsplatser och ett förråd till varje lägenhet, inkluderade i priset.</li></ul></div><div class="res-type"><h3>Takvåningarna i två plan</h3><ul><li>Tre sovrum och tre badrum, 118,62 till 120,63 m² invändig yta.</li><li>En privat solterrass på cirka 56 m² ovanpå en täckt terrass på cirka 29 m².</li><li>Total utomhusyta på 83,81 till 85,19 m², mer än två tredjedelar av den invändiga.</li><li>Tre parkeringsplatser och ett förråd, inkluderade i priset.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><table class="sched num"><caption>Betalplan för den här bostaden</caption><tbody id="v2-p-sched"></tbody></table>
+      <p class="caption">Sextio procent förfaller först hos notarien, vilket binder mindre kapital under byggtiden än vad de flesta projekt på den här kusten kräver. De två mellersta delbetalningarna löper på fasta datum från det privata avtalet, inte efter byggetapper. Exploatören uppger att inbetalda belopp är säkrade med bankgaranti och att uppskovet är räntefritt. Nueva Living bekräftar båda delarna i bokningsavtalet innan ni binder er.</p>
+      
+      <ol class="ct-strip" aria-label="Byggets milstolpar"><li class="is-mile"><b>2026</b><span>Bygglov beviljat</span></li><li class="is-mile"><b>2029</b><span>Tillträde</span></li></ol>
+      <p class="ct-note">Bygglovet är beviljat, vilket exploatören bekräftade i september 2026. Exploatörens eget informationsdokument, utfärdat tidigare, angav lovet som ansökt den 27 december 2024 med förväntat beviljande den 30 april 2026, och byggskedet som projektering och inte byggnation. Färdigställandet anges till andra kvartalet 2029. Nueva Living begär tillträdesdatumet skriftligt och skriver in det i avtalet.</p></div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1022,445 +672,199 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Infinitypool</h3>
-              <p class="amenity-note">En kant som försvinner</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="12" aria-label="Huskropparna i dagsljus, var och en satt en nivå ovanför den under"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/architecture-640.webp 640w, assets/liora/projects/altos-terrace-residences/architecture-960.webp 960w, assets/liora/projects/altos-terrace-residences/architecture.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/altos-terrace-residences/architecture.jpg" alt="Huskropparna i dagsljus, var och en satt en nivå ovanför den under" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Öppet kök, matplats och vardagsrum mot terrassen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan-640.webp 640w, assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan-960.webp 960w, assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan.jpg" alt="Öppet kök, matplats och vardagsrum mot terrassen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="0" aria-label="En takvåningsterrass med loungemöbler och kusten bortom"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view-640.webp 640w, assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view-960.webp 960w, assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view.jpg" alt="En takvåningsterrass med loungemöbler och kusten bortom" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool-640.webp 640w, assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool-960.webp 960w, assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool.jpg" alt="Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="En täckt terrass med utsikt över tallarna mot havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/media/terrace-pergola-coast-640.webp 640w, assets/liora/projects/altos-terrace-residences/media/terrace-pergola-coast-960.webp 960w, assets/liora/projects/altos-terrace-residences/media/terrace-pergola-coast.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/altos-terrace-residences/media/terrace-pergola-coast.jpg" alt="En täckt terrass med utsikt över tallarna mot havet" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 15 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Terraces">Terrasser (5)</button><button type="button" data-open-cat="Interiors">Interiör (4)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (3)</button><button type="button" data-open-cat="Exteriors">Exteriör (3)</button></div>
+    
+    <p class="caption">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">I sluttningen bakom Los Monteros, öster om Marbellas centrum, med havet framför och Sierra Blancas utlöpare bakom.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-altos-terrace-residences" data-locmap='{&quot;site&quot;:[36.52938,-4.83667],&quot;sea&quot;:[36.50238,-4.83667],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51029,-4.84404],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Río Real&quot;,&quot;sub&quot;:&quot;3,4 km · 12 min&quot;},{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella centrum&quot;,&quot;sub&quot;:&quot;8,8 km · 17 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;10 km · 20 min&quot;},{&quot;ll&quot;:[36.50391,-4.84507],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;5,1 km · 11 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Altos Terrace Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Altos Terrace Residences</h3>
+            <p class="locmap-place">Altos de los Monteros</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>5,1 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Poolbar</h3>
-              <p class="amenity-note">Servering utan att lämna vattnet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
+              <span class="locmap-row-figure"><bdi>10 km</bdi> <em><bdi>20 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Uppvärmd inomhuspool</h3>
-              <p class="amenity-note">Varmt vatten under tak</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Marbella centrum</span>
+              <span class="locmap-row-figure"><bdi>8,8 km</bdi> <em><bdi>17 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Río Real</span>
+              <span class="locmap-row-figure"><bdi>3,4 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Välmående</span>
-              <h3 class="amenity-name">Hammam</h3>
-              <p class="amenity-note">Turkiskt ångbad</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Santa Clara</span>
+              <span class="locmap-row-figure"><bdi>5,9 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Välmående</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga flygplats</span>
+              <span class="locmap-row-figure"><bdi>50 km</bdi> <em><bdi>46 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Välmående</span>
-              <h3 class="amenity-name">Separat simbassäng</h3>
-              <p class="amenity-note">En bana för att simma längder</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda trädgårdar</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Utomhus</span>
-              <h3 class="amenity-name">Solterrass</h3>
-              <p class="amenity-note">Öppen takterrass för sol</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Utomhus</span>
-              <h3 class="amenity-name">Havsutsikt</h3>
-              <p class="amenity-note">Mot Medelhavet</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Vardag</span>
-              <h3 class="amenity-name">Coworkingyta</h3>
-              <p class="amenity-note">Arbetsplatser utanför bostaden</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Vardag</span>
-              <h3 class="amenity-name">Parkering under mark</h3>
-              <p class="amenity-note">Under huset</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Vardag</span>
-              <h3 class="amenity-name">Förråd</h3>
-              <p class="amenity-note">Ett låsbart förråd</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Vardag</span>
-              <h3 class="amenity-name">Förberett för laddplats</h3>
-              <p class="amenity-note">En punkt för bilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Vardag</span>
-              <h3 class="amenity-name">Smart hem-teknik</h3>
-              <p class="amenity-note">Ljus och klimat från mobilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Service</span>
-              <h3 class="amenity-name">Gemensamhetsrum</h3>
-              <p class="amenity-note">Ett rum att samlas i</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Los Monteros-stranden</th><td>5 km</td></tr><tr><th scope="row">Rio Real Golf</th><td>4 km</td></tr><tr><th scope="row">Köpcentrumet La Cañada</th><td>6,2 km</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Ute en infinitypool och poolbar, inne en uppvärmd simbassäng, spa, gym, lounge och coworkingrum.</p>
+    <div class="life-panels"><div><h3>Utomhus</h3><p>En infinitypool på terrassen med kusten bortom kanten, en poolbar bredvid och anlagda trädgårdar mellan huskropparna. Poolerna saltkloreras i stället för att doseras kemiskt.</p></div><div><h3>Inomhus</h3><p>En uppvärmd inomhusbassäng för att simma längder, ett spa med turkiskt bad och ett gym med glasvägg mot sluttningen.</p></div><div><h3>För arbete</h3><p>Ett coworkingrum som delar plan med ett gemensamhetsrum, för de veckor då andrabostaden också måste vara kontor.</p></div></div>
+    <ul class="amen-top"><li>Infinitypool</li><li>Poolbar</li><li>Uppvärmd inomhuspool</li><li>Spa</li><li>Hammam</li><li>Gym</li></ul>
+    <details class="amen-all"><summary>Visa alla 16</summary><div class="amen-groups"><div><h3>Välmående<span class="count">7</span></h3><ul><li>Infinitypool</li><li>Poolbar</li><li>Uppvärmd inomhuspool</li><li>Spa</li><li>Hammam</li><li>Gym</li><li>Separat simbassäng</li></ul></div><div><h3>Utomhus<span class="count">3</span></h3><ul><li>Anlagda trädgårdar</li><li>Solterrass</li><li>Havsutsikt</li></ul></div><div><h3>Vardag<span class="count">5</span></h3><ul><li>Coworkingyta</li><li>Parkering under mark</li><li>Förråd</li><li>Förberett för laddplats</li><li>Smart hem-teknik</li></ul></div><div><h3>Service<span class="count">1</span></h3><ul><li>Gemensamhetsrum</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Varje bostad vetter mot havet</b><span>Alla åttio bostäder vetter mot havet, eftersom huskropparna trappar i stället för att ligga i nivå.</span></li><li><b>Merparten betalas i slutet</b><span>Sextio procent av priset faller hos notarien, så mindre kapital binds under byggtiden än vad de flesta projekt här kräver.</span></li><li><b>Parkering och förråd ingår</b><span>Varje lägenhet får två parkeringsplatser och ett förråd utan extra kostnad, vilket är ovanligt i den här prisklassen.</span></li><li><b>Er handpenning är säkrad</b><span>Inbetalda belopp är säkrade med bankgaranti, vilket spansk lag kräver vid köp på ritning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Priset är exklusive IVA</b><span>Prislistan anges före IVA. Tio procents IVA och 1,20 procents stämpelskatt lägger cirka sextiotusen euro på den billigaste lägenheten och hundraarton tusen på takvåningen, före notarie- och registreringsavgifter.</span></li><li><b>Tillträdet ligger två och ett halvt år bort</b><span>Andra kvartalet 2029 är en lång horisont. Fråga vad avtalet säger vid försening, och om datumet är avtalat eller endast vägledande.</span></li><li><b>Tjugo av åttio är släppta</b><span>De återstående sextio bostäderna prissätts senare. Den som köper tidigt tar byggrisken; den som köper senare betalar det senare priset. Vilken sida som är bäst avgörs av marknaden, inte av broschyren.</span></li><li><b>De mellersta delbetalningarna styrs av datum</b><span>De tio procenten efter tolv månader och de tio efter arton räknas från det privata avtalet, inte från byggets framdrift. Ni betalar dem oavsett om bygget håller tidplanen eller inte.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Tillståndet</b><span>Bygglov beviljat. Beviljat, bekräftat av exploatören i september 2026. Det skriftliga informationsdokumentet är äldre och anger det fortfarande som ansökt, så vi begär beslutet skriftligt.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Era pengar</b><span>Exploatören uppger att inbetalda belopp täcks av bankgaranti. Vi ber att få se själva garantin, inte påståendet.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Siffrorna</b><span>Ytor och priser är avskrivna från prislistan av den 13 oktober 2026. Där säljaren inte utfärdat något, som planritningarna för 41A, 53B, 61B och 71B, säger tabellen det.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Priserna kan ändras</b><span>Säljarens priser är vägledande och kan revideras. Med sextio av de åttio bostäderna ännu oprissatta är det mer sannolikt att de stiger än att de faller. Vi bekräftar summan med säljaren innan ni bokar.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Ni berättar vad ni söker</h3><p>Vilken huskropp, vilket våningsplan, hur många sovrum och vad ni vill att terrassen ska göra.</p></li><li><h3>Vi återkommer med den aktuella listan</h3><p>Bekräftad på nytt med säljaren, med skatten pålagd så att ni ser den verkliga siffran.</p></li><li><h3>Vi går platsen tillsammans med er</h3><p>Och ställer frågorna om bygglovet, garantin och tillträdesdatumet inför er.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>10 av 14 bostäder</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Betalplan</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Altos Terrace</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Vad ingår i priset?</summary><p>Två parkeringsplatser och ett förråd till varje lägenhet, tre platser och ett förråd till varje takvåning, allt utan extra kostnad. IVA ingår inte: IVA på 10 procent och stämpelskatt på 1,20 procent tillkommer, liksom notarie- och registreringsavgifter.</p></details><details class="segment-faq-item"><summary>När överlämnas bostäderna?</summary><p>Exploatören anger andra kvartalet 2029. Nueva Living begär det datumet skriftligt och att avtalet anger vad som gäller vid försening.</p></details><details class="segment-faq-item"><summary>Är bygglovet beviljat?</summary><p>Ja, bekräftat av exploatören i september 2026. Det skriftliga informationsdokumentet är äldre och anger fortfarande lovet som ansökt den 27 december 2024, så vi begär själva beslutet i stället för att förlita oss på något av dem.</p></details><details class="segment-faq-item"><summary>Hur många bostäder är till salu?</summary><p>Projektet har åttio bostäder i åtta huskroppar. Tjugotre har släppts hittills; av dem är fjorton lediga, sju sålda och två reserverade. De återstående femtiosju prissätts senare.</p></details><details class="segment-faq-item"><summary>Hur fungerar betalningsplanen?</summary><p>Tjugotusen euro plus IVA vid bokning, 20 procent plus IVA vid det privata avtalet sextio dagar senare, 10 procent efter tolv månader, 10 procent efter arton månader och återstående 60 procent hos notarien vid tillträdet. Exploatören uppger att uppskovet är räntefritt och att inbetalningarna är säkrade med bankgaranti.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Har alla bostäder havsutsikt?</summary><p>Exploatören projekterar för det: varje huskropp är satt ett steg högre än den söder om den, så att ingen tittar in i grannens tak. Vilken utsikt en viss bostad har beror ändå på huskropp och våningsplan, och det är värt att kontrollera på plats.</p></details><details class="segment-faq-item"><summary>Kan priserna ändras?</summary><p>Ja. Priserna som publiceras här är vägledande, och säljaren kan revidera dem när som helst innan en bokning skrivs på. Med sextio av de åttio bostäderna kvar att prissätta är en revidering uppåt den mer sannolika riktningen. Nueva Living bekräftar summan med säljaren innan ni binder er till något.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">540 000 €</p>
+      <p class="rail-note">Exkl. IVA. 14 av 80 bostäder kvar · Kontrollerat 13 oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Altos%20Terrace%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altos Terrace Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Altos%20Terrace%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altos Terrace Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>Vilka huskroppar som gått åt.</b> Vilka huskroppar som redan är slutsålda, och vad det säger om de utsikter köparna väljer.</li><li><b>Steget mellan huskropparna.</b> Hur steget mellan huskropparna läses på plats snarare än på ritningen.</li><li><b>Tillträdesdatumet.</b> Om tillträdesdatumet är avtalat eller endast vägledande, skriftligt.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Altos Terrace Residences">
+        <input type="hidden" id="f-project" name="project" value="Altos Terrace Residences">
+        <input type="hidden" name="preferred_area" value="Altos de los Monteros, Marbella">
+        <input type="hidden" name="property_type_interest" value="Lägenheter och takvåningar i två plan">
+        <input type="hidden" name="budget_range" value="Från 540 000 €">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Jag vill gärna ha aktuell tillgänglighet och priser för Altos Terrace Residences." data-base="Jag vill gärna ha aktuell tillgänglighet och priser för Altos Terrace Residences.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="30B">30B: 540 000 €</option><option value="40A">40A: 610 000 €</option><option value="41A">41A: 620 000 €</option><option value="51B">51B: 630 000 €</option><option value="60B">60B: 650 000 €</option><option value="50A">50A: 660 000 €</option><option value="61B">61B: 660 000 €</option><option value="71B">71B: 700 000 €</option><option value="53B">53B: 730 000 €</option><option value="70A">70A: 835 000 €</option><option value="82B">82B: 840 000 €</option><option value="34B">34B: 900 000 €</option><option value="81A">81A: 950 000 €</option><option value="64B">64B: 1 050 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Altos Terrace.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">En sluttande tomt som hanterats som en ingenjörsuppgift snarare än som en utsikt, och en betalningsplan som låter merparten av pengarna stå till nyckelöverlämningen.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Varje bostad vetter mot havet</h3><p>Alla åttio bostäder vetter mot havet, eftersom huskropparna trappar i stället för att ligga i nivå.</p></article>
-              <article class="why-point reveal-soft"><h3>Merparten betalas i slutet</h3><p>Sextio procent av priset faller hos notarien, så mindre kapital binds under byggtiden än vad de flesta projekt här kräver.</p></article>
-              <article class="why-point reveal-soft"><h3>Parkering och förråd ingår</h3><p>Varje lägenhet får två parkeringsplatser och ett förråd utan extra kostnad, vilket är ovanligt i den här prisklassen.</p></article>
-              <article class="why-point reveal-soft"><h3>Er handpenning är säkrad</h3><p>Inbetalda belopp är säkrade med bankgaranti, vilket spansk lag kräver vid köp på ritning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">Punkter värda att väga före reservation, och frågorna Nueva Living ställer för er räkning.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Priset är exklusive IVA</h3><p>Prislistan anges före IVA. Tio procents IVA och 1,20 procents stämpelskatt lägger cirka sextiotusen euro på den billigaste lägenheten och hundraarton tusen på takvåningen, före notarie- och registreringsavgifter.</p></article>
-              <article class="why-point reveal-soft"><h3>Tillträdet ligger två och ett halvt år bort</h3><p>Andra kvartalet 2029 är en lång horisont. Fråga vad avtalet säger vid försening, och om datumet är avtalat eller endast vägledande.</p></article>
-              <article class="why-point reveal-soft"><h3>Tjugo av åttio är släppta</h3><p>De återstående sextio bostäderna prissätts senare. Den som köper tidigt tar byggrisken; den som köper senare betalar det senare priset. Vilken sida som är bäst avgörs av marknaden, inte av broschyren.</p></article>
-              <article class="why-point reveal-soft"><h3>De mellersta delbetalningarna styrs av datum</h3><p>De tio procenten efter tolv månader och de tio efter arton räknas från det privata avtalet, inte från byggets framdrift. Ni betalar dem oavsett om bygget håller tidplanen eller inte.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillståndet</h3><p>Beviljat, bekräftat av exploatören i september 2026. Det skriftliga informationsdokumentet är äldre och anger det fortfarande som ansökt, så vi begär beslutet skriftligt.</p></article>
-              <article class="why-point reveal-soft"><h3>Era pengar</h3><p>Exploatören uppger att inbetalda belopp täcks av bankgaranti. Vi ber att få se själva garantin, inte påståendet.</p></article>
-              <article class="why-point reveal-soft"><h3>Siffrorna</h3><p>Ytor och priser är avskrivna från prislistan av den 13 oktober 2026. Där säljaren inte utfärdat något, som planritningarna för 41A, 53B, 61B och 71B, säger tabellen det.</p></article>
-              <article class="why-point reveal-soft"><h3>Priserna kan ändras</h3><p>Säljarens priser är vägledande och kan revideras. Med sextio av de åttio bostäderna ännu oprissatta är det mer sannolikt att de stiger än att de faller. Vi bekräftar summan med säljaren innan ni bokar.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren 13 oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Varje siffra är avskriven från säljarens egen prislista daterad 13 oktober 2026. Invändiga ytor och terrassytor är exploatörens. Fyra celler lämnas tomma i stället för uppskattade: säljaren har inte utfärdat någon planritning för lägenheterna 41A, 53B, 61B och 71B. Priserna är exklusive IVA. IVA:n är 10 procent och stämpelskatten 1,20 procent, så lägenheten för 540 000 euro kostar omkring 600 000 euro före notarie- och registreringsavgifter, och takvåningen för 1 050 000 euro omkring 1 168 000. Två parkeringsplatser och ett förråd ingår utan extra kostnad i en lägenhet, tre platser och ett förråd i en takvåning.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/altos-terrace-residences/architecture.jpg" alt="Huskropparna i dagsljus, var och en satt en nivå ovanför den under" width="2000" height="1414" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Åtta huskroppar, <em>åtta nivåer</em></h2>
-          <p>Gatan utanför tomten stiger och faller kraftigt längs hela sin sträckning, vilket gjorde det besvärligt att ställa åtta huskroppar längs den. I stället för att schakta marken plan drog arkitekterna en privat väg inne på tomten, tre meter in och lägre, som jämnar ut lutningen till som mest fyra procent från ände till ände.</p>
-<p>Varje huskropp ligger sedan på sin egen höjd i förhållande till den vägen. Den sydligaste ligger lägst och de stiger norrut, var och en ovanför den under. Ingenting på tomten kräver ramp för att nås, och ingen bostad tittar in i grannens tak.</p>
-          <ul class="feature-list">
-            <li>Åtta huskroppar med tio bostäder vardera, bottenvåning plus två och ett tornplan.</li>
-            <li>Huskropparna indragna minst tre meter, längs en privat intern väg med under fyra procents lutning.</li>
-            <li>Ett enda källarplan löper under hela tomten för parkering, förråd och teknik, med två separata infarter.</li>
-            <li>Medelhavsfasader i varma stentoner, med djupa terrasser inskurna i byggnadskroppen.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Altos%20Terrace%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altos Terrace Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/altos-terrace-residences/private-viewing.jpg" alt="Ett öppet kök och vardagsrum med terrassen bakom" width="2000" height="755" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se det <em>på plats</em></h2>
-            <p>Nueva Living bokar mötet, går platsen tillsammans med er och ställer de frågor som är obekväma att ställa säljaren själv.</p>
-            <div class="viewing-insights">
-              <div><span>Vilka huskroppar som gått åt</span><p>Vilka huskroppar som redan är slutsålda, och vad det säger om de utsikter köparna väljer.</p></div>
-              <div><span>Steget mellan huskropparna</span><p>Hur steget mellan huskropparna läses på plats snarare än på ritningen.</p></div>
-              <div><span>Tillträdesdatumet</span><p>Om tillträdesdatumet är avtalat eller endast vägledande, skriftligt.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=altos-terrace-residences">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Amenities">Bekvämligheter</button><button type="button" data-cat="Exteriors">Exteriör</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/altos-terrace-residences/lifestyle.jpg" alt="Infinitypoolen på sin terrass, Medelhavet bortom kanten" width="2000" height="1413" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Ett helt plan åt <em>de boende</em></h2>
-            <p>Ute en infinitypool och poolbar, inne en uppvärmd simbassäng, spa, gym, lounge och coworkingrum.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Ni berättar vad ni söker</h3>
-            <p>Vilken huskropp, vilket våningsplan, hur många sovrum och vad ni vill att terrassen ska göra.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vi återkommer med den aktuella listan</h3>
-            <p>Bekräftad på nytt med säljaren, med skatten pålagd så att ni ser den verkliga siffran.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Vi går platsen tillsammans med er</h3>
-            <p>Och ställer frågorna om bygglovet, garantin och tillträdesdatumet inför er.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad ingår i priset?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Två parkeringsplatser och ett förråd till varje lägenhet, tre platser och ett förråd till varje takvåning, allt utan extra kostnad. IVA ingår inte: IVA på 10 procent och stämpelskatt på 1,20 procent tillkommer, liksom notarie- och registreringsavgifter.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När överlämnas bostäderna?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Exploatören anger andra kvartalet 2029. Nueva Living begär det datumet skriftligt och att avtalet anger vad som gäller vid försening.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är bygglovet beviljat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, bekräftat av exploatören i september 2026. Det skriftliga informationsdokumentet är äldre och anger fortfarande lovet som ansökt den 27 december 2024, så vi begär själva beslutet i stället för att förlita oss på något av dem.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder är till salu?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Projektet har åttio bostäder i åtta huskroppar. Tjugotre har släppts hittills; av dem är fjorton lediga, sju sålda och två reserverade. De återstående femtiosju prissätts senare.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar betalningsplanen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Tjugotusen euro plus IVA vid bokning, 20 procent plus IVA vid det privata avtalet sextio dagar senare, 10 procent efter tolv månader, 10 procent efter arton månader och återstående 60 procent hos notarien vid tillträdet. Exploatören uppger att uppskovet är räntefritt och att inbetalningarna är säkrade med bankgaranti.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Har alla bostäder havsutsikt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Exploatören projekterar för det: varje huskropp är satt ett steg högre än den söder om den, så att ingen tittar in i grannens tak. Vilken utsikt en viss bostad har beror ändå på huskropp och våningsplan, och det är värt att kontrollera på plats.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan priserna ändras?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Priserna som publiceras här är vägledande, och säljaren kan revidera dem när som helst innan en bokning skrivs på. Med sextio av de åttio bostäderna kvar att prissätta är en revidering uppåt den mer sannolika riktningen. Nueva Living bekräftar summan med säljaren innan ni binder er till något.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>det här projektet</em></h2>
-          <p class="body-copy">Berätta vad ni söker så återkommer vi med den aktuella listan och den fulla kostnaden inklusive IVA.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Altos%20Terrace%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altos Terrace Residences" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Altos Terrace Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Altos Terrace Residences">
-          <input type="hidden" name="preferred_area" value="Altos de los Monteros, Marbella">
-          <input type="hidden" name="property_type_interest" value="Lägenheter och takvåningar i två plan">
-          <input type="hidden" name="budget_range" value="Från 540 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Jag vill gärna ha aktuell tillgänglighet och priser för Altos Terrace Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar själva på varje förfrågan.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"30B","title":"30B · Lägenhet · Hus 3","sub":"2 sovrum · 98 m²","price":540000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/30B.pdf","label":""}]},{"id":"u1","ref":"40A","title":"40A · Lägenhet · Hus 4","sub":"2 sovrum · 103 m²","price":610000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/40A.pdf","label":""}]},{"id":"u2","ref":"41A","title":"41A · Lägenhet · Hus 4","sub":"2 sovrum · 94 m²","price":620000,"plans":[]},{"id":"u3","ref":"51B","title":"51B · Lägenhet · Hus 5","sub":"2 sovrum · 98 m²","price":630000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/51B.pdf","label":""}]},{"id":"u4","ref":"60B","title":"60B · Lägenhet · Hus 6","sub":"2 sovrum · 99 m²","price":650000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/60B.pdf","label":""}]},{"id":"u5","ref":"50A","title":"50A · Lägenhet · Hus 5","sub":"2 sovrum · 103 m²","price":660000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/50A.pdf","label":""}]},{"id":"u6","ref":"61B","title":"61B · Lägenhet · Hus 6","sub":"2 sovrum · 99 m²","price":660000,"plans":[]},{"id":"u7","ref":"71B","title":"71B · Lägenhet · Hus 7","sub":"2 sovrum · 99 m²","price":700000,"plans":[]},{"id":"u8","ref":"53B","title":"53B · Lägenhet · Hus 5","sub":"2 sovrum · 101 m²","price":730000,"plans":[]},{"id":"u9","ref":"70A","title":"70A · Lägenhet · Hus 7","sub":"3 sovrum · 125 m²","price":835000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/70A.pdf","label":""}]},{"id":"u10","ref":"82B","title":"82B · Lägenhet · Hus 8","sub":"2 sovrum · 100 m²","price":840000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/82B.pdf","label":""}]},{"id":"u11","ref":"34B","title":"34B · Duplex-takvåning · Hus 3","sub":"3 sovrum · 119 m²","price":900000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/34B.pdf","label":""}]},{"id":"u12","ref":"81A","title":"81A · Lägenhet · Hus 8","sub":"3 sovrum · 118 m²","price":950000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/81A.pdf","label":""}]},{"id":"u13","ref":"64B","title":"64B · Duplex-takvåning · Hus 6","sub":"3 sovrum · 121 m²","price":1050000,"plans":[{"src":"assets/liora/projects/altos-terrace-residences/floorplans/64B.pdf","label":""}]}],"stages":[{"label":"Bokning","when":"22 000 € vid undertecknandet","amountLabel":"20 000 €","fixed":20000},{"label":"Vid privat kontrakt","when":"60 dagar efter bokningen, minus bokningsbeloppet, minus reservationen","amountLabel":"20%","pct":0.2,"less":20000},{"label":"Efter 12 månader","when":"Räknat från det privata avtalet, inte från en byggetapp","amountLabel":"10%","pct":0.1},{"label":"Efter 18 månader","when":"Räknat från det privata avtalet, inte från en byggetapp","amountLabel":"10%","pct":0.1},{"label":"Vid tillträde","when":"Betalas vid undertecknandet hos notarien, vid nyckelöverlämningen","amountLabel":"60%","pct":0.6}],"stageLabels":null,"gallery":[{"src":"assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view.webp","alt":"En takvåningsterrass med loungemöbler och kusten bortom","caption":"En takvåningsterrass med loungemöbler och kusten bortom","cat":"Terraces"},{"src":"assets/liora/projects/altos-terrace-residences/media/terrace-pergola-coast.webp","alt":"En täckt terrass med utsikt över tallarna mot havet","caption":"En täckt terrass med utsikt över tallarna mot havet","cat":"Terraces"},{"src":"assets/liora/projects/altos-terrace-residences/media/terrace-living-sea.webp","alt":"Ett terrassvardagsrum under utsprånget, viken i fjärran","caption":"Ett terrassvardagsrum under utsprånget, viken i fjärran","cat":"Terraces"},{"src":"assets/liora/projects/altos-terrace-residences/media/terrace-planted-edge.webp","alt":"En terrass med planterad kant och kustlinjen nedanför","caption":"En terrass med planterad kant och kustlinjen nedanför","cat":"Terraces"},{"src":"assets/liora/projects/altos-terrace-residences/media/covered-terrace-evening.webp","alt":"En djup täckt terrass längs bostadens hela framsida","caption":"En djup täckt terrass längs bostadens hela framsida","cat":"Terraces"},{"src":"assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan.webp","alt":"Öppet kök, matplats och vardagsrum mot terrassen","caption":"Öppet kök, matplats och vardagsrum mot terrassen","cat":"Interiors"},{"src":"assets/liora/projects/altos-terrace-residences/media/main-bedroom.webp","alt":"Ett huvudsovrum med panelklädd vägg bakom sängen och utgång till terrassen","caption":"Ett huvudsovrum med panelklädd vägg bakom sängen och utgång till terrassen","cat":"Interiors"},{"src":"assets/liora/projects/altos-terrace-residences/media/second-bedroom.webp","alt":"Ett andra sovrum med två enkelsängar och skjutdörr till terrassen","caption":"Ett andra sovrum med två enkelsängar och skjutdörr till terrassen","cat":"Interiors"},{"src":"assets/liora/projects/altos-terrace-residences/media/bathroom.webp","alt":"Ett badrum med golvdusch och tvättställ på bänkskiva","caption":"Ett badrum med golvdusch och tvättställ på bänkskiva","cat":"Interiors"},{"src":"assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool.webp","alt":"Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden","caption":"Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden","cat":"Amenities"},{"src":"assets/liora/projects/altos-terrace-residences/media/gym.webp","alt":"Gymmet, med glasvägg mot sluttningen längs ena sidan","caption":"Gymmet, med glasvägg mot sluttningen längs ena sidan","cat":"Amenities"},{"src":"assets/liora/projects/altos-terrace-residences/media/social-lounge-coworking.webp","alt":"Gemensamhetsrummet och coworkingrummet, med utgång till en terrass","caption":"Gemensamhetsrummet och coworkingrummet, med utgång till en terrass","cat":"Amenities"},{"src":"assets/liora/projects/altos-terrace-residences/architecture.webp","alt":"Huskropparna i dagsljus, var och en satt en nivå ovanför den under","caption":"Huskropparna i dagsljus, var och en satt en nivå ovanför den under","cat":"Exteriors"},{"src":"assets/liora/projects/altos-terrace-residences/lifestyle.webp","alt":"Infinitypoolen på sin terrass, Medelhavet bortom kanten","caption":"Infinitypoolen på sin terrass, Medelhavet bortom kanten","cat":"Exteriors"},{"src":"assets/liora/projects/altos-terrace-residences/private-viewing.webp","alt":"Ett öppet kök och vardagsrum med terrassen bakom","caption":"Ett öppet kök och vardagsrum med terrassen bakom","cat":"Exteriors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Altos Terrace Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/penthouse-terrace-sea-view-960.webp","alt":"En takvåningsterrass med loungemöbler och kusten bortom","width":2000,"height":1013,"caption":"En takvåningsterrass med loungemöbler och kusten bortom","category":"Terrasser"},{"src":"assets/liora/projects/altos-terrace-residences/media/terrace-pergola-coast.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/terrace-pergola-coast-960.webp","alt":"En täckt terrass med utsikt över tallarna mot havet","width":1241,"height":1755,"caption":"En täckt terrass med utsikt över tallarna mot havet","category":"Terrasser"},{"src":"assets/liora/projects/altos-terrace-residences/media/terrace-living-sea.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/terrace-living-sea-960.webp","alt":"Ett terrassvardagsrum under utsprånget, viken i fjärran","width":1803,"height":1238,"caption":"Ett terrassvardagsrum under utsprånget, viken i fjärran","category":"Terrasser"},{"src":"assets/liora/projects/altos-terrace-residences/media/terrace-planted-edge.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/terrace-planted-edge-960.webp","alt":"En terrass med planterad kant och kustlinjen nedanför","width":2000,"height":1415,"caption":"En terrass med planterad kant och kustlinjen nedanför","category":"Terrasser"},{"src":"assets/liora/projects/altos-terrace-residences/media/covered-terrace-evening.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/covered-terrace-evening-960.webp","alt":"En djup täckt terrass längs bostadens hela framsida","width":2000,"height":1415,"caption":"En djup täckt terrass längs bostadens hela framsida","category":"Terrasser"},{"src":"assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/living-dining-open-plan-960.webp","alt":"Öppet kök, matplats och vardagsrum mot terrassen","width":2000,"height":834,"caption":"Öppet kök, matplats och vardagsrum mot terrassen","category":"Interiör"},{"src":"assets/liora/projects/altos-terrace-residences/media/main-bedroom.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/main-bedroom-960.webp","alt":"Ett huvudsovrum med panelklädd vägg bakom sängen och utgång till terrassen","width":2000,"height":1414,"caption":"Ett huvudsovrum med panelklädd vägg bakom sängen och utgång till terrassen","category":"Interiör"},{"src":"assets/liora/projects/altos-terrace-residences/media/second-bedroom.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/second-bedroom-960.webp","alt":"Ett andra sovrum med två enkelsängar och skjutdörr till terrassen","width":2000,"height":1415,"caption":"Ett andra sovrum med två enkelsängar och skjutdörr till terrassen","category":"Interiör"},{"src":"assets/liora/projects/altos-terrace-residences/media/bathroom.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/bathroom-960.webp","alt":"Ett badrum med golvdusch och tvättställ på bänkskiva","width":2000,"height":1415,"caption":"Ett badrum med golvdusch och tvättställ på bänkskiva","category":"Interiör"},{"src":"assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/indoor-lap-pool-960.webp","alt":"Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden","width":1125,"height":901,"caption":"Den uppvärmda inomhusbassängen för simning, med solsängar i bortre änden","category":"Bekvämligheter"},{"src":"assets/liora/projects/altos-terrace-residences/media/gym.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/gym-960.webp","alt":"Gymmet, med glasvägg mot sluttningen längs ena sidan","width":1124,"height":580,"caption":"Gymmet, med glasvägg mot sluttningen längs ena sidan","category":"Bekvämligheter"},{"src":"assets/liora/projects/altos-terrace-residences/media/social-lounge-coworking.jpg","webp":"assets/liora/projects/altos-terrace-residences/media/social-lounge-coworking-960.webp","alt":"Gemensamhetsrummet och coworkingrummet, med utgång till en terrass","width":1124,"height":571,"caption":"Gemensamhetsrummet och coworkingrummet, med utgång till en terrass","category":"Bekvämligheter"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-altos-terrace-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20the%20current%20availability%20and%20prices%20for%20Altos%20Terrace%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Altos Terrace Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

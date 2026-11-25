@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder är tillgängliga?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Omnia Estepona"
   data-project-message="Hej Nueva Living, jag vill gärna ha information om Omnia Estepona."
@@ -459,624 +396,348 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Omnia Estepona">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-omnia-estepona.html#top">Omnia Estepona<span>Från 425 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-omnia-estepona.html#overview">Översikt</a><a href="sv/property-omnia-estepona.html#availability">Priser</a><a href="sv/property-omnia-estepona.html#specs">Utförande</a><a href="sv/property-omnia-estepona.html#gallery">Galleri</a><a href="sv/property-omnia-estepona.html#location">Läge</a><a href="sv/property-omnia-estepona.html#onsite">I området</a><a href="sv/property-omnia-estepona.html#view">Vår bedömning</a><a href="sv/property-omnia-estepona.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-omnia-estepona.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Omnia Estepona">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.jpg" alt="Datorgenererad vy över en stor pool med solstolar mot terrasserade byggnader med träspjälor som ger skugga och planterade terrasser, med ett grönt berg bakom" width="1920" height="960" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.jpg" alt="Datorgenererad vy över en stor pool med solstolar mot terrasserade byggnader med träspjälor som ger skugga och planterade terrasser, med ett grönt berg bakom" width="1920" height="960" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">30 av 77 bostäder lediga</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Omnia <em>Estepona</em></span>
-            <span class="hero-title-context">Lägenheter med ett till tre sovrum i Estepona</span>
-          </h1>
-          <p class="hero-positioning">30 av de 77 lägenheterna är listade i ett bevakat område på ritning, med lägenheter med ett, två och tre sovrum vid New Golden Mile i Estepona, med ett fullständigt spa, ett gym, en biosalong och en golfsimulator. Exploatörens dokument anger varken byggstart eller färdigställande. Från 425 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-omnia-estepona.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=omnia-estepona">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-omnia-estepona.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>New Golden Mile, Estepona</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 425 000 €</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenheter</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Ej bekräftat</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-omnia-estepona.html#media">Media</a>
-        <a href="sv/property-omnia-estepona.html#location">Läge</a>
-        <a href="sv/property-omnia-estepona.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-omnia-estepona.html#overview">Översikt</a>
-          <a href="sv/property-omnia-estepona.html#residences">Bostäder</a>
-          <a href="sv/property-omnia-estepona.html#quality-specifications">Utförande</a>
-          <a href="sv/property-omnia-estepona.html#calculator">Finansiering</a>
-          <a href="sv/property-omnia-estepona.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-omnia-estepona.html#why-this-project">Varför</a>
-          <a href="sv/property-omnia-estepona.html#architecture">Arkitektur</a>
-          <a href="sv/property-omnia-estepona.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-omnia-estepona.html#lifestyle">Livsstil</a>
-          <a href="sv/property-omnia-estepona.html#faq">FAQ</a>
-          <a href="sv/property-omnia-estepona.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>1-3 sovrum</strong></div>
-          <div class="quick-fact"><span>Angiven yta</span><strong>45,64 - 127,32 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>30 av 77 bostäder lediga</strong></div>
-          <div class="quick-fact"><span>Projekt</span><strong>77 lägenheter</strong></div>
-          <div class="quick-fact"><span>Tillgänglig</span><strong>30 bostäder</strong></div>
-          <div class="quick-fact"><span>Prisspann</span><strong>425 000 € - 1 519 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-omnia-estepona.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Sjuttiosju lägenheter, <em>30 listade</em></h2>
-          <p class="project-lead">Det här är ett bevakat område med 77 lägenheter med ett, två eller tre sovrum vid New Golden Mile i Estepona. 30 bostäder är listade med yta och pris. Exploatörens masterplan för nivå 7 numrerar 16 byggnader runt en stor central pool och anlagda trädgårdar, och exploatören nämner solterrasser, panoramautsikt samt stora terrasser och trädgårdar.</p>
-          <p class="project-lead">De gemensamma ytorna i kvalitetsspecifikationen är ett fullständigt spa med inomhuspool, hammam, bastu och avkopplingsytor, ett fullt utrustat gym, en coworking-yta, en golfsimulator, ett spelrum och en biosalong. Dokumenten anger varken bygglov, byggstart eller färdigställande: alla tre står som ej bekräftade, och byggföretaget som ännu inte utsett.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Projektet <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datorgenererade vyer av poolen, terrasserna och trädgårdarna, interiörerna och de gemensamma ytorna. Dokumenten vi har innehåller inga planritningar över bostäderna.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 2 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.jpg" alt="Datorgenererad vy över en stor pool med solstolar mot terrasserade byggnader med träspjälor som ger skugga och planterade terrasser, med ett grönt berg bakom" width="1920" height="960" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Den centrala poolen och de terrasserade byggnaderna</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Visa 7 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/terrace-with-sea-view-640.webp 640w, assets/liora/projects/omnia-estepona/media/terrace-with-sea-view-960.webp 960w, assets/liora/projects/omnia-estepona/media/terrace-with-sea-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/omnia-estepona/media/terrace-with-sea-view.jpg" alt="Datorgenererad takterrass med hörnsoffa, matbord och glasräcke, med utsikt över hustaken till havet" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En terrass med utsikt mot havet</strong>
-                <span class="project-media-card-cta">7 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 3 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace-640.webp 640w, assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace-960.webp 960w, assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace.jpg" alt="Datorgenererad öppen vardags- och matplats med en stor glasskjutvägg mot en övertäckt terrass och en gräsmatta" width="1920" height="1263" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardags- och matplats</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Visa 1 bilder i Sovrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall-640.webp 640w, assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall-960.webp 960w, assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall.jpg" alt="Datorgenererat sovrum med en vägg av träspjälor bakom sängen och en glasskjutdörr mot terrassen" width="1920" height="1263" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Sovrum</small>
-                <strong>Huvudsovrum</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Visa 1 bilder i Badrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/bathroom-double-vanity-640.webp 640w, assets/liora/projects/omnia-estepona/media/bathroom-double-vanity-960.webp 960w, assets/liora/projects/omnia-estepona/media/bathroom-double-vanity.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/omnia-estepona/media/bathroom-double-vanity.jpg" alt="Datorgenererat badrum med en dubbel tvättställsbänk, en upplyst spegel och en vägglös dusch med svarta blandare" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badrum</small>
-                <strong>Badrum</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 4 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/indoor-pool-hall-640.webp 640w, assets/liora/projects/omnia-estepona/media/indoor-pool-hall-960.webp 960w, assets/liora/projects/omnia-estepona/media/indoor-pool-hall.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/omnia-estepona/media/indoor-pool-hall.jpg" alt="Datorgenererad inomhuspool i en hall med tak av träspjälor, mörkt kaklade pelare och ett vattenfall" width="1400" height="1443" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Inomhuspoolen</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 18 bilder</button>
-          <p class="media-note">Alla bilder är datorgenererade, och möblerna, inredningen och utrustningen på dem är illustrativa. Exploatören anger att dess bilder, infografik och planritningar är vägledande och inte avtalsbindande, och att den får göra de ändringar som tekniska eller juridiska skäl kräver och ersätta material med andra av lika hög eller högre kvalitet.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vid New Golden Mile, <em>i Estepona</em></h2>
-          <p class="project-lead">Exploatören placerar området i Estepona, vid New Golden Mile, och beskriver det som nära service, golf, skolor och tjänster. Dess karta över läget markerar tomten inåt landet från kusten, mellan Estepona Marina och Marina Banús, och den anger inga avstånd eller restider.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-omnia-estepona" data-locmap='{&quot;site&quot;:[36.4663,-5.0835],&quot;sea&quot;:[36.4393,-5.0835],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Resina&quot;,&quot;sub&quot;:&quot;3,1 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Omnia Estepona"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Omnia Estepona</h3>
-            <p class="locmap-place">New Golden Mile, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona centrum</span>
-              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan La Resina</span>
-              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Los Flamingos</span>
-              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar flygplats</span>
-              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tre bostadsstorlekar, <em>ett område</em></h2>
-          <p class="project-lead">Exploatörens infoblad beskriver lägenheter med ett, två och tre sovrum. Tillgänglighetstabellen listar 30 referenser med en yta och ett pris, men utan planritningar, våningar eller bostadstyper, så grupperna nedan är bara indelade efter antal sovrum.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Lägenheter med ett sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-omnia-estepona.html#enquire" data-prefill>Begär planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Lägenheter med två sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-omnia-estepona.html#enquire" data-prefill>Begär planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Lägenheter med tre sovrum</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-omnia-estepona.html#enquire" data-prefill>Begär planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-omnia-estepona.html#enquire" data-prefill>Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Golv och väggar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Porslinsplattor i formatet 90 × 90 cm inomhus och halkfria utomhus, eller av likvärdig eller högre kvalitet, vit tvättbar färg på väggar och tak samt undertak av gipsskivor i hela bostaden, med ett undertak av cementskivor utomhus.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dörrar och garderober<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En säkerhetsytterdörr av fuktbeständig MDF med dolda gångjärn och titthål, vitlackade innerdörrar av MDF med dolda gångjärn och invändigt lås på badrumsdörrarna, och garderober med slagdörrar av lackerad MDF, invändigt klädda med grå melamin, med klädstänger och lådor på dolda skenor.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kök<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Möblerade kök med lackade över- och underskåp i minimalistisk stil som öppnas med gola-system, och bänkskiva av porslinssten.</li>
-              <li>Bosch-apparater eller motsvarande: tvättmaskin med torktumlare, diskmaskin, kylskåp, häll, elektrisk ugn, diskho och köksfläkt.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Väggplattor av porslinssten i formatet 40 × 120 cm eller liknande, väggmonterad sanitet från Laufen eller motsvarande, en sammanhängande duschbrunn i harts från Cifre, en badrumsinredning med integrerad tvättställ från Unibaño, speglar och duschväggar.</li>
-              <li>Blandare och duschar från Hansgrohe i matt svart: en infälld dusch i huvudbadrummet och en pålagd dusch i de övriga badrummen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och installationer<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Luftkonditionering med värmepump och kanaler till alla rum, varmvatten från högeffektiva aerotermiska värmepumpar med varmvattenberedare och mekanisk ventilation i kök, badrum och toaletter.</li>
-              <li>Elektriska strömbrytare och uttag från Gira eller motsvarande, med TV-, telefon- och datauttag.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gemensamma utomhusytor<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gemensamma grönytor med inhemska och subtropiska arter och programmerad bevattning i prefabricerade planteringslådor, LED-belysning med timers, en videodörrtelefon i rostfritt stål vid infarten från allmän väg och en motoriserad entrégrind med fjärrkontroll.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: exploatörens kvalitetsspecifikation för det här projektet, daterad den 15 september 2026 på sista sidan. Märken anges som ”eller motsvarande” eller ”eller liknande”, och projektledningen får bestämma vissa ytskikt. Specifikationen anger inga lösa möbler.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">30 bostäder <em>tillgängliga just nu</em></h2>
-          <p class="project-lead">Ytorna och priserna är de i tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Tabellen anger inga våningar, planritningar eller terrassytor, och säger inte om priserna inkluderar IVA.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.jpg" alt="Datorgenererad vy över en stor pool med solstolar mot terrasserade byggnader med träspjälor som ger skugga och planterade terrasser, med ett grönt berg bakom" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>18 bilder</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>30</strong></div>
-            <div><span>Pris från</span><strong>425 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>425 000 € - 1 519 000 €</strong></div>
-            <div><span>Kontrollerad</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 30 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrera tillgängliga bostäder"
-              data-availability-filters
-              data-count-template="Visar {shown} av {total}">
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Sovrum</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">Alla</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="1" aria-pressed="false">1 sovrum</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 sovrum</button>
-                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 sovrum</button>
-                </div>
-              </div>
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Pris</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Alla</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-800000" aria-pressed="false">Under €800k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="800000-900000" aria-pressed="false">€800k – €900k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="900000-" aria-pressed="false">€900k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Rensa filter</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Inga bostäder matchar dessa filter.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Tillgängliga bostäder på Omnia Estepona</caption>
-                <thead><tr><th scope="col">Referens</th><th scope="col">Sovrum</th><th scope="col">Storlek</th><th scope="col">Pris</th><th scope="col">Status</th></tr></thead>
-                <tbody>
-              <tr data-beds="3" data-price="795000">
-                <td data-label="Referens"><strong>ON-100A</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">90,84 m²</td>
-                <td data-label="Pris"><strong>795 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="742000">
-                <td data-label="Referens"><strong>ON-101A</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">90,94 m²</td>
-                <td data-label="Pris"><strong>742 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="745000">
-                <td data-label="Referens"><strong>ON-102B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">87,24 m²</td>
-                <td data-label="Pris"><strong>745 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="949000">
-                <td data-label="Referens"><strong>ON-103B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">84,59 m²</td>
-                <td data-label="Pris"><strong>949 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="679000">
-                <td data-label="Referens"><strong>ON-10B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">90,05 m²</td>
-                <td data-label="Pris"><strong>679 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="761000">
-                <td data-label="Referens"><strong>ON-112B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">82,78 m²</td>
-                <td data-label="Pris"><strong>761 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="889000">
-                <td data-label="Referens"><strong>ON-11B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">89,78 m²</td>
-                <td data-label="Pris"><strong>889 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="919000">
-                <td data-label="Referens"><strong>ON-123A</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">84,24 m²</td>
-                <td data-label="Pris"><strong>919 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="1029000">
-                <td data-label="Referens"><strong>ON-123B</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">95,85 m²</td>
-                <td data-label="Pris"><strong>1 029 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="1109000">
-                <td data-label="Referens"><strong>ON-130A</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">112,04 m²</td>
-                <td data-label="Pris"><strong>1 109 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="1108000">
-                <td data-label="Referens"><strong>ON-140B</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">112,00 m²</td>
-                <td data-label="Pris"><strong>1 108 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="1519000">
-                <td data-label="Referens"><strong>ON-141B</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">127,32 m²</td>
-                <td data-label="Pris"><strong>1 519 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="1245000">
-                <td data-label="Referens"><strong>ON-160B</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">111,31 m²</td>
-                <td data-label="Pris"><strong>1 245 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="1515000">
-                <td data-label="Referens"><strong>ON-161A</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">122,01 m²</td>
-                <td data-label="Pris"><strong>1 515 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="795000">
-                <td data-label="Referens"><strong>ON-20B</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">101,07 m²</td>
-                <td data-label="Pris"><strong>795 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="949000">
-                <td data-label="Referens"><strong>ON-21A</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">93,43 m²</td>
-                <td data-label="Pris"><strong>949 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="667000">
-                <td data-label="Referens"><strong>ON-30A</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">70,11 m²</td>
-                <td data-label="Pris"><strong>667 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="742000">
-                <td data-label="Referens"><strong>ON-31B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">82,80 m²</td>
-                <td data-label="Pris"><strong>742 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="975000">
-                <td data-label="Referens"><strong>ON-32B</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">93,97 m²</td>
-                <td data-label="Pris"><strong>975 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="779000">
-                <td data-label="Referens"><strong>ON-41B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">82,65 m²</td>
-                <td data-label="Pris"><strong>779 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="909000">
-                <td data-label="Referens"><strong>ON-42B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">77,62 m²</td>
-                <td data-label="Pris"><strong>909 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="875000">
-                <td data-label="Referens"><strong>ON-51B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">76,74 m²</td>
-                <td data-label="Pris"><strong>875 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="3" data-price="929000">
-                <td data-label="Referens"><strong>ON-60A</strong></td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek">98,96 m²</td>
-                <td data-label="Pris"><strong>929 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="829000">
-                <td data-label="Referens"><strong>ON-60B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">81,10 m²</td>
-                <td data-label="Pris"><strong>829 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="988000">
-                <td data-label="Referens"><strong>ON-71B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">84,09 m²</td>
-                <td data-label="Pris"><strong>988 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="769000">
-                <td data-label="Referens"><strong>ON-80B</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">80,95 m²</td>
-                <td data-label="Pris"><strong>769 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="1" data-price="425000">
-                <td data-label="Referens"><strong>ON-90B</strong></td>
-                <td data-label="Sovrum">1 sovrum</td>
-                <td data-label="Storlek">45,64 m²</td>
-                <td data-label="Pris"><strong>425 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="665000">
-                <td data-label="Referens"><strong>ON-90C</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">90,89 m²</td>
-                <td data-label="Pris"><strong>665 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="2" data-price="845000">
-                <td data-label="Referens"><strong>ON-91A</strong></td>
-                <td data-label="Sovrum">2 sovrum</td>
-                <td data-label="Storlek">88,08 m²</td>
-                <td data-label="Pris"><strong>845 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-beds="1" data-price="489000">
-                <td data-label="Referens"><strong>ON-91B</strong></td>
-                <td data-label="Sovrum">1 sovrum</td>
-                <td data-label="Storlek">45,64 m²</td>
-                <td data-label="Pris"><strong>489 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="sv/property-omnia-estepona.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-          <p class="availability-source-note">Ytorna och priserna är hämtade från tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Den har 34 rader för 30 referenser: fyra referenser står två gånger med identiska värden och visas en gång. Tabellen anger för varje bostad antal sovrum, en yta och ett pris. Den säger inte om ytan är byggd eller invändig, eller om priset inkluderar IVA; infobladet anger betalningarna plus IVA. Projektet har 77 lägenheter totalt, och de 30 som visas är de som är listade.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-omnia-estepona.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Omnia%20Estepona." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Omnia Estepona" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Omnia Estepona</span></h1>
+        <p class="hero-by">30 av de 77 lägenheterna är listade i ett bevakat område på ritning, med lägenheter med ett, två och tre sovrum vid New Golden Mile i Estepona, med ett fullständigt spa, ett gym, en biosalong och en golfsimulator.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 425 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>1 till 3</dd><dd class="sub"><span>Lägenheter</span></dd></div><div><dt>Inflyttning</dt><dd>Ej bekräftat</dd><dd class="sub">Bygglov: vi bekräftar det innan ni reserverar</dd></div><div><dt>Bostäder kvar</dt><dd>30 av 77</dd><dd class="sub">Kontrollerat oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-omnia-estepona.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Omnia%20Estepona." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Omnia Estepona" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Det här är ett bevakat område med 77 lägenheter med ett, två eller tre sovrum vid New Golden Mile i Estepona. 30 bostäder är listade med yta och pris. Exploatörens masterplan för nivå 7 numrerar 16 byggnader runt en stor central pool och anlagda trädgårdar, och exploatören nämner solterrasser, panoramautsikt samt stora terrasser och trädgårdar.</p>
+    <p class="lede-2">De gemensamma ytorna i kvalitetsspecifikationen är ett fullständigt spa med inomhuspool, hammam, bastu och avkopplingsytor, ett fullt utrustat gym, en coworking-yta, en golfsimulator, ett spelrum och en biosalong. Dokumenten anger varken bygglov, byggstart eller färdigställande: alla tre står som ej bekräftade, och byggföretaget som ännu inte utsett.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Terrasser, trädgårdar och utsikt</span></summary><p>Exploatörens visualiseringar visar terrasserade lägenhetshus med träspjälor som ger skugga och planterade kanter, runt en central pool och anlagda trädgårdar, och exploatören nämner solterrasser, panoramautsikt samt stora terrasser och trädgårdar.</p><p>Bilderna är vägledande, och exploatören förbehåller sig rätten att ändra projektet av tekniska eller juridiska skäl.</p><ul><li>Konstruktion: Grund av armerad betong enligt den geotekniska undersökningen, med kassettbjälklag och massiva plattor av armerad betong samt pelare av betong och metall.</li><li>Fasad: Ett skikt keramiskt tegel, en luftspalt, värmeisolering och ett lager stenull, med invändig beklädnad av gipsfiber- eller gipsskivor och avslutad med cementputs eller beklädnad som projektledningen bestämmer.</li><li>Fönster: Aluminiumbågar från Cortizo eller motsvarande, med termisk brytning och dubbelglas, skjut- eller slagdörrar och glasräcken på terrassbröstningarna.</li><li>Tak: Gångbara platta tak förberedda för halkfria porslinsplattor, tätade och isolerade enligt gällande föreskrifter.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>425 000 € – 1 519 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>30 av 77 bostäder</span><small>Kontrollerat oktober 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenheter</span></dd></div><div><dt>Storlekar</dt><dd><span>46 – 127 m²</span></dd></div><div><dt>Inflyttning</dt><dd><span>Ej bekräftat</span></dd></div><div><dt>Tillstånd</dt><dd><span>Ej angivet</span><small>Vi bekräftar det innan ni reserverar</small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Ytorna och priserna är de i tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Tabellen anger inga våningar, planritningar eller terrassytor, och säger inte om priserna inkluderar IVA. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="30 av 77 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>30 av 77 till salu</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrera på sovrum"><button type="button" aria-pressed="true" data-beds="">Alla <span>30</span></button><button type="button" aria-pressed="false" data-beds="1">1 sovrum <span>2</span></button><button type="button" aria-pressed="false" data-beds="2">2 sovrum <span>16</span></button><button type="button" aria-pressed="false" data-beds="3">3 sovrum <span>12</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="795000" data-size="90.84" data-ppm="8752" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-100A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">91 m²</td>
+            <td data-label="Pris" class="u-price num">795 000 €</td>
+            <td data-label="Per m²" class="num">8 752 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="742000" data-size="90.94" data-ppm="8159" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-101A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">91 m²</td>
+            <td data-label="Pris" class="u-price num">742 000 €</td>
+            <td data-label="Per m²" class="num">8 159 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="745000" data-size="87.24" data-ppm="8540" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-102B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">87 m²</td>
+            <td data-label="Pris" class="u-price num">745 000 €</td>
+            <td data-label="Per m²" class="num">8 540 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="949000" data-size="84.59" data-ppm="11219" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-103B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">85 m²</td>
+            <td data-label="Pris" class="u-price num">949 000 €</td>
+            <td data-label="Per m²" class="num">11 219 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="679000" data-size="90.05" data-ppm="7540" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-10B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">90 m²</td>
+            <td data-label="Pris" class="u-price num">679 000 €</td>
+            <td data-label="Per m²" class="num">7 540 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="761000" data-size="82.78" data-ppm="9193" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-112B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">83 m²</td>
+            <td data-label="Pris" class="u-price num">761 000 €</td>
+            <td data-label="Per m²" class="num">9 193 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="889000" data-size="89.78" data-ppm="9902" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-11B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">90 m²</td>
+            <td data-label="Pris" class="u-price num">889 000 €</td>
+            <td data-label="Per m²" class="num">9 902 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="919000" data-size="84.24" data-ppm="10909" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-123A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">84 m²</td>
+            <td data-label="Pris" class="u-price num">919 000 €</td>
+            <td data-label="Per m²" class="num">10 909 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="1029000" data-size="95.85" data-ppm="10736" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-123B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">96 m²</td>
+            <td data-label="Pris" class="u-price num">1 029 000 €</td>
+            <td data-label="Per m²" class="num">10 736 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="1109000" data-size="112.04" data-ppm="9898" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-130A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">112 m²</td>
+            <td data-label="Pris" class="u-price num">1 109 000 €</td>
+            <td data-label="Per m²" class="num">9 898 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="1108000" data-size="112" data-ppm="9893" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-140B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">112 m²</td>
+            <td data-label="Pris" class="u-price num">1 108 000 €</td>
+            <td data-label="Per m²" class="num">9 893 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u11" data-beds="3" data-price="1519000" data-size="127.32" data-ppm="11931" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-141B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">127 m²</td>
+            <td data-label="Pris" class="u-price num">1 519 000 €</td>
+            <td data-label="Per m²" class="num">11 931 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u12" data-beds="3" data-price="1245000" data-size="111.31" data-ppm="11185" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-160B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">111 m²</td>
+            <td data-label="Pris" class="u-price num">1 245 000 €</td>
+            <td data-label="Per m²" class="num">11 185 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u13" data-beds="3" data-price="1515000" data-size="122.01" data-ppm="12417" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-161A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">122 m²</td>
+            <td data-label="Pris" class="u-price num">1 515 000 €</td>
+            <td data-label="Per m²" class="num">12 417 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u14" data-beds="3" data-price="795000" data-size="101.07" data-ppm="7866" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-20B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">101 m²</td>
+            <td data-label="Pris" class="u-price num">795 000 €</td>
+            <td data-label="Per m²" class="num">7 866 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u15" data-beds="3" data-price="949000" data-size="93.43" data-ppm="10157" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-21A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">93 m²</td>
+            <td data-label="Pris" class="u-price num">949 000 €</td>
+            <td data-label="Per m²" class="num">10 157 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u16" data-beds="2" data-price="667000" data-size="70.11" data-ppm="9514" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-30A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">70 m²</td>
+            <td data-label="Pris" class="u-price num">667 000 €</td>
+            <td data-label="Per m²" class="num">9 514 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u17" data-beds="2" data-price="742000" data-size="82.8" data-ppm="8961" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-31B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">83 m²</td>
+            <td data-label="Pris" class="u-price num">742 000 €</td>
+            <td data-label="Per m²" class="num">8 961 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u18" data-beds="3" data-price="975000" data-size="93.97" data-ppm="10376" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-32B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">94 m²</td>
+            <td data-label="Pris" class="u-price num">975 000 €</td>
+            <td data-label="Per m²" class="num">10 376 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u19" data-beds="2" data-price="779000" data-size="82.65" data-ppm="9425" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-41B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">83 m²</td>
+            <td data-label="Pris" class="u-price num">779 000 €</td>
+            <td data-label="Per m²" class="num">9 425 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u20" data-beds="2" data-price="909000" data-size="77.62" data-ppm="11711" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-42B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">78 m²</td>
+            <td data-label="Pris" class="u-price num">909 000 €</td>
+            <td data-label="Per m²" class="num">11 711 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u21" data-beds="2" data-price="875000" data-size="76.74" data-ppm="11402" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-51B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">77 m²</td>
+            <td data-label="Pris" class="u-price num">875 000 €</td>
+            <td data-label="Per m²" class="num">11 402 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u22" data-beds="3" data-price="929000" data-size="98.96" data-ppm="9388" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-60A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">99 m²</td>
+            <td data-label="Pris" class="u-price num">929 000 €</td>
+            <td data-label="Per m²" class="num">9 388 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u23" data-beds="2" data-price="829000" data-size="81.1" data-ppm="10222" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-60B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">81 m²</td>
+            <td data-label="Pris" class="u-price num">829 000 €</td>
+            <td data-label="Per m²" class="num">10 222 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u24" data-beds="2" data-price="988000" data-size="84.09" data-ppm="11749" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-71B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">84 m²</td>
+            <td data-label="Pris" class="u-price num">988 000 €</td>
+            <td data-label="Per m²" class="num">11 749 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u25" data-beds="2" data-price="769000" data-size="80.95" data-ppm="9500" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-80B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">81 m²</td>
+            <td data-label="Pris" class="u-price num">769 000 €</td>
+            <td data-label="Per m²" class="num">9 500 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u26" data-beds="1" data-price="425000" data-size="45.64" data-ppm="9312" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-90B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">1 sovrum</td>
+            <td data-label="Storlek" class="num">46 m²</td>
+            <td data-label="Pris" class="u-price num">425 000 €</td>
+            <td data-label="Per m²" class="num">9 312 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u27" data-beds="2" data-price="665000" data-size="90.89" data-ppm="7317" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-90C</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">91 m²</td>
+            <td data-label="Pris" class="u-price num">665 000 €</td>
+            <td data-label="Per m²" class="num">7 317 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u28" data-beds="2" data-price="845000" data-size="88.08" data-ppm="9594" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-91A</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">88 m²</td>
+            <td data-label="Pris" class="u-price num">845 000 €</td>
+            <td data-label="Per m²" class="num">9 594 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u29" data-beds="1" data-price="489000" data-size="45.64" data-ppm="10714" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">ON-91B</span><span class="u-loc"></span></th>
+            <td data-label="Sovrum">1 sovrum</td>
+            <td data-label="Storlek" class="num">46 m²</td>
+            <td data-label="Pris" class="u-price num">489 000 €</td>
+            <td data-label="Per m²" class="num">10 714 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Tre bostadsstorlekar, ett område</span></summary><p>Exploatörens infoblad beskriver lägenheter med ett, två och tre sovrum. Tillgänglighetstabellen listar 30 referenser med en yta och ett pris, men utan planritningar, våningar eller bostadstyper, så grupperna nedan är bara indelade efter antal sovrum.</p><div class="res-types"><div class="res-type"><h3>Lägenheter med ett sovrum</h3><ul><li>2 bostäder med ett sovrum är listade, båda på 45,64 m².</li><li>Priserna går från 425 000 € till 489 000 €.</li></ul></div><div class="res-type"><h3>Lägenheter med två sovrum</h3><ul><li>16 bostäder med två sovrum är listade, från 70,11 till 90,89 m².</li><li>Priserna går från 665 000 € till 988 000 €.</li></ul></div><div class="res-type"><h3>Lägenheter med tre sovrum</h3><ul><li>12 bostäder med tre sovrum är listade, från 90,84 till 127,32 m².</li><li>Priserna går från 742 000 € till 1 519 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-omnia-estepona.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1136,435 +797,220 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Inomhuspool</h3>
-              <p class="amenity-note">Simning inomhus</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Golv och väggar</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Dörrar och garderober</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Kök</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Klimat och installationer</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Gemensamma utomhusytor</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Porslinsplattor i formatet 90 × 90 cm inomhus och halkfria utomhus, eller av likvärdig eller högre kvalitet, vit tvättbar färg på väggar och tak samt undertak av gipsskivor i hela bostaden, med ett undertak av cementskivor utomhus.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>En säkerhetsytterdörr av fuktbeständig MDF med dolda gångjärn och titthål, vitlackade innerdörrar av MDF med dolda gångjärn och invändigt lås på badrumsdörrarna, och garderober med slagdörrar av lackerad MDF, invändigt klädda med grå melamin, med klädstänger och lådor på dolda skenor.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Möblerade kök med lackade över- och underskåp i minimalistisk stil som öppnas med gola-system, och bänkskiva av porslinssten.</li><li>Bosch-apparater eller motsvarande: tvättmaskin med torktumlare, diskmaskin, kylskåp, häll, elektrisk ugn, diskho och köksfläkt.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Väggplattor av porslinssten i formatet 40 × 120 cm eller liknande, väggmonterad sanitet från Laufen eller motsvarande, en sammanhängande duschbrunn i harts från Cifre, en badrumsinredning med integrerad tvättställ från Unibaño, speglar och duschväggar.</li><li>Blandare och duschar från Hansgrohe i matt svart: en infälld dusch i huvudbadrummet och en pålagd dusch i de övriga badrummen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Luftkonditionering med värmepump och kanaler till alla rum, varmvatten från högeffektiva aerotermiska värmepumpar med varmvattenberedare och mekanisk ventilation i kök, badrum och toaletter.</li><li>Elektriska strömbrytare och uttag från Gira eller motsvarande, med TV-, telefon- och datauttag.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Gemensamma grönytor med inhemska och subtropiska arter och programmerad bevattning i prefabricerade planteringslådor, LED-belysning med timers, en videodörrtelefon i rostfritt stål vid infarten från allmän väg och en motoriserad entrégrind med fjärrkontroll.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: exploatörens kvalitetsspecifikation för det här projektet, daterad den 15 september 2026 på sista sidan. Märken anges som ”eller motsvarande” eller ”eller liknande”, och projektledningen får bestämma vissa ytskikt. Specifikationen anger inga lösa möbler.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Den centrala poolen och de terrasserade byggnaderna"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks-640.webp 640w, assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks-960.webp 960w, assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.jpg" alt="Datorgenererad vy över en stor pool med solstolar mot terrasserade byggnader med träspjälor som ger skugga och planterade terrasser, med ett grönt berg bakom" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Vardags- och matplats"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace-640.webp 640w, assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace-960.webp 960w, assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace.jpg" alt="Datorgenererad öppen vardags- och matplats med en stor glasskjutvägg mot en övertäckt terrass och en gräsmatta" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="En terrass med utsikt mot havet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/terrace-with-sea-view-640.webp 640w, assets/liora/projects/omnia-estepona/media/terrace-with-sea-view-960.webp 960w, assets/liora/projects/omnia-estepona/media/terrace-with-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/omnia-estepona/media/terrace-with-sea-view.jpg" alt="Datorgenererad takterrass med hörnsoffa, matbord och glasräcke, med utsikt över hustaken till havet" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="14" aria-label="Inomhuspoolen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/indoor-pool-hall-640.webp 640w, assets/liora/projects/omnia-estepona/media/indoor-pool-hall-960.webp 960w, assets/liora/projects/omnia-estepona/media/indoor-pool-hall.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/omnia-estepona/media/indoor-pool-hall.jpg" alt="Datorgenererad inomhuspool i en hall med tak av träspjälor, mörkt kaklade pelare och ett vattenfall" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="Huvudsovrum"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall-640.webp 640w, assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall-960.webp 960w, assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall.jpg" alt="Datorgenererat sovrum med en vägg av träspjälor bakom sängen och en glasskjutdörr mot terrassen" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 18 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (2)</button><button type="button" data-open-cat="Terraces">Terrasser (7)</button><button type="button" data-open-cat="Interiors">Interiör (3)</button><button type="button" data-open-cat="Bedrooms">Sovrum (1)</button><button type="button" data-open-cat="Bathrooms">Badrum (1)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (4)</button></div>
+    
+    <p class="caption">Alla bilder är datorgenererade, och möblerna, inredningen och utrustningen på dem är illustrativa. Exploatören anger att dess bilder, infografik och planritningar är vägledande och inte avtalsbindande, och att den får göra de ändringar som tekniska eller juridiska skäl kräver och ersätta material med andra av lika hög eller högre kvalitet.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Exploatören placerar området i Estepona, vid New Golden Mile, och beskriver det som nära service, golf, skolor och tjänster. Dess karta över läget markerar tomten inåt landet från kusten, mellan Estepona Marina och Marina Banús, och den anger inga avstånd eller restider.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-omnia-estepona" data-locmap='{&quot;site&quot;:[36.4663,-5.0835],&quot;sea&quot;:[36.4393,-5.0835],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan La Resina&quot;,&quot;sub&quot;:&quot;3,1 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Omnia Estepona"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Omnia Estepona</h3>
+            <p class="locmap-place">New Golden Mile, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona centrum</span>
+              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Hammam</h3>
-              <p class="amenity-note">Turkiskt ångbad</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan La Resina</span>
+              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Välmående</span>
-              <h3 class="amenity-name">Bastu</h3>
-              <p class="amenity-note">Rum med torr värme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Välmående</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar flygplats</span>
+              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Välmående</span>
-              <h3 class="amenity-name">Golfsimulator</h3>
-              <p class="amenity-note">Spela inomhus året om</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda trädgårdar</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Utomhus</span>
-              <h3 class="amenity-name">Solterrass</h3>
-              <p class="amenity-note">Öppen takterrass för sol</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Vardag</span>
-              <h3 class="amenity-name">Coworkingyta</h3>
-              <p class="amenity-note">Arbetsplatser utanför bostaden</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Vardag</span>
-              <h3 class="amenity-name">Luft-vattenvärmepump</h3>
-              <p class="amenity-note">Värme, kyla och varmvatten</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Service</span>
-              <h3 class="amenity-name">Bevakat område</h3>
-              <p class="amenity-note">Bevakad infart</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Service</span>
-              <h3 class="amenity-name">Biosalong</h3>
-              <p class="amenity-note">Ett visningsrum</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Service</span>
-              <h3 class="amenity-name">Spelrum</h3>
-              <p class="amenity-note">Spel och konsoler</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Service, golf, skolor och tjänster</th><td>Beskrivet som nära; inga avstånd angivna</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">De gemensamma ytorna i exploatörens kvalitetsspecifikation, i ett bevakat område med anlagda trädgårdar.</p>
+    <div class="life-panels"><div><h3>Poolen och trädgårdarna</h3><p>Masterplanen och bilderna visar en stor central pool omgiven av anlagda trädgårdar; dokumenten beskriver den inte i ord.</p></div><div><h3>Spat</h3><p>Ett fullständigt spa med inomhuspool, hammam, bastu och avkopplingsytor.</p></div><div><h3>Gym, coworking och fritid</h3><p>Ett fullt utrustat gym, en coworking-yta, en golfsimulator, ett spelrum och en biosalong. Infobladet nämner dessutom en social yta.</p></div><div><h3>Säkerhet och tillträde</h3><p>Ett bevakat område med motoriserad entrégrind med fjärrkontroll och en videodörrtelefon i rostfritt stål vid infarten från allmän väg.</p></div></div>
+    <ul class="amen-top"><li>Bevakat område</li><li>Anlagda trädgårdar</li><li>Inomhuspool</li><li>Spa</li><li>Hammam</li><li>Bastu</li></ul>
+    <details class="amen-all"><summary>Visa alla 14</summary><div class="amen-groups"><div><h3>Välmående<span class="count">6</span></h3><ul><li>Inomhuspool</li><li>Spa</li><li>Hammam</li><li>Bastu</li><li>Gym</li><li>Golfsimulator</li></ul></div><div><h3>Utomhus<span class="count">2</span></h3><ul><li>Anlagda trädgårdar</li><li>Solterrass</li></ul></div><div><h3>Vardag<span class="count">3</span></h3><ul><li>Coworkingyta</li><li>Luftkonditionering</li><li>Luft-vattenvärmepump</li></ul></div><div><h3>Service<span class="count">3</span></h3><ul><li>Bevakat område</li><li>Biosalong</li><li>Spelrum</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en lägenhet med ett till tre sovrum i ett bevakat område med spa, gym och biosalong på plats, och som godtar att bygglovet och datumen ännu inte är bekräftade.</span></li><li><b>Vad som skiljer det från andra</b><span>För de gemensamma ytorna anges ett fullständigt spa med inomhuspool, hammam och bastu, en golfsimulator och en biosalong, runt en stor central pool på masterplanen.</span></li><li><b>Varför läget spelar roll</b><span>Exploatören placerar det vid New Golden Mile i Estepona, nära service, golf, skolor och tjänster. Den anger inga avstånd.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>30 av de 77 bostäderna är för närvarande listade, och priserna varierar mycket mellan bostäder av liknande storlek. Nueva Living bekräftar pris och tillgänglighet på nytt med exploatören före varje visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Bokning</b><span>Reservationen är 6 000 €. Infobladet anger inte om den dras av från den första betalningen.</span></li><li><b>Betalningsplan</b><span>30 % plus IVA vid undertecknandet av det privata köpeavtalet och 70 % plus IVA vid färdigställandet.</span></li><li><b>IVA</b><span>Infobladet anger båda betalningarna plus IVA, vilket tyder på att de angivna priserna är före IVA. Tillgänglighetstabellen säger inget om det, så vi bekräftar det skriftligen.</span></li><li><b>Vad priset inkluderar</b><span>Dokumenten anger inte om en parkeringsplats eller ett förråd ingår, eller vilken våning varje bostad ligger på. Köken anges som fullt utrustade; lösa möbler anges inte.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bygglov och garantier</b><span>Infobladet anger bygglovet som ej bekräftat. Vi ber om bygglovet och om garantin som täcker belopp som betalats före färdigställandet.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Datumen</b><span>Infobladet anger byggstart och färdigställande som ej bekräftade och byggföretaget som ännu inte utsett, så vi ber om de avtalade datumen.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ytorna</b><span>Tillgänglighetstabellen anger en yta per bostad och säger inte om den är byggd eller invändig yta. Vi bekräftar vilken siffra avtalet använder, samt terrass- och trädgårdsytorna, som tabellen inte anger.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Planritningar, våningar och parkering</b><span>Vi ber om planritningen för varje bostad, vilken våning den ligger på, och om en parkeringsplats och ett förråd ingår. Inget av detta finns i dokumenten vi har.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Vad vi har: infobladet, kvalitetsspecifikationen, masterplanen och tillgänglighetstabellen.</p></li><li><h3>Jämför alternativen</h3><p>Se detta tillsammans med de andra projekten i Estepona som vi representerar.</p></li><li><h3>Privat visning</h3><p>Se området runt tomten tillsammans med oss, och masterplanen mot marken.</p></li><li><h3>Boka</h3><p>En reservation på 6 000 €, sedan det privata köpeavtalet, när vi skriftligen har bekräftat bygglovet, datumen och garantin.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Planritningar<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-omnia-estepona.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Omnia Estepona</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder är tillgängliga?</summary><p>Projektet har 77 lägenheter, och 30 är för närvarande listade, med ett, två eller tre sovrum, från 425 000 € till 1 519 000 €.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Tillgänglighetstabellen säger inget om det. Infobladet anger betalningarna plus IVA, vilket tyder på priser före IVA. Vi bekräftar skatter och köpkostnader skriftligen.</p></details><details class="segment-faq-item"><summary>När blir det färdigt?</summary><p>Exploatörens infoblad anger bygglovet, byggstart och färdigställande som ej bekräftade, så inget datum för färdigställande anges. Vi ber om det avtalade datumet.</p></details><details class="segment-faq-item"><summary>Hur ser betalningsplanen ut?</summary><p>Reservationen är 6 000 €. Därefter 30 % plus IVA vid undertecknandet av det privata köpeavtalet och 70 % plus IVA vid färdigställandet.</p></details><details class="segment-faq-item"><summary>Vilka faciliteter anges?</summary><p>Ett fullständigt spa med inomhuspool, hammam och bastu, ett gym, en coworking-yta, en golfsimulator, ett spelrum och en biosalong.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Ingår parkering och förråd?</summary><p>Dokumenten vi har anger inte detta. Vi frågar exploatören före varje reservation.</p></details><details class="segment-faq-item"><summary>Finns det planlösningar?</summary><p>Inte i dokumenten vi har: exploatörens masterplan visar byggnaderna, men inte bostäderna. Vi ber om planritningen för varje bostad ni är intresserad av.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">425 000 €</p>
+      <p class="rail-note">Exkl. IVA. 30 av 77 bostäder kvar · Kontrollerat oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-omnia-estepona.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Omnia%20Estepona." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Omnia Estepona" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Omnia%20Estepona." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Omnia Estepona" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På marken.</b> Se området runt tomten och hur det hänger ihop med Estepona och Puerto Banús.</li><li><b>På ritningarna.</b> Masterplanen och, när vi har den, planritningen för den bostad ni är intresserad av.</li><li><b>På papper.</b> Bygglov, garanti och avtal, innan något undertecknas.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Omnia Estepona">
+        <input type="hidden" id="f-project" name="project" value="Omnia Estepona">
+        <input type="hidden" name="preferred_area" value="New Golden Mile, Estepona">
+        <input type="hidden" name="property_type_interest" value="Lägenheter">
+        <input type="hidden" name="budget_range" value="Från 425 000 €">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag vill gärna ha information om Omnia Estepona." data-base="Hej Nueva Living, jag vill gärna ha information om Omnia Estepona.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="ON-100A">ON-100A: 795 000 €</option><option value="ON-101A">ON-101A: 742 000 €</option><option value="ON-102B">ON-102B: 745 000 €</option><option value="ON-103B">ON-103B: 949 000 €</option><option value="ON-10B">ON-10B: 679 000 €</option><option value="ON-112B">ON-112B: 761 000 €</option><option value="ON-11B">ON-11B: 889 000 €</option><option value="ON-123A">ON-123A: 919 000 €</option><option value="ON-123B">ON-123B: 1 029 000 €</option><option value="ON-130A">ON-130A: 1 109 000 €</option><option value="ON-140B">ON-140B: 1 108 000 €</option><option value="ON-141B">ON-141B: 1 519 000 €</option><option value="ON-160B">ON-160B: 1 245 000 €</option><option value="ON-161A">ON-161A: 1 515 000 €</option><option value="ON-20B">ON-20B: 795 000 €</option><option value="ON-21A">ON-21A: 949 000 €</option><option value="ON-30A">ON-30A: 667 000 €</option><option value="ON-31B">ON-31B: 742 000 €</option><option value="ON-32B">ON-32B: 975 000 €</option><option value="ON-41B">ON-41B: 779 000 €</option><option value="ON-42B">ON-42B: 909 000 €</option><option value="ON-51B">ON-51B: 875 000 €</option><option value="ON-60A">ON-60A: 929 000 €</option><option value="ON-60B">ON-60B: 829 000 €</option><option value="ON-71B">ON-71B: 988 000 €</option><option value="ON-80B">ON-80B: 769 000 €</option><option value="ON-90B">ON-90B: 425 000 €</option><option value="ON-90C">ON-90C: 665 000 €</option><option value="ON-91A">ON-91A: 845 000 €</option><option value="ON-91B">ON-91B: 489 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Omnia Estepona.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">En uppsättning gemensamma faciliteter i resortstil, från spa till golfsimulator, i ett bevakat område med lägenheter med ett, två och tre sovrum.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en lägenhet med ett till tre sovrum i ett bevakat område med spa, gym och biosalong på plats, och som godtar att bygglovet och datumen ännu inte är bekräftade.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>För de gemensamma ytorna anges ett fullständigt spa med inomhuspool, hammam och bastu, en golfsimulator och en biosalong, runt en stor central pool på masterplanen.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Exploatören placerar det vid New Golden Mile i Estepona, nära service, golf, skolor och tjänster. Den anger inga avstånd.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>30 av de 77 bostäderna är för närvarande listade, och priserna varierar mycket mellan bostäder av liknande storlek. Nueva Living bekräftar pris och tillgänglighet på nytt med exploatören före varje visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">Villkoren är de på exploatörens infoblad. Vi bekräftar gällande belopp och datum skriftligen innan ni reserverar.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bokning</h3><p>Reservationen är 6 000 €. Infobladet anger inte om den dras av från den första betalningen.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningsplan</h3><p>30 % plus IVA vid undertecknandet av det privata köpeavtalet och 70 % plus IVA vid färdigställandet.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA</h3><p>Infobladet anger båda betalningarna plus IVA, vilket tyder på att de angivna priserna är före IVA. Tillgänglighetstabellen säger inget om det, så vi bekräftar det skriftligen.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad priset inkluderar</h3><p>Dokumenten anger inte om en parkeringsplats eller ett förråd ingår, eller vilken våning varje bostad ligger på. Köken anges som fullt utrustade; lösa möbler anges inte.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bygglov och garantier</h3><p>Infobladet anger bygglovet som ej bekräftat. Vi ber om bygglovet och om garantin som täcker belopp som betalats före färdigställandet.</p></article>
-              <article class="why-point reveal-soft"><h3>Datumen</h3><p>Infobladet anger byggstart och färdigställande som ej bekräftade och byggföretaget som ännu inte utsett, så vi ber om de avtalade datumen.</p></article>
-              <article class="why-point reveal-soft"><h3>Ytorna</h3><p>Tillgänglighetstabellen anger en yta per bostad och säger inte om den är byggd eller invändig yta. Vi bekräftar vilken siffra avtalet använder, samt terrass- och trädgårdsytorna, som tabellen inte anger.</p></article>
-              <article class="why-point reveal-soft"><h3>Planritningar, våningar och parkering</h3><p>Vi ber om planritningen för varje bostad, vilken våning den ligger på, och om en parkeringsplats och ett förråd ingår. Inget av detta finns i dokumenten vi har.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren oktober 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Ytorna och priserna är hämtade från tillgänglighetstabellen i försäljningsportalen, läst den 18 oktober 2026. Den har 34 rader för 30 referenser: fyra referenser står två gånger med identiska värden och visas en gång. Tabellen anger för varje bostad antal sovrum, en yta och ett pris. Den säger inte om ytan är byggd eller invändig, eller om priset inkluderar IVA; infobladet anger betalningarna plus IVA. Projektet har 77 lägenheter totalt, och de 30 som visas är de som är listade.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/omnia-estepona/media/pool-and-blocks-at-dusk.jpg" alt="Datorgenererad vy i skymningen över en upplyst pool med solstolar och lyktor, med terrasserade byggnader med upplysta fönster bakom" width="1920" height="1263" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terrasser, trädgårdar <em>och utsikt</em></h2>
-          <p>Exploatörens visualiseringar visar terrasserade lägenhetshus med träspjälor som ger skugga och planterade kanter, runt en central pool och anlagda trädgårdar, och exploatören nämner solterrasser, panoramautsikt samt stora terrasser och trädgårdar.</p>
-<p>Bilderna är vägledande, och exploatören förbehåller sig rätten att ändra projektet av tekniska eller juridiska skäl.</p>
-          <ul class="feature-list">
-            <li>Konstruktion — Grund av armerad betong enligt den geotekniska undersökningen, med kassettbjälklag och massiva plattor av armerad betong samt pelare av betong och metall.</li>
-            <li>Fasad — Ett skikt keramiskt tegel, en luftspalt, värmeisolering och ett lager stenull, med invändig beklädnad av gipsfiber- eller gipsskivor och avslutad med cementputs eller beklädnad som projektledningen bestämmer.</li>
-            <li>Fönster — Aluminiumbågar från Cortizo eller motsvarande, med termisk brytning och dubbelglas, skjut- eller slagdörrar och glasräcken på terrassbröstningarna.</li>
-            <li>Tak — Gångbara platta tak förberedda för halkfria porslinsplattor, tätade och isolerade enligt gällande föreskrifter.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Omnia%20Estepona." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Omnia Estepona" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-omnia-estepona.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/omnia-estepona/media/terrace-with-sea-view.jpg" alt="Datorgenererad takterrass med hörnsoffa, matbord och glasräcke, med utsikt över hustaken till havet" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>tomten och området</em></h2>
-            <p>Bostäderna är inte byggda än, så ett besök handlar om läget, masterplanen och byggtakten.</p>
-            <div class="viewing-insights">
-              <div><span>På marken</span><p>Se området runt tomten och hur det hänger ihop med Estepona och Puerto Banús.</p></div>
-              <div><span>På ritningarna</span><p>Masterplanen och, när vi har den, planritningen för den bostad ni är intresserad av.</p></div>
-              <div><span>På papper</span><p>Bygglov, garanti och avtal, innan något undertecknas.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=omnia-estepona">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-omnia-estepona.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Bedrooms">Sovrum</button><button type="button" data-cat="Bathrooms">Badrum</button><button type="button" data-cat="Amenities">Bekvämligheter</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/omnia-estepona/media/indoor-pool-hall.jpg" alt="Datorgenererad inomhuspool i en hall med tak av träspjälor, mörkt kaklade pelare och ett vattenfall" width="1400" height="1443" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Ett fullständigt spa, <em>ett gym och en biosalong</em></h2>
-            <p>De gemensamma ytorna i exploatörens kvalitetsspecifikation, i ett bevakat område med anlagda trädgårdar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Vad vi har: infobladet, kvalitetsspecifikationen, masterplanen och tillgänglighetstabellen.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se detta tillsammans med de andra projekten i Estepona som vi representerar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se området runt tomten tillsammans med oss, och masterplanen mot marken.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>En reservation på 6 000 €, sedan det privata köpeavtalet, när vi skriftligen har bekräftat bygglovet, datumen och garantin.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder är tillgängliga?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Projektet har 77 lägenheter, och 30 är för närvarande listade, med ett, två eller tre sovrum, från 425 000 € till 1 519 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Tillgänglighetstabellen säger inget om det. Infobladet anger betalningarna plus IVA, vilket tyder på priser före IVA. Vi bekräftar skatter och köpkostnader skriftligen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När blir det färdigt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Exploatörens infoblad anger bygglovet, byggstart och färdigställande som ej bekräftade, så inget datum för färdigställande anges. Vi ber om det avtalade datumet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur ser betalningsplanen ut?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservationen är 6 000 €. Därefter 30 % plus IVA vid undertecknandet av det privata köpeavtalet och 70 % plus IVA vid färdigställandet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka faciliteter anges?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett fullständigt spa med inomhuspool, hammam och bastu, ett gym, en coworking-yta, en golfsimulator, ett spelrum och en biosalong.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår parkering och förråd?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dokumenten vi har anger inte detta. Vi frågar exploatören före varje reservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Finns det planlösningar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Inte i dokumenten vi har: exploatörens masterplan visar byggnaderna, men inte bostäderna. Vi ber om planritningen för varje bostad ni är intresserad av.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Omnia Estepona</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, planritningarna och prislistan.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Omnia%20Estepona." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Omnia Estepona" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Omnia Estepona">
-
-          <input type="hidden" id="f-project" name="project" value="Omnia Estepona">
-          <input type="hidden" name="preferred_area" value="New Golden Mile, Estepona">
-          <input type="hidden" name="property_type_interest" value="Lägenheter">
-          <input type="hidden" name="budget_range" value="Från 425 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag vill gärna ha information om Omnia Estepona.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"ON-100A","title":"ON-100A","sub":"3 sovrum · 91 m²","price":795000,"plans":[]},{"id":"u1","ref":"ON-101A","title":"ON-101A","sub":"3 sovrum · 91 m²","price":742000,"plans":[]},{"id":"u2","ref":"ON-102B","title":"ON-102B","sub":"2 sovrum · 87 m²","price":745000,"plans":[]},{"id":"u3","ref":"ON-103B","title":"ON-103B","sub":"2 sovrum · 85 m²","price":949000,"plans":[]},{"id":"u4","ref":"ON-10B","title":"ON-10B","sub":"2 sovrum · 90 m²","price":679000,"plans":[]},{"id":"u5","ref":"ON-112B","title":"ON-112B","sub":"2 sovrum · 83 m²","price":761000,"plans":[]},{"id":"u6","ref":"ON-11B","title":"ON-11B","sub":"2 sovrum · 90 m²","price":889000,"plans":[]},{"id":"u7","ref":"ON-123A","title":"ON-123A","sub":"2 sovrum · 84 m²","price":919000,"plans":[]},{"id":"u8","ref":"ON-123B","title":"ON-123B","sub":"3 sovrum · 96 m²","price":1029000,"plans":[]},{"id":"u9","ref":"ON-130A","title":"ON-130A","sub":"3 sovrum · 112 m²","price":1109000,"plans":[]},{"id":"u10","ref":"ON-140B","title":"ON-140B","sub":"3 sovrum · 112 m²","price":1108000,"plans":[]},{"id":"u11","ref":"ON-141B","title":"ON-141B","sub":"3 sovrum · 127 m²","price":1519000,"plans":[]},{"id":"u12","ref":"ON-160B","title":"ON-160B","sub":"3 sovrum · 111 m²","price":1245000,"plans":[]},{"id":"u13","ref":"ON-161A","title":"ON-161A","sub":"3 sovrum · 122 m²","price":1515000,"plans":[]},{"id":"u14","ref":"ON-20B","title":"ON-20B","sub":"3 sovrum · 101 m²","price":795000,"plans":[]},{"id":"u15","ref":"ON-21A","title":"ON-21A","sub":"3 sovrum · 93 m²","price":949000,"plans":[]},{"id":"u16","ref":"ON-30A","title":"ON-30A","sub":"2 sovrum · 70 m²","price":667000,"plans":[]},{"id":"u17","ref":"ON-31B","title":"ON-31B","sub":"2 sovrum · 83 m²","price":742000,"plans":[]},{"id":"u18","ref":"ON-32B","title":"ON-32B","sub":"3 sovrum · 94 m²","price":975000,"plans":[]},{"id":"u19","ref":"ON-41B","title":"ON-41B","sub":"2 sovrum · 83 m²","price":779000,"plans":[]},{"id":"u20","ref":"ON-42B","title":"ON-42B","sub":"2 sovrum · 78 m²","price":909000,"plans":[]},{"id":"u21","ref":"ON-51B","title":"ON-51B","sub":"2 sovrum · 77 m²","price":875000,"plans":[]},{"id":"u22","ref":"ON-60A","title":"ON-60A","sub":"3 sovrum · 99 m²","price":929000,"plans":[]},{"id":"u23","ref":"ON-60B","title":"ON-60B","sub":"2 sovrum · 81 m²","price":829000,"plans":[]},{"id":"u24","ref":"ON-71B","title":"ON-71B","sub":"2 sovrum · 84 m²","price":988000,"plans":[]},{"id":"u25","ref":"ON-80B","title":"ON-80B","sub":"2 sovrum · 81 m²","price":769000,"plans":[]},{"id":"u26","ref":"ON-90B","title":"ON-90B","sub":"1 sovrum · 46 m²","price":425000,"plans":[]},{"id":"u27","ref":"ON-90C","title":"ON-90C","sub":"2 sovrum · 91 m²","price":665000,"plans":[]},{"id":"u28","ref":"ON-91A","title":"ON-91A","sub":"2 sovrum · 88 m²","price":845000,"plans":[]},{"id":"u29","ref":"ON-91B","title":"ON-91B","sub":"1 sovrum · 46 m²","price":489000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.webp","alt":"Datorgenererad vy över en stor pool med solstolar mot terrasserade byggnader med träspjälor som ger skugga och planterade terrasser, med ett grönt berg bakom","caption":"Den centrala poolen och de terrasserade byggnaderna","cat":"Exteriors"},{"src":"assets/liora/projects/omnia-estepona/media/pool-and-blocks-at-dusk.webp","alt":"Datorgenererad vy i skymningen över en upplyst pool med solstolar och lyktor, med terrasserade byggnader med upplysta fönster bakom","caption":"Poolen och byggnaderna i skymningen","cat":"Exteriors"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-sea-view.webp","alt":"Datorgenererad takterrass med hörnsoffa, matbord och glasräcke, med utsikt över hustaken till havet","caption":"En terrass med utsikt mot havet","cat":"Terraces"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-bar-and-sofa.webp","alt":"Datorgenererad takterrass med en lång soffa, två fåtöljer och en bar med barstolar, över hustaken och havet","caption":"En terrass med bar och en lång soffa","cat":"Terraces"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-long-dining-table.webp","alt":"Datorgenererad takterrass med ett långt matbord, en böjd soffa och randiga solsängar på ett trädäck, över hus med tegeltak","caption":"En terrass för måltider","cat":"Terraces"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-hill-view.webp","alt":"Datorgenererad takterrass med ett matbord, en hörnsoffa och ett utekök, med utsikt över hustaken till kullarna","caption":"En terrass med utsikt mot kullarna","cat":"Terraces"},{"src":"assets/liora/projects/omnia-estepona/media/covered-terrace-and-lawn.webp","alt":"Datorgenererad övertäckt terrass med ett matbord och ett vardagsrum bakom, intill en gräsmatta med solstolar och en pool i kanten","caption":"En övertäckt terrass intill en gräsmatta","cat":"Terraces"},{"src":"assets/liora/projects/omnia-estepona/media/covered-terrace-lawn-view.webp","alt":"Datorgenererad övertäckt terrass under ett trätak med soffor och låga bord, med utsikt över en gräsmatta med solstolar till havet","caption":"En övertäckt terrass ovanför gräsmattan","cat":"Terraces"},{"src":"assets/liora/projects/omnia-estepona/media/garden-terrace-with-hot-tub.webp","alt":"Datorgenererad trädgårdsterrass i skymningen med en sittgrupp, en gräsmatta och ett bubbelbad på ett trädäck","caption":"En trädgårdsterrass i skymningen","cat":"Terraces"},{"src":"assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace.webp","alt":"Datorgenererad öppen vardags- och matplats med en stor glasskjutvägg mot en övertäckt terrass och en gräsmatta","caption":"Vardags- och matplats","cat":"Interiors"},{"src":"assets/liora/projects/omnia-estepona/media/living-room-sofas.webp","alt":"Datorgenererat vardagsrum med två soffor och ett lågt soffbord i sten, med köket och en övertäckt terrass bakom","caption":"Vardagsrum","cat":"Interiors"},{"src":"assets/liora/projects/omnia-estepona/media/kitchen-island.webp","alt":"Datorgenererat kök med en köksö i stenlook, tre barstolar, skåp med trädörrar och inbyggda ugnar","caption":"Köksö","cat":"Interiors"},{"src":"assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall.webp","alt":"Datorgenererat sovrum med en vägg av träspjälor bakom sängen och en glasskjutdörr mot terrassen","caption":"Huvudsovrum","cat":"Bedrooms"},{"src":"assets/liora/projects/omnia-estepona/media/bathroom-double-vanity.webp","alt":"Datorgenererat badrum med en dubbel tvättställsbänk, en upplyst spegel och en vägglös dusch med svarta blandare","caption":"Badrum","cat":"Bathrooms"},{"src":"assets/liora/projects/omnia-estepona/media/indoor-pool-hall.webp","alt":"Datorgenererad inomhuspool i en hall med tak av träspjälor, mörkt kaklade pelare och ett vattenfall","caption":"Inomhuspoolen","cat":"Amenities"},{"src":"assets/liora/projects/omnia-estepona/media/gym-with-garden-view.webp","alt":"Datorgenererat gym med motionscyklar och löpband bakom en glasvägg mot trädgårdarna","caption":"Gymmet","cat":"Amenities"},{"src":"assets/liora/projects/omnia-estepona/media/gym-training-area.webp","alt":"Datorgenererat gym med löpband, ett viktställ, träningsmattor och en vägg med träningsutrustning","caption":"Träningsytan","cat":"Amenities"},{"src":"assets/liora/projects/omnia-estepona/media/lounge-and-games-area.webp","alt":"Datorgenererad lounge med en stor soffa, ett biljardbord och en bar med glashyllor","caption":"Lounge och spelyta","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Omnia Estepona media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks.jpg","webp":"assets/liora/projects/omnia-estepona/media/central-pool-and-terraced-blocks-960.webp","alt":"Datorgenererad vy över en stor pool med solstolar mot terrasserade byggnader med träspjälor som ger skugga och planterade terrasser, med ett grönt berg bakom","width":1920,"height":960,"caption":"Den centrala poolen och de terrasserade byggnaderna","category":"Exteriör"},{"src":"assets/liora/projects/omnia-estepona/media/pool-and-blocks-at-dusk.jpg","webp":"assets/liora/projects/omnia-estepona/media/pool-and-blocks-at-dusk-960.webp","alt":"Datorgenererad vy i skymningen över en upplyst pool med solstolar och lyktor, med terrasserade byggnader med upplysta fönster bakom","width":1920,"height":1263,"caption":"Poolen och byggnaderna i skymningen","category":"Exteriör"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-sea-view.jpg","webp":"assets/liora/projects/omnia-estepona/media/terrace-with-sea-view-960.webp","alt":"Datorgenererad takterrass med hörnsoffa, matbord och glasräcke, med utsikt över hustaken till havet","width":1920,"height":1080,"caption":"En terrass med utsikt mot havet","category":"Terrasser"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-bar-and-sofa.jpg","webp":"assets/liora/projects/omnia-estepona/media/terrace-with-bar-and-sofa-960.webp","alt":"Datorgenererad takterrass med en lång soffa, två fåtöljer och en bar med barstolar, över hustaken och havet","width":1920,"height":1080,"caption":"En terrass med bar och en lång soffa","category":"Terrasser"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-long-dining-table.jpg","webp":"assets/liora/projects/omnia-estepona/media/terrace-with-long-dining-table-960.webp","alt":"Datorgenererad takterrass med ett långt matbord, en böjd soffa och randiga solsängar på ett trädäck, över hus med tegeltak","width":1920,"height":1080,"caption":"En terrass för måltider","category":"Terrasser"},{"src":"assets/liora/projects/omnia-estepona/media/terrace-with-hill-view.jpg","webp":"assets/liora/projects/omnia-estepona/media/terrace-with-hill-view-960.webp","alt":"Datorgenererad takterrass med ett matbord, en hörnsoffa och ett utekök, med utsikt över hustaken till kullarna","width":1920,"height":1080,"caption":"En terrass med utsikt mot kullarna","category":"Terrasser"},{"src":"assets/liora/projects/omnia-estepona/media/covered-terrace-and-lawn.jpg","webp":"assets/liora/projects/omnia-estepona/media/covered-terrace-and-lawn-960.webp","alt":"Datorgenererad övertäckt terrass med ett matbord och ett vardagsrum bakom, intill en gräsmatta med solstolar och en pool i kanten","width":1920,"height":960,"caption":"En övertäckt terrass intill en gräsmatta","category":"Terrasser"},{"src":"assets/liora/projects/omnia-estepona/media/covered-terrace-lawn-view.jpg","webp":"assets/liora/projects/omnia-estepona/media/covered-terrace-lawn-view-960.webp","alt":"Datorgenererad övertäckt terrass under ett trätak med soffor och låga bord, med utsikt över en gräsmatta med solstolar till havet","width":1920,"height":1443,"caption":"En övertäckt terrass ovanför gräsmattan","category":"Terrasser"},{"src":"assets/liora/projects/omnia-estepona/media/garden-terrace-with-hot-tub.jpg","webp":"assets/liora/projects/omnia-estepona/media/garden-terrace-with-hot-tub-960.webp","alt":"Datorgenererad trädgårdsterrass i skymningen med en sittgrupp, en gräsmatta och ett bubbelbad på ett trädäck","width":1920,"height":1080,"caption":"En trädgårdsterrass i skymningen","category":"Terrasser"},{"src":"assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace.jpg","webp":"assets/liora/projects/omnia-estepona/media/living-room-open-to-terrace-960.webp","alt":"Datorgenererad öppen vardags- och matplats med en stor glasskjutvägg mot en övertäckt terrass och en gräsmatta","width":1920,"height":1263,"caption":"Vardags- och matplats","category":"Interiör"},{"src":"assets/liora/projects/omnia-estepona/media/living-room-sofas.jpg","webp":"assets/liora/projects/omnia-estepona/media/living-room-sofas-960.webp","alt":"Datorgenererat vardagsrum med två soffor och ett lågt soffbord i sten, med köket och en övertäckt terrass bakom","width":1920,"height":1263,"caption":"Vardagsrum","category":"Interiör"},{"src":"assets/liora/projects/omnia-estepona/media/kitchen-island.jpg","webp":"assets/liora/projects/omnia-estepona/media/kitchen-island-960.webp","alt":"Datorgenererat kök med en köksö i stenlook, tre barstolar, skåp med trädörrar och inbyggda ugnar","width":1920,"height":1080,"caption":"Köksö","category":"Interiör"},{"src":"assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall.jpg","webp":"assets/liora/projects/omnia-estepona/media/main-bedroom-slatted-wall-960.webp","alt":"Datorgenererat sovrum med en vägg av träspjälor bakom sängen och en glasskjutdörr mot terrassen","width":1920,"height":1263,"caption":"Huvudsovrum","category":"Sovrum"},{"src":"assets/liora/projects/omnia-estepona/media/bathroom-double-vanity.jpg","webp":"assets/liora/projects/omnia-estepona/media/bathroom-double-vanity-960.webp","alt":"Datorgenererat badrum med en dubbel tvättställsbänk, en upplyst spegel och en vägglös dusch med svarta blandare","width":1920,"height":1080,"caption":"Badrum","category":"Badrum"},{"src":"assets/liora/projects/omnia-estepona/media/indoor-pool-hall.jpg","webp":"assets/liora/projects/omnia-estepona/media/indoor-pool-hall-960.webp","alt":"Datorgenererad inomhuspool i en hall med tak av träspjälor, mörkt kaklade pelare och ett vattenfall","width":1400,"height":1443,"caption":"Inomhuspoolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/omnia-estepona/media/gym-with-garden-view.jpg","webp":"assets/liora/projects/omnia-estepona/media/gym-with-garden-view-960.webp","alt":"Datorgenererat gym med motionscyklar och löpband bakom en glasvägg mot trädgårdarna","width":1920,"height":1443,"caption":"Gymmet","category":"Bekvämligheter"},{"src":"assets/liora/projects/omnia-estepona/media/gym-training-area.jpg","webp":"assets/liora/projects/omnia-estepona/media/gym-training-area-960.webp","alt":"Datorgenererat gym med löpband, ett viktställ, träningsmattor och en vägg med träningsutrustning","width":1920,"height":1443,"caption":"Träningsytan","category":"Bekvämligheter"},{"src":"assets/liora/projects/omnia-estepona/media/lounge-and-games-area.jpg","webp":"assets/liora/projects/omnia-estepona/media/lounge-and-games-area-960.webp","alt":"Datorgenererad lounge med en stor soffa, ett biljardbord och en bar med glashyllor","width":1920,"height":1443,"caption":"Lounge och spelyta","category":"Bekvämligheter"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-omnia-estepona.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Omnia%20Estepona." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Omnia Estepona" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

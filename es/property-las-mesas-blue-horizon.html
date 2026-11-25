@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Pueden los extranjeros comprar propiedades en España?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué es el número de NIE y lo necesito?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué gastos adicionales debo prever además del precio de compra?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo conseguir una hipoteca en España siendo no residente?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo funciona el proceso de reserva y pago?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puedo alquilar la propiedad después de comprarla?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito un abogado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Cuántas viviendas hay?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="es"
   data-project-name="Las Mesas Blue Horizon"
   data-project-message="Hola Nueva Living, me gustaría recibir información sobre Las Mesas Blue Horizon."
@@ -459,595 +396,180 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Las Mesas Blue Horizon">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="es/property-las-mesas-blue-horizon.html#top">Las Mesas Blue Horizon<span>Desde 849.000 € · Más IVA</span></a>
+      <nav class="hdr-proj" aria-label="Secciones del proyecto"><a href="es/property-las-mesas-blue-horizon.html#overview">Visión general</a><a href="es/property-las-mesas-blue-horizon.html#availability">Precios</a><a href="es/property-las-mesas-blue-horizon.html#specs">Calidades</a><a href="es/property-las-mesas-blue-horizon.html#gallery">Galería</a><a href="es/property-las-mesas-blue-horizon.html#location">Ubicación</a><a href="es/property-las-mesas-blue-horizon.html#onsite">En la promoción</a><a href="es/property-las-mesas-blue-horizon.html#view">Nuestra opinión</a><a href="es/property-las-mesas-blue-horizon.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Reservar una visita privada</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Las Mesas Blue Horizon">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Vista generada por ordenador del bloque blanco en terrazas visto desde la carretera, con palmeras y olivos en la ladera y el mar a la izquierda" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Vista generada por ordenador del bloque blanco en terrazas visto desde la carretera, con palmeras y olivos en la ladera y el mar a la izquierda" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">9 de 34 viviendas disponibles</span>
-          <h1 class="hero-title" style="--hero-title-run: 7">
-            <span class="hero-title-name">Las Mesas <em>Blue Horizon</em></span>
-            <span class="hero-title-context">Apartamentos de dos y tres dormitorios en Las Mesas, Estepona</span>
-          </h1>
-          <p class="hero-positioning">9 de 34 apartamentos de dos y tres dormitorios en Las Mesas Blue Horizon, en Las Mesas, Estepona, con vistas al mar, piscina comunitaria, gimnasio, spa, sala de coworking y sala de cine. No se indica fecha de entrega. Desde 849.000 € más IVA.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="es/property-las-mesas-blue-horizon.html#availability">Ver viviendas disponibles</a>
-            <a class="btn project-btn ghost" href="es/index.html#private-viewing=1&amp;project=las-mesas-blue-horizon">Presentación cinemática</a>
-            <a class="btn project-btn ghost" href="es/property-las-mesas-blue-horizon.html#media">Todas las imágenes</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Datos clave del proyecto">
-          <div class="hero-fact"><span>Zona</span><strong>Las Mesas, Estepona</strong></div>
-          <div class="hero-fact"><span>Precio desde</span><strong>Desde 849.000 € + IVA</strong></div>
-          <div class="hero-fact"><span>Tipo de vivienda</span><strong>Apartamentos</strong></div>
-          <div class="hero-fact"><span>Entrega</span><strong>Entrega por confirmar</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Secciones del proyecto">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ir a</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="es/property-las-mesas-blue-horizon.html#media">Galería</a>
-        <a href="es/property-las-mesas-blue-horizon.html#location">Ubicación</a>
-        <a href="es/property-las-mesas-blue-horizon.html#availability">Disponibilidad</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Más</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="es/property-las-mesas-blue-horizon.html#overview">Visión general</a>
-          <a href="es/property-las-mesas-blue-horizon.html#residences">Viviendas</a>
-          <a href="es/property-las-mesas-blue-horizon.html#quality-specifications">Calidades</a>
-          <a href="es/property-las-mesas-blue-horizon.html#calculator">Financiación</a>
-          <a href="es/property-las-mesas-blue-horizon.html#amenities">Servicios y extras</a>
-          <a href="es/property-las-mesas-blue-horizon.html#why-this-project">Por qué</a>
-          <a href="es/property-las-mesas-blue-horizon.html#architecture">Arquitectura</a>
-          <a href="es/property-las-mesas-blue-horizon.html#private-viewing">Presentación cinemática</a>
-          <a href="es/property-las-mesas-blue-horizon.html#lifestyle">Estilo de vida</a>
-          <a href="es/property-las-mesas-blue-horizon.html#faq">FAQ</a>
-          <a href="es/property-las-mesas-blue-horizon.html#enquire">Consultar</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Datos rápidos del proyecto">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Dormitorios</span><strong>2-3 dormitorios</strong></div>
-          <div class="quick-fact"><span>Superficie construida</span><strong>70,93 - 88,66 m²</strong></div>
-          <div class="quick-fact"><span>Terraza</span><strong>20,40 - 45,48 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilidad</span><strong>9 de 34 viviendas disponibles</strong></div>
-          <div class="quick-fact"><span>Disponible</span><strong>9 viviendas</strong></div>
-          <div class="quick-fact"><span>Rango de precios</span><strong>849.000 € - 1.245.000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Solicitar información</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Visión general</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Nueve viviendas <em>disponibles</em>, en tres bloques</h2>
-          <p class="project-lead">Las Mesas Blue Horizon es un conjunto residencial de tres bloques en Las Mesas, Estepona, con viviendas de dos y tres dormitorios que tienen todas dos baños. El dosier del promotor describe grandes terrazas con vistas panorámicas al Mediterráneo. Cuenta 36 viviendas, mientras que sus planos y la lista de precios muestran 34, 20 de dos dormitorios y 14 de tres, y nueve de ellas figuran con precio.</p>
-          <p class="project-lead">Los residentes comparten una piscina comunitaria con iluminación nocturna, zonas ajardinadas, un gimnasio, un spa, una sala de coworking y una sala de cine, y tres plantas de sótano alojan el garaje y los trasteros. Los documentos del promotor no dan fecha de entrega, y 25 de las 34 viviendas de la lista figuran como reservadas.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Galería</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Las viviendas <em>al detalle</em></h2>
-          </div>
-          <p class="project-lead">Vistas generadas por ordenador de los bloques, la piscina, las zonas comunes y los interiores, y los planos de las nueve viviendas que figuran.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Ver 9 imágenes de Exteriores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Vista generada por ordenador del bloque blanco en terrazas visto desde la carretera, con palmeras y olivos en la ladera y el mar a la izquierda" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriores</small>
-                <strong>El bloque desde la carretera</strong>
-                <span class="project-media-card-cta">9 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Ver 5 imágenes de Zonas comunes">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Vista generada por ordenador de la piscina comunitaria con solárium de madera, tumbonas y sombrillas, una palmera y las terrazas del bloque a la derecha" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Zonas comunes</small>
-                <strong>La piscina comunitaria</strong>
-                <span class="project-media-card-cta">5 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Ver 8 imágenes de Interiores">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg" alt="Vista generada por ordenador de un salón abierto con zona de comedor e isla de cocina y una pared corredera de cristal hacia la terraza" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiores</small>
-                <strong>Salón, comedor y cocina</strong>
-                <span class="project-media-card-cta">8 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Ver 9 imágenes de Planos">
-              <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" alt="Plano de la vivienda 1-2A, segunda planta, Bloque 1" width="1515" height="1039" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planos</small>
-                <strong>Vivienda 1-2A, segunda planta, Bloque 1</strong>
-                <span class="project-media-card-cta">9 imágenes <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Ver las 31 imágenes</button>
-          <p class="media-note">Todas las imágenes son ilustraciones generadas por ordenador y no fotografías del edificio terminado, y el mobiliario y la decoración que aparecen son ilustrativos y no están incluidos. Los planos son los planos comerciales del promotor: no son contractuales, los nombres de las estancias están en español y las terrazas que figuran en ellos difieren de la lista de precios.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Ubicación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Las Mesas, <em>en Estepona</em></h2>
-          <p class="project-lead">Las viviendas están en Las Mesas, que el dosier del promotor define como una de las zonas residenciales más distinguidas de Estepona, en pleno corazón de la Costa del Sol. Sitúa el conjunto junto a la A-7 y la AP-7, a 5 minutos de la playa de la Rada y a 45 minutos del aeropuerto de Málaga, con centros de salud, supermercados y centros comerciales en la zona. El dosier no indica si los 5 minutos son a pie o en coche.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="es">
-          <div class="locmap-map" id="locmap-las-mesas-blue-horizon" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;130 m · 2 min a pie&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;570 m · 8 min a pie&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Las Mesas Blue Horizon"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ubicación indicativa</span>
-            <h3 class="locmap-name">Las Mesas Blue Horizon</h3>
-            <p class="locmap-place">Las Mesas, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Playa</span>
-              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min a pie</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centro de Estepona</span>
-              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min a pie</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Viviendas</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Nueve viviendas, <em>tres grupos</em></h2>
-          <p class="project-lead">Las nueve viviendas con precio se dividen en tres grupos según su tamaño y su bloque. La tabla siguiente recoge cada una con su precio.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Dos dormitorios, bloques 1 y 2</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-las-mesas-blue-horizon.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Tres dormitorios, bloque 2</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-las-mesas-blue-horizon.html#availability">Ver planos</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Tres dormitorios, bloque 3</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="es/property-las-mesas-blue-horizon.html#availability">Ver planos</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Material privado</span>
-            <p>Los planos, orientaciones y disponibilidad actuales deben confirmarse con el último dossier de la promotora antes de preseleccionar una vivienda.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="es/property-las-mesas-blue-horizon.html#availability">Ver planos</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Memoria de calidades</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Con qué están <em>construidas</em></h2>
-          <p class="project-lead">La especificación de calidades del propio promotor, resumida por partes de la vivienda.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Paredes y tabiques<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Tabiquería de placas de yeso laminado sobre perfilería metálica con aislamiento de lana mineral dentro de la vivienda, hidrófuga en las zonas húmedas, y ladrillo perforado entre viviendas y junto a las zonas comunes, trasdosado con yeso laminado y aislamiento térmico y acústico.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Carpintería exterior y persianas<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Doble acristalamiento con cámara de aire deshidratado y tratamiento bajo emisivo, puertas correderas desde los salones y los dormitorios a las terrazas, y un carril oculto en el suelo en el salón-comedor y la cocina para que se prolonguen hacia el exterior.</li>
-              <li>Estores enrollables motorizados que oscurecen los dormitorios y el salón, con pulsador en cada estancia.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Carpintería y armarios<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Puerta de entrada blindada con cerradura de seguridad de tres puntos de anclaje y cerradura inteligente, puertas interiores de suelo a techo de diseño minimalista lacadas en color, y armarios modulares empotrados con interior revestido, balda maletero y barra de colgar. Herrajes y manillas en negro o cromados.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Suelos y paredes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Suelos de gres porcelánico rectificado en formato 120 x 120 cm o de microcemento, con rodapié de madera blanco a juego con la carpintería, y gres porcelánico rectificado antideslizante en las terrazas.</li>
-              <li>Baños revestidos de suelo a techo con gres porcelánico de gran formato y revestimiento de pasta blanca, combinados con microcemento en el resto de las paredes, y un acabado moteado en gris y crema en los techos de los baños.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cocina<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Cocina amueblada con muebles altos y bajos de gran capacidad con acabado laminado, encimera y frente de cuarzo compacto, una isla central con almacenaje en la parte inferior y encimera de cuarzo, y un fregadero del mismo cuarzo con grifo de caño extraíble.</li>
-              <li>Electrodomésticos: horno y microondas en columna, placa de inducción con campana integrada, lavavajillas, frigorífico, lavadora y vinoteca refrigerada.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Baños<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En el baño principal y en el segundo, lavabos sobre encimera de cuarzo compacto en muebles suspendidos, platos de ducha de resina de perfil bajo y mamparas de cristal con marcos de acero inoxidable o negros.</li>
-              <li>Grifería termostática de ducha con barra deslizante y rociador de mano, grifos monomando de lavabo cromados o negros, e inodoros con doble descarga y asiento amortiguado.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatización y energía<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Agua caliente mediante un sistema de aerotermia, y aire acondicionado integrado dividido por estancias, con termostato en el salón.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Electricidad y telecomunicaciones<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Luces LED empotradas en la cocina, los pasillos y los techos de los baños y luces LED en las terrazas, videoportero automático en color, y una red digital de servicios integrados con tomas en los salones, las cocinas y los dormitorios.</li>
-              <li>Tomas de agua en las terrazas de la cubierta y en los jardines de planta baja.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Zonas comunes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Una piscina comunitaria con iluminación nocturna, zonas verdes y un área de solárium, un gimnasio, un spa, un club social y una sala de cine.</li>
-              <li>Paisajismo con plantas autóctonas de bajo consumo de agua y riego por goteo automático, puertas de entrada iluminadas para dar una cálida bienvenida, e iluminación de bajo consumo con detectores de movimiento y temporizadores en los accesos, las escaleras y los rellanos.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Garaje y ascensores<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Garaje con puertas motorizadas con mando a distancia, suelo continuo de hormigón de cuarzo pulido, protección contra incendios conforme a la normativa y preinstalación para la carga de coche eléctrico.</li>
-              <li>Ascensores que llegan a todas las plantas y directamente a las plantas de garaje, con puertas automáticas, detección de sobrecarga y conexión telefónica, y una cabina adaptada a movilidad reducida.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Fuente: la memoria de calidades del dosier del promotor, que no lleva fecha. Indica que los materiales pueden cambiar si la calidad no se reduce, que las imágenes no son contractuales y que el mobiliario que aparece no está incluido.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilidad</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Nueve viviendas <em>disponibles actualmente</em></h2>
-          <p class="project-lead">Figuran nueve apartamentos con precio: cuatro de dos dormitorios y cinco de tres, entre la primera y la cuarta planta de los bloques 1, 2 y 3. Los precios son los de la lista de precios del promotor a octubre de 2026 y no incluyen IVA; confirmamos la disponibilidad y el precio antes de cualquier reserva. Las otras 25 viviendas de la lista figuran como reservadas y no están disponibles.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Vista generada por ordenador de la piscina comunitaria con solárium de madera, tumbonas y sombrillas, una palmera y las terrazas del bloque a la derecha" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>22 fotos</button>
+          <a class="chip" href="es/property-las-mesas-blue-horizon.html#availability"><svg><use href="#v2-i-plan"/></svg>Planos</a>
+          <a class="chip" href="es/property-las-mesas-blue-horizon.html#location"><svg><use href="#v2-pin"/></svg>Mapa</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Resumen de la fase actual">
-            <div><span>Viviendas disponibles</span><strong>9</strong></div>
-            <div><span>Precio desde</span><strong>849.000 € + IVA</strong></div>
-            <div><span>Rango de precios</span><strong>849.000 € - 1.245.000 € + IVA</strong></div>
-            <div><span>Verificado</span><strong>octubre de 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Ver las 9 viviendas disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Viviendas disponibles">
-              <article class="unit-card" data-unit data-price="849000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" target="_blank" rel="noopener" aria-label="Plano de 1-2A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" alt="Plano de 1-2A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1-2A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>76,26 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>20,40 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 1, segunda planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">849.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%201-2A">Consultar sobre 1-2A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="879000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" target="_blank" rel="noopener" aria-label="Plano de 1-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" alt="Plano de 1-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1-3A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>76,26 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>20,40 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 1, tercera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">879.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%201-3A">Consultar sobre 1-3A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="865000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-1A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" alt="Plano de 2-1A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-1A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>70,93 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>24,30 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">865.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-1A">Consultar sobre 2-1A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="953000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-1B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" alt="Plano de 2-1B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-1B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>87,88 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, primera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">953.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-1B">Consultar sobre 2-1B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="995000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-2B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" alt="Plano de 2-2B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-2B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>87,88 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, segunda planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">995.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-2B">Consultar sobre 2-2B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="889000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" alt="Plano de 2-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-3A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>2 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>70,93 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>24,30 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, tercera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">889.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-3A">Consultar sobre 2-3A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1055000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-3B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" alt="Plano de 2-3B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-3B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>87,88 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, tercera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.055.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-3B">Consultar sobre 2-3B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1155000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-4B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" alt="Plano de 2-4B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">2-4B</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>87,88 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 2, cuarta planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.155.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%202-4B">Consultar sobre 2-4B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1245000">
-                <a class="unit-card-plan" href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" target="_blank" rel="noopener" aria-label="Plano de 3-3A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" alt="Plano de 3-3A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Ver plano</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">3-3A</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Dormitorios</dt><dd>3 dormitorios</dd></div>
-                    <div><dt>Construidos</dt><dd>88,66 m²</dd></div>
-                    <div><dt>De terraza</dt><dd>45,48 m²</dd></div>
-                    <div><dt>Bloque</dt><dd>Bloque 3, tercera planta</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1.245.000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Las%20Mesas%20Blue%20Horizon%20-%203-3A">Consultar sobre 3-3A</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Los precios, los dormitorios, las superficies construidas y las terrazas se han transcrito de la lista de precios del promotor para las nueve viviendas que figuran con precio, de un total de 34 filas, a octubre de 2026. La lista marca las otras 25 filas como reservadas. Muestra un importe de IVA del 10% junto a cada precio, por lo que los precios no incluyen el IVA. La superficie construida de la lista coincide con la de los planos con una diferencia máxima de 0,02 m²; las terrazas difieren, y se dan ambas cifras para cada tipo de vivienda más arriba.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Hablar con un asesor</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiación</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Calcule su <em>cuota mensual</em></h2>
-          <p class="body-copy">Se trata de una estimación orientativa. Confirme las condiciones exactas con su entidad financiera antes de tomar cualquier decisión.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Las Mesas Blue Horizon</span></h1>
+        <p class="hero-by">9 de 34 apartamentos de dos y tres dormitorios en Las Mesas Blue Horizon, en Las Mesas, Estepona, con vistas al mar, piscina comunitaria, gimnasio, spa, sala de coworking y sala de cine.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Precio</dt><dd class="num">Desde 849.000 €</dd><dd class="sub">Más IVA</dd></div><div><dt>Dormitorios</dt><dd>2 a 3</dd><dd class="sub"><span>Apartamentos</span></dd></div><div><dt>Entrega</dt><dd>por confirmar</dd><dd class="sub">Licencia: la confirmamos antes de que reserve</dd></div><div><dt>Viviendas disponibles</dt><dd>9 de 34</dd><dd class="sub">Comprobado el octubre de 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Reservar una visita privada</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">La promoción</h2>
+    <p class="lede">Las Mesas Blue Horizon es un conjunto residencial de tres bloques en Las Mesas, Estepona, con viviendas de dos y tres dormitorios que tienen todas dos baños. El dosier del promotor describe grandes terrazas con vistas panorámicas al Mediterráneo. Cuenta 36 viviendas, mientras que sus planos y la lista de precios muestran 34, 20 de dos dormitorios y 14 de tres, y nueve de ellas figuran con precio.</p>
+    <p class="lede-2">Los residentes comparten una piscina comunitaria con iluminación nocturna, zonas ajardinadas, un gimnasio, un spa, una sala de coworking y una sala de cine, y tres plantas de sótano alojan el garaje y los trasteros. Los documentos del promotor no dan fecha de entrega, y 25 de las 34 viviendas de la lista figuran como reservadas.</p>
+    <details class="fold" id="architecture"><summary>Arquitectura · <span>Terrazas blancas escalonadas, frente al mar</span></summary><p>En las imágenes generadas por ordenador del promotor, los bloques tienen largas terrazas blancas curvas apiladas sobre celosías oscuras de lamas, con pérgolas en los niveles superiores y palmeras y olivos alrededor. El dosier lo define como un diseño contemporáneo frente al mar.</p><p>Las viviendas de planta baja tienen jardín y piscina privada y los áticos un solárium con piscina en la cubierta, según el dosier. Las nueve viviendas con precio están entre la primera y la cuarta planta, cada una con terraza.</p><ul><li>Estructura: Hormigón armado conforme a la normativa vigente y al Código Técnico de la Edificación, sobre una cimentación diseñada a partir del estudio geotécnico.</li><li>Fachada: Fábrica de ladrillo multicapa con aislamiento interior, cámara de aire y trasdosado de yeso laminado, enfoscada y acabada con paneles de aluminio lacado y revestimiento composite.</li><li>Carpintería exterior: Carpintería de aluminio lacado oscuro con rotura de puente térmico, doble acristalamiento bajo emisivo y puertas correderas a las terrazas.</li><li>Cubiertas: Cubiertas planas invertidas, impermeabilizadas y aisladas, con grava en las zonas no transitables y baldosas cerámicas antideslizantes en las transitables.</li></ul></details>
+    <dl class="kfacts"><div><dt>Precio</dt><dd><span>849.000 € – 1.245.000 €</span><small>Más IVA</small></dd></div><div><dt>Disponibles</dt><dd><span>9 de 34 viviendas</span><small>Comprobado el octubre de 2026</small></dd></div><div><dt>Viviendas</dt><dd><span>Apartamentos</span></dd></div><div><dt>Superficies</dt><dd><span>71 – 89 m²</span><small>Superficie construida</small></dd></div><div><dt>Entrega</dt><dd><span>por confirmar</span></dd></div><div><dt>Licencia</dt><dd><span>No indicada</span><small>La confirmamos antes de que reserve</small></dd></div><div><dt>Anticipos</dt><dd><span>Aval bancario</span><small>Obligatorio por ley</small></dd></div><div><dt>Aparcamiento</dt><dd><span>Garaje subterráneo</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Viviendas y precios</h2>
+    <p class="sec-sub">Figuran nueve apartamentos con precio: cuatro de dos dormitorios y cinco de tres, entre la primera y la cuarta planta de los bloques 1, 2 y 3. Los precios son los de la lista de precios del promotor a octubre de 2026 y no incluyen IVA; confirmamos la disponibilidad y el precio antes de cualquier reserva. Las otras 25 viviendas de la lista figuran como reservadas y no están disponibles. Seleccione una vivienda para ver su calendario de pagos y su coste total.</p>
+    <div class="scarcity" role="img" aria-label="9 de 34 aún a la venta"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>9 de 34 aún a la venta</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrar por dormitorios"><button type="button" aria-pressed="true" data-beds="">Todas <span>9</span></button><button type="button" aria-pressed="false" data-beds="2">2 dorm. <span>4</span></button><button type="button" aria-pressed="false" data-beds="3">3 dorm. <span>5</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Viviendas a la venta, con superficie y precio. Seleccione una fila para ver el calendario de pagos.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Vivienda</th>
+          <th scope="col" data-sort="beds">Dormitorios</th>
+          <th scope="col" data-sort="size">Superficie</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Precio</th>
+          <th scope="col" data-sort="ppm">Por m²</th>
+          <th scope="col">Plano</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="849000" data-size="76.26" data-ppm="11133" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp">
+            <th scope="row"><span class="u-name">1-2A</span><span class="u-loc">Bloque 1, segunda planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">76 m²</td>
+            <td data-label="Precio" class="u-price num">849.000 €</td>
+            <td data-label="Por m²" class="num">11.133 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg" target="_blank" rel="noopener" aria-label="Plano de 1-2A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="879000" data-size="76.26" data-ppm="11526" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp">
+            <th scope="row"><span class="u-name">1-3A</span><span class="u-loc">Bloque 1, tercera planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">76 m²</td>
+            <td data-label="Precio" class="u-price num">879.000 €</td>
+            <td data-label="Por m²" class="num">11.526 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg" target="_blank" rel="noopener" aria-label="Plano de 1-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="865000" data-size="70.93" data-ppm="12195" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp">
+            <th scope="row"><span class="u-name">2-1A</span><span class="u-loc">Bloque 2, primera planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">71 m²</td>
+            <td data-label="Precio" class="u-price num">865.000 €</td>
+            <td data-label="Por m²" class="num">12.195 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-1A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="953000" data-size="87.88" data-ppm="10844" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp">
+            <th scope="row"><span class="u-name">2-1B</span><span class="u-loc">Bloque 2, primera planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">88 m²</td>
+            <td data-label="Precio" class="u-price num">953.000 €</td>
+            <td data-label="Por m²" class="num">10.844 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-1B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="995000" data-size="87.88" data-ppm="11322" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp">
+            <th scope="row"><span class="u-name">2-2B</span><span class="u-loc">Bloque 2, segunda planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">88 m²</td>
+            <td data-label="Precio" class="u-price num">995.000 €</td>
+            <td data-label="Por m²" class="num">11.322 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-2B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="889000" data-size="70.93" data-ppm="12533" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp">
+            <th scope="row"><span class="u-name">2-3A</span><span class="u-loc">Bloque 2, tercera planta</span></th>
+            <td data-label="Dormitorios">2 dorm.</td>
+            <td data-label="Superficie" class="num">71 m²</td>
+            <td data-label="Precio" class="u-price num">889.000 €</td>
+            <td data-label="Por m²" class="num">12.533 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="1055000" data-size="87.88" data-ppm="12005" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp">
+            <th scope="row"><span class="u-name">2-3B</span><span class="u-loc">Bloque 2, tercera planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">88 m²</td>
+            <td data-label="Precio" class="u-price num">1.055.000 €</td>
+            <td data-label="Por m²" class="num">12.005 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-3B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="1155000" data-size="87.88" data-ppm="13143" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp">
+            <th scope="row"><span class="u-name">2-4B</span><span class="u-loc">Bloque 2, cuarta planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">88 m²</td>
+            <td data-label="Precio" class="u-price num">1.155.000 €</td>
+            <td data-label="Por m²" class="num">13.143 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg" target="_blank" rel="noopener" aria-label="Plano de 2-4B"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="1245000" data-size="88.66" data-ppm="14042" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp">
+            <th scope="row"><span class="u-name">3-3A</span><span class="u-loc">Bloque 3, tercera planta</span></th>
+            <td data-label="Dormitorios">3 dorm.</td>
+            <td data-label="Superficie" class="num">89 m²</td>
+            <td data-label="Precio" class="u-price num">1.245.000 €</td>
+            <td data-label="Por m²" class="num">14.042 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg" target="_blank" rel="noopener" aria-label="Plano de 3-3A"><img src="assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plano</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Viviendas · <span>Nueve viviendas, tres grupos</span></summary><p>Las nueve viviendas con precio se dividen en tres grupos según su tamaño y su bloque. La tabla siguiente recoge cada una con su precio.</p><div class="res-types"><div class="res-type"><h3>Dos dormitorios, bloques 1 y 2</h3><ul><li>Cuatro viviendas de dos dormitorios y dos baños: 1-2A y 1-3A en el bloque 1, con 76,26 m² construidos, y 2-1A y 2-3A en el bloque 2, con 70,93 m² construidos. La lista da terrazas de 20,40 m² para las dos primeras y de 24,30 m² para las otras dos.</li><li>Los precios son 849.000 €, 879.000 €, 865.000 € y 889.000 €.</li><li>Los planos dan superficies interiores de 70,55 m² para las viviendas del bloque 1 y de 65,70 m² para las del bloque 2, y terrazas de 18,30, 18,25, 18,00 y 21,70 m², en el mismo orden que arriba.</li></ul></div><div class="res-type"><h3>Tres dormitorios, bloque 2</h3><ul><li>Cuatro viviendas de tres dormitorios y dos baños entre la primera y la cuarta planta: 2-1B, 2-2B, 2-3B y 2-4B, cada una con 87,88 m² construidos y una terraza de 21,65 m² según la lista.</li><li>Los precios suben con la planta, desde 953.000 € en la primera hasta 1.155.000 € en la cuarta.</li><li>Los planos dan una superficie interior de 82,30 m² y terrazas de 19,90, 15,90, 15,75 y 19,40 m², en el mismo orden que arriba.</li></ul></div><div class="res-type"><h3>Tres dormitorios, bloque 3</h3><ul><li>La vivienda 3-3A, en la tercera planta, con tres dormitorios y dos baños, 88,66 m² construidos y una terraza de 45,48 m² según la lista.</li><li>El precio es de 1.245.000 €.</li><li>El plano da 81,60 m² interiores y una terraza de 45,50 m².</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">El calendario de pagos del promotor se facilita bajo petición; se lo enviamos con la lista de precios.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Lo que cuesta en total</p>
+      <dl class="cost-lines num">
+        <div><dt>Precio</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>AJD (actos jurídicos documentados), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total antes de notaría, registro y abogado</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Consultar sobre esta vivienda</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plano"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>¿Financiación? Calculadora de hipoteca</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Precio de compra</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1107,436 +629,236 @@
               <div class="calculator-result"><span>Impuestos y gastos de compra</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Servicios y extras</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Lo que la promoción <em>le ofrece</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bienestar</span>
-              <h3 class="amenity-name">Piscina exterior comunitaria con iluminación nocturna</h3>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Calidades</h2>
+    <p class="sec-sub">La especificación de calidades del propio promotor, resumida por partes de la vivienda.</p>
+    <div class="tabs" role="tablist" aria-label="Calidades"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Paredes y tabiques</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Carpintería exterior y persianas</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Carpintería y armarios</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Suelos y paredes</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Cocina</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Baños</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Climatización y energía</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Electricidad y telecomunicaciones</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-8">Zonas comunes</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-9">Garaje y ascensores</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Tabiquería de placas de yeso laminado sobre perfilería metálica con aislamiento de lana mineral dentro de la vivienda, hidrófuga en las zonas húmedas, y ladrillo perforado entre viviendas y junto a las zonas comunes, trasdosado con yeso laminado y aislamiento térmico y acústico.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Doble acristalamiento con cámara de aire deshidratado y tratamiento bajo emisivo, puertas correderas desde los salones y los dormitorios a las terrazas, y un carril oculto en el suelo en el salón-comedor y la cocina para que se prolonguen hacia el exterior.</li><li>Estores enrollables motorizados que oscurecen los dormitorios y el salón, con pulsador en cada estancia.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Puerta de entrada blindada con cerradura de seguridad de tres puntos de anclaje y cerradura inteligente, puertas interiores de suelo a techo de diseño minimalista lacadas en color, y armarios modulares empotrados con interior revestido, balda maletero y barra de colgar. Herrajes y manillas en negro o cromados.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Suelos de gres porcelánico rectificado en formato 120 x 120 cm o de microcemento, con rodapié de madera blanco a juego con la carpintería, y gres porcelánico rectificado antideslizante en las terrazas.</li><li>Baños revestidos de suelo a techo con gres porcelánico de gran formato y revestimiento de pasta blanca, combinados con microcemento en el resto de las paredes, y un acabado moteado en gris y crema en los techos de los baños.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Cocina amueblada con muebles altos y bajos de gran capacidad con acabado laminado, encimera y frente de cuarzo compacto, una isla central con almacenaje en la parte inferior y encimera de cuarzo, y un fregadero del mismo cuarzo con grifo de caño extraíble.</li><li>Electrodomésticos: horno y microondas en columna, placa de inducción con campana integrada, lavavajillas, frigorífico, lavadora y vinoteca refrigerada.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>En el baño principal y en el segundo, lavabos sobre encimera de cuarzo compacto en muebles suspendidos, platos de ducha de resina de perfil bajo y mamparas de cristal con marcos de acero inoxidable o negros.</li><li>Grifería termostática de ducha con barra deslizante y rociador de mano, grifos monomando de lavabo cromados o negros, e inodoros con doble descarga y asiento amortiguado.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Agua caliente mediante un sistema de aerotermia, y aire acondicionado integrado dividido por estancias, con termostato en el salón.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Luces LED empotradas en la cocina, los pasillos y los techos de los baños y luces LED en las terrazas, videoportero automático en color, y una red digital de servicios integrados con tomas en los salones, las cocinas y los dormitorios.</li><li>Tomas de agua en las terrazas de la cubierta y en los jardines de planta baja.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-8" role="tabpanel" hidden>
+      <ul><li>Una piscina comunitaria con iluminación nocturna, zonas verdes y un área de solárium, un gimnasio, un spa, un club social y una sala de cine.</li><li>Paisajismo con plantas autóctonas de bajo consumo de agua y riego por goteo automático, puertas de entrada iluminadas para dar una cálida bienvenida, e iluminación de bajo consumo con detectores de movimiento y temporizadores en los accesos, las escaleras y los rellanos.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-9" role="tabpanel" hidden>
+      <ul><li>Garaje con puertas motorizadas con mando a distancia, suelo continuo de hormigón de cuarzo pulido, protección contra incendios conforme a la normativa y preinstalación para la carga de coche eléctrico.</li><li>Ascensores que llegan a todas las plantas y directamente a las plantas de garaje, con puertas automáticas, detección de sobrecarga y conexión telefónica, y una cabina adaptada a movilidad reducida.</li></ul>
+      
+    </div>
+    <p class="caption">Fuente: la memoria de calidades del dosier del promotor, que no lleva fecha. Indica que los materiales pueden cambiar si la calidad no se reduce, que las imágenes no son contractuales y que el mobiliario que aparece no está incluido.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galería</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="El bloque desde la carretera"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg" alt="Vista generada por ordenador del bloque blanco en terrazas visto desde la carretera, con palmeras y olivos en la ladera y el mar a la izquierda" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="14" aria-label="Salón, comedor y cocina"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg" alt="Vista generada por ordenador de un salón abierto con zona de comedor e isla de cocina y una pared corredera de cristal hacia la terraza" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="La piscina comunitaria"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Vista generada por ordenador de la piscina comunitaria con solárium de madera, tumbonas y sombrillas, una palmera y las terrazas del bloque a la derecha" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="El bloque desde la terraza de la piscina"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg" alt="Vista generada por ordenador del bloque escalonado desde la terraza de la piscina, con palmeras y una pérgola en la cubierta" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="El bloque sobre los olivos"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-640.webp 640w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-960.webp 960w, assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.jpg" alt="Vista generada por ordenador del bloque con largas terrazas blancas curvas y celosías oscuras de lamas sobre los olivos, con césped y pinos a la izquierda" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Ver las 22 fotos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriores (9)</button><button type="button" data-open-cat="Amenities">Zonas comunes (5)</button><button type="button" data-open-cat="Interiors">Interiores (8)</button></div>
+    
+    <p class="caption">Todas las imágenes son ilustraciones generadas por ordenador y no fotografías del edificio terminado, y el mobiliario y la decoración que aparecen son ilustrativos y no están incluidos. Los planos son los planos comerciales del promotor: no son contractuales, los nombres de las estancias están en español y las terrazas que figuran en ellos difieren de la lista de precios.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Ubicación</h2>
+    <p class="sec-sub">Las viviendas están en Las Mesas, que el dosier del promotor define como una de las zonas residenciales más distinguidas de Estepona, en pleno corazón de la Costa del Sol. Sitúa el conjunto junto a la A-7 y la AP-7, a 5 minutos de la playa de la Rada y a 45 minutos del aeropuerto de Málaga, con centros de salud, supermercados y centros comerciales en la zona. El dosier no indica si los 5 minutos son a pie o en coche.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="es">
+          <div class="locmap-map" id="locmap-las-mesas-blue-horizon" data-locmap='{&quot;site&quot;:[36.4255,-5.1465],&quot;sea&quot;:[36.3985,-5.1465],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Estepona&quot;,&quot;sub&quot;:&quot;130 m · 2 min a pie&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;570 m · 8 min a pie&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,9 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;8,4 km · 14 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Las Mesas Blue Horizon"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ubicación indicativa</span>
+            <h3 class="locmap-name">Las Mesas Blue Horizon</h3>
+            <p class="locmap-place">Las Mesas, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Playa</span>
+              <span class="locmap-row-figure"><bdi>570 m</bdi> <em><bdi>8 min a pie</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bienestar</span>
-              <h3 class="amenity-name">Gimnasio</h3>
-              <p class="amenity-note">Dentro de la promoción</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bienestar</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Zona de agua para el descanso</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centro de Estepona</span>
+              <span class="locmap-row-figure"><bdi>130 m</bdi> <em><bdi>2 min a pie</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Exteriores</span>
-              <h3 class="amenity-name">Jardines con especies autóctonas de bajo consumo de agua</h3>
-              <p class="amenity-note">Zonas comunes ajardinadas</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Exteriores</span>
-              <h3 class="amenity-name">Vistas al mar</h3>
-              <p class="amenity-note">Hacia el Mediterráneo</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Día a día</span>
-              <h3 class="amenity-name">Coworking</h3>
-              <p class="amenity-note">Puestos de trabajo fuera de casa</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aeropuerto de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Día a día</span>
-              <h3 class="amenity-name">Garaje subterráneo</h3>
-              <p class="amenity-note">Bajo el edificio</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Día a día</span>
-              <h3 class="amenity-name">Trastero</h3>
-              <p class="amenity-note">Trastero cerrado</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Día a día</span>
-              <h3 class="amenity-name">Ascensor</h3>
-              <p class="amenity-note">Acceso a todas las plantas</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Día a día</span>
-              <h3 class="amenity-name">Preinstalación de punto de recarga</h3>
-              <p class="amenity-note">Un punto para el coche</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Día a día</span>
-              <h3 class="amenity-name">Agua caliente por aerotermia</h3>
-              <p class="amenity-note">Agua caliente a partir del aire</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Día a día</span>
-              <h3 class="amenity-name">Aire acondicionado</h3>
-              <p class="amenity-note">Frío y calor por conductos</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Día a día</span>
-              <h3 class="amenity-name">Cocina equipada</h3>
-              <p class="amenity-note">Amueblada y con electrodomésticos</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Servicios</span>
-              <h3 class="amenity-name">Cine</h3>
-              <p class="amenity-note">Sala de proyección</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Playa de La Rada</th><td>5 minutos, según el promotor</td></tr><tr><th scope="row">Aeropuerto de Málaga</th><td>45 minutos, según el promotor</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">En la promoción</h2>
+    <p class="sec-sub">Las zonas comunes se organizan en torno a una piscina, un spa y un gimnasio, con una sala de cine y una sala de coworking, dentro del conjunto.</p>
+    <div class="life-panels"><div><h3>La piscina</h3><p>Una piscina comunitaria de 77,65 m² con iluminación nocturna, en un jardín de 67,60 m² con zona de solárium.</p></div><div><h3>El spa</h3><p>Un spa de 46,90 m². Las imágenes del promotor muestran una sala con tumbonas, una piscina estrecha con chorros de agua y un jacuzzi redondo.</p></div><div><h3>El gimnasio y la sala de coworking</h3><p>Un gimnasio de 31,40 m² y una sala de coworking de 33,90 m², en la primera planta de sótano.</p></div><div><h3>La sala de cine</h3><p>Una sala de cine de 15,40 m², en la misma planta que el spa, el gimnasio y la sala de coworking.</p></div><div><h3>Garaje y trasteros</h3><p>Tres plantas de sótano con plazas de garaje y trasteros, ascensores a todas las plantas y preinstalación para la carga de coche eléctrico.</p></div></div>
+    <ul class="amen-top"><li>Piscina exterior comunitaria con iluminación nocturna</li><li>Gimnasio</li><li>Spa</li><li>Coworking</li><li>Cine</li><li>Jardines con especies autóctonas de bajo consumo de agua</li></ul>
+    <details class="amen-all"><summary>Ver las 14</summary><div class="amen-groups"><div><h3>Bienestar<span class="count">3</span></h3><ul><li>Piscina exterior comunitaria con iluminación nocturna</li><li>Gimnasio</li><li>Spa</li></ul></div><div><h3>Exteriores<span class="count">2</span></h3><ul><li>Jardines con especies autóctonas de bajo consumo de agua</li><li>Vistas al mar</li></ul></div><div><h3>Día a día<span class="count">8</span></h3><ul><li>Coworking</li><li>Garaje subterráneo</li><li>Trastero</li><li>Ascensor</li><li>Preinstalación de punto de recarga</li><li>Agua caliente por aerotermia</li><li>Aire acondicionado</li><li>Cocina equipada</li></ul></div><div><h3>Servicios<span class="count">1</span></h3><ul><li>Cine</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Nuestra opinión</h2>
+    <p class="sec-sub">Lo que tendríamos en cuenta antes de reservar aquí, y las comprobaciones que hacemos por usted.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Nuestra opinión">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Destaca</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">A prever</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Comprobaciones</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Por qué destaca</h3><ul class="points"><li><b>Para quién es</b><span>Compradores que buscan un apartamento nuevo de dos o tres dormitorios en Estepona, con una gran terraza e instalaciones de bienestar en el propio conjunto, para vivir o como segunda residencia.</span></li><li><b>Qué la diferencia</b><span>Un spa de 46,90 m², un gimnasio, una sala de coworking, una sala de cine y una piscina comunitaria, con ascensor y un garaje con trasteros en tres plantas de sótano, en un conjunto de solo tres bloques.</span></li><li><b>Por qué importa la ubicación</b><span>El promotor sitúa el conjunto junto a la A-7 y la AP-7, a 5 minutos de la playa de la Rada y a 45 minutos del aeropuerto de Málaga. No indica si los 5 minutos son a pie o en coche.</span></li><li><b>Por qué comprobar la disponibilidad</b><span>Veinticinco de las 34 viviendas de la lista figuran como reservadas y nueve tienen precio. Los documentos no dan fecha de entrega, así que confirmamos el estado de las obras y la fecha antes de cualquier reserva.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Qué prever</h3><ul class="points"><li><b>Disponibilidad</b><span>Veinticinco de las 34 viviendas de la lista figuran como reservadas. Nueve tienen precio, de 849.000 € a 1.245.000 € más IVA.</span></li><li><b>IVA</b><span>La lista muestra junto a cada precio un importe de IVA, el 10% del mismo, en una columna aparte. Los precios no incluyen el IVA, y Nueva Living confirma por escrito el tipo y los gastos de compra.</span></li><li><b>Forma de pago</b><span>Los documentos que tenemos no dan importe de reserva ni calendario de pagos, así que los solicitamos por escrito antes de cualquier reserva.</span></li><li><b>Garaje y trastero</b><span>El dosier muestra plazas de garaje y trasteros en tres plantas de sótano, pero la lista de precios no dice si cada vivienda incluye una. Lo confirmamos para la vivienda que usted elija.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Comprobaciones antes de cualquier pago</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Licencia y obras</b><span>Los documentos que tenemos no dicen si se ha concedido la licencia de obras ni en qué fase están las obras, y la memoria de calidades está redactada en futuro. Solicitamos la licencia, su estado y la fecha de inicio de las obras.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>La fecha de finalización</b><span>Ningún documento del promotor indica una fecha de entrega, así que pedimos la fecha contractual antes de cualquier reserva.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>El número de viviendas</b><span>El texto del dosier habla de 36 viviendas. Sus planos y la lista de precios muestran 34: 11 en el bloque 1, 11 en el bloque 2 y 12 en el bloque 3. Esta página usa las 34 de los planos y la lista, y pedimos al promotor que confirme el total.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Las superficies</b><span>La lista de precios y los planos coinciden en la superficie construida de cada vivienda con una diferencia máxima de 0,02 m², pero no en las terrazas. Para la vivienda 2-2B la lista da una terraza de 21,65 m² y el plano de 15,90 m², y para la vivienda 1-2A la lista da 20,40 m² y el plano 18,30 m². Los planos dan además una segunda superficie construida, mayor, según el Decreto 218/2005: 86,01 m² para la vivienda 1-2A frente a 76,26 m². Confirmamos qué cifras usa el contrato.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>La lista de precios</b><span>La lista de precios lleva por título «Blue Horizon. Listado de ventas» y no incluye ninguna fecha. El nombre del archivo dice «octubre 26», que entendemos como octubre de 2026, y confirmamos cada precio antes de cualquier reserva.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>El mapa y las distancias</b><span>Los documentos no dan dirección ni coordenadas, así que el marcador del mapa está en el centro de Estepona y no en la parcela, y las distancias por carretera junto al mapa se miden desde ese marcador. El dosier sitúa la playa de la Rada a 5 minutos sin decir si a pie o en coche, y el aeropuerto de Málaga a 45 minutos; confirmamos las distancias en una visita.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Solicite la información</h3><p>Los planos de las viviendas que le interesen, la especificación de calidades y la lista de precios.</p></li><li><h3>Compare las opciones</h3><p>Compárelo con los demás proyectos de Estepona que tenemos en cartera.</p></li><li><h3>Visita privada</h3><p>Vea la zona con nosotros y los planos frente al estado de las obras.</p></li><li><h3>Reserva</h3><p>Confirmamos por escrito el importe de la reserva y el calendario de pagos, y después el contrato de compraventa.</p></li></ol>
+      <div class="docs card"><h3>Documentos que recibirá</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Lista de precios</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planos<small>9 de 9 viviendas</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Calendario de pagos<small>Aún no facilitado</small><small>Pendiente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Memoria de calidades</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>El resumen oficial al que tiene derecho todo comprador en Andalucía</small></span></li></ul><a class="btn btn-primary" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Recibir el dosier del proyecto</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Preguntas sobre Las Mesas Blue Horizon</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>¿Cuántas viviendas hay?</summary><p>El texto del dosier habla de 36 viviendas, pero sus planos y la lista de precios muestran 34, de dos o tres dormitorios. Nueve figuran con precio, de 849.000 € a 1.245.000 € más IVA, y las otras 25 figuran como reservadas.</p></details><details class="segment-faq-item"><summary>¿El IVA está incluido?</summary><p>No. La lista de precios muestra un importe de IVA del 10% en una columna aparte, por lo que los precios no incluyen el IVA. Confirmamos por escrito los impuestos y los gastos de compra.</p></details><details class="segment-faq-item"><summary>¿Hay aparcamiento y trastero?</summary><p>El dosier muestra 37 plazas de garaje y 37 trasteros en tres plantas de sótano. La lista de precios no dice si cada vivienda incluye uno, así que lo confirmamos para la vivienda que usted elija.</p></details><details class="segment-faq-item"><summary>¿Todas las viviendas tienen vistas al mar?</summary><p>El dosier describe vistas panorámicas al Mediterráneo para el conjunto, pero no dice qué viviendas las tienen, así que confirmamos la vista de la vivienda que usted elija.</p></details><details class="segment-faq-item"><summary>¿Incluye mobiliario?</summary><p>No. El mobiliario que aparece en las imágenes no está incluido. La cocina se entrega amueblada y con electrodomésticos, según indica la memoria de calidades.</p></details></div>
+    <details class="faq2-more"><summary>Ver todas las preguntas (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>¿Cuándo estará terminado?</summary><p>Ninguno de los documentos del promotor da una fecha de finalización. Pedimos la fecha contractual, el estado de la licencia y la fase de las obras.</p></details><details class="segment-faq-item"><summary>¿Cuál es el calendario de pagos?</summary><p>Los documentos que tenemos no dan importe de reserva ni calendario de pagos. Los solicitamos y los ponemos por escrito.</p></details></div></details>
+    <p class="faq2-guide">Más sobre comprar obra nueva en España → <a class="textlink" href="es/guide-how-buying-works.html">Guía de compra</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Reservar una visita privada">
+    <div class="card">
+      <p class="rail-price-label">Precio desde</p>
+      <p class="rail-price num">849.000 €</p>
+      <p class="rail-note">Más IVA. Quedan 9 de 34 viviendas · Comprobado el octubre de 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Reservar una visita privada</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Escríbanos por WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador</strong>Respondemos personalmente a cada consulta.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Reservar una visita privada</h2>
+        <p>Díganos qué vivienda le interesa. Le enviamos el dosier del proyecto y después recorremos la promoción con usted.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fundador de Nueva Living</strong>Respondemos personalmente a cada consulta.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Escríbanos</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>Correo<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>En la visita comprobamos con usted</h3><ul><li><b>Sobre el terreno.</b> Visite con nosotros la parcela y sus alrededores.</li><li><b>Sobre papel.</b> Licencia, fecha de entrega y contrato, antes de firmar nada.</li><li><b>En los planos.</b> Recorremos con usted la vivienda que elija, estancia por estancia, con su plano en la mano.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Enviando…" data-success-label="Reservar una visita privada ✓" data-submitting-message="Enviando…" data-success-message="Solicitud recibida. Le enviaremos el dosier del proyecto y le propondremos horarios de visita." data-error-message="No se ha podido enviar. Inténtelo de nuevo o escríbanos por WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Las Mesas Blue Horizon">
+        <input type="hidden" id="f-project" name="project" value="Las Mesas Blue Horizon">
+        <input type="hidden" name="preferred_area" value="Las Mesas, Estepona">
+        <input type="hidden" name="property_type_interest" value="Apartamentos">
+        <input type="hidden" name="budget_range" value="Desde 849.000 € + IVA">
+        <input type="hidden" name="consent_text" value="Acepto que Nueva Living guarde estos datos para responder a mi solicitud.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hola Nueva Living, me gustaría recibir información sobre Las Mesas Blue Horizon." data-base="Hola Nueva Living, me gustaría recibir información sobre Las Mesas Blue Horizon.">
+        <h3>Sus datos</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Nombre</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Apellidos</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">Correo electrónico</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Teléfono (opcional, para WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">¿Qué vivienda?</label><select id="v2-f-unit" name="unit_interest"><option value="">Aún no lo sé, envíenme todo</option><option value="1-2A">1-2A: 849.000 €</option><option value="1-3A">1-3A: 879.000 €</option><option value="2-1A">2-1A: 865.000 €</option><option value="2-1B">2-1B: 953.000 €</option><option value="2-2B">2-2B: 995.000 €</option><option value="2-3A">2-3A: 889.000 €</option><option value="2-3B">2-3B: 1.055.000 €</option><option value="2-4B">2-4B: 1.155.000 €</option><option value="3-3A">3-3A: 1.245.000 €</option></select></div>
+        <fieldset class="field"><legend>La vivienda sería</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Para vivir</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Una segunda residencia</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Una inversión</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>¿Cómo le respondemos?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Llamada</label>
+          <label><input type="radio" name="preferred_contact" value="email">Correo</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Acepto que Nueva Living guarde estos datos para responder a mi solicitud. <a href="es/privacy-policy.html">Política de privacidad</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Avísenme también si cambia la disponibilidad o los precios en Las Mesas Blue Horizon.</label>
+        <button class="btn btn-primary btn-block" type="submit">Reservar una visita privada</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Por qué este proyecto</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Por qué este proyecto <em>importa</em></h2>
-          <p class="project-lead">Apartamentos de dos y tres dormitorios con grandes terrazas, y con spa, gimnasio y sala de cine en el propio conjunto, en Las Mesas, Estepona.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Por qué encaja</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Para quién es</h3><p>Compradores que buscan un apartamento nuevo de dos o tres dormitorios en Estepona, con una gran terraza e instalaciones de bienestar en el propio conjunto, para vivir o como segunda residencia.</p></article>
-              <article class="why-point reveal-soft"><h3>Qué la diferencia</h3><p>Un spa de 46,90 m², un gimnasio, una sala de coworking, una sala de cine y una piscina comunitaria, con ascensor y un garaje con trasteros en tres plantas de sótano, en un conjunto de solo tres bloques.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué importa la ubicación</h3><p>El promotor sitúa el conjunto junto a la A-7 y la AP-7, a 5 minutos de la playa de la Rada y a 45 minutos del aeropuerto de Málaga. No indica si los 5 minutos son a pie o en coche.</p></article>
-              <article class="why-point reveal-soft"><h3>Por qué comprobar la disponibilidad</h3><p>Veinticinco de las 34 viviendas de la lista figuran como reservadas y nueve tienen precio. Los documentos no dan fecha de entrega, así que confirmamos el estado de las obras y la fecha antes de cualquier reserva.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argumento de inversión</h3></div>
-            <p class="why-group-note">Una nota objetiva sobre lo que los documentos dicen y no dicen; Nueva Living no promete rentabilidad por alquiler ni revalorización.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Disponibilidad</h3><p>Veinticinco de las 34 viviendas de la lista figuran como reservadas. Nueve tienen precio, de 849.000 € a 1.245.000 € más IVA.</p></article>
-              <article class="why-point reveal-soft"><h3>IVA</h3><p>La lista muestra junto a cada precio un importe de IVA, el 10% del mismo, en una columna aparte. Los precios no incluyen el IVA, y Nueva Living confirma por escrito el tipo y los gastos de compra.</p></article>
-              <article class="why-point reveal-soft"><h3>Forma de pago</h3><p>Los documentos que tenemos no dan importe de reserva ni calendario de pagos, así que los solicitamos por escrito antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>Garaje y trastero</h3><p>El dosier muestra plazas de garaje y trasteros en tres plantas de sótano, pero la lista de precios no dice si cada vivienda incluye una. Lo confirmamos para la vivienda que usted elija.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confianza y diligencia</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Licencia y obras</h3><p>Los documentos que tenemos no dicen si se ha concedido la licencia de obras ni en qué fase están las obras, y la memoria de calidades está redactada en futuro. Solicitamos la licencia, su estado y la fecha de inicio de las obras.</p></article>
-              <article class="why-point reveal-soft"><h3>La fecha de finalización</h3><p>Ningún documento del promotor indica una fecha de entrega, así que pedimos la fecha contractual antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>El número de viviendas</h3><p>El texto del dosier habla de 36 viviendas. Sus planos y la lista de precios muestran 34: 11 en el bloque 1, 11 en el bloque 2 y 12 en el bloque 3. Esta página usa las 34 de los planos y la lista, y pedimos al promotor que confirme el total.</p></article>
-              <article class="why-point reveal-soft"><h3>Las superficies</h3><p>La lista de precios y los planos coinciden en la superficie construida de cada vivienda con una diferencia máxima de 0,02 m², pero no en las terrazas. Para la vivienda 2-2B la lista da una terraza de 21,65 m² y el plano de 15,90 m², y para la vivienda 1-2A la lista da 20,40 m² y el plano 18,30 m². Los planos dan además una segunda superficie construida, mayor, según el Decreto 218/2005: 86,01 m² para la vivienda 1-2A frente a 76,26 m². Confirmamos qué cifras usa el contrato.</p></article>
-              <article class="why-point reveal-soft"><h3>La lista de precios</h3><p>La lista de precios lleva por título «Blue Horizon. Listado de ventas» y no incluye ninguna fecha. El nombre del archivo dice «octubre 26», que entendemos como octubre de 2026, y confirmamos cada precio antes de cualquier reserva.</p></article>
-              <article class="why-point reveal-soft"><h3>El mapa y las distancias</h3><p>Los documentos no dan dirección ni coordenadas, así que el marcador del mapa está en el centro de Estepona y no en la parcela, y las distancias por carretera junto al mapa se miden desde ese marcador. El dosier sitúa la playa de la Rada a 5 minutos sin decir si a pie o en coche, y el aeropuerto de Málaga a 45 minutos; confirmamos las distancias en una visita.</p></article>
-            </div>
-            <p class="why-group-note">¿Es su primera compra sobre plano en España? <a href="es/guide-how-buying-works.html">Cómo funciona comprar obra nueva</a> explica los siete pasos, y <a href="es/guide-off-plan-vs-resale.html">sobre plano frente a segunda mano</a> detalla las señales, las garantías y los plazos.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Las imágenes las facilita el promotor y pueden ser infografías">
+    <p>Las imágenes las facilita el promotor y pueden ser infografías; el diseño final, los acabados, el paisajismo y las vistas pueden variar. Tiene derecho a una copia del Documento Informativo Abreviado (DIA) de cualquier vivienda de esta página; Nueva Living se la facilita bajo petición.</p>
+    <p>Disponibilidad comprobada con el vendedor el octubre de 2026; la volvemos a confirmar antes de cualquier reserva.</p>
+    <p>Los precios, los dormitorios, las superficies construidas y las terrazas se han transcrito de la lista de precios del promotor para las nueve viviendas que figuran con precio, de un total de 34 filas, a octubre de 2026. La lista marca las otras 25 filas como reservadas. Muestra un importe de IVA del 10% junto a cada precio, por lo que los precios no incluyen el IVA. La superficie construida de la lista coincide con la de los planos con una diferencia máxima de 0,02 m²; las terrazas difieren, y se dan ambas cifras para cada tipo de vivienda más arriba.</p>
+    <p>La información de esta página tiene fines comerciales generales y no constituye asesoramiento legal, financiero ni de inversión. Los precios, la disponibilidad y las fechas de entrega pueden cambiar sin previo aviso.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg" alt="Vista generada por ordenador del bloque escalonado desde la terraza de la piscina, con palmeras y una pérgola en la cubierta" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Vista previa de arquitectura</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arquitectura</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Terrazas blancas escalonadas, <em>frente al mar</em></h2>
-          <p>En las imágenes generadas por ordenador del promotor, los bloques tienen largas terrazas blancas curvas apiladas sobre celosías oscuras de lamas, con pérgolas en los niveles superiores y palmeras y olivos alrededor. El dosier lo define como un diseño contemporáneo frente al mar.</p>
-<p>Las viviendas de planta baja tienen jardín y piscina privada y los áticos un solárium con piscina en la cubierta, según el dosier. Las nueve viviendas con precio están entre la primera y la cuarta planta, cada una con terraza.</p>
-          <ul class="feature-list">
-            <li>Estructura — Hormigón armado conforme a la normativa vigente y al Código Técnico de la Edificación, sobre una cimentación diseñada a partir del estudio geotécnico.</li>
-            <li>Fachada — Fábrica de ladrillo multicapa con aislamiento interior, cámara de aire y trasdosado de yeso laminado, enfoscada y acabada con paneles de aluminio lacado y revestimiento composite.</li>
-            <li>Carpintería exterior — Carpintería de aluminio lacado oscuro con rotura de puente térmico, doble acristalamiento bajo emisivo y puertas correderas a las terrazas.</li>
-            <li>Cubiertas — Cubiertas planas invertidas, impermeabilizadas y aisladas, con grava en las zonas no transitables y baldosas cerámicas antideslizantes en las transitables.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Acciones de solicitud del proyecto">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Llamar</a>
+    <a class="ab-btn ab-primary" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Reservar visita</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg" alt="Vista generada por ordenador de un dormitorio con cama doble, una pared tapizada y una puerta corredera de cristal a la terraza" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Presentación cinemática</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Conozca <em>la zona y los planos</em></h2>
-            <p>Una visita trata de la ubicación, los planos y el estado de las obras.</p>
-            <div class="viewing-insights">
-              <div><span>Sobre el terreno</span><p>Visite con nosotros la parcela y sus alrededores.</p></div>
-              <div><span>Sobre papel</span><p>Licencia, fecha de entrega y contrato, antes de firmar nada.</p></div>
-              <div><span>En los planos</span><p>Recorremos con usted la vivienda que elija, estancia por estancia, con su plano en la mano.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="es/index.html#private-viewing=1&amp;project=las-mesas-blue-horizon">Presentación cinemática</a>
-              <a class="btn project-btn ghost" href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Solicitar información</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galería" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Cerrar">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Imagen anterior">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Siguiente imagen">›</button>
+    <div class="lb-cats" role="group" aria-label="Galería"><button type="button" data-cat="Exteriors">Exteriores</button><button type="button" data-cat="Amenities">Zonas comunes</button><button type="button" data-cat="Interiors">Interiores</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg" alt="Vista generada por ordenador de la piscina comunitaria con solárium de madera, tumbonas y sombrillas, una palmera y las terrazas del bloque a la derecha" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Estilo de vida</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Un spa, <em>un gimnasio</em> y una piscina</h2>
-            <p>Las zonas comunes se organizan en torno a una piscina, un spa y un gimnasio, con una sala de cine y una sala de coworking, dentro del conjunto.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Próximos pasos</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Qué ocurre <em>a continuación</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Solicite la información</h3>
-            <p>Los planos de las viviendas que le interesen, la especificación de calidades y la lista de precios.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Compare las opciones</h3>
-            <p>Compárelo con los demás proyectos de Estepona que tenemos en cartera.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visita privada</h3>
-            <p>Vea la zona con nosotros y los planos frente al estado de las obras.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserva</h3>
-            <p>Confirmamos por escrito el importe de la reserva y el calendario de pagos, y después el contrato de compraventa.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Preguntas frecuentes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Preguntas <em>frecuentes de compradores</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>¿Pueden los extranjeros comprar propiedades en España?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué es el número de NIE y lo necesito?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarle a obtenerlo antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Qué gastos adicionales debo prever además del precio de compra?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living le facilita un desglose completo y actualizado de los costes antes de reservar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo conseguir una hipoteca en España siendo no residente?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de su perfil financiero personal.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cómo funciona el proceso de reserva y pago?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de su vivienda elegida en cada paso.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Puedo alquilar la propiedad después de comprarla?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserve.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Necesito un abogado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerle en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuántas viviendas hay?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El texto del dosier habla de 36 viviendas, pero sus planos y la lista de precios muestran 34, de dos o tres dormitorios. Nueve figuran con precio, de 849.000 € a 1.245.000 € más IVA, y las otras 25 figuran como reservadas.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿El IVA está incluido?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. La lista de precios muestra un importe de IVA del 10% en una columna aparte, por lo que los precios no incluyen el IVA. Confirmamos por escrito los impuestos y los gastos de compra.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Hay aparcamiento y trastero?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El dosier muestra 37 plazas de garaje y 37 trasteros en tres plantas de sótano. La lista de precios no dice si cada vivienda incluye uno, así que lo confirmamos para la vivienda que usted elija.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Todas las viviendas tienen vistas al mar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>El dosier describe vistas panorámicas al Mediterráneo para el conjunto, pero no dice qué viviendas las tienen, así que confirmamos la vista de la vivienda que usted elija.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Incluye mobiliario?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>No. El mobiliario que aparece en las imágenes no está incluido. La cocina se entrega amueblada y con electrodomésticos, según indica la memoria de calidades.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuándo estará terminado?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ninguno de los documentos del promotor da una fecha de finalización. Pedimos la fecha contractual, el estado de la licencia y la fase de las obras.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>¿Cuál es el calendario de pagos?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Los documentos que tenemos no dan importe de reserva ni calendario de pagos. Los solicitamos y los ponemos por escrito.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Consultar</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Pregunte por <em>Las Mesas Blue Horizon</em></h2>
-          <p class="body-copy">Díganos lo que necesita y volveremos con la disponibilidad actual, los planos y la lista de precios.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fundador de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fundador, Nueva Living</p>
-            <h3 id="advisor-heading">¿Prefiere comentarlo en persona?</h3>
-            <p class="advisor-copy">Elija lo que le encaje y escríbame por WhatsApp. Empezaré desde ahí.</p>
-            <div class="advisor-group" role="group" aria-label="Busco">
-              <span class="advisor-group-label">Busco</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Una vivienda para vivir</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Una casa de vacaciones</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Una inversión</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Presupuesto">
-              <span class="advisor-group-label">Presupuesto</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Menos de 500.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500.000 – 1.000.000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Más de 1.000.000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Escríbame por WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Las Mesas Blue Horizon">
-
-          <input type="hidden" id="f-project" name="project" value="Las Mesas Blue Horizon">
-          <input type="hidden" name="preferred_area" value="Las Mesas, Estepona">
-          <input type="hidden" name="property_type_interest" value="Apartamentos">
-          <input type="hidden" name="budget_range" value="Desde 849.000 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Nombre</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Nombre" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Apellidos</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Apellidos" required>
-            </div>
-            <div class="field">
-              <label for="f-email">Correo electrónico</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Teléfono</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 o internacional">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Mensaje</label>
-              <textarea id="f-msg" name="message">Hola Nueva Living, me gustaría recibir información sobre Las Mesas Blue Horizon.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Acepto ser contactado/a y que mis datos sean almacenados.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>También me gustaría recibir novedades ocasionales de proyectos por parte de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Enviar solicitud</button>
-            <span class="form-note">Respondemos personalmente, normalmente el mismo día.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"1-2A","title":"1-2A · Bloque 1, segunda planta","sub":"2 dorm. · 76 m²","price":849000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg","label":""}]},{"id":"u1","ref":"1-3A","title":"1-3A · Bloque 1, tercera planta","sub":"2 dorm. · 76 m²","price":879000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg","label":""}]},{"id":"u2","ref":"2-1A","title":"2-1A · Bloque 2, primera planta","sub":"2 dorm. · 71 m²","price":865000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg","label":""}]},{"id":"u3","ref":"2-1B","title":"2-1B · Bloque 2, primera planta","sub":"3 dorm. · 88 m²","price":953000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg","label":""}]},{"id":"u4","ref":"2-2B","title":"2-2B · Bloque 2, segunda planta","sub":"3 dorm. · 88 m²","price":995000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg","label":""}]},{"id":"u5","ref":"2-3A","title":"2-3A · Bloque 2, tercera planta","sub":"2 dorm. · 71 m²","price":889000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg","label":""}]},{"id":"u6","ref":"2-3B","title":"2-3B · Bloque 2, tercera planta","sub":"3 dorm. · 88 m²","price":1055000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg","label":""}]},{"id":"u7","ref":"2-4B","title":"2-4B · Bloque 2, cuarta planta","sub":"3 dorm. · 88 m²","price":1155000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg","label":""}]},{"id":"u8","ref":"3-3A","title":"3-3A · Bloque 3, tercera planta","sub":"3 dorm. · 89 m²","price":1245000,"plans":[{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.webp","alt":"Vista generada por ordenador del bloque blanco en terrazas visto desde la carretera, con palmeras y olivos en la ladera y el mar a la izquierda","caption":"El bloque desde la carretera","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.webp","alt":"Vista generada por ordenador del bloque escalonado desde la terraza de la piscina, con palmeras y una pérgola en la cubierta","caption":"El bloque desde la terraza de la piscina","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.webp","alt":"Vista generada por ordenador del bloque con largas terrazas blancas curvas y celosías oscuras de lamas sobre los olivos, con césped y pinos a la izquierda","caption":"El bloque sobre los olivos","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.webp","alt":"Vista generada por ordenador de una esquina del bloque con una pérgola en la cubierta sobre terrazas escalonadas, y la piscina comunitaria en primer plano","caption":"Una esquina del bloque sobre la piscina","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.webp","alt":"Vista generada por ordenador del bloque sobre un muro de contención de piedra, con una escalera y una cancela en la entrada, una calle delante y montañas detrás","caption":"El bloque sobre la entrada","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk.webp","alt":"Vista generada por ordenador del bloque al anochecer, iluminado desde dentro, con farolas y las montañas detrás","caption":"El bloque al anochecer","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools.webp","alt":"Vista generada por ordenador del bloque desde arriba, con piscinas y terrazas en las plantas superiores y pequeñas piscinas y césped al pie","caption":"Vista aérea del bloque","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool.webp","alt":"Vista generada por ordenador de una vivienda en planta baja con terraza cubierta, césped con tumbonas y una pequeña piscina privada","caption":"Una vivienda en planta baja con jardín y piscina","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool.webp","alt":"Vista generada por ordenador de una terraza en la cubierta con mesa de comedor, tumbonas, una pequeña piscina y el mar en el horizonte","caption":"Una terraza en la cubierta con piscina","cat":"Exteriors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.webp","alt":"Vista generada por ordenador de la piscina comunitaria con solárium de madera, tumbonas y sombrillas, una palmera y las terrazas del bloque a la derecha","caption":"La piscina comunitaria","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance.webp","alt":"Vista generada por ordenador de una rampa y una escalera con muros de piedra que llevan a la puerta del garaje, con un gimnasio y una sala de coworking tras el cristal","caption":"El gimnasio y la sala de coworking","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment.webp","alt":"Vista generada por ordenador de un gimnasio con dos elípticas, estanterías con pelotas de ejercicio y pesas, y una pared de cristal","caption":"El gimnasio","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge.webp","alt":"Vista generada por ordenador de una sala de relajación del spa con tumbonas, dos sillones en forma de cuenco y una piscina estrecha con chorros de agua","caption":"La sala de relajación del spa","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool.webp","alt":"Vista generada por ordenador del spa visto desde arriba, con una piscina, chorros de agua, un jacuzzi redondo y tumbonas","caption":"La piscina y el jacuzzi del spa","cat":"Amenities"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.webp","alt":"Vista generada por ordenador de un salón abierto con zona de comedor e isla de cocina y una pared corredera de cristal hacia la terraza","caption":"Salón, comedor y cocina","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island.webp","alt":"Vista generada por ordenador de una mesa de comedor y una cocina con isla de listones de madera y taburetes, junto a una pared corredera de cristal","caption":"La isla de cocina y la mesa de comedor","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen.webp","alt":"Vista generada por ordenador de una terraza con zona de estar y mesa de comedor, abierta a un salón y una cocina, con la ciudad y campo verde a lo lejos","caption":"Una terraza junto al salón","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.webp","alt":"Vista generada por ordenador de un salón con sofá rinconero, mesa de comedor y una amplia pared corredera de cristal hacia el mar","caption":"Un salón frente al mar","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.webp","alt":"Vista generada por ordenador de un dormitorio con cama doble, una pared tapizada y una puerta corredera de cristal a la terraza","caption":"Un dormitorio que se abre a la terraza","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view.webp","alt":"Vista generada por ordenador de un dormitorio con cristaleras de suelo a techo hacia una terraza, con la ciudad y el mar al fondo","caption":"Un dormitorio con vistas al mar","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.webp","alt":"Vista generada por ordenador de un baño con lavabo sobre encimera en un mueble de madera, un espejo redondo retroiluminado y una ducha con mampara de cristal","caption":"Un baño con ducha con mampara de cristal","cat":"Interiors"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin.webp","alt":"Vista generada por ordenador de un baño con dos lavabos sobre encimera, dos espejos ovalados retroiluminados y una ducha con mampara de cristal","caption":"Un baño con dos lavabos","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":".","post":" €"},"i18n":{"askAbout":"Consultar sobre {ref}","plusVat":"Más IVA","totalPrice":"Precio total","vatOnStages":"Más IVA sobre cada pago","onRequest":"A consultar","imageOf":"{i} de {n}","floorPlan":"Plano"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Las Mesas Blue Horizon media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Cerrar">Cerrar</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Imagen anterior">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Siguiente imagen">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road-960.webp","alt":"Vista generada por ordenador del bloque blanco en terrazas visto desde la carretera, con palmeras y olivos en la ladera y el mar a la izquierda","width":1920,"height":1080,"caption":"El bloque desde la carretera","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck-960.webp","alt":"Vista generada por ordenador del bloque escalonado desde la terraza de la piscina, con palmeras y una pérgola en la cubierta","width":1920,"height":1080,"caption":"El bloque desde la terraza de la piscina","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-and-olive-trees-960.webp","alt":"Vista generada por ordenador del bloque con largas terrazas blancas curvas y celosías oscuras de lamas sobre los olivos, con césped y pinos a la izquierda","width":1920,"height":1080,"caption":"El bloque sobre los olivos","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool-960.webp","alt":"Vista generada por ordenador de una esquina del bloque con una pérgola en la cubierta sobre terrazas escalonadas, y la piscina comunitaria en primer plano","width":1920,"height":1080,"caption":"Una esquina del bloque sobre la piscina","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall-960.webp","alt":"Vista generada por ordenador del bloque sobre un muro de contención de piedra, con una escalera y una cancela en la entrada, una calle delante y montañas detrás","width":1920,"height":1080,"caption":"El bloque sobre la entrada","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/block-at-dusk-960.webp","alt":"Vista generada por ordenador del bloque al anochecer, iluminado desde dentro, con farolas y las montañas detrás","width":1920,"height":1080,"caption":"El bloque al anochecer","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/aerial-view-rooftop-pools-960.webp","alt":"Vista generada por ordenador del bloque desde arriba, con piscinas y terrazas en las plantas superiores y pequeñas piscinas y césped al pie","width":1920,"height":1080,"caption":"Vista aérea del bloque","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/ground-floor-garden-and-pool-960.webp","alt":"Vista generada por ordenador de una vivienda en planta baja con terraza cubierta, césped con tumbonas y una pequeña piscina privada","width":1920,"height":1080,"caption":"Una vivienda en planta baja con jardín y piscina","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/rooftop-terrace-and-pool-960.webp","alt":"Vista generada por ordenador de una terraza en la cubierta con mesa de comedor, tumbonas, una pequeña piscina y el mar en el horizonte","width":1920,"height":1080,"caption":"Una terraza en la cubierta con piscina","category":"Exteriores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/communal-pool-and-sunbeds-960.webp","alt":"Vista generada por ordenador de la piscina comunitaria con solárium de madera, tumbonas y sombrillas, una palmera y las terrazas del bloque a la derecha","width":1920,"height":1080,"caption":"La piscina comunitaria","category":"Zonas comunes"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/gym-and-coworking-entrance-960.webp","alt":"Vista generada por ordenador de una rampa y una escalera con muros de piedra que llevan a la puerta del garaje, con un gimnasio y una sala de coworking tras el cristal","width":1920,"height":1080,"caption":"El gimnasio y la sala de coworking","category":"Zonas comunes"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/gym-equipment-960.webp","alt":"Vista generada por ordenador de un gimnasio con dos elípticas, estanterías con pelotas de ejercicio y pesas, y una pared de cristal","width":1920,"height":1080,"caption":"El gimnasio","category":"Zonas comunes"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/spa-lounge-960.webp","alt":"Vista generada por ordenador de una sala de relajación del spa con tumbonas, dos sillones en forma de cuenco y una piscina estrecha con chorros de agua","width":1920,"height":1080,"caption":"La sala de relajación del spa","category":"Zonas comunes"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/spa-pool-and-whirlpool-960.webp","alt":"Vista generada por ordenador del spa visto desde arriba, con una piscina, chorros de agua, un jacuzzi redondo y tumbonas","width":1920,"height":1080,"caption":"La piscina y el jacuzzi del spa","category":"Zonas comunes"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen-960.webp","alt":"Vista generada por ordenador de un salón abierto con zona de comedor e isla de cocina y una pared corredera de cristal hacia la terraza","width":1920,"height":1080,"caption":"Salón, comedor y cocina","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/dining-and-kitchen-island-960.webp","alt":"Vista generada por ordenador de una mesa de comedor y una cocina con isla de listones de madera y taburetes, junto a una pared corredera de cristal","width":1920,"height":1080,"caption":"La isla de cocina y la mesa de comedor","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/terrace-living-and-kitchen-960.webp","alt":"Vista generada por ordenador de una terraza con zona de estar y mesa de comedor, abierta a un salón y una cocina, con la ciudad y campo verde a lo lejos","width":1920,"height":1080,"caption":"Una terraza junto al salón","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view-960.webp","alt":"Vista generada por ordenador de un salón con sofá rinconero, mesa de comedor y una amplia pared corredera de cristal hacia el mar","width":1920,"height":1080,"caption":"Un salón frente al mar","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace-960.webp","alt":"Vista generada por ordenador de un dormitorio con cama doble, una pared tapizada y una puerta corredera de cristal a la terraza","width":1920,"height":1080,"caption":"Un dormitorio que se abre a la terraza","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bedroom-sea-view-960.webp","alt":"Vista generada por ordenador de un dormitorio con cristaleras de suelo a techo hacia una terraza, con la ciudad y el mar al fondo","width":1920,"height":1080,"caption":"Un dormitorio con vistas al mar","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin-960.webp","alt":"Vista generada por ordenador de un baño con lavabo sobre encimera en un mueble de madera, un espejo redondo retroiluminado y una ducha con mampara de cristal","width":1920,"height":1080,"caption":"Un baño con ducha con mampara de cristal","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/media/bathroom-double-basin-960.webp","alt":"Vista generada por ordenador de un baño con dos lavabos sobre encimera, dos espejos ovalados retroiluminados y una ducha con mampara de cristal","width":1920,"height":1080,"caption":"Un baño con dos lavabos","category":"Interiores"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-2a-960.webp","alt":"Plano de la vivienda 1-2A, segunda planta, Bloque 1","width":1515,"height":1039,"caption":"Vivienda 1-2A, segunda planta, Bloque 1","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b1-3a-960.webp","alt":"Plano de la vivienda 1-3A, tercera planta, Bloque 1","width":1515,"height":1039,"caption":"Vivienda 1-3A, tercera planta, Bloque 1","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1a-960.webp","alt":"Plano de la vivienda 2-1A, primera planta, Bloque 2","width":1920,"height":903,"caption":"Vivienda 2-1A, primera planta, Bloque 2","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-1b-960.webp","alt":"Plano de la vivienda 2-1B, primera planta, Bloque 2","width":1803,"height":1090,"caption":"Vivienda 2-1B, primera planta, Bloque 2","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-2b-960.webp","alt":"Plano de la vivienda 2-2B, segunda planta, Bloque 2","width":1803,"height":1074,"caption":"Vivienda 2-2B, segunda planta, Bloque 2","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3a-960.webp","alt":"Plano de la vivienda 2-3A, tercera planta, Bloque 2","width":1920,"height":931,"caption":"Vivienda 2-3A, tercera planta, Bloque 2","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-3b-960.webp","alt":"Plano de la vivienda 2-3B, tercera planta, Bloque 2","width":1803,"height":1074,"caption":"Vivienda 2-3B, tercera planta, Bloque 2","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b2-4b-960.webp","alt":"Plano de la vivienda 2-4B, cuarta planta, Bloque 2","width":1803,"height":1074,"caption":"Vivienda 2-4B, cuarta planta, Bloque 2","category":"Planos"},{"src":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a.jpg","webp":"assets/liora/projects/las-mesas-blue-horizon/floorplans/home-b3-3a-960.webp","alt":"Plano de la vivienda 3-3A, tercera planta, Bloque 3","width":1609,"height":1188,"caption":"Vivienda 3-3A, tercera planta, Bloque 3","category":"Planos"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Acciones de solicitud del proyecto">
-    <a href="es/property-las-mesas-blue-horizon.html#enquire" data-prefill>Consultar sobre una vivienda</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Las%20Mesas%20Blue%20Horizon." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Las Mesas Blue Horizon" data-intent="speak with an advisor">Hablar con un asesor</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

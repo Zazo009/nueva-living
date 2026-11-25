@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien de villas sont disponibles ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Estepona Pool Villas"
   data-project-message="Bonjour Nueva Living, je souhaiterais des informations sur Estepona Pool Villas."
@@ -459,427 +396,156 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Estepona Pool Villas">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-estepona-pool-villas.html#top">Estepona Pool Villas<span>À partir de 2 300 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-estepona-pool-villas.html#overview">Aperçu</a><a href="fr/property-estepona-pool-villas.html#availability">Prix</a><a href="fr/property-estepona-pool-villas.html#specs">Finitions</a><a href="fr/property-estepona-pool-villas.html#gallery">Galerie</a><a href="fr/property-estepona-pool-villas.html#location">Emplacement</a><a href="fr/property-estepona-pool-villas.html#onsite">Sur place</a><a href="fr/property-estepona-pool-villas.html#view">Notre avis</a><a href="fr/property-estepona-pool-villas.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Estepona Pool Villas">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Photographie du côté jardin d’une villa blanche, de l’autre côté d’une piscine, avec une terrasse couverte avec canapés et table à manger, et une terrasse à l’étage surmontée d’un pignon à toit en pente" width="2000" height="1338" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Photographie du côté jardin d’une villa blanche, de l’autre côté d’une piscine, avec une terrasse couverte avec canapés et table à manger, et une terrasse à l’étage surmontée d’un pignon à toit en pente" width="2000" height="1338" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">6 villas disponibles sur 9</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Estepona Pool <em>Villas</em></span>
-            <span class="hero-title-context">Villas achevées de quatre et cinq chambres à Estepona</span>
-          </h1>
-          <p class="hero-positioning">Six des neuf villas terminées sont annoncées à Estepona, avec quatre ou cinq chambres, une piscine privative, un grand sous-sol et un stationnement pour deux voitures. La fiche d’information du promoteur indique le permis de construire et la licence de première occupation comme délivrés et présente les villas comme prêtes à emménager. À partir de 2 300 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-estepona-pool-villas.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=estepona-pool-villas">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-estepona-pool-villas.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>Estepona</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 2 300 000 €</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Villas</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Prête à habiter</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-estepona-pool-villas.html#media">Galerie</a>
-        <a href="fr/property-estepona-pool-villas.html#location">Emplacement</a>
-        <a href="fr/property-estepona-pool-villas.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-estepona-pool-villas.html#overview">Aperçu</a>
-          <a href="fr/property-estepona-pool-villas.html#residences">Résidences</a>
-          <a href="fr/property-estepona-pool-villas.html#quality-specifications">Finitions</a>
-          <a href="fr/property-estepona-pool-villas.html#calculator">Financement</a>
-          <a href="fr/property-estepona-pool-villas.html#amenities">Équipements</a>
-          <a href="fr/property-estepona-pool-villas.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-estepona-pool-villas.html#architecture">Architecture</a>
-          <a href="fr/property-estepona-pool-villas.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-estepona-pool-villas.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-estepona-pool-villas.html#faq">FAQ</a>
-          <a href="fr/property-estepona-pool-villas.html#enquire">Nous contacter</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>4-5 chambres</strong></div>
-          <div class="quick-fact"><span>Surface indiquée</span><strong>383,66 - 453,64 m²</strong></div>
-          <div class="quick-fact"><span>Parcelles</span><strong>Jusqu’à 1 000 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>6 villas disponibles sur 9</strong></div>
-          <div class="quick-fact"><span>Disponible</span><strong>6 villas</strong></div>
-          <div class="quick-fact"><span>Fourchette de prix</span><strong>2 300 000 € - 2 680 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Demander la documentation</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Neuf villas, <em>six annoncées</em></h2>
-          <p class="project-lead">Il s’agit d’un programme de neuf villas de quatre et cinq chambres à Estepona. Six sont annoncées avec une surface et un prix, de 2 300 000 € à 2 680 000 €. La fiche d’information du promoteur présente les villas comme prêtes à emménager, indique le permis de construire et la licence de première occupation comme délivrés et la fin des travaux comme achevée, et mentionne de grandes parcelles pouvant atteindre 1 000 m², une piscine extérieure privative, un grand sous-sol, un stationnement privé pour deux voitures, un chauffage par le sol et une orientation sud-est.</p>
-          <p class="project-lead">Le descriptif de qualité décrit une structure en béton armé, un chauffage, une climatisation et une eau chaude aérothermiques Daikin, un système de maison connectée Control4, des appareils Neff et des sanitaires suspendus Duravit. Les documents ne donnent ni date d’achèvement, ni plans, ni la surface de parcelle d’aucune villa en particulier.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Le programme <em>en détail</em></h2>
-          </div>
-          <p class="project-lead">Photographies d’une villa terminée du programme, à l’intérieur et à l’extérieur, et une vue aérienne des villas. Les documents que nous détenons ne comprennent aucun plan des villas.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 4 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Photographie du côté jardin d’une villa blanche, de l’autre côté d’une piscine, avec une terrasse couverte avec canapés et table à manger, et une terrasse à l’étage surmontée d’un pignon à toit en pente" width="2000" height="1338" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>La villa vue depuis la piscine</strong>
-                <span class="project-media-card-cta">4 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Voir 1 images dans Les environs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg" alt="Vue aérienne d’une rangée de villas blanches en bordure d’une route, avec des terrains verts ouverts derrière, une montagne au loin et la mer sur le bord droit" width="2000" height="1137" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Les environs</small>
-                <strong>Les villas vues du ciel</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Voir 3 images dans Terrasses">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.jpg" alt="Photographie d’une terrasse couverte avec un garde-corps en verre, une colonne ronde blanche et de grandes dalles, donnant sur une piscine et une pelouse" width="2000" height="1334" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasses</small>
-                <strong>Une terrasse couverte avec garde-corps en verre</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 9 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.jpg" alt="Photographie d’un séjour vide avec une grande baie vitrée coulissante sur la terrasse de la piscine, un carrelage clair effet pierre et une cheminée sur le mur du fond" width="2000" height="1334" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Un séjour non meublé</strong>
-                <span class="project-media-card-cta">9 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Voir 3 images dans Chambres">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.jpg" alt="Photographie d’une chambre haute de plafond avec un bureau flottant en chêne, un grand tableau représentant un visage, des portes de placard à lames et, au fond, une salle de bain avec une baignoire îlot" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Chambres</small>
-                <strong>Chambre avec un bureau flottant</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Voir 1 images dans Salles de bains">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.jpg" alt="Photographie d’une salle de bain avec une baignoire îlot, un mur sombre effet pierre et une double vasque sur un meuble sombre effet pierre sous un grand miroir" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Salles de bains</small>
-                <strong>Salle de bain avec baignoire îlot</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 21 images</button>
-          <p class="media-note">Les images sont des photographies et une vue aérienne fournies avec le programme. Les documents n’indiquent pas quelle villa est montrée, ni si le mobilier, les œuvres d’art et la décoration qui y figurent sont inclus dans la vente. Une photographie montre un séjour sans meubles.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">À Estepona, <em>entre la marina et Marina Banús</em></h2>
-          <p class="project-lead">La fiche d’information du promoteur situe le programme à Estepona, le décrit comme un excellent emplacement et le place sur une carte à l’intérieur des terres, entre Estepona Marina et Marina Banús. Elle ne donne ni distances ni temps de trajet.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-estepona-pool-villas" data-locmap='{&quot;site&quot;:[36.4663,-5.0835],&quot;sea&quot;:[36.4393,-5.0835],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Resina&quot;,&quot;sub&quot;:&quot;3,1 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Estepona Pool Villas"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Estepona Pool Villas</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centre de Estepona</span>
-              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf La Resina</span>
-              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Los Flamingos</span>
-              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Cinq chambres ou quatre, <em>un seul programme</em></h2>
-          <p class="project-lead">La fiche d’information du promoteur décrit des villas de quatre et cinq chambres. Le tableau de disponibilité énumère six références avec une surface et un prix, mais sans plans, parcelles ni étages ; les groupes ci-dessous sont donc établis uniquement par nombre de chambres.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Villas de cinq chambres</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Demander les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Villa de quatre chambres</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Demander les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Descriptif des prestations</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce qui compose <em>les villas</em></h2>
-          <p class="project-lead">Le descriptif de qualité du promoteur lui-même, résumé par partie de la villa.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Sols et murs<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Carreaux de grès Nexus White de 60 par 60 cm dans les parties communes de la villa, l’escalier et les chambres et salles de bain du sous-sol, parquet de chêne dans les chambres du rez-de-chaussée et du premier étage, plinthes céramiques dans les sous-sols, faux plafonds en plaques de plâtre dans toute la villa et peinture acrylique à l’intérieur.</li>
-              <li>À l’extérieur, du grès antidérapant sur les terrasses couvertes et les porches, des lames céramiques antidérapantes effet bois sur la plage de la piscine, du béton désactivé sur les aires de stationnement et des éléments en béton préfabriqué avec galets de rivière sur les cheminements.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Menuiseries et placards<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Une porte d’entrée pivotante plaquée bois avec charnières dissimulées, poignée en acier inoxydable et serrure multipoint, et des portes intérieures en MDF laqué blanc du sol au plafond, avec quincaillerie dissimulée et fermeture magnétique.</li>
-              <li>Portes de placard en MDF laqué blanc, doublées à l’intérieur de mélaminé couleur lin et entièrement aménagées avec une étagère à bagages, une tringle, des tiroirs, des étagères et des range-chaussures.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cuisine<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Mobilier de cuisine Danespan, plan de travail Silestone Calacatta Eternal Gold et appareils de la marque allemande Neff. Le descriptif n’indique pas lesquels.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Salles de bain<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Sanitaires suspendus Duravit avec réservoirs encastrés Tece, mitigeurs ASM, miroirs rétroéclairés par une bande LED et revêtement mural en grès cérame de Cifre et Grespania.</li>
-              <li>Dans la salle de bain principale, une baignoire (Sanyc Torino 170 ou Trento 150), un bidet suspendu, un kit de douche encastré à deux sorties avec pommeau de 200 mm et un plan en grès cérame poli Grespania avec un meuble à tiroirs suspendu. Les salles de bain secondaires ont des plans en surface solide et une colonne de douche télescopique.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatisation et installations<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Un système aérothermique Daikin Altherma qui assure le chauffage, la climatisation et l’eau chaude, avec l’unité extérieure en toiture et des unités intérieures inverter gainables dans les faux plafonds des salles de bain ou des dressings, un plancher chauffant à eau dans toute la villa et une partie du sous-sol, et une ventilation mécanique comme l’exige le Code technique du bâtiment.</li>
-              <li>Appareillage électrique Jung F-40 LS, spots LED avec détecteurs de mouvement dans les zones de circulation, un système de maison connectée Control4 avec écran tactile encastré de 10 pouces, un visiophone Fermax Smile, le Wi-Fi dans toute la villa et une préinstallation d’alarme filaire. La puissance maximale admissible est de 14 490 W.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Piscine et jardin<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Une piscine avec un filtre à sable et un électrolyseur au sel, des spots LED de 24 W et 12 V, un caniveau de débordement sur tout le pourtour et le local technique caché sous la plage, auquel on accède par une trappe métallique.</li>
-              <li>Un réseau d’arrosage du jardin entièrement réalisé, avec programmateurs et groupe de pression, une citerne d’eau potable et une citerne d’arrosage, et des parcelles séparées par un grillage électrosoudé, des murs de soutènement et une clôture végétale.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Source : le descriptif de qualité du promoteur, intitulé « Villas 14 à 4 », qui ne porte aucune date. Les marques y figurent telles qu’elles sont écrites. Il précise que l’architecte peut choisir le type de fenêtre dans chaque cas, et les décorateurs l’emplacement des bandes LED. Il n’indique aucun mobilier non fixe.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Six villas <em>actuellement disponibles</em></h2>
-          <p class="project-lead">Les surfaces et les prix sont ceux du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Le tableau ne donne ni étages, ni surfaces de parcelle, ni plans, et ne précise pas si les prix incluent la TVA.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Photographie du côté jardin d’une villa blanche, de l’autre côté d’une piscine, avec une terrasse couverte avec canapés et table à manger, et une terrasse à l’étage surmontée d’un pignon à toit en pente" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>21 photos</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>6</strong></div>
-            <div><span>Prix à partir de</span><strong>2 300 000 €</strong></div>
-            <div><span>Fourchette de prix</span><strong>2 300 000 € - 2 680 000 €</strong></div>
-            <div><span>Vérifié</span><strong>octobre 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 6 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Logements disponibles à Estepona Pool Villas</caption>
-                <thead><tr><th scope="col">Référence</th><th scope="col">Type de bien</th><th scope="col">Chambres</th><th scope="col">Surface</th><th scope="col">Prix</th><th scope="col">Statut</th></tr></thead>
-                <tbody>
-              <tr data-beds="5" data-price="2300000">
-                <td data-label="Référence"><strong>NP-04</strong></td>
-                <td data-label="Type de bien">Villa</td>
-                <td data-label="Chambres">5 chambres</td>
-                <td data-label="Surface">453.64 m²</td>
-                <td data-label="Prix"><strong>2 300 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2340000">
-                <td data-label="Référence"><strong>NP-06</strong></td>
-                <td data-label="Type de bien">Villa</td>
-                <td data-label="Chambres">5 chambres</td>
-                <td data-label="Surface">432.30 m²</td>
-                <td data-label="Prix"><strong>2 340 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2540000">
-                <td data-label="Référence"><strong>NP-08</strong></td>
-                <td data-label="Type de bien">Villa</td>
-                <td data-label="Chambres">5 chambres</td>
-                <td data-label="Surface">393.91 m²</td>
-                <td data-label="Prix"><strong>2 540 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2550000">
-                <td data-label="Référence"><strong>NP-10</strong></td>
-                <td data-label="Type de bien">Villa</td>
-                <td data-label="Chambres">5 chambres</td>
-                <td data-label="Surface">405.31 m²</td>
-                <td data-label="Prix"><strong>2 550 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2680000">
-                <td data-label="Référence"><strong>NP-14</strong></td>
-                <td data-label="Type de bien">Villa</td>
-                <td data-label="Chambres">5 chambres</td>
-                <td data-label="Surface">420.81 m²</td>
-                <td data-label="Prix"><strong>2 680 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-              <tr data-beds="4" data-price="2440000">
-                <td data-label="Référence"><strong>NP-16</strong></td>
-                <td data-label="Type de bien">Villa</td>
-                <td data-label="Chambres">4 chambres</td>
-                <td data-label="Surface">383.66 m²</td>
-                <td data-label="Prix"><strong>2 440 000 €</strong></td>
-                <td data-label="Statut"><span class="availability-status">Disponible</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="fr/property-estepona-pool-villas.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
           
-          <p class="availability-source-note">Les surfaces et les prix sont transcrits du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Il compte six lignes pour six références, sans doublon. Le tableau donne le nombre de chambres, une surface et un prix pour chaque villa. Il ne précise pas si la surface est construite ou intérieure, ni si le prix inclut la TVA ; la fiche d’information exprime les versements hors TVA. Le programme compte neuf villas au total, et les six présentées sont celles qui sont annoncées ; les documents ne disent pas ce qu’il est advenu des trois autres.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Estepona Pool</span> <span class="h1-b">Villas</span></h1>
+        <p class="hero-by">Six des neuf villas terminées sont annoncées à Estepona, avec quatre ou cinq chambres, une piscine privative, un grand sous-sol et un stationnement pour deux voitures.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 2 300 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>4 à 5</dd><dd class="sub"><span>Villas</span></dd></div><div><dt>Livraison</dt><dd>Clés en main</dd><dd class="sub">Permis de première occupation délivré</dd></div><div><dt>Biens restants</dt><dd>6 sur 9</dd><dd class="sub">Vérifié le octobre 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">Il s’agit d’un programme de neuf villas de quatre et cinq chambres à Estepona. Six sont annoncées avec une surface et un prix, de 2 300 000 € à 2 680 000 €. La fiche d’information du promoteur présente les villas comme prêtes à emménager, indique le permis de construire et la licence de première occupation comme délivrés et la fin des travaux comme achevée, et mentionne de grandes parcelles pouvant atteindre 1 000 m², une piscine extérieure privative, un grand sous-sol, un stationnement privé pour deux voitures, un chauffage par le sol et une orientation sud-est.</p>
+    <p class="lede-2">Le descriptif de qualité décrit une structure en béton armé, un chauffage, une climatisation et une eau chaude aérothermiques Daikin, un système de maison connectée Control4, des appareils Neff et des sanitaires suspendus Duravit. Les documents ne donnent ni date d’achèvement, ni plans, ni la surface de parcelle d’aucune villa en particulier.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Volumes blancs, ouverts sur le jardin</span></summary><p>Les photographies montrent des villas aux façades blanches sur plusieurs niveaux, avec de profonds débords, des toits plats et des toits en pente en tuiles, des garde-corps en verre sur les terrasses et des baies vitrées coulissantes qui ouvrent les espaces de vie sur une terrasse couverte, une terrasse dallée et la piscine.</p><p>La fiche d’information décrit le design seulement comme haut de gamme. Les notes ci-dessous sont la description que le promoteur fait lui-même de la construction des villas.</p><ul><li>Structure: Fondation sur dalle en béton armé établie d’après le rapport géotechnique, ossature en béton armé avec planchers nervurés ou dalles pleines, et murs de soutènement en béton armé.</li><li>Façade: Brique creuse avec enduit intérieur et extérieur, lame d’air et 5 cm d’isolation en mousse de polyuréthane projetée, finie par un enduit de mortier de ciment hydrofuge et une peinture à base de résine de silicone, certains murs étant habillés de carreaux céramiques.</li><li>Menuiseries: Menuiseries en aluminium Cortizo de la série COR 60, avec la série coulissante à levage COR 4500 pour les grandes baies, à rupture de pont thermique et laquées gris, avec double vitrage Planitherm et garde-corps en verre de sécurité de 8+8 ou 10+10.</li><li>Toitures: Toitures-terrasses et terrasses étanchées et isolées pour un carrelage antidérapant, et toits en pente finis en tuiles.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>2 300 000 € – 2 680 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>6 biens sur 9</span><small>Vérifié le octobre 2026</small></dd></div><div><dt>Biens</dt><dd><span>Villas</span></dd></div><div><dt>Surfaces</dt><dd><span>384 – 454 m²</span></dd></div><div><dt>Livraison</dt><dd><span>Clés en main</span></dd></div><div><dt>Permis</dt><dd><span><span class="ok">Permis de première occupation</span></span><small>Délivré</small></dd></div><div><dt>Acomptes</dt><dd><span>Sans objet</span><small>Bâtiment achevé</small></dd></div><div><dt>Stationnement</dt><dd><span>Stationnement privé</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">Les surfaces et les prix sont ceux du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Le tableau ne donne ni étages, ni surfaces de parcelle, ni plans, et ne précise pas si les prix incluent la TVA. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    <div class="scarcity" role="img" aria-label="6 sur 9 encore en vente"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span>6 sur 9 encore en vente</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="5" data-price="2300000" data-size="453.64" data-ppm="5070" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-04</span><span class="u-loc">Villa</span></th>
+            <td data-label="Chambres">5 ch.</td>
+            <td data-label="Surface" class="num">454 m²</td>
+            <td data-label="Prix" class="u-price num">2 300 000 €</td>
+            <td data-label="Par m²" class="num">5 070 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="5" data-price="2340000" data-size="432.3" data-ppm="5413" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-06</span><span class="u-loc">Villa</span></th>
+            <td data-label="Chambres">5 ch.</td>
+            <td data-label="Surface" class="num">432 m²</td>
+            <td data-label="Prix" class="u-price num">2 340 000 €</td>
+            <td data-label="Par m²" class="num">5 413 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="5" data-price="2540000" data-size="393.91" data-ppm="6448" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-08</span><span class="u-loc">Villa</span></th>
+            <td data-label="Chambres">5 ch.</td>
+            <td data-label="Surface" class="num">394 m²</td>
+            <td data-label="Prix" class="u-price num">2 540 000 €</td>
+            <td data-label="Par m²" class="num">6 448 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="5" data-price="2550000" data-size="405.31" data-ppm="6291" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-10</span><span class="u-loc">Villa</span></th>
+            <td data-label="Chambres">5 ch.</td>
+            <td data-label="Surface" class="num">405 m²</td>
+            <td data-label="Prix" class="u-price num">2 550 000 €</td>
+            <td data-label="Par m²" class="num">6 291 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="5" data-price="2680000" data-size="420.81" data-ppm="6369" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-14</span><span class="u-loc">Villa</span></th>
+            <td data-label="Chambres">5 ch.</td>
+            <td data-label="Surface" class="num">421 m²</td>
+            <td data-label="Prix" class="u-price num">2 680 000 €</td>
+            <td data-label="Par m²" class="num">6 369 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="4" data-price="2440000" data-size="383.66" data-ppm="6360" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-16</span><span class="u-loc">Villa</span></th>
+            <td data-label="Chambres">4 ch.</td>
+            <td data-label="Surface" class="num">384 m²</td>
+            <td data-label="Prix" class="u-price num">2 440 000 €</td>
+            <td data-label="Par m²" class="num">6 360 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>Cinq chambres ou quatre, un seul programme</span></summary><p>La fiche d’information du promoteur décrit des villas de quatre et cinq chambres. Le tableau de disponibilité énumère six références avec une surface et un prix, mais sans plans, parcelles ni étages ; les groupes ci-dessous sont donc établis uniquement par nombre de chambres.</p><div class="res-types"><div class="res-type"><h3>Villas de cinq chambres</h3><ul><li>5 villas de cinq chambres sont annoncées, de 393,91 à 453,64 m².</li><li>Les prix vont de 2 300 000 € à 2 680 000 €.</li></ul></div><div class="res-type"><h3>Villa de quatre chambres</h3><ul><li>1 villa de quatre chambres est annoncée, NP-16, de 383,66 m².</li><li>Son prix est de 2 440 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">L’échéancier du promoteur est disponible sur demande ; nous vous l’envoyons avec la grille de prix.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -939,400 +605,220 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Piscine privée</h3>
-              <p class="amenity-note">Propre au logement</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Finitions</h2>
+    <p class="sec-sub">Le descriptif de qualité du promoteur lui-même, résumé par partie de la villa.</p>
+    <div class="tabs" role="tablist" aria-label="Finitions"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Sols et murs</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Menuiseries et placards</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Cuisine</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Salles de bain</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Climatisation et installations</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Piscine et jardin</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Carreaux de grès Nexus White de 60 par 60 cm dans les parties communes de la villa, l’escalier et les chambres et salles de bain du sous-sol, parquet de chêne dans les chambres du rez-de-chaussée et du premier étage, plinthes céramiques dans les sous-sols, faux plafonds en plaques de plâtre dans toute la villa et peinture acrylique à l’intérieur.</li><li>À l’extérieur, du grès antidérapant sur les terrasses couvertes et les porches, des lames céramiques antidérapantes effet bois sur la plage de la piscine, du béton désactivé sur les aires de stationnement et des éléments en béton préfabriqué avec galets de rivière sur les cheminements.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Une porte d’entrée pivotante plaquée bois avec charnières dissimulées, poignée en acier inoxydable et serrure multipoint, et des portes intérieures en MDF laqué blanc du sol au plafond, avec quincaillerie dissimulée et fermeture magnétique.</li><li>Portes de placard en MDF laqué blanc, doublées à l’intérieur de mélaminé couleur lin et entièrement aménagées avec une étagère à bagages, une tringle, des tiroirs, des étagères et des range-chaussures.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Mobilier de cuisine Danespan, plan de travail Silestone Calacatta Eternal Gold et appareils de la marque allemande Neff. Le descriptif n’indique pas lesquels.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Sanitaires suspendus Duravit avec réservoirs encastrés Tece, mitigeurs ASM, miroirs rétroéclairés par une bande LED et revêtement mural en grès cérame de Cifre et Grespania.</li><li>Dans la salle de bain principale, une baignoire (Sanyc Torino 170 ou Trento 150), un bidet suspendu, un kit de douche encastré à deux sorties avec pommeau de 200 mm et un plan en grès cérame poli Grespania avec un meuble à tiroirs suspendu. Les salles de bain secondaires ont des plans en surface solide et une colonne de douche télescopique.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Un système aérothermique Daikin Altherma qui assure le chauffage, la climatisation et l’eau chaude, avec l’unité extérieure en toiture et des unités intérieures inverter gainables dans les faux plafonds des salles de bain ou des dressings, un plancher chauffant à eau dans toute la villa et une partie du sous-sol, et une ventilation mécanique comme l’exige le Code technique du bâtiment.</li><li>Appareillage électrique Jung F-40 LS, spots LED avec détecteurs de mouvement dans les zones de circulation, un système de maison connectée Control4 avec écran tactile encastré de 10 pouces, un visiophone Fermax Smile, le Wi-Fi dans toute la villa et une préinstallation d’alarme filaire. La puissance maximale admissible est de 14 490 W.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Une piscine avec un filtre à sable et un électrolyseur au sel, des spots LED de 24 W et 12 V, un caniveau de débordement sur tout le pourtour et le local technique caché sous la plage, auquel on accède par une trappe métallique.</li><li>Un réseau d’arrosage du jardin entièrement réalisé, avec programmateurs et groupe de pression, une citerne d’eau potable et une citerne d’arrosage, et des parcelles séparées par un grillage électrosoudé, des murs de soutènement et une clôture végétale.</li></ul>
+      
+    </div>
+    <p class="caption">Source : le descriptif de qualité du promoteur, intitulé « Villas 14 à 4 », qui ne porte aucune date. Les marques y figurent telles qu’elles sont écrites. Il précise que l’architecte peut choisir le type de fenêtre dans chaque cas, et les décorateurs l’emplacement des bandes LED. Il n’indique aucun mobilier non fixe.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="La villa vue depuis la piscine"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Photographie du côté jardin d’une villa blanche, de l’autre côté d’une piscine, avec une terrasse couverte avec canapés et table à manger, et une terrasse à l’étage surmontée d’un pignon à toit en pente" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Un séjour non meublé"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.jpg" alt="Photographie d’un séjour vide avec une grande baie vitrée coulissante sur la terrasse de la piscine, un carrelage clair effet pierre et une cheminée sur le mur du fond" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Une terrasse couverte avec garde-corps en verre"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.jpg" alt="Photographie d’une terrasse couverte avec un garde-corps en verre, une colonne ronde blanche et de grandes dalles, donnant sur une piscine et une pelouse" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="17" aria-label="Chambre avec un bureau flottant"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.jpg" alt="Photographie d’une chambre haute de plafond avec un bureau flottant en chêne, un grand tableau représentant un visage, des portes de placard à lames et, au fond, une salle de bain avec une baignoire îlot" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Les villas vues du ciel"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg" alt="Vue aérienne d’une rangée de villas blanches en bordure d’une route, avec des terrains verts ouverts derrière, une montagne au loin et la mer sur le bord droit" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 21 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Extérieurs (4)</button><button type="button" data-open-cat="Location">Les environs (1)</button><button type="button" data-open-cat="Terraces">Terrasses (3)</button><button type="button" data-open-cat="Interiors">Intérieurs (9)</button><button type="button" data-open-cat="Bedrooms">Chambres (3)</button><button type="button" data-open-cat="Bathrooms">Salles de bains (1)</button></div>
+    
+    <p class="caption">Les images sont des photographies et une vue aérienne fournies avec le programme. Les documents n’indiquent pas quelle villa est montrée, ni si le mobilier, les œuvres d’art et la décoration qui y figurent sont inclus dans la vente. Une photographie montre un séjour sans meubles.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">La fiche d’information du promoteur situe le programme à Estepona, le décrit comme un excellent emplacement et le place sur une carte à l’intérieur des terres, entre Estepona Marina et Marina Banús. Elle ne donne ni distances ni temps de trajet.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-estepona-pool-villas" data-locmap='{&quot;site&quot;:[36.4663,-5.0835],&quot;sea&quot;:[36.4393,-5.0835],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf La Resina&quot;,&quot;sub&quot;:&quot;3,1 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Estepona Pool Villas"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Estepona Pool Villas</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardin privatif</h3>
-              <p class="amenity-note">Clos et propre au logement</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Estepona</span>
+              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Sous-sol dans chaque villa</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf La Resina</span>
+              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Stationnement privé</h3>
-              <p class="amenity-note">Attribuée, pas au premier arrivé</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Entièrement meublé</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Chauffage au sol</h3>
-              <p class="amenity-note">La chaleur par le sol</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Climatisation</h3>
-              <p class="amenity-note">Froid et chaud par gaines</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Système aérothermique</h3>
-              <p class="amenity-note">Chauffage, climatisation et eau chaude</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Domotique</h3>
-              <p class="amenity-note">Lumière et climat depuis le mobile</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3s6 6.3 6 10a6 6 0 0 1-12 0c0-3.7 6-10 6-10Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Arrosage automatique</h3>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Estepona Marina et Marina Banús</th><td>Indiquées sur la carte de la fiche d’information ; aucune distance donnée</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">Ce que disent la fiche d’information et le descriptif de qualité sur les espaces extérieurs et le niveau inférieur.</p>
+    <div class="life-panels"><div><h3>La piscine</h3><p>Une piscine extérieure privative, avec traitement au sel, éclairage LED et une plage céramique effet bois. Le local technique de la piscine est caché sous la plage.</p></div><div><h3>Parcelles et espaces extérieurs</h3><p>Des parcelles pouvant atteindre 1 000 m², de vastes espaces extérieurs, une orientation sud-est et un stationnement privé pour deux voitures. La fiche d’information ne donne la surface de parcelle d’aucune villa en particulier.</p></div><div><h3>Le sous-sol</h3><p>Un grand sous-sol. Le descriptif place des chambres et des salles de bain au sous-sol, avec un plancher chauffant à eau sur une partie de celui-ci.</p></div><div><h3>Confort et contrôle</h3><p>Chauffage par le sol, chauffage et climatisation aérothermiques Daikin, un système de maison connectée Control4 et le Wi-Fi dans toute la villa.</p></div></div>
+    <ul class="amen-top"><li>Piscine privée</li><li>Jardin privatif</li><li>Sous-sol dans chaque villa</li><li>Stationnement privé</li><li>Entièrement meublé</li><li>Chauffage au sol</li></ul>
+    <details class="amen-all"><summary>Tout afficher (10)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">1</span></h3><ul><li>Piscine privée</li></ul></div><div><h3>Extérieurs<span class="count">1</span></h3><ul><li>Jardin privatif</li></ul></div><div><h3>Au quotidien<span class="count">8</span></h3><ul><li>Sous-sol dans chaque villa</li><li>Stationnement privé</li><li>Entièrement meublé</li><li>Chauffage au sol</li><li>Climatisation</li><li>Système aérothermique</li><li>Domotique</li><li>Arrosage automatique</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>À qui s'adresse ce projet</b><span>Acheteurs qui veulent une grande villa terminée à Estepona, avec piscine privative et sous-sol, pour emménager sans attendre un chantier.</span></li><li><b>Ce qui le distingue</b><span>Les villas sont prêtes à emménager, les deux licences étant indiquées comme délivrées, et la fiche d’information mentionne de grandes parcelles pouvant atteindre 1 000 m², un chauffage par le sol, des placards intégrés et un stationnement privé pour deux voitures.</span></li><li><b>Pourquoi l'emplacement compte</b><span>La fiche d’information le situe à Estepona, le décrit comme un excellent emplacement et le place à l’intérieur des terres, entre Estepona Marina et Marina Banús. Elle ne donne aucune distance.</span></li><li><b>Pourquoi vérifier la disponibilité</b><span>Six des neuf villas sont annoncées, et les prix ne suivent pas la surface : NP-16, avec quatre chambres et 383,66 m², est à 2 440 000 €, alors que NP-04, avec cinq chambres et 453,64 m², est à 2 300 000 €. Les documents n’en donnent pas la raison. Nueva Living reconfirme le prix et la disponibilité auprès du promoteur avant toute visite.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Réservation</b><span>La réservation est de 1 % du prix de vente hors TVA.</span></li><li><b>Échéancier de paiement</b><span>Les 99 % restants du prix de vente hors TVA sont dus à la signature de l’acte. La fiche d’information n’indique aucun autre versement.</span></li><li><b>TVA</b><span>La fiche d’information exprime les deux versements hors TVA, ce qui indique que les prix annoncés s’entendent hors TVA. Le tableau de disponibilité ne le précise pas ; nous le confirmons donc par écrit.</span></li><li><b>Ce que le prix comprend</b><span>La fiche d’information présente les villas comme entièrement meublées et indique un stationnement privé pour deux voitures. Elle ne précise pas quel mobilier est inclus, et le tableau de disponibilité ne dit pas si le prix le couvre.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Permis et garanties</b><span>Permis de première occupation délivré. La fiche d’information indique le permis de construire et la licence de première occupation comme délivrés et la fin des travaux comme achevée, sans dates. Nous demandons une copie des deux licences et le certificat énergétique, et nous vérifions que la villa est neuve et quelle garantie la couvre.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Le descriptif technique</b><span>Le descriptif de qualité est intitulé « Villas 14 à 4 » et ne porte aucune date. Le programme compte neuf villas et le tableau de disponibilité énumère NP-16, qui est en dehors de cette plage ; nous confirmons donc quel descriptif s’applique à chaque villa.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les surfaces et les parcelles</b><span>Le tableau de disponibilité donne une surface par villa et ne précise pas si elle est construite ou intérieure. Il ne donne aucune surface de parcelle, de terrasse ou de sous-sol, et la fiche d’information indique seulement que les parcelles vont jusqu’à 1 000 m². Nous confirmons quelle valeur le contrat retient, ainsi que chaque parcelle.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Plans et mobilier</b><span>Les documents que nous détenons ne comprennent le plan d’aucune villa. Nous demandons le plan de chaque villa qui vous intéresse, une liste du mobilier inclus et l’agencement du sous-sol.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Demandez le dossier</h3><p>Ce que nous détenons : la fiche d’information, le descriptif de qualité et le tableau de disponibilité. Nous demandons les plans au promoteur.</p></li><li><h3>Comparez les options</h3><p>Découvrez ce programme aux côtés des autres projets d’Estepona que nous suivons.</p></li><li><h3>Visite privée</h3><p>Visitez avec nous les villas, les parcelles, les piscines et les sous-sols.</p></li><li><h3>Réservez</h3><p>Une réservation de 1 % hors TVA, puis l’acte pour les 99 % restants hors TVA, une fois que nous aurons confirmé par écrit les licences et ce que le prix comprend.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Plans<small>Pas encore fourni</small><small>En attente</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Échéancier<small>Pas encore fourni</small><small>En attente</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Descriptif des prestations</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Estepona Pool Villas</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien de villas sont disponibles ?</summary><p>Le programme compte neuf villas et six sont actuellement annoncées, de quatre ou cinq chambres, de 2 300 000 € à 2 680 000 €.</p></details><details class="segment-faq-item"><summary>La TVA est-elle incluse ?</summary><p>Le tableau de disponibilité ne le précise pas. La fiche d’information exprime les versements hors TVA, ce qui laisse penser que les prix s’entendent hors TVA. Nous confirmons par écrit les taxes et les frais d’achat.</p></details><details class="segment-faq-item"><summary>Les villas sont-elles achevées ?</summary><p>La fiche d’information les présente comme prêtes à emménager, indique le permis de construire et la licence de première occupation comme délivrés et la fin des travaux comme achevée. Elle ne donne aucune date d’achèvement ; nous demandons donc les licences et la date.</p></details><details class="segment-faq-item"><summary>Quel est l’échéancier de paiement ?</summary><p>La réservation est de 1 % du prix de vente hors TVA, et les 99 % restants hors TVA sont dus à la signature de l’acte.</p></details><details class="segment-faq-item"><summary>Que trouve-t-on dans les villas ?</summary><p>La fiche d’information mentionne de grandes parcelles, une piscine extérieure privative, un grand sous-sol, un chauffage par le sol, des placards intégrés et un stationnement privé pour deux voitures. Le descriptif de qualité y ajoute des appareils Neff, un chauffage et une climatisation aérothermiques Daikin et un système de maison connectée Control4.</p></details></div>
+    <details class="faq2-more"><summary>Voir toutes les questions (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Le mobilier est-il inclus ?</summary><p>La fiche d’information présente les villas comme entièrement meublées, mais aucun document ne dit ce que le prix comprend. Nous demandons une liste.</p></details><details class="segment-faq-item"><summary>Y a-t-il des plans ?</summary><p>Pas dans les documents que nous détenons. Nous demandons le plan de chaque villa qui vous intéresse.</p></details></div></details>
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">2 300 000 €</p>
+      <p class="rail-note">Hors TVA. Il reste 6 biens sur 9 · Vérifié le octobre 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Sur place.</b> Parcourez la parcelle et la piscine de la villa que vous envisagez, et visitez son sous-sol.</li><li><b>En voiture.</b> Nous roulons avec vous jusqu’à Estepona Marina et Marina Banús, et nous chronométrons le trajet.</li><li><b>Sur le papier.</b> Licence de première occupation, certificat énergétique, taxe et acte, avant toute signature.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Pool Villas">
+        <input type="hidden" id="f-project" name="project" value="Estepona Pool Villas">
+        <input type="hidden" name="preferred_area" value="Estepona">
+        <input type="hidden" name="property_type_interest" value="Villas">
+        <input type="hidden" name="budget_range" value="À partir de 2 300 000 €">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Bonjour Nueva Living, je souhaiterais des informations sur Estepona Pool Villas." data-base="Bonjour Nueva Living, je souhaiterais des informations sur Estepona Pool Villas.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="NP-04">NP-04: 2 300 000 €</option><option value="NP-06">NP-06: 2 340 000 €</option><option value="NP-08">NP-08: 2 540 000 €</option><option value="NP-10">NP-10: 2 550 000 €</option><option value="NP-14">NP-14: 2 680 000 €</option><option value="NP-16">NP-16: 2 440 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Estepona Pool Villas.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Des villas terminées de quatre et cinq chambres sur de grandes parcelles, chacune avec une piscine privative et un sous-sol, où l’on peut emménager dès maintenant.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Acheteurs qui veulent une grande villa terminée à Estepona, avec piscine privative et sous-sol, pour emménager sans attendre un chantier.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce qui le distingue</h3><p>Les villas sont prêtes à emménager, les deux licences étant indiquées comme délivrées, et la fiche d’information mentionne de grandes parcelles pouvant atteindre 1 000 m², un chauffage par le sol, des placards intégrés et un stationnement privé pour deux voitures.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi l'emplacement compte</h3><p>La fiche d’information le situe à Estepona, le décrit comme un excellent emplacement et le place à l’intérieur des terres, entre Estepona Marina et Marina Banús. Elle ne donne aucune distance.</p></article>
-              <article class="why-point reveal-soft"><h3>Pourquoi vérifier la disponibilité</h3><p>Six des neuf villas sont annoncées, et les prix ne suivent pas la surface : NP-16, avec quatre chambres et 383,66 m², est à 2 440 000 €, alors que NP-04, avec cinq chambres et 453,64 m², est à 2 300 000 €. Les documents n’en donnent pas la raison. Nueva Living reconfirme le prix et la disponibilité auprès du promoteur avant toute visite.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Les conditions sont celles de la fiche d’information du promoteur. Nous confirmons par écrit les montants et dates actuels avant que vous ne réserviez.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Réservation</h3><p>La réservation est de 1 % du prix de vente hors TVA.</p></article>
-              <article class="why-point reveal-soft"><h3>Échéancier de paiement</h3><p>Les 99 % restants du prix de vente hors TVA sont dus à la signature de l’acte. La fiche d’information n’indique aucun autre versement.</p></article>
-              <article class="why-point reveal-soft"><h3>TVA</h3><p>La fiche d’information exprime les deux versements hors TVA, ce qui indique que les prix annoncés s’entendent hors TVA. Le tableau de disponibilité ne le précise pas ; nous le confirmons donc par écrit.</p></article>
-              <article class="why-point reveal-soft"><h3>Ce que le prix comprend</h3><p>La fiche d’information présente les villas comme entièrement meublées et indique un stationnement privé pour deux voitures. Elle ne précise pas quel mobilier est inclus, et le tableau de disponibilité ne dit pas si le prix le couvre.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Permis et garanties</h3><p>La fiche d’information indique le permis de construire et la licence de première occupation comme délivrés et la fin des travaux comme achevée, sans dates. Nous demandons une copie des deux licences et le certificat énergétique, et nous vérifions que la villa est neuve et quelle garantie la couvre.</p></article>
-              <article class="why-point reveal-soft"><h3>Le descriptif technique</h3><p>Le descriptif de qualité est intitulé « Villas 14 à 4 » et ne porte aucune date. Le programme compte neuf villas et le tableau de disponibilité énumère NP-16, qui est en dehors de cette plage ; nous confirmons donc quel descriptif s’applique à chaque villa.</p></article>
-              <article class="why-point reveal-soft"><h3>Les surfaces et les parcelles</h3><p>Le tableau de disponibilité donne une surface par villa et ne précise pas si elle est construite ou intérieure. Il ne donne aucune surface de parcelle, de terrasse ou de sous-sol, et la fiche d’information indique seulement que les parcelles vont jusqu’à 1 000 m². Nous confirmons quelle valeur le contrat retient, ainsi que chaque parcelle.</p></article>
-              <article class="why-point reveal-soft"><h3>Plans et mobilier</h3><p>Les documents que nous détenons ne comprennent le plan d’aucune villa. Nous demandons le plan de chaque villa qui vous intéresse, une liste du mobilier inclus et l’agencement du sous-sol.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le octobre 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Les surfaces et les prix sont transcrits du tableau de disponibilité du portail de vente, consulté le 18 octobre 2026. Il compte six lignes pour six références, sans doublon. Le tableau donne le nombre de chambres, une surface et un prix pour chaque villa. Il ne précise pas si la surface est construite ou intérieure, ni si le prix inclut la TVA ; la fiche d’information exprime les versements hors TVA. Le programme compte neuf villas au total, et les six présentées sont celles qui sont annoncées ; les documents ne disent pas ce qu’il est advenu des trois autres.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk.jpg" alt="Photographie au crépuscule d’une villa blanche aux fenêtres éclairées, derrière une piscine éclairée, avec un pilier habillé de pierre, une terrasse avec canapés et une table à manger" width="2000" height="1334" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Aperçu architectural</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Volumes blancs, <em>ouverts sur le jardin</em></h2>
-          <p>Les photographies montrent des villas aux façades blanches sur plusieurs niveaux, avec de profonds débords, des toits plats et des toits en pente en tuiles, des garde-corps en verre sur les terrasses et des baies vitrées coulissantes qui ouvrent les espaces de vie sur une terrasse couverte, une terrasse dallée et la piscine.</p>
-<p>La fiche d’information décrit le design seulement comme haut de gamme. Les notes ci-dessous sont la description que le promoteur fait lui-même de la construction des villas.</p>
-          <ul class="feature-list">
-            <li>Structure — Fondation sur dalle en béton armé établie d’après le rapport géotechnique, ossature en béton armé avec planchers nervurés ou dalles pleines, et murs de soutènement en béton armé.</li>
-            <li>Façade — Brique creuse avec enduit intérieur et extérieur, lame d’air et 5 cm d’isolation en mousse de polyuréthane projetée, finie par un enduit de mortier de ciment hydrofuge et une peinture à base de résine de silicone, certains murs étant habillés de carreaux céramiques.</li>
-            <li>Menuiseries — Menuiseries en aluminium Cortizo de la série COR 60, avec la série coulissante à levage COR 4500 pour les grandes baies, à rupture de pont thermique et laquées gris, avec double vitrage Planitherm et garde-corps en verre de sécurité de 8+8 ou 10+10.</li>
-            <li>Toitures — Toitures-terrasses et terrasses étanchées et isolées pour un carrelage antidérapant, et toits en pente finis en tuiles.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg" alt="Vue aérienne d’une rangée de villas blanches en bordure d’une route, avec des terrains verts ouverts derrière, une montagne au loin et la mer sur le bord droit" width="2000" height="1137" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Voyez-le <em>achevé</em></h2>
-            <p>Les villas sont construites : la visite porte donc sur la parcelle, la piscine, le sous-sol et l’orientation.</p>
-            <div class="viewing-insights">
-              <div><span>Sur place</span><p>Parcourez la parcelle et la piscine de la villa que vous envisagez, et visitez son sous-sol.</p></div>
-              <div><span>En voiture</span><p>Nous roulons avec vous jusqu’à Estepona Marina et Marina Banús, et nous chronométrons le trajet.</p></div>
-              <div><span>Sur le papier</span><p>Licence de première occupation, certificat énergétique, taxe et acte, avant toute signature.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=estepona-pool-villas">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Location">Les environs</button><button type="button" data-cat="Terraces">Terrasses</button><button type="button" data-cat="Interiors">Intérieurs</button><button type="button" data-cat="Bedrooms">Chambres</button><button type="button" data-cat="Bathrooms">Salles de bains</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating.jpg" alt="Photographie depuis une terrasse dallée avec des canapés crème, le regard le long d’une piscine avec un bain de soleil sur sa plage, avec des haies et des arbres autour de la pelouse" width="2000" height="1334" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Une piscine privative, <em>une grande parcelle et un sous-sol</em></h2>
-            <p>Ce que disent la fiche d’information et le descriptif de qualité sur les espaces extérieurs et le niveau inférieur.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Demandez le dossier</h3>
-            <p>Ce que nous détenons : la fiche d’information, le descriptif de qualité et le tableau de disponibilité. Nous demandons les plans au promoteur.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Comparez les options</h3>
-            <p>Découvrez ce programme aux côtés des autres projets d’Estepona que nous suivons.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Visite privée</h3>
-            <p>Visitez avec nous les villas, les parcelles, les piscines et les sous-sols.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Réservez</h3>
-            <p>Une réservation de 1 % hors TVA, puis l’acte pour les 99 % restants hors TVA, une fois que nous aurons confirmé par écrit les licences et ce que le prix comprend.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien de villas sont disponibles ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le programme compte neuf villas et six sont actuellement annoncées, de quatre ou cinq chambres, de 2 300 000 € à 2 680 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>La TVA est-elle incluse ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le tableau de disponibilité ne le précise pas. La fiche d’information exprime les versements hors TVA, ce qui laisse penser que les prix s’entendent hors TVA. Nous confirmons par écrit les taxes et les frais d’achat.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Les villas sont-elles achevées ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La fiche d’information les présente comme prêtes à emménager, indique le permis de construire et la licence de première occupation comme délivrés et la fin des travaux comme achevée. Elle ne donne aucune date d’achèvement ; nous demandons donc les licences et la date.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quel est l’échéancier de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La réservation est de 1 % du prix de vente hors TVA, et les 99 % restants hors TVA sont dus à la signature de l’acte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Que trouve-t-on dans les villas ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La fiche d’information mentionne de grandes parcelles, une piscine extérieure privative, un grand sous-sol, un chauffage par le sol, des placards intégrés et un stationnement privé pour deux voitures. Le descriptif de qualité y ajoute des appareils Neff, un chauffage et une climatisation aérothermiques Daikin et un système de maison connectée Control4.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Le mobilier est-il inclus ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La fiche d’information présente les villas comme entièrement meublées, mais aucun document ne dit ce que le prix comprend. Nous demandons une liste.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Y a-t-il des plans ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Pas dans les documents que nous détenons. Nous demandons le plan de chaque villa qui vous intéresse.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Renseignez-vous sur <em>Estepona Pool Villas</em></h2>
-          <p class="body-copy">Dites-nous ce dont vous avez besoin et nous reviendrons vers vous avec la disponibilité actuelle, les plans et la liste de prix.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Pool Villas">
-
-          <input type="hidden" id="f-project" name="project" value="Estepona Pool Villas">
-          <input type="hidden" name="preferred_area" value="Estepona">
-          <input type="hidden" name="property_type_interest" value="Villas">
-          <input type="hidden" name="budget_range" value="À partir de 2 300 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Bonjour Nueva Living, je souhaiterais des informations sur Estepona Pool Villas.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Nous répondons personnellement, généralement le jour même.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"NP-04","title":"NP-04 · Villa","sub":"5 ch. · 454 m²","price":2300000,"plans":[]},{"id":"u1","ref":"NP-06","title":"NP-06 · Villa","sub":"5 ch. · 432 m²","price":2340000,"plans":[]},{"id":"u2","ref":"NP-08","title":"NP-08 · Villa","sub":"5 ch. · 394 m²","price":2540000,"plans":[]},{"id":"u3","ref":"NP-10","title":"NP-10 · Villa","sub":"5 ch. · 405 m²","price":2550000,"plans":[]},{"id":"u4","ref":"NP-14","title":"NP-14 · Villa","sub":"5 ch. · 421 m²","price":2680000,"plans":[]},{"id":"u5","ref":"NP-16","title":"NP-16 · Villa","sub":"4 ch. · 384 m²","price":2440000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp","alt":"Photographie du côté jardin d’une villa blanche, de l’autre côté d’une piscine, avec une terrasse couverte avec canapés et table à manger, et une terrasse à l’étage surmontée d’un pignon à toit en pente","caption":"La villa vue depuis la piscine","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk.webp","alt":"Photographie au crépuscule d’une villa blanche aux fenêtres éclairées, derrière une piscine éclairée, avec un pilier habillé de pierre, une terrasse avec canapés et une table à manger","caption":"La villa au crépuscule","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-and-lawn-beside-the-villa.webp","alt":"Photographie d’une longue piscine à côté d’une pelouse, avec une villa blanche au fond et de hautes haies de chaque côté","caption":"La piscine et la pelouse","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.webp","alt":"Vue aérienne d’une rangée de villas blanches en bordure d’une route, avec des terrains verts ouverts derrière, une montagne au loin et la mer sur le bord droit","caption":"Les villas vues du ciel","cat":"Location"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-roof-and-pool-from-above.webp","alt":"Photographie prise à la verticale d’une villa avec un toit en pente en tuiles, des toits-terrasses et une piscine à côté d’une pelouse","caption":"La villa et la piscine vues d’en haut","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.webp","alt":"Photographie d’une terrasse couverte avec un garde-corps en verre, une colonne ronde blanche et de grandes dalles, donnant sur une piscine et une pelouse","caption":"Une terrasse couverte avec garde-corps en verre","cat":"Terraces"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating.webp","alt":"Photographie depuis une terrasse dallée avec des canapés crème, le regard le long d’une piscine avec un bain de soleil sur sa plage, avec des haies et des arbres autour de la pelouse","caption":"La piscine depuis la terrasse","cat":"Terraces"},{"src":"assets/liora/projects/estepona-pool-villas/media/upper-terrace-and-glass-roof-light.webp","alt":"Photographie d’une terrasse haute blanche avec des garde-corps en verre, des marches, un pignon à toit en pente avec une grande fenêtre et un puits de lumière en verre","caption":"Une terrasse à l’étage","cat":"Terraces"},{"src":"assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.webp","alt":"Photographie d’un séjour vide avec une grande baie vitrée coulissante sur la terrasse de la piscine, un carrelage clair effet pierre et une cheminée sur le mur du fond","caption":"Un séjour non meublé","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-corner-sofa.webp","alt":"Photographie d’un séjour meublé avec un grand canapé d’angle, une table basse en métal et un buffet sombre, avec une baie vitrée coulissante sur la piscine","caption":"Séjour","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-round-coffee-table.webp","alt":"Photographie d’un séjour avec deux canapés crème et une table basse ronde à plateau de marbre sur un tapis à motifs, avec la cuisine et une porte vitrée coulissante sur la piscine à l’arrière-plan","caption":"Séjour et cuisine","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-and-dining-room-with-stone-feature-wall.webp","alt":"Photographie d’un séjour-salle à manger ouvert avec un mur habillé de pierre accueillant un téléviseur et une cheminée, une table à manger en verre et des meubles de cuisine sombres à l’arrière-plan","caption":"Séjour et espace repas","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-stairs-and-entrance-door.webp","alt":"Photographie d’un séjour avec un long canapé crème, une cheminée à gauche, l’escalier et la porte d’entrée en bois à l’arrière-plan, et des meubles de cuisine sombres à droite","caption":"Séjour, escalier et entrée","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-timber-television-wall.webp","alt":"Photographie d’un espace de vie avec une porte vitrée coulissante sur une terrasse, un mur habillé de bois accueillant un téléviseur au-dessus d’une tablette effet marbre, et un second salon au fond","caption":"Séjour et second salon","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/kitchen-island-with-terrace-doors.webp","alt":"Photographie d’une cuisine avec des colonnes sombres effet bois, un îlot avec un plan de travail en pierre blanche et une plaque de cuisson, et des portes vitrées coulissantes sur la terrasse","caption":"Cuisine","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/sitting-room-with-curved-sofa.webp","alt":"Photographie d’un salon avec un canapé courbe crème, deux fauteuils à motifs et un tapis rond, à côté d’une porte vitrée sur le jardin et d’une baie vitrée coulissante sur la piscine","caption":"Un salon","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/entrance-hall-with-pivot-door.webp","alt":"Photographie d’un hall d’entrée avec une porte pivotante plaquée bois ouverte sur la cour, un portail au fond et un escalier à gauche","caption":"Hall d’entrée et porte pivotante","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.webp","alt":"Photographie d’une chambre haute de plafond avec un bureau flottant en chêne, un grand tableau représentant un visage, des portes de placard à lames et, au fond, une salle de bain avec une baignoire îlot","caption":"Chambre avec un bureau flottant","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-panelled-headboard-wall.webp","alt":"Photographie d’une chambre avec un mur lambrissé de chêne, une tête de lit capitonnée éclairée et une porte vitrée coulissante sur une terrasse","caption":"Chambre ouverte sur une terrasse","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-window-wall.webp","alt":"Photographie d’une chambre avec une grande fenêtre donnant sur des jardins et des maisons blanches voisins, un lit avec un jeté à motifs et un mur de placards en miroir","caption":"Chambre avec vue sur les jardins voisins","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.webp","alt":"Photographie d’une salle de bain avec une baignoire îlot, un mur sombre effet pierre et une double vasque sur un meuble sombre effet pierre sous un grand miroir","caption":"Salle de bain avec baignoire îlot","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Estepona Pool Villas media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp","alt":"Photographie du côté jardin d’une villa blanche, de l’autre côté d’une piscine, avec une terrasse couverte avec canapés et table à manger, et une terrasse à l’étage surmontée d’un pignon à toit en pente","width":2000,"height":1338,"caption":"La villa vue depuis la piscine","category":"Extérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk-960.webp","alt":"Photographie au crépuscule d’une villa blanche aux fenêtres éclairées, derrière une piscine éclairée, avec un pilier habillé de pierre, une terrasse avec canapés et une table à manger","width":2000,"height":1334,"caption":"La villa au crépuscule","category":"Extérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-and-lawn-beside-the-villa.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/pool-and-lawn-beside-the-villa-960.webp","alt":"Photographie d’une longue piscine à côté d’une pelouse, avec une villa blanche au fond et de hautes haies de chaque côté","width":2000,"height":1334,"caption":"La piscine et la pelouse","category":"Extérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-960.webp","alt":"Vue aérienne d’une rangée de villas blanches en bordure d’une route, avec des terrains verts ouverts derrière, une montagne au loin et la mer sur le bord droit","width":2000,"height":1137,"caption":"Les villas vues du ciel","category":"Les environs"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-roof-and-pool-from-above.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/villa-roof-and-pool-from-above-960.webp","alt":"Photographie prise à la verticale d’une villa avec un toit en pente en tuiles, des toits-terrasses et une piscine à côté d’une pelouse","width":1075,"height":634,"caption":"La villa et la piscine vues d’en haut","category":"Extérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-960.webp","alt":"Photographie d’une terrasse couverte avec un garde-corps en verre, une colonne ronde blanche et de grandes dalles, donnant sur une piscine et une pelouse","width":2000,"height":1334,"caption":"Une terrasse couverte avec garde-corps en verre","category":"Terrasses"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating-960.webp","alt":"Photographie depuis une terrasse dallée avec des canapés crème, le regard le long d’une piscine avec un bain de soleil sur sa plage, avec des haies et des arbres autour de la pelouse","width":2000,"height":1334,"caption":"La piscine depuis la terrasse","category":"Terrasses"},{"src":"assets/liora/projects/estepona-pool-villas/media/upper-terrace-and-glass-roof-light.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/upper-terrace-and-glass-roof-light-960.webp","alt":"Photographie d’une terrasse haute blanche avec des garde-corps en verre, des marches, un pignon à toit en pente avec une grande fenêtre et un puits de lumière en verre","width":2000,"height":1333,"caption":"Une terrasse à l’étage","category":"Terrasses"},{"src":"assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-960.webp","alt":"Photographie d’un séjour vide avec une grande baie vitrée coulissante sur la terrasse de la piscine, un carrelage clair effet pierre et une cheminée sur le mur du fond","width":2000,"height":1334,"caption":"Un séjour non meublé","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-corner-sofa.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-corner-sofa-960.webp","alt":"Photographie d’un séjour meublé avec un grand canapé d’angle, une table basse en métal et un buffet sombre, avec une baie vitrée coulissante sur la piscine","width":2000,"height":1333,"caption":"Séjour","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-round-coffee-table.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-round-coffee-table-960.webp","alt":"Photographie d’un séjour avec deux canapés crème et une table basse ronde à plateau de marbre sur un tapis à motifs, avec la cuisine et une porte vitrée coulissante sur la piscine à l’arrière-plan","width":2000,"height":1334,"caption":"Séjour et cuisine","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-and-dining-room-with-stone-feature-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-and-dining-room-with-stone-feature-wall-960.webp","alt":"Photographie d’un séjour-salle à manger ouvert avec un mur habillé de pierre accueillant un téléviseur et une cheminée, une table à manger en verre et des meubles de cuisine sombres à l’arrière-plan","width":2000,"height":1334,"caption":"Séjour et espace repas","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-stairs-and-entrance-door.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-stairs-and-entrance-door-960.webp","alt":"Photographie d’un séjour avec un long canapé crème, une cheminée à gauche, l’escalier et la porte d’entrée en bois à l’arrière-plan, et des meubles de cuisine sombres à droite","width":2000,"height":1333,"caption":"Séjour, escalier et entrée","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-timber-television-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-timber-television-wall-960.webp","alt":"Photographie d’un espace de vie avec une porte vitrée coulissante sur une terrasse, un mur habillé de bois accueillant un téléviseur au-dessus d’une tablette effet marbre, et un second salon au fond","width":2000,"height":1334,"caption":"Séjour et second salon","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/kitchen-island-with-terrace-doors.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/kitchen-island-with-terrace-doors-960.webp","alt":"Photographie d’une cuisine avec des colonnes sombres effet bois, un îlot avec un plan de travail en pierre blanche et une plaque de cuisson, et des portes vitrées coulissantes sur la terrasse","width":2000,"height":1333,"caption":"Cuisine","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/sitting-room-with-curved-sofa.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/sitting-room-with-curved-sofa-960.webp","alt":"Photographie d’un salon avec un canapé courbe crème, deux fauteuils à motifs et un tapis rond, à côté d’une porte vitrée sur le jardin et d’une baie vitrée coulissante sur la piscine","width":1075,"height":634,"caption":"Un salon","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/entrance-hall-with-pivot-door.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/entrance-hall-with-pivot-door-960.webp","alt":"Photographie d’un hall d’entrée avec une porte pivotante plaquée bois ouverte sur la cour, un portail au fond et un escalier à gauche","width":1075,"height":1088,"caption":"Hall d’entrée et porte pivotante","category":"Intérieurs"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-960.webp","alt":"Photographie d’une chambre haute de plafond avec un bureau flottant en chêne, un grand tableau représentant un visage, des portes de placard à lames et, au fond, une salle de bain avec une baignoire îlot","width":2000,"height":1333,"caption":"Chambre avec un bureau flottant","category":"Chambres"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-panelled-headboard-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-panelled-headboard-wall-960.webp","alt":"Photographie d’une chambre avec un mur lambrissé de chêne, une tête de lit capitonnée éclairée et une porte vitrée coulissante sur une terrasse","width":2000,"height":1334,"caption":"Chambre ouverte sur une terrasse","category":"Chambres"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-window-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-window-wall-960.webp","alt":"Photographie d’une chambre avec une grande fenêtre donnant sur des jardins et des maisons blanches voisins, un lit avec un jeté à motifs et un mur de placards en miroir","width":2000,"height":1334,"caption":"Chambre avec vue sur les jardins voisins","category":"Chambres"},{"src":"assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath-960.webp","alt":"Photographie d’une salle de bain avec une baignoire îlot, un mur sombre effet pierre et une double vasque sur un meuble sombre effet pierre sous un grand miroir","width":2000,"height":1333,"caption":"Salle de bain avec baignoire îlot","category":"Salles de bains"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-estepona-pool-villas.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

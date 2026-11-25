@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Qu'est-ce que le numéro NIE et en ai-je besoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels frais dois-je prévoir en plus du prix d'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle est la différence entre un bien sur plan et un bien achevé ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment fonctionne le processus de réservation et de paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Puis-je louer le bien après l'achat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ai-je besoin d'un avocat ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Combien y a-t-il de maisons ?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="fr"
   data-project-name="Retama Residences"
   data-project-message="Je souhaiterais connaître les disponibilités et les prix actuels de Retama Residences."
@@ -459,726 +396,191 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Retama Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="fr/property-retama-residences.html#top">Retama Residences<span>À partir de 341 000 € · Hors TVA</span></a>
+      <nav class="hdr-proj" aria-label="Sections du projet"><a href="fr/property-retama-residences.html#overview">Aperçu</a><a href="fr/property-retama-residences.html#availability">Prix</a><a href="fr/property-retama-residences.html#specs">Finitions</a><a href="fr/property-retama-residences.html#gallery">Galerie</a><a href="fr/property-retama-residences.html#location">Emplacement</a><a href="fr/property-retama-residences.html#onsite">Sur place</a><a href="fr/property-retama-residences.html#view">Notre avis</a><a href="fr/property-retama-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="fr/property-retama-residences.html#enquire" data-prefill>Réserver une visite privée</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Retama Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1400w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Vue de synthèse de deux piscines communes avec transats et parasols devant un long bâtiment d’appartements à terrasses, avec la mer à l’horizon" width="1400" height="787" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Vue de synthèse de deux piscines communes avec transats et parasols devant un long bâtiment d’appartements à terrasses, avec la mer à l’horizon" width="1400" height="787" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">10 logements disponibles sur 120</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Retama <em>Residences</em></span>
-            <span class="hero-title-context">Logements avec spa et piscines à Mijas Costa</span>
-          </h1>
-          <p class="hero-positioning">Une résidence fermée de 120 appartements et penthouses en construction sur un coteau de Mijas Costa, avec deux piscines extérieures, un spa, une salle de sport et un espace de coworking. Dix logements d’une à trois chambres figurent sur la liste de prix du promoteur, à partir de 341 000 € hors TVA.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="fr/property-retama-residences.html#availability">Voir les biens disponibles</a>
-            <a class="btn project-btn ghost" href="fr/index.html#private-viewing=1&amp;project=retama-residences">Présentation cinématique</a>
-            <a class="btn project-btn ghost" href="fr/property-retama-residences.html#media">Toutes les images</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Informations clés du projet">
-          <div class="hero-fact"><span>Secteur</span><strong>Mijas Costa</strong></div>
-          <div class="hero-fact"><span>Prix à partir de</span><strong>À partir de 341 000 €</strong></div>
-          <div class="hero-fact"><span>Type de bien</span><strong>Appartements et attiques</strong></div>
-          <div class="hero-fact"><span>Livraison</span><strong>Livraison septembre 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Sections du projet">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Aller à</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="fr/property-retama-residences.html#media">Galerie</a>
-        <a href="fr/property-retama-residences.html#location">Emplacement</a>
-        <a href="fr/property-retama-residences.html#construction-timeline">Modalités de paiement</a>
-        <a href="fr/property-retama-residences.html#availability">Disponibilité</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Plus</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="fr/property-retama-residences.html#overview">Aperçu</a>
-          <a href="fr/property-retama-residences.html#residences">Résidences</a>
-          <a href="fr/property-retama-residences.html#quality-specifications">Finitions</a>
-          <a href="fr/property-retama-residences.html#calculator">Financement</a>
-          <a href="fr/property-retama-residences.html#amenities">Équipements</a>
-          <a href="fr/property-retama-residences.html#why-this-project">Pourquoi</a>
-          <a href="fr/property-retama-residences.html#architecture">Architecture</a>
-          <a href="fr/property-retama-residences.html#private-viewing">Présentation cinématique</a>
-          <a href="fr/property-retama-residences.html#lifestyle">Art de vivre</a>
-          <a href="fr/property-retama-residences.html#faq">FAQ</a>
-          <a href="fr/property-retama-residences.html#enquire">Nous contacter</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Faits rapides sur le projet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Chambres</span><strong>1-3 chambres</strong></div>
-          <div class="quick-fact"><span>Surface construite</span><strong>46,78 - 101,62 m²</strong></div>
-          <div class="quick-fact"><span>Disponibilité</span><strong>10 logements disponibles sur 120</strong></div>
-          <div class="quick-fact"><span>Disponible</span><strong>10 logements</strong></div>
-          <div class="quick-fact"><span>Fourchette de prix</span><strong>341 000 € - 885 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="fr/property-retama-residences.html#enquire" data-prefill>Demander la documentation</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Aperçu</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Un coteau de 120 logements, <em>dix sur la liste</em></h2>
-          <p class="project-lead">Retama Residences est une résidence fermée de 120 logements en bâtiments bas sur un terrain de 31 000 m² à Mijas Costa, près du golf de Cerrado del Águila. La brochure dispose les bâtiments autour d’un grand jardin, avec des allées qui les relient aux espaces communs et à un belvédère, et laisse une partie du terrain à l’état naturel.</p>
-          <p class="project-lead">La liste de prix du promoteur du 14 septembre 2026 présente dix logements, tous disponibles : des appartements d’une à trois chambres au rez-de-chaussée, au premier et au deuxième étage à partir de 341 000 €, et trois penthouses avec de grandes terrasses de 780 000 € à 885 000 €, le tout hors TVA. Le portail du promoteur indique le permis de construire comme accordé, le début des travaux le 11 novembre 2025 et la livraison en septembre 2028.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Médias</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">La résidence en <em>images</em></h2>
-          </div>
-          <p class="project-lead">Vues de synthèse des bâtiments, des piscines, des terrasses, des intérieurs et des espaces communs, une vue aérienne du terrain et les plans des dix logements de la liste de prix.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 6 images dans Extérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Vue de synthèse de deux piscines communes avec transats et parasols devant un long bâtiment d’appartements à terrasses, avec la mer à l’horizon" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Extérieurs</small>
-                <strong>Les deux piscines et un bâtiment</strong>
-                <span class="project-media-card-cta">6 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Voir 3 images dans Terrasses">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-640.webp 640w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-960.webp 960w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.jpg" alt="Terrasse de rez-de-chaussée de synthèse avec une longue table à manger et un canapé d’extérieur sur la pelouse, sous des balcons à ventilateurs de plafond, avec la mer au loin" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasses</small>
-                <strong>Une terrasse et un jardin en rez-de-chaussée</strong>
-                <span class="project-media-card-cta">3 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 1 images dans Intérieurs">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-640.webp 640w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-960.webp 960w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.jpg" alt="Séjour ouvert de synthèse avec canapé, table à manger et cuisine à îlot aspect marbre, ouvert sur une terrasse par des baies coulissantes" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Intérieurs</small>
-                <strong>Séjour et cuisine</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Voir 1 images dans Chambres">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-640.webp 640w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-960.webp 960w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.jpg" alt="Chambre de synthèse avec un lit double contre un mur à tasseaux de bois et une baie coulissante ouvrant sur une terrasse avec vue sur la mer" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Chambres</small>
-                <strong>Chambre</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Voir 1 images dans Salles de bains">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower-640.webp 640w, assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower-960.webp 960w, assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.jpg" alt="Salle de bains de synthèse aux carreaux aspect marbre, avec douche à l’italienne derrière une paroi vitrée et un meuble vasque suspendu" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Salles de bains</small>
-                <strong>Salle de bains</strong>
-                <span class="project-media-card-cta">1 image <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Voir 8 images dans Équipements">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-640.webp 640w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-960.webp 960w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.jpg" alt="Spa de synthèse avec une piscine intérieure chauffée, des transats sur un sol en pierre et un sauna à façade vitrée" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Équipements</small>
-                <strong>Le spa</strong>
-                <span class="project-media-card-cta">8 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Voir 10 images dans Plans">
-              <img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg" alt="Plan du logement 101" width="1665" height="2000" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plans</small>
-                <strong>Logement 101</strong>
-                <span class="project-media-card-cta">10 images <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Voir les 30 images</button>
-          <p class="media-note">Les images sont des vues de synthèse, sauf la vue aérienne, dans laquelle les bâtiments prévus sont insérés dans une photographie des environs. Le mobilier, la décoration et la végétation qu’elles montrent sont illustratifs et non inclus. Les plans sont ceux du promoteur, établis à partir du projet de base du bâtiment, sans les logos du promoteur ni le nom du projet ; le promoteur précise qu’ils sont indicatifs et non définitifs et que les surfaces sont approximatives, et les noms des pièces y figurent en espagnol.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Emplacement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Mijas Costa, <em>parmi les golfs</em></h2>
-          <p class="project-lead">La brochure situe la résidence entre Fuengirola et La Cala de Mijas, dans un cadre naturel entre des golfs. Sa carte place Cerrado del Águila Golf à 2 km et un autre golf à 3 km, et le plan d’urbanisme du promoteur montre le terrain à l’ouest de l’hippodrome de la Costa del Sol. Les documents ne donnent pas d’adresse, la position sur notre carte est donc approximative.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="fr">
-          <div class="locmap-map" id="locmap-retama-residences" data-locmap='{&quot;site&quot;:[36.521,-4.664],&quot;sea&quot;:[36.494,-4.664],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;6,1 km · 14 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Fuengirola&quot;,&quot;sub&quot;:&quot;5,7 km · 13 min&quot;},{&quot;ll&quot;:[36.50609,-4.66035],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;4,8 km · 12 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Cabopino&quot;,&quot;sub&quot;:&quot;12 km · 19 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Retama Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Emplacement indicatif</span>
-            <h3 class="locmap-name">Retama Residences</h3>
-            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Plage</span>
-              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centre de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>5,7 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golf Cabopino</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>19 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Aéroport de Málaga</span>
-              <span class="locmap-row-figure"><bdi>31 km</bdi> <em><bdi>34 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Calendrier</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Du début des travaux <em>à la remise des clés</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Début des travaux</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">Novembre 2025</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">Livraison</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">Septembre 2028</span>
-        </div>
-      </div>
-      <div class="project-inner timeline-payment-terms reveal-soft">
-        <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">Modalités de paiement</span>
-          <span class="timeline-payment-total">10 000 € + TVA de réservation, plus 100% du prix réparti en 3 paiements</span>
-        </div>
-        <div class="timeline-payment-grid">
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">01</span>
-            <span class="timeline-payment-label">Réservation</span>
-            <strong class="timeline-payment-value">10 000 € + TVA</strong>
-            <span class="timeline-payment-note">À la réservation du logement</span>
-            
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">02</span>
-            <span class="timeline-payment-label">Contrat privé</span>
-            <strong class="timeline-payment-value">30% + TVA</strong>
-            <span class="timeline-payment-note">Au contrat privé, que l’échéancier lie au permis de construire</span>
-            <span class="timeline-payment-running">Total cumulé : 30%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">03</span>
-            <span class="timeline-payment-label">Échéance différée</span>
-            <strong class="timeline-payment-value">10% + TVA</strong>
-            <span class="timeline-payment-note">Six mois après le contrat privé</span>
-            <span class="timeline-payment-running">Total cumulé : 40%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">04</span>
-            <span class="timeline-payment-label">À la livraison</span>
-            <strong class="timeline-payment-value">60% + TVA</strong>
-            <span class="timeline-payment-note">À la licence de première occupation et à la signature de l’acte</span>
-            <span class="timeline-payment-running">Total cumulé : 100%</span>
-          </div>
-        </div>
-        <p class="timeline-payment-disclaimer">L’échéancier précise que la TVA s’ajoute à chaque montant. Il ne dit pas si la réservation est déduite des 30 %, si les sommes versées d’avance sont garanties, ni à combien s’élèvent les frais d’achat en plus du prix. Nueva Living demande chaque point par écrit avant que vous ne réserviez.</p>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Résidences</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Dix logements, <em>quatre niveaux</em></h2>
-          <p class="project-lead">Les dix logements de la liste vont d’un appartement d’une chambre au premier étage à des penthouses de trois chambres. Chaque ligne de la liste numérote aussi une place de parking et une cave. Le tableau ci-dessous présente chaque logement avec son prix.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Un logement d’une chambre</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-retama-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Logements de deux chambres</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-retama-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Logements de trois chambres</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-retama-residences.html#availability">Voir les plans</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Penthouses</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="fr/property-retama-residences.html#availability">Voir les plans</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Documents privés</span>
-            <p>Les plans, orientations et disponibilités actuels doivent être vérifiés auprès du dernier dossier du promoteur avant toute présélection.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="fr/property-retama-residences.html#availability">Voir les plans</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Descriptif des prestations</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce qui compose <em>les logements</em></h2>
-          <p class="project-lead">Le descriptif de la qualité du promoteur lui-même, résumé par partie du logement.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Façade et structure<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Une structure en béton armé et une façade à double paroi en brique perforée enduite, isolée au polyuréthane projeté, doublée à l’intérieur de plaques de plâtre et de laine minérale.</li>
-              <li>Des cloisons triples entre logements, avec membrane acoustique, et des cloisons en plaques de plâtre isolées à la laine minérale à l’intérieur de chaque logement.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Sols et revêtements<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Des sols en grès cérame grand format dans tout le logement, avec plinthes laquées blanc, et du grès antidérapant du même modèle sur les terrasses.</li>
-              <li>Du grès cérame rectifié grand format aux murs des salles de bains, et des faux plafonds dans l’entrée, le couloir, la cuisine et les salles de bains.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Cuisine<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Des meubles hauts et bas au choix en deux couleurs, avec plan de travail et crédence en Silestone, Compac ou équivalent.</li>
-              <li>Électroménager Bosch, Teka ou équivalent : hotte aspirante, plaque à induction, four électrique, micro-ondes, lave-vaisselle, réfrigérateur et évier en inox encastré.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Salles de bain<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Un meuble à tiroirs avec vasque intégrée, des sanitaires en porcelaine vitrifiée blanche et un receveur de douche extra-plat en résine.</li>
-              <li>Une robinetterie mitigeur chromée avec économiseurs d’eau et un système qui réduit la consommation d’eau chaude, et une robinetterie encastrée dans les douches.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Menuiserie<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Une porte d’entrée de sécurité à trois points d’ancrage et des portes intérieures lisses laquées blanc avec poignées couleur chrome.</li>
-              <li>Des placards intégrés en bois laqué blanc à portes coulissantes ou battantes, avec étagère et penderie, et des volets roulants en aluminium laqué dans les chambres.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Climatisation et eau chaude<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Une climatisation gainable, chaud et froid, par pompe à chaleur, avec des grilles dans chaque pièce et un seul thermostat dans le séjour.</li>
-              <li>L’eau chaude par une unité aérothermique propre à chaque logement, et une ventilation simple flux qui fait entrer l’air frais et extrait l’air vicié.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Parties communes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Un spa avec une piscine chauffée par aérothermie, un sauna finlandais, des douches et des vestiaires, et deux piscines extérieures à électrolyse au sel avec éclairage subaquatique.</li>
-              <li>Un espace chill-out avec barbecue, des jardins d’espèces locales peu gourmandes en eau, la récupération des eaux de pluie pour l’arrosage et une conciergerie pour les services de l’immeuble.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Source : le descriptif des prestations du promoteur, en anglais et en espagnol, sans date imprimée. Il précise que les finitions peuvent être modifiées ou remplacées par des éléments de qualité égale ou supérieure, et que le mobilier, la décoration et la végétation des visuels ne font pas partie de l’offre.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Disponibilité</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">10 logements <em>actuellement disponibles</em></h2>
-          <p class="project-lead">Les prix proviennent de la liste de prix du promoteur datée du 14 septembre 2026, qui présente 10 logements, tous disponibles, sur une résidence de 120. Nous confirmons les prix et la disponibilité avant toute réservation. Les prix s’entendent hors TVA.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Résumé de la phase actuelle">
-            <div><span>Biens disponibles</span><strong>10</strong></div>
-            <div><span>Prix à partir de</span><strong>341 000 €</strong></div>
-            <div><span>Fourchette de prix</span><strong>341 000 € - 885 000 €</strong></div>
-            <div><span>Vérifié</span><strong>14 septembre 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Voir les 10 biens disponibles</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrer les biens disponibles"
-              data-availability-filters
-              data-count-template="Affichage de {shown} sur {total}">
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Type de bien</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Toutes</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
-                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
-                </div>
-              </div>
-              
-              
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Effacer les filtres</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Aucun bien ne correspond à ces filtres.</p>
-            <div class="unit-card-grid" role="list" aria-label="Logements disponibles">
-              <article class="unit-card" data-unit data-type="apartment" data-price="595000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 101">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg" alt="Plan de 101" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">101</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>3 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>96,76 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>64,78 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 1, rez-de-chaussée</dd></div>
-                  </dl>
-                  <p class="unit-card-price">595 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20101">Se renseigner sur 101</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="490000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 222">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg" alt="Plan de 222" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">222</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>2 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>72,41 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>21,65 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 2, deuxième étage</dd></div>
-                  </dl>
-                  <p class="unit-card-price">490 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20222">Se renseigner sur 222</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="885000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 231">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg" alt="Plan de 231" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">231</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>3 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>99,51 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>98,41 m²</dd></div>
-                    <div><dt>De solarium</dt><dd>87,42 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 2, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">885 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20231">Se renseigner sur 231</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="780000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 232">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg" alt="Plan de 232" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">232</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>2 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>80,00 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>103,43 m²</dd></div>
-                    <div><dt>De solarium</dt><dd>65,85 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 2, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">780 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20232">Se renseigner sur 232</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="480000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 303">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg" alt="Plan de 303" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">303</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>2 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>72,28 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>45,59 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 3, rez-de-chaussée</dd></div>
-                  </dl>
-                  <p class="unit-card-price">480 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20303">Se renseigner sur 303</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="451000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 403">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg" alt="Plan de 403" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">403</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>2 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>72,41 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>41,85 m²</dd></div>
-                    <div><dt>De jardin</dt><dd>59,91 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 4, rez-de-chaussée</dd></div>
-                  </dl>
-                  <p class="unit-card-price">451 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20403">Se renseigner sur 403</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="penthouse" data-price="795000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 531">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg" alt="Plan de 531" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">531</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>3 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>99,51 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>98,56 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 5, penthouse</dd></div>
-                  </dl>
-                  <p class="unit-card-price">795 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20531">Se renseigner sur 531</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="485000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 624">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg" alt="Plan de 624" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">624</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>2 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>80,26 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>26,71 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 6, deuxième étage</dd></div>
-                  </dl>
-                  <p class="unit-card-price">485 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20624">Se renseigner sur 624</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="341000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 912">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg" alt="Plan de 912" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">912</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>1 chambre</dd></div>
-                    <div><dt>Construits</dt><dd>46,78 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>14,30 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 9, premier étage</dd></div>
-                  </dl>
-                  <p class="unit-card-price">341 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20912">Se renseigner sur 912</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-type="apartment" data-price="581000">
-                <a class="unit-card-plan" href="assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 914">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb-640.webp 640w, assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg" alt="Plan de 914" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Voir le plan</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">914</strong>
-                    <span class="availability-status">Disponible</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Chambres</dt><dd>3 chambres</dd></div>
-                    <div><dt>Construits</dt><dd>101,62 m²</dd></div>
-                    <div><dt>De terrasse</dt><dd>16,50 m²</dd></div>
-                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
-                    <div><dt>Étage</dt><dd>Cage 9, premier étage</dd></div>
-                  </dl>
-                  <p class="unit-card-price">581 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Retama%20Residences%20-%20914">Se renseigner sur 914</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>20 photos</button>
+          <a class="chip" href="fr/property-retama-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plans</a>
+          <a class="chip" href="fr/property-retama-residences.html#location"><svg><use href="#v2-pin"/></svg>Carte</a>
           
-          <p class="availability-source-note">Tous les chiffres sont repris de la liste de prix du promoteur, datée du 14 septembre 2026. Elle présente dix logements, tous indiqués comme disponibles, et précise que ses prix sont nets, hors TVA, droits de mutation et autres frais, et qu’elle peut être modifiée tant que l’acompte initial n’a pas été reçu. En Andalousie s’appliquent une TVA de 10 % et un droit de timbre de 1,20 %, si bien que l’appartement à 341 000 € revient à environ 379 000 € et le penthouse à 885 000 € à environ 984 000 €, avant frais de notaire et d’enregistrement. La surface construite indiquée est la surface construite intérieure de la liste, buanderie comprise le cas échéant ; la terrasse additionne les terrasses couvertes et ouvertes de la liste, le solarium et le jardin étant donnés à part. Chaque logement de la liste a une place de parking et une cave numérotées sur la même ligne que son prix ; les documents ne disent pas expressément que les deux sont inclus.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="fr/property-retama-residences.html#enquire" data-prefill>Demander des informations</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financement</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estimez votre <em>mensualité</em></h2>
-          <p class="body-copy">Il s'agit d'une estimation indicative uniquement. Confirmez les conditions exactes auprès de votre banque avant toute décision.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Retama</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Une résidence fermée de 120 appartements et penthouses en construction sur un coteau de Mijas Costa, avec deux piscines extérieures, un spa, une salle de sport et un espace de coworking.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts has5"><div data-nl-price><dt>Prix</dt><dd class="num">À partir de 341 000 €</dd><dd class="sub">Hors TVA</dd></div><div><dt>Chambres</dt><dd>1 à 3</dd><dd class="sub"><span>Appartements et attiques</span></dd></div><div><dt>Livraison</dt><dd>septembre 2028</dd><dd class="sub">Permis de construire délivré</dd></div><div><dt>Biens restants</dt><dd>10 sur 120</dd><dd class="sub">Vérifié le 14 septembre 2026</dd></div><div><dt>Paiements</dt><dd>60% · À la livraison</dd><dd class="sub">10 000 € pour réserver</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="fr/property-retama-residences.html#enquire" data-prefill>Réserver une visite privée</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Le programme</h2>
+    <p class="lede">Retama Residences est une résidence fermée de 120 logements en bâtiments bas sur un terrain de 31 000 m² à Mijas Costa, près du golf de Cerrado del Águila. La brochure dispose les bâtiments autour d’un grand jardin, avec des allées qui les relient aux espaces communs et à un belvédère, et laisse une partie du terrain à l’état naturel.</p>
+    <p class="lede-2">La liste de prix du promoteur du 14 septembre 2026 présente dix logements, tous disponibles : des appartements d’une à trois chambres au rez-de-chaussée, au premier et au deuxième étage à partir de 341 000 €, et trois penthouses avec de grandes terrasses de 780 000 € à 885 000 €, le tout hors TVA. Le portail du promoteur indique le permis de construire comme accordé, le début des travaux le 11 novembre 2025 et la livraison en septembre 2028.</p>
+    <details class="fold" id="architecture"><summary>Architecture · <span>Des bâtiments bas autour d’un jardin</span></summary><p>La brochure décrit des bâtiments de faible volume disposés autour d’un grand espace vert, le jardin étant l’élément principal, traversé d’allées vers les espaces communs et un belvédère. Sur les visuels, les bâtiments ont des terrasses profondes avec garde-corps en verre, des pergolas à lames et des murs couleur pierre, parmi les oliviers, la lavande et les graminées.</p><p>Le plan de masse numérote neuf cages d’escalier, et la liste de prix nomme quatre niveaux : rez-de-chaussée, premier étage, deuxième étage et penthouse. Deux des penthouses de la liste ajoutent un solarium au-dessus du logement, accessible sur les plans par un escalier en colimaçon.</p><ul><li>Un ensemble clos et clôturé, avec contrôle d’accès pour piétons et véhicules et vidéosurveillance.</li><li>Des ascenseurs électriques pour huit personnes desservant tous les étages, avec portes automatiques en inox, adaptés aux personnes à mobilité réduite.</li><li>Une porte de garage automatique avec télécommande et une pré-installation pour recharger un véhicule électrique depuis le compteur du logement.</li><li>Des fenêtres en aluminium à rupture de pont thermique et vitrage à faible émissivité, et des panneaux photovoltaïques sur les toits du parking pour les espaces communs.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prix</dt><dd><span>341 000 € – 885 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>10 biens sur 120</span><small>Vérifié le 14 septembre 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartements et attiques</span></dd></div><div><dt>Surfaces</dt><dd><span>47 – 102 m²</span><small>Surface construite</small></dd></div><div><dt>Livraison</dt><dd><span>septembre 2028</span></dd></div><div><dt>Permis</dt><dd><span><span class="ok">Permis de construire</span></span><small>Délivré</small></dd></div><div><dt>Paiements</dt><dd><span>4 échéances</span><small>60% · À la livraison · <a href="fr/property-retama-residences.html#plan">échéancier</a></small></dd></div><div><dt>Acomptes</dt><dd><span>Garantie bancaire</span><small>Exigée par la loi espagnole</small></dd></div><div><dt>Stationnement</dt><dd><span>Place de garage</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Biens et prix</h2>
+    <p class="sec-sub">Les prix proviennent de la liste de prix du promoteur datée du 14 septembre 2026, qui présente 10 logements, tous disponibles, sur une résidence de 120. Nous confirmons les prix et la disponibilité avant toute réservation. Les prix s’entendent hors TVA. Sélectionnez un bien pour voir son échéancier et son coût total.</p>
+    <div class="scarcity" role="img" aria-label="10 sur 120 encore en vente"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>10 sur 120 encore en vente</span></div>
+    <div class="ufilter" role="group" aria-label="Filtrer par chambres"><button type="button" aria-pressed="true" data-beds="">Toutes <span>10</span></button><button type="button" aria-pressed="false" data-beds="1">1 ch. <span>1</span></button><button type="button" aria-pressed="false" data-beds="2">2 ch. <span>5</span></button><button type="button" aria-pressed="false" data-beds="3">3 ch. <span>4</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Biens en vente, avec surface et prix. Sélectionnez une ligne pour voir l’échéancier.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bien</th>
+          <th scope="col" data-sort="beds">Chambres</th>
+          <th scope="col" data-sort="size">Surface</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prix</th>
+          <th scope="col" data-sort="ppm">Par m²</th>
+          <th scope="col">Plan</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="595000" data-size="96.76" data-ppm="6149" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">101</span><span class="u-loc">Appartement · Cage 1, rez-de-chaussée</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">97 m²</td>
+            <td data-label="Prix" class="u-price num">595 000 €</td>
+            <td data-label="Par m²" class="num">6 149 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 101"><img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="490000" data-size="72.41" data-ppm="6767" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">222</span><span class="u-loc">Appartement · Cage 2, deuxième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">72 m²</td>
+            <td data-label="Prix" class="u-price num">490 000 €</td>
+            <td data-label="Par m²" class="num">6 767 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 222"><img src="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="885000" data-size="99.51" data-ppm="8894" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">231</span><span class="u-loc">Penthouse · Cage 2, penthouse</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">100 m²</td>
+            <td data-label="Prix" class="u-price num">885 000 €</td>
+            <td data-label="Par m²" class="num">8 894 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 231"><img src="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="780000" data-size="80" data-ppm="9750" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">232</span><span class="u-loc">Penthouse · Cage 2, penthouse</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">780 000 €</td>
+            <td data-label="Par m²" class="num">9 750 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 232"><img src="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="480000" data-size="72.28" data-ppm="6641" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">303</span><span class="u-loc">Appartement · Cage 3, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">72 m²</td>
+            <td data-label="Prix" class="u-price num">480 000 €</td>
+            <td data-label="Par m²" class="num">6 641 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 303"><img src="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="451000" data-size="72.41" data-ppm="6228" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">403</span><span class="u-loc">Appartement · Cage 4, rez-de-chaussée</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">72 m²</td>
+            <td data-label="Prix" class="u-price num">451 000 €</td>
+            <td data-label="Par m²" class="num">6 228 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 403"><img src="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="795000" data-size="99.51" data-ppm="7989" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">531</span><span class="u-loc">Penthouse · Cage 5, penthouse</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">100 m²</td>
+            <td data-label="Prix" class="u-price num">795 000 €</td>
+            <td data-label="Par m²" class="num">7 989 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 531"><img src="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="2" data-price="485000" data-size="80.26" data-ppm="6043" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">624</span><span class="u-loc">Appartement · Cage 6, deuxième étage</span></th>
+            <td data-label="Chambres">2 ch.</td>
+            <td data-label="Surface" class="num">80 m²</td>
+            <td data-label="Prix" class="u-price num">485 000 €</td>
+            <td data-label="Par m²" class="num">6 043 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 624"><img src="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="1" data-price="341000" data-size="46.78" data-ppm="7289" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">912</span><span class="u-loc">Appartement · Cage 9, premier étage</span></th>
+            <td data-label="Chambres">1 ch.</td>
+            <td data-label="Surface" class="num">47 m²</td>
+            <td data-label="Prix" class="u-price num">341 000 €</td>
+            <td data-label="Par m²" class="num">7 289 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 912"><img src="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="581000" data-size="101.62" data-ppm="5717" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg">
+            <th scope="row"><span class="u-name">914</span><span class="u-loc">Appartement · Cage 9, premier étage</span></th>
+            <td data-label="Chambres">3 ch.</td>
+            <td data-label="Surface" class="num">102 m²</td>
+            <td data-label="Prix" class="u-price num">581 000 €</td>
+            <td data-label="Par m²" class="num">5 717 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf" target="_blank" rel="noopener" aria-label="Plan de 914"><img src="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Résidences · <span>Dix logements, quatre niveaux</span></summary><p>Les dix logements de la liste vont d’un appartement d’une chambre au premier étage à des penthouses de trois chambres. Chaque ligne de la liste numérote aussi une place de parking et une cave. Le tableau ci-dessous présente chaque logement avec son prix.</p><div class="res-types"><div class="res-type"><h3>Un logement d’une chambre</h3><ul><li>Logement 912, cage 9, au premier étage : une chambre et une salle de bains, avec 46,78 m² construits.</li><li>Une terrasse de 14,30 m², en partie couverte et en partie ouverte, pour 341 000 € hors TVA.</li></ul></div><div class="res-type"><h3>Logements de deux chambres</h3><ul><li>Quatre logements de deux chambres et deux salles de bains, de 72,28 à 80,26 m² construits, de 451 000 € à 490 000 € hors TVA.</li><li>Le logement 403, au rez-de-chaussée de la cage 4, a une terrasse de 41,85 m² et un jardin de 59,91 m² ; le logement 303, également au rez-de-chaussée, a une terrasse de 45,59 m².</li><li>Les logements 222 et 624 sont au deuxième étage, avec des terrasses de 21,65 et 26,71 m².</li></ul></div><div class="res-type"><h3>Logements de trois chambres</h3><ul><li>Logement 101, au rez-de-chaussée de la cage 1, avec 96,76 m² construits buanderie comprise et une terrasse de 64,78 m², pour 595 000 € hors TVA.</li><li>Logement 914, au premier étage de la cage 9, avec 101,62 m² construits buanderie comprise et une terrasse de 16,50 m², pour 581 000 € hors TVA.</li></ul></div><div class="res-type"><h3>Penthouses</h3><ul><li>Trois penthouses avec des terrasses d’environ 100 m² : le logement 531, de trois chambres et 99,51 m² construits, pour 795 000 €, et les logements 231 et 232 dans la cage 2.</li><li>Le logement 231, de trois chambres, ajoute un solarium de 87,42 m², pour 885 000 € ; le logement 232, de deux chambres, ajoute un solarium de 65,85 m², pour 780 000 €, tous deux hors TVA.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><table class="sched num"><caption>Échéancier de ce bien</caption><tbody id="v2-p-sched"></tbody></table>
+      <p class="caption">L’échéancier précise que la TVA s’ajoute à chaque montant. Il ne dit pas si la réservation est déduite des 30 %, si les sommes versées d’avance sont garanties, ni à combien s’élèvent les frais d’achat en plus du prix. Nueva Living demande chaque point par écrit avant que vous ne réserviez.</p>
+      
+      <ol class="ct-strip" aria-label="Étapes du chantier"><li class="is-mile"><b>Novembre 2025</b><span>Début des travaux</span></li><li class="is-mile"><b>Septembre 2028</b><span>Livraison</span></li></ol>
+      <p class="ct-note">Le portail du promoteur indique le permis de construire comme accordé, le début des travaux le 11 novembre 2025 et la livraison en septembre 2028. L’échéancier lie les derniers 60 % à la licence de première occupation et à l’acte. Nueva Living demande par écrit le permis, le calendrier des travaux et la date de livraison, et inscrit la date dans le contrat.</p></div>
+      <div class="cost-wrap"><p class="cap">Ce que cela coûte au total</p>
+      <dl class="cost-lines num">
+        <div><dt>Prix</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>TVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Droits de timbre (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Total avant frais de notaire, d’enregistrement et d’avocat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="fr/property-retama-residences.html#enquire" data-prefill>Se renseigner sur ce bien</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plan"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Un financement ? Calculatrice de prêt</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Prix d'achat</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1238,487 +640,223 @@
               <div class="calculator-result"><span>Taxes et frais d'achat</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Équipements</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ce que le programme <em>vous offre</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Bien-être</span>
-              <h3 class="amenity-name">Spa intérieur avec piscine chauffée</h3>
-              <p class="amenity-note">Espace humide de récupération</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Finitions</h2>
+    <p class="sec-sub">Le descriptif de la qualité du promoteur lui-même, résumé par partie du logement.</p>
+    <div class="tabs" role="tablist" aria-label="Finitions"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Façade et structure</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Sols et revêtements</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Cuisine</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Salles de bain</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Menuiserie</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Climatisation et eau chaude</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Parties communes</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Une structure en béton armé et une façade à double paroi en brique perforée enduite, isolée au polyuréthane projeté, doublée à l’intérieur de plaques de plâtre et de laine minérale.</li><li>Des cloisons triples entre logements, avec membrane acoustique, et des cloisons en plaques de plâtre isolées à la laine minérale à l’intérieur de chaque logement.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Des sols en grès cérame grand format dans tout le logement, avec plinthes laquées blanc, et du grès antidérapant du même modèle sur les terrasses.</li><li>Du grès cérame rectifié grand format aux murs des salles de bains, et des faux plafonds dans l’entrée, le couloir, la cuisine et les salles de bains.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Des meubles hauts et bas au choix en deux couleurs, avec plan de travail et crédence en Silestone, Compac ou équivalent.</li><li>Électroménager Bosch, Teka ou équivalent : hotte aspirante, plaque à induction, four électrique, micro-ondes, lave-vaisselle, réfrigérateur et évier en inox encastré.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Un meuble à tiroirs avec vasque intégrée, des sanitaires en porcelaine vitrifiée blanche et un receveur de douche extra-plat en résine.</li><li>Une robinetterie mitigeur chromée avec économiseurs d’eau et un système qui réduit la consommation d’eau chaude, et une robinetterie encastrée dans les douches.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Une porte d’entrée de sécurité à trois points d’ancrage et des portes intérieures lisses laquées blanc avec poignées couleur chrome.</li><li>Des placards intégrés en bois laqué blanc à portes coulissantes ou battantes, avec étagère et penderie, et des volets roulants en aluminium laqué dans les chambres.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Une climatisation gainable, chaud et froid, par pompe à chaleur, avec des grilles dans chaque pièce et un seul thermostat dans le séjour.</li><li>L’eau chaude par une unité aérothermique propre à chaque logement, et une ventilation simple flux qui fait entrer l’air frais et extrait l’air vicié.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Un spa avec une piscine chauffée par aérothermie, un sauna finlandais, des douches et des vestiaires, et deux piscines extérieures à électrolyse au sel avec éclairage subaquatique.</li><li>Un espace chill-out avec barbecue, des jardins d’espèces locales peu gourmandes en eau, la récupération des eaux de pluie pour l’arrosage et une conciergerie pour les services de l’immeuble.</li></ul>
+      
+    </div>
+    <p class="caption">Source : le descriptif des prestations du promoteur, en anglais et en espagnol, sans date imprimée. Il précise que les finitions peuvent être modifiées ou remplacées par des éléments de qualité égale ou supérieure, et que le mobilier, la décoration et la végétation des visuels ne font pas partie de l’offre.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerie</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Les deux piscines et un bâtiment"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Vue de synthèse de deux piscines communes avec transats et parasols devant un long bâtiment d’appartements à terrasses, avec la mer à l’horizon" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Séjour et cuisine"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-640.webp 640w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-960.webp 960w, assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.jpg" alt="Séjour ouvert de synthèse avec canapé, table à manger et cuisine à îlot aspect marbre, ouvert sur une terrasse par des baies coulissantes" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Une terrasse et un jardin en rez-de-chaussée"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-640.webp 640w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-960.webp 960w, assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.jpg" alt="Terrasse de rez-de-chaussée de synthèse avec une longue table à manger et un canapé d’extérieur sur la pelouse, sous des balcons à ventilateurs de plafond, avec la mer au loin" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="Le spa"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-640.webp 640w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-960.webp 960w, assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.jpg" alt="Spa de synthèse avec une piscine intérieure chauffée, des transats sur un sol en pierre et un sauna à façade vitrée" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Chambre"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-640.webp 640w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-960.webp 960w, assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.jpg" alt="Chambre de synthèse avec un lit double contre un mur à tasseaux de bois et une baie coulissante ouvrant sur une terrasse avec vue sur la mer" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Voir les 20 photos</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Extérieurs (6)</button><button type="button" data-open-cat="Terraces">Terrasses (3)</button><button type="button" data-open-cat="Interiors">Intérieurs (1)</button><button type="button" data-open-cat="Bedrooms">Chambres (1)</button><button type="button" data-open-cat="Bathrooms">Salles de bains (1)</button><button type="button" data-open-cat="Amenities">Équipements (8)</button></div>
+    
+    <p class="caption">Les images sont des vues de synthèse, sauf la vue aérienne, dans laquelle les bâtiments prévus sont insérés dans une photographie des environs. Le mobilier, la décoration et la végétation qu’elles montrent sont illustratifs et non inclus. Les plans sont ceux du promoteur, établis à partir du projet de base du bâtiment, sans les logos du promoteur ni le nom du projet ; le promoteur précise qu’ils sont indicatifs et non définitifs et que les surfaces sont approximatives, et les noms des pièces y figurent en espagnol.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Emplacement</h2>
+    <p class="sec-sub">La brochure situe la résidence entre Fuengirola et La Cala de Mijas, dans un cadre naturel entre des golfs. Sa carte place Cerrado del Águila Golf à 2 km et un autre golf à 3 km, et le plan d’urbanisme du promoteur montre le terrain à l’ouest de l’hippodrome de la Costa del Sol. Les documents ne donnent pas d’adresse, la position sur notre carte est donc approximative.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-retama-residences" data-locmap='{&quot;site&quot;:[36.521,-4.664],&quot;sea&quot;:[36.494,-4.664],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;6,1 km · 14 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Fuengirola&quot;,&quot;sub&quot;:&quot;5,7 km · 13 min&quot;},{&quot;ll&quot;:[36.50609,-4.66035],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;4,8 km · 12 min&quot;},{&quot;ll&quot;:[36.49466,-4.73903],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Cabopino&quot;,&quot;sub&quot;:&quot;12 km · 19 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Retama Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Retama Residences</h3>
+            <p class="locmap-place">Mijas Costa, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>4,8 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Bien-être</span>
-              <h3 class="amenity-name">Sauna</h3>
-              <p class="amenity-note">Chaleur sèche</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Bien-être</span>
-              <h3 class="amenity-name">Salle de sport entièrement équipée</h3>
-              <p class="amenity-note">Cardio et musculation</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>5,7 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Bien-être</span>
-              <h3 class="amenity-name">Putting green</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Cabopino</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>19 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Deux piscines extérieures à électrolyse au sel</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Málaga</span>
+              <span class="locmap-row-figure"><bdi>31 km</bdi> <em><bdi>34 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Espace barbecue</h3>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Sentier de promenade</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Jardins paysagers en plantes locales peu gourmandes en eau</h3>
-              <p class="amenity-note">Espaces communs paysagers</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Extérieurs</span>
-              <h3 class="amenity-name">Vue sur la mer</h3>
-              <p class="amenity-note">Vers la Méditerranée</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Espace de coworking</h3>
-              <p class="amenity-note">Des bureaux hors du logement</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Place de garage</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Cave de rangement</h3>
-              <p class="amenity-note">Un débarras fermant à clé</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Ascenseur</h3>
-              <p class="amenity-note">Tous les étages desservis</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Pré-installation pour la recharge de véhicules électriques</h3>
-              <p class="amenity-note">Une borne pour la voiture</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">15 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Climatisation</h3>
-              <p class="amenity-note">Froid et chaud par gaines</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">16 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Eau chaude aérothermique</h3>
-              <p class="amenity-note">Eau chaude tirée de l’air</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">17 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Panneaux solaires</h3>
-              <p class="amenity-note">De l’électricité depuis le toit</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">18 &middot; Au quotidien</span>
-              <h3 class="amenity-name">Cuisine équipée</h3>
-              <p class="amenity-note">Équipée et électroménager inclus</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.8 4.7L18.5 9.5 13.8 11.3 12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3Z"/><path d="M18 16l.7 1.8L20.5 18.5l-1.8.7L18 21l-.7-1.8L15.5 18.5l1.8-.7L18 16Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">19 &middot; Services</span>
-              <h3 class="amenity-name">Salon commun</h3>
-              <p class="amenity-note">Une salle pour se retrouver</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">20 &middot; Services</span>
-              <h3 class="amenity-name">Conciergerie</h3>
-              <p class="amenity-note">Quelqu’un à l’entrée</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">21 &middot; Services</span>
-              <h3 class="amenity-name">Résidence fermée avec vidéosurveillance</h3>
-              <p class="amenity-note">Accès contrôlé</p>
-            </div>
-          </li>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Cerrado del Águila Golf</th><td>2 km sur la carte du promoteur</td></tr><tr><th scope="row">Golf</th><td>3 km sur la carte du promoteur</td></tr><tr><th scope="row">Mijas Golf</th><td>5 km sur la carte du promoteur</td></tr><tr><th scope="row">La Cala Golf Resort</th><td>13 km sur la carte du promoteur</td></tr><tr><th scope="row">Málaga</th><td>37 km sur la carte du promoteur</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Sur place</h2>
+    <p class="sec-sub">Les espaces communs se trouvent dans le jardin entre les bâtiments : deux piscines extérieures, un spa, une salle de sport, un salon commun avec coworking, des espaces de jeu et une allée jusqu’à un belvédère.</p>
+    <div class="life-panels"><div><h3>Les piscines</h3><p>Deux piscines extérieures avec solarium, l’une avec un couloir de nage et un bord de type débordement, toutes deux à électrolyse au sel, auxquelles on accède par une allée qui traverse un bassin.</p></div><div><h3>Le spa et la salle de sport</h3><p>Un spa avec piscine chauffée, sauna, vestiaires et espace détente, à côté d’une salle de sport précédée d’une terrasse de yoga.</p></div><div><h3>Le salon commun</h3><p>Un salon et un espace de coworking avec bureaux partagés et terrasse, et un salon extérieur avec barbecue pour se retrouver.</p></div><div><h3>Jeux dans le jardin</h3><p>Un green de putting, un terrain de sable pour le beach-volley et le beach-tennis, un espace enfants et des potagers biologiques.</p></div><div><h3>Le belvédère</h3><p>Un sentier à travers le jardin mène à un belvédère avec un coin lecture, que la brochure présente comme un endroit d’où regarder le coucher du soleil.</p></div><div><h3>La conciergerie</h3><p>La brochure décrit une conciergerie depuis laquelle gérer la blanchisserie, le ménage des appartements, les petites réparations et l’entretien des espaces communs.</p></div></div>
+    <ul class="amen-top"><li>Deux piscines extérieures à électrolyse au sel</li><li>Spa intérieur avec piscine chauffée</li><li>Sauna</li><li>Salle de sport entièrement équipée</li><li>Salon commun</li><li>Espace de coworking</li></ul>
+    <details class="amen-all"><summary>Tout afficher (21)</summary><div class="amen-groups"><div><h3>Bien-être<span class="count">4</span></h3><ul><li>Spa intérieur avec piscine chauffée</li><li>Sauna</li><li>Salle de sport entièrement équipée</li><li>Putting green</li></ul></div><div><h3>Extérieurs<span class="count">5</span></h3><ul><li>Deux piscines extérieures à électrolyse au sel</li><li>Espace barbecue</li><li>Sentier de promenade</li><li>Jardins paysagers en plantes locales peu gourmandes en eau</li><li>Vue sur la mer</li></ul></div><div><h3>Au quotidien<span class="count">9</span></h3><ul><li>Espace de coworking</li><li>Place de garage</li><li>Cave de rangement</li><li>Ascenseur</li><li>Pré-installation pour la recharge de véhicules électriques</li><li>Climatisation</li><li>Eau chaude aérothermique</li><li>Panneaux solaires</li><li>Cuisine équipée</li></ul></div><div><h3>Services<span class="count">3</span></h3><ul><li>Salon commun</li><li>Conciergerie</li><li>Résidence fermée avec vidéosurveillance</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Notre avis</h2>
+    <p class="sec-sub">Ce que nous pèserions avant de réserver ici, et les vérifications que nous faisons pour vous.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Notre avis">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Atouts</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">À prévoir</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Vérifications</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Ce qui le distingue</h3><ul class="points"><li><b>À qui s'adresse ce projet</b><span>Les acquéreurs qui cherchent un appartement ou un penthouse neuf à Mijas Costa comme résidence principale ou secondaire, avec les services d’un resort dans une résidence fermée.</span></li><li><b>Les travaux ont commencé</b><span>Le portail du promoteur indique le permis de construire comme accordé et les travaux comme commencés le 11 novembre 2025, avec une livraison en septembre 2028.</span></li><li><b>Plus qu’une piscine</b><span>Un spa avec piscine chauffée et sauna, une salle de sport, un espace de coworking, un green de putting et un terrain de sable pour le beach-volley et le beach-tennis, tels que les documents du promoteur les énumèrent.</span></li><li><b>L’essentiel du prix se règle à l’acte</b><span>Après une réservation de 10 000 €, 30 % sont dus au contrat privé et 10 % six mois plus tard ; les 60 % restants sont dus à la licence de première occupation et à l’acte. La TVA s’ajoute à chaque paiement.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Ce qu’il faut prévoir</h3><ul class="points"><li><b>Le prix s'entend hors taxes</b><span>La liste de prix indique que ses prix sont nets et n’incluent ni la TVA ni les droits de mutation. La TVA de 10 % et le droit de timbre de 1,20 % ajoutent environ 38 000 € au logement le moins cher et environ 99 000 € au penthouse le plus cher, avant les frais de notaire et d’enregistrement.</span></li><li><b>Les dates viennent du portail</b><span>Le début des travaux le 11 novembre 2025, le permis de construire et la livraison en septembre 2028 figurent sur le portail du promoteur, et non dans la brochure ni sur la liste de prix ; nous les demandons donc dans le contrat, avec ce qui se passe si la date glisse.</span></li><li><b>Dix logements sur 120 dans la liste</b><span>La liste de prix ne montre que les dix logements qu’elle indique comme disponibles. Elle ne dit pas combien des 110 autres sont vendus ou réservés, et le promoteur peut réviser les prix avant une réservation.</span></li><li><b>Une liste de prix de septembre</b><span>La liste est datée du 14 septembre 2026. Nous confirmons chaque prix et sa disponibilité auprès du promoteur avant que vous ne réserviez.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Vérifications avant tout paiement</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Le permis et les travaux</b><span>Permis de construire délivré. Le portail indique le permis de construire comme accordé et les travaux comme commencés. Nous demandons le permis lui-même et le calendrier des travaux.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Votre argent</b><span>Les documents ne disent pas si les sommes versées en acompte sont garanties. Nous demandons à voir la garantie bancaire elle-même avant tout paiement.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les chiffres</b><span>Les prix et les surfaces sont repris de la liste de prix du 14 septembre 2026. Ses surfaces sont construites ; les plans donnent aussi des surfaces utiles plus petites, que nous ne publions pas.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Garage et caves</b><span>Chaque logement de la liste a une place de garage et une cave numérotées sur la même ligne que son prix. Les documents ne disent pas en toutes lettres que les deux sont inclus ; nous le confirmons donc.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Les images et les plans</b><span>Les images sont des vues de synthèse, les plans sont établis à partir du projet de base et ne sont pas définitifs, et le mobilier montré n’est pas inclus.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Dites-nous ce dont vous avez besoin</h3><p>Le nombre de chambres, l’étage et si vous cherchez un jardin, une grande terrasse ou un solarium.</p></li><li><h3>Nous confirmons la liste</h3><p>Disponibilité et prix actuels auprès du promoteur, avec la TVA et le droit de timbre ajoutés pour que vous voyiez le chiffre réel.</p></li><li><h3>Découvrez le terrain et la zone</h3><p>Nous parcourons avec vous le chantier et le quartier, et posons au promoteur les questions sur le permis, la garantie et la date.</p></li><li><h3>Réservez</h3><p>Nous confirmons par écrit le montant de la réservation et les dates de paiement avant le contrat privé.</p></li></ol>
+      <div class="docs card"><h3>Documents que vous recevrez</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Grille de prix</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plans<small>10 biens sur 10</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Échéancier</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Descriptif des prestations</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Le résumé officiel auquel tout acheteur en Andalousie a droit</small></span></li></ul><a class="btn btn-primary" href="fr/property-retama-residences.html#enquire" data-prefill>Recevoir le dossier du programme</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Questions sur Retama</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Combien y a-t-il de maisons ?</summary><p>La brochure indique 120 logements. La liste de prix du 14 septembre 2026 en présente dix, tous disponibles : sept appartements d’une à trois chambres de 341 000 € à 595 000 € et trois penthouses de 780 000 € à 885 000 €.</p></details><details class="segment-faq-item"><summary>La TVA est-elle incluse ?</summary><p>Non. La liste de prix indique que ses prix sont nets et n’incluent ni la TVA ni les droits de mutation. S’y ajoutent la TVA de 10 % et le droit de timbre de 1,20 %, ainsi que les frais de notaire et d’enregistrement.</p></details><details class="segment-faq-item"><summary>Une place de garage et une cave sont-elles incluses ?</summary><p>Chaque logement de la liste a une place de parking et une cave numérotées sur la même ligne que son prix, et le descriptif décrit le garage et ses caves. Les documents ne disent pas expressément que les deux sont compris dans le prix, nous le confirmons donc par écrit.</p></details><details class="segment-faq-item"><summary>Quand les logements seront-ils livrés ?</summary><p>Le portail du promoteur indique une livraison en septembre 2028, avec le permis de construire accordé et les travaux commencés le 11 novembre 2025. Nous demandons la date dans le contrat et ce qui se passe en cas de retard.</p></details><details class="segment-faq-item"><summary>Comment fonctionne l'échéancier de paiement ?</summary><p>10 000 € à la réservation, 30 % au contrat privé, 10 % six mois plus tard et 60 % à la licence de première occupation et à l’acte, plus la TVA sur chaque paiement.</p></details></div>
+    <details class="faq2-more"><summary>Voir toutes les questions (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Qu’est-ce qui est partagé ?</summary><p>Deux piscines extérieures, un spa avec piscine chauffée et sauna, une salle de sport, un salon commun avec coworking, un salon extérieur avec barbecue, un green de putting, un terrain de sable, un espace enfants, des potagers, un belvédère et une conciergerie, tels que les documents du promoteur les énumèrent.</p></details><details class="segment-faq-item"><summary>Les prix peuvent-ils changer ?</summary><p>La liste de prix est celle du promoteur et peut être révisée tant que l’acompte initial n’a pas été reçu. Nueva Living reconfirme le chiffre auprès du promoteur avant que vous ne vous engagiez.</p></details></div></details>
+    <p class="faq2-guide">En savoir plus sur l’achat d’un logement neuf en Espagne → <a class="textlink" href="fr/guide-how-buying-works.html">Guide d’achat</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Réserver une visite privée">
+    <div class="card">
+      <p class="rail-price-label">Prix à partir de</p>
+      <p class="rail-price num">341 000 €</p>
+      <p class="rail-note">Hors TVA. Il reste 10 biens sur 120 · Vérifié le 14 septembre 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="fr/property-retama-residences.html#enquire" data-prefill>Réserver une visite privée</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Écrivez-nous sur WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Réserver une visite privée</h2>
+        <p>Dites-nous quel bien vous intéresse. Nous vous envoyons le dossier, puis nous visitons le site avec vous.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, fondateur de Nueva Living</strong>Nous répondons nous-mêmes à chaque demande.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Écrivez-nous</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Lors de la visite, nous vérifions avec vous</h3><ul><li><b>Sur place.</b> Voyez le chantier et le coteau, et comment les bâtiments s’orienteront vers le jardin et la mer.</li><li><b>Sur la route.</b> Nous parcourons avec vous les routes vers l’autoroute, les golfs et la côte, en chronométrant les trajets.</li><li><b>Sur le papier.</b> Le permis, la garantie et la date de livraison, avant de signer quoi que ce soit.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Envoi…" data-success-label="Réserver une visite privée ✓" data-submitting-message="Envoi…" data-success-message="Demande reçue. Nous vous enverrons le dossier et proposerons des créneaux de visite." data-error-message="L’envoi a échoué. Veuillez réessayer ou nous écrire sur WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Retama Residences">
+        <input type="hidden" id="f-project" name="project" value="Retama Residences">
+        <input type="hidden" name="preferred_area" value="Mijas Costa">
+        <input type="hidden" name="property_type_interest" value="Appartements et attiques">
+        <input type="hidden" name="budget_range" value="À partir de 341 000 €">
+        <input type="hidden" name="consent_text" value="J’accepte que Nueva Living conserve ces données pour répondre à ma demande.">
+        <input type="hidden" name="message" id="v2-f-message" value="Je souhaiterais connaître les disponibilités et les prix actuels de Retama Residences." data-base="Je souhaiterais connaître les disponibilités et les prix actuels de Retama Residences.">
+        <h3>Vos coordonnées</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Prénom</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Nom</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Téléphone (facultatif, pour WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Quel bien ?</label><select id="v2-f-unit" name="unit_interest"><option value="">Je ne sais pas encore, envoyez-moi tout</option><option value="101">101: 595 000 €</option><option value="222">222: 490 000 €</option><option value="231">231: 885 000 €</option><option value="232">232: 780 000 €</option><option value="303">303: 480 000 €</option><option value="403">403: 451 000 €</option><option value="531">531: 795 000 €</option><option value="624">624: 485 000 €</option><option value="912">912: 341 000 €</option><option value="914">914: 581 000 €</option></select></div>
+        <fieldset class="field"><legend>Le bien serait</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Résidence principale</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Une résidence secondaire</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Un investissement</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Comment devons-nous vous répondre ?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Appel</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>J’accepte que Nueva Living conserve ces données pour répondre à ma demande. <a href="fr/privacy-policy.html">Politique de confidentialité</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Prévenez-moi aussi si la disponibilité ou les prix changent à Retama.</label>
+        <button class="btn btn-primary btn-block" type="submit">Réserver une visite privée</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Pourquoi ce projet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Pourquoi ce projet <em>compte</em></h2>
-          <p class="project-lead">Des logements neufs déjà en construction, un spa, une salle de sport et deux piscines sur place, une place de parking et une cave numérotées à côté de chaque prix, et 60 % du prix à l’acte.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Pourquoi il convient</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>À qui s'adresse ce projet</h3><p>Les acquéreurs qui cherchent un appartement ou un penthouse neuf à Mijas Costa comme résidence principale ou secondaire, avec les services d’un resort dans une résidence fermée.</p></article>
-              <article class="why-point reveal-soft"><h3>Les travaux ont commencé</h3><p>Le portail du promoteur indique le permis de construire comme accordé et les travaux comme commencés le 11 novembre 2025, avec une livraison en septembre 2028.</p></article>
-              <article class="why-point reveal-soft"><h3>Plus qu’une piscine</h3><p>Un spa avec piscine chauffée et sauna, une salle de sport, un espace de coworking, un green de putting et un terrain de sable pour le beach-volley et le beach-tennis, tels que les documents du promoteur les énumèrent.</p></article>
-              <article class="why-point reveal-soft"><h3>L’essentiel du prix se règle à l’acte</h3><p>Après une réservation de 10 000 €, 30 % sont dus au contrat privé et 10 % six mois plus tard ; les 60 % restants sont dus à la licence de première occupation et à l’acte. La TVA s’ajoute à chaque paiement.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Argument d'Investissement</h3></div>
-            <p class="why-group-note">Ce que disent les documents du promoteur sur le prix, les paiements et les dates, et ce qu’ils laissent de côté.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Le prix s'entend hors taxes</h3><p>La liste de prix indique que ses prix sont nets et n’incluent ni la TVA ni les droits de mutation. La TVA de 10 % et le droit de timbre de 1,20 % ajoutent environ 38 000 € au logement le moins cher et environ 99 000 € au penthouse le plus cher, avant les frais de notaire et d’enregistrement.</p></article>
-              <article class="why-point reveal-soft"><h3>Les dates viennent du portail</h3><p>Le début des travaux le 11 novembre 2025, le permis de construire et la livraison en septembre 2028 figurent sur le portail du promoteur, et non dans la brochure ni sur la liste de prix ; nous les demandons donc dans le contrat, avec ce qui se passe si la date glisse.</p></article>
-              <article class="why-point reveal-soft"><h3>Dix logements sur 120 dans la liste</h3><p>La liste de prix ne montre que les dix logements qu’elle indique comme disponibles. Elle ne dit pas combien des 110 autres sont vendus ou réservés, et le promoteur peut réviser les prix avant une réservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Une liste de prix de septembre</h3><p>La liste est datée du 14 septembre 2026. Nous confirmons chaque prix et sa disponibilité auprès du promoteur avant que vous ne réserviez.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Confiance et diligence</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Le permis et les travaux</h3><p>Le portail indique le permis de construire comme accordé et les travaux comme commencés. Nous demandons le permis lui-même et le calendrier des travaux.</p></article>
-              <article class="why-point reveal-soft"><h3>Votre argent</h3><p>Les documents ne disent pas si les sommes versées en acompte sont garanties. Nous demandons à voir la garantie bancaire elle-même avant tout paiement.</p></article>
-              <article class="why-point reveal-soft"><h3>Les chiffres</h3><p>Les prix et les surfaces sont repris de la liste de prix du 14 septembre 2026. Ses surfaces sont construites ; les plans donnent aussi des surfaces utiles plus petites, que nous ne publions pas.</p></article>
-              <article class="why-point reveal-soft"><h3>Garage et caves</h3><p>Chaque logement de la liste a une place de garage et une cave numérotées sur la même ligne que son prix. Les documents ne disent pas en toutes lettres que les deux sont inclus ; nous le confirmons donc.</p></article>
-              <article class="why-point reveal-soft"><h3>Les images et les plans</h3><p>Les images sont des vues de synthèse, les plans sont établis à partir du projet de base et ne sont pas définitifs, et le mobilier montré n’est pas inclus.</p></article>
-            </div>
-            <p class="why-group-note">Premier achat sur plan en Espagne ? <a href="fr/guide-how-buying-works.html">Comment se déroule un achat dans le neuf</a> détaille les sept étapes, et <a href="fr/guide-off-plan-vs-resale.html">le neuf sur plan face à la revente</a> couvre les acomptes, les garanties et les délais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Les images sont fournies par le promoteur et peuvent être des images de synthèse ">
+    <p>Les images sont fournies par le promoteur et peuvent être des images de synthèse ; la conception finale, les finitions, les aménagements paysagers et les vues peuvent varier. Vous avez droit à une copie du Documento Informativo Abreviado (DIA) pour tout bien de cette page, que Nueva Living vous fournit sur demande.</p>
+    <p>Disponibilité vérifiée auprès du vendeur le 14 septembre 2026 ; nous la reconfirmons avant toute réservation.</p>
+    <p>Tous les chiffres sont repris de la liste de prix du promoteur, datée du 14 septembre 2026. Elle présente dix logements, tous indiqués comme disponibles, et précise que ses prix sont nets, hors TVA, droits de mutation et autres frais, et qu’elle peut être modifiée tant que l’acompte initial n’a pas été reçu. En Andalousie s’appliquent une TVA de 10 % et un droit de timbre de 1,20 %, si bien que l’appartement à 341 000 € revient à environ 379 000 € et le penthouse à 885 000 € à environ 984 000 €, avant frais de notaire et d’enregistrement. La surface construite indiquée est la surface construite intérieure de la liste, buanderie comprise le cas échéant ; la terrasse additionne les terrasses couvertes et ouvertes de la liste, le solarium et le jardin étant donnés à part. Chaque logement de la liste a une place de parking et une cave numérotées sur la même ligne que son prix ; les documents ne disent pas expressément que les deux sont inclus.</p>
+    <p>Les informations de cette page sont fournies à titre commercial général et ne constituent pas un conseil juridique, financier ou d’investissement. Les prix, la disponibilité et les dates de livraison peuvent changer sans préavis.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/retama-residences/media/entrance-court-and-blocks.jpg" alt="Vue de synthèse d’une cour d’entrée pavée, plantée d’arbustes et d’oliviers, devant des bâtiments blancs et couleur pierre" width="1400" height="787" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Aperçu architectural</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Des bâtiments bas <em>autour d’un jardin</em></h2>
-          <p>La brochure décrit des bâtiments de faible volume disposés autour d’un grand espace vert, le jardin étant l’élément principal, traversé d’allées vers les espaces communs et un belvédère. Sur les visuels, les bâtiments ont des terrasses profondes avec garde-corps en verre, des pergolas à lames et des murs couleur pierre, parmi les oliviers, la lavande et les graminées.</p>
-<p>Le plan de masse numérote neuf cages d’escalier, et la liste de prix nomme quatre niveaux : rez-de-chaussée, premier étage, deuxième étage et penthouse. Deux des penthouses de la liste ajoutent un solarium au-dessus du logement, accessible sur les plans par un escalier en colimaçon.</p>
-          <ul class="feature-list">
-            <li>Un ensemble clos et clôturé, avec contrôle d’accès pour piétons et véhicules et vidéosurveillance.</li>
-            <li>Des ascenseurs électriques pour huit personnes desservant tous les étages, avec portes automatiques en inox, adaptés aux personnes à mobilité réduite.</li>
-            <li>Une porte de garage automatique avec télécommande et une pré-installation pour recharger un véhicule électrique depuis le compteur du logement.</li>
-            <li>Des fenêtres en aluminium à rupture de pont thermique et vitrage à faible émissivité, et des panneaux photovoltaïques sur les toits du parking pour les espaces communs.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Actions de demande du projet">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Appeler</a>
+    <a class="ab-btn ab-primary" href="fr/property-retama-residences.html#enquire" data-prefill>Réserver une visite</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view.jpg" alt="Terrasse couverte de synthèse avec une table à manger sous une pergola à lames, le séjour derrière des baies coulissantes et des collines boisées descendant vers la mer" width="1400" height="787" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Présentation cinématique</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Découvrez <em>le terrain et le quartier</em></h2>
-            <p>Les logements sont en construction, une visite porte donc sur l’emplacement, les plans et le calendrier.</p>
-            <div class="viewing-insights">
-              <div><span>Sur place</span><p>Voyez le chantier et le coteau, et comment les bâtiments s’orienteront vers le jardin et la mer.</p></div>
-              <div><span>Sur la route</span><p>Nous parcourons avec vous les routes vers l’autoroute, les golfs et la côte, en chronométrant les trajets.</p></div>
-              <div><span>Sur le papier</span><p>Le permis, la garantie et la date de livraison, avant de signer quoi que ce soit.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="fr/index.html#private-viewing=1&amp;project=retama-residences">Présentation cinématique</a>
-              <a class="btn project-btn ghost" href="fr/property-retama-residences.html#enquire" data-prefill>Demander la documentation</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Fermer">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Image précédente">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Image suivante">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerie"><button type="button" data-cat="Exteriors">Extérieurs</button><button type="button" data-cat="Terraces">Terrasses</button><button type="button" data-cat="Interiors">Intérieurs</button><button type="button" data-cat="Bedrooms">Chambres</button><button type="button" data-cat="Bathrooms">Salles de bains</button><button type="button" data-cat="Amenities">Équipements</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit.jpg" alt="Salon extérieur de synthèse au crépuscule, avec des canapés courbes autour d’un brasero sous une pergola en bois végétalisée et des tables à manger derrière" width="1400" height="787" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Art de vivre</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Deux piscines, un spa <em>et un belvédère</em></h2>
-            <p>Les espaces communs se trouvent dans le jardin entre les bâtiments : deux piscines extérieures, un spa, une salle de sport, un salon commun avec coworking, des espaces de jeu et une allée jusqu’à un belvédère.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Prochaines étapes</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Les prochaines <em>étapes</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Dites-nous ce dont vous avez besoin</h3>
-            <p>Le nombre de chambres, l’étage et si vous cherchez un jardin, une grande terrasse ou un solarium.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Nous confirmons la liste</h3>
-            <p>Disponibilité et prix actuels auprès du promoteur, avec la TVA et le droit de timbre ajoutés pour que vous voyiez le chiffre réel.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Découvrez le terrain et la zone</h3>
-            <p>Nous parcourons avec vous le chantier et le quartier, et posons au promoteur les questions sur le permis, la garantie et la date.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Réservez</h3>
-            <p>Nous confirmons par écrit le montant de la réservation et les dates de paiement avant le contrat privé.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Questions <em>fréquentes des acheteurs</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui. Il n'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu'ils soient résidents ou non-résidents.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu'est-ce que le numéro NIE et en ai-je besoin ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le NIE (Numéro d'Identification d'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quels frais dois-je prévoir en plus du prix d'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d'enregistrement et les honoraires juridiques en plus du prix d'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quelle est la différence entre un bien sur plan et un bien achevé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu'à l'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne le processus de réservation et de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Puis-je louer le bien après l'achat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ai-je besoin d'un avocat ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Combien y a-t-il de maisons ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La brochure indique 120 logements. La liste de prix du 14 septembre 2026 en présente dix, tous disponibles : sept appartements d’une à trois chambres de 341 000 € à 595 000 € et trois penthouses de 780 000 € à 885 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>La TVA est-elle incluse ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Non. La liste de prix indique que ses prix sont nets et n’incluent ni la TVA ni les droits de mutation. S’y ajoutent la TVA de 10 % et le droit de timbre de 1,20 %, ainsi que les frais de notaire et d’enregistrement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Une place de garage et une cave sont-elles incluses ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Chaque logement de la liste a une place de parking et une cave numérotées sur la même ligne que son prix, et le descriptif décrit le garage et ses caves. Les documents ne disent pas expressément que les deux sont compris dans le prix, nous le confirmons donc par écrit.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Quand les logements seront-ils livrés ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Le portail du promoteur indique une livraison en septembre 2028, avec le permis de construire accordé et les travaux commencés le 11 novembre 2025. Nous demandons la date dans le contrat et ce qui se passe en cas de retard.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Comment fonctionne l'échéancier de paiement ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>10 000 € à la réservation, 30 % au contrat privé, 10 % six mois plus tard et 60 % à la licence de première occupation et à l’acte, plus la TVA sur chaque paiement.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Qu’est-ce qui est partagé ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Deux piscines extérieures, un spa avec piscine chauffée et sauna, une salle de sport, un salon commun avec coworking, un salon extérieur avec barbecue, un green de putting, un terrain de sable, un espace enfants, des potagers, un belvédère et une conciergerie, tels que les documents du promoteur les énumèrent.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Les prix peuvent-ils changer ?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>La liste de prix est celle du promoteur et peut être révisée tant que l’acompte initial n’a pas été reçu. Nueva Living reconfirme le chiffre auprès du promoteur avant que vous ne vous engagiez.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Demander</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Renseignez-vous sur <em>Retama Residences</em></h2>
-          <p class="body-copy">Dites-nous ce que vous cherchez et nous reviendrons vers vous avec la liste actuelle et le coût complet, taxes comprises.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, fondateur de Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Fondateur, Nueva Living</p>
-            <h3 id="advisor-heading">Vous préférez en discuter ?</h3>
-            <p class="advisor-copy">Choisissez ce qui vous correspond et écrivez-moi sur WhatsApp. Je partirai de là.</p>
-            <div class="advisor-group" role="group" aria-label="Je recherche">
-              <span class="advisor-group-label">Je recherche</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Une résidence principale</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Une résidence secondaire</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Un investissement</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Moins de 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Plus de 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor">Écrivez-moi sur WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Retama Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Retama Residences">
-          <input type="hidden" name="preferred_area" value="Mijas Costa">
-          <input type="hidden" name="property_type_interest" value="Appartements et attiques">
-          <input type="hidden" name="budget_range" value="À partir de 341 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Prénom</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Prénom" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Nom</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Nom" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Téléphone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Message</label>
-              <textarea id="f-msg" name="message">Je souhaiterais connaître les disponibilités et les prix actuels de Retama Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>J'accepte d'être contacté(e) et que mes données soient conservées.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Je souhaite également recevoir occasionnellement des actualités sur les projets de Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Envoyer la demande</button>
-            <span class="form-note">Nous répondons nous-mêmes à chaque demande.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"101","title":"101 · Appartement · Cage 1, rez-de-chaussée","sub":"3 ch. · 97 m²","price":595000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf","label":""}]},{"id":"u1","ref":"222","title":"222 · Appartement · Cage 2, deuxième étage","sub":"2 ch. · 72 m²","price":490000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf","label":""}]},{"id":"u2","ref":"231","title":"231 · Penthouse · Cage 2, penthouse","sub":"3 ch. · 100 m²","price":885000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf","label":""}]},{"id":"u3","ref":"232","title":"232 · Penthouse · Cage 2, penthouse","sub":"2 ch. · 80 m²","price":780000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf","label":""}]},{"id":"u4","ref":"303","title":"303 · Appartement · Cage 3, rez-de-chaussée","sub":"2 ch. · 72 m²","price":480000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf","label":""}]},{"id":"u5","ref":"403","title":"403 · Appartement · Cage 4, rez-de-chaussée","sub":"2 ch. · 72 m²","price":451000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf","label":""}]},{"id":"u6","ref":"531","title":"531 · Penthouse · Cage 5, penthouse","sub":"3 ch. · 100 m²","price":795000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf","label":""}]},{"id":"u7","ref":"624","title":"624 · Appartement · Cage 6, deuxième étage","sub":"2 ch. · 80 m²","price":485000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf","label":""}]},{"id":"u8","ref":"912","title":"912 · Appartement · Cage 9, premier étage","sub":"1 ch. · 47 m²","price":341000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf","label":""}]},{"id":"u9","ref":"914","title":"914 · Appartement · Cage 9, premier étage","sub":"3 ch. · 102 m²","price":581000,"plans":[{"src":"assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf","label":""}]}],"stages":[{"label":"Réservation","when":"À la réservation du logement","amountLabel":"10 000 €","fixed":10000},{"label":"Contrat privé","when":"Au contrat privé, que l’échéancier lie au permis de construire, moins la réservation","amountLabel":"30%","pct":0.3,"less":10000},{"label":"Échéance différée","when":"Six mois après le contrat privé","amountLabel":"10%","pct":0.1},{"label":"À la livraison","when":"À la licence de première occupation et à la signature de l’acte","amountLabel":"60%","pct":0.6}],"stageLabels":null,"gallery":[{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp","alt":"Vue de synthèse de deux piscines communes avec transats et parasols devant un long bâtiment d’appartements à terrasses, avec la mer à l’horizon","caption":"Les deux piscines et un bâtiment","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-at-dusk.webp","alt":"Vue de synthèse au crépuscule à travers la piscine commune vers des bâtiments aux terrasses profondes et garde-corps en verre, avec des transats le long de l’eau","caption":"Les piscines au crépuscule","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/aerial-view-towards-the-sea.webp","alt":"Vue aérienne des bâtiments prévus autour de leur piscine sur un coteau de garrigue et de pins, avec des maisons, des fairways de golf et la mer au loin","caption":"L\u0027ensemble vu du ciel","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/blocks-on-the-hillside.webp","alt":"Vue de synthèse des bâtiments bas étagés sur un coteau verdoyant autour de la piscine, avec des panneaux solaires au-dessus du parking au premier plan","caption":"Les blocs sur la colline","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/entrance-court-and-blocks.webp","alt":"Vue de synthèse d’une cour d’entrée pavée, plantée d’arbustes et d’oliviers, devant des bâtiments blancs et couleur pierre","caption":"Le parvis d’entrée","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/pool-entrance-with-pond.webp","alt":"Vue de synthèse d’une allée pavée traversant un bassin de nénuphars vers la plage de la piscine, avec transats, oliviers et la mer au loin","caption":"L’allée vers la piscine","cat":"Exteriors"},{"src":"assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.webp","alt":"Terrasse de rez-de-chaussée de synthèse avec une longue table à manger et un canapé d’extérieur sur la pelouse, sous des balcons à ventilateurs de plafond, avec la mer au loin","caption":"Une terrasse et un jardin en rez-de-chaussée","cat":"Terraces"},{"src":"assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view.webp","alt":"Terrasse couverte de synthèse avec une table à manger sous une pergola à lames, le séjour derrière des baies coulissantes et des collines boisées descendant vers la mer","caption":"Une terrasse avec vue sur la mer","cat":"Terraces"},{"src":"assets/liora/projects/retama-residences/media/penthouse-terrace-with-outdoor-kitchen.webp","alt":"Terrasse de penthouse de synthèse avec une table ronde, un plan de cuisine extérieure sous un auvent à poutres de bois et la mer au-delà d’un garde-corps en verre","caption":"Une terrasse de penthouse","cat":"Terraces"},{"src":"assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.webp","alt":"Séjour ouvert de synthèse avec canapé, table à manger et cuisine à îlot aspect marbre, ouvert sur une terrasse par des baies coulissantes","caption":"Séjour et cuisine","cat":"Interiors"},{"src":"assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.webp","alt":"Chambre de synthèse avec un lit double contre un mur à tasseaux de bois et une baie coulissante ouvrant sur une terrasse avec vue sur la mer","caption":"Chambre","cat":"Bedrooms"},{"src":"assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.webp","alt":"Salle de bains de synthèse aux carreaux aspect marbre, avec douche à l’italienne derrière une paroi vitrée et un meuble vasque suspendu","caption":"Salle de bains","cat":"Bathrooms"},{"src":"assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.webp","alt":"Spa de synthèse avec une piscine intérieure chauffée, des transats sur un sol en pierre et un sauna à façade vitrée","caption":"Le spa","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/gym.webp","alt":"Salle de sport de synthèse avec un plafond à lames de bois, des appareils de musculation, des tapis de course et des portes vitrées sur le jardin","caption":"La salle de sport","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/gym-and-yoga-terrace.webp","alt":"Vue de synthèse du bâtiment de plain-pied de la salle de sport, avec des tapis de yoga sur un platelage en bois devant, un toit végétalisé et un bâtiment d’appartements au-dessus","caption":"La salle de sport et la terrasse de yoga","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/social-lounge-and-coworking.webp","alt":"Salon commun de synthèse avec de longs bureaux partagés, des poufs et un canapé, ouvert sur une terrasse","caption":"Le salon commun et le coworking","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit.webp","alt":"Salon extérieur de synthèse au crépuscule, avec des canapés courbes autour d’un brasero sous une pergola en bois végétalisée et des tables à manger derrière","caption":"Le salon extérieur","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/putting-green.webp","alt":"Green d’entraînement au putting de synthèse le long d’un bâtiment d’appartements, avec deux joueurs, des drapeaux, une rangée de cyprès et la mer au loin","caption":"Le green de putting","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/viewpoint-pergola.webp","alt":"Belvédère de synthèse sous une pergola couverte de fleurs violettes, avec une table et des tabourets en bois et une vue sur un golf vers les montagnes","caption":"Le belvédère","cat":"Amenities"},{"src":"assets/liora/projects/retama-residences/media/underground-garage.webp","alt":"Garage de synthèse avec des places numérotées, des portes de caves et un panneau indiquant l’entrée d’une cage d’escalier","caption":"Le garage","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Se renseigner sur {ref}","plusVat":"Hors TVA","totalPrice":"Prix total","vatOnStages":"Plus TVA sur chaque échéance","onRequest":"Sur demande","imageOf":"{i} sur {n}","floorPlan":"Plan"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Retama Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Fermer">Fermer</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Image précédente">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Image suivante">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg","webp":"assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp","alt":"Vue de synthèse de deux piscines communes avec transats et parasols devant un long bâtiment d’appartements à terrasses, avec la mer à l’horizon","width":1400,"height":787,"caption":"Les deux piscines et un bâtiment","category":"Extérieurs"},{"src":"assets/liora/projects/retama-residences/media/pools-and-blocks-at-dusk.jpg","webp":"assets/liora/projects/retama-residences/media/pools-and-blocks-at-dusk-960.webp","alt":"Vue de synthèse au crépuscule à travers la piscine commune vers des bâtiments aux terrasses profondes et garde-corps en verre, avec des transats le long de l’eau","width":1400,"height":787,"caption":"Les piscines au crépuscule","category":"Extérieurs"},{"src":"assets/liora/projects/retama-residences/media/aerial-view-towards-the-sea.jpg","webp":"assets/liora/projects/retama-residences/media/aerial-view-towards-the-sea-960.webp","alt":"Vue aérienne des bâtiments prévus autour de leur piscine sur un coteau de garrigue et de pins, avec des maisons, des fairways de golf et la mer au loin","width":1400,"height":787,"caption":"L'ensemble vu du ciel","category":"Extérieurs"},{"src":"assets/liora/projects/retama-residences/media/blocks-on-the-hillside.jpg","webp":"assets/liora/projects/retama-residences/media/blocks-on-the-hillside-960.webp","alt":"Vue de synthèse des bâtiments bas étagés sur un coteau verdoyant autour de la piscine, avec des panneaux solaires au-dessus du parking au premier plan","width":1400,"height":728,"caption":"Les blocs sur la colline","category":"Extérieurs"},{"src":"assets/liora/projects/retama-residences/media/entrance-court-and-blocks.jpg","webp":"assets/liora/projects/retama-residences/media/entrance-court-and-blocks-960.webp","alt":"Vue de synthèse d’une cour d’entrée pavée, plantée d’arbustes et d’oliviers, devant des bâtiments blancs et couleur pierre","width":1400,"height":787,"caption":"Le parvis d’entrée","category":"Extérieurs"},{"src":"assets/liora/projects/retama-residences/media/pool-entrance-with-pond.jpg","webp":"assets/liora/projects/retama-residences/media/pool-entrance-with-pond-960.webp","alt":"Vue de synthèse d’une allée pavée traversant un bassin de nénuphars vers la plage de la piscine, avec transats, oliviers et la mer au loin","width":1400,"height":787,"caption":"L’allée vers la piscine","category":"Extérieurs"},{"src":"assets/liora/projects/retama-residences/media/ground-floor-garden-terrace.jpg","webp":"assets/liora/projects/retama-residences/media/ground-floor-garden-terrace-960.webp","alt":"Terrasse de rez-de-chaussée de synthèse avec une longue table à manger et un canapé d’extérieur sur la pelouse, sous des balcons à ventilateurs de plafond, avec la mer au loin","width":1400,"height":787,"caption":"Une terrasse et un jardin en rez-de-chaussée","category":"Terrasses"},{"src":"assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view.jpg","webp":"assets/liora/projects/retama-residences/media/terrace-dining-with-sea-view-960.webp","alt":"Terrasse couverte de synthèse avec une table à manger sous une pergola à lames, le séjour derrière des baies coulissantes et des collines boisées descendant vers la mer","width":1400,"height":787,"caption":"Une terrasse avec vue sur la mer","category":"Terrasses"},{"src":"assets/liora/projects/retama-residences/media/penthouse-terrace-with-outdoor-kitchen.jpg","webp":"assets/liora/projects/retama-residences/media/penthouse-terrace-with-outdoor-kitchen-960.webp","alt":"Terrasse de penthouse de synthèse avec une table ronde, un plan de cuisine extérieure sous un auvent à poutres de bois et la mer au-delà d’un garde-corps en verre","width":1400,"height":787,"caption":"Une terrasse de penthouse","category":"Terrasses"},{"src":"assets/liora/projects/retama-residences/media/living-room-and-kitchen-island.jpg","webp":"assets/liora/projects/retama-residences/media/living-room-and-kitchen-island-960.webp","alt":"Séjour ouvert de synthèse avec canapé, table à manger et cuisine à îlot aspect marbre, ouvert sur une terrasse par des baies coulissantes","width":1400,"height":787,"caption":"Séjour et cuisine","category":"Intérieurs"},{"src":"assets/liora/projects/retama-residences/media/bedroom-with-timber-wall.jpg","webp":"assets/liora/projects/retama-residences/media/bedroom-with-timber-wall-960.webp","alt":"Chambre de synthèse avec un lit double contre un mur à tasseaux de bois et une baie coulissante ouvrant sur une terrasse avec vue sur la mer","width":1400,"height":787,"caption":"Chambre","category":"Chambres"},{"src":"assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower.jpg","webp":"assets/liora/projects/retama-residences/media/bathroom-with-walk-in-shower-960.webp","alt":"Salle de bains de synthèse aux carreaux aspect marbre, avec douche à l’italienne derrière une paroi vitrée et un meuble vasque suspendu","width":1400,"height":787,"caption":"Salle de bains","category":"Salles de bains"},{"src":"assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna.jpg","webp":"assets/liora/projects/retama-residences/media/spa-with-heated-pool-and-sauna-960.webp","alt":"Spa de synthèse avec une piscine intérieure chauffée, des transats sur un sol en pierre et un sauna à façade vitrée","width":1400,"height":787,"caption":"Le spa","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/media/gym.jpg","webp":"assets/liora/projects/retama-residences/media/gym-960.webp","alt":"Salle de sport de synthèse avec un plafond à lames de bois, des appareils de musculation, des tapis de course et des portes vitrées sur le jardin","width":1400,"height":787,"caption":"La salle de sport","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/media/gym-and-yoga-terrace.jpg","webp":"assets/liora/projects/retama-residences/media/gym-and-yoga-terrace-960.webp","alt":"Vue de synthèse du bâtiment de plain-pied de la salle de sport, avec des tapis de yoga sur un platelage en bois devant, un toit végétalisé et un bâtiment d’appartements au-dessus","width":1400,"height":787,"caption":"La salle de sport et la terrasse de yoga","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/media/social-lounge-and-coworking.jpg","webp":"assets/liora/projects/retama-residences/media/social-lounge-and-coworking-960.webp","alt":"Salon commun de synthèse avec de longs bureaux partagés, des poufs et un canapé, ouvert sur une terrasse","width":1400,"height":787,"caption":"Le salon commun et le coworking","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit.jpg","webp":"assets/liora/projects/retama-residences/media/outdoor-lounge-with-fire-pit-960.webp","alt":"Salon extérieur de synthèse au crépuscule, avec des canapés courbes autour d’un brasero sous une pergola en bois végétalisée et des tables à manger derrière","width":1400,"height":787,"caption":"Le salon extérieur","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/media/putting-green.jpg","webp":"assets/liora/projects/retama-residences/media/putting-green-960.webp","alt":"Green d’entraînement au putting de synthèse le long d’un bâtiment d’appartements, avec deux joueurs, des drapeaux, une rangée de cyprès et la mer au loin","width":1400,"height":787,"caption":"Le green de putting","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/media/viewpoint-pergola.jpg","webp":"assets/liora/projects/retama-residences/media/viewpoint-pergola-960.webp","alt":"Belvédère de synthèse sous une pergola couverte de fleurs violettes, avec une table et des tabourets en bois et une vue sur un golf vers les montagnes","width":1400,"height":787,"caption":"Le belvédère","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/media/underground-garage.jpg","webp":"assets/liora/projects/retama-residences/media/underground-garage-960.webp","alt":"Garage de synthèse avec des places numérotées, des portes de caves et un panneau indiquant l’entrée d’une cage d’escalier","width":1400,"height":787,"caption":"Le garage","category":"Équipements"},{"src":"assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb-960.webp","alt":"Plan du logement 101","width":1665,"height":2000,"caption":"Logement 101","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb-960.webp","alt":"Plan du logement 222","width":1916,"height":1953,"caption":"Logement 222","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb-960.webp","alt":"Plan du logement 231, avec son solarium à côté","width":2000,"height":774,"caption":"Logement 231 et son solarium","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb-960.webp","alt":"Plan du logement 232, avec son solarium à côté","width":2000,"height":694,"caption":"Logement 232 et son solarium","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb-960.webp","alt":"Plan du logement 303","width":1689,"height":2000,"caption":"Logement 303","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb-960.webp","alt":"Plan du logement 403","width":1146,"height":2000,"caption":"Logement 403","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb-960.webp","alt":"Plan du logement 531","width":2000,"height":1484,"caption":"Logement 531","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb-960.webp","alt":"Plan du logement 624","width":1632,"height":1850,"caption":"Logement 624","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb-960.webp","alt":"Plan du logement 912","width":1335,"height":1929,"caption":"Logement 912","category":"Plans"},{"src":"assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg","webp":"assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb-960.webp","alt":"Plan du logement 914","width":1744,"height":1911,"caption":"Logement 914","category":"Plans"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Actions de demande du projet">
-    <a href="fr/property-retama-residences.html#enquire" data-prefill>Demander des informations</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Retama%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Retama Residences" data-intent="speak with an advisor">Parler à un conseiller</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

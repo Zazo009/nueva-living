@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder är tillgängliga?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Lentisco Residences"
   data-project-message="Hej Nueva Living, jag vill gärna ha information om Lentisco Residences."
@@ -451,489 +388,135 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Lentisco Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-lentisco-residences.html#top">Lentisco Residences<span>Från 363 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-lentisco-residences.html#overview">Översikt</a><a href="sv/property-lentisco-residences.html#availability">Priser</a><a href="sv/property-lentisco-residences.html#specs">Utförande</a><a href="sv/property-lentisco-residences.html#gallery">Galleri</a><a href="sv/property-lentisco-residences.html#location">Läge</a><a href="sv/property-lentisco-residences.html#onsite">I området</a><a href="sv/property-lentisco-residences.html#view">Vår bedömning</a><a href="sv/property-lentisco-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-lentisco-residences.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Lentisco Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/building-from-the-street-640.webp 640w, assets/liora/projects/lentisco-residences/media/building-from-the-street-960.webp 960w, assets/liora/projects/lentisco-residences/media/building-from-the-street.webp 1400w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/lentisco-residences/media/building-from-the-street.jpg" alt="Datorgenererad bild av den fem våningar höga byggnaden med vita, svängda balkonger och terrakottafärgade väggar, ovanför en planterad stödmur" width="1400" height="787" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/lentisco-residences/media/building-from-the-street.jpg" alt="Datorgenererad bild av den fem våningar höga byggnaden med vita, svängda balkonger och terrakottafärgade väggar, ovanför en planterad stödmur" width="1400" height="787" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">3 av 15 bostäder lediga</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Lentisco <em>Residences</em></span>
-            <span class="hero-title-context">Takvåningar med solterrass på taket i Los Pacos, Fuengirola</span>
-          </h1>
-          <p class="hero-positioning">Tre takvåningar med två sovrum tillgängliga i en ny byggnad med 15 bostäder i Los Pacos, Fuengirola, andra etappen i ett etablerat område där poolen, gymmet, bastun och tvättstugan redan är i bruk: två med egen solterrass på taket och en med en överbyggd terrass på 46,65 m², från 363 000 € plus IVA (spansk moms). Färdigställandet är planerat till september 2027.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-lentisco-residences.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=lentisco-residences">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-lentisco-residences.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Los Pacos, Fuengirola</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 363 000 € + IVA</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Takvåningar</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Färdigställande september 2027</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-lentisco-residences.html#media">Media</a>
-        <a href="sv/property-lentisco-residences.html#location">Läge</a>
-        <a href="sv/property-lentisco-residences.html#construction-timeline">Betalningsvillkor</a>
-        <a href="sv/property-lentisco-residences.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-lentisco-residences.html#overview">Översikt</a>
-          <a href="sv/property-lentisco-residences.html#residences">Bostäder</a>
-          <a href="sv/property-lentisco-residences.html#quality-specifications">Utförande</a>
-          <a href="sv/property-lentisco-residences.html#calculator">Finansiering</a>
-          <a href="sv/property-lentisco-residences.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-lentisco-residences.html#why-this-project">Varför</a>
-          <a href="sv/property-lentisco-residences.html#architecture">Arkitektur</a>
-          <a href="sv/property-lentisco-residences.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-lentisco-residences.html#lifestyle">Livsstil</a>
-          <a href="sv/property-lentisco-residences.html#faq">FAQ</a>
-          <a href="sv/property-lentisco-residences.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2 sovrum</strong></div>
-          <div class="quick-fact"><span>Bostäder</span><strong>15 bostäder i denna etapp</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>70,89 - 85,89 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>3 av 15 bostäder lediga</strong></div>
-          <div class="quick-fact"><span>Tillgänglig</span><strong>3 takvåningar</strong></div>
-          <div class="quick-fact"><span>Prisspann</span><strong>363 000 € - 460 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-lentisco-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Femton bostäder, <em>tre takvåningar tillgängliga</em></h2>
-          <p class="project-lead">Lentisco Residences är en ny byggnad med 15 bostäder med två sovrum och två badrum i Los Pacos, Fuengirola, uppförd som andra etappen i ett etablerat område. Enligt broschyren finns poolen, gymmet, bastun, tvättstugan och garaget från den tidigare etappen redan, och alla bostäder i den nya byggnaden har terrass.</p>
-          <p class="project-lead">Prislistan daterad 5 november 2026 visar 11 av de 15 bostäderna som sålda och en som reserverad. De tre som återstår är takvåningarna på översta planet: takvåning C och F med egen solterrass på taket på 96,72 och 104,96 m², och takvåning G med en överbyggd terrass på 46,65 m², från 363 000 € till 460 000 € före IVA (spansk moms).</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Byggnaden <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Datorgenererade bilder av den nya byggnaden och interiörerna, fotografier av poolen och gymmet samt planritningarna för de tre tillgängliga takvåningarna.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 2 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/building-from-the-street-640.webp 640w, assets/liora/projects/lentisco-residences/media/building-from-the-street-960.webp 960w, assets/liora/projects/lentisco-residences/media/building-from-the-street.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/lentisco-residences/media/building-from-the-street.jpg" alt="Datorgenererad bild av den fem våningar höga byggnaden med vita, svängda balkonger och terrakottafärgade väggar, ovanför en planterad stödmur" width="1400" height="787" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Den nya byggnaden</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 2 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/living-and-dining-room-640.webp 640w, assets/liora/projects/lentisco-residences/media/living-and-dining-room-960.webp 960w, assets/liora/projects/lentisco-residences/media/living-and-dining-room.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/lentisco-residences/media/living-and-dining-room.jpg" alt="Datorgenererat vardagsrum med matplats, glasbord, en vägg med träribbor och skjutdörr ut mot en terrass" width="1400" height="784" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardags- och matplats</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Visa 1 bilder i Sovrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/lentisco-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/lentisco-residences/media/main-bedroom.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/lentisco-residences/media/main-bedroom.jpg" alt="Datorgenererat sovrum med dubbelsäng, två inramade linjeteckningar och ett fönster mot sluttningen" width="1400" height="784" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Sovrum</small>
-                <strong>Sovrummet</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Visa 2 bilder i Badrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/main-bathroom-640.webp 640w, assets/liora/projects/lentisco-residences/media/main-bathroom-960.webp 960w, assets/liora/projects/lentisco-residences/media/main-bathroom.webp 1254w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/lentisco-residences/media/main-bathroom.jpg" alt="Datorgenererat badrum med väggar i marmoreffekt, en walk-in-dusch bakom en glasvägg och ett tvättställsskåp med träfront" width="1254" height="1254" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badrum</small>
-                <strong>Huvudbadrummet</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 2 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/communal-pool-640.webp 640w, assets/liora/projects/lentisco-residences/media/communal-pool-960.webp 960w, assets/liora/projects/lentisco-residences/media/communal-pool.webp 1280w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/lentisco-residences/media/communal-pool.jpg" alt="Fotografi av den befintliga gemensamma poolen, med palmer, solstolar och bostadshusen från den tidigare etappen i bakgrunden" width="1280" height="683" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Den befintliga gemensamma poolen</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Visa 3 bilder i Planritningar">
-              <img src="assets/liora/projects/lentisco-residences/floorplans/penthouse-c.jpg" alt="Planritning av takvåning c, med bostaden och den överbyggda terrassen till vänster och solterrassen på taket till höger" width="2000" height="1153" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Planritningar</small>
-                <strong>Planritning, takvåning c</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 12 bilder</button>
-          <p class="media-note">Bilderna av byggnaden och rummen är datorgenererade: broschyren anger att de endast är vägledande, att möblerna inte ingår och att ytskikt, färger, sanitetsporslin och köksinredning är ungefärliga. Poolen och gymmet är fotografier av befintliga gemensamma anläggningar, som broschyren anger som redan på plats för denna etapp. Planritningarna är exploatörens egna ritningar av de tre takvåningarna, utan logotyper, ytuppställning och situationsplan; de anger att ytor och planlösning är preliminära och kan ändras av tekniska, juridiska eller kommersiella skäl, och rumsnamnen på dem är på spanska.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Los Pacos, <em>Fuengirola</em></h2>
-          <p class="project-lead">Byggnaden ligger på Calle María de las Mercedes, i bostadsområdet Los Pacos i sluttningen ovanför Fuengirola. Broschyren anger 2 km till havet, cirka åtta minuter med bil, och fem minuters promenad till centrum av Los Pacos, och visar på kartan skolor, en park, padelbanor och pendeltågsstationen Los Boliches. Den anger 30 km till Marbella och 23 km till Málagas flygplats. Kartnålen är placerad efter situationsplanen i broschyren och är ungefärlig.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-lentisco-residences" data-locmap='{&quot;site&quot;:[36.5712,-4.6152],&quot;sea&quot;:[36.5442,-4.6152],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.56133,-4.60518],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,9 km · 8 min&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;4,3 km · 12 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centrum&quot;,&quot;sub&quot;:&quot;5,5 km · 13 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Lentisco Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Lentisco Residences</h3>
-            <p class="locmap-place">Los Pacos, Fuengirola</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Fuengirola</span>
-              <span class="locmap-row-figure"><bdi>4,3 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Fuengirola centrum</span>
-              <span class="locmap-row-figure"><bdi>5,5 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga flygplats</span>
-              <span class="locmap-row-figure"><bdi>25 km</bdi> <em><bdi>27 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Tidslinje</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hur långt <em>projektet har kommit</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Byggstart</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">Oktober 2025</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">Pågår</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M8 24V6" stroke-linecap="round"/><path d="M8 6 22 8" stroke-linecap="round"/><path d="M20 8v6" stroke-linecap="round"/><path d="M4 24h10" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">Bygget</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.18s">
-          <span class="timeline-label">Planerat färdigställande</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">September 2027</span>
-        </div>
-      </div>
-      <div class="project-inner timeline-payment-terms reveal-soft">
-        <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">Betalningsvillkor</span>
-          <span class="timeline-payment-total">10 000 € + IVA bokning, plus 100% av priset fördelat på 2 betalningar</span>
-        </div>
-        <div class="timeline-payment-grid">
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">01</span>
-            <span class="timeline-payment-label">Bokning</span>
-            <strong class="timeline-payment-value">10 000 € + IVA</strong>
-            <span class="timeline-payment-note">För att boka takvåningen</span>
-            
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">02</span>
-            <span class="timeline-payment-label">Privat köpeavtal</span>
-            <strong class="timeline-payment-value">30% + IVA</strong>
-            <span class="timeline-payment-note">Vid undertecknandet av det privata avtalet, som planen kopplar till bygglovet</span>
-            <span class="timeline-payment-running">Löpande summa: 30%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">03</span>
-            <span class="timeline-payment-label">Vid köpebrevet</span>
-            <strong class="timeline-payment-value">70% + IVA</strong>
-            <span class="timeline-payment-note">Vid inflyttningstillståndet och undertecknandet av köpebrevet</span>
-            <span class="timeline-payment-running">Löpande summa: 100%</span>
-          </div>
-        </div>
-        <p class="timeline-payment-disclaimer">Enligt exploatörens betalningsplan, som anger att IVA tillkommer på alla belopp. Den säger inte om bokningsavgiften dras av från de 30 procenten eller hur betalningar före tillträdet är säkrade. Nueva Living bekräftar de exakta villkoren med er före varje bokning.</p>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tre takvåningar, <em>två sovrum vardera</em></h2>
-          <p class="project-lead">Varje takvåning har två sovrum, två badrum, öppet vardagsrum och kök, tvättutrymme och en överbyggd terrass, och prislistan ger var och en en numrerad garageplats.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Takvåning C och F, med solterrass på taket</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-lentisco-residences.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Takvåning G, med stor överbyggd terrass</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-lentisco-residences.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-lentisco-residences.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggnadsbeskrivning</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad bostäderna <em>är byggda av</em></h2>
-          <p class="project-lead">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Golv och väggar<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Golv av porslinsklinker i kräm eller grått efter val, med halkfri yta på terrasserna.</li>
-              <li>Porslinskakel med blank marmoreffekt på väggarna i huvudbadrummet, och porslinskakel med träeffekt kombinerat med vita väggar i det andra badrummet.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kök<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Över- och underskåp med lackad yta, bänkskiva och stänkskydd i ett kvartsliknande material samt en diskho i rostfritt stål monterad under bänkskivan.</li>
-              <li>Induktionshäll, ugn, mikrovågsugn, diskmaskin och kylskåp från ett ledande spanskt märke.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badrum<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Sanitetsporslin i vitt porslin från ett ledande märke, duschgolv i resin med naturlig struktur och engreppsblandare med vattenbesparande system.</li>
-              <li>Badrumsmöbler med lådor och integrerat vitt tvättställ.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimat och energi<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Kanalburen värme och kyla med energiklass A+.</li>
-              <li>Varmvatten från en luft-vattenvärmepump med ackumulatortank.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>El och telekom<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Förberett för alla typer av tv-mottagning, via kabel, satellit eller digitalt, och vita strömbrytare och uttag.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Källa: exploatörens kvalitetsbeskrivning, på spanska och engelska, samt broschyren. Beskrivningen anger att ytskikt kan ändras eller ersättas med andra av samma eller högre kvalitet av tekniska skäl, vid ändrade tillverkarmodeller eller nya regler. För det andra badrummet anger den spanska versionen och broschyren porslinskakel med träeffekt kombinerat med vita väggar, medan den engelska versionen upprepar huvudbadrummets blanka marmoreffekt; vi visar den spanska versionen och bekräftar den före bokning.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">3 takvåningar <em>tillgängliga nu</em></h2>
-          <p class="project-lead">Tillgänglighet och priser enligt listan daterad 5 november 2026, bekräftade före bokning. Listan visar 11 av de 15 bostäderna som sålda och en som reserverad; de tre takvåningarna nedan är tillgängliga. Priserna är före IVA (spansk moms).</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/lentisco-residences/media/building-from-the-street.jpg" alt="Datorgenererad bild av den fem våningar höga byggnaden med vita, svängda balkonger och terrakottafärgade väggar, ovanför en planterad stödmur" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>9 bilder</button>
+          <a class="chip" href="sv/property-lentisco-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-lentisco-residences.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>3</strong></div>
-            <div><span>Pris från</span><strong>363 000 € + IVA</strong></div>
-            <div><span>Prisintervall</span><strong>363 000 € - 460 000 € + IVA</strong></div>
-            <div><span>Kontrollerad</span><strong>5 november 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 3 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="363000">
-                <a class="unit-card-plan" href="assets/liora/projects/lentisco-residences/floorplans/penthouse-c.jpg" target="_blank" rel="noopener" aria-label="Planritning för Takvåning C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/floorplans/penthouse-c-640.webp 640w, assets/liora/projects/lentisco-residences/floorplans/penthouse-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/lentisco-residences/floorplans/penthouse-c.jpg" alt="Planritning för Takvåning C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Takvåning C</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>70,89 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>12,68 m²</dd></div>
-                    <div><dt>Solterrass</dt><dd>96,72 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Takvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">363 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Lentisco%20Residences%20-%20Penthouse%20C">Fråga om Takvåning C</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="423000">
-                <a class="unit-card-plan" href="assets/liora/projects/lentisco-residences/floorplans/penthouse-f.jpg" target="_blank" rel="noopener" aria-label="Planritning för Takvåning F">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/floorplans/penthouse-f-640.webp 640w, assets/liora/projects/lentisco-residences/floorplans/penthouse-f-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/lentisco-residences/floorplans/penthouse-f.jpg" alt="Planritning för Takvåning F" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Takvåning F</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>85,89 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>14,18 m²</dd></div>
-                    <div><dt>Solterrass</dt><dd>104,96 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Takvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">423 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Lentisco%20Residences%20-%20Penthouse%20F">Fråga om Takvåning F</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="460000">
-                <a class="unit-card-plan" href="assets/liora/projects/lentisco-residences/floorplans/penthouse-g.jpg" target="_blank" rel="noopener" aria-label="Planritning för Takvåning G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/floorplans/penthouse-g-640.webp 640w, assets/liora/projects/lentisco-residences/floorplans/penthouse-g-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/lentisco-residences/floorplans/penthouse-g.jpg" alt="Planritning för Takvåning G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Takvåning G</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>79,92 m²</dd></div>
-                    <div><dt>Terrass</dt><dd>50,79 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Takvåning</dd></div>
-                  </dl>
-                  <p class="unit-card-price">460 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Lentisco%20Residences%20-%20Penthouse%20G">Fråga om Takvåning G</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Priser, byggytor, terrasser, solterrasser och garageplatser är hämtade från exploatörens prislista daterad 5 november 2026. Den omfattar alla 15 bostäder i denna etapp: 11 sålda, en reserverad och tre tillgängliga. Den anger att priserna är netto och inte inkluderar IVA (spansk moms), överlåtelseskatt eller andra avgifter, och att listan endast är vägledande och inte ingår i något avtal. Ytorna i tabellen är den invändiga byggytan, de överbyggda och öppna terrasserna tillsammans och, för C och F, solterrassen på taket. Nyttoytor och rumsytor kommer från exploatörens planritning för varje takvåning. Varje takvåning står med en numrerad garageplats; listan säger inte om den ingår i priset.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-lentisco-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Lentisco%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Lentisco Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Lentisco</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Tre takvåningar med två sovrum tillgängliga i en ny byggnad med 15 bostäder i Los Pacos, Fuengirola, andra etappen i ett etablerat område där poolen, gymmet, bastun och tvättstugan redan är i bruk: två med egen solterrass på taket och en med en överbyggd terrass på 46,65 m², från 363 000 € plus IVA (spansk moms).</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts has5"><div data-nl-price><dt>Pris</dt><dd class="num">Från 363 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2</dd><dd class="sub"><span>Takvåningar</span></dd></div><div><dt>Inflyttning</dt><dd>september 2027</dd><dd class="sub">Bygglov beviljat</dd></div><div><dt>Bostäder kvar</dt><dd>3 av 15</dd><dd class="sub">Kontrollerat 5 november 2026</dd></div><div><dt>Betalningar</dt><dd>70% · Vid köpebrevet</dd><dd class="sub">10 000 € för att reservera</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-lentisco-residences.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Lentisco%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Lentisco Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Lentisco Residences är en ny byggnad med 15 bostäder med två sovrum och två badrum i Los Pacos, Fuengirola, uppförd som andra etappen i ett etablerat område. Enligt broschyren finns poolen, gymmet, bastun, tvättstugan och garaget från den tidigare etappen redan, och alla bostäder i den nya byggnaden har terrass.</p>
+    <p class="lede-2">Prislistan daterad 5 november 2026 visar 11 av de 15 bostäderna som sålda och en som reserverad. De tre som återstår är takvåningarna på översta planet: takvåning C och F med egen solterrass på taket på 96,72 och 104,96 m², och takvåning G med en överbyggd terrass på 46,65 m², från 363 000 € till 460 000 € före IVA (spansk moms).</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Svängda balkonger, ett djupt, vitt tak</span></summary><p>På bilderna reser sig byggnaden fem våningar över gatan på en sluttande tomt, med terrakottafärgade väggar, vita, svängda balkonger på varje våning och ett djupt, vitt tak över takvåningsplanet. Bostäderna i markplan öppnar sig mot terrasserade trädgårdar ovanför en planterad stödmur.</p><p>Planritningarna visar varje takvåning med öppet vardagsrum, matplats och kök ut mot en överbyggd terrass. Takvåning C når solterrassen via en spiraltrappa från terrassen, och takvåning F via en trappa vid entrén.</p><ul><li>Klimatskal: Värmeisolering i fasaden och förbättrad tätning av tak och bjälklag, för att minska värmeförluster och buller.</li><li>Fönster: Fönster och dörrar med köldbryggsbrytning och dubbla glas med torkad luftspalt.</li><li>Ventilation: Ett frånluftssystem som kontinuerligt tar in frisk luft och för ut förbrukad luft.</li><li>Energi: Solpaneler på taket för de gemensamma utrymmena, LED-belysning i allmänna utrymmen och varmvatten från en luft-vattenvärmepump.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>363 000 € – 460 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>3 av 15 bostäder</span><small>Kontrollerat 5 november 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Takvåningar</span></dd></div><div><dt>Storlekar</dt><dd><span>71 – 86 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>september 2027</span></dd></div><div><dt>Tillstånd</dt><dd><span><span class="ok">Bygglov</span></span><small>Beviljat</small></dd></div><div><dt>Betalningar</dt><dd><span>3 delbetalningar</span><small>70% · Vid köpebrevet · <a href="sv/property-lentisco-residences.html#plan">betalplan</a></small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div><div><dt>Parkering</dt><dd><span>Garageplats</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Tillgänglighet och priser enligt listan daterad 5 november 2026, bekräftade före bokning. Listan visar 11 av de 15 bostäderna som sålda och en som reserverad; de tre takvåningarna nedan är tillgängliga. Priserna är före IVA (spansk moms). Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="3 av 15 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>3 av 15 till salu</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="363000" data-size="70.89" data-ppm="5121" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/lentisco-residences/floorplans/penthouse-c-640.webp">
+            <th scope="row"><span class="u-name">Penthouse C</span><span class="u-loc">Takvåning</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">71 m²</td>
+            <td data-label="Pris" class="u-price num">363 000 €</td>
+            <td data-label="Per m²" class="num">5 121 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/lentisco-residences/floorplans/penthouse-c.jpg" target="_blank" rel="noopener" aria-label="Planritning för Penthouse C"><img src="assets/liora/projects/lentisco-residences/floorplans/penthouse-c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="423000" data-size="85.89" data-ppm="4925" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/lentisco-residences/floorplans/penthouse-f-640.webp">
+            <th scope="row"><span class="u-name">Penthouse F</span><span class="u-loc">Takvåning</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">86 m²</td>
+            <td data-label="Pris" class="u-price num">423 000 €</td>
+            <td data-label="Per m²" class="num">4 925 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/lentisco-residences/floorplans/penthouse-f.jpg" target="_blank" rel="noopener" aria-label="Planritning för Penthouse F"><img src="assets/liora/projects/lentisco-residences/floorplans/penthouse-f-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="460000" data-size="79.92" data-ppm="5756" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/lentisco-residences/floorplans/penthouse-g-640.webp">
+            <th scope="row"><span class="u-name">Penthouse G</span><span class="u-loc">Takvåning</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">80 m²</td>
+            <td data-label="Pris" class="u-price num">460 000 €</td>
+            <td data-label="Per m²" class="num">5 756 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/lentisco-residences/floorplans/penthouse-g.jpg" target="_blank" rel="noopener" aria-label="Planritning för Penthouse G"><img src="assets/liora/projects/lentisco-residences/floorplans/penthouse-g-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Tre takvåningar, två sovrum vardera</span></summary><p>Varje takvåning har två sovrum, två badrum, öppet vardagsrum och kök, tvättutrymme och en överbyggd terrass, och prislistan ger var och en en numrerad garageplats.</p><div class="res-types"><div class="res-type"><h3>Takvåning C och F, med solterrass på taket</h3><ul><li>Takvåning C: 70,89 m² invändig byggyta och en överbyggd terrass på 12,68 m², med egen solterrass på taket på 96,72 m², som nås via en spiraltrappa. Nyttoytor: vardagsrum och kök 26,35 m², sovrum på 12,72 och 10,02 m², badrum på 4,06 och 3,80 m².</li><li>Takvåning F: 85,89 m² invändig byggyta, en överbyggd terrass på 10,09 m² och en öppen terrass på 4,09 m², med egen solterrass på taket på 104,96 m². Nyttoytor: vardagsrum och kök 30,93 m², sovrum på 15,56 och 11,22 m², badrum på 4,57 och 3,80 m².</li><li>363 000 € för takvåning C och 423 000 € för takvåning F, före IVA.</li></ul></div><div class="res-type"><h3>Takvåning G, med stor överbyggd terrass</h3><ul><li>79,92 m² invändig byggyta, med en överbyggd terrass på 46,65 m² och en öppen terrass på 4,14 m² längs två sidor av vardagsrummet. Den har ingen solterrass på taket.</li><li>Nyttoytor: vardagsrum och kök 33,95 m², sovrum på 12,72 och 10,15 m², badrum på 4,60 och 3,80 m².</li><li>460 000 €, före IVA.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><table class="sched num"><caption>Betalplan för den här bostaden</caption><tbody id="v2-p-sched"></tbody></table>
+      <p class="caption">Enligt exploatörens betalningsplan, som anger att IVA tillkommer på alla belopp. Den säger inte om bokningsavgiften dras av från de 30 procenten eller hur betalningar före tillträdet är säkrade. Nueva Living bekräftar de exakta villkoren med er före varje bokning.</p>
+      
+      <ol class="ct-strip" aria-label="Byggets milstolpar"><li class="is-mile"><b>Oktober 2025</b><span>Byggstart</span></li><li class="is-mile"><b>Bygget</b><span>Pågår</span></li><li class="is-mile"><b>September 2027</b><span>Planerat färdigställande</span></li></ol>
+      <p class="ct-note">Exploatörens portal anger att bygglovet är beviljat, att bygget startade i oktober 2025 och att färdigställandet är planerat till september 2027. Inget av de dokument vi har anger ett avtalat tillträdesdatum, så Nueva Living begär det skriftligt och att det skrivs in i avtalet.</p></div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-lentisco-residences.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -993,396 +576,213 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Gemensam pool</h3>
-              <p class="amenity-note">Delas av de boende</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utförande</h2>
+    <p class="sec-sub">Exploatörens egen kvalitetsspecifikation, sammanfattad efter delar av bostaden.</p>
+    <div class="tabs" role="tablist" aria-label="Utförande"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Golv och väggar</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Kök</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Badrum</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Klimat och energi</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">El och telekom</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Golv av porslinsklinker i kräm eller grått efter val, med halkfri yta på terrasserna.</li><li>Porslinskakel med blank marmoreffekt på väggarna i huvudbadrummet, och porslinskakel med träeffekt kombinerat med vita väggar i det andra badrummet.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Över- och underskåp med lackad yta, bänkskiva och stänkskydd i ett kvartsliknande material samt en diskho i rostfritt stål monterad under bänkskivan.</li><li>Induktionshäll, ugn, mikrovågsugn, diskmaskin och kylskåp från ett ledande spanskt märke.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Sanitetsporslin i vitt porslin från ett ledande märke, duschgolv i resin med naturlig struktur och engreppsblandare med vattenbesparande system.</li><li>Badrumsmöbler med lådor och integrerat vitt tvättställ.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Kanalburen värme och kyla med energiklass A+.</li><li>Varmvatten från en luft-vattenvärmepump med ackumulatortank.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Förberett för alla typer av tv-mottagning, via kabel, satellit eller digitalt, och vita strömbrytare och uttag.</li></ul>
+      
+    </div>
+    <p class="caption">Källa: exploatörens kvalitetsbeskrivning, på spanska och engelska, samt broschyren. Beskrivningen anger att ytskikt kan ändras eller ersättas med andra av samma eller högre kvalitet av tekniska skäl, vid ändrade tillverkarmodeller eller nya regler. För det andra badrummet anger den spanska versionen och broschyren porslinskakel med träeffekt kombinerat med vita väggar, medan den engelska versionen upprepar huvudbadrummets blanka marmoreffekt; vi visar den spanska versionen och bekräftar den före bokning.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Den nya byggnaden"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/building-from-the-street-640.webp 640w, assets/liora/projects/lentisco-residences/media/building-from-the-street-960.webp 960w, assets/liora/projects/lentisco-residences/media/building-from-the-street.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/lentisco-residences/media/building-from-the-street.jpg" alt="Datorgenererad bild av den fem våningar höga byggnaden med vita, svängda balkonger och terrakottafärgade väggar, ovanför en planterad stödmur" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Vardags- och matplats"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/living-and-dining-room-640.webp 640w, assets/liora/projects/lentisco-residences/media/living-and-dining-room-960.webp 960w, assets/liora/projects/lentisco-residences/media/living-and-dining-room.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/lentisco-residences/media/living-and-dining-room.jpg" alt="Datorgenererat vardagsrum med matplats, glasbord, en vägg med träribbor och skjutdörr ut mot en terrass" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Den befintliga gemensamma poolen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/communal-pool-640.webp 640w, assets/liora/projects/lentisco-residences/media/communal-pool-960.webp 960w, assets/liora/projects/lentisco-residences/media/communal-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/lentisco-residences/media/communal-pool.jpg" alt="Fotografi av den befintliga gemensamma poolen, med palmer, solstolar och bostadshusen från den tidigare etappen i bakgrunden" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Sovrummet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/lentisco-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/lentisco-residences/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/lentisco-residences/media/main-bedroom.jpg" alt="Datorgenererat sovrum med dubbelsäng, två inramade linjeteckningar och ett fönster mot sluttningen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Huvudbadrummet"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/lentisco-residences/media/main-bathroom-640.webp 640w, assets/liora/projects/lentisco-residences/media/main-bathroom-960.webp 960w, assets/liora/projects/lentisco-residences/media/main-bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/lentisco-residences/media/main-bathroom.jpg" alt="Datorgenererat badrum med väggar i marmoreffekt, en walk-in-dusch bakom en glasvägg och ett tvättställsskåp med träfront" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 9 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (2)</button><button type="button" data-open-cat="Interiors">Interiör (2)</button><button type="button" data-open-cat="Bedrooms">Sovrum (1)</button><button type="button" data-open-cat="Bathrooms">Badrum (2)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (2)</button></div>
+    
+    <p class="caption">Bilderna av byggnaden och rummen är datorgenererade: broschyren anger att de endast är vägledande, att möblerna inte ingår och att ytskikt, färger, sanitetsporslin och köksinredning är ungefärliga. Poolen och gymmet är fotografier av befintliga gemensamma anläggningar, som broschyren anger som redan på plats för denna etapp. Planritningarna är exploatörens egna ritningar av de tre takvåningarna, utan logotyper, ytuppställning och situationsplan; de anger att ytor och planlösning är preliminära och kan ändras av tekniska, juridiska eller kommersiella skäl, och rumsnamnen på dem är på spanska.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Byggnaden ligger på Calle María de las Mercedes, i bostadsområdet Los Pacos i sluttningen ovanför Fuengirola. Broschyren anger 2 km till havet, cirka åtta minuter med bil, och fem minuters promenad till centrum av Los Pacos, och visar på kartan skolor, en park, padelbanor och pendeltågsstationen Los Boliches. Den anger 30 km till Marbella och 23 km till Málagas flygplats. Kartnålen är placerad efter situationsplanen i broschyren och är ungefärlig.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-lentisco-residences" data-locmap='{&quot;site&quot;:[36.5712,-4.6152],&quot;sea&quot;:[36.5442,-4.6152],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.56133,-4.60518],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,9 km · 8 min&quot;},{&quot;ll&quot;:[36.54155,-4.61721],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Fuengirola&quot;,&quot;sub&quot;:&quot;4,3 km · 12 min&quot;},{&quot;ll&quot;:[36.53884,-4.6234],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Fuengirola centrum&quot;,&quot;sub&quot;:&quot;5,5 km · 13 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Lentisco Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Lentisco Residences</h3>
+            <p class="locmap-place">Los Pacos, Fuengirola</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Fuengirola</span>
+              <span class="locmap-row-figure"><bdi>4,3 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Bastu</h3>
-              <p class="amenity-note">Rum med torr värme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Fuengirola centrum</span>
+              <span class="locmap-row-figure"><bdi>5,5 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Utomhus</span>
-              <h3 class="amenity-name">Solterrass på taket</h3>
-              <p class="amenity-note">Sol på översta planet</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga flygplats</span>
+              <span class="locmap-row-figure"><bdi>25 km</bdi> <em><bdi>27 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Vardag</span>
-              <h3 class="amenity-name">Garageplats</h3>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Vardag</span>
-              <h3 class="amenity-name">Varmvatten från värmepump</h3>
-              <p class="amenity-note">Varmvatten ur luften</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Vardag</span>
-              <h3 class="amenity-name">Utrustat kök</h3>
-              <p class="amenity-note">Inredd med vitvaror</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Vardag</span>
-              <h3 class="amenity-name">Solcellspaneler på taket</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 18h16"/><path d="M6 18a6 6 0 0 1 12 0"/><path d="M12 8V6"/><path d="M10.5 6h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Service</span>
-              <h3 class="amenity-name">Tvättstuga</h3>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Havet</th><td>2 km</td></tr><tr><th scope="row">Málagas flygplats</th><td>23 km</td></tr><tr><th scope="row">Marbella</th><td>30 km</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Den nya byggnaden ansluter till ett etablerat område, så de gemensamma anläggningarna används redan innan takvåningarna är klara.</p>
+    <div class="life-panels"><div><h3>Poolen</h3><p>Den gemensamma poolen från den tidigare etappen, i trädgården med palmer och solstolar, så som broschyren visar den.</p></div><div><h3>Gym och bastu</h3><p>Ett gym och en bastu i det befintliga området, med gemensam tvättstuga och garage.</p></div><div><h3>På taket</h3><p>Takvåning C och F har var sin egen solterrass på taket på cirka 100 m², större än bostaden under.</p></div><div><h3>Runt byggnaden</h3><p>Broschyren visar skolor, livsmedelsbutiker, parker och idrottsanläggningar runt området, och en hållplats för busslinje 4.</p></div></div>
+    <ul class="amen-top"><li>Gemensam pool</li><li>Gym</li><li>Bastu</li><li>Tvättstuga</li><li>Garageplats</li><li>Solterrass på taket</li></ul>
+    <details class="amen-all"><summary>Visa alla 10</summary><div class="amen-groups"><div><h3>Välmående<span class="count">3</span></h3><ul><li>Gemensam pool</li><li>Gym</li><li>Bastu</li></ul></div><div><h3>Utomhus<span class="count">1</span></h3><ul><li>Solterrass på taket</li></ul></div><div><h3>Vardag<span class="count">5</span></h3><ul><li>Garageplats</li><li>Luftkonditionering</li><li>Varmvatten från värmepump</li><li>Utrustat kök</li><li>Solcellspaneler på taket</li></ul></div><div><h3>Service<span class="count">1</span></h3><ul><li>Tvättstuga</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en ny bostad med två sovrum högst upp i Fuengirola, med solterrass på taket eller en stor överbyggd terrass, att bo i eller som fritidsbostad.</span></li><li><b>Vad som skiljer det från andra</b><span>Solterrasserna till takvåning C och F är större än bostäderna under dem, och takvåning G har en överbyggd terrass på 46,65 m². Poolen, gymmet och bastun hör till den tidigare etappen och används redan.</span></li><li><b>Varför läget spelar roll</b><span>Broschyren placerar byggnaden 2 km från havet, cirka åtta minuter med bil, och fem minuters promenad från centrum av Los Pacos, med skolor, butiker, parker, idrottsanläggningar och en busshållplats i närheten.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>Endast de tre takvåningarna återstår av de 15 bostäderna i denna etapp. Priserna är före IVA, och vi bekräftar den aktuella listan, bygglovet och tillträdesdagen före varje bokning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>IVA och skatter</b><span>Prislistan anger att priserna är netto och inte inkluderar IVA (spansk moms), överlåtelseskatt eller andra avgifter. Med dagens IVA på 10 procent på nybyggda bostäder kostar takvåningen för 363 000 € 399 300 € och den för 460 000 € 506 000 €, före stämpelskatt, notarie- och inskrivningsavgifter.</span></li><li><b>Betalningsplan</b><span>10 000 € vid bokning; 30 procent vid det privata avtalet, som planen kopplar till bygglovet; och 70 procent vid köpebrevet, med inflyttningstillståndet. Planen anger att IVA tillkommer på dessa belopp.</span></li><li><b>Garageplats</b><span>Prislistan ger varje takvåning en numrerad garageplats, och broschyren anger parkering till varje bostad. Vi bekräftar att platsen ingår i priset.</span></li><li><b>Betalningar före tillträdet</b><span>Trettio procent betalas långt före nyckelöverlämningen. Inget av de dokument vi har anger hur betalningar före tillträdet är säkrade, så vi begär bankgaranti eller försäkring innan pengar förs över.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Bygglov och datum</b><span>Bygglov beviljat. Exploatörens portal anger att bygglovet är beviljat, att bygget startade i oktober 2025 och att färdigställandet är planerat till september 2027. Vi begär bygglovet och den tillträdesdag som skrivs in i avtalet.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Ytorna</b><span>Prislistan anger byggyta, och planritningarna lägger till nyttoytorna: 60,90, 72,79 och 68,58 m² invändigt för takvåning C, F och G. På planritningen för takvåning C blir rumsytorna sammanlagt 60,36 m², inte de 60,90 m² som är tryckta som summa. Solterrasserna finns bara i prislistan. Vi bekräftar vilka siffror avtalet använder.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De gemensamma anläggningarna</b><span>Poolen, gymmet, bastun, tvättstugan och garaget hör till den tidigare etappen. Vi begär föreningens stadgar och avgifter, och hur den nya byggnaden delar dem.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Bilderna</b><span>Bilderna av byggnaden och rummen är datorgenererade och ungefärliga, och möblerna ingår inte. Poolen och gymmet är fotografier av de befintliga anläggningarna.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Planritningarna för de tre takvåningarna, kvalitetsbeskrivningen och prislistan.</p></li><li><h3>Jämför alternativen</h3><p>Se det tillsammans med de andra projekten i Mijas och Fuengirola som vi representerar.</p></li><li><h3>Privat visning</h3><p>Se tomten, poolen och gymmet i det befintliga området tillsammans med oss, och gå igenom planritningarna.</p></li><li><h3>Boka</h3><p>En bokning på 10 000 € plus IVA, därefter det privata köpeavtalet.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>3 av 3 bostäder</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Betalplan</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggbeskrivning</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-lentisco-residences.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Lentisco</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder är tillgängliga?</summary><p>Tre av de 15 bostäderna i denna etapp, alla takvåningar med två sovrum: C för 363 000 €, F för 423 000 € och G för 460 000 €, före IVA. Prislistan daterad 5 november 2026 visar 11 bostäder som sålda och en som reserverad.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Nej. Prislistan anger att priserna är netto och inte inkluderar IVA (spansk moms), överlåtelseskatt eller andra avgifter. IVA på nybyggda bostäder är i dag 10 procent, och till det kommer stämpelskatt, notarie- och inskrivningsavgifter.</p></details><details class="segment-faq-item"><summary>När blir det färdigt?</summary><p>Exploatörens portal anger att bygget startade i oktober 2025 och att färdigställandet är planerat till september 2027. Vi begär det datum som skrivs in i avtalet.</p></details><details class="segment-faq-item"><summary>Hur ser betalningsplanen ut?</summary><p>10 000 € vid bokning, 30 procent vid det privata avtalet och 70 procent vid köpebrevet, med inflyttningstillståndet, med IVA ovanpå varje belopp.</p></details><details class="segment-faq-item"><summary>Vilka takvåningar har solterrass?</summary><p>Takvåning C och F, med egna solterrasser på taket på 96,72 och 104,96 m². Takvåning G har ingen solterrass, men en överbyggd terrass på 46,65 m² och en öppen terrass på 4,14 m².</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Vad delas?</summary><p>Poolen, gymmet, bastun, tvättstugan och garaget från den tidigare etappen, som enligt broschyren redan finns.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">363 000 €</p>
+      <p class="rail-note">Exkl. IVA. 3 av 15 bostäder kvar · Kontrollerat 5 november 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-lentisco-residences.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Lentisco%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Lentisco Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Lentisco%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Lentisco Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Se tomten, utsikten från sluttningen och de gemensamma anläggningarna från den tidigare etappen.</li><li><b>Med bil.</b> Vi kör med er till stranden, centrum av Fuengirola och flygplatsen och tar tid.</li><li><b>På papper.</b> Bygglov, tillträdesdag, garantier och avtalet, innan något skrivs under.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Lentisco Residences">
+        <input type="hidden" id="f-project" name="project" value="Lentisco Residences">
+        <input type="hidden" name="preferred_area" value="Los Pacos, Fuengirola">
+        <input type="hidden" name="property_type_interest" value="Takvåningar">
+        <input type="hidden" name="budget_range" value="Från 363 000 € + IVA">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hej Nueva Living, jag vill gärna ha information om Lentisco Residences." data-base="Hej Nueva Living, jag vill gärna ha information om Lentisco Residences.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="Penthouse C">Penthouse C: 363 000 €</option><option value="Penthouse F">Penthouse F: 423 000 €</option><option value="Penthouse G">Penthouse G: 460 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Lentisco.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">Nya takvåningar med mycket utomhusyta i ett bostadsområde i Fuengirola, 2 km från havet, med de gemensamma anläggningarna redan byggda.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en ny bostad med två sovrum högst upp i Fuengirola, med solterrass på taket eller en stor överbyggd terrass, att bo i eller som fritidsbostad.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Solterrasserna till takvåning C och F är större än bostäderna under dem, och takvåning G har en överbyggd terrass på 46,65 m². Poolen, gymmet och bastun hör till den tidigare etappen och används redan.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Broschyren placerar byggnaden 2 km från havet, cirka åtta minuter med bil, och fem minuters promenad från centrum av Los Pacos, med skolor, butiker, parker, idrottsanläggningar och en busshållplats i närheten.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>Endast de tre takvåningarna återstår av de 15 bostäderna i denna etapp. Priserna är före IVA, och vi bekräftar den aktuella listan, bygglovet och tillträdesdagen före varje bokning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">Prislistan anger ett pris för var och en av de tre takvåningarna, före IVA, och betalningsplanen fastställer en bokning, en betalning vid det privata avtalet och resten vid köpebrevet.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>IVA och skatter</h3><p>Prislistan anger att priserna är netto och inte inkluderar IVA (spansk moms), överlåtelseskatt eller andra avgifter. Med dagens IVA på 10 procent på nybyggda bostäder kostar takvåningen för 363 000 € 399 300 € och den för 460 000 € 506 000 €, före stämpelskatt, notarie- och inskrivningsavgifter.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningsplan</h3><p>10 000 € vid bokning; 30 procent vid det privata avtalet, som planen kopplar till bygglovet; och 70 procent vid köpebrevet, med inflyttningstillståndet. Planen anger att IVA tillkommer på dessa belopp.</p></article>
-              <article class="why-point reveal-soft"><h3>Garageplats</h3><p>Prislistan ger varje takvåning en numrerad garageplats, och broschyren anger parkering till varje bostad. Vi bekräftar att platsen ingår i priset.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningar före tillträdet</h3><p>Trettio procent betalas långt före nyckelöverlämningen. Inget av de dokument vi har anger hur betalningar före tillträdet är säkrade, så vi begär bankgaranti eller försäkring innan pengar förs över.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Bygglov och datum</h3><p>Exploatörens portal anger att bygglovet är beviljat, att bygget startade i oktober 2025 och att färdigställandet är planerat till september 2027. Vi begär bygglovet och den tillträdesdag som skrivs in i avtalet.</p></article>
-              <article class="why-point reveal-soft"><h3>Ytorna</h3><p>Prislistan anger byggyta, och planritningarna lägger till nyttoytorna: 60,90, 72,79 och 68,58 m² invändigt för takvåning C, F och G. På planritningen för takvåning C blir rumsytorna sammanlagt 60,36 m², inte de 60,90 m² som är tryckta som summa. Solterrasserna finns bara i prislistan. Vi bekräftar vilka siffror avtalet använder.</p></article>
-              <article class="why-point reveal-soft"><h3>De gemensamma anläggningarna</h3><p>Poolen, gymmet, bastun, tvättstugan och garaget hör till den tidigare etappen. Vi begär föreningens stadgar och avgifter, och hur den nya byggnaden delar dem.</p></article>
-              <article class="why-point reveal-soft"><h3>Bilderna</h3><p>Bilderna av byggnaden och rummen är datorgenererade och ungefärliga, och möblerna ingår inte. Poolen och gymmet är fotografier av de befintliga anläggningarna.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren 5 november 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Priser, byggytor, terrasser, solterrasser och garageplatser är hämtade från exploatörens prislista daterad 5 november 2026. Den omfattar alla 15 bostäder i denna etapp: 11 sålda, en reserverad och tre tillgängliga. Den anger att priserna är netto och inte inkluderar IVA (spansk moms), överlåtelseskatt eller andra avgifter, och att listan endast är vägledande och inte ingår i något avtal. Ytorna i tabellen är den invändiga byggytan, de överbyggda och öppna terrasserna tillsammans och, för C och F, solterrassen på taket. Nyttoytor och rumsytor kommer från exploatörens planritning för varje takvåning. Varje takvåning står med en numrerad garageplats; listan säger inte om den ingår i priset.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/lentisco-residences/media/building-above-the-garden-terraces.jpg" alt="Datorgenererad bild av byggnaden från vägen nedanför, med trädgårdsterrasserna till bostäderna i markplan och takvåningsplanet under ett djupt, vitt tak" width="1400" height="1050" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Svängda balkonger, <em>ett djupt, vitt tak</em></h2>
-          <p>På bilderna reser sig byggnaden fem våningar över gatan på en sluttande tomt, med terrakottafärgade väggar, vita, svängda balkonger på varje våning och ett djupt, vitt tak över takvåningsplanet. Bostäderna i markplan öppnar sig mot terrasserade trädgårdar ovanför en planterad stödmur.</p>
-<p>Planritningarna visar varje takvåning med öppet vardagsrum, matplats och kök ut mot en överbyggd terrass. Takvåning C når solterrassen via en spiraltrappa från terrassen, och takvåning F via en trappa vid entrén.</p>
-          <ul class="feature-list">
-            <li>Klimatskal — Värmeisolering i fasaden och förbättrad tätning av tak och bjälklag, för att minska värmeförluster och buller.</li>
-            <li>Fönster — Fönster och dörrar med köldbryggsbrytning och dubbla glas med torkad luftspalt.</li>
-            <li>Ventilation — Ett frånluftssystem som kontinuerligt tar in frisk luft och för ut förbrukad luft.</li>
-            <li>Energi — Solpaneler på taket för de gemensamma utrymmena, LED-belysning i allmänna utrymmen och varmvatten från en luft-vattenvärmepump.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Lentisco%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Lentisco Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-lentisco-residences.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/lentisco-residences/media/main-bedroom.jpg" alt="Datorgenererat sovrum med dubbelsäng, två inramade linjeteckningar och ett fönster mot sluttningen" width="1400" height="784" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se <em>tomten och anläggningarna</em></h2>
-            <p>Byggnaden är under uppförande, men poolen, gymmet och området kan ses redan nu.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Se tomten, utsikten från sluttningen och de gemensamma anläggningarna från den tidigare etappen.</p></div>
-              <div><span>Med bil</span><p>Vi kör med er till stranden, centrum av Fuengirola och flygplatsen och tar tid.</p></div>
-              <div><span>På papper</span><p>Bygglov, tillträdesdag, garantier och avtalet, innan något skrivs under.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=lentisco-residences">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-lentisco-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Bedrooms">Sovrum</button><button type="button" data-cat="Bathrooms">Badrum</button><button type="button" data-cat="Amenities">Bekvämligheter</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/lentisco-residences/media/living-and-dining-room.jpg" alt="Datorgenererat vardagsrum med matplats, glasbord, en vägg med träribbor och skjutdörr ut mot en terrass" width="1400" height="784" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Högst upp, <em>med anläggningarna redan öppna</em></h2>
-            <p>Den nya byggnaden ansluter till ett etablerat område, så de gemensamma anläggningarna används redan innan takvåningarna är klara.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Planritningarna för de tre takvåningarna, kvalitetsbeskrivningen och prislistan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför alternativen</h3>
-            <p>Se det tillsammans med de andra projekten i Mijas och Fuengirola som vi representerar.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se tomten, poolen och gymmet i det befintliga området tillsammans med oss, och gå igenom planritningarna.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Boka</h3>
-            <p>En bokning på 10 000 € plus IVA, därefter det privata köpeavtalet.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder är tillgängliga?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Tre av de 15 bostäderna i denna etapp, alla takvåningar med två sovrum: C för 363 000 €, F för 423 000 € och G för 460 000 €, före IVA. Prislistan daterad 5 november 2026 visar 11 bostäder som sålda och en som reserverad.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Prislistan anger att priserna är netto och inte inkluderar IVA (spansk moms), överlåtelseskatt eller andra avgifter. IVA på nybyggda bostäder är i dag 10 procent, och till det kommer stämpelskatt, notarie- och inskrivningsavgifter.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När blir det färdigt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Exploatörens portal anger att bygget startade i oktober 2025 och att färdigställandet är planerat till september 2027. Vi begär det datum som skrivs in i avtalet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur ser betalningsplanen ut?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>10 000 € vid bokning, 30 procent vid det privata avtalet och 70 procent vid köpebrevet, med inflyttningstillståndet, med IVA ovanpå varje belopp.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka takvåningar har solterrass?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Takvåning C och F, med egna solterrasser på taket på 96,72 och 104,96 m². Takvåning G har ingen solterrass, men en överbyggd terrass på 46,65 m² och en öppen terrass på 4,14 m².</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad delas?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Poolen, gymmet, bastun, tvättstugan och garaget från den tidigare etappen, som enligt broschyren redan finns.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Lentisco Residences</em></h2>
-          <p class="body-copy">Berätta vad ni behöver så återkommer vi med aktuell tillgänglighet, planritningarna och prislistan.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Lentisco%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Lentisco Residences" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Lentisco Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Lentisco Residences">
-          <input type="hidden" name="preferred_area" value="Los Pacos, Fuengirola">
-          <input type="hidden" name="property_type_interest" value="Takvåningar">
-          <input type="hidden" name="budget_range" value="Från 363 000 € + IVA">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Hej Nueva Living, jag vill gärna ha information om Lentisco Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Vi svarar personligen, vanligtvis samma dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"Penthouse C","title":"Penthouse C · Takvåning","sub":"2 sovrum · 71 m²","price":363000,"plans":[{"src":"assets/liora/projects/lentisco-residences/floorplans/penthouse-c.jpg","label":""}]},{"id":"u1","ref":"Penthouse F","title":"Penthouse F · Takvåning","sub":"2 sovrum · 86 m²","price":423000,"plans":[{"src":"assets/liora/projects/lentisco-residences/floorplans/penthouse-f.jpg","label":""}]},{"id":"u2","ref":"Penthouse G","title":"Penthouse G · Takvåning","sub":"2 sovrum · 80 m²","price":460000,"plans":[{"src":"assets/liora/projects/lentisco-residences/floorplans/penthouse-g.jpg","label":""}]}],"stages":[{"label":"Bokning","when":"För att boka takvåningen","amountLabel":"10 000 €","fixed":10000},{"label":"Privat köpeavtal","when":"Vid undertecknandet av det privata avtalet, som planen kopplar till bygglovet, minus reservationen","amountLabel":"30%","pct":0.3,"less":10000},{"label":"Vid köpebrevet","when":"Vid inflyttningstillståndet och undertecknandet av köpebrevet","amountLabel":"70%","pct":0.7}],"stageLabels":null,"gallery":[{"src":"assets/liora/projects/lentisco-residences/media/building-from-the-street.webp","alt":"Datorgenererad bild av den fem våningar höga byggnaden med vita, svängda balkonger och terrakottafärgade väggar, ovanför en planterad stödmur","caption":"Den nya byggnaden","cat":"Exteriors"},{"src":"assets/liora/projects/lentisco-residences/media/building-above-the-garden-terraces.webp","alt":"Datorgenererad bild av byggnaden från vägen nedanför, med trädgårdsterrasserna till bostäderna i markplan och takvåningsplanet under ett djupt, vitt tak","caption":"Byggnaden från vägen","cat":"Exteriors"},{"src":"assets/liora/projects/lentisco-residences/media/living-and-dining-room.webp","alt":"Datorgenererat vardagsrum med matplats, glasbord, en vägg med träribbor och skjutdörr ut mot en terrass","caption":"Vardags- och matplats","cat":"Interiors"},{"src":"assets/liora/projects/lentisco-residences/media/l-shaped-kitchen.webp","alt":"Datorgenererat L-format kök i grå högglans med högt kylskåp, induktionshäll och matbord i glas","caption":"Det L-formade köket","cat":"Interiors"},{"src":"assets/liora/projects/lentisco-residences/media/main-bedroom.webp","alt":"Datorgenererat sovrum med dubbelsäng, två inramade linjeteckningar och ett fönster mot sluttningen","caption":"Sovrummet","cat":"Bedrooms"},{"src":"assets/liora/projects/lentisco-residences/media/main-bathroom.webp","alt":"Datorgenererat badrum med väggar i marmoreffekt, en walk-in-dusch bakom en glasvägg och ett tvättställsskåp med träfront","caption":"Huvudbadrummet","cat":"Bathrooms"},{"src":"assets/liora/projects/lentisco-residences/media/second-bathroom.webp","alt":"Datorgenererat badrum med en vägg i kakel med träeffekt, ett vitt tvättställsskåp och en walk-in-dusch","caption":"Det andra badrummet","cat":"Bathrooms"},{"src":"assets/liora/projects/lentisco-residences/media/communal-pool.webp","alt":"Fotografi av den befintliga gemensamma poolen, med palmer, solstolar och bostadshusen från den tidigare etappen i bakgrunden","caption":"Den befintliga gemensamma poolen","cat":"Amenities"},{"src":"assets/liora/projects/lentisco-residences/media/communal-gym.webp","alt":"Fotografi av ett gym med styrkemaskin, motionscyklar, ribbstol och speglade väggar","caption":"Gymmet","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Lentisco Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/lentisco-residences/media/building-from-the-street.jpg","webp":"assets/liora/projects/lentisco-residences/media/building-from-the-street-960.webp","alt":"Datorgenererad bild av den fem våningar höga byggnaden med vita, svängda balkonger och terrakottafärgade väggar, ovanför en planterad stödmur","width":1400,"height":787,"caption":"Den nya byggnaden","category":"Exteriör"},{"src":"assets/liora/projects/lentisco-residences/media/building-above-the-garden-terraces.jpg","webp":"assets/liora/projects/lentisco-residences/media/building-above-the-garden-terraces-960.webp","alt":"Datorgenererad bild av byggnaden från vägen nedanför, med trädgårdsterrasserna till bostäderna i markplan och takvåningsplanet under ett djupt, vitt tak","width":1400,"height":1050,"caption":"Byggnaden från vägen","category":"Exteriör"},{"src":"assets/liora/projects/lentisco-residences/media/living-and-dining-room.jpg","webp":"assets/liora/projects/lentisco-residences/media/living-and-dining-room-960.webp","alt":"Datorgenererat vardagsrum med matplats, glasbord, en vägg med träribbor och skjutdörr ut mot en terrass","width":1400,"height":784,"caption":"Vardags- och matplats","category":"Interiör"},{"src":"assets/liora/projects/lentisco-residences/media/l-shaped-kitchen.jpg","webp":"assets/liora/projects/lentisco-residences/media/l-shaped-kitchen-960.webp","alt":"Datorgenererat L-format kök i grå högglans med högt kylskåp, induktionshäll och matbord i glas","width":1400,"height":787,"caption":"Det L-formade köket","category":"Interiör"},{"src":"assets/liora/projects/lentisco-residences/media/main-bedroom.jpg","webp":"assets/liora/projects/lentisco-residences/media/main-bedroom-960.webp","alt":"Datorgenererat sovrum med dubbelsäng, två inramade linjeteckningar och ett fönster mot sluttningen","width":1400,"height":784,"caption":"Sovrummet","category":"Sovrum"},{"src":"assets/liora/projects/lentisco-residences/media/main-bathroom.jpg","webp":"assets/liora/projects/lentisco-residences/media/main-bathroom-960.webp","alt":"Datorgenererat badrum med väggar i marmoreffekt, en walk-in-dusch bakom en glasvägg och ett tvättställsskåp med träfront","width":1254,"height":1254,"caption":"Huvudbadrummet","category":"Badrum"},{"src":"assets/liora/projects/lentisco-residences/media/second-bathroom.jpg","webp":"assets/liora/projects/lentisco-residences/media/second-bathroom-960.webp","alt":"Datorgenererat badrum med en vägg i kakel med träeffekt, ett vitt tvättställsskåp och en walk-in-dusch","width":1254,"height":1254,"caption":"Det andra badrummet","category":"Badrum"},{"src":"assets/liora/projects/lentisco-residences/media/communal-pool.jpg","webp":"assets/liora/projects/lentisco-residences/media/communal-pool-960.webp","alt":"Fotografi av den befintliga gemensamma poolen, med palmer, solstolar och bostadshusen från den tidigare etappen i bakgrunden","width":1280,"height":683,"caption":"Den befintliga gemensamma poolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/lentisco-residences/media/communal-gym.jpg","webp":"assets/liora/projects/lentisco-residences/media/communal-gym-960.webp","alt":"Fotografi av ett gym med styrkemaskin, motionscyklar, ribbstol och speglade väggar","width":1400,"height":933,"caption":"Gymmet","category":"Bekvämligheter"},{"src":"assets/liora/projects/lentisco-residences/floorplans/penthouse-c.jpg","webp":"assets/liora/projects/lentisco-residences/floorplans/penthouse-c-960.webp","alt":"Planritning av takvåning c, med bostaden och den överbyggda terrassen till vänster och solterrassen på taket till höger","width":2000,"height":1153,"caption":"Planritning, takvåning c","category":"Planritningar"},{"src":"assets/liora/projects/lentisco-residences/floorplans/penthouse-f.jpg","webp":"assets/liora/projects/lentisco-residences/floorplans/penthouse-f-960.webp","alt":"Planritning av takvåning f, med bostaden och den överbyggda terrassen till vänster och solterrassen på taket till höger","width":2000,"height":1126,"caption":"Planritning, takvåning f","category":"Planritningar"},{"src":"assets/liora/projects/lentisco-residences/floorplans/penthouse-g.jpg","webp":"assets/liora/projects/lentisco-residences/floorplans/penthouse-g-960.webp","alt":"Planritning av takvåning G, med en stor överbyggd terrass runt vardagsrummet","width":2000,"height":1533,"caption":"Planritning, takvåning G","category":"Planritningar"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-lentisco-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Lentisco%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Lentisco Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

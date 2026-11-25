@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hur många bostäder finns totalt?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Elviria Woodland Residences"
   data-project-message="Jag vill gärna få den senaste projektinformationen för Elviria Woodland Residences."
@@ -451,397 +388,148 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Elviria Woodland Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-elviria-woodland-residences.html#top">Elviria Woodland Residences<span>Från 870 000 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-elviria-woodland-residences.html#overview">Översikt</a><a href="sv/property-elviria-woodland-residences.html#availability">Priser</a><a href="sv/property-elviria-woodland-residences.html#gallery">Galleri</a><a href="sv/property-elviria-woodland-residences.html#location">Läge</a><a href="sv/property-elviria-woodland-residences.html#onsite">I området</a><a href="sv/property-elviria-woodland-residences.html#view">Vår bedömning</a><a href="sv/property-elviria-woodland-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Elviria Woodland Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.webp 1920w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.jpg" alt="Aerial view of low-rise apartment buildings set within a wooded hillside in Elviria" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.jpg" alt="Aerial view of low-rise apartment buildings set within a wooded hillside in Elviria" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Nyproduktion / inhägnat område</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Elviria Woodland <em>Residences</em></span>
-            <span class="hero-title-context">Lägenhet · Elviria, östra Marbella</span>
-          </h1>
-          <p class="hero-positioning">En samling om 21 lägenheter fördelade på sju fristående hus i en privat medelhavsskog i Elviria, östra Marbella, med privat pool vid varje bostad.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-elviria-woodland-residences.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=elviria-woodland-residences">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-elviria-woodland-residences.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Elviria, östra Marbella</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 870 000 €</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Lägenhet</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Beräknat K2 2027</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-elviria-woodland-residences.html#media">Media</a>
-        <a href="sv/property-elviria-woodland-residences.html#location">Läge</a>
-        <a href="sv/property-elviria-woodland-residences.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-elviria-woodland-residences.html#overview">Översikt</a>
-          <a href="sv/property-elviria-woodland-residences.html#residences">Bostäder</a>
-          <a href="sv/property-elviria-woodland-residences.html#calculator">Finansiering</a>
-          <a href="sv/property-elviria-woodland-residences.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-elviria-woodland-residences.html#why-this-project">Varför</a>
-          <a href="sv/property-elviria-woodland-residences.html#architecture">Arkitektur</a>
-          <a href="sv/property-elviria-woodland-residences.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-elviria-woodland-residences.html#lifestyle">Livsstil</a>
-          <a href="sv/property-elviria-woodland-residences.html#faq">FAQ</a>
-          <a href="sv/property-elviria-woodland-residences.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>2-3 sovrum</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>119,00 - 211,00 m²</strong></div>
-          <div class="quick-fact"><span>Privat pool</span><strong>Ingår vid varje bostad</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>5 av 21 bostäder lanserade</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">21 bostäder, <em>var och en med sin egen privata pool</em></h2>
-          <p class="project-lead">Elviria Woodland Residences är en samling om 21 lägenheter fördelade på sju fristående hus, i en privat medelhavsskog i Elviria, östra Marbella, omgiven av tallar, mastixbuskar och rosmarin, och genomkorsad av en naturlig bäck.</p>
-          <p class="project-lead">Bostäder på bottenvåningen öppnar sig mot en trädgård fram och bak; bostäder på första våningen har en egen takterrass med pergola, och ett hus är byggt uteslutande som duplexlägenheter med egen solterrass. Varje bostad, oavsett våning, har sin egen privata pool. En gångbro över bäcken leder till en gemensam Wellness Hub med torrbastu, hammam, gym och utomhus träningsyta.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bostäderna i <em>detalj</em></h2>
-          </div>
-          <p class="project-lead">Datorgenererade bilder tillhandahållna av exploatören. Möbler, styling och växtlighet är vägledande och ingår inte i försäljningen.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 7 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.jpg" alt="Flygvy över låga lägenhetshus på en skogklädd sluttning i Elviria" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Flygvy över projektet i dess skogsmiljö</strong>
-                <span class="project-media-card-cta">7 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 6 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view.jpg" alt="Öppet vardagsrum med tillgång till en terrass med utsikt över den skogklädda sluttningen" width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrum med tillgång till terrassen</strong>
-                <span class="project-media-card-cta">6 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 13 bilder</button>
-          <p class="media-note">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Elviria, <em>östra Marbella</em></h2>
-          <p class="project-lead">Elviria Woodland ligger i sin egen tallskog i Elviria, på Marbellas östra sida, nära Santa Clara Golf och Cabopino Golf och en kort bilresa från Marbellas gamla stad och Puerto Banús.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-elviria-woodland-residences" data-locmap='{&quot;site&quot;:[36.499,-4.78],&quot;sea&quot;:[36.472,-4.78],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella centrum&quot;,&quot;sub&quot;:&quot;10 km · 14 min&quot;},{&quot;ll&quot;:[36.50673,-4.8227],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Santa Clara&quot;,&quot;sub&quot;:&quot;4,2 km · 5 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;12 km · 17 min&quot;},{&quot;ll&quot;:[36.49001,-4.77178],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,7 km · 6 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Elviria Woodland Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Elviria Woodland Residences</h3>
-            <p class="locmap-place">Elviria, östra Marbella</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>17 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Marbella centrum</span>
-              <span class="locmap-row-figure"><bdi>10 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Santa Clara</span>
-              <span class="locmap-row-figure"><bdi>4,2 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Cabopino</span>
-              <span class="locmap-row-figure"><bdi>6,8 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Málaga flygplats</span>
-              <span class="locmap-row-figure"><bdi>45 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Planlösningar på <em>bottenvåningen och första våningen</em></h2>
-          <p class="project-lead">Bostäder på bottenvåningen har en privat trädgård fram och bak med övertäckt veranda; bostäder på första våningen har en takterrass med pergola. Båda planlösningarna, som visas nedan, har sin egen privata pool. Exploatören har ännu inte publicerat priser för enskilda bostäder.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Lägenhet första våningen</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>2 sovrum</strong></div>
-<div><span>Total byggyta</span><strong>131,61 m²</strong></div>
-<div><span>Terrass och pool</span><strong>100,21 m²</strong></div>
-<div><span>Från</span><strong>900 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Öppet vardagsrum, matplats och kök som leder till en övertäckt veranda.</li>
-            <li>Två sovrum, vardera med eget badrum, plus gäst-wc och grovkök.</li>
-            <li>Egen takterrass med pergola, solterrass och privat pool.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-elviria-woodland-residences.html#availability">Visa planritningar</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Lägenhet bottenvåningen</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>3 sovrum</strong></div>
-<div><span>Total byggyta</span><strong>184,67 m²</strong></div>
-<div><span>Terrass, pool och trädgård</span><strong>266,05 m²</strong></div>
-<div><span>Från</span><strong>1 295 000 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Öppet vardagsrum, matplats och kök upp till 12 meter brett, med utgång till övertäckt veranda och trädgård.</li>
-            <li>Tre sovrum, vardera med eget badrum, plus gäst-wc, grovkök och förråd.</li>
-            <li>Privat trädgård fram och bak med egen pool och terrass.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-elviria-woodland-residences.html#availability">Visa planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-elviria-woodland-residences.html#availability">Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">21 bostäder <em>i sju hus</em></h2>
-          <p class="project-lead">Exploatören har hittills lanserat fem exempelbostäder med bekräftat pris, i planlösningar från två till tre sovrum. Nueva Living bekräftar aktuellt pris och tillgänglighet innan varje visning eller bokning.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>5</strong></div>
-            <div><span>Pris från</span><strong>870 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>870 000 € - 1 295 000 €</strong></div>
-            <div><span>Kontrollerad</span><strong>augusti 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 5 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="1070000">
-                <a class="unit-card-plan" href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-3">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans-thumb-640.webp 640w, assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans-thumb.jpg" alt="Planritning för SH-3" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">SH-3</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>157,91 m²</dd></div>
-                    <div><dt>Terrass och pool</dt><dd>135,86 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Första våningen A, byggnad A</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 070 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Elviria%20Woodland%20Residences%20-%20SH-3">Fråga om SH-3</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="900000">
-                <a class="unit-card-plan" href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-7">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans-thumb-640.webp 640w, assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans-thumb.jpg" alt="Planritning för SH-7" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">SH-7</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>131,61 m²</dd></div>
-                    <div><dt>Terrass och pool</dt><dd>100,21 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Första våningen A, byggnad B</dd></div>
-                  </dl>
-                  <p class="unit-card-price">900 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Elviria%20Woodland%20Residences%20-%20SH-7">Fråga om SH-7</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="870000">
-                <a class="unit-card-plan" href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-8">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans-thumb-640.webp 640w, assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans-thumb.jpg" alt="Planritning för SH-8" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">SH-8</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>131,61 m²</dd></div>
-                    <div><dt>Terrass och pool</dt><dd>100,21 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Första våningen B, byggnad B</dd></div>
-                  </dl>
-                  <p class="unit-card-price">870 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Elviria%20Woodland%20Residences%20-%20SH-8">Fråga om SH-8</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1100000">
-                <a class="unit-card-plan" href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-17">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans-thumb-640.webp 640w, assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans-thumb.jpg" alt="Planritning för SH-17" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">SH-17</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>162,81 m²</dd></div>
-                    <div><dt>Terrass och pool</dt><dd>125,41 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Första våningen A, byggnad E</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 100 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Elviria%20Woodland%20Residences%20-%20SH-17">Fråga om SH-17</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="1295000">
-                <a class="unit-card-plan" href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-20">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans-thumb-640.webp 640w, assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans-thumb.jpg" alt="Planritning för SH-20" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Visa planritning</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">SH-20</strong>
-                    <span class="availability-status">Tillgänglig</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
-                    <div><dt>Byggyta</dt><dd>184,67 m²</dd></div>
-                    <div><dt>Terrass och pool</dt><dd>101,80 m²</dd></div>
-                    <div><dt>Trädgård</dt><dd>164,25 m²</dd></div>
-                    <div><dt>Våning</dt><dd>Bottenvåning, byggnad G</dd></div>
-                  </dl>
-                  <p class="unit-card-price">1 295 000 €</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Elviria%20Woodland%20Residences%20-%20SH-20">Fråga om SH-20</a>
-                </div>
-              </article>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>13 bilder</button>
+          <a class="chip" href="sv/property-elviria-woodland-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Planritningar</a>
+          <a class="chip" href="sv/property-elviria-woodland-residences.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
           
-          <p class="availability-source-note">Planlösningar, ytor och priser hämtade från exploatörens publicering i augusti 2026. Priser exkluderar IVA och tillämpliga köpkostnader och kan ändras utan förvarning eller vid försäljning av en bostad. Nueva Living bekräftar pris, status och bokningsvillkor innan ni går vidare.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Elviria%20Woodland%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Elviria Woodland Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Elviria Woodland</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">En samling om 21 lägenheter fördelade på sju fristående hus i en privat medelhavsskog i Elviria, östra Marbella, med privat pool vid varje bostad.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 870 000 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>2 till 3</dd><dd class="sub"><span>Lägenhet</span></dd></div><div><dt>Inflyttning</dt><dd>Beräknat K2 2027</dd><dd class="sub">Bygglov beviljat</dd></div><div><dt>Bostäder kvar</dt><dd>5 av 21</dd><dd class="sub">Kontrollerat augusti 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Elviria%20Woodland%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Elviria Woodland Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Elviria Woodland Residences är en samling om 21 lägenheter fördelade på sju fristående hus, i en privat medelhavsskog i Elviria, östra Marbella, omgiven av tallar, mastixbuskar och rosmarin, och genomkorsad av en naturlig bäck.</p>
+    <p class="lede-2">Bostäder på bottenvåningen öppnar sig mot en trädgård fram och bak; bostäder på första våningen har en egen takterrass med pergola, och ett hus är byggt uteslutande som duplexlägenheter med egen solterrass. Varje bostad, oavsett våning, har sin egen privata pool. En gångbro över bäcken leder till en gemensam Wellness Hub med torrbastu, hammam, gym och utomhus träningsyta.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Byggt i en levande skog</span></summary><p>De sju husen är utformade kring tomtens medelhavsskog snarare än i dess ställe, med putsade fasader i ljusa toner, fönster från golv till tak samt vardagsrum och kök upp till 12 meter breda som öppnar sig mot terrassen. Storformatiga klinkerplattor i porslin (90x90cm) håller samma nivå mellan inomhus och utomhus.</p><p>Konstruktionsmässigt använder husen hållbar Eco-Planet-betong med armerade betongväggar och blandad grundläggning, och den utvändiga snickerin är i aluminium med köldbryggebrytning och motoriserade, inbrottssäkra rullgardiner. Golvvärme kombineras med ett ventilationssystem med dubbla flöden och värmeväxlare, och varje bostad är förinstallerad för ett smart hem-system som styr temperatur, belysning, persienner och videoportentelefon.</p><ul><li>Privat pool med saltklorering vid varje bostad, med förinstallation för uppvärmning.</li><li>Vardagsrum och kök upp till 12 meter breda, med anslutning till terrassen genom fönster från golv till tak.</li><li>Golvvärme med ventilationssystem med dubbla flöden och värmeväxlare.</li><li>Förinstallation för smart hem-system och för laddning av elfordon.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>870 000 € – 1 295 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>5 av 21 bostäder</span><small>Kontrollerat augusti 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Lägenhet</span></dd></div><div><dt>Storlekar</dt><dd><span>132 – 185 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>Beräknat K2 2027</span></dd></div><div><dt>Tillstånd</dt><dd><span><span class="ok">Bygglov</span></span><small>Beviljat</small></dd></div><div><dt>Förskott</dt><dd><span>Bankgaranti</span><small>Krävs enligt spansk lag</small></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Exploatören har hittills lanserat fem exempelbostäder med bekräftat pris, i planlösningar från två till tre sovrum. Nueva Living bekräftar aktuellt pris och tillgänglighet innan varje visning eller bokning. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="5 av 21 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>5 av 21 till salu</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="1070000" data-size="157.91" data-ppm="6776" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">SH-3</span><span class="u-loc">Första våningen A, byggnad A</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">158 m²</td>
+            <td data-label="Pris" class="u-price num">1 070 000 €</td>
+            <td data-label="Per m²" class="num">6 776 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-3"><img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="900000" data-size="131.61" data-ppm="6838" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">SH-7</span><span class="u-loc">Första våningen A, byggnad B</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">132 m²</td>
+            <td data-label="Pris" class="u-price num">900 000 €</td>
+            <td data-label="Per m²" class="num">6 838 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-7"><img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="870000" data-size="131.61" data-ppm="6610" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">SH-8</span><span class="u-loc">Första våningen B, byggnad B</span></th>
+            <td data-label="Sovrum">2 sovrum</td>
+            <td data-label="Storlek" class="num">132 m²</td>
+            <td data-label="Pris" class="u-price num">870 000 €</td>
+            <td data-label="Per m²" class="num">6 610 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-8"><img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="1100000" data-size="162.81" data-ppm="6756" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">SH-17</span><span class="u-loc">Första våningen A, byggnad E</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">163 m²</td>
+            <td data-label="Pris" class="u-price num">1 100 000 €</td>
+            <td data-label="Per m²" class="num">6 756 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-17"><img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="1295000" data-size="184.67" data-ppm="7013" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans-thumb.jpg">
+            <th scope="row"><span class="u-name">SH-20</span><span class="u-loc">Bottenvåning, byggnad G</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">185 m²</td>
+            <td data-label="Pris" class="u-price num">1 295 000 €</td>
+            <td data-label="Per m²" class="num">7 013 €</td>
+            <td class="u-plan"><a href="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans.pdf" target="_blank" rel="noopener" aria-label="Planritning för SH-20"><img src="assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Ritning</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Planlösningar på bottenvåningen och första våningen</span></summary><p>Bostäder på bottenvåningen har en privat trädgård fram och bak med övertäckt veranda; bostäder på första våningen har en takterrass med pergola. Båda planlösningarna, som visas nedan, har sin egen privata pool. Exploatören har ännu inte publicerat priser för enskilda bostäder.</p><div class="res-types"><div class="res-type"><h3>Lägenhet första våningen</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>2 sovrum</dd></div><div><dt>Total byggyta</dt><dd>131,61 m²</dd></div><div><dt>Terrass och pool</dt><dd>100,21 m²</dd></div><div><dt>Från</dt><dd>900 000 €</dd></div></dl><ul><li>Öppet vardagsrum, matplats och kök som leder till en övertäckt veranda.</li><li>Två sovrum, vardera med eget badrum, plus gäst-wc och grovkök.</li><li>Egen takterrass med pergola, solterrass och privat pool.</li></ul></div><div class="res-type"><h3>Lägenhet bottenvåningen</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>3 sovrum</dd></div><div><dt>Total byggyta</dt><dd>184,67 m²</dd></div><div><dt>Terrass, pool och trädgård</dt><dd>266,05 m²</dd></div><div><dt>Från</dt><dd>1 295 000 €</dd></div></dl><ul><li>Öppet vardagsrum, matplats och kök upp till 12 meter brett, med utgång till övertäckt veranda och trädgård.</li><li>Tre sovrum, vardera med eget badrum, plus gäst-wc, grovkök och förråd.</li><li>Privat trädgård fram och bak med egen pool och terrass.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -901,407 +589,199 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Privat pool till varje bostad</h3>
-              <p class="amenity-note">Hör till bostaden</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Flygvy över projektet i dess skogsmiljö"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.jpg" alt="Flygvy över låga lägenhetshus på en skogklädd sluttning i Elviria" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Vardagsrum med tillgång till terrassen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view.jpg" alt="Öppet vardagsrum med tillgång till en terrass med utsikt över den skogklädda sluttningen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Husrad med planterade terrasser"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/building-row-terraces-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/building-row-terraces-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/building-row-terraces.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/elviria-woodland-residences/media/building-row-terraces.jpg" alt="Rad av moderna lägenhetshus med planterade terrasser i Elviria" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="Husentré och privat parkering"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/building-entrance-stairwell-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/building-entrance-stairwell-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/building-entrance-stairwell.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/elviria-woodland-residences/media/building-entrance-stairwell.jpg" alt="Husentré med trapphus, hisstillgång och privat parkering" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Övertäckt terrass och utomhuslounge"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/elviria-woodland-residences/media/covered-terrace-lounge-640.webp 640w, assets/liora/projects/elviria-woodland-residences/media/covered-terrace-lounge-960.webp 960w, assets/liora/projects/elviria-woodland-residences/media/covered-terrace-lounge.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/elviria-woodland-residences/media/covered-terrace-lounge.jpg" alt="Övertäckt terrass med utomhuslounge i anslutning till vardagsrummet" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 13 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (7)</button><button type="button" data-open-cat="Interiors">Interiör (6)</button></div>
+    
+    <p class="caption">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Elviria Woodland ligger i sin egen tallskog i Elviria, på Marbellas östra sida, nära Santa Clara Golf och Cabopino Golf och en kort bilresa från Marbellas gamla stad och Puerto Banús.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-elviria-woodland-residences" data-locmap='{&quot;site&quot;:[36.499,-4.78],&quot;sea&quot;:[36.472,-4.78],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Marbella centrum&quot;,&quot;sub&quot;:&quot;10 km · 14 min&quot;},{&quot;ll&quot;:[36.50673,-4.8227],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Santa Clara&quot;,&quot;sub&quot;:&quot;4,2 km · 5 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;12 km · 17 min&quot;},{&quot;ll&quot;:[36.49001,-4.77178],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,7 km · 6 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Elviria Woodland Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Elviria Woodland Residences</h3>
+            <p class="locmap-place">Elviria, östra Marbella</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>2,7 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Wellnessdel med torrbastu, hammam och gym</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>17 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Utegym</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Marbella centrum</span>
+              <span class="locmap-row-figure"><bdi>10 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Utomhus</span>
-              <h3 class="amenity-name">Medelhavsträdgårdar med belysta gångar</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Santa Clara</span>
+              <span class="locmap-row-figure"><bdi>4,2 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Utomhus</span>
-              <h3 class="amenity-name">Solterrass</h3>
-              <p class="amenity-note">Öppen takterrass för sol</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Cabopino</span>
+              <span class="locmap-row-figure"><bdi>6,8 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Utomhus</span>
-              <h3 class="amenity-name">Pergola</h3>
-              <p class="amenity-note">Skugga över terrassen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Málaga flygplats</span>
+              <span class="locmap-row-figure"><bdi>45 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Vardag</span>
-              <h3 class="amenity-name">Förberett för elbilsladdning</h3>
-              <p class="amenity-note">En punkt för bilen</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Vardag</span>
-              <h3 class="amenity-name">Golvvärme i hela bostaden</h3>
-              <p class="amenity-note">Värme underifrån</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Vardag</span>
-              <h3 class="amenity-name">BREEAM-certifierat, energiklass A</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Vardag</span>
-              <h3 class="amenity-name">Hiss</h3>
-              <p class="amenity-note">Alla våningsplan nås</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Service</span>
-              <h3 class="amenity-name">Bevakat område</h3>
-              <p class="amenity-note">Bevakad infart</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Santa Clara Golf</th><td>Ca 6 minuter</td></tr><tr><th scope="row">Cabopino Golf</th><td>Ca 12 minuter</td></tr><tr><th scope="row">Rio Real Golf</th><td>Ca 9 minuter</td></tr><tr><th scope="row">Närmaste strand</th><td>Ca 8 minuter</td></tr><tr><th scope="row">Marbellas gamla stad</th><td>Ca 15 minuter</td></tr><tr><th scope="row">Málagas flygplats</th><td>Ca 50 minuter</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Utöver den egna poolen och terrassen eller trädgården vid varje bostad delar Elviria Woodlands boende en Wellness Hub och medelhavsträdgårdar som löper genom projektets tallskogsmiljö.</p>
+    <div class="life-panels"><div><h3>Wellness hub</h3><p>En torrbastu, hammam och fullt utrustat gym, nåbart via en gångbro över bäcken som rinner genom tomten, tillsammans med en utomhus träningsyta.</p></div><div><h3>Medelhavsträdgårdar</h3><p>Upplysta gångar och murar planterade med lokal flora mellan de sju husen, inom tomtens skyddade tall-, mastix- och rosmarinskog.</p></div><div><h3>Privat utomhusliv</h3><p>En privat pool och terrass eller trädgård vid varje bostad, utöver den gemensamma Wellness Hub och trädgårdarna.</p></div></div>
+    <ul class="amen-top"><li>Privat pool till varje bostad</li><li>Wellnessdel med torrbastu, hammam och gym</li><li>Utegym</li><li>Medelhavsträdgårdar med belysta gångar</li><li>Förberett för elbilsladdning</li><li>Golvvärme i hela bostaden</li></ul>
+    <details class="amen-all"><summary>Visa alla 11</summary><div class="amen-groups"><div><h3>Välmående<span class="count">3</span></h3><ul><li>Privat pool till varje bostad</li><li>Wellnessdel med torrbastu, hammam och gym</li><li>Utegym</li></ul></div><div><h3>Utomhus<span class="count">3</span></h3><ul><li>Medelhavsträdgårdar med belysta gångar</li><li>Solterrass</li><li>Pergola</li></ul></div><div><h3>Vardag<span class="count">4</span></h3><ul><li>Förberett för elbilsladdning</li><li>Golvvärme i hela bostaden</li><li>BREEAM-certifierat, energiklass A</li><li>Hiss</li></ul></div><div><h3>Service<span class="count">1</span></h3><ul><li>Bevakat område</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill ha en privat pool utan underhållet av en hel villatomt, i en lugn, skogklädd miljö snarare än ett tätt stadskvarter.</span></li><li><b>Vad som skiljer det från andra</b><span>Var och en av de 21 bostäderna har sin egen privata pool, oavsett om det är en trädgårdslägenhet på bottenvåningen eller en lägenhet på första våningen med takterrass.</span></li><li><b>Varför läget spelar roll</b><span>Elviria ligger på Marbellas östra sida i sin egen tallskog, nära flera golfbanor och en kort bilresa från Puerto Banús och Marbellas gamla stad.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>5 av de 21 bostäderna är för närvarande lanserade med bekräftat pris; Nueva Living bekräftar aktuell lansering innan varje visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Varför tidpunkten spelar roll</b><span>Endast 5 av de 21 bostäderna är för närvarande lanserade med bekräftat pris; utbudet av planlösningar kommer att förändras allteftersom fler faser lanseras.</span></li><li><b>Aktuell information</b><span>Nueva Living bekräftar pris, tillgänglighet och specifikation direkt med exploatören innan varje visning eller bokning.</span></li><li><b>Långsiktig attraktionskraft</b><span>En privat pool vid varje bostad, ett BREEAM-betyg 'Very Good' och energiklass A är ovanliga tillsammans i denna skala.</span></li><li><b>Eget bruk och uthyrning</b><span>Köpare bör bekräfta gällande uthyrningsregler för detta projekt direkt med exploatören innan de utgår från en hyresintäktsplan.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Information om exploatören</b><span>Nueva Living har exploatörens identitets- och tillståndsinformation och lämnar den skriftligt innan varje bokning.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Så fungerar köpet</b><span>En privat, engelskspråkig köpprocess med en spansk advokat som köparen själv väljer; Nueva Living samordnar visningar och dokumentation.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Tillträde och garanti</b><span>Bygglov beviljat; byggstart K1 2025 med beräknad färdigställande K2 2027 och slutbesiktning beräknad till K4 2027. Betalningsvillkoren är 10 000 € i bokningsavgift, 30% plus IVA vid signering av privat köpeavtal inom 30 dagar efter bokning, och 70% plus IVA vid tillträde.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Andra alternativ</b><span>Nueva Living kan på begäran jämföra Elviria Woodland med andra projekt i Elviria och östra Marbella.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektinformation</h3><p>Be om den aktuella prislistan för planlösningen på bottenvåningen eller första våningen.</p></li><li><h3>Jämför planlösningarna</h3><p>Granska de två planlösningarna sida vid sida utifrån er budget och era utrymmesbehov.</p></li><li><h3>Privat visning</h3><p>Se skogsmiljön och Wellness Hub på plats innan ni bestämmer er.</p></li><li><h3>Genomgång före bokning</h3><p>Bekräfta aktuellt pris, tillgänglighet och betalningsstruktur skriftligt innan bokning.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Planritningar<small>5 av 5 bostäder</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Elviria Woodland</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hur många bostäder finns totalt?</summary><p>21 lägenheter fördelade på sju fristående hus.</p></details><details class="segment-faq-item"><summary>Hur många är tillgängliga just nu?</summary><p>Exploatören har hittills lanserat 5 bostäder med bekräftat pris, i planlösningar från två till tre sovrum. Nueva Living bekräftar aktuell lansering innan varje visning.</p></details><details class="segment-faq-item"><summary>Ingår en privat pool?</summary><p>Ja. Exploatörens specifikation anger att varje bostad har sin egen privata pool med saltklorering.</p></details><details class="segment-faq-item"><summary>Är priset inklusive IVA?</summary><p>Nej. Den publicerade betalningsstrukturen lägger till IVA på varje betalningssteg.</p></details><details class="segment-faq-item"><summary>Ingår möbler?</summary><p>Nej. Bilderna som visas är datorgenererade; möbler, styling och växtlighet är vägledande och ingår inte i försäljningen.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>När sker tillträdet?</summary><p>Byggstart var K1 2025 med beräknad färdigställande K2 2027, och slutbesiktningen beräknas till K4 2027. Bygglovet har redan beviljats.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">870 000 €</p>
+      <p class="rail-note">Exkl. IVA. 5 av 21 bostäder kvar · Kontrollerat augusti 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Elviria%20Woodland%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Elviria Woodland Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Elviria%20Woodland%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Elviria Woodland Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>Arkitektur.</b> Sju låga hus i en privat medelhavsskog, med privat pool vid varje bostad.</li><li><b>Bostadstyper.</b> Trädgårdslägenheter på bottenvåningen och lägenheter på första våningen med takterrass, från 2 till 3 sovrum.</li><li><b>Livsstil.</b> En gemensam Wellness Hub på andra sidan en gångbro, med torrbastu, hammam, gym och utomhus träningsyta.</li><li><b>Nästa steg.</b> Be om den aktuella prislistan och planritningarna för den planlösning ni är intresserad av.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Elviria Woodland Residences">
+        <input type="hidden" id="f-project" name="project" value="Elviria Woodland Residences">
+        <input type="hidden" name="preferred_area" value="Elviria, östra Marbella">
+        <input type="hidden" name="property_type_interest" value="Lägenhet">
+        <input type="hidden" name="budget_range" value="Från 870 000 €">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Jag vill gärna få den senaste projektinformationen för Elviria Woodland Residences." data-base="Jag vill gärna få den senaste projektinformationen för Elviria Woodland Residences.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="SH-3">SH-3: 1 070 000 €</option><option value="SH-7">SH-7: 900 000 €</option><option value="SH-8">SH-8: 870 000 €</option><option value="SH-17">SH-17: 1 100 000 €</option><option value="SH-20">SH-20: 1 295 000 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Elviria Woodland.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">En samling låga lägenhetshus för köpare som vill ha en privat pool och en genuint skogklädd, naturlig miljö nära östra Marbellas stränder och golfbanor.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill ha en privat pool utan underhållet av en hel villatomt, i en lugn, skogklädd miljö snarare än ett tätt stadskvarter.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Var och en av de 21 bostäderna har sin egen privata pool, oavsett om det är en trädgårdslägenhet på bottenvåningen eller en lägenhet på första våningen med takterrass.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Elviria ligger på Marbellas östra sida i sin egen tallskog, nära flera golfbanor och en kort bilresa från Puerto Banús och Marbellas gamla stad.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>5 av de 21 bostäderna är för närvarande lanserade med bekräftat pris; Nueva Living bekräftar aktuell lansering innan varje visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">En saklig anmärkning om tidpunkt och ägande; Nueva Living utlovar varken hyresavkastning eller värdestegring.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Varför tidpunkten spelar roll</h3><p>Endast 5 av de 21 bostäderna är för närvarande lanserade med bekräftat pris; utbudet av planlösningar kommer att förändras allteftersom fler faser lanseras.</p></article>
-              <article class="why-point reveal-soft"><h3>Aktuell information</h3><p>Nueva Living bekräftar pris, tillgänglighet och specifikation direkt med exploatören innan varje visning eller bokning.</p></article>
-              <article class="why-point reveal-soft"><h3>Långsiktig attraktionskraft</h3><p>En privat pool vid varje bostad, ett BREEAM-betyg 'Very Good' och energiklass A är ovanliga tillsammans i denna skala.</p></article>
-              <article class="why-point reveal-soft"><h3>Eget bruk och uthyrning</h3><p>Köpare bör bekräfta gällande uthyrningsregler för detta projekt direkt med exploatören innan de utgår från en hyresintäktsplan.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Information om exploatören</h3><p>Nueva Living har exploatörens identitets- och tillståndsinformation och lämnar den skriftligt innan varje bokning.</p></article>
-              <article class="why-point reveal-soft"><h3>Så fungerar köpet</h3><p>En privat, engelskspråkig köpprocess med en spansk advokat som köparen själv väljer; Nueva Living samordnar visningar och dokumentation.</p></article>
-              <article class="why-point reveal-soft"><h3>Tillträde och garanti</h3><p>Bygglov beviljat; byggstart K1 2025 med beräknad färdigställande K2 2027 och slutbesiktning beräknad till K4 2027. Betalningsvillkoren är 10 000 € i bokningsavgift, 30% plus IVA vid signering av privat köpeavtal inom 30 dagar efter bokning, och 70% plus IVA vid tillträde.</p></article>
-              <article class="why-point reveal-soft"><h3>Andra alternativ</h3><p>Nueva Living kan på begäran jämföra Elviria Woodland med andra projekt i Elviria och östra Marbella.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren augusti 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Planlösningar, ytor och priser hämtade från exploatörens publicering i augusti 2026. Priser exkluderar IVA och tillämpliga köpkostnader och kan ändras utan förvarning eller vid försäljning av en bostad. Nueva Living bekräftar pris, status och bokningsvillkor innan ni går vidare.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/elviria-woodland-residences/media/building-row-terraces.jpg" alt="Row of contemporary apartment buildings with planted terraces in Elviria" width="1920" height="1080" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Byggnadsraden, inpassad i den skogsklädda sluttningen</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Byggt i <em>en levande skog</em></h2>
-          <p>De sju husen är utformade kring tomtens medelhavsskog snarare än i dess ställe, med putsade fasader i ljusa toner, fönster från golv till tak samt vardagsrum och kök upp till 12 meter breda som öppnar sig mot terrassen. Storformatiga klinkerplattor i porslin (90x90cm) håller samma nivå mellan inomhus och utomhus.</p>
-<p>Konstruktionsmässigt använder husen hållbar Eco-Planet-betong med armerade betongväggar och blandad grundläggning, och den utvändiga snickerin är i aluminium med köldbryggebrytning och motoriserade, inbrottssäkra rullgardiner. Golvvärme kombineras med ett ventilationssystem med dubbla flöden och värmeväxlare, och varje bostad är förinstallerad för ett smart hem-system som styr temperatur, belysning, persienner och videoportentelefon.</p>
-          <ul class="feature-list">
-            <li>Privat pool med saltklorering vid varje bostad, med förinstallation för uppvärmning.</li>
-            <li>Vardagsrum och kök upp till 12 meter breda, med anslutning till terrassen genom fönster från golv till tak.</li>
-            <li>Golvvärme med ventilationssystem med dubbla flöden och värmeväxlare.</li>
-            <li>Förinstallation för smart hem-system och för laddning av elfordon.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Elviria%20Woodland%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Elviria Woodland Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view.jpg" alt="Open-plan living area opening onto a terrace with views over the wooded hillside" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Ta en närmare titt på <em>Elviria Woodland</em></h2>
-            <p>Utforska skogsmiljön, de två lägenhetsplanlösningarna och Wellness Hub innan ni begär fullständig projektinformation.</p>
-            <div class="viewing-insights">
-              <div><span>Arkitektur</span><p>Sju låga hus i en privat medelhavsskog, med privat pool vid varje bostad.</p></div>
-              <div><span>Bostadstyper</span><p>Trädgårdslägenheter på bottenvåningen och lägenheter på första våningen med takterrass, från 2 till 3 sovrum.</p></div>
-              <div><span>Livsstil</span><p>En gemensam Wellness Hub på andra sidan en gångbro, med torrbastu, hammam, gym och utomhus träningsyta.</p></div>
-              <div><span>Nästa steg</span><p>Be om den aktuella prislistan och planritningarna för den planlösning ni är intresserad av.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=elviria-woodland-residences">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Interiors">Interiör</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/elviria-woodland-residences/media/rooftop-terrace-private-pool.jpg" alt="Rooftop terrace with a private pool and dining area" width="1920" height="1080" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Livet i <em>en privat skog</em></h2>
-            <p>Utöver den egna poolen och terrassen eller trädgården vid varje bostad delar Elviria Woodlands boende en Wellness Hub och medelhavsträdgårdar som löper genom projektets tallskogsmiljö.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektinformation</h3>
-            <p>Be om den aktuella prislistan för planlösningen på bottenvåningen eller första våningen.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför planlösningarna</h3>
-            <p>Granska de två planlösningarna sida vid sida utifrån er budget och era utrymmesbehov.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se skogsmiljön och Wellness Hub på plats innan ni bestämmer er.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Genomgång före bokning</h3>
-            <p>Bekräfta aktuellt pris, tillgänglighet och betalningsstruktur skriftligt innan bokning.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många bostäder finns totalt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>21 lägenheter fördelade på sju fristående hus.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur många är tillgängliga just nu?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Exploatören har hittills lanserat 5 bostäder med bekräftat pris, i planlösningar från två till tre sovrum. Nueva Living bekräftar aktuell lansering innan varje visning.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår en privat pool?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Exploatörens specifikation anger att varje bostad har sin egen privata pool med saltklorering.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är priset inklusive IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Den publicerade betalningsstrukturen lägger till IVA på varje betalningssteg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår möbler?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Bilderna som visas är datorgenererade; möbler, styling och växtlighet är vägledande och ingår inte i försäljningen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>När sker tillträdet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Byggstart var K1 2025 med beräknad färdigställande K2 2027, och slutbesiktningen beräknas till K4 2027. Bygglovet har redan beviljats.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>Elviria Woodland Residences</em></h2>
-          <p class="body-copy">Berätta vilken lägenhetsplanlösning som intresserar er så skickar vi den aktuella prislistan och specifikationen.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Elviria%20Woodland%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Elviria Woodland Residences" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Elviria Woodland Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Elviria Woodland Residences">
-          <input type="hidden" name="preferred_area" value="Elviria, östra Marbella">
-          <input type="hidden" name="property_type_interest" value="Lägenhet">
-          <input type="hidden" name="budget_range" value="Från 870 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Jag vill gärna få den senaste projektinformationen för Elviria Woodland Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Projektkontext: Elviria Woodland Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"SH-3","title":"SH-3 · Första våningen A, byggnad A","sub":"3 sovrum · 158 m²","price":1070000,"plans":[{"src":"assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh3-floorplans.pdf","label":""}]},{"id":"u1","ref":"SH-7","title":"SH-7 · Första våningen A, byggnad B","sub":"2 sovrum · 132 m²","price":900000,"plans":[{"src":"assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh7-floorplans.pdf","label":""}]},{"id":"u2","ref":"SH-8","title":"SH-8 · Första våningen B, byggnad B","sub":"2 sovrum · 132 m²","price":870000,"plans":[{"src":"assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh8-floorplans.pdf","label":""}]},{"id":"u3","ref":"SH-17","title":"SH-17 · Första våningen A, byggnad E","sub":"3 sovrum · 163 m²","price":1100000,"plans":[{"src":"assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh17-floorplans.pdf","label":""}]},{"id":"u4","ref":"SH-20","title":"SH-20 · Bottenvåning, byggnad G","sub":"3 sovrum · 185 m²","price":1295000,"plans":[{"src":"assets/liora/projects/elviria-woodland-residences/floorplans/unit-sh20-floorplans.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.webp","alt":"Flygvy över låga lägenhetshus på en skogklädd sluttning i Elviria","caption":"Flygvy över projektet i dess skogsmiljö","cat":"Exteriors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/building-row-terraces.webp","alt":"Rad av moderna lägenhetshus med planterade terrasser i Elviria","caption":"Husrad med planterade terrasser","cat":"Exteriors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/building-entrance-stairwell.webp","alt":"Husentré med trapphus, hisstillgång och privat parkering","caption":"Husentré och privat parkering","cat":"Exteriors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/covered-terrace-lounge.webp","alt":"Övertäckt terrass med utomhuslounge i anslutning till vardagsrummet","caption":"Övertäckt terrass och utomhuslounge","cat":"Exteriors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/rooftop-terrace-private-pool.webp","alt":"Takterrass med privat pool och matplats","caption":"Takterrass med privat pool","cat":"Exteriors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bedroom-private-garden-patio.webp","alt":"Sovrum på bottenvåningen med tillgång till en privat inhägnad trädgårdspatio","caption":"Sovrum på bottenvåningen med privat trädgårdspatio","cat":"Exteriors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bedroom-private-terrace-lounge.webp","alt":"Sovrum med tillgång till en privat terrass med utomhuslounge","caption":"Sovrum med privat terrasslounge","cat":"Exteriors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view.webp","alt":"Öppet vardagsrum med tillgång till en terrass med utsikt över den skogklädda sluttningen","caption":"Vardagsrum med tillgång till terrassen","cat":"Interiors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/open-plan-living-kitchen.webp","alt":"Öppet kök, matplats och vardagsrum med tillgång till en privat terrass","caption":"Öppet kök, matplats och vardagsrum","cat":"Interiors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/living-room-sea-view.webp","alt":"Vardagsrum och matplats med helglasat parti mot en poolterrass","caption":"Vardagsrum och matplats med tillgång till poolterrassen","cat":"Interiors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/dining-living-pool-terrace.webp","alt":"Matplats och vardagsrum med utsikt över en terrass, pool och skogklädd sluttning","caption":"Matplats och vardagsrum med terrassutsikt","cat":"Interiors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bedroom-hillside-view.webp","alt":"Sovrum med utsikt över den skogklädda sluttningen kring projektet","caption":"Sovrum med utsikt över sluttningen","cat":"Interiors"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bathroom-interior.webp","alt":"Badrum med bakgrundsbelyst rund spegel, väggmonterad handfatsmöbel och instegsdusch","caption":"Badrum","cat":"Interiors"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Elviria Woodland Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/aerial-view-forest-setting-960.webp","alt":"Flygvy över låga lägenhetshus på en skogklädd sluttning i Elviria","width":1920,"height":1080,"caption":"Flygvy över projektet i dess skogsmiljö","category":"Exteriör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/building-row-terraces.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/building-row-terraces-960.webp","alt":"Rad av moderna lägenhetshus med planterade terrasser i Elviria","width":1920,"height":1080,"caption":"Husrad med planterade terrasser","category":"Exteriör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/building-entrance-stairwell.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/building-entrance-stairwell-960.webp","alt":"Husentré med trapphus, hisstillgång och privat parkering","width":1920,"height":1080,"caption":"Husentré och privat parkering","category":"Exteriör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/covered-terrace-lounge.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/covered-terrace-lounge-960.webp","alt":"Övertäckt terrass med utomhuslounge i anslutning till vardagsrummet","width":1920,"height":1080,"caption":"Övertäckt terrass och utomhuslounge","category":"Exteriör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/rooftop-terrace-private-pool.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/rooftop-terrace-private-pool-960.webp","alt":"Takterrass med privat pool och matplats","width":1920,"height":1080,"caption":"Takterrass med privat pool","category":"Exteriör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bedroom-private-garden-patio.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/bedroom-private-garden-patio-960.webp","alt":"Sovrum på bottenvåningen med tillgång till en privat inhägnad trädgårdspatio","width":1920,"height":1080,"caption":"Sovrum på bottenvåningen med privat trädgårdspatio","category":"Exteriör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bedroom-private-terrace-lounge.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/bedroom-private-terrace-lounge-960.webp","alt":"Sovrum med tillgång till en privat terrass med utomhuslounge","width":1920,"height":1080,"caption":"Sovrum med privat terrasslounge","category":"Exteriör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/living-terrace-hillside-view-960.webp","alt":"Öppet vardagsrum med tillgång till en terrass med utsikt över den skogklädda sluttningen","width":1920,"height":1080,"caption":"Vardagsrum med tillgång till terrassen","category":"Interiör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/open-plan-living-kitchen.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/open-plan-living-kitchen-960.webp","alt":"Öppet kök, matplats och vardagsrum med tillgång till en privat terrass","width":1920,"height":1080,"caption":"Öppet kök, matplats och vardagsrum","category":"Interiör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/living-room-sea-view.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/living-room-sea-view-960.webp","alt":"Vardagsrum och matplats med helglasat parti mot en poolterrass","width":1920,"height":1080,"caption":"Vardagsrum och matplats med tillgång till poolterrassen","category":"Interiör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/dining-living-pool-terrace.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/dining-living-pool-terrace-960.webp","alt":"Matplats och vardagsrum med utsikt över en terrass, pool och skogklädd sluttning","width":1920,"height":1080,"caption":"Matplats och vardagsrum med terrassutsikt","category":"Interiör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bedroom-hillside-view.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/bedroom-hillside-view-960.webp","alt":"Sovrum med utsikt över den skogklädda sluttningen kring projektet","width":1920,"height":1080,"caption":"Sovrum med utsikt över sluttningen","category":"Interiör"},{"src":"assets/liora/projects/elviria-woodland-residences/media/bathroom-interior.jpg","webp":"assets/liora/projects/elviria-woodland-residences/media/bathroom-interior-960.webp","alt":"Badrum med bakgrundsbelyst rund spegel, väggmonterad handfatsmöbel och instegsdusch","width":1920,"height":1080,"caption":"Badrum","category":"Interiör"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-elviria-woodland-residences.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Elviria%20Woodland%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Elviria Woodland Residences" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlänningar köpa fastigheter i Spanien?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är ett NIE-nummer och behöver jag ett?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vilka kostnader bör jag budgetera för utöver köpeskillingen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag få ett bolån i Spanien som icke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hur fungerar boknings- och betalningsprocessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jag hyra ut fastigheten efter köpet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Behöver jag en jurist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Vad kostar husen?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -310,7 +247,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="sv"
   data-project-name="Azata Golf Townhouses"
   data-project-message="Jag vill gärna få aktuell projektinformation om Azata Golf Townhouses."
@@ -467,751 +404,502 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Azata Golf Townhouses">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="sv/property-azata-golf-townhouses.html#top">Azata Golf Townhouses<span>Från 470 250 € · Exkl. IVA</span></a>
+      <nav class="hdr-proj" aria-label="Projektavsnitt"><a href="sv/property-azata-golf-townhouses.html#overview">Översikt</a><a href="sv/property-azata-golf-townhouses.html#availability">Priser</a><a href="sv/property-azata-golf-townhouses.html#gallery">Galleri</a><a href="sv/property-azata-golf-townhouses.html#location">Läge</a><a href="sv/property-azata-golf-townhouses.html#onsite">I området</a><a href="sv/property-azata-golf-townhouses.html#view">Vår bedömning</a><a href="sv/property-azata-golf-townhouses.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Boka en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Azata Golf Townhouses">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/development-from-above-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/development-from-above-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/development-from-above.webp 1400w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/azata-golf-townhouses/media/development-from-above.jpg" alt="The development seen from above, white terraces along the golf course" width="1400" height="934" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/azata-golf-townhouses/media/development-from-above.jpg" alt="The development seen from above, white terraces along the golf course" width="1400" height="934" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Inflyttningsklart / privat infart</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Azata Golf <em>Townhouses</em></span>
-            <span class="hero-title-context">Radhus · Azata Golf, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Åttiosju radhus med tre sovrum intill Azata Golf i Estepona, färdigställda och inflyttningsklara, på 226,60 till 293,29 m² byggyta med privat garage, terrass och på vissa hus en solterrass, i ett inhägnat område med två pooler, spa och gym.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="sv/property-azata-golf-townhouses.html#availability">Visa tillgängliga bostäder</a>
-            <a class="btn project-btn ghost" href="sv/index.html#private-viewing=1&amp;project=azata-golf-townhouses">Filmisk presentation</a>
-            <a class="btn project-btn ghost" href="sv/property-azata-golf-townhouses.html#media">Alla bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktiga projektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Azata Golf, Estepona</strong></div>
-          <div class="hero-fact"><span>Pris från</span><strong>Från 470 250 €</strong></div>
-          <div class="hero-fact"><span>Bostadstyp</span><strong>Radhus</strong></div>
-          <div class="hero-fact"><span>Tillträde</span><strong>Inflyttningsklart</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projektavsnitt">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Hoppa till</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="sv/property-azata-golf-townhouses.html#media">Media</a>
-        <a href="sv/property-azata-golf-townhouses.html#location">Läge</a>
-        <a href="sv/property-azata-golf-townhouses.html#construction-timeline">Betalningsvillkor</a>
-        <a href="sv/property-azata-golf-townhouses.html#availability">Tillgänglighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="sv/property-azata-golf-townhouses.html#overview">Översikt</a>
-          <a href="sv/property-azata-golf-townhouses.html#residences">Bostäder</a>
-          <a href="sv/property-azata-golf-townhouses.html#calculator">Finansiering</a>
-          <a href="sv/property-azata-golf-townhouses.html#amenities">Bekvämligheter</a>
-          <a href="sv/property-azata-golf-townhouses.html#why-this-project">Varför</a>
-          <a href="sv/property-azata-golf-townhouses.html#architecture">Arkitektur</a>
-          <a href="sv/property-azata-golf-townhouses.html#private-viewing">Filmisk presentation</a>
-          <a href="sv/property-azata-golf-townhouses.html#lifestyle">Livsstil</a>
-          <a href="sv/property-azata-golf-townhouses.html#faq">FAQ</a>
-          <a href="sv/property-azata-golf-townhouses.html#enquire">Förfrågan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snabbfakta om projektet">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Sovrum</span><strong>3 sovrum</strong></div>
-          <div class="quick-fact"><span>Badrum</span><strong>2 badrum</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>226,60 – 293,29 m²</strong></div>
-          <div class="quick-fact"><span>Terrass</span><strong>13,92 – 37,27 m²</strong></div>
-          <div class="quick-fact"><span>Tillgänglighet</span><strong>49 av 87 tillgängliga</strong></div>
-          <div class="quick-fact"><span>Byggyta</span><strong>143,06 – 183,37 m²</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Begär projektmaterial</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Översikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Åttiosju hus, <em>färdiga</em></h2>
-          <p class="project-lead">Azata Golf Townhouses är ett inhägnat område med åttiosju hus om tre sovrum intill Azata Golf, på inlandssidan av Estepona. Projektet är färdigställt och husen är inflyttningsklara.</p>
-          <p class="project-lead">Husen mäter 226,60 till 293,29 m² byggyta, med interiörer på 143,06 till 183,37 m² och terrasser på 13,92 till 37,27 m². Tolv av de släppta husen har dessutom en solterrass på 42,39 till 54,44 m². Varje hus har ett eget slutet garage på cirka 31 m² med direkt ingång inifrån, med plats för bil, motorcykel och förvaring.</p>
-          <p class="project-lead">Även de gemensamma ytorna är färdiga: en utomhuspool i trädgårdarna, en uppvärmd inomhuspool, ett spa med jacuzzi och bastu, ett gym och ett yogarum.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Husen i <em>detalj</em></h2>
-          </div>
-          <p class="project-lead">Fotografier av det färdiga projektet och dess gemensamma ytor. Möbler och inredning är vägledande och ingår inte i köpet.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Visa 7 bilder i Exteriör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/development-from-above-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/development-from-above-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/development-from-above.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/azata-golf-townhouses/media/development-from-above.jpg" alt="Området från luften, vita terrasser som trappar ned längs golfbanan" width="1400" height="934" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exteriör</small>
-                <strong>Uppifrån</strong>
-                <span class="project-media-card-cta">7 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Visa 2 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/covered-terrace-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/covered-terrace-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/covered-terrace.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/azata-golf-townhouses/media/covered-terrace.jpg" alt="En täckt terrass med matplats och sittgrupp, öppen mot golfbanan" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>Terrassen</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Visa 2 bilder i Interiör">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace.jpg" alt="Vardagsrummet, glasat i hela sin bredd mot terrassen" width="1400" height="977" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiör</small>
-                <strong>Vardagsrum</strong>
-                <span class="project-media-card-cta">2 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Visa 1 bilder i Sovrum">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/bedroom-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/bedroom-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/bedroom.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/azata-golf-townhouses/media/bedroom.jpg" alt="Ett sovrum med egen balkong och dörr ut" width="1400" height="948" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Sovrum</small>
-                <strong>Ett sovrum</strong>
-                <span class="project-media-card-cta">1 bild <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Visa 7 bilder i Bekvämligheter">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/outdoor-pool-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/outdoor-pool-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/outdoor-pool.webp 1400w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/azata-golf-townhouses/media/outdoor-pool.jpg" alt="Utomhuspoolen på gräsmattan, husen bakom" width="1400" height="933" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bekvämligheter</small>
-                <strong>Utomhuspoolen</strong>
-                <span class="project-media-card-cta">7 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Visa alla 19 bilder</button>
-          <p class="media-note">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Läge</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Azata Golf, <em>Estepona</em></h2>
-          <p class="project-lead">Ett inhägnat område intill golfbanan på inlandssidan av Estepona, med staden och kusten nedanför.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="sv">
-          <div class="locmap-map" id="locmap-azata-golf-townhouses" data-locmap='{&quot;site&quot;:[36.4172822,-5.2005885],&quot;sea&quot;:[36.39028,-5.2005885],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;7,3 km · 12 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5,9 km · 8 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Estepona&quot;,&quot;sub&quot;:&quot;3,1 km · 6 min&quot;},{&quot;ll&quot;:[36.40837,-5.1851],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,1 km · 3 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Azata Golf Townhouses"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Ungefärligt läge</span>
-            <h3 class="locmap-name">Azata Golf Townhouses</h3>
-            <p class="locmap-place">Azata Golf, Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>3 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>5,9 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona centrum</span>
-              <span class="locmap-row-figure"><bdi>7,3 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Estepona</span>
-              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>7,6 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar flygplats</span>
-              <span class="locmap-row-figure"><bdi>39 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Tidslinje</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Så är <em>betalningarna upplagda</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">10 000 €</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Bokning</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">20 % minus reservationen</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Köpekontrakt</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.18s">
-          <span class="timeline-label">Resten vid lagfarten</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg></span></span>
-          <span class="timeline-year">Tillträde</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Bostäder</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tre sovrum <em>och garage</em></h2>
-          <p class="project-lead">En enda hustyp i hela området, som varierar i byggyta, terrass och om det finns solterrass. Tabellen visar exploatörens aktuella lista.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Huset</h3>
-            <div class="res-meta">
-              <div><span>Sovrum</span><strong>3</strong></div>
-<div><span>Badrum</span><strong>2</strong></div>
-<div><span>Byggyta</span><strong>226,60 – 293,29 m²</strong></div>
-<div><span>Boarea</span><strong>143,06 – 183,37 m²</strong></div>
-<div><span>Garage</span><strong>Ca 31 m²</strong></div>
-<div><span>Pris</span><strong>Från 470 250 €</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Tre sovrum och två badrum fördelade i huset, med vardagsrum och kök öppna mot terrassen.</li>
-            <li>Ett privat slutet garage på cirka 31 m² med direkt ingång till huset, med plats för bil, motorcykel och förvaring.</li>
-            <li>En terrass på 13,92 till 37,27 m²; tolv av de släppta husen har dessutom en solterrass på 42,39 till 54,44 m².</li>
-            <li>Luftkonditionering i hela huset, och lägen mot söder, väster och öster beroende på hus.</li>
-            <li>Husen är färdiga, så det som visas är det som levereras.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Begär planritningar</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat material</span>
-            <p>Aktuella planlösningar, utsiktspositioner och tillgänglighet bör kontrolleras mot utvecklarens senaste underlag innan urval görs.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Visa planritningar</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tillgänglighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">49 hus <em>tillgängliga</em></h2>
-          <p class="project-lead">Åttiosju hus i området. Exploatörens aktuella lista omfattar sjuttiosex av dem, varav 49 är tillgängliga, tjugotre sålda och fyra reserverade. Nueva Living bekräftar pris och tillgänglighet på nytt före varje visning eller reservation.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammanfattning av aktuell fas">
-            <div><span>Tillgängliga bostäder</span><strong>49</strong></div>
-            <div><span>Pris från</span><strong>470 250 €</strong></div>
-            <div><span>Prisintervall</span><strong>470 250 € – 685 000 €</strong></div>
-            <div><span>Kontrollerad</span><strong>september 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Visa alla 49 tillgängliga bostäder</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Filtrera tillgängliga bostäder"
-              data-availability-filters
-              data-count-template="Visar {shown} av {total}">
-              
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Pris</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Alla</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-600000" aria-pressed="false">Under €600k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="600000-" aria-pressed="false">€600k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Rensa filter</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Inga bostäder matchar dessa filter.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Tillgängliga bostäder på Azata Golf Townhouses</caption>
-                <thead><tr><th scope="col">Referens</th><th scope="col">Våning</th><th scope="col">Sovrum</th><th scope="col">Storlek</th><th scope="col">Pris</th><th scope="col">Status</th></tr></thead>
-                <tbody>
-              <tr data-price="610250">
-                <td data-label="Referens"><strong>7</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>260,83 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>151,77 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>16,62 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>50,19 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>610 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="564325">
-                <td data-label="Referens"><strong>8</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>261,52 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>147,29 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,51 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>51,63 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>564 325 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495000">
-                <td data-label="Referens"><strong>9</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>249,01 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495000">
-                <td data-label="Referens"><strong>10</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>246,67 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="470250">
-                <td data-label="Referens"><strong>12</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>246,14 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>470 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="601850">
-                <td data-label="Referens"><strong>13</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>263,59 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,80 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>25,98 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>44,31 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>601 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="601850">
-                <td data-label="Referens"><strong>22</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>246,71 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,80 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>26,03 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>53,51 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>601 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="593500">
-                <td data-label="Referens"><strong>23</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>253,79 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>150,36 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,51 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>51,43 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>593 500 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495000">
-                <td data-label="Referens"><strong>27</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>233,98 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495000">
-                <td data-label="Referens"><strong>28</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>234,58 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="593750">
-                <td data-label="Referens"><strong>30</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>250,80 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,80 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>25,98 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>44,31 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>593 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="470250">
-                <td data-label="Referens"><strong>36</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>234,58 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>470 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="470250">
-                <td data-label="Referens"><strong>37</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>234,11 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>470 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495000">
-                <td data-label="Referens"><strong>38</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>234,11 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="601850">
-                <td data-label="Referens"><strong>39</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>250,80 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,80 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>25,98 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>44,31 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>601 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="575850">
-                <td data-label="Referens"><strong>41</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>255,27 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,06 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>575 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="575850">
-                <td data-label="Referens"><strong>42</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>254,71 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,66 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>575 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="575750">
-                <td data-label="Referens"><strong>43</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>254,60 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,66 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>575 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>44</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>266,20 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>145,08 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>22,89 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="601850">
-                <td data-label="Referens"><strong>53</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>246,86 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,80 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>26,03 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>54,44 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>601 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="685000">
-                <td data-label="Referens"><strong>54</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>293,29 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>183,37 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>13,92 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>685 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>55</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>227,71 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,44 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>56</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>226,62 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,44 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>57</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>226,62 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,44 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>58</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>226,62 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,44 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>59</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>226,60 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>143,44 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="601850">
-                <td data-label="Referens"><strong>60</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>232,79 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>601 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495250">
-                <td data-label="Referens"><strong>65</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>243,93 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495250">
-                <td data-label="Referens"><strong>66</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>237,75 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495250">
-                <td data-label="Referens"><strong>67</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>238,38 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="495250">
-                <td data-label="Referens"><strong>68</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>237,89 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>15,26 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>495 250 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="593750">
-                <td data-label="Referens"><strong>69</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>254,72 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,80 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>26,03 m²</strong> <em>Terrass</em></span><span class="unit-size-part"><strong>54,44 m²</strong> <em>Solterrass</em></span></td>
-                <td data-label="Pris"><strong>593 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="593750">
-                <td data-label="Referens"><strong>70</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>248,56 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>22,89 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>593 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>71</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>237,68 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>72</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>237,79 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>73</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>238,32 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>74</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>243,79 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>75</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>243,81 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>76</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>238,19 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>77</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>238,24 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>148,65 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="601850">
-                <td data-label="Referens"><strong>78</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>245,08 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>150,08 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>20,91 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>601 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="601850">
-                <td data-label="Referens"><strong>79</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>248,55 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>150,28 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>22,89 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>601 850 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>80</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>237,68 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>81</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>237,79 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="574750">
-                <td data-label="Referens"><strong>82</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>238,31 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>574 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="576750">
-                <td data-label="Referens"><strong>83</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>243,78 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>576 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="576750">
-                <td data-label="Referens"><strong>84</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>243,76 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>576 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="576750">
-                <td data-label="Referens"><strong>85</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>238,22 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>576 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-              <tr data-price="576750">
-                <td data-label="Referens"><strong>86</strong></td>
-                <td data-label="Våning">Radhus</td>
-                <td data-label="Sovrum">3 sovrum</td>
-                <td data-label="Storlek"><span class="unit-size-part"><strong>238,24 m²</strong> <em>Byggyta</em></span><span class="unit-size-part"><strong>146,50 m²</strong> <em>Inomhus</em></span><span class="unit-size-part"><strong>21,00 m²</strong> <em>Terrass</em></span></td>
-                <td data-label="Pris"><strong>576 750 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tillgänglig</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>19 bilder</button>
           
-          <p class="availability-source-note">Ytor, priser och betalningsvillkor är hämtade från exploatörens prislista daterad augusti 2026. Priserna är exklusive IVA på 10 % och kan ändras utan förvarning.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Fråga om en bostad</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Azata%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Azata Golf Townhouses" data-intent="speak with an advisor">Prata med en rådgivare</a>
-          </div>
+          <a class="chip" href="sv/property-azata-golf-townhouses.html#location"><svg><use href="#v2-pin"/></svg>Karta</a>
+          
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beräkna er <em>månadskostnad</em></h2>
-          <p class="body-copy">Endast en vägledande uppskattning. Bekräfta de exakta villkoren med er långivare innan ni fattar något beslut.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Azata Golf</span> <span class="h1-b">Townhouses</span></h1>
+        <p class="hero-by">Åttiosju radhus med tre sovrum intill Azata Golf i Estepona, färdigställda och inflyttningsklara, på 226,60 till 293,29 m² byggyta med privat garage, terrass och på vissa hus en solterrass, i ett inhägnat område med två pooler, spa och gym.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Från 470 250 €</dd><dd class="sub">Exkl. IVA</dd></div><div><dt>Sovrum</dt><dd>3</dd><dd class="sub"><span>Radhus</span></dd></div><div><dt>Inflyttning</dt><dd>Inflyttningsklar</dd><dd class="sub">Färdig byggnad; inflyttningslicens att bekräfta</dd></div><div><dt>Bostäder kvar</dt><dd>49 av 87</dd><dd class="sub">Kontrollerat september 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Boka en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Azata%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Azata Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Projektet</h2>
+    <p class="lede">Azata Golf Townhouses är ett inhägnat område med åttiosju hus om tre sovrum intill Azata Golf, på inlandssidan av Estepona. Projektet är färdigställt och husen är inflyttningsklara.</p>
+    <p class="lede-2">Husen mäter 226,60 till 293,29 m² byggyta, med interiörer på 143,06 till 183,37 m² och terrasser på 13,92 till 37,27 m². Tolv av de släppta husen har dessutom en solterrass på 42,39 till 54,44 m². Varje hus har ett eget slutet garage på cirka 31 m² med direkt ingång inifrån, med plats för bil, motorcykel och förvaring.</p><p class="lede-2">Även de gemensamma ytorna är färdiga: en utomhuspool i trädgårdarna, en uppvärmd inomhuspool, ett spa med jacuzzi och bastu, ett gym och ett yogarum.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Medelhavsarkitektur, och färdigt</span></summary><p>Området är byggt i medelhavsstil: vita fasader under tegeltak, ordnade längs gågator med planterade trädgårdar emellan i stället för vägar.</p><ul><li>Gatorna: Mellan terrasserna löper gågator med vattenrännor och planteringar, så att bilarna stannar i garagen.</li><li>Husen: Tre sovrum och två badrum, med vardagsrum och kök öppna mot terrassen.</li><li>Garaget: Ett privat slutet garage på cirka 31 m² per hus, med ingång inifrån och plats för bil, motorcykel och förvaring.</li><li>Terrasser och solterrasser: Terrasser på 13,92 till 37,27 m², och på tolv av de släppta husen en solterrass på 42,39 till 54,44 m².</li><li>Gemensamma ytor: En utomhuspool, en uppvärmd inomhuspool, ett spa med jacuzzi och bastu, ett gym och ett yogarum.</li><li>Färdigställt: Projektet är färdigt, så byggbeskrivningen är inget löfte utan något att stå i.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>470 250 € – 685 000 €</span><small>Exkl. IVA</small></dd></div><div><dt>Tillgängliga</dt><dd><span>49 av 87 bostäder</span><small>Kontrollerat september 2026</small></dd></div><div><dt>Bostäder</dt><dd><span>Radhus</span></dd></div><div><dt>Storlekar</dt><dd><span>227 – 293 m²</span><small>Byggd yta</small></dd></div><div><dt>Inflyttning</dt><dd><span>Inflyttningsklar</span></dd></div><div><dt>Tillstånd</dt><dd><span>Färdig byggnad</span><small>Inflyttningslicens att bekräfta</small></dd></div><div><dt>Förskott</dt><dd><span>Ej tillämpligt</span><small>Färdig byggnad</small></dd></div><div><dt>Parkering</dt><dd><span>Eget garage</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Bostäder och priser</h2>
+    <p class="sec-sub">Åttiosju hus i området. Exploatörens aktuella lista omfattar sjuttiosex av dem, varav 49 är tillgängliga, tjugotre sålda och fyra reserverade. Nueva Living bekräftar pris och tillgänglighet på nytt före varje visning eller reservation. Välj en bostad för att se betalplan och totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="49 av 87 till salu"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>49 av 87 till salu</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Bostäder till salu med storlek och pris. Välj en rad för att se betalplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bostad</th>
+          <th scope="col" data-sort="beds">Sovrum</th>
+          <th scope="col" data-sort="size">Storlek</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Ritning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="3" data-price="610250" data-size="260.83" data-ppm="2340" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">7</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">261 m²</td>
+            <td data-label="Pris" class="u-price num">610 250 €</td>
+            <td data-label="Per m²" class="num">2 340 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="564325" data-size="261.52" data-ppm="2158" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">8</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">262 m²</td>
+            <td data-label="Pris" class="u-price num">564 325 €</td>
+            <td data-label="Per m²" class="num">2 158 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="495000" data-size="249.01" data-ppm="1988" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">9</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">249 m²</td>
+            <td data-label="Pris" class="u-price num">495 000 €</td>
+            <td data-label="Per m²" class="num">1 988 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="3" data-price="495000" data-size="246.67" data-ppm="2007" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">10</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">247 m²</td>
+            <td data-label="Pris" class="u-price num">495 000 €</td>
+            <td data-label="Per m²" class="num">2 007 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="3" data-price="470250" data-size="246.14" data-ppm="1910" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">12</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">246 m²</td>
+            <td data-label="Pris" class="u-price num">470 250 €</td>
+            <td data-label="Per m²" class="num">1 910 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="601850" data-size="263.59" data-ppm="2283" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">13</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">264 m²</td>
+            <td data-label="Pris" class="u-price num">601 850 €</td>
+            <td data-label="Per m²" class="num">2 283 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="601850" data-size="246.71" data-ppm="2440" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">22</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">247 m²</td>
+            <td data-label="Pris" class="u-price num">601 850 €</td>
+            <td data-label="Per m²" class="num">2 440 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="593500" data-size="253.79" data-ppm="2339" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">23</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">254 m²</td>
+            <td data-label="Pris" class="u-price num">593 500 €</td>
+            <td data-label="Per m²" class="num">2 339 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u8" data-beds="3" data-price="495000" data-size="233.98" data-ppm="2116" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">27</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">234 m²</td>
+            <td data-label="Pris" class="u-price num">495 000 €</td>
+            <td data-label="Per m²" class="num">2 116 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u9" data-beds="3" data-price="495000" data-size="234.58" data-ppm="2110" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">28</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">235 m²</td>
+            <td data-label="Pris" class="u-price num">495 000 €</td>
+            <td data-label="Per m²" class="num">2 110 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u10" data-beds="3" data-price="593750" data-size="250.8" data-ppm="2367" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">30</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">251 m²</td>
+            <td data-label="Pris" class="u-price num">593 750 €</td>
+            <td data-label="Per m²" class="num">2 367 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u11" data-beds="3" data-price="470250" data-size="234.58" data-ppm="2005" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">36</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">235 m²</td>
+            <td data-label="Pris" class="u-price num">470 250 €</td>
+            <td data-label="Per m²" class="num">2 005 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u12" data-beds="3" data-price="470250" data-size="234.11" data-ppm="2009" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">37</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">234 m²</td>
+            <td data-label="Pris" class="u-price num">470 250 €</td>
+            <td data-label="Per m²" class="num">2 009 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u13" data-beds="3" data-price="495000" data-size="234.11" data-ppm="2114" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">38</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">234 m²</td>
+            <td data-label="Pris" class="u-price num">495 000 €</td>
+            <td data-label="Per m²" class="num">2 114 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u14" data-beds="3" data-price="601850" data-size="250.8" data-ppm="2400" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">39</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">251 m²</td>
+            <td data-label="Pris" class="u-price num">601 850 €</td>
+            <td data-label="Per m²" class="num">2 400 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u15" data-beds="3" data-price="575850" data-size="255.27" data-ppm="2256" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">41</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">255 m²</td>
+            <td data-label="Pris" class="u-price num">575 850 €</td>
+            <td data-label="Per m²" class="num">2 256 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u16" data-beds="3" data-price="575850" data-size="254.71" data-ppm="2261" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">42</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">255 m²</td>
+            <td data-label="Pris" class="u-price num">575 850 €</td>
+            <td data-label="Per m²" class="num">2 261 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u17" data-beds="3" data-price="575750" data-size="254.6" data-ppm="2261" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">43</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">255 m²</td>
+            <td data-label="Pris" class="u-price num">575 750 €</td>
+            <td data-label="Per m²" class="num">2 261 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u18" data-beds="3" data-price="574750" data-size="266.2" data-ppm="2159" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">44</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">266 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 159 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u19" data-beds="3" data-price="601850" data-size="246.86" data-ppm="2438" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">53</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">247 m²</td>
+            <td data-label="Pris" class="u-price num">601 850 €</td>
+            <td data-label="Per m²" class="num">2 438 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u20" data-beds="3" data-price="685000" data-size="293.29" data-ppm="2336" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">54</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">293 m²</td>
+            <td data-label="Pris" class="u-price num">685 000 €</td>
+            <td data-label="Per m²" class="num">2 336 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u21" data-beds="3" data-price="574750" data-size="227.71" data-ppm="2524" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">55</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">228 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 524 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u22" data-beds="3" data-price="574750" data-size="226.62" data-ppm="2536" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">56</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">227 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 536 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u23" data-beds="3" data-price="574750" data-size="226.62" data-ppm="2536" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">57</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">227 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 536 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u24" data-beds="3" data-price="574750" data-size="226.62" data-ppm="2536" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">58</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">227 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 536 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u25" data-beds="3" data-price="574750" data-size="226.6" data-ppm="2536" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">59</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">227 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 536 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u26" data-beds="3" data-price="601850" data-size="232.79" data-ppm="2585" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">60</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">233 m²</td>
+            <td data-label="Pris" class="u-price num">601 850 €</td>
+            <td data-label="Per m²" class="num">2 585 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u27" data-beds="3" data-price="495250" data-size="243.93" data-ppm="2030" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">65</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">244 m²</td>
+            <td data-label="Pris" class="u-price num">495 250 €</td>
+            <td data-label="Per m²" class="num">2 030 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u28" data-beds="3" data-price="495250" data-size="237.75" data-ppm="2083" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">66</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">495 250 €</td>
+            <td data-label="Per m²" class="num">2 083 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u29" data-beds="3" data-price="495250" data-size="238.38" data-ppm="2078" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">67</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">495 250 €</td>
+            <td data-label="Per m²" class="num">2 078 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u30" data-beds="3" data-price="495250" data-size="237.89" data-ppm="2082" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">68</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">495 250 €</td>
+            <td data-label="Per m²" class="num">2 082 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u31" data-beds="3" data-price="593750" data-size="254.72" data-ppm="2331" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">69</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">255 m²</td>
+            <td data-label="Pris" class="u-price num">593 750 €</td>
+            <td data-label="Per m²" class="num">2 331 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u32" data-beds="3" data-price="593750" data-size="248.56" data-ppm="2389" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">70</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">249 m²</td>
+            <td data-label="Pris" class="u-price num">593 750 €</td>
+            <td data-label="Per m²" class="num">2 389 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u33" data-beds="3" data-price="574750" data-size="237.68" data-ppm="2418" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">71</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 418 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u34" data-beds="3" data-price="574750" data-size="237.79" data-ppm="2417" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">72</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 417 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u35" data-beds="3" data-price="574750" data-size="238.32" data-ppm="2412" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">73</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 412 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u36" data-beds="3" data-price="574750" data-size="243.79" data-ppm="2358" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">74</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">244 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 358 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u37" data-beds="3" data-price="574750" data-size="243.81" data-ppm="2357" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">75</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">244 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 357 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u38" data-beds="3" data-price="574750" data-size="238.19" data-ppm="2413" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">76</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 413 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u39" data-beds="3" data-price="574750" data-size="238.24" data-ppm="2412" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">77</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 412 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u40" data-beds="3" data-price="601850" data-size="245.08" data-ppm="2456" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">78</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">245 m²</td>
+            <td data-label="Pris" class="u-price num">601 850 €</td>
+            <td data-label="Per m²" class="num">2 456 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u41" data-beds="3" data-price="601850" data-size="248.55" data-ppm="2421" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">79</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">249 m²</td>
+            <td data-label="Pris" class="u-price num">601 850 €</td>
+            <td data-label="Per m²" class="num">2 421 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u42" data-beds="3" data-price="574750" data-size="237.68" data-ppm="2418" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">80</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 418 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u43" data-beds="3" data-price="574750" data-size="237.79" data-ppm="2417" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">81</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 417 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u44" data-beds="3" data-price="574750" data-size="238.31" data-ppm="2412" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">82</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">574 750 €</td>
+            <td data-label="Per m²" class="num">2 412 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u45" data-beds="3" data-price="576750" data-size="243.78" data-ppm="2366" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">83</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">244 m²</td>
+            <td data-label="Pris" class="u-price num">576 750 €</td>
+            <td data-label="Per m²" class="num">2 366 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u46" data-beds="3" data-price="576750" data-size="243.76" data-ppm="2366" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">84</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">244 m²</td>
+            <td data-label="Pris" class="u-price num">576 750 €</td>
+            <td data-label="Per m²" class="num">2 366 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u47" data-beds="3" data-price="576750" data-size="238.22" data-ppm="2421" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">85</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">576 750 €</td>
+            <td data-label="Per m²" class="num">2 421 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u48" data-beds="3" data-price="576750" data-size="238.24" data-ppm="2421" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">86</span><span class="u-loc">Radhus</span></th>
+            <td data-label="Sovrum">3 sovrum</td>
+            <td data-label="Storlek" class="num">238 m²</td>
+            <td data-label="Pris" class="u-price num">576 750 €</td>
+            <td data-label="Per m²" class="num">2 421 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Bostäder · <span>Tre sovrum och garage</span></summary><p>En enda hustyp i hela området, som varierar i byggyta, terrass och om det finns solterrass. Tabellen visar exploatörens aktuella lista.</p><div class="res-types"><div class="res-type"><h3>Huset</h3><dl class="res-meta"><div><dt>Sovrum</dt><dd>3</dd></div><div><dt>Badrum</dt><dd>2</dd></div><div><dt>Byggyta</dt><dd>226,60 – 293,29 m²</dd></div><div><dt>Boarea</dt><dd>143,06 – 183,37 m²</dd></div><div><dt>Garage</dt><dd>Ca 31 m²</dd></div><div><dt>Pris</dt><dd>Från 470 250 €</dd></div></dl><ul><li>Tre sovrum och två badrum fördelade i huset, med vardagsrum och kök öppna mot terrassen.</li><li>Ett privat slutet garage på cirka 31 m² med direkt ingång till huset, med plats för bil, motorcykel och förvaring.</li><li>En terrass på 13,92 till 37,27 m²; tolv av de släppta husen har dessutom en solterrass på 42,39 till 54,44 m².</li><li>Luftkonditionering i hela huset, och lägen mot söder, väster och öster beroende på hus.</li><li>Husen är färdiga, så det som visas är det som levereras.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Exploatörens betalplan finns på begäran; vi skickar den med prislistan.</p>
+      
+      <ol class="ct-strip" aria-label="Byggets milstolpar"><li class="is-mile"><b>Bokning</b><span>10 000 €</span></li><li class="is-mile"><b>Köpekontrakt</b><span>20 % minus reservationen</span></li><li class="is-mile"><b>Tillträde</b><span>Resten vid lagfarten</span></li></ol>
+      <p class="ct-note">Alla steg anges exklusive IVA på 10 %. Det privata avtalet undertecknas när penningtvättskontrollerna är klara, och lagfarten sker inom trettio dagar, eller sextio när köparen ordnar bolån.</p></div>
+      <div class="cost-wrap"><p class="cap">Vad det kostar totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>IVA, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Stämpelskatt (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt före notarie, inskrivning och advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Fråga om den här bostaden</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Planritning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Bolånekalkylator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Köpeskilling</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1271,426 +959,199 @@
               <div class="calculator-result"><span>Skatter och köpkostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Bekvämligheter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad projektet <em>ger er</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Välmående</span>
-              <h3 class="amenity-name">Gemensam pool</h3>
-              <p class="amenity-note">Delas av de boende</p>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Uppifrån"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/development-from-above-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/development-from-above-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/development-from-above.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/azata-golf-townhouses/media/development-from-above.jpg" alt="Området från luften, vita terrasser som trappar ned längs golfbanan" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Vardagsrum"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace.jpg" alt="Vardagsrummet, glasat i hela sin bredd mot terrassen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Terrassen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/covered-terrace-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/covered-terrace-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/covered-terrace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/azata-golf-townhouses/media/covered-terrace.jpg" alt="En täckt terrass med matplats och sittgrupp, öppen mot golfbanan" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="12" aria-label="Utomhuspoolen"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/outdoor-pool-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/outdoor-pool-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/outdoor-pool.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/azata-golf-townhouses/media/outdoor-pool.jpg" alt="Utomhuspoolen på gräsmattan, husen bakom" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="11" aria-label="Ett sovrum"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/azata-golf-townhouses/media/bedroom-640.webp 640w, assets/liora/projects/azata-golf-townhouses/media/bedroom-960.webp 960w, assets/liora/projects/azata-golf-townhouses/media/bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/azata-golf-townhouses/media/bedroom.jpg" alt="Ett sovrum med egen balkong och dörr ut" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Visa alla 19 bilder</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exteriör (7)</button><button type="button" data-open-cat="Terraces">Terrasser (2)</button><button type="button" data-open-cat="Interiors">Interiör (2)</button><button type="button" data-open-cat="Bedrooms">Sovrum (1)</button><button type="button" data-open-cat="Amenities">Bekvämligheter (7)</button></div>
+    
+    <p class="caption">Bilderna kommer från exploatören och kan vara datorgenererade. Slutlig utformning, ytskikt, trädgårdsanläggning och utsikt kan avvika, och möbler ingår inte.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Läge</h2>
+    <p class="sec-sub">Ett inhägnat område intill golfbanan på inlandssidan av Estepona, med staden och kusten nedanför.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="sv">
+          <div class="locmap-map" id="locmap-azata-golf-townhouses" data-locmap='{&quot;site&quot;:[36.4172822,-5.2005885],&quot;sea&quot;:[36.39028,-5.2005885],&quot;seaLabel&quot;:&quot;Medelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona centrum&quot;,&quot;sub&quot;:&quot;7,3 km · 12 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5,9 km · 8 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanan Estepona&quot;,&quot;sub&quot;:&quot;3,1 km · 6 min&quot;},{&quot;ll&quot;:[36.40837,-5.1851],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,1 km · 3 min&quot;}]}' role="img" aria-label="Vägledande karta över läget för Azata Golf Townhouses"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ungefärligt läge</span>
+            <h3 class="locmap-name">Azata Golf Townhouses</h3>
+            <p class="locmap-place">Azata Golf, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>3 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Välmående</span>
-              <h3 class="amenity-name">Inomhuspool</h3>
-              <p class="amenity-note">Simning inomhus</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>5,9 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Välmående</span>
-              <h3 class="amenity-name">Spa</h3>
-              <p class="amenity-note">Våtutrymmen för återhämtning</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona centrum</span>
+              <span class="locmap-row-figure"><bdi>7,3 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Välmående</span>
-              <h3 class="amenity-name">Bastu</h3>
-              <p class="amenity-note">Rum med torr värme</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Estepona</span>
+              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Välmående</span>
-              <h3 class="amenity-name">Gym</h3>
-              <p class="amenity-note">Inom området</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>7,6 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Välmående</span>
-              <h3 class="amenity-name">Jacuzzi</h3>
-              <p class="amenity-note">Varmt vatten med jetstrålar</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar flygplats</span>
+              <span class="locmap-row-figure"><bdi>39 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Utomhus</span>
-              <h3 class="amenity-name">Golfutsikt</h3>
-              <p class="amenity-note">Ut över fairwayen</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Utomhus</span>
-              <h3 class="amenity-name">Egen trädgård</h3>
-              <p class="amenity-note">Inhägnad och bostadens egen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Utomhus</span>
-              <h3 class="amenity-name">Solterrass</h3>
-              <p class="amenity-note">Öppen takterrass för sol</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Utomhus</span>
-              <h3 class="amenity-name">Anlagda trädgårdar</h3>
-              <p class="amenity-note">Planterade gemensamma ytor</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Vardag</span>
-              <h3 class="amenity-name">Eget garage</h3>
-              <p class="amenity-note">Under huset</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Vardag</span>
-              <h3 class="amenity-name">Luftkonditionering</h3>
-              <p class="amenity-note">Kyla och värme via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Service</span>
-              <h3 class="amenity-name">Bevakat område</h3>
-              <p class="amenity-note">Bevakad infart</p>
-            </div>
-          </li>
+            <p class="locmap-note">Avstånd mätta på väg från tomtgränsen. Kartan är endast vägledande; gränser är ungefärliga.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Stranden</th><td>Ca 3 minuter</td></tr><tr><th scope="row">Esteponas hamn</th><td>Ca 8 minuter</td></tr><tr><th scope="row">Esteponas centrum</th><td>Ca 12 minuter</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">I området</h2>
+    <p class="sec-sub">Området ligger intill Azata Golf på inlandssidan av Estepona, med staden, småbåtshamnen och stränderna en kort körning nedåt.</p>
+    <div class="life-panels"><div><h3>Golf</h3><p>Banan löper nedanför husen, och Valle Romano ligger några minuter längre in i landet.</p></div><div><h3>Vardagen</h3><p>Livsmedelsbutiker, skolor, restauranger och ett sjukhus finns alla nära.</p></div><div><h3>Att ta sig runt</h3><p>A-7 går strax intill, vilket lägger Marbella, Puerto Banús och Sotogrande inom bekvämt köravstånd.</p></div></div>
+    <ul class="amen-top"><li>Gemensam pool</li><li>Inomhuspool</li><li>Spa</li><li>Bastu</li><li>Gym</li><li>Golfutsikt</li></ul>
+    <details class="amen-all"><summary>Visa alla 13</summary><div class="amen-groups"><div><h3>Välmående<span class="count">6</span></h3><ul><li>Gemensam pool</li><li>Inomhuspool</li><li>Spa</li><li>Bastu</li><li>Gym</li><li>Jacuzzi</li></ul></div><div><h3>Utomhus<span class="count">4</span></h3><ul><li>Golfutsikt</li><li>Egen trädgård</li><li>Solterrass</li><li>Anlagda trädgårdar</li></ul></div><div><h3>Vardag<span class="count">2</span></h3><ul><li>Eget garage</li><li>Luftkonditionering</li></ul></div><div><h3>Service<span class="count">1</span></h3><ul><li>Bevakat område</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår bedömning</h2>
+    <p class="sec-sub">Det vi skulle väga in innan ni reserverar här, och det vi kontrollerar åt er.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår bedömning">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrkor</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planera för</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Det som sticker ut</h3><ul class="points"><li><b>Vem det passar</b><span>Köpare som vill se det faktiska huset och flytta in utan att vänta på ett bygge.</span></li><li><b>Vad som skiljer det från andra</b><span>Varje hus har ett eget slutet garage med direkt ingång, vilket är ovanligt i det här prisläget.</span></li><li><b>Varför läget spelar roll</b><span>Området ligger intill Azata Golf på inlandssidan av Estepona, några minuter från staden och stränderna.</span></li><li><b>Varför ni bör kontrollera tillgängligheten</b><span>Tjugosju av de sjuttiosex listade är redan sålda eller reserverade. Vi bekräftar vad som återstår före varje visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Att planera för</h3><ul class="points"><li><b>Varför tidpunkten spelar roll</b><span>Husen är färdiga, så det finns varken byggrisk eller väntan: köpet slutförs på ett hus som existerar.</span></li><li><b>Aktuell information</b><span>Nueva Living bekräftar aktuella priser, tillgänglighet och betalningsvillkor på nytt före varje reservation.</span></li><li><b>Långsiktig attraktionskraft</b><span>Ett avgränsat område intill en etablerad golfbana, och inte en etapp som upprepas.</span></li><li><b>Eget bruk och uthyrning</b><span>Fungerar för åretruntboende, som andra hem eller att låsa om och lämna.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller innan pengar betalas</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Inflyttningstillstånd</b><span>På ett färdigt hus är det detta som väger tyngst, och vi bekräftar det skriftligt innan några pengar rör sig.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vad som är registrerat</b><span>Vi kontrollerar att huset, garaget och förrådet är registrerade så som de beskrivs.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vad som ingår</b><span>Vi bekräftar skriftligt vad priset omfattar, garaget inkluderat.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Betalningsvillkor</b><span>Reservationen, det privata avtalet och tiden till lagfart bekräftas före reservation.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Begär projektunderlaget</h3><p>Den aktuella prislistan, byggbeskrivningen och betalningsvillkoren.</p></li><li><h3>Jämför husen</h3><p>De skiljer sig i byggyta, terrass och om de har en solterrass.</p></li><li><h3>Gå igenom huset</h3><p>Se det färdiga huset och de gemensamma ytorna före beslut.</p></li></ol>
+      <div class="docs card"><h3>Dokument ni får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prislista</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Planritningar<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalplan<small>Inte utfärdat än</small><small>Väntar</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Den officiella sammanfattning varje köpare i Andalusien har rätt till</small></span></li></ul><a class="btn btn-primary" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Få projektfilen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Frågor om Azata Golf</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Vad kostar husen?</summary><p>Från 470 250 € till 685 000 €, exklusive IVA.</p></details><details class="segment-faq-item"><summary>Är de färdiga?</summary><p>Ja. Projektet är färdigställt och husen är inflyttningsklara.</p></details><details class="segment-faq-item"><summary>Ingår IVA?</summary><p>Nej. IVA på 10 % läggs till varje steg i betalningsplanen, även på reservationen på 10 000 €.</p></details><details class="segment-faq-item"><summary>Hur är betalningarna uppdelade?</summary><p>10 000 € vid reservation, 20 % minus reservationen vid det privata köpeavtalet och resten vid lagfarten, varje steg plus IVA på 10 %.</p></details><details class="segment-faq-item"><summary>Hur snabbt sker tillträdet?</summary><p>Inom trettio dagar efter det privata avtalet utan bolån, eller sextio dagar med bolån.</p></details></div>
+    <details class="faq2-more"><summary>Visa alla frågor (8)</summary><div class="faq2"><details class="segment-faq-item"><summary>Hur stora är husen?</summary><p>Från 226,60 till 293,29 m² byggyta, med interiörer på 143,06 till 183,37 m² och terrasser på 13,92 till 37,27 m².</p></details><details class="segment-faq-item"><summary>Har alla en solterrass?</summary><p>Nej. Tolv av de släppta husen har en, på 42,39 till 54,44 m².</p></details><details class="segment-faq-item"><summary>Ingår parkering?</summary><p>Ja. Varje hus har ett privat slutet garage på cirka 31 m² med direkt ingång inifrån.</p></details></div></details>
+    <p class="faq2-guide">Mer om att köpa nybyggt i Spanien → <a class="textlink" href="sv/guide-how-buying-works.html">Köpguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Boka en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris från</p>
+      <p class="rail-price num">470 250 €</p>
+      <p class="rail-note">Exkl. IVA. 49 av 87 bostäder kvar · Kontrollerat september 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Boka en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Azata%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Azata Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Skriv till oss på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare</strong>Vi svarar själva på varje förfrågan.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Boka en privat visning</h2>
+        <p>Berätta vilken bostad som intresserar er. Vi skickar projektfilen och går sedan runt på området med er.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grundare av Nueva Living</strong>Vi svarar själva på varje förfrågan.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Azata%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Azata Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Skriv till oss</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Vid visningen går vi igenom</h3><ul><li><b>På plats.</b> Gå igenom det faktiska huset som köps, inte ett visningshus.</li><li><b>Utsikten.</b> Jämför vad varje hus ser ut över banan.</li><li><b>De gemensamma ytorna.</b> Se poolerna, spat och gymmet i bruk.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Skickar…" data-success-label="Boka en privat visning ✓" data-submitting-message="Skickar…" data-success-message="Förfrågan mottagen. Vi skickar projektfilen och föreslår tider för en visning." data-error-message="Det gick inte att skicka. Försök igen eller skriv till oss på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Azata Golf Townhouses">
+        <input type="hidden" id="f-project" name="project" value="Azata Golf Townhouses">
+        <input type="hidden" name="preferred_area" value="Azata Golf, Estepona">
+        <input type="hidden" name="property_type_interest" value="Radhus">
+        <input type="hidden" name="budget_range" value="Från 470 250 €">
+        <input type="hidden" name="consent_text" value="Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan.">
+        <input type="hidden" name="message" id="v2-f-message" value="Jag vill gärna få aktuell projektinformation om Azata Golf Townhouses." data-base="Jag vill gärna få aktuell projektinformation om Azata Golf Townhouses.">
+        <h3>Era uppgifter</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Förnamn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Efternamn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valfritt, för WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Vilken bostad?</label><select id="v2-f-unit" name="unit_interest"><option value="">Inte säker än, skicka allt</option><option value="7">7: 610 250 €</option><option value="8">8: 564 325 €</option><option value="9">9: 495 000 €</option><option value="10">10: 495 000 €</option><option value="12">12: 470 250 €</option><option value="13">13: 601 850 €</option><option value="22">22: 601 850 €</option><option value="23">23: 593 500 €</option><option value="27">27: 495 000 €</option><option value="28">28: 495 000 €</option><option value="30">30: 593 750 €</option><option value="36">36: 470 250 €</option><option value="37">37: 470 250 €</option><option value="38">38: 495 000 €</option><option value="39">39: 601 850 €</option><option value="41">41: 575 850 €</option><option value="42">42: 575 850 €</option><option value="43">43: 575 750 €</option><option value="44">44: 574 750 €</option><option value="53">53: 601 850 €</option><option value="54">54: 685 000 €</option><option value="55">55: 574 750 €</option><option value="56">56: 574 750 €</option><option value="57">57: 574 750 €</option><option value="58">58: 574 750 €</option><option value="59">59: 574 750 €</option><option value="60">60: 601 850 €</option><option value="65">65: 495 250 €</option><option value="66">66: 495 250 €</option><option value="67">67: 495 250 €</option><option value="68">68: 495 250 €</option><option value="69">69: 593 750 €</option><option value="70">70: 593 750 €</option><option value="71">71: 574 750 €</option><option value="72">72: 574 750 €</option><option value="73">73: 574 750 €</option><option value="74">74: 574 750 €</option><option value="75">75: 574 750 €</option><option value="76">76: 574 750 €</option><option value="77">77: 574 750 €</option><option value="78">78: 601 850 €</option><option value="79">79: 601 850 €</option><option value="80">80: 574 750 €</option><option value="81">81: 574 750 €</option><option value="82">82: 574 750 €</option><option value="83">83: 576 750 €</option><option value="84">84: 576 750 €</option><option value="85">85: 576 750 €</option><option value="86">86: 576 750 €</option></select></div>
+        <fieldset class="field"><legend>Bostaden blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">För att bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Ett fritidshus</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hur ska vi svara?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Samtal</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jag godkänner att Nueva Living sparar uppgifterna för att svara på min förfrågan. <a href="sv/privacy-policy.html">Integritetspolicy</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Meddela mig också om tillgänglighet eller priser ändras i Azata Golf.</label>
+        <button class="btn btn-primary btn-block" type="submit">Boka en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Varför detta projekt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Varför detta projekt <em>spelar roll</em></h2>
-          <p class="project-lead">Ett färdigt hus intill en golfbana, i ett prisläge där mycket av det som finns i närheten är lägenheter på ritning.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Varför det passar</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vem det passar</h3><p>Köpare som vill se det faktiska huset och flytta in utan att vänta på ett bygge.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som skiljer det från andra</h3><p>Varje hus har ett eget slutet garage med direkt ingång, vilket är ovanligt i det här prisläget.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför läget spelar roll</h3><p>Området ligger intill Azata Golf på inlandssidan av Estepona, några minuter från staden och stränderna.</p></article>
-              <article class="why-point reveal-soft"><h3>Varför ni bör kontrollera tillgängligheten</h3><p>Tjugosju av de sjuttiosex listade är redan sålda eller reserverade. Vi bekräftar vad som återstår före varje visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringsargument</h3></div>
-            <p class="why-group-note">En saklig genomgång av vad som gör de här husen relevanta nu, utan några löften om framtida avkastning.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Varför tidpunkten spelar roll</h3><p>Husen är färdiga, så det finns varken byggrisk eller väntan: köpet slutförs på ett hus som existerar.</p></article>
-              <article class="why-point reveal-soft"><h3>Aktuell information</h3><p>Nueva Living bekräftar aktuella priser, tillgänglighet och betalningsvillkor på nytt före varje reservation.</p></article>
-              <article class="why-point reveal-soft"><h3>Långsiktig attraktionskraft</h3><p>Ett avgränsat område intill en etablerad golfbana, och inte en etapp som upprepas.</p></article>
-              <article class="why-point reveal-soft"><h3>Eget bruk och uthyrning</h3><p>Fungerar för åretruntboende, som andra hem eller att låsa om och lämna.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Förtroende och granskning</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Inflyttningstillstånd</h3><p>På ett färdigt hus är det detta som väger tyngst, och vi bekräftar det skriftligt innan några pengar rör sig.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som är registrerat</h3><p>Vi kontrollerar att huset, garaget och förrådet är registrerade så som de beskrivs.</p></article>
-              <article class="why-point reveal-soft"><h3>Vad som ingår</h3><p>Vi bekräftar skriftligt vad priset omfattar, garaget inkluderat.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalningsvillkor</h3><p>Reservationen, det privata avtalet och tiden till lagfart bekräftas före reservation.</p></article>
-            </div>
-            <p class="why-group-note">Första gången ni köper på ritning i Spanien? <a href="sv/guide-how-buying-works.html">Så går ett nyproduktionsköp till</a> beskriver de sju stegen, och <a href="sv/guide-off-plan-vs-resale.html">nyproduktion jämfört med begagnat</a> tar upp handpenning, garantier och tidplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bilderna kommer från exploatören och kan vara datorgenererade">
+    <p>Bilderna kommer från exploatören och kan vara datorgenererade; slutlig utformning, ytskikt, trädgård och utsikt kan avvika. Ni har rätt till en kopia av Documento Informativo Abreviado (DIA) för varje bostad på sidan; Nueva Living skickar den på begäran.</p>
+    <p>Tillgängligheten kontrollerad med säljaren september 2026; vi bekräftar den igen före varje reservation.</p>
+    <p>Ytor, priser och betalningsvillkor är hämtade från exploatörens prislista daterad augusti 2026. Priserna är exklusive IVA på 10 % och kan ändras utan förvarning.</p>
+    <p>Informationen på sidan är allmän marknadsföring och inte juridisk, finansiell eller investeringsrådgivning. Priser, tillgänglighet och inflyttningsdatum kan ändras utan förvarning.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/azata-golf-townhouses/media/pedestrian-street.jpg" alt="A pedestrian street between the houses, with a water channel down the middle" width="1400" height="933" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Arkitekturförhandsvisning</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Medelhavsarkitektur, <em>och färdigt</em></h2>
-          <p>Området är byggt i medelhavsstil: vita fasader under tegeltak, ordnade längs gågator med planterade trädgårdar emellan i stället för vägar.</p>
-          <ul class="feature-list">
-            <li>Gatorna — Mellan terrasserna löper gågator med vattenrännor och planteringar, så att bilarna stannar i garagen.</li>
-            <li>Husen — Tre sovrum och två badrum, med vardagsrum och kök öppna mot terrassen.</li>
-            <li>Garaget — Ett privat slutet garage på cirka 31 m² per hus, med ingång inifrån och plats för bil, motorcykel och förvaring.</li>
-            <li>Terrasser och solterrasser — Terrasser på 13,92 till 37,27 m², och på tolv av de släppta husen en solterrass på 42,39 till 54,44 m².</li>
-            <li>Gemensamma ytor — En utomhuspool, en uppvärmd inomhuspool, ett spa med jacuzzi och bastu, ett gym och ett yogarum.</li>
-            <li>Färdigställt — Projektet är färdigt, så byggbeskrivningen är inget löfte utan något att stå i.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Åtgärder för projektförfrågan">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Azata%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Azata Golf Townhouses" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Boka visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/azata-golf-townhouses/media/covered-terrace.jpg" alt="A covered terrace with dining and seating, open to the golf course" width="1400" height="933" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmisk presentation</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Gå igenom <em>det färdiga huset</em></h2>
-            <p>Husen är byggda och de gemensamma ytorna är öppna. Ingenting här behöver föreställas utifrån en ritning.</p>
-            <div class="viewing-insights">
-              <div><span>På plats</span><p>Gå igenom det faktiska huset som köps, inte ett visningshus.</p></div>
-              <div><span>Utsikten</span><p>Jämför vad varje hus ser ut över banan.</p></div>
-              <div><span>De gemensamma ytorna</span><p>Se poolerna, spat och gymmet i bruk.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="sv/index.html#private-viewing=1&amp;project=azata-golf-townhouses">Filmisk presentation</a>
-              <a class="btn project-btn ghost" href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Begär projektmaterial</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Stäng">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Föregående bild">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Nästa bild">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Exteriör</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiör</button><button type="button" data-cat="Bedrooms">Sovrum</button><button type="button" data-cat="Amenities">Bekvämligheter</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/azata-golf-townhouses/media/outdoor-pool.jpg" alt="The outdoor pool in its lawn, the houses behind" width="1400" height="933" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Intill banan, <em>ovanför Estepona</em></h2>
-            <p>Området ligger intill Azata Golf på inlandssidan av Estepona, med staden, småbåtshamnen och stränderna en kort körning nedåt.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Nästa steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vad som händer <em>härnäst</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Begär projektunderlaget</h3>
-            <p>Den aktuella prislistan, byggbeskrivningen och betalningsvillkoren.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Jämför husen</h3>
-            <p>De skiljer sig i byggyta, terrass och om de har en solterrass.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Gå igenom huset</h3>
-            <p>Se det färdiga huset och de gemensamma ytorna före beslut.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Vanliga frågor</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanliga <em>frågor från köpare</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlänningar köpa fastigheter i Spanien?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastigheter i Spanien, oavsett om de är bosatta eller inte.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är ett NIE-nummer och behöver jag ett?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs för alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living guidar er genom ansökningsprocessen innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vilka kostnader bör jag budgetera för utöver köpeskillingen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Köpare budgeterar vanligtvis för överlåtelseskatt eller annan skatt, notariekostnader, lagfartskostnader och juridiska avgifter utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadssammanställning för er valda bostad innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag få ett bolån i Spanien som icke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Många spanska banker erbjuder bolån till icke-bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad är skillnaden mellan en bostad under projektering och en färdigställd bostad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Att köpa på ritning innebär att projektet fortfarande är under uppförande och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är redo att visas och flytta in i direkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur fungerar boknings- och betalningsprocessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Boknings- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jag hyra ut fastigheten efter köpet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Detta beror på det enskilda projektet och lokala regler, som kan variera mellan samfällighet och kommun. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Behöver jag en jurist?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi rekommenderar starkt oberoende juridiskt ombud vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende jurister med erfarenhet av fastigheter på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Vad kostar husen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Från 470 250 € till 685 000 €, exklusive IVA.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Är de färdiga?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Projektet är färdigställt och husen är inflyttningsklara.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår IVA?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. IVA på 10 % läggs till varje steg i betalningsplanen, även på reservationen på 10 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur är betalningarna uppdelade?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>10 000 € vid reservation, 20 % minus reservationen vid det privata köpeavtalet och resten vid lagfarten, varje steg plus IVA på 10 %.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur snabbt sker tillträdet?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Inom trettio dagar efter det privata avtalet utan bolån, eller sextio dagar med bolån.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hur stora är husen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Från 226,60 till 293,29 m² byggyta, med interiörer på 143,06 till 183,37 m² och terrasser på 13,92 till 37,27 m².</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Har alla en solterrass?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nej. Tolv av de släppta husen har en, på 42,39 till 54,44 m².</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Ingår parkering?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Varje hus har ett privat slutet garage på cirka 31 m² med direkt ingång inifrån.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Förfrågan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Fråga om <em>husen</em></h2>
-          <p class="body-copy">Dela era uppgifter så skickar vi er den aktuella projektinformationen.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grundare av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grundare, Nueva Living</p>
-            <h3 id="advisor-heading">Vill ni hellre prata igenom det?</h3>
-            <p class="advisor-copy">Välj det som passar och skriv till mig på WhatsApp. Jag utgår från det.</p>
-            <div class="advisor-group" role="group" aria-label="Jag söker">
-              <span class="advisor-group-label">Jag söker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Ett hem att bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Ett fritidshus</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Över 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Azata%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Azata Golf Townhouses" data-intent="speak with an advisor">Skriv till mig på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Azata Golf Townhouses">
-
-          <input type="hidden" id="f-project" name="project" value="Azata Golf Townhouses">
-          <input type="hidden" name="preferred_area" value="Azata Golf, Estepona">
-          <input type="hidden" name="property_type_interest" value="Radhus">
-          <input type="hidden" name="budget_range" value="Från 470 250 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Förnamn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Förnamn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Efternamn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Efternamn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internationellt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Meddelande</label>
-              <textarea id="f-msg" name="message">Jag vill gärna få aktuell projektinformation om Azata Golf Townhouses.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jag samtycker till att bli kontaktad och att mina uppgifter lagras.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jag vill också gärna få enstaka projektuppdateringar från Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Skicka förfrågan</button>
-            <span class="form-note">Projektsammanhang: Azata Golf Townhouses.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"7","title":"7 · Radhus","sub":"3 sovrum · 261 m²","price":610250,"plans":[]},{"id":"u1","ref":"8","title":"8 · Radhus","sub":"3 sovrum · 262 m²","price":564325,"plans":[]},{"id":"u2","ref":"9","title":"9 · Radhus","sub":"3 sovrum · 249 m²","price":495000,"plans":[]},{"id":"u3","ref":"10","title":"10 · Radhus","sub":"3 sovrum · 247 m²","price":495000,"plans":[]},{"id":"u4","ref":"12","title":"12 · Radhus","sub":"3 sovrum · 246 m²","price":470250,"plans":[]},{"id":"u5","ref":"13","title":"13 · Radhus","sub":"3 sovrum · 264 m²","price":601850,"plans":[]},{"id":"u6","ref":"22","title":"22 · Radhus","sub":"3 sovrum · 247 m²","price":601850,"plans":[]},{"id":"u7","ref":"23","title":"23 · Radhus","sub":"3 sovrum · 254 m²","price":593500,"plans":[]},{"id":"u8","ref":"27","title":"27 · Radhus","sub":"3 sovrum · 234 m²","price":495000,"plans":[]},{"id":"u9","ref":"28","title":"28 · Radhus","sub":"3 sovrum · 235 m²","price":495000,"plans":[]},{"id":"u10","ref":"30","title":"30 · Radhus","sub":"3 sovrum · 251 m²","price":593750,"plans":[]},{"id":"u11","ref":"36","title":"36 · Radhus","sub":"3 sovrum · 235 m²","price":470250,"plans":[]},{"id":"u12","ref":"37","title":"37 · Radhus","sub":"3 sovrum · 234 m²","price":470250,"plans":[]},{"id":"u13","ref":"38","title":"38 · Radhus","sub":"3 sovrum · 234 m²","price":495000,"plans":[]},{"id":"u14","ref":"39","title":"39 · Radhus","sub":"3 sovrum · 251 m²","price":601850,"plans":[]},{"id":"u15","ref":"41","title":"41 · Radhus","sub":"3 sovrum · 255 m²","price":575850,"plans":[]},{"id":"u16","ref":"42","title":"42 · Radhus","sub":"3 sovrum · 255 m²","price":575850,"plans":[]},{"id":"u17","ref":"43","title":"43 · Radhus","sub":"3 sovrum · 255 m²","price":575750,"plans":[]},{"id":"u18","ref":"44","title":"44 · Radhus","sub":"3 sovrum · 266 m²","price":574750,"plans":[]},{"id":"u19","ref":"53","title":"53 · Radhus","sub":"3 sovrum · 247 m²","price":601850,"plans":[]},{"id":"u20","ref":"54","title":"54 · Radhus","sub":"3 sovrum · 293 m²","price":685000,"plans":[]},{"id":"u21","ref":"55","title":"55 · Radhus","sub":"3 sovrum · 228 m²","price":574750,"plans":[]},{"id":"u22","ref":"56","title":"56 · Radhus","sub":"3 sovrum · 227 m²","price":574750,"plans":[]},{"id":"u23","ref":"57","title":"57 · Radhus","sub":"3 sovrum · 227 m²","price":574750,"plans":[]},{"id":"u24","ref":"58","title":"58 · Radhus","sub":"3 sovrum · 227 m²","price":574750,"plans":[]},{"id":"u25","ref":"59","title":"59 · Radhus","sub":"3 sovrum · 227 m²","price":574750,"plans":[]},{"id":"u26","ref":"60","title":"60 · Radhus","sub":"3 sovrum · 233 m²","price":601850,"plans":[]},{"id":"u27","ref":"65","title":"65 · Radhus","sub":"3 sovrum · 244 m²","price":495250,"plans":[]},{"id":"u28","ref":"66","title":"66 · Radhus","sub":"3 sovrum · 238 m²","price":495250,"plans":[]},{"id":"u29","ref":"67","title":"67 · Radhus","sub":"3 sovrum · 238 m²","price":495250,"plans":[]},{"id":"u30","ref":"68","title":"68 · Radhus","sub":"3 sovrum · 238 m²","price":495250,"plans":[]},{"id":"u31","ref":"69","title":"69 · Radhus","sub":"3 sovrum · 255 m²","price":593750,"plans":[]},{"id":"u32","ref":"70","title":"70 · Radhus","sub":"3 sovrum · 249 m²","price":593750,"plans":[]},{"id":"u33","ref":"71","title":"71 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u34","ref":"72","title":"72 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u35","ref":"73","title":"73 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u36","ref":"74","title":"74 · Radhus","sub":"3 sovrum · 244 m²","price":574750,"plans":[]},{"id":"u37","ref":"75","title":"75 · Radhus","sub":"3 sovrum · 244 m²","price":574750,"plans":[]},{"id":"u38","ref":"76","title":"76 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u39","ref":"77","title":"77 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u40","ref":"78","title":"78 · Radhus","sub":"3 sovrum · 245 m²","price":601850,"plans":[]},{"id":"u41","ref":"79","title":"79 · Radhus","sub":"3 sovrum · 249 m²","price":601850,"plans":[]},{"id":"u42","ref":"80","title":"80 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u43","ref":"81","title":"81 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u44","ref":"82","title":"82 · Radhus","sub":"3 sovrum · 238 m²","price":574750,"plans":[]},{"id":"u45","ref":"83","title":"83 · Radhus","sub":"3 sovrum · 244 m²","price":576750,"plans":[]},{"id":"u46","ref":"84","title":"84 · Radhus","sub":"3 sovrum · 244 m²","price":576750,"plans":[]},{"id":"u47","ref":"85","title":"85 · Radhus","sub":"3 sovrum · 238 m²","price":576750,"plans":[]},{"id":"u48","ref":"86","title":"86 · Radhus","sub":"3 sovrum · 238 m²","price":576750,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/azata-golf-townhouses/media/development-from-above.webp","alt":"Området från luften, vita terrasser som trappar ned längs golfbanan","caption":"Uppifrån","cat":"Exteriors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/the-houses.webp","alt":"Vita fasader under tegeltak, med planteringar framför","caption":"Husen","cat":"Exteriors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/pedestrian-street.webp","alt":"En gågata mellan husen, med en vattenränna i mitten","caption":"Mellan husen","cat":"Exteriors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/street-at-dusk.webp","alt":"Samma gata i skymningen, upplyst längs vattenrännan","caption":"I skymningen","cat":"Exteriors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/planted-walkway.webp","alt":"En planterad gångväg som löper mellan terrasserna","caption":"Gångvägen","cat":"Exteriors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/covered-terrace.webp","alt":"En täckt terrass med matplats och sittgrupp, öppen mot golfbanan","caption":"Terrassen","cat":"Terraces"},{"src":"assets/liora/projects/azata-golf-townhouses/media/terrace-and-living-room.webp","alt":"Terrassen med blicken tillbaka in i vardagsrummet genom skjutpartiet","caption":"Terrass och vardagsrum","cat":"Terraces"},{"src":"assets/liora/projects/azata-golf-townhouses/media/golf-course-view.webp","alt":"Utsikten från en terrass över banan mot bergen","caption":"Utsikten","cat":"Exteriors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/golf-and-hills.webp","alt":"Golfbanan nedanför husen, med havet bortom","caption":"Golfen och kusten","cat":"Exteriors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace.webp","alt":"Vardagsrummet, glasat i hela sin bredd mot terrassen","caption":"Vardagsrum","cat":"Interiors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/living-room.webp","alt":"Ett vardagsrum med matplats och terrassen bortom","caption":"Vardagsrum och matsal","cat":"Interiors"},{"src":"assets/liora/projects/azata-golf-townhouses/media/bedroom.webp","alt":"Ett sovrum med egen balkong och dörr ut","caption":"Ett sovrum","cat":"Bedrooms"},{"src":"assets/liora/projects/azata-golf-townhouses/media/outdoor-pool.webp","alt":"Utomhuspoolen på gräsmattan, husen bakom","caption":"Utomhuspoolen","cat":"Amenities"},{"src":"assets/liora/projects/azata-golf-townhouses/media/pool-and-gardens.webp","alt":"Poolen och de gemensamma trädgårdarna, med palmer längs kanten","caption":"Pool och trädgårdar","cat":"Amenities"},{"src":"assets/liora/projects/azata-golf-townhouses/media/indoor-pool.webp","alt":"Den uppvärmda inomhuspoolen, upplyst i hela sin längd","caption":"Inomhuspoolen","cat":"Amenities"},{"src":"assets/liora/projects/azata-golf-townhouses/media/jacuzzi.webp","alt":"Jacuzzin intill inomhuspoolen","caption":"Jacuzzin","cat":"Amenities"},{"src":"assets/liora/projects/azata-golf-townhouses/media/sauna.webp","alt":"Bastun, klädd och bänkad i trä","caption":"Bastun","cat":"Amenities"},{"src":"assets/liora/projects/azata-golf-townhouses/media/gym.webp","alt":"De boendes gym, med vikter och konditionsmaskiner","caption":"Gymmet","cat":"Amenities"},{"src":"assets/liora/projects/azata-golf-townhouses/media/yoga-room.webp","alt":"Yogarummet, med trägolv och utlagda mattor","caption":"Yogarummet","cat":"Amenities"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Fråga om {ref}","plusVat":"Exkl. IVA","totalPrice":"Totalpris","vatOnStages":"Plus IVA på varje delbetalning","onRequest":"På förfrågan","imageOf":"{i} av {n}","floorPlan":"Planritning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Azata Golf Townhouses media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Stäng">Stäng</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Föregående bild">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Nästa bild">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/azata-golf-townhouses/media/development-from-above.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/development-from-above-960.webp","alt":"Området från luften, vita terrasser som trappar ned längs golfbanan","width":1400,"height":934,"caption":"Uppifrån","category":"Exteriör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/the-houses.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/the-houses-960.webp","alt":"Vita fasader under tegeltak, med planteringar framför","width":1400,"height":1050,"caption":"Husen","category":"Exteriör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/pedestrian-street.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/pedestrian-street-960.webp","alt":"En gågata mellan husen, med en vattenränna i mitten","width":1400,"height":933,"caption":"Mellan husen","category":"Exteriör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/street-at-dusk.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/street-at-dusk-960.webp","alt":"Samma gata i skymningen, upplyst längs vattenrännan","width":1400,"height":788,"caption":"I skymningen","category":"Exteriör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/planted-walkway.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/planted-walkway-960.webp","alt":"En planterad gångväg som löper mellan terrasserna","width":1400,"height":933,"caption":"Gångvägen","category":"Exteriör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/covered-terrace.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/covered-terrace-960.webp","alt":"En täckt terrass med matplats och sittgrupp, öppen mot golfbanan","width":1400,"height":933,"caption":"Terrassen","category":"Terrasser"},{"src":"assets/liora/projects/azata-golf-townhouses/media/terrace-and-living-room.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/terrace-and-living-room-960.webp","alt":"Terrassen med blicken tillbaka in i vardagsrummet genom skjutpartiet","width":1400,"height":933,"caption":"Terrass och vardagsrum","category":"Terrasser"},{"src":"assets/liora/projects/azata-golf-townhouses/media/golf-course-view.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/golf-course-view-960.webp","alt":"Utsikten från en terrass över banan mot bergen","width":1400,"height":933,"caption":"Utsikten","category":"Exteriör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/golf-and-hills.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/golf-and-hills-960.webp","alt":"Golfbanan nedanför husen, med havet bortom","width":1400,"height":909,"caption":"Golfen och kusten","category":"Exteriör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/living-room-to-terrace-960.webp","alt":"Vardagsrummet, glasat i hela sin bredd mot terrassen","width":1400,"height":977,"caption":"Vardagsrum","category":"Interiör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/living-room.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/living-room-960.webp","alt":"Ett vardagsrum med matplats och terrassen bortom","width":1400,"height":977,"caption":"Vardagsrum och matsal","category":"Interiör"},{"src":"assets/liora/projects/azata-golf-townhouses/media/bedroom.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/bedroom-960.webp","alt":"Ett sovrum med egen balkong och dörr ut","width":1400,"height":948,"caption":"Ett sovrum","category":"Sovrum"},{"src":"assets/liora/projects/azata-golf-townhouses/media/outdoor-pool.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/outdoor-pool-960.webp","alt":"Utomhuspoolen på gräsmattan, husen bakom","width":1400,"height":933,"caption":"Utomhuspoolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/azata-golf-townhouses/media/pool-and-gardens.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/pool-and-gardens-960.webp","alt":"Poolen och de gemensamma trädgårdarna, med palmer längs kanten","width":1400,"height":933,"caption":"Pool och trädgårdar","category":"Bekvämligheter"},{"src":"assets/liora/projects/azata-golf-townhouses/media/indoor-pool.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/indoor-pool-960.webp","alt":"Den uppvärmda inomhuspoolen, upplyst i hela sin längd","width":1400,"height":933,"caption":"Inomhuspoolen","category":"Bekvämligheter"},{"src":"assets/liora/projects/azata-golf-townhouses/media/jacuzzi.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/jacuzzi-960.webp","alt":"Jacuzzin intill inomhuspoolen","width":1400,"height":933,"caption":"Jacuzzin","category":"Bekvämligheter"},{"src":"assets/liora/projects/azata-golf-townhouses/media/sauna.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/sauna-960.webp","alt":"Bastun, klädd och bänkad i trä","width":1400,"height":933,"caption":"Bastun","category":"Bekvämligheter"},{"src":"assets/liora/projects/azata-golf-townhouses/media/gym.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/gym-960.webp","alt":"De boendes gym, med vikter och konditionsmaskiner","width":1400,"height":933,"caption":"Gymmet","category":"Bekvämligheter"},{"src":"assets/liora/projects/azata-golf-townhouses/media/yoga-room.jpg","webp":"assets/liora/projects/azata-golf-townhouses/media/yoga-room-960.webp","alt":"Yogarummet, med trägolv och utlagda mattor","width":1400,"height":933,"caption":"Yogarummet","category":"Bekvämligheter"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Åtgärder för projektförfrågan">
-    <a href="sv/property-azata-golf-townhouses.html#enquire" data-prefill>Fråga om en bostad</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Azata%20Golf%20Townhouses." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Azata Golf Townhouses" data-intent="speak with an advisor">Prata med en rådgivare</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

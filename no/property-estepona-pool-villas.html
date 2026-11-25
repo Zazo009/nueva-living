@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kan utlendinger kjøpe eiendom i Spania?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er et NIE-nummer, og trenger jeg et?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg få boliglån i Spania som ikke-bosatt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hvordan fungerer reservasjons- og betalingsprosessen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan jeg leie ut boligen etter kjøp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Trenger jeg advokat?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hvor mange villaer er tilgjengelige?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="no"
   data-project-name="Estepona Pool Villas"
   data-project-message="Hei Nueva Living, jeg vil gjerne ha informasjon om Estepona Pool Villas."
@@ -459,427 +396,156 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Estepona Pool Villas">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="no/property-estepona-pool-villas.html#top">Estepona Pool Villas<span>Fra 2 300 000 € · Ekskl. mva</span></a>
+      <nav class="hdr-proj" aria-label="Prosjektseksjoner"><a href="no/property-estepona-pool-villas.html#overview">Oversikt</a><a href="no/property-estepona-pool-villas.html#availability">Priser</a><a href="no/property-estepona-pool-villas.html#specs">Utførelse</a><a href="no/property-estepona-pool-villas.html#gallery">Galleri</a><a href="no/property-estepona-pool-villas.html#location">Beliggenhet</a><a href="no/property-estepona-pool-villas.html#onsite">På stedet</a><a href="no/property-estepona-pool-villas.html#view">Vår vurdering</a><a href="no/property-estepona-pool-villas.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Bestill en privat visning</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Estepona Pool Villas">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Foto av hagesiden til en hvit villa på den andre siden av et basseng, med en overbygd terrasse med sofaer og et spisebord og en øvre terrasse med en gavl under et saltak" width="2000" height="1338" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Foto av hagesiden til en hvit villa på den andre siden av et basseng, med en overbygd terrasse med sofaer og et spisebord og en øvre terrasse med en gavl under et saltak" width="2000" height="1338" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">6 av 9 villaer ledige</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Estepona Pool <em>Villas</em></span>
-            <span class="hero-title-context">Ferdige villaer med fire og fem soverom i Estepona</span>
-          </h1>
-          <p class="hero-positioning">Seks av ni ferdige villaer er annonsert i Estepona, med fire eller fem soverom, eget basseng, et stort kjellerareal og parkering til to biler. Utbyggerens infoark oppgir byggetillatelsen og brukstillatelsen som på plass og kaller villaene nøkkelklare. Fra 2 300 000 €.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="no/property-estepona-pool-villas.html#availability">Se tilgjengelige boliger</a>
-            <a class="btn project-btn ghost" href="no/index.html#private-viewing=1&amp;project=estepona-pool-villas">Filmatisk presentasjon</a>
-            <a class="btn project-btn ghost" href="no/property-estepona-pool-villas.html#media">Alle bilder</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Viktige prosjektfakta">
-          <div class="hero-fact"><span>Område</span><strong>Estepona</strong></div>
-          <div class="hero-fact"><span>Pris fra</span><strong>Fra 2 300 000 €</strong></div>
-          <div class="hero-fact"><span>Boligtype</span><strong>Villaer</strong></div>
-          <div class="hero-fact"><span>Overtakelse</span><strong>Klart til innflytting</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Prosjektseksjoner">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Gå til</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="no/property-estepona-pool-villas.html#media">Media</a>
-        <a href="no/property-estepona-pool-villas.html#location">Beliggenhet</a>
-        <a href="no/property-estepona-pool-villas.html#availability">Tilgjengelighet</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Mer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="no/property-estepona-pool-villas.html#overview">Oversikt</a>
-          <a href="no/property-estepona-pool-villas.html#residences">Boliger</a>
-          <a href="no/property-estepona-pool-villas.html#quality-specifications">Utførelse</a>
-          <a href="no/property-estepona-pool-villas.html#calculator">Finansiering</a>
-          <a href="no/property-estepona-pool-villas.html#amenities">Fasiliteter</a>
-          <a href="no/property-estepona-pool-villas.html#why-this-project">Hvorfor</a>
-          <a href="no/property-estepona-pool-villas.html#architecture">Arkitektur</a>
-          <a href="no/property-estepona-pool-villas.html#private-viewing">Filmatisk presentasjon</a>
-          <a href="no/property-estepona-pool-villas.html#lifestyle">Livsstil</a>
-          <a href="no/property-estepona-pool-villas.html#faq">FAQ</a>
-          <a href="no/property-estepona-pool-villas.html#enquire">Forespørsel</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Rask prosjektfakta">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Soverom</span><strong>4-5 soverom</strong></div>
-          <div class="quick-fact"><span>Oppgitt areal</span><strong>383,66 - 453,64 m²</strong></div>
-          <div class="quick-fact"><span>Tomter</span><strong>Opptil 1 000 m²</strong></div>
-          <div class="quick-fact"><span>Tilgjengelighet</span><strong>6 av 9 villaer ledige</strong></div>
-          <div class="quick-fact"><span>Tilgjengelig</span><strong>6 villaer</strong></div>
-          <div class="quick-fact"><span>Prisspenn</span><strong>2 300 000 € - 2 680 000 €</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Be om prosjektmateriell</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Oversikt</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Ni villaer, <em>seks annonsert</em></h2>
-          <p class="project-lead">Dette er et prosjekt med ni villaer med fire og fem soverom i Estepona. Seks er annonsert med areal og pris, fra 2 300 000 € til 2 680 000 €. Utbyggerens infoark kaller villaene nøkkelklare, oppgir byggetillatelsen og brukstillatelsen som på plass og byggeslutt som ferdig, og nevner store tomter på opptil 1 000 m², et privat utendørsbasseng, et stort kjellerareal, privat parkering til to biler, gulvvarme og orientering mot sørøst.</p>
-          <p class="project-lead">Kvalitetsspesifikasjonen beskriver en konstruksjon i armert betong, aerotermisk oppvarming, kjøling og varmtvann fra Daikin, et smarthussystem fra Control4, hvitevarer fra Neff og vegghengt sanitærutstyr fra Duravit. Dokumentene oppgir ingen ferdigstillelsesdato og ingen plantegninger, og ingen tomtestørrelse for noen enkelt villa.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Prosjektet <em>i detalj</em></h2>
-          </div>
-          <p class="project-lead">Foto av en ferdig villa i prosjektet, innvendig og utvendig, og et flyfoto av villaene. Dokumentene vi har inneholder ingen plantegninger av villaene.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Vis 4 bilder i Eksteriør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Foto av hagesiden til en hvit villa på den andre siden av et basseng, med en overbygd terrasse med sofaer og et spisebord og en øvre terrasse med en gavl under et saltak" width="2000" height="1338" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Eksteriør</small>
-                <strong>Villaen sett fra bassenget</strong>
-                <span class="project-media-card-cta">4 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Vis 1 bilder i Omgivelser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg" alt="Flyfoto av en rekke hvite villaer langs en vei, med åpent grønt land bak, et fjell i det fjerne og havet ved høyre kant" width="2000" height="1137" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Omgivelser</small>
-                <strong>Villaene fra luften</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Vis 3 bilder i Terrasser">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.jpg" alt="Foto av en overbygd terrasse med glassrekkverk, en rund hvit søyle og store heller, med utsikt mot et basseng og en plen" width="2000" height="1334" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrasser</small>
-                <strong>En overbygd terrasse med glassrekkverk</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Vis 9 bilder i Interiør">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.jpg" alt="Foto av en tom stue med en stor skyvbar glassvegg mot bassengterrassen, lyse gulvfliser i steinlook og en peis på endeveggen" width="2000" height="1334" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interiør</small>
-                <strong>En stue uten møbler</strong>
-                <span class="project-media-card-cta">9 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Vis 3 bilder i Soverom">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.jpg" alt="Foto av et soverom med høy takhøyde, et svevende skrivebord i eik, et stort maleri av et ansikt, skapdører med lameller og et bad med et frittstående badekar bak" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Soverom</small>
-                <strong>Soverom med et svevende skrivebord</strong>
-                <span class="project-media-card-cta">3 bilder <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Vis 1 bilder i Bad">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.jpg" alt="Foto av et bad med et frittstående badekar, en mørk vegg i steinlook og en dobbel servant på en mørk skapbenk i steinlook under et stort speil" width="2000" height="1333" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Bad</small>
-                <strong>Bad med frittstående badekar</strong>
-                <span class="project-media-card-cta">1 bilde <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Vis alle 21 bilder</button>
-          <p class="media-note">Bildene er foto og ett flyfoto som fulgte med prosjektet. Dokumentene sier ikke hvilken villa som vises, eller om møblene, kunsten og dekorasjonen på dem er inkludert i salget. Ett av bildene viser en stue uten møbler.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Beliggenhet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">I Estepona, <em>mellom marinaen og Marina Banús</em></h2>
-          <p class="project-lead">Utbyggerens infoark plasserer prosjektet i Estepona, kaller det en flott beliggenhet og markerer det på et kart inne i landet fra kysten, mellom Estepona Marina og Marina Banús. Det oppgir ingen avstander eller reisetider.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="no">
-          <div class="locmap-map" id="locmap-estepona-pool-villas" data-locmap='{&quot;site&quot;:[36.4663,-5.0835],&quot;sea&quot;:[36.4393,-5.0835],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen La Resina&quot;,&quot;sub&quot;:&quot;3,1 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona sentrum&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Estepona Pool Villas"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Veiledende beliggenhet</span>
-            <h3 class="locmap-name">Estepona Pool Villas</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Estepona sentrum</span>
-              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen La Resina</span>
-              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbanen Los Flamingos</span>
-              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Gibraltar lufthavn</span>
-              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Boliger</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Fem soverom eller fire, <em>ett prosjekt</em></h2>
-          <p class="project-lead">Utbyggerens infoark beskriver villaer med fire og fem soverom. Tilgjengelighetstabellen oppgir seks referanser med areal og pris, men ingen plantegninger, tomter eller etasjer, så gruppene nedenfor er bare etter antall soverom.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Villaer med fem soverom</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Be om plantegninger</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Villa med fire soverom</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Be om plantegninger</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Privat materiale</span>
-            <p>Gjeldende planløsninger, utsiktsposisjoner og tilgjengelighet bør sjekkes mot utviklerens siste fil før man setter opp en shortlist.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Vis plantegninger</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Byggebeskrivelse</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva villaene <em>er bygget av</em></h2>
-          <p class="project-lead">Utbyggerens egen kvalitetsspesifikasjon, oppsummert etter deler av villaen.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Gulv og vegger<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gresfliser Nexus White på 60 ganger 60 cm i fellesarealene i huset, på trappene og i soverom og bad i kjelleren, eikeparkett i soveromene i første og andre etasje, keramiske gulvlister i kjellerne, nedhengte himlinger av gipsplater i hele huset og akrylmaling innvendig.</li>
-              <li>Utendørs sklisikre gresfliser på overbygde terrasser og verandaer, sklisikre keramiske planker i trelook på bassengkanten, avdekket betong på parkeringsarealene og prefabrikkerte betongelementer med elvestein på gangveiene.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Dører og skap<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>En trefinert svingdør som inngangsdør med skjulte hengsler, et dørhåndtak i rustfritt stål og et flerpunktslås, og hvitlakkerte innerdører i MDF fra gulv til tak, med skjulte beslag og magnetlås.</li>
-              <li>Garderobedører i hvitlakkert MDF, foret innvendig med linfarget melamin og fullt utstyrt med bagasjehylle, klesstang, skuffer, hyller og skohyller.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Kjøkken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Kjøkkeninnredning fra Danespan, en benkeplate i Silestone Calacatta Eternal Gold og hvitevarer fra det tyske merket Neff. Spesifikasjonen oppgir ikke hvilke apparater.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Bad<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Vegghengt sanitærutstyr fra Duravit med innbyggede sisterner fra Tece, armaturer fra ASM, speil med baklys fra en LED-stripe og porselensfliser på veggene fra Cifre og Grespania.</li>
-              <li>I hovedbadet et badekar (Sanyc Torino 170 eller Trento 150), et vegghengt bidet, et innfelt dusjsett med to uttak og 200 mm dusjhode, og en polert benkeplate i porselen fra Grespania med en vegghengt skuffeseksjon. De øvrige badene har benkeplater i solid surface og en teleskopisk dusjsøyle.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klima og installasjoner<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et aerotermisk system fra Daikin Altherma som gir oppvarming, kjøling og varmtvann, med utedelen på taket og kanalførte inverter-innedeler i nedhengte himlinger i bad eller garderober, vannbåren gulvvarme i hele huset og deler av kjelleren, og mekanisk ventilasjon slik den tekniske byggeforskriften krever.</li>
-              <li>Elektriske brytere og stikk fra Jung F-40 LS, LED-spotter med bevegelsessensorer i gangarealene, et smarthussystem fra Control4 med en innebygd 10-tommers berøringsskjerm, en Fermax Smile-videoporttelefon, wifi i hele huset og forberedelse for et kablet alarmanlegg. Maksimalt tillatt effekt er 14 490 W.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Basseng og hage<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Et basseng med sandfilter og saltklorinator, LED-spotter på 24 W og 12 V, en overløpsrenne rundt kanten og maskineriet i et skjult rom under bassengkanten, tilgjengelig gjennom et metalldeksel.</li>
-              <li>Et ferdig anlagt vanningsnett i hagen med programmeringsenheter og trykkenhet, en sisterne for drikkevann og en for vanning, og tomter adskilt av sveiset nett, støttemurer og en beplantet avgrensning.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Kilde: utbyggerens kvalitetsspesifikasjon med tittelen «Villaer 14 til 4», som ikke har dato. Merkene er oppgitt slik de står skrevet i den. Den sier at arkitekten kan velge vindustype i hvert enkelt tilfelle, og dekoratørene plasseringen av LED-stripene. Den oppgir ingen løse møbler.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Tilgjengelighet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Seks villaer <em>tilgjengelige nå</em></h2>
-          <p class="project-lead">Arealene og prisene er de i tilgjengelighetstabellen i salgsportalen, lest 18. oktober 2026. Tabellen oppgir ingen etasjer, tomteareal eller plantegninger, og sier ikke om prisene inkluderer mva.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Foto av hagesiden til en hvit villa på den andre siden av et basseng, med en overbygd terrasse med sofaer og et spisebord og en øvre terrasse med en gavl under et saltak" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>21 bilder</button>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Sammendrag av gjeldende fase">
-            <div><span>Tilgjengelige boliger</span><strong>6</strong></div>
-            <div><span>Pris fra</span><strong>2 300 000 €</strong></div>
-            <div><span>Prisintervall</span><strong>2 300 000 € - 2 680 000 €</strong></div>
-            <div><span>Kontrollert</span><strong>oktober 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Se alle 6 tilgjengelige boliger</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Tilgjengelige boliger på Estepona Pool Villas</caption>
-                <thead><tr><th scope="col">Referanse</th><th scope="col">Boligtype</th><th scope="col">Soverom</th><th scope="col">Størrelse</th><th scope="col">Pris</th><th scope="col">Status</th></tr></thead>
-                <tbody>
-              <tr data-beds="5" data-price="2300000">
-                <td data-label="Referanse"><strong>NP-04</strong></td>
-                <td data-label="Boligtype">Villa</td>
-                <td data-label="Soverom">5 soverom</td>
-                <td data-label="Størrelse">453,64 m²</td>
-                <td data-label="Pris"><strong>2 300 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tilgjengelig</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2340000">
-                <td data-label="Referanse"><strong>NP-06</strong></td>
-                <td data-label="Boligtype">Villa</td>
-                <td data-label="Soverom">5 soverom</td>
-                <td data-label="Størrelse">432,30 m²</td>
-                <td data-label="Pris"><strong>2 340 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tilgjengelig</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2540000">
-                <td data-label="Referanse"><strong>NP-08</strong></td>
-                <td data-label="Boligtype">Villa</td>
-                <td data-label="Soverom">5 soverom</td>
-                <td data-label="Størrelse">393,91 m²</td>
-                <td data-label="Pris"><strong>2 540 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tilgjengelig</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2550000">
-                <td data-label="Referanse"><strong>NP-10</strong></td>
-                <td data-label="Boligtype">Villa</td>
-                <td data-label="Soverom">5 soverom</td>
-                <td data-label="Størrelse">405,31 m²</td>
-                <td data-label="Pris"><strong>2 550 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tilgjengelig</span></td>
-              </tr>
-              <tr data-beds="5" data-price="2680000">
-                <td data-label="Referanse"><strong>NP-14</strong></td>
-                <td data-label="Boligtype">Villa</td>
-                <td data-label="Soverom">5 soverom</td>
-                <td data-label="Størrelse">420,81 m²</td>
-                <td data-label="Pris"><strong>2 680 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tilgjengelig</span></td>
-              </tr>
-              <tr data-beds="4" data-price="2440000">
-                <td data-label="Referanse"><strong>NP-16</strong></td>
-                <td data-label="Boligtype">Villa</td>
-                <td data-label="Soverom">4 soverom</td>
-                <td data-label="Størrelse">383,66 m²</td>
-                <td data-label="Pris"><strong>2 440 000 €</strong></td>
-                <td data-label="Status"><span class="availability-status">Tilgjengelig</span></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+          <a class="chip" href="no/property-estepona-pool-villas.html#location"><svg><use href="#v2-pin"/></svg>Kart</a>
           
-          <p class="availability-source-note">Arealene og prisene er gjengitt fra tilgjengelighetstabellen i salgsportalen, lest 18. oktober 2026. Den har seks rader for seks referanser, uten duplikater. Tabellen oppgir for hver villa antall soverom, ett areal og en pris. Den sier ikke om arealet er bygd eller innvendig, eller om prisen inkluderer mva.; infoarket oppgir innbetalingene pluss mva. Prosjektet har ni villaer til sammen, og de seks som vises er de som er annonsert; dokumentene sier ikke hva som har skjedd med de tre andre.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Spør om en bolig</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Finansiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Beregn din <em>månedlige betaling</em></h2>
-          <p class="body-copy">Kun et veiledende anslag. Bekreft de eksakte vilkårene med din långiver før du tar en beslutning.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Estepona Pool</span> <span class="h1-b">Villas</span></h1>
+        <p class="hero-by">Seks av ni ferdige villaer er annonsert i Estepona, med fire eller fem soverom, eget basseng, et stort kjellerareal og parkering til to biler.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Pris</dt><dd class="num">Fra 2 300 000 €</dd><dd class="sub">Ekskl. mva</dd></div><div><dt>Soverom</dt><dd>4 til 5</dd><dd class="sub"><span>Villaer</span></dd></div><div><dt>Ferdigstillelse</dt><dd>Innflytningsklar</dd><dd class="sub">Brukstillatelse gitt</dd></div><div><dt>Boliger igjen</dt><dd>6 av 9</dd><dd class="sub">Kontrollert oktober 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Bestill en privat visning</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Prosjektet</h2>
+    <p class="lede">Dette er et prosjekt med ni villaer med fire og fem soverom i Estepona. Seks er annonsert med areal og pris, fra 2 300 000 € til 2 680 000 €. Utbyggerens infoark kaller villaene nøkkelklare, oppgir byggetillatelsen og brukstillatelsen som på plass og byggeslutt som ferdig, og nevner store tomter på opptil 1 000 m², et privat utendørsbasseng, et stort kjellerareal, privat parkering til to biler, gulvvarme og orientering mot sørøst.</p>
+    <p class="lede-2">Kvalitetsspesifikasjonen beskriver en konstruksjon i armert betong, aerotermisk oppvarming, kjøling og varmtvann fra Daikin, et smarthussystem fra Control4, hvitevarer fra Neff og vegghengt sanitærutstyr fra Duravit. Dokumentene oppgir ingen ferdigstillelsesdato og ingen plantegninger, og ingen tomtestørrelse for noen enkelt villa.</p>
+    <details class="fold" id="architecture"><summary>Arkitektur · <span>Hvite volumer, åpne mot hagen</span></summary><p>Bildene viser hvitpussede villaer i flere plan, med dype takutspring, flate tak og skråtak med takstein, glassrekkverk på terrassene og skyvbare glassvegger som åpner oppholdsrommene mot en overbygd terrasse, en brolagt terrasse og bassenget.</p><p>Infoarket beskriver designet bare som førsteklasses. Merknadene nedenfor er utbyggerens egen beskrivelse av hvordan villaene er bygget.</p><ul><li>Konstruksjon: Et fundament av armert betongplate etter den geotekniske rapporten, en stomme av armert betong med kassett- eller massive dekker og støttemurer av armert betong.</li><li>Fasade: Hulltegl med innvendig og utvendig puss, et luftrom og 5 cm sprøytet isolasjon av polyuretanskum, ferdigstilt med vanntett sementpuss og silikonharpiksmaling, med enkelte vegger kledd i keramiske fliser.</li><li>Vinduer: Aluminium fra Cortizo i serien COR 60, med løfte-skyveserien COR 4500 til de største vinduene, med termisk brudd og lakkert grått, med Planitherm dobbeltglass og rekkverk av sikkerhetsglass på 8+8 eller 10+10.</li><li>Tak: Flate tak og terrasser tettet og isolert for sklisikre fliser, og skråtak ferdigstilt med takstein.</li></ul></details>
+    <dl class="kfacts"><div><dt>Pris</dt><dd><span>2 300 000 € – 2 680 000 €</span><small>Ekskl. mva</small></dd></div><div><dt>Tilgjengelig</dt><dd><span>6 av 9 boliger</span><small>Kontrollert oktober 2026</small></dd></div><div><dt>Boliger</dt><dd><span>Villaer</span></dd></div><div><dt>Størrelser</dt><dd><span>384 – 454 m²</span></dd></div><div><dt>Ferdigstillelse</dt><dd><span>Innflytningsklar</span></dd></div><div><dt>Tillatelse</dt><dd><span><span class="ok">Brukstillatelse</span></span><small>Gitt</small></dd></div><div><dt>Forskudd</dt><dd><span>Ikke aktuelt</span><small>Ferdig bygg</small></dd></div><div><dt>Parkering</dt><dd><span>Egen parkering</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Boliger og priser</h2>
+    <p class="sec-sub">Arealene og prisene er de i tilgjengelighetstabellen i salgsportalen, lest 18. oktober 2026. Tabellen oppgir ingen etasjer, tomteareal eller plantegninger, og sier ikke om prisene inkluderer mva. Velg en bolig for å se betalingsplan og totalkostnad.</p>
+    <div class="scarcity" role="img" aria-label="6 av 9 fortsatt til salgs"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span>6 av 9 fortsatt til salgs</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Boliger til salgs med størrelse og pris. Velg en rad for å se betalingsplanen.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Bolig</th>
+          <th scope="col" data-sort="beds">Soverom</th>
+          <th scope="col" data-sort="size">Størrelse</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Pris</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Tegning</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="5" data-price="2300000" data-size="453.64" data-ppm="5070" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-04</span><span class="u-loc">Villa</span></th>
+            <td data-label="Soverom">5 sov.</td>
+            <td data-label="Størrelse" class="num">454 m²</td>
+            <td data-label="Pris" class="u-price num">2 300 000 €</td>
+            <td data-label="Per m²" class="num">5 070 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u1" data-beds="5" data-price="2340000" data-size="432.3" data-ppm="5413" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-06</span><span class="u-loc">Villa</span></th>
+            <td data-label="Soverom">5 sov.</td>
+            <td data-label="Størrelse" class="num">432 m²</td>
+            <td data-label="Pris" class="u-price num">2 340 000 €</td>
+            <td data-label="Per m²" class="num">5 413 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u2" data-beds="5" data-price="2540000" data-size="393.91" data-ppm="6448" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-08</span><span class="u-loc">Villa</span></th>
+            <td data-label="Soverom">5 sov.</td>
+            <td data-label="Størrelse" class="num">394 m²</td>
+            <td data-label="Pris" class="u-price num">2 540 000 €</td>
+            <td data-label="Per m²" class="num">6 448 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u3" data-beds="5" data-price="2550000" data-size="405.31" data-ppm="6291" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-10</span><span class="u-loc">Villa</span></th>
+            <td data-label="Soverom">5 sov.</td>
+            <td data-label="Størrelse" class="num">405 m²</td>
+            <td data-label="Pris" class="u-price num">2 550 000 €</td>
+            <td data-label="Per m²" class="num">6 291 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u4" data-beds="5" data-price="2680000" data-size="420.81" data-ppm="6369" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-14</span><span class="u-loc">Villa</span></th>
+            <td data-label="Soverom">5 sov.</td>
+            <td data-label="Størrelse" class="num">421 m²</td>
+            <td data-label="Pris" class="u-price num">2 680 000 €</td>
+            <td data-label="Per m²" class="num">6 369 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+          <tr data-id="u5" data-beds="4" data-price="2440000" data-size="383.66" data-ppm="6360" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">NP-16</span><span class="u-loc">Villa</span></th>
+            <td data-label="Soverom">4 sov.</td>
+            <td data-label="Størrelse" class="num">384 m²</td>
+            <td data-label="Pris" class="u-price num">2 440 000 €</td>
+            <td data-label="Per m²" class="num">6 360 €</td>
+            <td class="u-plan"><span class="u-na">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Boliger · <span>Fem soverom eller fire, ett prosjekt</span></summary><p>Utbyggerens infoark beskriver villaer med fire og fem soverom. Tilgjengelighetstabellen oppgir seks referanser med areal og pris, men ingen plantegninger, tomter eller etasjer, så gruppene nedenfor er bare etter antall soverom.</p><div class="res-types"><div class="res-type"><h3>Villaer med fem soverom</h3><ul><li>5 villaer med fem soverom er annonsert, fra 393,91 til 453,64 m².</li><li>Prisene går fra 2 300 000 € til 2 680 000 €.</li></ul></div><div class="res-type"><h3>Villa med fire soverom</h3><ul><li>1 villa med fire soverom er annonsert, NP-16, på 383,66 m².</li><li>Prisen er 2 440 000 €.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Utbyggerens betalingsplan fås på forespørsel; vi sender den sammen med prislisten.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Hva det koster totalt</p>
+      <dl class="cost-lines num">
+        <div><dt>Pris</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>mva, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Dokumentavgift (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totalt før notar, tinglysing og advokat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Spør om denne boligen</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plantegning"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Finansiering? Boliglånskalkulator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Kjøpesum</span><em data-calc-price-readout>&euro;0</em></div>
@@ -939,400 +605,220 @@
               <div class="calculator-result"><span>Skatter & kjøpskostnader</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Fasiliteter</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva prosjektet <em>gir deg</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Velvære</span>
-              <h3 class="amenity-name">Privat basseng</h3>
-              <p class="amenity-note">Tilhører boligen</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Utførelse</h2>
+    <p class="sec-sub">Utbyggerens egen kvalitetsspesifikasjon, oppsummert etter deler av villaen.</p>
+    <div class="tabs" role="tablist" aria-label="Utførelse"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Gulv og vegger</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Dører og skap</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Kjøkken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Bad</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Klima og installasjoner</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Basseng og hage</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Gresfliser Nexus White på 60 ganger 60 cm i fellesarealene i huset, på trappene og i soverom og bad i kjelleren, eikeparkett i soveromene i første og andre etasje, keramiske gulvlister i kjellerne, nedhengte himlinger av gipsplater i hele huset og akrylmaling innvendig.</li><li>Utendørs sklisikre gresfliser på overbygde terrasser og verandaer, sklisikre keramiske planker i trelook på bassengkanten, avdekket betong på parkeringsarealene og prefabrikkerte betongelementer med elvestein på gangveiene.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>En trefinert svingdør som inngangsdør med skjulte hengsler, et dørhåndtak i rustfritt stål og et flerpunktslås, og hvitlakkerte innerdører i MDF fra gulv til tak, med skjulte beslag og magnetlås.</li><li>Garderobedører i hvitlakkert MDF, foret innvendig med linfarget melamin og fullt utstyrt med bagasjehylle, klesstang, skuffer, hyller og skohyller.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Kjøkkeninnredning fra Danespan, en benkeplate i Silestone Calacatta Eternal Gold og hvitevarer fra det tyske merket Neff. Spesifikasjonen oppgir ikke hvilke apparater.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Vegghengt sanitærutstyr fra Duravit med innbyggede sisterner fra Tece, armaturer fra ASM, speil med baklys fra en LED-stripe og porselensfliser på veggene fra Cifre og Grespania.</li><li>I hovedbadet et badekar (Sanyc Torino 170 eller Trento 150), et vegghengt bidet, et innfelt dusjsett med to uttak og 200 mm dusjhode, og en polert benkeplate i porselen fra Grespania med en vegghengt skuffeseksjon. De øvrige badene har benkeplater i solid surface og en teleskopisk dusjsøyle.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Et aerotermisk system fra Daikin Altherma som gir oppvarming, kjøling og varmtvann, med utedelen på taket og kanalførte inverter-innedeler i nedhengte himlinger i bad eller garderober, vannbåren gulvvarme i hele huset og deler av kjelleren, og mekanisk ventilasjon slik den tekniske byggeforskriften krever.</li><li>Elektriske brytere og stikk fra Jung F-40 LS, LED-spotter med bevegelsessensorer i gangarealene, et smarthussystem fra Control4 med en innebygd 10-tommers berøringsskjerm, en Fermax Smile-videoporttelefon, wifi i hele huset og forberedelse for et kablet alarmanlegg. Maksimalt tillatt effekt er 14 490 W.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Et basseng med sandfilter og saltklorinator, LED-spotter på 24 W og 12 V, en overløpsrenne rundt kanten og maskineriet i et skjult rom under bassengkanten, tilgjengelig gjennom et metalldeksel.</li><li>Et ferdig anlagt vanningsnett i hagen med programmeringsenheter og trykkenhet, en sisterne for drikkevann og en for vanning, og tomter adskilt av sveiset nett, støttemurer og en beplantet avgrensning.</li></ul>
+      
+    </div>
+    <p class="caption">Kilde: utbyggerens kvalitetsspesifikasjon med tittelen «Villaer 14 til 4», som ikke har dato. Merkene er oppgitt slik de står skrevet i den. Den sier at arkitekten kan velge vindustype i hvert enkelt tilfelle, og dekoratørene plasseringen av LED-stripene. Den oppgir ingen løse møbler.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galleri</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Villaen sett fra bassenget"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Foto av hagesiden til en hvit villa på den andre siden av et basseng, med en overbygd terrasse med sofaer og et spisebord og en øvre terrasse med en gavl under et saltak" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="En stue uten møbler"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.jpg" alt="Foto av en tom stue med en stor skyvbar glassvegg mot bassengterrassen, lyse gulvfliser i steinlook og en peis på endeveggen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="En overbygd terrasse med glassrekkverk"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.jpg" alt="Foto av en overbygd terrasse med glassrekkverk, en rund hvit søyle og store heller, med utsikt mot et basseng og en plen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="17" aria-label="Soverom med et svevende skrivebord"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.jpg" alt="Foto av et soverom med høy takhøyde, et svevende skrivebord i eik, et stort maleri av et ansikt, skapdører med lameller og et bad med et frittstående badekar bak" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Villaene fra luften"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg" alt="Flyfoto av en rekke hvite villaer langs en vei, med åpent grønt land bak, et fjell i det fjerne og havet ved høyre kant" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Se alle 21 bildene</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Eksteriør (4)</button><button type="button" data-open-cat="Location">Omgivelser (1)</button><button type="button" data-open-cat="Terraces">Terrasser (3)</button><button type="button" data-open-cat="Interiors">Interiør (9)</button><button type="button" data-open-cat="Bedrooms">Soverom (3)</button><button type="button" data-open-cat="Bathrooms">Bad (1)</button></div>
+    
+    <p class="caption">Bildene er foto og ett flyfoto som fulgte med prosjektet. Dokumentene sier ikke hvilken villa som vises, eller om møblene, kunsten og dekorasjonen på dem er inkludert i salget. Ett av bildene viser en stue uten møbler.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Beliggenhet</h2>
+    <p class="sec-sub">Utbyggerens infoark plasserer prosjektet i Estepona, kaller det en flott beliggenhet og markerer det på et kart inne i landet fra kysten, mellom Estepona Marina og Marina Banús. Det oppgir ingen avstander eller reisetider.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="no">
+          <div class="locmap-map" id="locmap-estepona-pool-villas" data-locmap='{&quot;site&quot;:[36.4663,-5.0835],&quot;sea&quot;:[36.4393,-5.0835],&quot;seaLabel&quot;:&quot;Middelhavet&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen Los Flamingos&quot;,&quot;sub&quot;:&quot;9,8 km · 16 min&quot;},{&quot;ll&quot;:[36.46762,-5.07779],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbanen La Resina&quot;,&quot;sub&quot;:&quot;3,1 km · 8 min&quot;},{&quot;ll&quot;:[36.44623,-5.08674],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;6,5 km · 10 min&quot;},{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Estepona sentrum&quot;,&quot;sub&quot;:&quot;13 km · 16 min&quot;}]}' role="img" aria-label="Veiledende kart over beliggenheten for Estepona Pool Villas"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Veiledende beliggenhet</span>
+            <h3 class="locmap-name">Estepona Pool Villas</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>6,5 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Utendørs</span>
-              <h3 class="amenity-name">Egen hage</h3>
-              <p class="amenity-note">Inngjerdet og boligens egen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Estepona sentrum</span>
+              <span class="locmap-row-figure"><bdi>13 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Hverdag</span>
-              <h3 class="amenity-name">Kjeller i hver villa</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen La Resina</span>
+              <span class="locmap-row-figure"><bdi>3,1 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Hverdag</span>
-              <h3 class="amenity-name">Egen parkering</h3>
-              <p class="amenity-note">Tildelt, ikke førstemann til mølla</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbanen Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>9,8 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 1.5-2 3-2 5s.5 2.5 2 2.5V21"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Hverdag</span>
-              <h3 class="amenity-name">Fullt møblert</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Gibraltar lufthavn</span>
+              <span class="locmap-row-figure"><bdi>54 km</bdi> <em><bdi>49 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Hverdag</span>
-              <h3 class="amenity-name">Gulvvarme</h3>
-              <p class="amenity-note">Varme fra gulvet</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Hverdag</span>
-              <h3 class="amenity-name">Klimaanlegg</h3>
-              <p class="amenity-note">Kjøling og oppvarming via kanaler</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Hverdag</span>
-              <h3 class="amenity-name">Luft-til-vann-varmepumpe</h3>
-              <p class="amenity-note">Oppvarming, kjøling og varmtvann</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 7h10v10H7z"/><path d="M10 4v3"/><path d="M14 4v3"/><path d="M10 17v3"/><path d="M14 17v3"/><path d="M4 10h3"/><path d="M4 14h3"/><path d="M17 10h3"/><path d="M17 14h3"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Hverdag</span>
-              <h3 class="amenity-name">Husautomasjon</h3>
-              <p class="amenity-note">Lys og klima fra mobilen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3s6 6.3 6 10a6 6 0 0 1-12 0c0-3.7 6-10 6-10Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Hverdag</span>
-              <h3 class="amenity-name">Automatisk vanning</h3>
-            </div>
-          </li>
+            <p class="locmap-note">Avstander målt langs vei fra tomtegrensen. Kartet er kun veiledende; grenser er omtrentlige.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Estepona Marina og Marina Banús</th><td>Markert på kartet i infoarket; ingen avstander oppgitt</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">På stedet</h2>
+    <p class="sec-sub">Hva infoarket og kvalitetsspesifikasjonen sier om uteområdene og det nedre nivået.</p>
+    <div class="life-panels"><div><h3>Bassenget</h3><p>Et privat utendørsbasseng med saltklorering, LED-belysning og en keramisk bassengkant i trelook. Bassengmaskineriet er i et skjult rom under kanten.</p></div><div><h3>Tomter og uteområder</h3><p>Tomter på opptil 1 000 m², store uteområder, orientering mot sørøst og privat parkering til to biler. Infoarket oppgir ingen tomtestørrelse for noen enkelt villa.</p></div><div><h3>Kjelleren</h3><p>Et stort kjellerareal. Spesifikasjonen plasserer soverom og bad i kjelleren, med vannbåren gulvvarme i deler av den.</p></div><div><h3>Komfort og styring</h3><p>Gulvvarme, aerotermisk oppvarming og kjøling fra Daikin, et smarthussystem fra Control4 og wifi i hele huset.</p></div></div>
+    <ul class="amen-top"><li>Privat basseng</li><li>Egen hage</li><li>Kjeller i hver villa</li><li>Egen parkering</li><li>Fullt møblert</li><li>Gulvvarme</li></ul>
+    <details class="amen-all"><summary>Vis alle 10</summary><div class="amen-groups"><div><h3>Velvære<span class="count">1</span></h3><ul><li>Privat basseng</li></ul></div><div><h3>Utendørs<span class="count">1</span></h3><ul><li>Egen hage</li></ul></div><div><h3>Hverdag<span class="count">8</span></h3><ul><li>Kjeller i hver villa</li><li>Egen parkering</li><li>Fullt møblert</li><li>Gulvvarme</li><li>Klimaanlegg</li><li>Luft-til-vann-varmepumpe</li><li>Husautomasjon</li><li>Automatisk vanning</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Vår vurdering</h2>
+    <p class="sec-sub">Det vi ville vurdert før du reserverer her, og det vi sjekker for deg.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Vår vurdering">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Styrker</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Planlegg for</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Kontroller</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Hva som skiller det ut</h3><ul class="points"><li><b>Hvem det passer for</b><span>Kjøpere som vil ha en stor ferdig villa i Estepona, med eget basseng og kjeller, og flytte inn uten å vente på en byggeprosess.</span></li><li><b>Hva som gjør det annerledes</b><span>Villaene er nøkkelklare, begge tillatelsene er oppgitt som på plass, og infoarket nevner store tomter på opptil 1 000 m², gulvvarme, innebygde garderober og privat parkering til to biler.</span></li><li><b>Hvorfor beliggenheten betyr noe</b><span>Infoarket plasserer prosjektet i Estepona, kaller det en flott beliggenhet og markerer det inne i landet mellom Estepona Marina og Marina Banús. Det oppgir ingen avstander.</span></li><li><b>Hvorfor sjekke tilgjengelighet</b><span>Seks av de ni villaene er annonsert, og prisene følger ikke størrelsen: NP-16, med fire soverom og 383,66 m², koster 2 440 000 €, mens NP-04, med fem soverom og 453,64 m², koster 2 300 000 €. Dokumentene sier ikke hvorfor. Nueva Living bekrefter pris og tilgjengelighet på nytt med utbyggeren før enhver visning.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Hva du bør planlegge for</h3><ul class="points"><li><b>Reservasjon</b><span>Reservasjonen er 1 % av salgsprisen pluss mva.</span></li><li><b>Betalingsplan</b><span>De øvrige 99 % av salgsprisen pluss mva. forfaller ved signering av skjøtet. Infoarket oppgir ingen andre innbetalinger.</span></li><li><b>Mva.</b><span>Infoarket oppgir begge innbetalingene pluss mva., noe som tyder på at de oppgitte prisene er før mva. Tilgjengelighetstabellen sier ikke noe om det, så vi bekrefter det skriftlig.</span></li><li><b>Hva prisen inkluderer</b><span>Infoarket oppgir villaene som fullt møblert og nevner privat parkering til to biler. Det sier ikke hvilke møbler som er inkludert, og tilgjengelighetstabellen sier ikke om prisen dekker dem.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Kontroller før penger betales</h3><ul class="checks"><li class=""><svg><use href="#v2-check"/></svg><div><b>Tillatelser og garantier</b><span>Brukstillatelse gitt. Infoarket oppgir byggetillatelsen og brukstillatelsen som på plass og byggeslutt som ferdig, uten datoer. Vi ber om kopi av begge tillatelsene og energiattesten, og bekrefter at villaen er ny og hvilken garanti som dekker den.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Beskrivelsen</b><span>Kvalitetsspesifikasjonen har tittelen «Villaer 14 til 4» og er udatert. Prosjektet har ni villaer, og tilgjengelighetstabellen oppgir NP-16, som ligger utenfor dette området, så vi bekrefter hvilken spesifikasjon som gjelder for hver villa.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Arealene og tomtene</b><span>Tilgjengelighetstabellen oppgir ett areal per villa og sier ikke om det er bygd eller innvendig areal. Den oppgir ingen tomte-, terrasse- eller kjellerareal, og infoarket sier bare at tomtene er på opptil 1 000 m². Vi bekrefter hvilket tall kontrakten bruker, og hver enkelt tomt.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Plantegninger og møbler</b><span>Dokumentene vi har inneholder ingen plantegning av noen villa. Vi ber om plantegningen av hver villa du er interessert i, en liste over møblene som er inkludert og kjellerens planløsning.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Be om prosjektdokumentasjonen</h3><p>Det vi har: infoarket, kvalitetsspesifikasjonen og tilgjengelighetstabellen. Vi ber utbyggeren om plantegningene.</p></li><li><h3>Sammenlign alternativene</h3><p>Se dette sammen med de andre prosjektene i Estepona vi har i porteføljen.</p></li><li><h3>Privat visning</h3><p>Se villaene, tomtene, bassengene og kjellerne sammen med oss.</p></li><li><h3>Reserver</h3><p>En reservasjon på 1 % pluss mva., deretter skjøtet for de øvrige 99 % pluss mva., når vi skriftlig har bekreftet tillatelsene og hva prisen inkluderer.</p></li></ol>
+      <div class="docs card"><h3>Dokumenter du får</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prisliste</span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Plantegninger<small>Ikke utstedt ennå</small><small>Venter</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsplan<small>Ikke utstedt ennå</small><small>Venter</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Byggebeskrivelse</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>Det offisielle sammendraget alle kjøpere i Andalucía har krav på</small></span></li></ul><a class="btn btn-primary" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Få prosjektmappen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Spørsmål om Estepona Pool Villas</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hvor mange villaer er tilgjengelige?</summary><p>Prosjektet har ni villaer, og seks er nå annonsert, med fire eller fem soverom, fra 2 300 000 € til 2 680 000 €.</p></details><details class="segment-faq-item"><summary>Er mva inkludert?</summary><p>Tilgjengelighetstabellen sier ikke noe om det. Infoarket oppgir innbetalingene pluss mva., noe som tyder på priser før mva. Vi bekrefter skatter og kjøpskostnader skriftlig.</p></details><details class="segment-faq-item"><summary>Er villaene ferdige?</summary><p>Infoarket kaller dem nøkkelklare, oppgir byggetillatelsen og brukstillatelsen som på plass og byggeslutt som ferdig. Det oppgir ingen ferdigstillelsesdato, så vi ber om tillatelsene og datoen.</p></details><details class="segment-faq-item"><summary>Hva er betalingsplanen?</summary><p>Reservasjonen er 1 % av salgsprisen pluss mva., og de øvrige 99 % pluss mva. forfaller ved signering av skjøtet.</p></details><details class="segment-faq-item"><summary>Hva finnes i villaene?</summary><p>Infoarket nevner store tomter, et privat utendørsbasseng, et stort kjellerareal, gulvvarme, innebygde garderober og privat parkering til to biler. Kvalitetsspesifikasjonen legger til hvitevarer fra Neff, aerotermisk oppvarming og kjøling fra Daikin og et smarthussystem fra Control4.</p></details></div>
+    <details class="faq2-more"><summary>Vis alle spørsmål (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Er møblene inkludert?</summary><p>Infoarket oppgir villaene som fullt møblert, men ingen dokumenter sier hva som er inkludert i prisen. Vi ber om en liste.</p></details><details class="segment-faq-item"><summary>Finnes det planløsninger?</summary><p>Ikke i dokumentene vi har. Vi ber om plantegningen av hver villa du er interessert i.</p></details></div></details>
+    <p class="faq2-guide">Mer om å kjøpe nybygg i Spania → <a class="textlink" href="no/guide-how-buying-works.html">Kjøpsguide</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Bestill en privat visning">
+    <div class="card">
+      <p class="rail-price-label">Pris fra</p>
+      <p class="rail-price num">2 300 000 €</p>
+      <p class="rail-note">Ekskl. mva. 6 av 9 boliger igjen · Kontrollert oktober 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Bestill en privat visning</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Send oss en melding på WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger</strong>Vi svarer selv på hver henvendelse.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Bestill en privat visning</h2>
+        <p>Fortell oss hvilken bolig som interesserer deg. Vi sender prosjektmappen og går deretter over området sammen med deg.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, grunnlegger av Nueva Living</strong>Vi svarer selv på hver henvendelse.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Send oss en melding</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-post<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>På visningen sjekker vi sammen</h3><ul><li><b>På stedet.</b> Gå over tomten og rundt bassenget til villaen du vurderer, og se kjelleren.</li><li><b>Med bil.</b> Vi kjører med deg til Estepona Marina og Marina Banús og tar tiden.</li><li><b>På papiret.</b> Brukstillatelse, energiattest, skatten og skjøtet, før noe signeres.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Sender…" data-success-label="Bestill en privat visning ✓" data-submitting-message="Sender…" data-success-message="Forespørsel mottatt. Vi sender prosjektmappen og foreslår tider for visning." data-error-message="Det gikk ikke. Prøv igjen, eller send oss en melding på WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Pool Villas">
+        <input type="hidden" id="f-project" name="project" value="Estepona Pool Villas">
+        <input type="hidden" name="preferred_area" value="Estepona">
+        <input type="hidden" name="property_type_interest" value="Villaer">
+        <input type="hidden" name="budget_range" value="Fra 2 300 000 €">
+        <input type="hidden" name="consent_text" value="Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hei Nueva Living, jeg vil gjerne ha informasjon om Estepona Pool Villas." data-base="Hei Nueva Living, jeg vil gjerne ha informasjon om Estepona Pool Villas.">
+        <h3>Dine opplysninger</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Fornavn</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Etternavn</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-post</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefon (valgfritt, for WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Hvilken bolig?</label><select id="v2-f-unit" name="unit_interest"><option value="">Ikke sikker ennå, send meg alt</option><option value="NP-04">NP-04: 2 300 000 €</option><option value="NP-06">NP-06: 2 340 000 €</option><option value="NP-08">NP-08: 2 540 000 €</option><option value="NP-10">NP-10: 2 550 000 €</option><option value="NP-14">NP-14: 2 680 000 €</option><option value="NP-16">NP-16: 2 440 000 €</option></select></div>
+        <fieldset class="field"><legend>Boligen blir</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Til å bo i</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Et feriehjem</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">En investering</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hvordan skal vi svare?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefonsamtale</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-post</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Jeg godtar at Nueva Living lagrer opplysningene for å svare på henvendelsen min. <a href="no/privacy-policy.html">Personvernerklæring</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Gi meg også beskjed hvis tilgjengelighet eller priser endres i Estepona Pool Villas.</label>
+        <button class="btn btn-primary btn-block" type="submit">Bestill en privat visning</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Hvorfor dette prosjektet</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvorfor dette prosjektet <em>betyr noe</em></h2>
-          <p class="project-lead">Ferdige villaer med fire og fem soverom på store tomter, hver med eget basseng og kjeller, som det går an å flytte inn i nå.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Hvorfor det passer</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Hvem det passer for</h3><p>Kjøpere som vil ha en stor ferdig villa i Estepona, med eget basseng og kjeller, og flytte inn uten å vente på en byggeprosess.</p></article>
-              <article class="why-point reveal-soft"><h3>Hva som gjør det annerledes</h3><p>Villaene er nøkkelklare, begge tillatelsene er oppgitt som på plass, og infoarket nevner store tomter på opptil 1 000 m², gulvvarme, innebygde garderober og privat parkering til to biler.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor beliggenheten betyr noe</h3><p>Infoarket plasserer prosjektet i Estepona, kaller det en flott beliggenhet og markerer det inne i landet mellom Estepona Marina og Marina Banús. Det oppgir ingen avstander.</p></article>
-              <article class="why-point reveal-soft"><h3>Hvorfor sjekke tilgjengelighet</h3><p>Seks av de ni villaene er annonsert, og prisene følger ikke størrelsen: NP-16, med fire soverom og 383,66 m², koster 2 440 000 €, mens NP-04, med fem soverom og 453,64 m², koster 2 300 000 €. Dokumentene sier ikke hvorfor. Nueva Living bekrefter pris og tilgjengelighet på nytt med utbyggeren før enhver visning.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Vilkårene er de på utbyggerens infoark. Vi bekrefter gjeldende beløp og datoer skriftlig før du reserverer.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Reservasjon</h3><p>Reservasjonen er 1 % av salgsprisen pluss mva.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalingsplan</h3><p>De øvrige 99 % av salgsprisen pluss mva. forfaller ved signering av skjøtet. Infoarket oppgir ingen andre innbetalinger.</p></article>
-              <article class="why-point reveal-soft"><h3>Mva.</h3><p>Infoarket oppgir begge innbetalingene pluss mva., noe som tyder på at de oppgitte prisene er før mva. Tilgjengelighetstabellen sier ikke noe om det, så vi bekrefter det skriftlig.</p></article>
-              <article class="why-point reveal-soft"><h3>Hva prisen inkluderer</h3><p>Infoarket oppgir villaene som fullt møblert og nevner privat parkering til to biler. Det sier ikke hvilke møbler som er inkludert, og tilgjengelighetstabellen sier ikke om prisen dekker dem.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Tillit og gjennomgang</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Tillatelser og garantier</h3><p>Infoarket oppgir byggetillatelsen og brukstillatelsen som på plass og byggeslutt som ferdig, uten datoer. Vi ber om kopi av begge tillatelsene og energiattesten, og bekrefter at villaen er ny og hvilken garanti som dekker den.</p></article>
-              <article class="why-point reveal-soft"><h3>Beskrivelsen</h3><p>Kvalitetsspesifikasjonen har tittelen «Villaer 14 til 4» og er udatert. Prosjektet har ni villaer, og tilgjengelighetstabellen oppgir NP-16, som ligger utenfor dette området, så vi bekrefter hvilken spesifikasjon som gjelder for hver villa.</p></article>
-              <article class="why-point reveal-soft"><h3>Arealene og tomtene</h3><p>Tilgjengelighetstabellen oppgir ett areal per villa og sier ikke om det er bygd eller innvendig areal. Den oppgir ingen tomte-, terrasse- eller kjellerareal, og infoarket sier bare at tomtene er på opptil 1 000 m². Vi bekrefter hvilket tall kontrakten bruker, og hver enkelt tomt.</p></article>
-              <article class="why-point reveal-soft"><h3>Plantegninger og møbler</h3><p>Dokumentene vi har inneholder ingen plantegning av noen villa. Vi ber om plantegningen av hver villa du er interessert i, en liste over møblene som er inkludert og kjellerens planløsning.</p></article>
-            </div>
-            <p class="why-group-note">Første gang du kjøper på prospekt i Spania? <a href="no/guide-how-buying-works.html">Slik foregår et nybyggkjøp</a> beskriver de sju trinnene, og <a href="no/guide-off-plan-vs-resale.html">nybygg sammenlignet med bruktbolig</a> tar for seg forskudd, garantier og tidsplaner.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="Bildene kommer fra utbyggeren og kan være datagenererte">
+    <p>Bildene kommer fra utbyggeren og kan være datagenererte; endelig utforming, overflater, uteområder og utsikt kan avvike. Du har krav på en kopi av Documento Informativo Abreviado (DIA) for hver bolig på denne siden; Nueva Living sender den på forespørsel.</p>
+    <p>Tilgjengeligheten kontrollert hos selgeren oktober 2026; vi bekrefter den på nytt før enhver reservasjon.</p>
+    <p>Arealene og prisene er gjengitt fra tilgjengelighetstabellen i salgsportalen, lest 18. oktober 2026. Den har seks rader for seks referanser, uten duplikater. Tabellen oppgir for hver villa antall soverom, ett areal og en pris. Den sier ikke om arealet er bygd eller innvendig, eller om prisen inkluderer mva.; infoarket oppgir innbetalingene pluss mva. Prosjektet har ni villaer til sammen, og de seks som vises er de som er annonsert; dokumentene sier ikke hva som har skjedd med de tre andre.</p>
+    <p>Informasjonen på denne siden er generell markedsføring og ikke juridisk, økonomisk eller investeringsrådgivning. Priser, tilgjengelighet og ferdigstillelsesdatoer kan endres uten varsel.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk.jpg" alt="Foto i skumringen av en hvit villa med opplyste vinduer bak et opplyst basseng, med en steinkledd pilar, en terrasse med sofaer og et spisebord" width="2000" height="1334" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Forhåndsvisning av arkitektur</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Arkitektur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hvite volumer, <em>åpne mot hagen</em></h2>
-          <p>Bildene viser hvitpussede villaer i flere plan, med dype takutspring, flate tak og skråtak med takstein, glassrekkverk på terrassene og skyvbare glassvegger som åpner oppholdsrommene mot en overbygd terrasse, en brolagt terrasse og bassenget.</p>
-<p>Infoarket beskriver designet bare som førsteklasses. Merknadene nedenfor er utbyggerens egen beskrivelse av hvordan villaene er bygget.</p>
-          <ul class="feature-list">
-            <li>Konstruksjon — Et fundament av armert betongplate etter den geotekniske rapporten, en stomme av armert betong med kassett- eller massive dekker og støttemurer av armert betong.</li>
-            <li>Fasade — Hulltegl med innvendig og utvendig puss, et luftrom og 5 cm sprøytet isolasjon av polyuretanskum, ferdigstilt med vanntett sementpuss og silikonharpiksmaling, med enkelte vegger kledd i keramiske fliser.</li>
-            <li>Vinduer — Aluminium fra Cortizo i serien COR 60, med løfte-skyveserien COR 4500 til de største vinduene, med termisk brudd og lakkert grått, med Planitherm dobbeltglass og rekkverk av sikkerhetsglass på 8+8 eller 10+10.</li>
-            <li>Tak — Flate tak og terrasser tettet og isolert for sklisikre fliser, og skråtak ferdigstilt med takstein.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Handlinger for prosjektforespørsel">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Ring</a>
+    <a class="ab-btn ab-primary" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Bestill visning</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg" alt="Flyfoto av en rekke hvite villaer langs en vei, med åpent grønt land bak, et fjell i det fjerne og havet ved høyre kant" width="2000" height="1137" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmatisk presentasjon</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Se det <em>ferdig</em></h2>
-            <p>Villaene er bygget, så en visning handler om tomten, bassenget, kjelleren og orienteringen.</p>
-            <div class="viewing-insights">
-              <div><span>På stedet</span><p>Gå over tomten og rundt bassenget til villaen du vurderer, og se kjelleren.</p></div>
-              <div><span>Med bil</span><p>Vi kjører med deg til Estepona Marina og Marina Banús og tar tiden.</p></div>
-              <div><span>På papiret</span><p>Brukstillatelse, energiattest, skatten og skjøtet, før noe signeres.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="no/index.html#private-viewing=1&amp;project=estepona-pool-villas">Filmatisk presentasjon</a>
-              <a class="btn project-btn ghost" href="no/property-estepona-pool-villas.html#enquire" data-prefill>Be om prosjektmateriell</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galleri" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Lukk">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Forrige bilde">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Neste bilde">›</button>
+    <div class="lb-cats" role="group" aria-label="Galleri"><button type="button" data-cat="Exteriors">Eksteriør</button><button type="button" data-cat="Location">Omgivelser</button><button type="button" data-cat="Terraces">Terrasser</button><button type="button" data-cat="Interiors">Interiør</button><button type="button" data-cat="Bedrooms">Soverom</button><button type="button" data-cat="Bathrooms">Bad</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating.jpg" alt="Foto fra en brolagt terrasse med kremfargede sofaer langs et basseng med en solseng på bassengkanten, med hekker og trær rundt plenen" width="2000" height="1334" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Livsstil</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Et eget basseng, <em>en stor tomt og en kjeller</em></h2>
-            <p>Hva infoarket og kvalitetsspesifikasjonen sier om uteområdene og det nedre nivået.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Neste steg</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Hva som skjer <em>videre</em></h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Be om prosjektdokumentasjonen</h3>
-            <p>Det vi har: infoarket, kvalitetsspesifikasjonen og tilgjengelighetstabellen. Vi ber utbyggeren om plantegningene.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Sammenlign alternativene</h3>
-            <p>Se dette sammen med de andre prosjektene i Estepona vi har i porteføljen.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privat visning</h3>
-            <p>Se villaene, tomtene, bassengene og kjellerne sammen med oss.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserver</h3>
-            <p>En reservasjon på 1 % pluss mva., deretter skjøtet for de øvrige 99 % pluss mva., når vi skriftlig har bekreftet tillatelsene og hva prisen inkluderer.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Ofte stilte spørsmål</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vanlige <em>spørsmål fra kjøpere</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kan utlendinger kjøpe eiendom i Spania?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Det finnes ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, enten de er bosatt der eller ikke.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er et NIE-nummer, og trenger jeg et?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves for ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe ett før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvilke kostnader bør jeg budsjettere for i tillegg til kjøpesummen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kjøpere budsjetterer vanligvis for overdragelsesskatt eller mva, notarkostnader, tinglysingsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir en fullstendig, oppdatert kostnadsoversikt for din valgte bolig før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg få boliglån i Spania som ikke-bosatt?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Mange spanske banker tilbyr boliglån til ikke-bosatte kjøpere, og finansierer vanligvis en del av kjøpesummen. De eksakte vilkårene avhenger av banken og din personlige økonomiske profil.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er forskjellen mellom en bolig under prosjektering og en ferdigstilt bolig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Å kjøpe på tegning betyr at prosjektet fortsatt er under bygging og vanligvis selges med betalinger i faser frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvordan fungerer reservasjons- og betalingsprosessen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og blir fullstendig forklart før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for din valgte bolig ved hvert trinn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan jeg leie ut boligen etter kjøp?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere etter sameie og kommune. Nueva Living vil bekrefte de spesifikke reglene for et prosjekt før du reserverer.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Trenger jeg advokat?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved alle eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hvor mange villaer er tilgjengelige?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Prosjektet har ni villaer, og seks er nå annonsert, med fire eller fem soverom, fra 2 300 000 € til 2 680 000 €.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er mva inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Tilgjengelighetstabellen sier ikke noe om det. Infoarket oppgir innbetalingene pluss mva., noe som tyder på priser før mva. Vi bekrefter skatter og kjøpskostnader skriftlig.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er villaene ferdige?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Infoarket kaller dem nøkkelklare, oppgir byggetillatelsen og brukstillatelsen som på plass og byggeslutt som ferdig. Det oppgir ingen ferdigstillelsesdato, så vi ber om tillatelsene og datoen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva er betalingsplanen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reservasjonen er 1 % av salgsprisen pluss mva., og de øvrige 99 % pluss mva. forfaller ved signering av skjøtet.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hva finnes i villaene?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Infoarket nevner store tomter, et privat utendørsbasseng, et stort kjellerareal, gulvvarme, innebygde garderober og privat parkering til to biler. Kvalitetsspesifikasjonen legger til hvitevarer fra Neff, aerotermisk oppvarming og kjøling fra Daikin og et smarthussystem fra Control4.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Er møblene inkludert?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Infoarket oppgir villaene som fullt møblert, men ingen dokumenter sier hva som er inkludert i prisen. Vi ber om en liste.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Finnes det planløsninger?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ikke i dokumentene vi har. Vi ber om plantegningen av hver villa du er interessert i.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Forespørsel</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Spør om <em>Estepona Pool Villas</em></h2>
-          <p class="body-copy">Fortell oss hva du trenger, så kommer vi tilbake med gjeldende tilgjengelighet, plantegningene og prislisten.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, grunnlegger av Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Grunnlegger, Nueva Living</p>
-            <h3 id="advisor-heading">Vil du heller snakke det gjennom?</h3>
-            <p class="advisor-copy">Velg det som passer, og send meg en melding på WhatsApp. Jeg tar utgangspunkt i det.</p>
-            <div class="advisor-group" role="group" aria-label="Jeg søker">
-              <span class="advisor-group-label">Jeg søker</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">En bolig å bo i</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">En feriebolig</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">En investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budsjett">
-              <span class="advisor-group-label">Budsjett</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Under 500 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">500 000 – 1 000 000 €</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Over 1 000 000 €</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor">Send meg en melding på WhatsApp</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Pool Villas">
-
-          <input type="hidden" id="f-project" name="project" value="Estepona Pool Villas">
-          <input type="hidden" name="preferred_area" value="Estepona">
-          <input type="hidden" name="property_type_interest" value="Villaer">
-          <input type="hidden" name="budget_range" value="Fra 2 300 000 €">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Fornavn</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Fornavn" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Etternavn</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Etternavn" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-post</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Melding</label>
-              <textarea id="f-msg" name="message">Hei Nueva Living, jeg vil gjerne ha informasjon om Estepona Pool Villas.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Jeg samtykker til å bli kontaktet og til at mine data lagres.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Jeg vil også gjerne motta sporadiske prosjektoppdateringer fra Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Send forespørsel</button>
-            <span class="form-note">Vi svarer personlig, vanligvis samme dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"NP-04","title":"NP-04 · Villa","sub":"5 sov. · 454 m²","price":2300000,"plans":[]},{"id":"u1","ref":"NP-06","title":"NP-06 · Villa","sub":"5 sov. · 432 m²","price":2340000,"plans":[]},{"id":"u2","ref":"NP-08","title":"NP-08 · Villa","sub":"5 sov. · 394 m²","price":2540000,"plans":[]},{"id":"u3","ref":"NP-10","title":"NP-10 · Villa","sub":"5 sov. · 405 m²","price":2550000,"plans":[]},{"id":"u4","ref":"NP-14","title":"NP-14 · Villa","sub":"5 sov. · 421 m²","price":2680000,"plans":[]},{"id":"u5","ref":"NP-16","title":"NP-16 · Villa","sub":"4 sov. · 384 m²","price":2440000,"plans":[]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp","alt":"Foto av hagesiden til en hvit villa på den andre siden av et basseng, med en overbygd terrasse med sofaer og et spisebord og en øvre terrasse med en gavl under et saltak","caption":"Villaen sett fra bassenget","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk.webp","alt":"Foto i skumringen av en hvit villa med opplyste vinduer bak et opplyst basseng, med en steinkledd pilar, en terrasse med sofaer og et spisebord","caption":"Villaen i skumringen","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-and-lawn-beside-the-villa.webp","alt":"Foto av et langt basseng ved siden av en plen, med en hvit villa i enden og høye hekker på begge sider","caption":"Bassenget og plenen","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.webp","alt":"Flyfoto av en rekke hvite villaer langs en vei, med åpent grønt land bak, et fjell i det fjerne og havet ved høyre kant","caption":"Villaene fra luften","cat":"Location"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-roof-and-pool-from-above.webp","alt":"Foto rett ovenfra av en villa med et skråtak med takstein, flate tak med terrasser og et basseng ved siden av en plen","caption":"Villaen og bassenget ovenfra","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.webp","alt":"Foto av en overbygd terrasse med glassrekkverk, en rund hvit søyle og store heller, med utsikt mot et basseng og en plen","caption":"En overbygd terrasse med glassrekkverk","cat":"Terraces"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating.webp","alt":"Foto fra en brolagt terrasse med kremfargede sofaer langs et basseng med en solseng på bassengkanten, med hekker og trær rundt plenen","caption":"Bassenget sett fra terrassen","cat":"Terraces"},{"src":"assets/liora/projects/estepona-pool-villas/media/upper-terrace-and-glass-roof-light.webp","alt":"Foto av en hvit øvre terrasse med glassrekkverk, trapper, en gavl under et saltak med et høyt vindu og et takvindu av glass","caption":"En øvre terrasse","cat":"Terraces"},{"src":"assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.webp","alt":"Foto av en tom stue med en stor skyvbar glassvegg mot bassengterrassen, lyse gulvfliser i steinlook og en peis på endeveggen","caption":"En stue uten møbler","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-corner-sofa.webp","alt":"Foto av en møblert stue med en stor hjørnesofa, et lavt salongbord i metall og en mørk skjenk, med en skyvbar glassvegg mot bassenget","caption":"Stue","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-round-coffee-table.webp","alt":"Foto av en stue med to kremfargede sofaer og et rundt salongbord med marmorplate på et mønstret teppe, med kjøkkenet og en skyvbar glassdør mot bassenget bak","caption":"Stue og kjøkken","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-and-dining-room-with-stone-feature-wall.webp","alt":"Foto av en åpen stue og spisestue med en steinkledd vegg med TV og peis, et glassbord og mørke kjøkkenskap bak","caption":"Stue og spiseplass","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-stairs-and-entrance-door.webp","alt":"Foto av en stue med en lang kremfarget sofa, en peis til venstre, trappen og den trebekledde inngangsdøren bak, og mørke kjøkkenskap til høyre","caption":"Stue, trapp og inngang","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-timber-television-wall.webp","alt":"Foto av en oppholdssone med en skyvbar glassdør mot en terrasse, en trekledd vegg med TV over en hylle i marmorlook, og en andre stue bak","caption":"Stue og en andre stue","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/kitchen-island-with-terrace-doors.webp","alt":"Foto av et kjøkken med høye mørke skap i trelook, en øy med hvit steinbenkeplate og en platetopp, og skyvbare glassdører mot terrassen","caption":"Kjøkken","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/sitting-room-with-curved-sofa.webp","alt":"Foto av en stue med en buet kremfarget sofa, to mønstrede lenestoler og et rundt teppe, ved siden av en glassdør mot hagen og en skyvbar glassvegg mot bassenget","caption":"En stue","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/entrance-hall-with-pivot-door.webp","alt":"Foto av en entré med en trefinert svingdør som står åpen mot gårdsplassen, en port bak og en trapp til venstre","caption":"Entré og svingdør","cat":"Interiors"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.webp","alt":"Foto av et soverom med høy takhøyde, et svevende skrivebord i eik, et stort maleri av et ansikt, skapdører med lameller og et bad med et frittstående badekar bak","caption":"Soverom med et svevende skrivebord","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-panelled-headboard-wall.webp","alt":"Foto av et soverom med en veggflate kledd i eik, en opplyst polstret hodegavl og en skyvbar glassdør mot en terrasse","caption":"Soverom med åpning mot en terrasse","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-window-wall.webp","alt":"Foto av et soverom med et høyt vindu med utsikt over nabohager og hvite hus, en seng med et mønstret pledd og en speilvegg med garderobe","caption":"Soverom med utsikt over nabohagene","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.webp","alt":"Foto av et bad med et frittstående badekar, en mørk vegg i steinlook og en dobbel servant på en mørk skapbenk i steinlook under et stort speil","caption":"Bad med frittstående badekar","cat":"Bathrooms"}],"vat":0.1,"ajd":0.012,"price":{"pre":"","sep":" ","post":" €"},"i18n":{"askAbout":"Spør om {ref}","plusVat":"Ekskl. mva","totalPrice":"Totalpris","vatOnStages":"Pluss mva på hver delbetaling","onRequest":"På forespørsel","imageOf":"{i} av {n}","floorPlan":"Plantegning"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Estepona Pool Villas media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Lukk">Lukk</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Forrige bilde">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Neste bilde">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp","alt":"Foto av hagesiden til en hvit villa på den andre siden av et basseng, med en overbygd terrasse med sofaer og et spisebord og en øvre terrasse med en gavl under et saltak","width":2000,"height":1338,"caption":"Villaen sett fra bassenget","category":"Eksteriør"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/villa-and-pool-at-dusk-960.webp","alt":"Foto i skumringen av en hvit villa med opplyste vinduer bak et opplyst basseng, med en steinkledd pilar, en terrasse med sofaer og et spisebord","width":2000,"height":1334,"caption":"Villaen i skumringen","category":"Eksteriør"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-and-lawn-beside-the-villa.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/pool-and-lawn-beside-the-villa-960.webp","alt":"Foto av et langt basseng ved siden av en plen, med en hvit villa i enden og høye hekker på begge sider","width":2000,"height":1334,"caption":"Bassenget og plenen","category":"Eksteriør"},{"src":"assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/aerial-view-of-the-villas-960.webp","alt":"Flyfoto av en rekke hvite villaer langs en vei, med åpent grønt land bak, et fjell i det fjerne og havet ved høyre kant","width":2000,"height":1137,"caption":"Villaene fra luften","category":"Omgivelser"},{"src":"assets/liora/projects/estepona-pool-villas/media/villa-roof-and-pool-from-above.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/villa-roof-and-pool-from-above-960.webp","alt":"Foto rett ovenfra av en villa med et skråtak med takstein, flate tak med terrasser og et basseng ved siden av en plen","width":1075,"height":634,"caption":"Villaen og bassenget ovenfra","category":"Eksteriør"},{"src":"assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/covered-terrace-and-glass-balustrade-960.webp","alt":"Foto av en overbygd terrasse med glassrekkverk, en rund hvit søyle og store heller, med utsikt mot et basseng og en plen","width":2000,"height":1334,"caption":"En overbygd terrasse med glassrekkverk","category":"Terrasser"},{"src":"assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/pool-from-the-terrace-seating-960.webp","alt":"Foto fra en brolagt terrasse med kremfargede sofaer langs et basseng med en solseng på bassengkanten, med hekker og trær rundt plenen","width":2000,"height":1334,"caption":"Bassenget sett fra terrassen","category":"Terrasser"},{"src":"assets/liora/projects/estepona-pool-villas/media/upper-terrace-and-glass-roof-light.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/upper-terrace-and-glass-roof-light-960.webp","alt":"Foto av en hvit øvre terrasse med glassrekkverk, trapper, en gavl under et saltak med et høyt vindu og et takvindu av glass","width":2000,"height":1333,"caption":"En øvre terrasse","category":"Terrasser"},{"src":"assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/unfurnished-living-room-with-fireplace-960.webp","alt":"Foto av en tom stue med en stor skyvbar glassvegg mot bassengterrassen, lyse gulvfliser i steinlook og en peis på endeveggen","width":2000,"height":1334,"caption":"En stue uten møbler","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-corner-sofa.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-corner-sofa-960.webp","alt":"Foto av en møblert stue med en stor hjørnesofa, et lavt salongbord i metall og en mørk skjenk, med en skyvbar glassvegg mot bassenget","width":2000,"height":1333,"caption":"Stue","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-round-coffee-table.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-round-coffee-table-960.webp","alt":"Foto av en stue med to kremfargede sofaer og et rundt salongbord med marmorplate på et mønstret teppe, med kjøkkenet og en skyvbar glassdør mot bassenget bak","width":2000,"height":1334,"caption":"Stue og kjøkken","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-and-dining-room-with-stone-feature-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-and-dining-room-with-stone-feature-wall-960.webp","alt":"Foto av en åpen stue og spisestue med en steinkledd vegg med TV og peis, et glassbord og mørke kjøkkenskap bak","width":2000,"height":1334,"caption":"Stue og spiseplass","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-stairs-and-entrance-door.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-stairs-and-entrance-door-960.webp","alt":"Foto av en stue med en lang kremfarget sofa, en peis til venstre, trappen og den trebekledde inngangsdøren bak, og mørke kjøkkenskap til høyre","width":2000,"height":1333,"caption":"Stue, trapp og inngang","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/living-room-with-timber-television-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/living-room-with-timber-television-wall-960.webp","alt":"Foto av en oppholdssone med en skyvbar glassdør mot en terrasse, en trekledd vegg med TV over en hylle i marmorlook, og en andre stue bak","width":2000,"height":1334,"caption":"Stue og en andre stue","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/kitchen-island-with-terrace-doors.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/kitchen-island-with-terrace-doors-960.webp","alt":"Foto av et kjøkken med høye mørke skap i trelook, en øy med hvit steinbenkeplate og en platetopp, og skyvbare glassdører mot terrassen","width":2000,"height":1333,"caption":"Kjøkken","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/sitting-room-with-curved-sofa.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/sitting-room-with-curved-sofa-960.webp","alt":"Foto av en stue med en buet kremfarget sofa, to mønstrede lenestoler og et rundt teppe, ved siden av en glassdør mot hagen og en skyvbar glassvegg mot bassenget","width":1075,"height":634,"caption":"En stue","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/entrance-hall-with-pivot-door.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/entrance-hall-with-pivot-door-960.webp","alt":"Foto av en entré med en trefinert svingdør som står åpen mot gårdsplassen, en port bak og en trapp til venstre","width":1075,"height":1088,"caption":"Entré og svingdør","category":"Interiør"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-floating-desk-960.webp","alt":"Foto av et soverom med høy takhøyde, et svevende skrivebord i eik, et stort maleri av et ansikt, skapdører med lameller og et bad med et frittstående badekar bak","width":2000,"height":1333,"caption":"Soverom med et svevende skrivebord","category":"Soverom"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-panelled-headboard-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-panelled-headboard-wall-960.webp","alt":"Foto av et soverom med en veggflate kledd i eik, en opplyst polstret hodegavl og en skyvbar glassdør mot en terrasse","width":2000,"height":1334,"caption":"Soverom med åpning mot en terrasse","category":"Soverom"},{"src":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-window-wall.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bedroom-with-window-wall-960.webp","alt":"Foto av et soverom med et høyt vindu med utsikt over nabohager og hvite hus, en seng med et mønstret pledd og en speilvegg med garderobe","width":2000,"height":1334,"caption":"Soverom med utsikt over nabohagene","category":"Soverom"},{"src":"assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath.jpg","webp":"assets/liora/projects/estepona-pool-villas/media/bathroom-with-freestanding-bath-960.webp","alt":"Foto av et bad med et frittstående badekar, en mørk vegg i steinlook og en dobbel servant på en mørk skapbenk i steinlook under et stort speil","width":2000,"height":1333,"caption":"Bad med frittstående badekar","category":"Bad"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Handlinger for prosjektforespørsel">
-    <a href="no/property-estepona-pool-villas.html#enquire" data-prefill>Spør om en bolig</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Pool%20Villas." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Pool Villas" data-intent="speak with an advisor">Snakk med en rådgiver</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn beschikbaar?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -286,7 +223,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Paraíso de Azahar"
   data-project-message="Hallo Nueva Living, ik wil graag informatie over Paraíso de Azahar."
@@ -443,548 +380,156 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Paraíso de Azahar">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-paraiso-de-azahar.html#top">Paraíso de Azahar<span>Vanaf € 495.000 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-paraiso-de-azahar.html#overview">Overzicht</a><a href="nl/property-paraiso-de-azahar.html#availability">Prijzen</a><a href="nl/property-paraiso-de-azahar.html#specs">Afwerking</a><a href="nl/property-paraiso-de-azahar.html#gallery">Galerij</a><a href="nl/property-paraiso-de-azahar.html#location">Locatie</a><a href="nl/property-paraiso-de-azahar.html#onsite">Op het terrein</a><a href="nl/property-paraiso-de-azahar.html#view">Onze kijk</a><a href="nl/property-paraiso-de-azahar.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Paraíso de Azahar">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/street-facade-corner-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg" alt="Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat" width="2000" height="1414" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg" alt="Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat" width="2000" height="1414" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">6 van de 10 woningen beschikbaar</span>
-          <h1 class="hero-title" style="--hero-title-run: 8">
-            <span class="hero-title-name">Paraíso de Azahar <em>Estepona</em></span>
-            <span class="hero-title-context">Nieuwe appartementen naast de oude stad van Estepona</span>
-          </h1>
-          <p class="hero-positioning">6 van de 10 appartementen met één tot drie slaapkamers in een gebouw in het centrum van Estepona, naast de oude stad, elk met een garageplaats en een berging, één met een patio en een privézwembad. De documenten geven geen opleveringsdatum. Vanaf € 495.000 excl. btw.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-paraiso-de-azahar.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=paraiso-de-azahar">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-paraiso-de-azahar.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Centrum van Estepona</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 495.000 + btw</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartementen</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Oplevering nog te bevestigen</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-paraiso-de-azahar.html#media">Media</a>
-        <a href="nl/property-paraiso-de-azahar.html#location">Locatie</a>
-        <a href="nl/property-paraiso-de-azahar.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-paraiso-de-azahar.html#overview">Overzicht</a>
-          <a href="nl/property-paraiso-de-azahar.html#residences">Woningen</a>
-          <a href="nl/property-paraiso-de-azahar.html#quality-specifications">Afwerking</a>
-          <a href="nl/property-paraiso-de-azahar.html#calculator">Financiering</a>
-          <a href="nl/property-paraiso-de-azahar.html#amenities">Voorzieningen</a>
-          <a href="nl/property-paraiso-de-azahar.html#why-this-project">Waarom</a>
-          <a href="nl/property-paraiso-de-azahar.html#architecture">Architectuur</a>
-          <a href="nl/property-paraiso-de-azahar.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-paraiso-de-azahar.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-paraiso-de-azahar.html#faq">FAQ</a>
-          <a href="nl/property-paraiso-de-azahar.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>1-3 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Binnenoppervlak</span><strong>47,55 - 83,80 m²</strong></div>
-          <div class="quick-fact"><span>Bebouwde oppervlakte</span><strong>52,55 - 94,84 m²</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>6 van de 10 woningen beschikbaar</strong></div>
-          <div class="quick-fact"><span>Beschikbaar</span><strong>6 woningen</strong></div>
-          <div class="quick-fact"><span>Buitenleven</span><strong>Terrassen, een patio en privézwembaden, afhankelijk van het woningtype</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Tien woningen, <em>zes beschikbaar</em></h2>
-          <p class="project-lead">Dit is een woongebouw met 10 woningen met één, twee en drie slaapkamers, verdeeld over de begane grond, de eerste en tweede verdieping en een bovenste verdieping, in het centrum van Estepona, naast de oude stad. Zes woningen staan met een prijs vermeld: een met één slaapkamer en een met drie slaapkamers op de begane grond, en vier op de eerste verdieping, waarvan een met een patio en een privézwembad. Elk heeft een garageplaats en een berging.</p>
-          <p class="project-lead">Het gebouw heeft een lift en een autolift naar de garage. De vier andere woningen, op de tweede en de bovenste verdieping, staan in de prijslijst van de ontwikkelaar als gereserveerd aangemerkt. De documenten van de ontwikkelaar geven geen opleveringsdatum.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">De woningen <em>in detail</em></h2>
-          </div>
-          <p class="project-lead">Computergegenereerde beelden van het gebouw en de interieurs, en de plattegronden van de zes aangeboden woningen.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 2 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/street-facade-corner-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg" alt="Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat" width="2000" height="1414" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Het gebouw aan de straat</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 3 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.jpg" alt="Computergegenereerde entreehal met een houten trap, een beplante hoek met cactussen en een muur met de naam van het project" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>De entreehal</strong>
-                <span class="project-media-card-cta">3 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Bekijk 2 afbeeldingen in Slaapkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/main-bedroom-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/main-bedroom-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg" alt="Computergegenereerde hoofdslaapkamer met een tweepersoonsbed, een houten plafondpaneel en een glazen deur met luik" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Slaapkamers</small>
-                <strong>Hoofdslaapkamer</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Bekijk 1 afbeeldingen in Badkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/main-bathroom-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/main-bathroom-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/main-bathroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/paraiso-de-azahar/media/main-bathroom.jpg" alt="Computergegenereerde badkamer met een inloopdouche, een stenen wastafel en twee hoge spiegels" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badkamers</small>
-                <strong>Hoofdbadkamer</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Bekijk 3 afbeeldingen in Terrassen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day.jpg" alt="Computergegenereerd terras op de bovenste verdieping met een privézwembad, een eettafel, ligbedden en een glazen schuifdeur" width="2000" height="1125" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrassen</small>
-                <strong>Een terras op de bovenste verdieping met een privézwembad</strong>
-                <span class="project-media-card-cta">3 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Bekijk 6 afbeeldingen in Plattegronden">
-              <img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a.jpg" alt="Plattegrond van woning Bajo A" width="1256" height="1609" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plattegronden</small>
-                <strong>Woning Bajo A</strong>
-                <span class="project-media-card-cta">6 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 17 afbeeldingen</button>
-          <p class="media-note">Alle beelden zijn computergegenereerd; de meubels en de inrichting erop zijn illustratief en niet inbegrepen. De plattegronden zijn de verkoopplattegronden van de ontwikkelaar: ze zijn niet contractueel en de ruimtenamen erop zijn in het Spaans.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Het centrum van Estepona, <em>naast de oude stad</em></h2>
-          <p class="project-lead">Het dossier plaatst het gebouw in het centrum van Estepona, naast de oude stad, tussen winkels, supermarkten, scholen en sportvoorzieningen. Zijn kaart noemt de jachthaven op 3 minuten, het strand van Punta Plata op 9 en het strand van El Padrón op 10, zonder te zeggen of het om minuten te voet of met de auto gaat. Het noemt ook de A-7 en de AP-7, die naar de luchthaven van Málaga leidt.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-paraiso-de-azahar" data-locmap='{&quot;site&quot;:[36.4267,-5.1473],&quot;sea&quot;:[36.3997,-5.1473],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;230 m · 3 min. lopen&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;710 m · 9 min. lopen&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,8 km · 5 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 13 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Paraíso de Azahar"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Paraíso de Azahar</h3>
-            <p class="locmap-place">Centrum van Estepona</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>710 m</bdi> <em><bdi>9 min. lopen</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Estepona</span>
-              <span class="locmap-row-figure"><bdi>230 m</bdi> <em><bdi>3 min. lopen</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>13 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>15 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Zes woningen, <em>vier soorten</em></h2>
-          <p class="project-lead">De zes woningen vallen naar verdieping, grootte en buitenruimte uiteen in vier groepen. In de tabel hieronder staat elke woning met haar prijs.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Woningen op de begane grond</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-paraiso-de-azahar.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Woningen met twee slaapkamers op de eerste verdieping</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-paraiso-de-azahar.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Een woning op de eerste verdieping met een patio en een privézwembad</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-paraiso-de-azahar.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Een woning met drie slaapkamers op de eerste verdieping</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-paraiso-de-azahar.html#availability">Plattegronden bekijken</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-paraiso-de-azahar.html#availability">Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Technische omschrijving</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarmee de woningen <em>gebouwd zijn</em></h2>
-          <p class="project-lead">De eigen specificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Wanden en scheidingswanden<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Gevels van gepleisterd keramisch metselwerk van een halve steen, met een achterwand van dubbele holle baksteen en in de spouwen gespoten isolatie, en een afwerking van kalkmortel tussen de ramen.</li>
-              <li>Scheidingswanden binnen de woning van gipsplaat met thermische en akoestische isolatie, en tussen woningen van keramische baksteen met gespoten isolatie.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Ramen en deuren<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Aluminium ramen met een houtlookafwerking en een thermische onderbreking, in een kleur die de bouwleiding kiest, met dubbele beglazing en een luchtkamer.</li>
-              <li>Een gepantserde voordeur, aan de binnenkant gepaneeld passend bij de binnendeuren, met een veiligheidsslot en pinnen tegen breken met een koevoet, gladde binnendeuren van massief hout of gelijkwaardig, en modulaire inbouwkasten, wit gelakt en aan de binnenkant bekleed met melamine, met een koffertablet en een kledingstang.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Vloeren en afwerking<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Houten vloer van eerste kwaliteit in de woningen, antislip porseleinen gres op de terrassen en porseleinen tegels van eerste kwaliteit in de badkamers.</li>
-              <li>Verlaagde plafonds van gipsplaat in de keuken, de hoofdbadkamers en de installatiezones, stucwerk met verf op de overige plafonds, en een houten plafondomlijsting op de plafonds van de woonkamer en de hoofdslaapkamer.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Keuken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een ingerichte keuken met onder- en bovenkasten, een werkblad van natuurkwarts of gelijkwaardig, en een kookeiland met een uitschuifbare tafel in meerdere standen.</li>
-              <li>Een oven, een inductiekookplaat, een afzuigkap, een wasmachine, een vaatwasser en een koelkast, allemaal van premiummerken, zijn inbegrepen.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badkamers<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Sanitair van wit geglazuurd porselein, een lage douchebak van acrylhars en een douchewand van gehard glas.</li>
-              <li>Eengreeps- en thermostatische kranen, in een afwerking die de bouwleiding kiest.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimaat en elektra<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een aerothermisch systeem dat helpt bij het verwarmen van het water, en airconditioning via fan-coils in de verlaagde plafonds van de badkamers, met glasvezelkanalen naar elke ruimte en een programmeerbare thermostaat in de woonkamer.</li>
-              <li>Voorbereiding voor het opladen van elektrische auto’s in de garage, tv-aansluitingen in de woonkamer en de hoofdslaapkamer, een lichtpunt en een stopcontact op de terrassen, en een videofoon.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Zwembaden en terrassen<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Zwembaden van vezel en polyester, met een afmeting die de bouwleiding per woning vaststelt, aan de buitenkant bekleed met natuursteen.</li>
-              <li>Een buitendouche in de woningen met een zwembad.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Lift, garage en gemeenschappelijke ruimtes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een lift voor vier personen met automatische deuren die tot in de garage rijdt, een automatische toegangspoort met de veiligheidsvoorzieningen die de voorschriften eisen, en een autolift bij de ingang van de garage.</li>
-              <li>Glazen balustrades.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Bron: de specificatie in het dossier van de ontwikkelaar, die niet is gedateerd. Daarin staat dat de bouwleiding de materialen mag wijzigen zolang de kwaliteit niet afneemt, dat de beelden illustratief zijn en dat de getoonde meubels niet zijn inbegrepen. Voor de vloer binnen noemt de Spaanse tekst “tarima de madera de 1.ª calidad” (houten vloer van eerste kwaliteit) en de Engelse tekst van dezelfde specificatie “wood laminate flooring” (laminaat in houtlook); wij vragen na welke wordt gebruikt.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">6 van de 10 woningen <em>momenteel beschikbaar</em></h2>
-          <p class="project-lead">Zes appartementen staan met een prijs vermeld: twee op de begane grond en vier op de eerste verdieping. De overige vier woningen staan in de prijslijst van de ontwikkelaar van september 2026 als gereserveerd aangemerkt en worden hier niet getoond. De prijzen zijn exclusief btw; wij bevestigen beschikbaarheid en prijs vóór elke reservering.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg" alt="Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>11 foto's</button>
+          <a class="chip" href="nl/property-paraiso-de-azahar.html#availability"><svg><use href="#v2-i-plan"/></svg>Plattegronden</a>
+          <a class="chip" href="nl/property-paraiso-de-azahar.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>6</strong></div>
-            <div><span>Startprijs</span><strong>€ 495.000 + btw</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 495.000 - € 895.000 + btw</strong></div>
-            <div><span>Gecontroleerd</span><strong>september 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 6 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-price="495000">
-                <a class="unit-card-plan" href="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Bajo A">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a-640.webp 640w, assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a.jpg" alt="Plattegrond van Bajo A" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Bajo A</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>1 slaapkamer</dd></div>
-                    <div><dt>Bebouwd</dt><dd>52,55 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>47,55 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 495.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Para%C3%ADso%20de%20Azahar%20-%20Bajo%20A">Vraag naar Bajo A</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="850000">
-                <a class="unit-card-plan" href="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Bajo B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b-640.webp 640w, assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b.jpg" alt="Plattegrond van Bajo B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">Bajo B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>93,83 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>83,80 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 850.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Para%C3%ADso%20de%20Azahar%20-%20Bajo%20B">Vraag naar Bajo B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="763000">
-                <a class="unit-card-plan" href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºA">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/floorplans/home-1a-640.webp 640w, assets/liora/projects/paraiso-de-azahar/floorplans/home-1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1a.jpg" alt="Plattegrond van 1ºA" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1ºA</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>65,44 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>56,16 m²</dd></div>
-                    <div><dt>Terras</dt><dd>38,56 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 763.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Para%C3%ADso%20de%20Azahar%20-%201%C2%BAA">Vraag naar 1ºA</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="742000">
-                <a class="unit-card-plan" href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºB">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/floorplans/home-1b-640.webp 640w, assets/liora/projects/paraiso-de-azahar/floorplans/home-1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1b.jpg" alt="Plattegrond van 1ºB" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1ºB</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>78,02 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>69,33 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 742.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Para%C3%ADso%20de%20Azahar%20-%201%C2%BAB">Vraag naar 1ºB</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="735000">
-                <a class="unit-card-plan" href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºC">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/floorplans/home-1c-640.webp 640w, assets/liora/projects/paraiso-de-azahar/floorplans/home-1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1c.jpg" alt="Plattegrond van 1ºC" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1ºC</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>77,39 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>67,26 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 735.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Para%C3%ADso%20de%20Azahar%20-%201%C2%BAC">Vraag naar 1ºC</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="895000">
-                <a class="unit-card-plan" href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºD">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/floorplans/home-1d-640.webp 640w, assets/liora/projects/paraiso-de-azahar/floorplans/home-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1d.jpg" alt="Plattegrond van 1ºD" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">1ºD</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>94,84 m²</dd></div>
-                    <div><dt>Binnen</dt><dd>83,17 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 895.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Para%C3%ADso%20de%20Azahar%20-%201%C2%BAD">Vraag naar 1ºD</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Prijzen, slaapkamers, badkamers, oppervlakten, garageplaatsen en bergingen zijn overgenomen uit de prijslijst van de ontwikkelaar van september 2026, die 10 woningen vermeldt: de zes die hier staan hebben een prijs en vier zijn als gereserveerd aangemerkt. De lijst vermeldt dat de prijzen exclusief 10% btw zijn. Voor deze zes woningen komen de binnen- en bebouwde oppervlakten op de lijst overeen met die op de plattegronden van de ontwikkelaar, en het terras dat voor 1ºA wordt genoemd is de patio van de plattegrond. De lijst en de plattegronden nummeren de garageplaatsen en bergingen verschillend, daarom worden die nummers niet getoond.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Para%C3%ADso%20de%20Azahar." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Paraíso de Azahar" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Paraíso de Azahar</span></h1>
+        <p class="hero-by">6 van de 10 appartementen met één tot drie slaapkamers in een gebouw in het centrum van Estepona, naast de oude stad, elk met een garageplaats en een berging, één met een patio en een privézwembad.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 495.000</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>1 tot 3</dd><dd class="sub"><span>Appartementen</span></dd></div><div><dt>Oplevering</dt><dd>nog te bevestigen</dd><dd class="sub">Vergunning: wij bevestigen dit voordat u reserveert</dd></div><div><dt>Nog beschikbaar</dt><dd>6 van 10</dd><dd class="sub">Gecontroleerd op september 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Para%C3%ADso%20de%20Azahar." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Paraíso de Azahar" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Dit is een woongebouw met 10 woningen met één, twee en drie slaapkamers, verdeeld over de begane grond, de eerste en tweede verdieping en een bovenste verdieping, in het centrum van Estepona, naast de oude stad. Zes woningen staan met een prijs vermeld: een met één slaapkamer en een met drie slaapkamers op de begane grond, en vier op de eerste verdieping, waarvan een met een patio en een privézwembad. Elk heeft een garageplaats en een berging.</p>
+    <p class="lede-2">Het gebouw heeft een lift en een autolift naar de garage. De vier andere woningen, op de tweede en de bovenste verdieping, staan in de prijslijst van de ontwikkelaar als gereserveerd aangemerkt. De documenten van de ontwikkelaar geven geen opleveringsdatum.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Witte muren, pannendaken en groene luiken</span></summary><p>Het dossier van de ontwikkelaar beschrijft een gebouw dat klassieke elementen combineert met eigentijds design, met ruime vertrekken, op een begane grond, een eerste en een tweede verdieping en een bovenste verdieping.</p><p>Op de beelden heeft het gebouw witte muren, pannendaken, balkons met donkere hekken en saliegroene luiken, en de bovenste woningen hebben terrassen met privézwembaden tussen de daken.</p><ul><li>Gevel: Keramisch metselwerk van een halve steen, gepleisterd, met een achterwand van dubbele holle baksteen en in de spouwen gespoten isolatie, en een afwerking van kalkmortel tussen de ramen.</li><li>Beglazing: Aluminium kozijnen met een houtlookafwerking en een thermische onderbreking, met dubbele beglazing en een luchtkamer.</li><li>Lift en garage: Een lift voor vier personen die tot in de garage rijdt, en een autolift bij de ingang van de garage.</li><li>Energie: Warm water via aerothermie in elke woning en volgens het dossier een zonne-energiesysteem en een hoge energieclassificatie.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 495.000 – € 895.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>6 van 10 woningen</span><small>Gecontroleerd op september 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartementen</span></dd></div><div><dt>Oppervlakten</dt><dd><span>53 – 95 m²</span><small>Bebouwde oppervlakte</small></dd></div><div><dt>Oplevering</dt><dd><span>nog te bevestigen</span></dd></div><div><dt>Vergunning</dt><dd><span>Niet vermeld</span><small>Wij bevestigen dit voordat u reserveert</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Garageplaats</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">Zes appartementen staan met een prijs vermeld: twee op de begane grond en vier op de eerste verdieping. De overige vier woningen staan in de prijslijst van de ontwikkelaar van september 2026 als gereserveerd aangemerkt en worden hier niet getoond. De prijzen zijn exclusief btw; wij bevestigen beschikbaarheid en prijs vóór elke reservering. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    <div class="scarcity" role="img" aria-label="6 van 10 nog te koop"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div><span>6 van 10 nog te koop</span></div>
+    
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="1" data-price="495000" data-size="52.55" data-ppm="9420" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a-640.webp">
+            <th scope="row"><span class="u-name">Bajo A</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">53 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 495.000</td>
+            <td data-label="Per m²" class="num">€ 9.420</td>
+            <td class="u-plan"><a href="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Bajo A"><img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="3" data-price="850000" data-size="93.83" data-ppm="9059" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b-640.webp">
+            <th scope="row"><span class="u-name">Bajo B</span><span class="u-loc">Begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">94 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 850.000</td>
+            <td data-label="Per m²" class="num">€ 9.059</td>
+            <td class="u-plan"><a href="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Bajo B"><img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="763000" data-size="65.44" data-ppm="11660" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/paraiso-de-azahar/floorplans/home-1a-640.webp">
+            <th scope="row"><span class="u-name">1ºA</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">65 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 763.000</td>
+            <td data-label="Per m²" class="num">€ 11.660</td>
+            <td class="u-plan"><a href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºA"><img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1a-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="742000" data-size="78.02" data-ppm="9510" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/paraiso-de-azahar/floorplans/home-1b-640.webp">
+            <th scope="row"><span class="u-name">1ºB</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">78 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 742.000</td>
+            <td data-label="Per m²" class="num">€ 9.510</td>
+            <td class="u-plan"><a href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºB"><img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1b-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="735000" data-size="77.39" data-ppm="9497" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/paraiso-de-azahar/floorplans/home-1c-640.webp">
+            <th scope="row"><span class="u-name">1ºC</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">77 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 735.000</td>
+            <td data-label="Per m²" class="num">€ 9.497</td>
+            <td class="u-plan"><a href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºC"><img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1c-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="3" data-price="895000" data-size="94.84" data-ppm="9437" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/paraiso-de-azahar/floorplans/home-1d-640.webp">
+            <th scope="row"><span class="u-name">1ºD</span><span class="u-loc">Eerste verdieping</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">95 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 895.000</td>
+            <td data-label="Per m²" class="num">€ 9.437</td>
+            <td class="u-plan"><a href="assets/liora/projects/paraiso-de-azahar/floorplans/home-1d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1ºD"><img src="assets/liora/projects/paraiso-de-azahar/floorplans/home-1d-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Zes woningen, vier soorten</span></summary><p>De zes woningen vallen naar verdieping, grootte en buitenruimte uiteen in vier groepen. In de tabel hieronder staat elke woning met haar prijs.</p><div class="res-types"><div class="res-type"><h3>Woningen op de begane grond</h3><ul><li>Bajo A heeft één slaapkamer en één badkamer, met een woonkamer met keuken van 28,07 m² en een slaapkamer van 13,48 m², voor € 495.000.</li><li>Bajo B heeft drie slaapkamers en twee badkamers, met een woonkamer met keuken van 40,13 m², voor € 850.000.</li><li>Geen van beide heeft een terras. Elk wordt geleverd met een garageplaats en een berging.</li></ul></div><div class="res-type"><h3>Woningen met twee slaapkamers op de eerste verdieping</h3><ul><li>De woningen 1ºB en 1ºC hebben twee slaapkamers en twee badkamers en geen terras, voor € 742.000 en € 735.000.</li><li>1ºB heeft 69,33 m² binnenoppervlakte en 78,02 m² bebouwde oppervlakte, en 1ºC heeft 67,26 m² binnenoppervlakte en 77,39 m² bebouwde oppervlakte.</li><li>Elk wordt geleverd met een garageplaats en een berging.</li></ul></div><div class="res-type"><h3>Een woning op de eerste verdieping met een patio en een privézwembad</h3><ul><li>Woning 1ºA heeft twee slaapkamers en twee badkamers, met een patio van 38,56 m² en een privézwembad, voor € 763.000. De prijslijst noemt de patio een terras.</li><li>De plattegrond en de prijslijst geven 56,16 m² binnenoppervlakte en 65,44 m² bebouwde oppervlakte. Het dossier geeft voor deze woning ook, volgens het Andalusische decreet 218/2005, totalen van 61,78 m² binnenoppervlakte en 71,06 m² bebouwde oppervlakte.</li><li>Ze wordt geleverd met een garageplaats en een berging.</li></ul></div><div class="res-type"><h3>Een woning met drie slaapkamers op de eerste verdieping</h3><ul><li>Woning 1ºD heeft drie slaapkamers en twee badkamers, met een woonkamer met keuken van 36,73 m², voor € 895.000.</li><li>Ze heeft 83,17 m² binnenoppervlakte en 94,84 m² bebouwde oppervlakte en wordt geleverd met een garageplaats en een berging.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1044,369 +589,230 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Privézwembad</h3>
-              <p class="amenity-note">Bij de woning horend</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Afwerking</h2>
+    <p class="sec-sub">De eigen specificatie van de ontwikkelaar, samengevat per onderdeel van de woning.</p>
+    <div class="tabs" role="tablist" aria-label="Afwerking"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Wanden en scheidingswanden</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Ramen en deuren</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Vloeren en afwerking</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Keuken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Badkamers</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Klimaat en elektra</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Zwembaden en terrassen</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-7">Lift, garage en gemeenschappelijke ruimtes</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Gevels van gepleisterd keramisch metselwerk van een halve steen, met een achterwand van dubbele holle baksteen en in de spouwen gespoten isolatie, en een afwerking van kalkmortel tussen de ramen.</li><li>Scheidingswanden binnen de woning van gipsplaat met thermische en akoestische isolatie, en tussen woningen van keramische baksteen met gespoten isolatie.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Aluminium ramen met een houtlookafwerking en een thermische onderbreking, in een kleur die de bouwleiding kiest, met dubbele beglazing en een luchtkamer.</li><li>Een gepantserde voordeur, aan de binnenkant gepaneeld passend bij de binnendeuren, met een veiligheidsslot en pinnen tegen breken met een koevoet, gladde binnendeuren van massief hout of gelijkwaardig, en modulaire inbouwkasten, wit gelakt en aan de binnenkant bekleed met melamine, met een koffertablet en een kledingstang.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Houten vloer van eerste kwaliteit in de woningen, antislip porseleinen gres op de terrassen en porseleinen tegels van eerste kwaliteit in de badkamers.</li><li>Verlaagde plafonds van gipsplaat in de keuken, de hoofdbadkamers en de installatiezones, stucwerk met verf op de overige plafonds, en een houten plafondomlijsting op de plafonds van de woonkamer en de hoofdslaapkamer.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Een ingerichte keuken met onder- en bovenkasten, een werkblad van natuurkwarts of gelijkwaardig, en een kookeiland met een uitschuifbare tafel in meerdere standen.</li><li>Een oven, een inductiekookplaat, een afzuigkap, een wasmachine, een vaatwasser en een koelkast, allemaal van premiummerken, zijn inbegrepen.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Sanitair van wit geglazuurd porselein, een lage douchebak van acrylhars en een douchewand van gehard glas.</li><li>Eengreeps- en thermostatische kranen, in een afwerking die de bouwleiding kiest.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Een aerothermisch systeem dat helpt bij het verwarmen van het water, en airconditioning via fan-coils in de verlaagde plafonds van de badkamers, met glasvezelkanalen naar elke ruimte en een programmeerbare thermostaat in de woonkamer.</li><li>Voorbereiding voor het opladen van elektrische auto’s in de garage, tv-aansluitingen in de woonkamer en de hoofdslaapkamer, een lichtpunt en een stopcontact op de terrassen, en een videofoon.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Zwembaden van vezel en polyester, met een afmeting die de bouwleiding per woning vaststelt, aan de buitenkant bekleed met natuursteen.</li><li>Een buitendouche in de woningen met een zwembad.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-7" role="tabpanel" hidden>
+      <ul><li>Een lift voor vier personen met automatische deuren die tot in de garage rijdt, een automatische toegangspoort met de veiligheidsvoorzieningen die de voorschriften eisen, en een autolift bij de ingang van de garage.</li><li>Glazen balustrades.</li></ul>
+      
+    </div>
+    <p class="caption">Bron: de specificatie in het dossier van de ontwikkelaar, die niet is gedateerd. Daarin staat dat de bouwleiding de materialen mag wijzigen zolang de kwaliteit niet afneemt, dat de beelden illustratief zijn en dat de getoonde meubels niet zijn inbegrepen. Voor de vloer binnen noemt de Spaanse tekst “tarima de madera de 1.ª calidad” (houten vloer van eerste kwaliteit) en de Engelse tekst van dezelfde specificatie “wood laminate flooring” (laminaat in houtlook); wij vragen na welke wordt gebruikt.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Het gebouw aan de straat"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/street-facade-corner-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg" alt="Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="2" aria-label="De entreehal"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.jpg" alt="Computergegenereerde entreehal met een houten trap, een beplante hoek met cactussen en een muur met de naam van het project" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="8" aria-label="Een terras op de bovenste verdieping met een privézwembad"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day.jpg" alt="Computergegenereerd terras op de bovenste verdieping met een privézwembad, een eettafel, ligbedden en een glazen schuifdeur" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="5" aria-label="Hoofdslaapkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/main-bedroom-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/main-bedroom-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg" alt="Computergegenereerde hoofdslaapkamer met een tweepersoonsbed, een houten plafondpaneel en een glazen deur met luik" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="7" aria-label="Hoofdbadkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/paraiso-de-azahar/media/main-bathroom-640.webp 640w, assets/liora/projects/paraiso-de-azahar/media/main-bathroom-960.webp 960w, assets/liora/projects/paraiso-de-azahar/media/main-bathroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/paraiso-de-azahar/media/main-bathroom.jpg" alt="Computergegenereerde badkamer met een inloopdouche, een stenen wastafel en twee hoge spiegels" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 11 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (2)</button><button type="button" data-open-cat="Interiors">Interieur (3)</button><button type="button" data-open-cat="Bedrooms">Slaapkamers (2)</button><button type="button" data-open-cat="Bathrooms">Badkamers (1)</button><button type="button" data-open-cat="Terraces">Terrassen (3)</button></div>
+    
+    <p class="caption">Alle beelden zijn computergegenereerd; de meubels en de inrichting erop zijn illustratief en niet inbegrepen. De plattegronden zijn de verkoopplattegronden van de ontwikkelaar: ze zijn niet contractueel en de ruimtenamen erop zijn in het Spaans.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">Het dossier plaatst het gebouw in het centrum van Estepona, naast de oude stad, tussen winkels, supermarkten, scholen en sportvoorzieningen. Zijn kaart noemt de jachthaven op 3 minuten, het strand van Punta Plata op 9 en het strand van El Padrón op 10, zonder te zeggen of het om minuten te voet of met de auto gaat. Het noemt ook de A-7 en de AP-7, die naar de luchthaven van Málaga leidt.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-paraiso-de-azahar" data-locmap='{&quot;site&quot;:[36.4267,-5.1473],&quot;sea&quot;:[36.3997,-5.1473],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;230 m · 3 min. lopen&quot;},{&quot;ll&quot;:[36.42139,-5.14422],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;710 m · 9 min. lopen&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;2,8 km · 5 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 13 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Paraíso de Azahar"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Paraíso de Azahar</h3>
+            <p class="locmap-place">Centrum van Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>710 m</bdi> <em><bdi>9 min. lopen</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Lift</h3>
-              <p class="amenity-note">Elke verdieping bereikbaar</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,8 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Garageplaats</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Estepona</span>
+              <span class="locmap-row-figure"><bdi>230 m</bdi> <em><bdi>3 min. lopen</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z"/><path d="M4 8l1.5-3h13L20 8"/><path d="M10 12h4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Berging</h3>
-              <p class="amenity-note">Een afsluitbare berging</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>13 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Parkeerplaats en berging inbegrepen bij elke woning</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>15 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Lucht-waterwarmtepomp</h3>
-              <p class="amenity-note">Verwarming, koeling en warm water</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>42 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Voorbereiding voor laadpunt</h3>
-              <p class="amenity-note">Een punt voor de auto</p>
             </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Jachthaven van Estepona</th><td>Ca. 3 minuten</td></tr><tr><th scope="row">Strand van Punta Plata</th><td>Ca. 9 minuten</td></tr><tr><th scope="row">Strand van El Padrón</th><td>Ca. 10 minuten</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">De buitenruimte hoort bij de afzonderlijke woningen: een patio, terrassen en privézwembaden, afhankelijk van het woningtype.</p>
+    <div class="life-panels"><div><h3>De patio en het zwembad</h3><p>Woning 1ºA heeft een patio van 38,56 m² met een privézwembad. De specificatie beschrijft de zwembaden als van vezel en polyester, bekleed met natuursteen, met een buitendouche.</p></div><div><h3>De bovenste woningen</h3><p>De vier gereserveerde woningen op de tweede en de bovenste verdieping staan vermeld met terrassen en zwembaden. Ze zijn niet beschikbaar, maar laten zien wat het gebouw bovenin biedt.</p></div><div><h3>Binnen</h3><p>Houten plafondomlijstingen in de woonkamer en de hoofdslaapkamer, en een ingerichte keuken met een kookeiland, op de beelden en in de specificatie.</p></div><div><h3>Elke dag</h3><p>Een garageplaats die een autolift bereikt, een berging en een lift die tot in de garage rijdt.</p></div></div>
+    <ul class="amen-top"><li>Lift</li><li>Garageplaats</li><li>Berging</li><li>Parkeerplaats en berging inbegrepen bij elke woning</li><li>Privézwembad</li><li>Lucht-waterwarmtepomp</li></ul>
+    <details class="amen-all"><summary>Alle 7 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">1</span></h3><ul><li>Privézwembad</li></ul></div><div><h3>Dagelijks<span class="count">6</span></h3><ul><li>Lift</li><li>Garageplaats</li><li>Berging</li><li>Parkeerplaats en berging inbegrepen bij elke woning</li><li>Lucht-waterwarmtepomp</li><li>Voorbereiding voor laadpunt</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een nieuwe woning willen in het centrum van Estepona, naast de oude stad, in een gebouw met slechts tien woningen, om in te wonen of als tweede woning.</span></li><li><b>Wat het anders maakt</b><span>Een garageplaats die met een autolift bereikbaar is en een berging bij elke woning, en bij sommige een privézwembad.</span></li><li><b>Waarom de locatie ertoe doet</b><span>Het dossier van de ontwikkelaar plaatst het gebouw naast de oude stad, omgeven door winkels, supermarkten, scholen en sportvoorzieningen, met de jachthaven op 3 minuten op zijn kaart.</span></li><li><b>Waarom de details controleren</b><span>Geen enkel document noemt een opleveringsdatum of de stand van het gebouw; daarom vragen wij vóór elke reservering de contractuele datum en de vergunning op.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Betalingsvoorwaarden</b><span>Geen enkel document dat wij hebben noemt een reserveringsbedrag of een betalingsschema; daarom vragen wij het de ontwikkelaar na en leggen wij het antwoord schriftelijk vast voordat u reserveert.</span></li><li><b>Btw</b><span>De prijslijst toont de prijzen zonder btw en geeft het tarief aan als 10%. De prijzen op deze pagina zijn de nettobedragen van de ontwikkelaar; er wordt geen btw bij opgeteld.</span></li><li><b>Wat de prijs omvat</b><span>Elk van de zes aangeboden woningen heeft een garageplaats en een berging, en woning 1ºA ook een privézwembad. De meubels op de beelden zijn niet inbegrepen.</span></li><li><b>Overige kosten</b><span>De prijslijst geeft de overige aankoopkosten niet aan, dus bevestigt Nueva Living ze schriftelijk.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Vergunning en werken</b><span>De documenten die wij hebben, geven niet aan of de bouwvergunning is verleend of of de werken zijn gestart; daarom vragen wij de vergunning op, en de garantie die vooruitbetaalde bedragen dekt.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De opleveringsdatum</b><span>Geen van de documenten die wij hebben noemt een opleveringsdatum, dus vragen wij de contractuele datum op en leggen die schriftelijk vast.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De nummers van garageplaatsen en bergingen</b><span>De prijslijst en de plattegronden nummeren de garageplaatsen en bergingen verschillend. Voor Bajo A geeft de lijst garage 1 en berging 5, en de plattegrond parkeerplaats 9 en berging 11; voor 1ºA geeft de lijst 9 en 11 en de plattegrond 10 en 12. Alle zes aangeboden woningen wijken op dezelfde manier af. Beide documenten kennen elke woning een garageplaats en een berging toe, en wij bevestigen welke bij de woning horen die u kiest.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De badkamers</b><span>Het dossier zegt dat elke woning twee badkamers heeft, waarvan een en suite, maar de plattegrond en de prijslijst geven Bajo A één badkamer. Wij gaan uit van de plattegronden en bevestigen de indeling van de woning die u kiest.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>De plattegronden van de woningen die u interesseren, de specificatie en de prijslijst.</p></li><li><h3>Vergelijk de opties</h3><p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p></li><li><h3>Privébezichtiging</h3><p>Bekijk de locatie en de oude stad samen met ons en leg de plattegronden naast het gebouw.</p></li><li><h3>Reserveren</h3><p>De reservering, het betalingsschema en het contract worden schriftelijk met de ontwikkelaar bevestigd voordat u zich vastlegt.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plattegronden<small>6 van 6 woningen</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Technische omschrijving</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Paraíso de Azahar</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn beschikbaar?</summary><p>Het gebouw heeft 10 woningen en zes staan momenteel met een prijs vermeld: een met één slaapkamer, drie met twee en twee met drie slaapkamers, van € 495.000 tot € 895.000 excl. btw. De andere vier zijn als gereserveerd aangemerkt.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>Nee. De prijslijst vermeldt dat de prijzen exclusief btw zijn en geeft het tarief aan als 10%. De prijzen op deze pagina zijn de nettobedragen van de ontwikkelaar; er wordt geen btw bij opgeteld.</p></details><details class="segment-faq-item"><summary>Is er parkeergelegenheid en een berging?</summary><p>Ja. De prijslijst kent elk van de zes aangeboden woningen een garageplaats en een berging toe, en de garage is met een autolift bereikbaar. De specificatie omvat de voorbereiding voor het opladen van elektrische auto’s.</p></details><details class="segment-faq-item"><summary>Heeft een van de woningen een privézwembad?</summary><p>Van de zes aangeboden woningen heeft 1ºA een privézwembad en een patio van 38,56 m². De vier gereserveerde woningen op de bovenste verdiepingen staan ook met zwembaden vermeld en zijn niet beschikbaar.</p></details><details class="segment-faq-item"><summary>Wanneer is het klaar?</summary><p>Geen van de documenten die wij hebben noemt een opleveringsdatum of de stand van het gebouw. Wij vragen de contractuele datum op en leggen die schriftelijk vast.</p></details></div>
+    
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 495.000</p>
+      <p class="rail-note">Excl. btw. Nog 6 van 10 woningen · Gecontroleerd op september 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Para%C3%ADso%20de%20Azahar." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Paraíso de Azahar" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Para%C3%ADso%20de%20Azahar." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Paraíso de Azahar" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Bekijk waar het gebouw staat en welke stand het heeft bereikt.</li><li><b>Te voet.</b> We lopen met u naar de oude stad en de jachthaven en meten de tijd.</li><li><b>Op papier.</b> Vergunning, garantie en contract, voordat er iets wordt ondertekend.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Paraíso de Azahar">
+        <input type="hidden" id="f-project" name="project" value="Paraíso de Azahar">
+        <input type="hidden" name="preferred_area" value="Centrum van Estepona">
+        <input type="hidden" name="property_type_interest" value="Appartementen">
+        <input type="hidden" name="budget_range" value="Vanaf € 495.000 + btw">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hallo Nueva Living, ik wil graag informatie over Paraíso de Azahar." data-base="Hallo Nueva Living, ik wil graag informatie over Paraíso de Azahar.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="Bajo A">Bajo A: € 495.000</option><option value="Bajo B">Bajo B: € 850.000</option><option value="1ºA">1ºA: € 763.000</option><option value="1ºB">1ºB: € 742.000</option><option value="1ºC">1ºC: € 735.000</option><option value="1ºD">1ºD: € 895.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Paraíso de Azahar veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Tien woningen in een gebouw naast de oude stad, elk met een garageplaats en een berging.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een nieuwe woning willen in het centrum van Estepona, naast de oude stad, in een gebouw met slechts tien woningen, om in te wonen of als tweede woning.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>Een garageplaats die met een autolift bereikbaar is en een berging bij elke woning, en bij sommige een privézwembad.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>Het dossier van de ontwikkelaar plaatst het gebouw naast de oude stad, omgeven door winkels, supermarkten, scholen en sportvoorzieningen, met de jachthaven op 3 minuten op zijn kaart.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de details controleren</h3><p>Geen enkel document noemt een opleveringsdatum of de stand van het gebouw; daarom vragen wij vóór elke reservering de contractuele datum en de vergunning op.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">De documenten die wij hebben geven prijzen en geen betalingsvoorwaarden. Wij bevestigen de actuele voorwaarden schriftelijk voordat u reserveert.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Betalingsvoorwaarden</h3><p>Geen enkel document dat wij hebben noemt een reserveringsbedrag of een betalingsschema; daarom vragen wij het de ontwikkelaar na en leggen wij het antwoord schriftelijk vast voordat u reserveert.</p></article>
-              <article class="why-point reveal-soft"><h3>Btw</h3><p>De prijslijst toont de prijzen zonder btw en geeft het tarief aan als 10%. De prijzen op deze pagina zijn de nettobedragen van de ontwikkelaar; er wordt geen btw bij opgeteld.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat de prijs omvat</h3><p>Elk van de zes aangeboden woningen heeft een garageplaats en een berging, en woning 1ºA ook een privézwembad. De meubels op de beelden zijn niet inbegrepen.</p></article>
-              <article class="why-point reveal-soft"><h3>Overige kosten</h3><p>De prijslijst geeft de overige aankoopkosten niet aan, dus bevestigt Nueva Living ze schriftelijk.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Vergunning en werken</h3><p>De documenten die wij hebben, geven niet aan of de bouwvergunning is verleend of of de werken zijn gestart; daarom vragen wij de vergunning op, en de garantie die vooruitbetaalde bedragen dekt.</p></article>
-              <article class="why-point reveal-soft"><h3>De opleveringsdatum</h3><p>Geen van de documenten die wij hebben noemt een opleveringsdatum, dus vragen wij de contractuele datum op en leggen die schriftelijk vast.</p></article>
-              <article class="why-point reveal-soft"><h3>De nummers van garageplaatsen en bergingen</h3><p>De prijslijst en de plattegronden nummeren de garageplaatsen en bergingen verschillend. Voor Bajo A geeft de lijst garage 1 en berging 5, en de plattegrond parkeerplaats 9 en berging 11; voor 1ºA geeft de lijst 9 en 11 en de plattegrond 10 en 12. Alle zes aangeboden woningen wijken op dezelfde manier af. Beide documenten kennen elke woning een garageplaats en een berging toe, en wij bevestigen welke bij de woning horen die u kiest.</p></article>
-              <article class="why-point reveal-soft"><h3>De badkamers</h3><p>Het dossier zegt dat elke woning twee badkamers heeft, waarvan een en suite, maar de plattegrond en de prijslijst geven Bajo A één badkamer. Wij gaan uit van de plattegronden en bevestigen de indeling van de woning die u kiest.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op september 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>Prijzen, slaapkamers, badkamers, oppervlakten, garageplaatsen en bergingen zijn overgenomen uit de prijslijst van de ontwikkelaar van september 2026, die 10 woningen vermeldt: de zes die hier staan hebben een prijs en vier zijn als gereserveerd aangemerkt. De lijst vermeldt dat de prijzen exclusief 10% btw zijn. Voor deze zes woningen komen de binnen- en bebouwde oppervlakten op de lijst overeen met die op de plattegronden van de ontwikkelaar, en het terras dat voor 1ºA wordt genoemd is de patio van de plattegrond. De lijst en de plattegronden nummeren de garageplaatsen en bergingen verschillend, daarom worden die nummers niet getoond.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools.jpg" alt="Computergegenereerd luchtbeeld van de pannendaken met dakterrassen en privézwembaden ertussen" width="2000" height="1125" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Witte muren, <em>pannendaken</em> en groene luiken</h2>
-          <p>Het dossier van de ontwikkelaar beschrijft een gebouw dat klassieke elementen combineert met eigentijds design, met ruime vertrekken, op een begane grond, een eerste en een tweede verdieping en een bovenste verdieping.</p>
-<p>Op de beelden heeft het gebouw witte muren, pannendaken, balkons met donkere hekken en saliegroene luiken, en de bovenste woningen hebben terrassen met privézwembaden tussen de daken.</p>
-          <ul class="feature-list">
-            <li>Gevel — Keramisch metselwerk van een halve steen, gepleisterd, met een achterwand van dubbele holle baksteen en in de spouwen gespoten isolatie, en een afwerking van kalkmortel tussen de ramen.</li>
-            <li>Beglazing — Aluminium kozijnen met een houtlookafwerking en een thermische onderbreking, met dubbele beglazing en een luchtkamer.</li>
-            <li>Lift en garage — Een lift voor vier personen die tot in de garage rijdt, en een autolift bij de ingang van de garage.</li>
-            <li>Energie — Warm water via aerothermie in elke woning en volgens het dossier een zonne-energiesysteem en een hoge energieclassificatie.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Para%C3%ADso%20de%20Azahar." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Paraíso de Azahar" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg" alt="Computergegenereerde hoofdslaapkamer met een tweepersoonsbed, een houten plafondpaneel en een glazen deur met luik" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>het gebouw en de oude stad</em></h2>
-            <p>De beelden tonen het gebouw zoals het is ontworpen, dus een bezoek gaat over de ligging, de plattegronden en wat de ontwikkelaar ter plaatse kan laten zien.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Bekijk waar het gebouw staat en welke stand het heeft bereikt.</p></div>
-              <div><span>Te voet</span><p>We lopen met u naar de oude stad en de jachthaven en meten de tijd.</p></div>
-              <div><span>Op papier</span><p>Vergunning, garantie en contract, voordat er iets wordt ondertekend.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=paraiso-de-azahar">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Interiors">Interieur</button><button type="button" data-cat="Bedrooms">Slaapkamers</button><button type="button" data-cat="Bathrooms">Badkamers</button><button type="button" data-cat="Terraces">Terrassen</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/paraiso-de-azahar/media/patio-private-pool.jpg" alt="Computergegenereerde patio met een privézwembad, een muurfontein, ligbedden en loungestoelen tussen beplante muren" width="2000" height="1125" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Een patio, <em>privézwembaden</em> en een lift naar de garage</h2>
-            <p>De buitenruimte hoort bij de afzonderlijke woningen: een patio, terrassen en privézwembaden, afhankelijk van het woningtype.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>De plattegronden van de woningen die u interesseren, de specificatie en de prijslijst.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de opties</h3>
-            <p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bekijk de locatie en de oude stad samen met ons en leg de plattegronden naast het gebouw.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserveren</h3>
-            <p>De reservering, het betalingsschema en het contract worden schriftelijk met de ontwikkelaar bevestigd voordat u zich vastlegt.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn beschikbaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Het gebouw heeft 10 woningen en zes staan momenteel met een prijs vermeld: een met één slaapkamer, drie met twee en twee met drie slaapkamers, van € 495.000 tot € 895.000 excl. btw. De andere vier zijn als gereserveerd aangemerkt.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. De prijslijst vermeldt dat de prijzen exclusief btw zijn en geeft het tarief aan als 10%. De prijzen op deze pagina zijn de nettobedragen van de ontwikkelaar; er wordt geen btw bij opgeteld.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is er parkeergelegenheid en een berging?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. De prijslijst kent elk van de zes aangeboden woningen een garageplaats en een berging toe, en de garage is met een autolift bereikbaar. De specificatie omvat de voorbereiding voor het opladen van elektrische auto’s.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heeft een van de woningen een privézwembad?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Van de zes aangeboden woningen heeft 1ºA een privézwembad en een patio van 38,56 m². De vier gereserveerde woningen op de bovenste verdiepingen staan ook met zwembaden vermeld en zijn niet beschikbaar.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is het klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Geen van de documenten die wij hebben noemt een opleveringsdatum of de stand van het gebouw. Wij vragen de contractuele datum op en leggen die schriftelijk vast.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>Paraíso de Azahar</em></h2>
-          <p class="body-copy">Vertel ons wat u nodig heeft en we komen bij u terug met de actuele beschikbaarheid, de plattegronden en de prijslijst.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Para%C3%ADso%20de%20Azahar." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Paraíso de Azahar" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Paraíso de Azahar">
-
-          <input type="hidden" id="f-project" name="project" value="Paraíso de Azahar">
-          <input type="hidden" name="preferred_area" value="Centrum van Estepona">
-          <input type="hidden" name="property_type_interest" value="Appartementen">
-          <input type="hidden" name="budget_range" value="Vanaf € 495.000 + btw">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Hallo Nueva Living, ik wil graag informatie over Paraíso de Azahar.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Wij reageren persoonlijk, meestal dezelfde dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"Bajo A","title":"Bajo A · Begane grond","sub":"1 slk. · 53 m²","price":495000,"plans":[{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a.jpg","label":""}]},{"id":"u1","ref":"Bajo B","title":"Bajo B · Begane grond","sub":"3 slk. · 94 m²","price":850000,"plans":[{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b.jpg","label":""}]},{"id":"u2","ref":"1ºA","title":"1ºA · Eerste verdieping","sub":"2 slk. · 65 m²","price":763000,"plans":[{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1a.jpg","label":""}]},{"id":"u3","ref":"1ºB","title":"1ºB · Eerste verdieping","sub":"2 slk. · 78 m²","price":742000,"plans":[{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1b.jpg","label":""}]},{"id":"u4","ref":"1ºC","title":"1ºC · Eerste verdieping","sub":"2 slk. · 77 m²","price":735000,"plans":[{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1c.jpg","label":""}]},{"id":"u5","ref":"1ºD","title":"1ºD · Eerste verdieping","sub":"3 slk. · 95 m²","price":895000,"plans":[{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1d.jpg","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.webp","alt":"Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat","caption":"Het gebouw aan de straat","cat":"Exteriors"},{"src":"assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools.webp","alt":"Computergegenereerd luchtbeeld van de pannendaken met dakterrassen en privézwembaden ertussen","caption":"De daken en terrassen van bovenaf","cat":"Exteriors"},{"src":"assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.webp","alt":"Computergegenereerde entreehal met een houten trap, een beplante hoek met cactussen en een muur met de naam van het project","caption":"De entreehal","cat":"Interiors"},{"src":"assets/liora/projects/paraiso-de-azahar/media/living-room-kitchen-island.webp","alt":"Computergegenereerde woonkamer met open keuken, een marmeren kookeiland en een houten plafondpaneel","caption":"Woonkamer en keuken","cat":"Interiors"},{"src":"assets/liora/projects/paraiso-de-azahar/media/living-dining-room.webp","alt":"Computergegenereerde woon- en eetkamer met een lange tafel, een hoekbank en een houten plafondpaneel","caption":"Woon-eetkamer","cat":"Interiors"},{"src":"assets/liora/projects/paraiso-de-azahar/media/main-bedroom.webp","alt":"Computergegenereerde hoofdslaapkamer met een tweepersoonsbed, een houten plafondpaneel en een glazen deur met luik","caption":"Hoofdslaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/paraiso-de-azahar/media/twin-bedroom.webp","alt":"Computergegenereerde slaapkamer met twee eenpersoonsbedden, een gepaneelde wand met verborgen verlichting en een glazen deur","caption":"Tweede slaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/paraiso-de-azahar/media/main-bathroom.webp","alt":"Computergegenereerde badkamer met een inloopdouche, een stenen wastafel en twee hoge spiegels","caption":"Hoofdbadkamer","cat":"Bathrooms"},{"src":"assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day.webp","alt":"Computergegenereerd terras op de bovenste verdieping met een privézwembad, een eettafel, ligbedden en een glazen schuifdeur","caption":"Een terras op de bovenste verdieping met een privézwembad","cat":"Terraces"},{"src":"assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-night.webp","alt":"Computergegenereerd terras op de bovenste verdieping met een verlicht privézwembad, een eettafel en ligbedden in de schemering","caption":"Hetzelfde terras in de schemering","cat":"Terraces"},{"src":"assets/liora/projects/paraiso-de-azahar/media/patio-private-pool.webp","alt":"Computergegenereerde patio met een privézwembad, een muurfontein, ligbedden en loungestoelen tussen beplante muren","caption":"Een patio met een privézwembad","cat":"Terraces"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Paraíso de Azahar media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/street-facade-corner-960.webp","alt":"Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat","width":2000,"height":1414,"caption":"Het gebouw aan de straat","category":"Exterieur"},{"src":"assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools-960.webp","alt":"Computergegenereerd luchtbeeld van de pannendaken met dakterrassen en privézwembaden ertussen","width":2000,"height":1125,"caption":"De daken en terrassen van bovenaf","category":"Exterieur"},{"src":"assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase-960.webp","alt":"Computergegenereerde entreehal met een houten trap, een beplante hoek met cactussen en een muur met de naam van het project","width":2000,"height":1125,"caption":"De entreehal","category":"Interieur"},{"src":"assets/liora/projects/paraiso-de-azahar/media/living-room-kitchen-island.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/living-room-kitchen-island-960.webp","alt":"Computergegenereerde woonkamer met open keuken, een marmeren kookeiland en een houten plafondpaneel","width":2000,"height":1125,"caption":"Woonkamer en keuken","category":"Interieur"},{"src":"assets/liora/projects/paraiso-de-azahar/media/living-dining-room.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/living-dining-room-960.webp","alt":"Computergegenereerde woon- en eetkamer met een lange tafel, een hoekbank en een houten plafondpaneel","width":2000,"height":1125,"caption":"Woon-eetkamer","category":"Interieur"},{"src":"assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/main-bedroom-960.webp","alt":"Computergegenereerde hoofdslaapkamer met een tweepersoonsbed, een houten plafondpaneel en een glazen deur met luik","width":2000,"height":1125,"caption":"Hoofdslaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/paraiso-de-azahar/media/twin-bedroom.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/twin-bedroom-960.webp","alt":"Computergegenereerde slaapkamer met twee eenpersoonsbedden, een gepaneelde wand met verborgen verlichting en een glazen deur","width":2000,"height":1125,"caption":"Tweede slaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/paraiso-de-azahar/media/main-bathroom.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/main-bathroom-960.webp","alt":"Computergegenereerde badkamer met een inloopdouche, een stenen wastafel en twee hoge spiegels","width":2000,"height":1125,"caption":"Hoofdbadkamer","category":"Badkamers"},{"src":"assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-day-960.webp","alt":"Computergegenereerd terras op de bovenste verdieping met een privézwembad, een eettafel, ligbedden en een glazen schuifdeur","width":2000,"height":1125,"caption":"Een terras op de bovenste verdieping met een privézwembad","category":"Terrassen"},{"src":"assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-night.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/top-floor-terrace-pool-night-960.webp","alt":"Computergegenereerd terras op de bovenste verdieping met een verlicht privézwembad, een eettafel en ligbedden in de schemering","width":2000,"height":1125,"caption":"Hetzelfde terras in de schemering","category":"Terrassen"},{"src":"assets/liora/projects/paraiso-de-azahar/media/patio-private-pool.jpg","webp":"assets/liora/projects/paraiso-de-azahar/media/patio-private-pool-960.webp","alt":"Computergegenereerde patio met een privézwembad, een muurfontein, ligbedden en loungestoelen tussen beplante muren","width":2000,"height":1125,"caption":"Een patio met een privézwembad","category":"Terrassen"},{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a.jpg","webp":"assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-a-960.webp","alt":"Plattegrond van woning Bajo A","width":1256,"height":1609,"caption":"Woning Bajo A","category":"Plattegronden"},{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b.jpg","webp":"assets/liora/projects/paraiso-de-azahar/floorplans/home-bajo-b-960.webp","alt":"Plattegrond van woning Bajo B","width":1306,"height":1821,"caption":"Woning Bajo B","category":"Plattegronden"},{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1a.jpg","webp":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1a-960.webp","alt":"Plattegrond van woning 1ºA","width":1280,"height":1946,"caption":"Woning 1ºA","category":"Plattegronden"},{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1b.jpg","webp":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1b-960.webp","alt":"Plattegrond van woning 1ºB","width":1585,"height":1715,"caption":"Woning 1ºB","category":"Plattegronden"},{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1c.jpg","webp":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1c-960.webp","alt":"Plattegrond van woning 1ºC","width":1235,"height":1932,"caption":"Woning 1ºC","category":"Plattegronden"},{"src":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1d.jpg","webp":"assets/liora/projects/paraiso-de-azahar/floorplans/home-1d-960.webp","alt":"Plattegrond van woning 1ºD","width":1862,"height":1601,"caption":"Woning 1ºD","category":"Plattegronden"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-paraiso-de-azahar.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Para%C3%ADso%20de%20Azahar." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Paraíso de Azahar" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

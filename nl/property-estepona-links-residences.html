@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn beschikbaar?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -302,7 +239,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Estepona Links Residences"
   data-project-message="Hallo Nueva Living, ik ontvang graag informatie over Estepona Links Residences."
@@ -459,711 +396,191 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Estepona Links Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-estepona-links-residences.html#top">Estepona Links Residences<span>Vanaf € 320.000 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-estepona-links-residences.html#overview">Overzicht</a><a href="nl/property-estepona-links-residences.html#availability">Prijzen</a><a href="nl/property-estepona-links-residences.html#specs">Afwerking</a><a href="nl/property-estepona-links-residences.html#gallery">Galerij</a><a href="nl/property-estepona-links-residences.html#location">Locatie</a><a href="nl/property-estepona-links-residences.html#onsite">Op het terrein</a><a href="nl/property-estepona-links-residences.html#view">Onze kijk</a><a href="nl/property-estepona-links-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Estepona Links Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-640.webp 640w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp 960w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp 2000w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Computergegenereerd beeld van twee terrasvormige blokken, gezien over een grasveld onder een heldere hemel" width="2000" height="1132" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Computergegenereerd beeld van twee terrasvormige blokken, gezien over een grasveld onder een heldere hemel" width="2000" height="1132" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">10 van de 35 vrijgegeven woningen beschikbaar</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Estepona Links <em>Residences</em></span>
-            <span class="hero-title-context">Appartementen in Estepona Golf, Estepona</span>
-          </h1>
-          <p class="hero-positioning">Tien van de 35 tot nu toe vrijgegeven woningen in Estepona Links Residences, een complex van 111 appartementen met een, twee en drie slaapkamers in Estepona Golf: vanaf € 320.000, excl. btw. Er wordt geen opleveringsdatum genoemd.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-estepona-links-residences.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=estepona-links-residences">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-estepona-links-residences.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Estepona Golf, Estepona</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 320.000 + btw</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartementen</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Oplevering nog te bevestigen</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-estepona-links-residences.html#media">Media</a>
-        <a href="nl/property-estepona-links-residences.html#location">Locatie</a>
-        <a href="nl/property-estepona-links-residences.html#construction-timeline">Betalingsvoorwaarden</a>
-        <a href="nl/property-estepona-links-residences.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-estepona-links-residences.html#overview">Overzicht</a>
-          <a href="nl/property-estepona-links-residences.html#residences">Woningen</a>
-          <a href="nl/property-estepona-links-residences.html#quality-specifications">Afwerking</a>
-          <a href="nl/property-estepona-links-residences.html#calculator">Financiering</a>
-          <a href="nl/property-estepona-links-residences.html#amenities">Voorzieningen</a>
-          <a href="nl/property-estepona-links-residences.html#why-this-project">Waarom</a>
-          <a href="nl/property-estepona-links-residences.html#architecture">Architectuur</a>
-          <a href="nl/property-estepona-links-residences.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-estepona-links-residences.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-estepona-links-residences.html#faq">FAQ</a>
-          <a href="nl/property-estepona-links-residences.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>1-3 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Bebouwde oppervlakte</span><strong>51,14 - 111,48 m² bebouwd</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>10 van de 35 woningen beschikbaar</strong></div>
-          <div class="quick-fact"><span>Project</span><strong>111 woningen</strong></div>
-          <div class="quick-fact"><span>Beschikbaar</span><strong>10 woningen</strong></div>
-          <div class="quick-fact"><span>Prijsklasse</span><strong>€ 320.000 - € 495.000</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">10 woningen <em>beschikbaar</em>, in twee blokken</h2>
-          <p class="project-lead">Estepona Links Residences is een complex van 111 woningen met een, twee en drie slaapkamers in Estepona Golf, dat het dossier van de ontwikkelaar beschrijft als een enclave waar natuur, rust en levensstijl samenkomen rond de green. Het noemt eigentijdse architectuur geïnspireerd op de Middellandse Zee, open uitzichten over de golfbaan en gemeenschappelijke ruimtes die het hele jaar door te gebruiken zijn.</p>
-          <p class="project-lead">De prijslijst van 3 november 2026 omvat 35 woningen in twee blokken en markeert er 25 als gereserveerd. Tien staan met een prijs op de lijst: een appartement met een slaapkamer, acht met twee en een met drie. Geen enkel document noemt een opleveringsdatum.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Het complex <em>in beeld</em></h2>
-          </div>
-          <p class="project-lead">Computergegenereerde beelden van de blokken, de terrassen, de gemeenschappelijke ruimtes en de interieurs, drie foto’s van de omgeving en de plattegronden van de 10 vermelde woningen.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 3 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-640.webp 640w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp 960w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Computergegenereerd beeld van twee terrasvormige blokken, gezien over een grasveld onder een heldere hemel" width="2000" height="1132" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Twee terrasvormige blokken voor het grasveld</strong>
-                <span class="project-media-card-cta">3 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Terraces" aria-label="Bekijk 1 afbeeldingen in Terrassen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-640.webp 640w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-960.webp 960w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.jpg" alt="Computergegenereerd beeld van een terras op de begane grond met zitmeubilair, een haag langs de rand en beboste heuvels erachter" width="2000" height="1416" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Terrassen</small>
-                <strong>Een terras op de begane grond</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Bekijk 5 afbeeldingen in Voorzieningen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-640.webp 640w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-960.webp 960w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg" alt="Computergegenereerd beeld van een zwembadterras met ligbedden, schaduwdoeken en de kust aan de horizon" width="2000" height="1545" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Voorzieningen</small>
-                <strong>Een zwembadterras</strong>
-                <span class="project-media-card-cta">5 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 1 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-640.webp 640w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-960.webp 960w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Computergegenereerd beeld van een open woonkamer en keuken met een glazen schuifdeur naar het terras" width="2000" height="807" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>Woonkamer en keuken</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bedrooms" aria-label="Bekijk 2 afbeeldingen in Slaapkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/estepona-links-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/estepona-links-residences/media/main-bedroom.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/main-bedroom.jpg" alt="Computergegenereerd beeld van een hoofdslaapkamer met een gestoffeerd hoofdbord en een glazen schuifdeur naar het terras" width="2000" height="1476" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Slaapkamers</small>
-                <strong>Een hoofdslaapkamer</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Bathrooms" aria-label="Bekijk 1 afbeeldingen in Badkamers">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower-640.webp 640w, assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower-960.webp 960w, assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.webp 2000w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.jpg" alt="Computergegenereerd beeld van een badkamer met een inloopdouche, een zwevend wastafelmeubel en beige tegels in steenlook" width="2000" height="1489" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Badkamers</small>
-                <strong>Een badkamer</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Bekijk 3 afbeeldingen in Locatie">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air-640.webp 640w, assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air-960.webp 960w, assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.webp 1408w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.jpg" alt="Luchtfoto van een golfbaan met meren en bomen, met de kust en de zee erachter" width="1408" height="1138" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Locatie</small>
-                <strong>Een golfbaan en de kust vanuit de lucht</strong>
-                <span class="project-media-card-cta">3 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Floorplans" aria-label="Bekijk 10 afbeeldingen in Plattegronden">
-              <img src="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" alt="Plattegrond van appartement 15G" width="833" height="1092" loading="lazy" decoding="async">
-              <span class="project-media-caption">
-                <small>Plattegronden</small>
-                <strong>Appartement 15G</strong>
-                <span class="project-media-card-cta">10 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 26 afbeeldingen</button>
-          <p class="media-note">De beelden zijn computergegenereerde illustraties en geen foto’s van de afgewerkte gebouwen, behalve de drie foto’s van de omgeving. Het meubilair en de inrichting erop zijn illustratief en niet inbegrepen. De plattegronden zijn de verkoopplattegronden van de ontwikkelaar, bijgesneden tot de tekening: de namen van de ruimtes zijn Spaans en sommige oppervlaktes wijken af van de prijslijst, zoals de onderstaande opmerkingen uitleggen.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona Golf, <em>Estepona</em></h2>
-          <p class="project-lead">Het dossier plaatst de ontwikkeling binnen Estepona Golf, in de gemeente Estepona. Het noemt Marbella op 25 minuten en de luchthaven van Málaga op minder dan een uur, en zegt dat Puerto Banús, Sotogrande en verschillende witte dorpen in het binnenland op enkele minuten liggen. Op de locatiekaart staan Finca Cortesín en de Valle Romano Golf Club, een nieuw ziekenhuis, een winkelgebied, de stranden van Bahía Dorada en La Rada, de haven, het stadscentrum en een kustpad, zonder afstanden. De documenten geven geen adres en geen coördinaten van het perceel, dus staat de markering op de kaart bij Estepona Golf en niet op het perceel.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-estepona-links-residences" data-locmap='{&quot;site&quot;:[36.41297,-5.21219],&quot;sea&quot;:[36.38597,-5.21219],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 14 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;6,8 km · 11 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,9 km · 7 min&quot;},{&quot;ll&quot;:[36.39646,-5.22386],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Finca Cortesín&quot;,&quot;sub&quot;:&quot;7,9 km · 12 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Estepona Links Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Estepona Links Residences</h3>
-            <p class="locmap-place">Estepona Golf</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>7 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>6,8 km</bdi> <em><bdi>11 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Estepona</span>
-              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>14 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>7,9 km</bdi> <em><bdi>12 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>40 km</bdi> <em><bdi>44 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section construction-timeline-section" id="construction-timeline">
-      <div class="project-inner timeline-head reveal-soft">
-        <div>
-          <span class="section-kicker">Tijdlijn</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Betalings<em>schema</em></h2>
-        </div>
-        
-      </div>
-      <div class="project-inner timeline-track reveal-soft">
-        <div class="timeline-point is-milestone" style="transition-delay:0.00s">
-          <span class="timeline-label">Koopovereenkomst</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg></span></span>
-          <span class="timeline-year">Bouwvergunning</span>
-        </div>
-        <div class="timeline-point is-milestone" style="transition-delay:0.09s">
-          <span class="timeline-label">Akte en sleutels</span>
-          <span class="timeline-marker"><span class="timeline-marker-ring"></span><span class="timeline-marker-core"><svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg></span></span>
-          <span class="timeline-year">Oplevering</span>
-        </div>
-      </div>
-      <div class="project-inner timeline-payment-terms reveal-soft">
-        <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">Betalingsvoorwaarden</span>
-          <span class="timeline-payment-total">€ 12.000 + btw reservering, plus 100% van de prijs verspreid over 4 betalingen</span>
-        </div>
-        <div class="timeline-payment-grid">
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">01</span>
-            <span class="timeline-payment-label">Reservering</span>
-            <strong class="timeline-payment-value">€ 12.000 + btw</strong>
-            <span class="timeline-payment-note">€ 13.200 incl. btw</span>
-            
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">02</span>
-            <span class="timeline-payment-label">Bij Privécontract</span>
-            <strong class="timeline-payment-value">20% + btw</strong>
-            <span class="timeline-payment-note">Bij het verkrijgen van de bouwvergunning, min de reservering</span>
-            <span class="timeline-payment-running">Lopend totaal: 20%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">03</span>
-            <span class="timeline-payment-label">Na 6 maanden</span>
-            <strong class="timeline-payment-value">10% + btw</strong>
-            <span class="timeline-payment-note">Gerekend vanaf het onderhandse contract, niet vanaf een bouwfase</span>
-            <span class="timeline-payment-running">Lopend totaal: 30%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">04</span>
-            <span class="timeline-payment-label">Na 12 maanden</span>
-            <strong class="timeline-payment-value">10% + btw</strong>
-            <span class="timeline-payment-note">Gerekend vanaf het onderhandse contract, niet vanaf een bouwfase</span>
-            <span class="timeline-payment-running">Lopend totaal: 40%</span>
-          </div>
-          <div class="timeline-payment-item">
-            <span class="timeline-payment-index">05</span>
-            <span class="timeline-payment-label">Bij Oplevering</span>
-            <strong class="timeline-payment-value">60% + btw</strong>
-            <span class="timeline-payment-note">Te betalen bij oplevering en sleuteloverdracht</span>
-            <span class="timeline-payment-running">Lopend totaal: 100%</span>
-          </div>
-        </div>
-        <p class="timeline-payment-disclaimer">Dit is het eigen schema van de ontwikkelaar, uit zijn betalingsvoorwaarden. Het zegt niet hoe de vooruitbetalingen zijn gewaarborgd; Nueva Living vraagt dat op en bevestigt het hele schema in de reserveringsovereenkomst voordat u zich verbindt.</p>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Een, twee en <em>drie slaapkamers</em></h2>
-          <p class="project-lead">De tien woningen met een prijs zijn appartementen in twee blokken. De tabel hieronder toont elk met prijs en plattegrond, en de lijst geeft elke woning een parkeerplaats en een berging.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Acht appartementen met twee slaapkamers</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-estepona-links-residences.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Eén appartement met een slaapkamer</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-estepona-links-residences.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Eén appartement met drie slaapkamers</h3>
-            <div class="res-meta">
-              
-            </div>
-            <ul class="feature-list">
-
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-estepona-links-residences.html#availability">Plattegronden bekijken</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-estepona-links-residences.html#availability">Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="quality-specifications">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Technische omschrijving</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarmee de woningen <em>gebouwd zijn</em></h2>
-          <p class="project-lead">De technische omschrijving van de ontwikkelaar zelf, samengevat per onderdeel van de woning.</p>
-        </div>
-        <div class="spec-list">
-          <details class="spec-group reveal-soft" open>
-            <summary>Vloeren en wanden<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Hoogwaardige keramische vloeren van 60 x 60 cm in de hele woning en keramische wandtegels van 30 x 90 cm in de douchezone en op de wand achter de wastafel.</li>
-              <li>Antislip, vorstbestendige keramische buitentegels op de terrassen en patio’s en antislipbestrating in de gemeenschappelijke ruimtes.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Keuken<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Volledig ingericht, met hoge en lage kasten van hogedruklaminaat, een werkblad in Silestone-stijl en een bijpassend gepaneelde koelkast.</li>
-              <li>Keramische kookplaat, combi-oven met magnetron, afzuigkap, koelkast, vaatwasser en wasmachine, van Bosch of gelijkwaardig.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Badkamers<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Wit verglaasd porseleinen sanitair, douchebakken van kunsthars in de hoofd- en de tweede badkamer en een douchekolom met eengreepsmengkraan, van Grohe of gelijkwaardig.</li>
-              <li>In de hoofdbadkamer een wastafelmeubel en een douchescherm.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Deuren, ramen en kasten<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Wit gelakte houten binnendeuren met verchroomde grepen of schuifsystemen en inbouwkasten met tussenplank, kledingroede en deuren die bij de binnendeuren passen.</li>
-              <li>Kozijnen van pvc of aluminium met dubbele beglazing van het type Climalit, gelaagd veiligheidsglas in de terrasdeuren en geïsoleerde aluminium rolluiken in de slaapkamers.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Klimaat en energie<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Warm water via een aerothermisch systeem en zonnepanelen op de daken, zoals de Spaanse bouwcode voorschrijft.</li>
-              <li>Kanaalairconditioning voor warm en koud in de woonkamer en slaapkamers, met alleen luchttoevoer in de keuken, en individuele mechanische ventilatie in de badkamers en de keuken.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Technologie en veiligheid<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Tv- en ethernetaansluitingen volgens de ICT-2-norm in de woonkamer, de keuken en de slaapkamers, buitenverlichting en een watertap op de terrassen en een voorbereid laadpunt voor elektrische voertuigen.</li>
-              <li>Een gepantserde voordeur met kijkgat en veiligheidsslot, inbraakwerend glas in het buitenschrijnwerk op de begane grond en een mastersleutelsysteem voor het complex, het gebouw, de appartementen en de garage.</li>
-            </ul>
-          </details>
-          <details class="spec-group reveal-soft">
-            <summary>Gemeenschappelijke ruimtes<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <ul>
-              <li>Een zoutwaterzwembad voor volwassenen buiten en op het dak, een verwarmd binnenzwembad met sauna, een volledig uitgeruste sportzaal en een sociale club.</li>
-              <li>Aangelegde gemeenschappelijke tuinen met verlichting en automatische bewatering, parkeren voor golfbuggy’s op baanniveau, liften met automatische deuren en toegankelijkheid voor mindervaliden, en bergingen met een lichtpunt.</li>
-            </ul>
-          </details>
-        </div>
-        <p class="availability-source-note spec-source-note">Bron: de technische omschrijving van de ontwikkelaar, revisie 01, in de voettekst gedateerd 14 april 2026 en op de laatste pagina 13 april 2026. Daarin staat dat de projectleiding de specificaties mag wijzigen en onderdelen door vergelijkbare mag vervangen zonder de geplande kwaliteit te verlagen, en dat natuursteen en hout in tint, kleur en structuur variëren. Merken met “of gelijkwaardig” kunnen wijzigen.</p>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">10 woningen <em>nu beschikbaar</em></h2>
-          <p class="project-lead">Tien van de 35 woningen op de prijslijst van de ontwikkelaar van 3 november 2026 staan met een prijs op de lijst: een appartement met een slaapkamer, acht met twee en een met drie. De overige 25 zijn als gereserveerd aangemerkt en niet beschikbaar. De lijst zegt dat de prijzen twee dagen na het downloaden geldig zijn, dus bevestigen we elke prijs en de beschikbaarheid vóór elke reservering.</p>
-        </div>
-        <figure class="project-plan reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Computergegenereerd beeld van een open woonkamer en keuken met een glazen schuifdeur naar het terras" loading="lazy" decoding="async">
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>16 foto's</button>
+          <a class="chip" href="nl/property-estepona-links-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plattegronden</a>
+          <a class="chip" href="nl/property-estepona-links-residences.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-        </figure>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>10</strong></div>
-            <div><span>Startprijs</span><strong>€ 320.000 + btw</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 320.000 - € 495.000 + btw</strong></div>
-            <div><span>Gecontroleerd</span><strong>3 november 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 10 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            
-            <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-price="320000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 15G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/15G-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/15G-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" alt="Plattegrond van 15G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">15G</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>1 slaapkamer</dd></div>
-                    <div><dt>Bebouwd</dt><dd>51,14 m²</dd></div>
-                    <div><dt>Terras</dt><dd>13,94 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 1, tweede verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 320.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2015G">Vraag naar 15G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="355000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/23H.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 23H">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/23H-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/23H-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/23H.jpg" alt="Plattegrond van 23H" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">23H</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>66,13 m²</dd></div>
-                    <div><dt>Terras</dt><dd>18,79 m²</dd></div>
-                    <div><dt>Tuin</dt><dd>31,21 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 355.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2023H">Vraag naar 23H</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="370000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/13E.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 13E">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/13E-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/13E-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/13E.jpg" alt="Plattegrond van 13E" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">13E</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>72,22 m²</dd></div>
-                    <div><dt>Terras</dt><dd>19,65 m²</dd></div>
-                    <div><dt>Tuin</dt><dd>28,98 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 1, begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 370.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2013E">Vraag naar 13E</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="375000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/24E.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 24E">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/24E-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/24E-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/24E.jpg" alt="Plattegrond van 24E" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">24E</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>72,22 m²</dd></div>
-                    <div><dt>Terras</dt><dd>19,43 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 375.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2024E">Vraag naar 24E</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="385000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/22B.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 22B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/22B-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/22B-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/22B.jpg" alt="Plattegrond van 22B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">22B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>79,04 m²</dd></div>
-                    <div><dt>Terras</dt><dd>24,06 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, tweede verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 385.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2022B">Vraag naar 22B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="395000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/21B.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 21B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/21B-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/21B-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/21B.jpg" alt="Plattegrond van 21B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">21B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>79,04 m²</dd></div>
-                    <div><dt>Terras</dt><dd>24,06 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 395.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2021B">Vraag naar 21B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="410000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/14G.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 14G">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/14G-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/14G-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/14G.jpg" alt="Plattegrond van 14G" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">14G</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>79,11 m²</dd></div>
-                    <div><dt>Terras</dt><dd>23,23 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 1, eerste verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 410.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2014G">Vraag naar 14G</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="460000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/20D.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 20D">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/20D-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/20D-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/20D.jpg" alt="Plattegrond van 20D" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">20D</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>111,48 m²</dd></div>
-                    <div><dt>Terras</dt><dd>35,07 m²</dd></div>
-                    <div><dt>Tuin</dt><dd>35,67 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, begane grond</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 460.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2020D">Vraag naar 20D</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="465000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/25B.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 25B">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/25B-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/25B-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/25B.jpg" alt="Plattegrond van 25B" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">25B</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>79,64 m²</dd></div>
-                    <div><dt>Terras</dt><dd>30,17 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 2, vijfde verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 465.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2025B">Vraag naar 25B</a>
-                </div>
-              </article>
-              <article class="unit-card" data-unit data-price="495000">
-                <a class="unit-card-plan" href="assets/liora/projects/estepona-links-residences/floorplans/13C.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 13C">
-                  <picture>
-                    <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/floorplans/13C-640.webp 640w, assets/liora/projects/estepona-links-residences/floorplans/13C-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
-                    <img src="assets/liora/projects/estepona-links-residences/floorplans/13C.jpg" alt="Plattegrond van 13C" loading="lazy" decoding="async">
-                  </picture>
-                  <span class="unit-card-plan-hint">Plattegrond bekijken</span>
-                </a>
-                <div class="unit-card-body">
-                  <div class="unit-card-head">
-                    <strong class="unit-card-ref">13C</strong>
-                    <span class="availability-status">Beschikbaar</span>
-                  </div>
-                  <dl class="unit-card-facts">
-                    <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
-                    <div><dt>Bebouwd</dt><dd>79,66 m²</dd></div>
-                    <div><dt>Terras</dt><dd>105,50 m²</dd></div>
-                    <div><dt>Verdieping</dt><dd>Blok 1, derde verdieping</dd></div>
-                  </dl>
-                  <p class="unit-card-price">€ 495.000</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=Estepona%20Links%20Residences%20-%2013C">Vraag naar 13C</a>
-                </div>
-              </article>
-            </div>
-          </details>
-          
-          <p class="availability-source-note">Prijzen, slaapkamers en oppervlakten zijn overgenomen uit de prijslijst van de ontwikkelaar van 3 november 2026, die 35 rijen heeft in blok 1 en 2: 10 met een prijs en 25 als gereserveerd aangemerkt. De lijst zegt dat de btw niet is inbegrepen en dat elke woning een parkeerplaats en een berging heeft. De bebouwde oppervlakte is de bebouwde binnenoppervlakte van de lijst, dat is de bebouwde oppervlakte op elke plattegrond; de bruikbare binnenoppervlakte op de plattegrond is kleiner, 68,14 tegenover 79,66 m² bij 13C. Het terras is de som van de overdekte en open terrassen van de lijst. De prijzen zijn exclusief belasting. De btw bedraagt 10 procent en de overdrachtsbelasting 1,20 procent, zodat het appartement van € 320.000 ongeveer € 356.000 kost en dat van € 495.000 ongeveer € 550.000, vóór notaris- en kadasterkosten.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Estepona Links</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Tien van de 35 tot nu toe vrijgegeven woningen in Estepona Links Residences, een complex van 111 appartementen met een, twee en drie slaapkamers in Estepona Golf: vanaf € 320.000, excl.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts has5"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 320.000</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>1 tot 3</dd><dd class="sub"><span>Appartementen</span></dd></div><div><dt>Oplevering</dt><dd>nog te bevestigen</dd><dd class="sub">Vergunning: wij bevestigen dit voordat u reserveert</dd></div><div><dt>Nog beschikbaar</dt><dd>10 van 111</dd><dd class="sub">Gecontroleerd op 3 november 2026</dd></div><div><dt>Betalingen</dt><dd>60% · Bij Oplevering</dd><dd class="sub">€ 12.000 om te reserveren</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Estepona Links Residences is een complex van 111 woningen met een, twee en drie slaapkamers in Estepona Golf, dat het dossier van de ontwikkelaar beschrijft als een enclave waar natuur, rust en levensstijl samenkomen rond de green. Het noemt eigentijdse architectuur geïnspireerd op de Middellandse Zee, open uitzichten over de golfbaan en gemeenschappelijke ruimtes die het hele jaar door te gebruiken zijn.</p>
+    <p class="lede-2">De prijslijst van 3 november 2026 omvat 35 woningen in twee blokken en markeert er 25 als gereserveerd. Tien staan met een prijs op de lijst: een appartement met een slaapkamer, acht met twee en een met drie. Geen enkel document noemt een opleveringsdatum.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Eigentijds ontwerp, aan de golfbaan</span></summary><p>Het dossier beschrijft eigentijdse architectuur geïnspireerd op de Middellandse Zee, met open uitzichten over de golfbaan. In de computergegenereerde beelden van de ontwikkelaar zijn de blokken lang en laag, met diepe balkons, glazen balustrades en een grasveld langs de voorzijde.</p><p>Op de plattegronden van de tien vermelde woningen vormen woon-, eet- en kookruimte één open ruimte met toegang tot een terras, met een hoofdslaapkamer en een tweede slaapkamer, elk met een badkamer, en een derde slaapkamer in de woning met drie. Het dossier zegt dat de terrassen op het zuidoosten en het oosten liggen.</p><ul><li>Structuur: Gewapend-betonnen funderingen volgens het geotechnisch onderzoek van het terrein en een gewapend-betonnen vloerconstructie op elke verdieping.</li><li>Gevel: Een spouwmuur van geperforeerde baksteen met buitenpleister, gespoten polyurethaanisolatie, een luchtspouw en een binnenbekleding met minerale wol.</li><li>Beglazing: Kozijnen van pvc of aluminium met dubbele beglazing, gelaagd veiligheidsglas in de terrasdeuren en geïsoleerde aluminium rolluiken in de slaapkamers.</li><li>Beveiliging: Een gepantserde voordeur, een video-intercom bij de hoofdingang en bij het gebouw, een mastersleutelsysteem en een afgesloten complex met privétoegang.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 320.000 – € 495.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>10 van 111 woningen</span><small>Gecontroleerd op 3 november 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartementen</span></dd></div><div><dt>Oppervlakten</dt><dd><span>51 – 111 m²</span><small>Bebouwde oppervlakte</small></dd></div><div><dt>Oplevering</dt><dd><span>nog te bevestigen</span></dd></div><div><dt>Vergunning</dt><dd><span>Niet vermeld</span><small>Wij bevestigen dit voordat u reserveert</small></dd></div><div><dt>Betalingen</dt><dd><span>5 termijnen</span><small>60% · Bij Oplevering · <a href="nl/property-estepona-links-residences.html#plan">schema</a></small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Parkeerplaats en berging inbegrepen bij elke woning</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">Tien van de 35 woningen op de prijslijst van de ontwikkelaar van 3 november 2026 staan met een prijs op de lijst: een appartement met een slaapkamer, acht met twee en een met drie. De overige 25 zijn als gereserveerd aangemerkt en niet beschikbaar. De lijst zegt dat de prijzen twee dagen na het downloaden geldig zijn, dus bevestigen we elke prijs en de beschikbaarheid vóór elke reservering. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    <div class="scarcity" role="img" aria-label="10 van 111 nog te koop"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>10 van 111 nog te koop</span></div>
+    <div class="ufilter" role="group" aria-label="Filteren op slaapkamers"><button type="button" aria-pressed="true" data-beds="">Alle <span>10</span></button><button type="button" aria-pressed="false" data-beds="1">1 slk. <span>1</span></button><button type="button" aria-pressed="false" data-beds="2">2 slk. <span>8</span></button><button type="button" aria-pressed="false" data-beds="3">3 slk. <span>1</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="1" data-price="320000" data-size="51.14" data-ppm="6257" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/15G-640.webp">
+            <th scope="row"><span class="u-name">15G</span><span class="u-loc">Appartement · Blok 1, tweede verdieping</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">51 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 320.000</td>
+            <td data-label="Per m²" class="num">€ 6.257</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/15G.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 15G"><img src="assets/liora/projects/estepona-links-residences/floorplans/15G-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="355000" data-size="66.13" data-ppm="5368" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/23H-640.webp">
+            <th scope="row"><span class="u-name">23H</span><span class="u-loc">Appartement · Blok 2, begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">66 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 355.000</td>
+            <td data-label="Per m²" class="num">€ 5.368</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/23H.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 23H"><img src="assets/liora/projects/estepona-links-residences/floorplans/23H-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u2" data-beds="2" data-price="370000" data-size="72.22" data-ppm="5123" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/13E-640.webp">
+            <th scope="row"><span class="u-name">13E</span><span class="u-loc">Appartement · Blok 1, begane grond</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">72 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 370.000</td>
+            <td data-label="Per m²" class="num">€ 5.123</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/13E.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 13E"><img src="assets/liora/projects/estepona-links-residences/floorplans/13E-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="375000" data-size="72.22" data-ppm="5192" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/24E-640.webp">
+            <th scope="row"><span class="u-name">24E</span><span class="u-loc">Appartement · Blok 2, eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">72 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 375.000</td>
+            <td data-label="Per m²" class="num">€ 5.192</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/24E.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 24E"><img src="assets/liora/projects/estepona-links-residences/floorplans/24E-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u4" data-beds="2" data-price="385000" data-size="79.04" data-ppm="4871" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/22B-640.webp">
+            <th scope="row"><span class="u-name">22B</span><span class="u-loc">Appartement · Blok 2, tweede verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">79 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 385.000</td>
+            <td data-label="Per m²" class="num">€ 4.871</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/22B.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 22B"><img src="assets/liora/projects/estepona-links-residences/floorplans/22B-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="395000" data-size="79.04" data-ppm="4997" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/21B-640.webp">
+            <th scope="row"><span class="u-name">21B</span><span class="u-loc">Appartement · Blok 2, eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">79 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 395.000</td>
+            <td data-label="Per m²" class="num">€ 4.997</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/21B.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 21B"><img src="assets/liora/projects/estepona-links-residences/floorplans/21B-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u6" data-beds="2" data-price="410000" data-size="79.11" data-ppm="5183" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/14G-640.webp">
+            <th scope="row"><span class="u-name">14G</span><span class="u-loc">Appartement · Blok 1, eerste verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">79 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 410.000</td>
+            <td data-label="Per m²" class="num">€ 5.183</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/14G.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 14G"><img src="assets/liora/projects/estepona-links-residences/floorplans/14G-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u7" data-beds="3" data-price="460000" data-size="111.48" data-ppm="4126" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/20D-640.webp">
+            <th scope="row"><span class="u-name">20D</span><span class="u-loc">Appartement · Blok 2, begane grond</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">111 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 460.000</td>
+            <td data-label="Per m²" class="num">€ 4.126</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/20D.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 20D"><img src="assets/liora/projects/estepona-links-residences/floorplans/20D-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u8" data-beds="2" data-price="465000" data-size="79.64" data-ppm="5839" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/25B-640.webp">
+            <th scope="row"><span class="u-name">25B</span><span class="u-loc">Appartement · Blok 2, vijfde verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">80 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 465.000</td>
+            <td data-label="Per m²" class="num">€ 5.839</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/25B.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 25B"><img src="assets/liora/projects/estepona-links-residences/floorplans/25B-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+          <tr data-id="u9" data-beds="2" data-price="495000" data-size="79.66" data-ppm="6214" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/estepona-links-residences/floorplans/13C-640.webp">
+            <th scope="row"><span class="u-name">13C</span><span class="u-loc">Appartement · Blok 1, derde verdieping</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">80 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 495.000</td>
+            <td data-label="Per m²" class="num">€ 6.214</td>
+            <td class="u-plan"><a href="assets/liora/projects/estepona-links-residences/floorplans/13C.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 13C"><img src="assets/liora/projects/estepona-links-residences/floorplans/13C-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plattegrond</span></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Een, twee en drie slaapkamers</span></summary><p>De tien woningen met een prijs zijn appartementen in twee blokken. De tabel hieronder toont elk met prijs en plattegrond, en de lijst geeft elke woning een parkeerplaats en een berging.</p><div class="res-types"><div class="res-type"><h3>Acht appartementen met twee slaapkamers</h3><ul><li>Prijzen van € 355.000 voor 23H tot € 495.000 voor 13C, in blok 1 en 2, op verdiepingen van de begane grond tot de vijfde.</li><li>Bebouwde oppervlakten van 66,13 tot 79,66 m², met terrassen van 18,79 tot 105,50 m² volgens de lijst.</li><li>13E en 23H op de begane grond hebben bovendien tuinen van 28,98 en 31,21 m².</li><li>Op de plattegronden heeft elk twee slaapkamers, twee badkamers en een open woon-, eet- en keukenruimte.</li></ul></div><div class="res-type"><h3>Eén appartement met een slaapkamer</h3><ul><li>15G, in blok 1, staat op de tweede verdieping voor € 320.000.</li><li>Ze heeft 51,14 m² bebouwd en een open terras van 13,94 m²; haar plattegrond toont een slaapkamer en een badkamer.</li></ul></div><div class="res-type"><h3>Eén appartement met drie slaapkamers</h3><ul><li>20D, op de begane grond van blok 2, staat voor € 460.000 op de lijst.</li><li>Ze heeft 111,48 m² bebouwd, een overdekt terras van 35,07 m² en een tuin van 35,67 m²; haar plattegrond toont drie slaapkamers en twee badkamers.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><table class="sched num"><caption>Betalingsschema voor deze woning</caption><tbody id="v2-p-sched"></tbody></table>
+      <p class="caption">Dit is het eigen schema van de ontwikkelaar, uit zijn betalingsvoorwaarden. Het zegt niet hoe de vooruitbetalingen zijn gewaarborgd; Nueva Living vraagt dat op en bevestigt het hele schema in de reserveringsovereenkomst voordat u zich verbindt.</p>
+      
+      <ol class="ct-strip" aria-label="Bouwmijlpalen"><li class="is-mile"><b>Bouwvergunning</b><span>Koopovereenkomst</span></li><li class="is-mile"><b>Oplevering</b><span>Akte en sleutels</span></li></ol>
+      <p class="ct-note">De ontwikkelaar geeft geen datum voor de vergunning, de start van de werken of de oplevering. Zijn schema koppelt het privécontract aan het verkrijgen van de bouwvergunning en de akte aan de voltooiing en de sleuteloverdracht. Nueva Living vraagt de data schriftelijk op en laat ze in het contract opnemen.</p></div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -1223,436 +640,223 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk buitenzwembad</h3>
-              <p class="amenity-note">In de open lucht</p>
+  
+  <section class="sec" id="specs" aria-labelledby="v2-h-specs">
+    <h2 id="v2-h-specs">Afwerking</h2>
+    <p class="sec-sub">De technische omschrijving van de ontwikkelaar zelf, samengevat per onderdeel van de woning.</p>
+    <div class="tabs" role="tablist" aria-label="Afwerking"><button role="tab" type="button" aria-selected="true" data-tab="v2-spec-0">Vloeren en wanden</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-1">Keuken</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-2">Badkamers</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-3">Deuren, ramen en kasten</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-4">Klimaat en energie</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-5">Technologie en veiligheid</button><button role="tab" type="button" aria-selected="false" data-tab="v2-spec-6">Gemeenschappelijke ruimtes</button></div>
+    <div class="tabpanel spec" id="v2-spec-0" role="tabpanel">
+      <ul><li>Hoogwaardige keramische vloeren van 60 x 60 cm in de hele woning en keramische wandtegels van 30 x 90 cm in de douchezone en op de wand achter de wastafel.</li><li>Antislip, vorstbestendige keramische buitentegels op de terrassen en patio’s en antislipbestrating in de gemeenschappelijke ruimtes.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-1" role="tabpanel" hidden>
+      <ul><li>Volledig ingericht, met hoge en lage kasten van hogedruklaminaat, een werkblad in Silestone-stijl en een bijpassend gepaneelde koelkast.</li><li>Keramische kookplaat, combi-oven met magnetron, afzuigkap, koelkast, vaatwasser en wasmachine, van Bosch of gelijkwaardig.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-2" role="tabpanel" hidden>
+      <ul><li>Wit verglaasd porseleinen sanitair, douchebakken van kunsthars in de hoofd- en de tweede badkamer en een douchekolom met eengreepsmengkraan, van Grohe of gelijkwaardig.</li><li>In de hoofdbadkamer een wastafelmeubel en een douchescherm.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-3" role="tabpanel" hidden>
+      <ul><li>Wit gelakte houten binnendeuren met verchroomde grepen of schuifsystemen en inbouwkasten met tussenplank, kledingroede en deuren die bij de binnendeuren passen.</li><li>Kozijnen van pvc of aluminium met dubbele beglazing van het type Climalit, gelaagd veiligheidsglas in de terrasdeuren en geïsoleerde aluminium rolluiken in de slaapkamers.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-4" role="tabpanel" hidden>
+      <ul><li>Warm water via een aerothermisch systeem en zonnepanelen op de daken, zoals de Spaanse bouwcode voorschrijft.</li><li>Kanaalairconditioning voor warm en koud in de woonkamer en slaapkamers, met alleen luchttoevoer in de keuken, en individuele mechanische ventilatie in de badkamers en de keuken.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-5" role="tabpanel" hidden>
+      <ul><li>Tv- en ethernetaansluitingen volgens de ICT-2-norm in de woonkamer, de keuken en de slaapkamers, buitenverlichting en een watertap op de terrassen en een voorbereid laadpunt voor elektrische voertuigen.</li><li>Een gepantserde voordeur met kijkgat en veiligheidsslot, inbraakwerend glas in het buitenschrijnwerk op de begane grond en een mastersleutelsysteem voor het complex, het gebouw, de appartementen en de garage.</li></ul>
+      
+    </div><div class="tabpanel spec" id="v2-spec-6" role="tabpanel" hidden>
+      <ul><li>Een zoutwaterzwembad voor volwassenen buiten en op het dak, een verwarmd binnenzwembad met sauna, een volledig uitgeruste sportzaal en een sociale club.</li><li>Aangelegde gemeenschappelijke tuinen met verlichting en automatische bewatering, parkeren voor golfbuggy’s op baanniveau, liften met automatische deuren en toegankelijkheid voor mindervaliden, en bergingen met een lichtpunt.</li></ul>
+      
+    </div>
+    <p class="caption">Bron: de technische omschrijving van de ontwikkelaar, revisie 01, in de voettekst gedateerd 14 april 2026 en op de laatste pagina 13 april 2026. Daarin staat dat de projectleiding de specificaties mag wijzigen en onderdelen door vergelijkbare mag vervangen zonder de geplande kwaliteit te verlagen, en dat natuursteen en hout in tint, kleur en structuur variëren. Merken met “of gelijkwaardig” kunnen wijzigen.</p>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Twee terrasvormige blokken voor het grasveld"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-640.webp 640w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp 960w, assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg" alt="Computergegenereerd beeld van twee terrasvormige blokken, gezien over een grasveld onder een heldere hemel" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="9" aria-label="Woonkamer en keuken"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-640.webp 640w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-960.webp 960w, assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Computergegenereerd beeld van een open woonkamer en keuken met een glazen schuifdeur naar het terras" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Een terras op de begane grond"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-640.webp 640w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-960.webp 960w, assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.jpg" alt="Computergegenereerd beeld van een terras op de begane grond met zitmeubilair, een haag langs de rand en beboste heuvels erachter" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Een zwembadterras"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-640.webp 640w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-960.webp 960w, assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg" alt="Computergegenereerd beeld van een zwembadterras met ligbedden, schaduwdoeken en de kust aan de horizon" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="10" aria-label="Een hoofdslaapkamer"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/estepona-links-residences/media/main-bedroom-640.webp 640w, assets/liora/projects/estepona-links-residences/media/main-bedroom-960.webp 960w, assets/liora/projects/estepona-links-residences/media/main-bedroom.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/estepona-links-residences/media/main-bedroom.jpg" alt="Computergegenereerd beeld van een hoofdslaapkamer met een gestoffeerd hoofdbord en een glazen schuifdeur naar het terras" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 16 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (3)</button><button type="button" data-open-cat="Terraces">Terrassen (1)</button><button type="button" data-open-cat="Amenities">Voorzieningen (5)</button><button type="button" data-open-cat="Interiors">Interieur (1)</button><button type="button" data-open-cat="Bedrooms">Slaapkamers (2)</button><button type="button" data-open-cat="Bathrooms">Badkamers (1)</button><button type="button" data-open-cat="Location">Locatie (3)</button></div>
+    
+    <p class="caption">De beelden zijn computergegenereerde illustraties en geen foto’s van de afgewerkte gebouwen, behalve de drie foto’s van de omgeving. Het meubilair en de inrichting erop zijn illustratief en niet inbegrepen. De plattegronden zijn de verkoopplattegronden van de ontwikkelaar, bijgesneden tot de tekening: de namen van de ruimtes zijn Spaans en sommige oppervlaktes wijken af van de prijslijst, zoals de onderstaande opmerkingen uitleggen.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">Het dossier plaatst de ontwikkeling binnen Estepona Golf, in de gemeente Estepona. Het noemt Marbella op 25 minuten en de luchthaven van Málaga op minder dan een uur, en zegt dat Puerto Banús, Sotogrande en verschillende witte dorpen in het binnenland op enkele minuten liggen. Op de locatiekaart staan Finca Cortesín en de Valle Romano Golf Club, een nieuw ziekenhuis, een winkelgebied, de stranden van Bahía Dorada en La Rada, de haven, het stadscentrum en een kustpad, zonder afstanden. De documenten geven geen adres en geen coördinaten van het perceel, dus staat de markering op de kaart bij Estepona Golf en niet op het perceel.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-estepona-links-residences" data-locmap='{&quot;site&quot;:[36.41297,-5.21219],&quot;sea&quot;:[36.38597,-5.21219],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;8,3 km · 14 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;6,8 km · 11 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;2,9 km · 7 min&quot;},{&quot;ll&quot;:[36.39646,-5.22386],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Finca Cortesín&quot;,&quot;sub&quot;:&quot;7,9 km · 12 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Estepona Links Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Estepona Links Residences</h3>
+            <p class="locmap-place">Estepona Golf</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>2,9 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Verwarmd binnenzwembad</h3>
-              <p class="amenity-note">Warm water binnen</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>6,8 km</bdi> <em><bdi>11 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2c1.5 3 4.5 4.5 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8 9 6.5 9 4.5c1 .5 2.2 1.5 3 2.5 0-2 0-3.5 0-5Z"/><path d="M12 22a7 7 0 0 0 7-7"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Wellness</span>
-              <h3 class="amenity-name">Sauna</h3>
-              <p class="amenity-note">Ruimte met droge hitte</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,3 km</bdi> <em><bdi>14 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Wellness</span>
-              <h3 class="amenity-name">Volledig uitgeruste fitnessruimte</h3>
-              <p class="amenity-note">Cardio en gewichten</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>7,9 km</bdi> <em><bdi>12 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Buiten</span>
-              <h3 class="amenity-name">Aangelegde gemeenschappelijke tuinen</h3>
-              <p class="amenity-note">Beplante gemeenschappelijke grond</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>40 km</bdi> <em><bdi>44 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Buiten</span>
-              <h3 class="amenity-name">Golfzicht</h3>
-              <p class="amenity-note">Over de fairway</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v10H4z"/><path d="M2 19h20"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Sociale ruimte en coworking</h3>
-              <p class="amenity-note">Werkplekken buiten de woning</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Parkeerplaats en berging inbegrepen bij elke woning</h3>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Voorbereiding voor laadpunt</h3>
-              <p class="amenity-note">Een punt voor de auto</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Lift</h3>
-              <p class="amenity-note">Elke verdieping bereikbaar</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Warm water via warmtepomp</h3>
-              <p class="amenity-note">Warm water uit de lucht</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Zonnepanelen</h3>
-              <p class="amenity-note">Stroom van het dak</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">13 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Airconditioning</h3>
-              <p class="amenity-note">Koelen en verwarmen via kanalen</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">14 &middot; Diensten</span>
-              <h3 class="amenity-name">Besloten complex</h3>
-              <p class="amenity-note">Gecontroleerde toegang</p>
-            </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Marbella</th><td>25 minuten, volgens de ontwikkelaar</td></tr><tr><th scope="row">Luchthaven Málaga</th><td>Minder dan een uur, volgens de ontwikkelaar</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">Het dossier en de technische omschrijving beschrijven de gemeenschappelijke ruimtes zonder afmetingen, dus bevestigen wij wat gebouwd en geopend is vóór elke reservering.</p>
+    <div class="life-panels"><div><h3>Zwembaden</h3><p>Het dossier noemt een buitenzwembad, een solariumzwembad met een verhoogd uitzicht over de omgeving en een verwarmd zwembad voor het hele jaar. De technische omschrijving noemt een zoutwaterzwembad voor volwassenen buiten en op het dak en een verwarmd binnenzwembad met sauna.</p></div><div><h3>Sportzaal en sociale club</h3><p>Een volledig uitgeruste sportzaal en een sociale club met een coworkingruimte, die het dossier beschrijft als een ontmoetingspunt om af te spreken, te werken of even pauze te nemen.</p></div><div><h3>Tuinen</h3><p>Aangelegde gemeenschappelijke tuinen met paden en buitenruimtes, volgens de technische omschrijving verlicht en automatisch bewaterd.</p></div><div><h3>Golf</h3><p>Volgens het dossier heeft Estepona Golf 18 holes tussen inheemse begroeiing en glooiende heuvels, met uitzicht op de Middellandse Zee, en een clubhuis met restaurant en terras. De ontwikkeling heeft plaatsen voor golfbuggy’s op baanniveau. Geen enkel document zegt of golf is inbegrepen, dus we vragen het na.</p></div></div>
+    <ul class="amen-top"><li>Gemeenschappelijk buitenzwembad</li><li>Verwarmd binnenzwembad</li><li>Sauna</li><li>Volledig uitgeruste fitnessruimte</li><li>Sociale ruimte en coworking</li><li>Aangelegde gemeenschappelijke tuinen</li></ul>
+    <details class="amen-all"><summary>Alle 14 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">4</span></h3><ul><li>Gemeenschappelijk buitenzwembad</li><li>Verwarmd binnenzwembad</li><li>Sauna</li><li>Volledig uitgeruste fitnessruimte</li></ul></div><div><h3>Buiten<span class="count">2</span></h3><ul><li>Aangelegde gemeenschappelijke tuinen</li><li>Golfzicht</li></ul></div><div><h3>Dagelijks<span class="count">7</span></h3><ul><li>Sociale ruimte en coworking</li><li>Parkeerplaats en berging inbegrepen bij elke woning</li><li>Voorbereiding voor laadpunt</li><li>Lift</li><li>Warm water via warmtepomp</li><li>Zonnepanelen</li><li>Airconditioning</li></ul></div><div><h3>Diensten<span class="count">1</span></h3><ul><li>Besloten complex</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een nieuw appartement met een, twee of drie slaapkamers zoeken in Estepona Golf, met terras, parkeerplaats en berging, om er te wonen of als tweede woning.</span></li><li><b>Wat het anders maakt</b><span>Drie zwembaden, een sportzaal en een sociale club met coworkingruimte, plus plaatsen voor golfbuggy’s op baanniveau, behoren tot de gemeenschappelijke ruimtes die de ontwikkelaar noemt.</span></li><li><b>Waarom de locatie ertoe doet</b><span>Het complex ligt binnen Estepona Golf, een baan van 18 holes met een restaurant in het clubhuis. Het dossier plaatst Marbella op 25 minuten en de luchthaven van Málaga op minder dan een uur.</span></li><li><b>Waarom beschikbaarheid checken</b><span>25 van de 35 woningen op de prijslijst zijn als gereserveerd gemarkeerd en tien hebben een prijs. De documenten geven geen opleveringsdatum; die bevestigen wij vóór elke reservering.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Beschikbaarheid</b><span>25 van de 35 woningen op de lijst zijn als gereserveerd aangemerkt. Tien hebben een prijs, van € 320.000 tot € 495.000 excl. btw, en de overige 76 van de 111 woningen staan niet op de lijst.</span></li><li><b>Belasting</b><span>De lijst vermeldt dat de btw niet is inbegrepen. Met 10 procent btw en 1,20 procent overdrachtsbelasting komt de goedkoopste woning op de lijst op ongeveer € 356.000 en de duurste op ongeveer € 550.000, vóór notaris- en kadasterkosten.</span></li><li><b>Betalingsvoorwaarden</b><span>€ 12.000 excl. btw bij reservering, daarna 20 procent excl. btw, min de reservering, bij het verkrijgen van de bouwvergunning, 10 procent zes maanden en 10 procent twaalf maanden na dat contract, en 60 procent bij oplevering. De twee middelste termijnen lopen vanaf het contract, niet vanaf de bouw.</span></li><li><b>Vergunning en oplevering</b><span>Het schema maakt het privécontract afhankelijk van het verkrijgen van de bouwvergunning. Geen enkel document zegt of die is verleend, wanneer de werkzaamheden beginnen of wanneer de woningen worden opgeleverd, dus vragen we alle drie schriftelijk op.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De opleveringsdatum</b><span>Geen van de documenten die wij hebben geeft een opleveringsdatum, een start van de werken of de status van de vergunning; deze pagina zegt daarom alleen dat de oplevering nog bevestigd moet worden. We vragen de contractuele datum en de status van de vergunning op vóór elke reservering.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De documenten</b><span>De prijslijst is gedateerd 3 november 2026 en de betalingsvoorwaarden dragen geen datum. De plattegrondbladen zijn gedateerd 16 maart 2026, hoewel hun map 13 oktober 2026 heet, en het commerciële dossier heeft 260618 in de bestandsnaam. We gebruiken de prijslijst voor prijzen en beschikbaarheid en de andere documenten om het project te beschrijven.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De oppervlakten</b><span>De lijst en de plattegronden wijken op een paar cijfers af. 14G heeft op de lijst 79,11 m² bebouwd en op zijn plattegrond 78,11, en 15G 51,14 en 51,17. Bij 13C, 13E, 15G en 24E zijn de terrassen en tuinen op de lijst groter dan de bruikbare buitenoppervlakken op de plattegrond: 105,50 tegenover 99,12 m², 19,65 en 28,98 tegenover 18,88 en 23,43, 13,94 tegenover 12,50 en 19,43 tegenover 17,62. De tabel volgt de lijst, en we bevestigen welke cijfers het contract gebruikt.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De verdiepingen</b><span>De lijst geeft elke woning een verdieping van 0 tot 5 en de plattegrondbladen een niveau van P00 tot P05. Ze komen overeen voor 13C, 20D, 21B, 22B en 25B. Voor 13E, 14G, 15G, 23H en 24E noemen de plattegronden de niveaus 3, 4, 5, 3 en 4 waar de lijst de verdiepingen 0, 1, 2, 0 en 1 noemt. De tabel volgt de lijst, en we bevestigen de verdieping van elke woning ter plaatse.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De beelden</b><span>De beelden zijn computergegenereerd, behalve de drie foto’s van de omgeving. Meubilair en decoratie zijn niet inbegrepen, en het dossier zegt dat de beelden van een eerste ontwerp komen en tijdens de bouw kunnen veranderen.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>De kaart</b><span>De documenten geven geen adres of coördinaten, dus staat de markering op de kaart bij Estepona Golf en niet op het perceel, en de wegafstanden naast de kaart worden vanaf die markering gemeten. Het dossier geeft twee reistijden zonder te zeggen hoe ze worden afgelegd. We bevestigen de afstanden bij een bezoek.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag het projectdossier aan</h3><p>De plattegronden van de woningen die u interesseren, de kwaliteitsspecificatie en de prijslijst.</p></li><li><h3>Vergelijk de opties</h3><p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p></li><li><h3>Privébezichtiging</h3><p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p></li><li><h3>Reserveren</h3><p>We bevestigen het reserveringsbedrag en het betalingsschema schriftelijk, daarna volgt de koopovereenkomst.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plattegronden<small>10 van 10 woningen</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Betalingsschema</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Technische omschrijving</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Estepona Links</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn beschikbaar?</summary><p>Tien van de 35 op de prijslijst van 3 november 2026: een appartement met een slaapkamer, acht met twee en een met drie, van € 320.000 tot € 495.000 excl. btw. De overige 25 zijn als gereserveerd aangemerkt. De ontwikkeling telt in totaal 111 woningen.</p></details><details class="segment-faq-item"><summary>Is btw inbegrepen?</summary><p>Nee. De lijst zegt dat de btw niet is inbegrepen. De btw op een nieuwbouwwoning is 10 procent en de overdrachtsbelasting in Andalusië 1,20 procent. We bevestigen de belastingen en de aankoopkosten schriftelijk.</p></details><details class="segment-faq-item"><summary>Is er parkeergelegenheid en een berging?</summary><p>De lijst geeft elke woning een parkeerplaats en een berging. De technische omschrijving voegt een gemotoriseerde garagedeur, een voorbereid laadpunt voor elektrische voertuigen en parkeren voor golfbuggy’s op baanniveau toe.</p></details><details class="segment-faq-item"><summary>Is meubilair inbegrepen?</summary><p>Nee. Het meubilair en de inrichting op de beelden zijn niet inbegrepen. De keukens worden opgeleverd met de apparatuur uit de kwaliteitsomschrijving.</p></details><details class="segment-faq-item"><summary>Wat is het betalingsschema?</summary><p>€ 12.000 excl. btw bij reservering, 20 procent excl. btw, min de reservering, bij het verkrijgen van de bouwvergunning, 10 procent zes maanden en 10 procent twaalf maanden na het privécontract, en 60 procent bij oplevering. We bevestigen het schema schriftelijk.</p></details></div>
+    <details class="faq2-more"><summary>Alle vragen tonen (7)</summary><div class="faq2"><details class="segment-faq-item"><summary>Wanneer is het klaar?</summary><p>Geen van de documenten van de ontwikkelaar geeft een opleverdatum. We vragen naar de contractuele datum, de status van de vergunning en de stand van de werken.</p></details><details class="segment-faq-item"><summary>Is golf inbegrepen?</summary><p>De ontwikkeling ligt binnen Estepona Golf, een baan met 18 holes, en heeft parkeren voor golfbuggy’s op baanniveau. Geen enkel document zegt of lidmaatschap of greenfees zijn inbegrepen, dus we vragen het na.</p></details></div></details>
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 320.000</p>
+      <p class="rail-note">Excl. btw. Nog 10 van 111 woningen · Gecontroleerd op 3 november 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Ter plaatse.</b> Bezoek met ons het terrein en de omgeving.</li><li><b>Op papier.</b> Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</li><li><b>Op de plattegronden.</b> We lopen met u door de woning die u kiest, kamer voor kamer, aan de hand van de plattegrond.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Links Residences">
+        <input type="hidden" id="f-project" name="project" value="Estepona Links Residences">
+        <input type="hidden" name="preferred_area" value="Estepona Golf, Estepona">
+        <input type="hidden" name="property_type_interest" value="Appartementen">
+        <input type="hidden" name="budget_range" value="Vanaf € 320.000 + btw">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Hallo Nueva Living, ik ontvang graag informatie over Estepona Links Residences." data-base="Hallo Nueva Living, ik ontvang graag informatie over Estepona Links Residences.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="15G">15G: € 320.000</option><option value="23H">23H: € 355.000</option><option value="13E">13E: € 370.000</option><option value="24E">24E: € 375.000</option><option value="22B">22B: € 385.000</option><option value="21B">21B: € 395.000</option><option value="14G">14G: € 410.000</option><option value="20D">20D: € 460.000</option><option value="25B">25B: € 465.000</option><option value="13C">13C: € 495.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Estepona Links veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Appartementen met terras binnen een golfresort, met drie zwembaden, een sportzaal en een sociale club voor de bewoners.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een nieuw appartement met een, twee of drie slaapkamers zoeken in Estepona Golf, met terras, parkeerplaats en berging, om er te wonen of als tweede woning.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>Drie zwembaden, een sportzaal en een sociale club met coworkingruimte, plus plaatsen voor golfbuggy’s op baanniveau, behoren tot de gemeenschappelijke ruimtes die de ontwikkelaar noemt.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>Het complex ligt binnen Estepona Golf, een baan van 18 holes met een restaurant in het clubhuis. Het dossier plaatst Marbella op 25 minuten en de luchthaven van Málaga op minder dan een uur.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom beschikbaarheid checken</h3><p>25 van de 35 woningen op de prijslijst zijn als gereserveerd gemarkeerd en tien hebben een prijs. De documenten geven geen opleveringsdatum; die bevestigen wij vóór elke reservering.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Een feitelijke noot over wat de documenten wel en niet zeggen; Nueva Living belooft geen huurrendement of waardestijging.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Beschikbaarheid</h3><p>25 van de 35 woningen op de lijst zijn als gereserveerd aangemerkt. Tien hebben een prijs, van € 320.000 tot € 495.000 excl. btw, en de overige 76 van de 111 woningen staan niet op de lijst.</p></article>
-              <article class="why-point reveal-soft"><h3>Belasting</h3><p>De lijst vermeldt dat de btw niet is inbegrepen. Met 10 procent btw en 1,20 procent overdrachtsbelasting komt de goedkoopste woning op de lijst op ongeveer € 356.000 en de duurste op ongeveer € 550.000, vóór notaris- en kadasterkosten.</p></article>
-              <article class="why-point reveal-soft"><h3>Betalingsvoorwaarden</h3><p>€ 12.000 excl. btw bij reservering, daarna 20 procent excl. btw, min de reservering, bij het verkrijgen van de bouwvergunning, 10 procent zes maanden en 10 procent twaalf maanden na dat contract, en 60 procent bij oplevering. De twee middelste termijnen lopen vanaf het contract, niet vanaf de bouw.</p></article>
-              <article class="why-point reveal-soft"><h3>Vergunning en oplevering</h3><p>Het schema maakt het privécontract afhankelijk van het verkrijgen van de bouwvergunning. Geen enkel document zegt of die is verleend, wanneer de werkzaamheden beginnen of wanneer de woningen worden opgeleverd, dus vragen we alle drie schriftelijk op.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>De opleveringsdatum</h3><p>Geen van de documenten die wij hebben geeft een opleveringsdatum, een start van de werken of de status van de vergunning; deze pagina zegt daarom alleen dat de oplevering nog bevestigd moet worden. We vragen de contractuele datum en de status van de vergunning op vóór elke reservering.</p></article>
-              <article class="why-point reveal-soft"><h3>De documenten</h3><p>De prijslijst is gedateerd 3 november 2026 en de betalingsvoorwaarden dragen geen datum. De plattegrondbladen zijn gedateerd 16 maart 2026, hoewel hun map 13 oktober 2026 heet, en het commerciële dossier heeft 260618 in de bestandsnaam. We gebruiken de prijslijst voor prijzen en beschikbaarheid en de andere documenten om het project te beschrijven.</p></article>
-              <article class="why-point reveal-soft"><h3>De oppervlakten</h3><p>De lijst en de plattegronden wijken op een paar cijfers af. 14G heeft op de lijst 79,11 m² bebouwd en op zijn plattegrond 78,11, en 15G 51,14 en 51,17. Bij 13C, 13E, 15G en 24E zijn de terrassen en tuinen op de lijst groter dan de bruikbare buitenoppervlakken op de plattegrond: 105,50 tegenover 99,12 m², 19,65 en 28,98 tegenover 18,88 en 23,43, 13,94 tegenover 12,50 en 19,43 tegenover 17,62. De tabel volgt de lijst, en we bevestigen welke cijfers het contract gebruikt.</p></article>
-              <article class="why-point reveal-soft"><h3>De verdiepingen</h3><p>De lijst geeft elke woning een verdieping van 0 tot 5 en de plattegrondbladen een niveau van P00 tot P05. Ze komen overeen voor 13C, 20D, 21B, 22B en 25B. Voor 13E, 14G, 15G, 23H en 24E noemen de plattegronden de niveaus 3, 4, 5, 3 en 4 waar de lijst de verdiepingen 0, 1, 2, 0 en 1 noemt. De tabel volgt de lijst, en we bevestigen de verdieping van elke woning ter plaatse.</p></article>
-              <article class="why-point reveal-soft"><h3>De beelden</h3><p>De beelden zijn computergegenereerd, behalve de drie foto’s van de omgeving. Meubilair en decoratie zijn niet inbegrepen, en het dossier zegt dat de beelden van een eerste ontwerp komen en tijdens de bouw kunnen veranderen.</p></article>
-              <article class="why-point reveal-soft"><h3>De kaart</h3><p>De documenten geven geen adres of coördinaten, dus staat de markering op de kaart bij Estepona Golf en niet op het perceel, en de wegafstanden naast de kaart worden vanaf die markering gemeten. Het dossier geeft twee reistijden zonder te zeggen hoe ze worden afgelegd. We bevestigen de afstanden bij een bezoek.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op 3 november 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>Prijzen, slaapkamers en oppervlakten zijn overgenomen uit de prijslijst van de ontwikkelaar van 3 november 2026, die 35 rijen heeft in blok 1 en 2: 10 met een prijs en 25 als gereserveerd aangemerkt. De lijst zegt dat de btw niet is inbegrepen en dat elke woning een parkeerplaats en een berging heeft. De bebouwde oppervlakte is de bebouwde binnenoppervlakte van de lijst, dat is de bebouwde oppervlakte op elke plattegrond; de bruikbare binnenoppervlakte op de plattegrond is kleiner, 68,14 tegenover 79,66 m² bij 13C. Het terras is de som van de overdekte en open terrassen van de lijst. De prijzen zijn exclusief belasting. De btw bedraagt 10 procent en de overdrachtsbelasting 1,20 procent, zodat het appartement van € 320.000 ongeveer € 356.000 kost en dat van € 495.000 ongeveer € 550.000, vóór notaris- en kadasterkosten.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk.jpg" alt="Computergegenereerd beeld van de terrasvormige blokken in de schemering, met verlichte balkons, palmbomen en een grasveld ervoor" width="2000" height="1399" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Architectuur voorbeeld</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Eigentijds ontwerp, <em>aan de golfbaan</em></h2>
-          <p>Het dossier beschrijft eigentijdse architectuur geïnspireerd op de Middellandse Zee, met open uitzichten over de golfbaan. In de computergegenereerde beelden van de ontwikkelaar zijn de blokken lang en laag, met diepe balkons, glazen balustrades en een grasveld langs de voorzijde.</p>
-<p>Op de plattegronden van de tien vermelde woningen vormen woon-, eet- en kookruimte één open ruimte met toegang tot een terras, met een hoofdslaapkamer en een tweede slaapkamer, elk met een badkamer, en een derde slaapkamer in de woning met drie. Het dossier zegt dat de terrassen op het zuidoosten en het oosten liggen.</p>
-          <ul class="feature-list">
-            <li>Structuur — Gewapend-betonnen funderingen volgens het geotechnisch onderzoek van het terrein en een gewapend-betonnen vloerconstructie op elke verdieping.</li>
-            <li>Gevel — Een spouwmuur van geperforeerde baksteen met buitenpleister, gespoten polyurethaanisolatie, een luchtspouw en een binnenbekleding met minerale wol.</li>
-            <li>Beglazing — Kozijnen van pvc of aluminium met dubbele beglazing, gelaagd veiligheidsglas in de terrasdeuren en geïsoleerde aluminium rolluiken in de slaapkamers.</li>
-            <li>Beveiliging — Een gepantserde voordeur, een video-intercom bij de hoofdingang en bij het gebouw, een mastersleutelsysteem en een afgesloten complex met privétoegang.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg" alt="Computergegenereerd beeld van een open woonkamer en keuken met een glazen schuifdeur naar het terras" width="2000" height="807" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>de omgeving en de plattegronden</em></h2>
-            <p>Bij een bezoek gaat het om de ligging, de plattegronden en de stand van de werken.</p>
-            <div class="viewing-insights">
-              <div><span>Ter plaatse</span><p>Bezoek met ons het terrein en de omgeving.</p></div>
-              <div><span>Op papier</span><p>Vergunning, opleverdatum en contract, voordat er iets wordt getekend.</p></div>
-              <div><span>Op de plattegronden</span><p>We lopen met u door de woning die u kiest, kamer voor kamer, aan de hand van de plattegrond.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=estepona-links-residences">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-estepona-links-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Terraces">Terrassen</button><button type="button" data-cat="Amenities">Voorzieningen</button><button type="button" data-cat="Interiors">Interieur</button><button type="button" data-cat="Bedrooms">Slaapkamers</button><button type="button" data-cat="Bathrooms">Badkamers</button><button type="button" data-cat="Location">Locatie</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg" alt="Computergegenereerd beeld van een zwembadterras met ligbedden, schaduwdoeken en de kust aan de horizon" width="2000" height="1545" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Drie zwembaden, een sportzaal <em>en de baan</em></h2>
-            <p>Het dossier en de technische omschrijving beschrijven de gemeenschappelijke ruimtes zonder afmetingen, dus bevestigen wij wat gebouwd en geopend is vóór elke reservering.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag het projectdossier aan</h3>
-            <p>De plattegronden van de woningen die u interesseren, de kwaliteitsspecificatie en de prijslijst.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de opties</h3>
-            <p>Bekijk dit project naast de andere projecten in Estepona uit ons aanbod.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bekijk de omgeving met ons en leg de plattegronden naast de stand van de werken.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Reserveren</h3>
-            <p>We bevestigen het reserveringsbedrag en het betalingsschema schriftelijk, daarna volgt de koopovereenkomst.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn beschikbaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Tien van de 35 op de prijslijst van 3 november 2026: een appartement met een slaapkamer, acht met twee en een met drie, van € 320.000 tot € 495.000 excl. btw. De overige 25 zijn als gereserveerd aangemerkt. De ontwikkeling telt in totaal 111 woningen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is btw inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. De lijst zegt dat de btw niet is inbegrepen. De btw op een nieuwbouwwoning is 10 procent en de overdrachtsbelasting in Andalusië 1,20 procent. We bevestigen de belastingen en de aankoopkosten schriftelijk.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is er parkeergelegenheid en een berging?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De lijst geeft elke woning een parkeerplaats en een berging. De technische omschrijving voegt een gemotoriseerde garagedeur, een voorbereid laadpunt voor elektrische voertuigen en parkeren voor golfbuggy’s op baanniveau toe.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is meubilair inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. Het meubilair en de inrichting op de beelden zijn niet inbegrepen. De keukens worden opgeleverd met de apparatuur uit de kwaliteitsomschrijving.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het betalingsschema?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>€ 12.000 excl. btw bij reservering, 20 procent excl. btw, min de reservering, bij het verkrijgen van de bouwvergunning, 10 procent zes maanden en 10 procent twaalf maanden na het privécontract, en 60 procent bij oplevering. We bevestigen het schema schriftelijk.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is het klaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Geen van de documenten van de ontwikkelaar geeft een opleverdatum. We vragen naar de contractuele datum, de status van de vergunning en de stand van de werken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is golf inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De ontwikkeling ligt binnen Estepona Golf, een baan met 18 holes, en heeft parkeren voor golfbuggy’s op baanniveau. Geen enkel document zegt of lidmaatschap of greenfees zijn inbegrepen, dus we vragen het na.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Informeer naar <em>Estepona Links Residences</em></h2>
-          <p class="body-copy">Vertel ons wat u nodig heeft en we komen bij u terug met de actuele beschikbaarheid, de plattegronden en de prijslijst.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Estepona Links Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Estepona Links Residences">
-          <input type="hidden" name="preferred_area" value="Estepona Golf, Estepona">
-          <input type="hidden" name="property_type_interest" value="Appartementen">
-          <input type="hidden" name="budget_range" value="Vanaf € 320.000 + btw">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Hallo Nueva Living, ik ontvang graag informatie over Estepona Links Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Wij reageren persoonlijk, meestal dezelfde dag.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"15G","title":"15G · Appartement · Blok 1, tweede verdieping","sub":"1 slk. · 51 m²","price":320000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/15G.jpg","label":""}]},{"id":"u1","ref":"23H","title":"23H · Appartement · Blok 2, begane grond","sub":"2 slk. · 66 m²","price":355000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/23H.jpg","label":""}]},{"id":"u2","ref":"13E","title":"13E · Appartement · Blok 1, begane grond","sub":"2 slk. · 72 m²","price":370000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/13E.jpg","label":""}]},{"id":"u3","ref":"24E","title":"24E · Appartement · Blok 2, eerste verdieping","sub":"2 slk. · 72 m²","price":375000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/24E.jpg","label":""}]},{"id":"u4","ref":"22B","title":"22B · Appartement · Blok 2, tweede verdieping","sub":"2 slk. · 79 m²","price":385000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/22B.jpg","label":""}]},{"id":"u5","ref":"21B","title":"21B · Appartement · Blok 2, eerste verdieping","sub":"2 slk. · 79 m²","price":395000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/21B.jpg","label":""}]},{"id":"u6","ref":"14G","title":"14G · Appartement · Blok 1, eerste verdieping","sub":"2 slk. · 79 m²","price":410000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/14G.jpg","label":""}]},{"id":"u7","ref":"20D","title":"20D · Appartement · Blok 2, begane grond","sub":"3 slk. · 111 m²","price":460000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/20D.jpg","label":""}]},{"id":"u8","ref":"25B","title":"25B · Appartement · Blok 2, vijfde verdieping","sub":"2 slk. · 80 m²","price":465000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/25B.jpg","label":""}]},{"id":"u9","ref":"13C","title":"13C · Appartement · Blok 1, derde verdieping","sub":"2 slk. · 80 m²","price":495000,"plans":[{"src":"assets/liora/projects/estepona-links-residences/floorplans/13C.jpg","label":""}]}],"stages":[{"label":"Reservering","when":"€ 13.200 incl. btw","amountLabel":"€ 12.000","fixed":12000},{"label":"Bij Privécontract","when":"Bij het verkrijgen van de bouwvergunning, min de reservering, min de reservering","amountLabel":"20%","pct":0.2,"less":12000},{"label":"Na 6 maanden","when":"Gerekend vanaf het onderhandse contract, niet vanaf een bouwfase","amountLabel":"10%","pct":0.1},{"label":"Na 12 maanden","when":"Gerekend vanaf het onderhandse contract, niet vanaf een bouwfase","amountLabel":"10%","pct":0.1},{"label":"Bij Oplevering","when":"Te betalen bij oplevering en sleuteloverdracht","amountLabel":"60%","pct":0.6}],"stageLabels":null,"gallery":[{"src":"assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.webp","alt":"Computergegenereerd beeld van twee terrasvormige blokken, gezien over een grasveld onder een heldere hemel","caption":"Twee terrasvormige blokken voor het grasveld","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-links-residences/media/blocks-at-dusk-above-the-lawn.webp","alt":"Computergegenereerd beeld van de lange terrasvormige blokken in de schemering, met palmbomen en een laag hek langs het grasveld","caption":"De blokken in de schemering","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk.webp","alt":"Computergegenereerd beeld van de terrasvormige blokken in de schemering, met verlichte balkons, palmbomen en een grasveld ervoor","caption":"De verlichte terrassen in de schemering","cat":"Exteriors"},{"src":"assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.webp","alt":"Computergegenereerd beeld van een terras op de begane grond met zitmeubilair, een haag langs de rand en beboste heuvels erachter","caption":"Een terras op de begane grond","cat":"Terraces"},{"src":"assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.webp","alt":"Computergegenereerd beeld van een zwembadterras met ligbedden, schaduwdoeken en de kust aan de horizon","caption":"Een zwembadterras","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/daybed-under-a-canopy-by-the-pool.webp","alt":"Computergegenereerd beeld van een ligbed onder een luifel naast een zwembad, met een hekwerk en beboste heuvels erachter","caption":"Een ligbed bij het zwembad","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/heated-indoor-pool.webp","alt":"Computergegenereerd beeld van een binnenzwembad met ligbedden, een wand van houten latten en een glazen wand die uitkomt op een terras","caption":"Het verwarmde binnenzwembad","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/gym.webp","alt":"Computergegenereerd beeld van een sportzaal met cardiotoestellen, een gewichtenrek en een wandrek, onder een verlicht plafond","caption":"De sportzaal","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/social-club-lounge.webp","alt":"Computergegenereerd beeld van een lounge met banken, een televisie en een bar met krukken","caption":"De sociale club","cat":"Amenities"},{"src":"assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.webp","alt":"Computergegenereerd beeld van een open woonkamer en keuken met een glazen schuifdeur naar het terras","caption":"Woonkamer en keuken","cat":"Interiors"},{"src":"assets/liora/projects/estepona-links-residences/media/main-bedroom.webp","alt":"Computergegenereerd beeld van een hoofdslaapkamer met een gestoffeerd hoofdbord en een glazen schuifdeur naar het terras","caption":"Een hoofdslaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-links-residences/media/second-bedroom-with-desk.webp","alt":"Computergegenereerd beeld van een tweede slaapkamer met een eenpersoonsbed, een ingebouwd bureau met planken en een glazen deur naar het terras","caption":"Een tweede slaapkamer","cat":"Bedrooms"},{"src":"assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.webp","alt":"Computergegenereerd beeld van een badkamer met een inloopdouche, een zwevend wastafelmeubel en beige tegels in steenlook","caption":"Een badkamer","cat":"Bathrooms"},{"src":"assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.webp","alt":"Luchtfoto van een golfbaan met meren en bomen, met de kust en de zee erachter","caption":"Een golfbaan en de kust vanuit de lucht","cat":"Location"},{"src":"assets/liora/projects/estepona-links-residences/media/harbour-and-lighthouse.webp","alt":"Foto van bovenaf van een haven met een vuurtoren, een wit appartementengebouw en de zee","caption":"Een haven en een vuurtoren","cat":"Location"},{"src":"assets/liora/projects/estepona-links-residences/media/coastal-path-at-sunset.webp","alt":"Foto van een bestraat pad langs een grashelling boven de oever bij zonsondergang","caption":"Een kustpad","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Estepona Links Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day.jpg","webp":"assets/liora/projects/estepona-links-residences/media/blocks-across-the-lawn-by-day-960.webp","alt":"Computergegenereerd beeld van twee terrasvormige blokken, gezien over een grasveld onder een heldere hemel","width":2000,"height":1132,"caption":"Twee terrasvormige blokken voor het grasveld","category":"Exterieur"},{"src":"assets/liora/projects/estepona-links-residences/media/blocks-at-dusk-above-the-lawn.jpg","webp":"assets/liora/projects/estepona-links-residences/media/blocks-at-dusk-above-the-lawn-960.webp","alt":"Computergegenereerd beeld van de lange terrasvormige blokken in de schemering, met palmbomen en een laag hek langs het grasveld","width":1661,"height":1407,"caption":"De blokken in de schemering","category":"Exterieur"},{"src":"assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk.jpg","webp":"assets/liora/projects/estepona-links-residences/media/lit-blocks-at-dusk-960.webp","alt":"Computergegenereerd beeld van de terrasvormige blokken in de schemering, met verlichte balkons, palmbomen en een grasveld ervoor","width":2000,"height":1399,"caption":"De verlichte terrassen in de schemering","category":"Exterieur"},{"src":"assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge.jpg","webp":"assets/liora/projects/estepona-links-residences/media/ground-floor-terrace-with-hedge-960.webp","alt":"Computergegenereerd beeld van een terras op de begane grond met zitmeubilair, een haag langs de rand en beboste heuvels erachter","width":2000,"height":1416,"caption":"Een terras op de begane grond","category":"Terrassen"},{"src":"assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds.jpg","webp":"assets/liora/projects/estepona-links-residences/media/pool-terrace-with-daybeds-960.webp","alt":"Computergegenereerd beeld van een zwembadterras met ligbedden, schaduwdoeken en de kust aan de horizon","width":2000,"height":1545,"caption":"Een zwembadterras","category":"Voorzieningen"},{"src":"assets/liora/projects/estepona-links-residences/media/daybed-under-a-canopy-by-the-pool.jpg","webp":"assets/liora/projects/estepona-links-residences/media/daybed-under-a-canopy-by-the-pool-960.webp","alt":"Computergegenereerd beeld van een ligbed onder een luifel naast een zwembad, met een hekwerk en beboste heuvels erachter","width":1932,"height":1826,"caption":"Een ligbed bij het zwembad","category":"Voorzieningen"},{"src":"assets/liora/projects/estepona-links-residences/media/heated-indoor-pool.jpg","webp":"assets/liora/projects/estepona-links-residences/media/heated-indoor-pool-960.webp","alt":"Computergegenereerd beeld van een binnenzwembad met ligbedden, een wand van houten latten en een glazen wand die uitkomt op een terras","width":2000,"height":1416,"caption":"Het verwarmde binnenzwembad","category":"Voorzieningen"},{"src":"assets/liora/projects/estepona-links-residences/media/gym.jpg","webp":"assets/liora/projects/estepona-links-residences/media/gym-960.webp","alt":"Computergegenereerd beeld van een sportzaal met cardiotoestellen, een gewichtenrek en een wandrek, onder een verlicht plafond","width":2000,"height":1533,"caption":"De sportzaal","category":"Voorzieningen"},{"src":"assets/liora/projects/estepona-links-residences/media/social-club-lounge.jpg","webp":"assets/liora/projects/estepona-links-residences/media/social-club-lounge-960.webp","alt":"Computergegenereerd beeld van een lounge met banken, een televisie en een bar met krukken","width":2000,"height":832,"caption":"De sociale club","category":"Voorzieningen"},{"src":"assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen.jpg","webp":"assets/liora/projects/estepona-links-residences/media/living-room-and-kitchen-960.webp","alt":"Computergegenereerd beeld van een open woonkamer en keuken met een glazen schuifdeur naar het terras","width":2000,"height":807,"caption":"Woonkamer en keuken","category":"Interieur"},{"src":"assets/liora/projects/estepona-links-residences/media/main-bedroom.jpg","webp":"assets/liora/projects/estepona-links-residences/media/main-bedroom-960.webp","alt":"Computergegenereerd beeld van een hoofdslaapkamer met een gestoffeerd hoofdbord en een glazen schuifdeur naar het terras","width":2000,"height":1476,"caption":"Een hoofdslaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/estepona-links-residences/media/second-bedroom-with-desk.jpg","webp":"assets/liora/projects/estepona-links-residences/media/second-bedroom-with-desk-960.webp","alt":"Computergegenereerd beeld van een tweede slaapkamer met een eenpersoonsbed, een ingebouwd bureau met planken en een glazen deur naar het terras","width":912,"height":751,"caption":"Een tweede slaapkamer","category":"Slaapkamers"},{"src":"assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower.jpg","webp":"assets/liora/projects/estepona-links-residences/media/bathroom-with-walk-in-shower-960.webp","alt":"Computergegenereerd beeld van een badkamer met een inloopdouche, een zwevend wastafelmeubel en beige tegels in steenlook","width":2000,"height":1489,"caption":"Een badkamer","category":"Badkamers"},{"src":"assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air.jpg","webp":"assets/liora/projects/estepona-links-residences/media/golf-course-and-coast-from-the-air-960.webp","alt":"Luchtfoto van een golfbaan met meren en bomen, met de kust en de zee erachter","width":1408,"height":1138,"caption":"Een golfbaan en de kust vanuit de lucht","category":"Locatie"},{"src":"assets/liora/projects/estepona-links-residences/media/harbour-and-lighthouse.jpg","webp":"assets/liora/projects/estepona-links-residences/media/harbour-and-lighthouse-960.webp","alt":"Foto van bovenaf van een haven met een vuurtoren, een wit appartementengebouw en de zee","width":1444,"height":1452,"caption":"Een haven en een vuurtoren","category":"Locatie"},{"src":"assets/liora/projects/estepona-links-residences/media/coastal-path-at-sunset.jpg","webp":"assets/liora/projects/estepona-links-residences/media/coastal-path-at-sunset-960.webp","alt":"Foto van een bestraat pad langs een grashelling boven de oever bij zonsondergang","width":774,"height":952,"caption":"Een kustpad","category":"Locatie"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/15G.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/15G-960.webp","alt":"Plattegrond van appartement 15G","width":833,"height":1092,"caption":"Appartement 15G","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/23H.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/23H-960.webp","alt":"Plattegrond van appartement 23H","width":1137,"height":1472,"caption":"Appartement 23H","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/13E.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/13E-960.webp","alt":"Plattegrond van appartement 13E","width":1151,"height":1414,"caption":"Appartement 13E","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/24E.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/24E-960.webp","alt":"Plattegrond van appartement 24E","width":1132,"height":1093,"caption":"Appartement 24E","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/22B.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/22B-960.webp","alt":"Plattegrond van appartement 22B","width":1229,"height":1177,"caption":"Appartement 22B","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/21B.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/21B-960.webp","alt":"Plattegrond van appartement 21B","width":1229,"height":1177,"caption":"Appartement 21B","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/14G.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/14G-960.webp","alt":"Plattegrond van appartement 14G","width":1261,"height":1092,"caption":"Appartement 14G","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/20D.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/20D-960.webp","alt":"Plattegrond van appartement 20D","width":1466,"height":1680,"caption":"Appartement 20D","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/25B.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/25B-960.webp","alt":"Plattegrond van appartement 25B","width":1235,"height":1198,"caption":"Appartement 25B","category":"Plattegronden"},{"src":"assets/liora/projects/estepona-links-residences/floorplans/13C.jpg","webp":"assets/liora/projects/estepona-links-residences/floorplans/13C-960.webp","alt":"Plattegrond van appartement 13C","width":1670,"height":1589,"caption":"Appartement 13C","category":"Plattegronden"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-estepona-links-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20information%20about%20Estepona%20Links%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Estepona Links Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">

@@ -35,13 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8c9a3bd58210">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=1d4b6225879c">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=d8cda3ac8437" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -154,70 +155,6 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Kunnen buitenlanders onroerend goed kopen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is een NIE-nummer en heb ik er een nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Met welke kosten moet ik rekening houden bovenop de aankoopprijs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe werkt het reserverings- en betalingsproces?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kan ik de woning na aankoop verhuren?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Heb ik een advocaat nodig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Hoeveel woningen zijn er in totaal?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -294,7 +231,7 @@
 }
   </script>
 </head>
-<body
+<body class="v2-page"
   data-locale="nl"
   data-project-name="Bahía Serena Residences"
   data-project-message="Ik ontvang graag de nieuwste projectinformatie voor Bahía Serena Residences."
@@ -451,461 +388,228 @@
     </ol>
   </nav>
 
-  <main>
-    <section class="project-hero" id="top">
-      <picture>
+  <main class="v2">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
+    <symbol id="v2-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 3.5l2.8.3 1.2 4-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4 1.2.3 2.8c-.2 1.6-1.6 2.8-3.2 2.6C10.4 19.3 4.7 13.6 4 6.7c-.2-1.6 1-3 2.6-3.2z"/></symbol>
+    <symbol id="v2-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="v2-photo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l5-5 4 4 3-3 4 4"/></g></symbol>
+    <symbol id="v2-i-plan" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M3.5 12h7v8.5M14 3.5v6h6.5M10.5 12v-3"/></g></symbol>
+    <symbol id="v2-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+    <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
+    <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+  </svg>
+
+  <header class="hdr pbar" id="v2bar" aria-label="Bahía Serena Residences">
+    <div class="hdr-in">
+      <a class="hdr-projname" href="nl/property-bahia-serena-residences.html#top">Bahía Serena Residences<span>Vanaf € 350.000 · Excl. btw</span></a>
+      <nav class="hdr-proj" aria-label="Projectonderdelen"><a href="nl/property-bahia-serena-residences.html#overview">Overzicht</a><a href="nl/property-bahia-serena-residences.html#availability">Prijzen</a><a href="nl/property-bahia-serena-residences.html#gallery">Galerij</a><a href="nl/property-bahia-serena-residences.html#location">Locatie</a><a href="nl/property-bahia-serena-residences.html#onsite">Op het terrein</a><a href="nl/property-bahia-serena-residences.html#view">Onze kijk</a><a href="nl/property-bahia-serena-residences.html#faq">FAQ</a></nav>
+      <div class="hdr-tools"><a class="btn btn-primary btn-sm" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Privébezichtiging boeken</a></div>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-label="Bahía Serena Residences">
+    <div class="hero-frame">
+      <div class="hero-media">
+        <picture>
         <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp 1350w" sizes="100vw">
-        <img class="project-hero-img" src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Aerial view of the boutique apartment complex with mountain views" width="1350" height="869" loading="eager" fetchpriority="high" decoding="async">
+        <img class="hero-img" src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Aerial view of the boutique apartment complex with mountain views" width="1350" height="869" loading="eager" fetchpriority="high" decoding="async" style="object-position: 50% 50%;">
       </picture>
-      <div class="project-hero-inner">
-        <div class="hero-copy reveal-soft">
-          <span class="project-eyebrow">Nieuw Project / Afgesloten Complex</span>
-          <h1 class="hero-title" style="--hero-title-run: 10">
-            <span class="hero-title-name">Bahía Serena <em>Residences</em></span>
-            <span class="hero-title-context">Appartement · Estepona, Costa del Sol</span>
-          </h1>
-          <p class="hero-positioning">Een exclusief boetiekcomplex van 25 appartementen in vier gebouwen in Bahía Dorada, Estepona, op korte afstand van het strand van Arroyo Vaquero, met gemeenschappelijk zwembad, tuinen en sportschool.</p>
-          <div class="hero-actions">
-            <a class="btn project-btn" href="nl/property-bahia-serena-residences.html#availability">Bekijk beschikbare woningen</a>
-            <a class="btn project-btn ghost" href="nl/index.html#private-viewing=1&amp;project=bahia-serena-residences">Filmische presentatie</a>
-            <a class="btn project-btn ghost" href="nl/property-bahia-serena-residences.html#media">Alle afbeeldingen</a>
-          </div>
-        </div>
-        <aside class="hero-facts reveal-soft" aria-label="Belangrijkste projectgegevens">
-          <div class="hero-fact"><span>Locatie</span><strong>Estepona, Costa del Sol</strong></div>
-          <div class="hero-fact"><span>Startprijs</span><strong>Vanaf € 350.000</strong></div>
-          <div class="hero-fact"><span>Woningtype</span><strong>Appartement</strong></div>
-          <div class="hero-fact"><span>Oplevering</span><strong>Verwacht K4 2028</strong></div>
-        </aside>
-      </div>
-    </section>
-
-    <nav class="project-nav" aria-label="Projectonderdelen">
-      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
-        <span class="project-nav-jump-text"><span class="project-nav-jump-label">Ga naar</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
-        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
-      </button>
-      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
-      <div class="project-nav-inner">
-        <a href="nl/property-bahia-serena-residences.html#media">Media</a>
-        <a href="nl/property-bahia-serena-residences.html#location">Locatie</a>
-        <a href="nl/property-bahia-serena-residences.html#availability">Beschikbaarheid</a>
-        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">Meer</button>
-      </div>
-      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
-        <div class="project-nav-panel-inner">
-          <a href="nl/property-bahia-serena-residences.html#overview">Overzicht</a>
-          <a href="nl/property-bahia-serena-residences.html#residences">Woningen</a>
-          <a href="nl/property-bahia-serena-residences.html#calculator">Financiering</a>
-          <a href="nl/property-bahia-serena-residences.html#amenities">Voorzieningen</a>
-          <a href="nl/property-bahia-serena-residences.html#why-this-project">Waarom</a>
-          <a href="nl/property-bahia-serena-residences.html#architecture">Architectuur</a>
-          <a href="nl/property-bahia-serena-residences.html#private-viewing">Filmische presentatie</a>
-          <a href="nl/property-bahia-serena-residences.html#lifestyle">Levensstijl</a>
-          <a href="nl/property-bahia-serena-residences.html#faq">FAQ</a>
-          <a href="nl/property-bahia-serena-residences.html#enquire">Vraag aan</a>
-        </div>
-      </div>
-    </nav>
-
-
-    <section class="quick-facts-band" aria-label="Snelle projectfeiten">
-      <div class="project-inner quick-facts-shell reveal-soft">
-        <div class="quick-facts-grid">
-          <div class="quick-fact"><span>Slaapkamers</span><strong>1-3 slaapkamers</strong></div>
-          <div class="quick-fact"><span>Bebouwde oppervlakte</span><strong>46,22 - 111,47 m²</strong></div>
-          <div class="quick-fact"><span>Voorzieningen</span><strong>Zwembad, sportschool, tuinen</strong></div>
-          <div class="quick-fact"><span>Beschikbaarheid</span><strong>15 van de 25 woningen vrijgegeven</strong></div>
-        </div>
-        <div class="quick-facts-actions">
-          <a class="btn project-btn ghost" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="overview">
-      <div class="project-inner overview-grid overview-grid--prose">
-        <div class="reveal-soft">
-          <span class="section-kicker">Overzicht</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">25 woningen, <em>vlak bij het strand</em></h2>
-          <p class="project-lead">Bahía Serena Residences is een exclusief complex van 25 appartementen verdeeld over vier gebouwen in Bahía Dorada, Estepona, op ongeveer 10 minuten lopen van het strand van Arroyo Vaquero, met indelingen van 1, 2 en 3 slaapkamers.</p>
-          <p class="project-lead">Sommige woningen op de begane grond beschikken over een privétuin, en alle woningen op hogere verdiepingen hebben een eigen dakterras. Bewoners delen een buiten gemeenschappelijk zwembad met avondverlichting, aangelegde tuinen en een sportschool, binnen een afgesloten complex met garage en berging voor elke woning.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-media-section" id="media">
-      <div class="project-inner">
-        <div class="project-media-intro reveal-soft">
-          <div>
-            <span class="section-kicker">Media</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">De woningen in <em>detail</em></h2>
-          </div>
-          <p class="project-lead">Computerbeelden aangeleverd door de ontwikkelaar. Meubilair, styling en beplanting zijn indicatief en niet inbegrepen in de verkoop.</p>
-        </div>
-        
-        
-        
-        <div class="project-media-grid project-media-grid--categories" data-media-grid>
-          <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Bekijk 3 afbeeldingen in Exterieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp 1350w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Luchtfoto van het boetiekcomplex met uitzicht op de bergen" width="1350" height="869" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Exterieur</small>
-                <strong>Luchtfoto van het complex</strong>
-                <span class="project-media-card-cta">3 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Bekijk 1 afbeeldingen in Voorzieningen">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg" alt="Dakterras met panoramisch zeezicht" width="1920" height="974" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Voorzieningen</small>
-                <strong>Dakterras met panoramisch zeezicht</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Bekijk 2 afbeeldingen in Interieur">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.webp 1292w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg" alt="Overdekte loungeterras met panoramisch zeezicht" width="1292" height="1188" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Interieur</small>
-                <strong>Overdekte lounge op terras met zeezicht</strong>
-                <span class="project-media-card-cta">2 afbeeldingen <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-            <button type="button" class="project-media-card project-media-card--category" data-media-category="Location" aria-label="Bekijk 1 afbeeldingen in Locatie">
-              <picture>
-        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/site-plan-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/site-plan-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/site-plan.webp 2382w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
-        <img src="assets/liora/projects/bahia-serena-residences/media/site-plan.jpg" alt="Situatieplan met de vier gebouwen, toegangspunten en het gemeenschappelijk zwembad" width="2382" height="1684" loading="lazy" decoding="async">
-      </picture>
-              <span class="project-media-caption">
-                <small>Locatie</small>
-                <strong>Situatieplan van de vier gebouwen en het gemeenschappelijk zwembad</strong>
-                <span class="project-media-card-cta">1 afbeelding <span aria-hidden="true">&#8594;</span></span>
-              </span>
-            </button>
-        </div>
-        <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>Bekijk alle 7 afbeeldingen</button>
-          <p class="media-note">De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn. Het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken; meubilair is niet inbegrepen.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner location-stack">
-        <div class="reveal-soft">
-          <span class="section-kicker">Locatie</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Estepona, <em>in Bahía Dorada</em></h2>
-          <p class="project-lead">Bahía Serena Residences ligt in Bahía Dorada, aan de westelijke rand van Estepona, op ongeveer 10 minuten lopen van het strand van Arroyo Vaquero.</p>
-        </div>
-        <div class="reveal-soft">
-        <div class="locmap" lang="nl">
-          <div class="locmap-map" id="locmap-bahia-serena-residences" data-locmap='{&quot;site&quot;:[36.406263,-5.1943179],&quot;sea&quot;:[36.37926,-5.1943179],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;6,4 km · 10 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5,0 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;2,1 km · 5 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;1.000 m · 2 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Bahía Serena Residences"></div>
-          <aside class="locmap-panel">
-            <span class="locmap-kicker">Indicatieve locatie</span>
-            <h3 class="locmap-name">Bahía Serena Residences</h3>
-            <p class="locmap-place">Estepona, Costa del Sol</p>
-            <div class="locmap-ledger">
-            <div class="locmap-row">
-              <span class="locmap-row-label">Strand</span>
-              <span class="locmap-row-figure"><bdi>1.000 m</bdi> <em><bdi>2 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Puerto de Estepona</span>
-              <span class="locmap-row-figure"><bdi>5,0 km</bdi> <em><bdi>6 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Centrum Estepona</span>
-              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>10 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Estepona</span>
-              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>5 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
-              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>8 min</bdi></em></span>
-            </div>
-            <div class="locmap-row">
-              <span class="locmap-row-label">Luchthaven Gibraltar</span>
-              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>40 min</bdi></em></span>
-            </div>
-            </div>
-            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
-          </aside>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="residences">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Woningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Van <em>appartementen met 1 slaapkamer tot dubbele penthouses</em></h2>
-          <p class="project-lead">De 25 woningen variëren van 1 tot 3 slaapkamers in vier gebouwen. De ontwikkelaar heeft tot nu toe 15 woningen vrijgegeven met bevestigde prijs; de twee voorbeelden hieronder tonen de instapprijs voor een appartement en voor de dubbele penthouse.</p>
-        </div>
-        <div class="residence-grid">
-          <article class="residence-card reveal-soft">
-            <h3>Appartement</h3>
-            <div class="res-meta">
-              <div><span>Slaapkamers</span><strong>1-2 slaapkamers</strong></div>
-<div><span>Bebouwde oppervlakte</span><strong>55,46 - 113,52 m²</strong></div>
-<div><span>Vanaf</span><strong>€ 350.000</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Open woon-eetkamer en keuken die uitkomt op een terras.</li>
-            <li>Sommige woningen op de begane grond hebben een privétuin.</li>
-            <li>Toegang tot het gemeenschappelijk zwembad, de tuinen en de sportschool.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-bahia-serena-residences.html#availability">Plattegronden bekijken</a>
-          </article>
-          <article class="residence-card reveal-soft">
-            <h3>Dubbele Penthouse</h3>
-            <div class="res-meta">
-              <div><span>Slaapkamers</span><strong>3 slaapkamers</strong></div>
-<div><span>Bebouwde oppervlakte</span><strong>136,60 m²</strong></div>
-<div><span>Vanaf</span><strong>€ 1.100.000</strong></div>
-            </div>
-            <ul class="feature-list">
-            <li>Duplex op de bovenste verdieping met twee terrassen van samen 90,74 m² plus een privé solarium.</li>
-            <li>Open woon-eetkamer met keuken op de onderste verdieping.</li>
-            <li>Toegang tot het gemeenschappelijk zwembad, de tuinen en de sportschool.</li>
-          </ul>
-            <a class="btn ghost project-btn" href="nl/property-bahia-serena-residences.html#availability">Plattegronden bekijken</a>
-          </article>
-        </div>
-        <div class="inline-cta-panel reveal-soft">
-          <div>
-            <span class="fine-label">Vertrouwelijk materiaal</span>
-            <p>Actuele plattegronden, uitzichtposities en beschikbaarheid dienen te worden geverifieerd aan de hand van het laatste bestand van de ontwikkelaar voordat u een keuze maakt.</p>
-          </div>
-          <div class="inline-cta-actions">
-            <a class="btn project-btn ghost" href="nl/property-bahia-serena-residences.html#availability">Plattegronden bekijken</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Beschikbaarheid</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">15 woningen <em>momenteel vrijgegeven</em></h2>
-          <p class="project-lead">De ontwikkelaar heeft tot nu toe 15 van de 25 woningen vrijgegeven met bevestigde prijs, verdeeld over de vier gebouwen. Nueva Living bevestigt de actuele prijs en beschikbaarheid opnieuw vóór elke bezichtiging of reservering.</p>
-        </div>
-        <div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Samenvatting huidige fase">
-            <div><span>Beschikbare woningen</span><strong>15</strong></div>
-            <div><span>Startprijs</span><strong>€ 350.000</strong></div>
-            <div><span>Prijsklasse</span><strong>€ 350.000 - € 1.100.000</strong></div>
-            <div><span>Gecontroleerd</span><strong>augustus 2026</strong></div>
-          </div>
-          <details class="availability-disclosure">
-            <summary>
-              <span>Bekijk alle 15 beschikbare woningen</span>
-              <span class="availability-summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
-              data-availability-filters
-              data-count-template="{shown} van {total} weergegeven">
-              
-              
-              <div class="availability-filter-group">
-                <span class="availability-filter-label">Prijs</span>
-                <div class="availability-chip-row">
-                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Alle</button>
-                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-400000" aria-pressed="false">Onder €400k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="400000-600000" aria-pressed="false">€400k – €600k</button>
-                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="600000-" aria-pressed="false">€600k+</button>
-                </div>
-              </div>
-              <div class="availability-filter-meta">
-                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
-                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filters wissen</button>
-              </div>
-            </div>
-            <p class="availability-empty" data-availability-empty hidden>Geen woningen komen overeen met deze filters.</p>
-            <div class="availability-table-wrap">
-              <table class="availability-table">
-                <caption class="sr-only">Beschikbare woningen bij Bahía Serena Residences</caption>
-                <thead><tr><th scope="col">Referentie</th><th scope="col">Verdieping</th><th scope="col">Slaapkamers</th><th scope="col">Oppervlakte</th><th scope="col">Prijs</th><th scope="col">Status</th><th scope="col">Plattegrond</th></tr></thead>
-                <tbody>
-              <tr data-price="615000">
-                <td data-label="Referentie"><strong>10A</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 1</td>
-                <td data-label="Slaapkamers">2 slaapkamers</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>113,52 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>23,08 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 615.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10a-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="490000">
-                <td data-label="Referentie"><strong>10C</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 1</td>
-                <td data-label="Slaapkamers">2 slaapkamers</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>111,87 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>33,15 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 490.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10c-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="1100000">
-                <td data-label="Referentie"><strong>12A</strong></td>
-                <td data-label="Verdieping">Tweede verdieping en solarium, blok 1</td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>136,60 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>90,74 m²</strong> <em>Terrassen</em></span></td>
-                <td data-label="Prijs"><strong>€ 1.100.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-12a-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="550000">
-                <td data-label="Referentie"><strong>20A</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 2</td>
-                <td data-label="Slaapkamers">2 slaapkamers</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>111,84 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>33,15 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 550.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20a-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="350000">
-                <td data-label="Referentie"><strong>20B</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 2</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>72,10 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>25,93 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 350.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20b-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="595000">
-                <td data-label="Referentie"><strong>20C</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 2</td>
-                <td data-label="Slaapkamers">2 slaapkamers</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>113,39 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>85,99 m²</strong> <em>Terras en tuin</em></span></td>
-                <td data-label="Prijs"><strong>€ 595.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20c-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="815000">
-                <td data-label="Referentie"><strong>21C</strong></td>
-                <td data-label="Verdieping">Eerste verdieping, blok 2</td>
-                <td data-label="Slaapkamers">3 slaapkamers</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>130,75 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>23,12 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 815.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-21c-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Referentie"><strong>30A</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 3</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>65,75 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>17,49 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 390.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30a-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Referentie"><strong>30B</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 3</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>58,99 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>25,08 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 390.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30b-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="435000">
-                <td data-label="Referentie"><strong>30C</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 3</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>55,46 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>61,68 m²</strong> <em>Terras en tuin</em></span></td>
-                <td data-label="Prijs"><strong>€ 435.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30c-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="440000">
-                <td data-label="Referentie"><strong>31C</strong></td>
-                <td data-label="Verdieping">Eerste verdieping, blok 3</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>68,09 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>16,40 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 440.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-31c-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Referentie"><strong>40B</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 4</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>92,72 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>25,08 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 390.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40b-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="390000">
-                <td data-label="Referentie"><strong>40E</strong></td>
-                <td data-label="Verdieping">Begane grond, blok 4</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>70,49 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>16,94 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 390.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40e-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="550000">
-                <td data-label="Referentie"><strong>41A</strong></td>
-                <td data-label="Verdieping">Eerste verdieping, blok 4</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>67,51 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>76,03 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 550.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-              <tr data-price="440000">
-                <td data-label="Referentie"><strong>41B</strong></td>
-                <td data-label="Verdieping">Eerste verdieping, blok 4</td>
-                <td data-label="Slaapkamers">1 slaapkamer</td>
-                <td data-label="Oppervlakte"><span class="unit-size-part"><strong>63,49 m²</strong> <em>Bebouwd</em></span><span class="unit-size-part"><strong>16,41 m²</strong> <em>Terras</em></span></td>
-                <td data-label="Prijs"><strong>€ 440.000</strong></td>
-                <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
-                <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41b-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
-              </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
+        <div class="hero-chips">
+          <button class="chip" type="button" data-open-gallery="0"><svg><use href="#v2-photo"/></svg>7 foto's</button>
+          <a class="chip" href="nl/property-bahia-serena-residences.html#availability"><svg><use href="#v2-i-plan"/></svg>Plattegronden</a>
+          <a class="chip" href="nl/property-bahia-serena-residences.html#location"><svg><use href="#v2-pin"/></svg>Kaart</a>
           
-          <p class="availability-source-note">Woningreferenties, oppervlaktes en prijzen overgenomen uit de door de ontwikkelaar gepubliceerde prijslijst van augustus 2026. Prijzen zijn exclusief btw en overige toepasselijke aankoopkosten en kunnen zonder voorafgaande kennisgeving wijzigen of bij verkoop van een woning vervallen. Nueva Living bevestigt prijs, status en reserveringsvoorwaarden opnieuw voordat u verdergaat.</p>
-        </div>
-        <div class="availability-panel availability-panel--followup reveal-soft">
-          <div class="availability-actions">
-            <a class="btn project-btn" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-            <a class="btn project-btn ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-          </div>
         </div>
       </div>
-    </section>
-
-    <section class="project-section calculator-section" id="calculator">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Financiering</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Bereken uw <em>maandlasten</em></h2>
-          <p class="body-copy">Slechts een indicatieve schatting. Bevestig de exacte voorwaarden bij uw kredietverstrekker voordat u een beslissing neemt.</p>
+      <div class="hero-title">
+        <h1><span class="h1-a">Bahía Serena</span> <span class="h1-b">Residences</span></h1>
+        <p class="hero-by">Een exclusief boetiekcomplex van 25 appartementen in vier gebouwen in Bahía Dorada, Estepona, op korte afstand van het strand van Arroyo Vaquero, met gemeenschappelijk zwembad, tuinen en sportschool.</p>
+      </div>
+    </div>
+    <div class="facts-strip">
+      <div class="strip-in">
+        <dl class="strip-facts"><div data-nl-price><dt>Prijs</dt><dd class="num">Vanaf € 350.000</dd><dd class="sub">Excl. btw</dd></div><div><dt>Slaapkamers</dt><dd>1 tot 3</dd><dd class="sub"><span>Appartement</span></dd></div><div><dt>Oplevering</dt><dd>Verwacht K4 2028</dd><dd class="sub">Bouwvergunning verleend</dd></div><div><dt>Nog beschikbaar</dt><dd>15 van 25</dd><dd class="sub">Gecontroleerd op augustus 2026</dd></div></dl>
+        <div class="strip-cta">
+          <a class="btn btn-primary" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Privébezichtiging boeken</a>
+          <a class="btn btn-ghost-light" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
         </div>
-        <div class="calculator-panel reveal-soft" data-calculator>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+  <div class="main">
+
+  <section class="sec" id="overview" aria-labelledby="v2-h-overview">
+    <h2 id="v2-h-overview">Het project</h2>
+    <p class="lede">Bahía Serena Residences is een exclusief complex van 25 appartementen verdeeld over vier gebouwen in Bahía Dorada, Estepona, op ongeveer 10 minuten lopen van het strand van Arroyo Vaquero, met indelingen van 1, 2 en 3 slaapkamers.</p>
+    <p class="lede-2">Sommige woningen op de begane grond beschikken over een privétuin, en alle woningen op hogere verdiepingen hebben een eigen dakterras. Bewoners delen een buiten gemeenschappelijk zwembad met avondverlichting, aangelegde tuinen en een sportschool, binnen een afgesloten complex met garage en berging voor elke woning.</p>
+    <details class="fold" id="architecture"><summary>Architectuur · <span>Vier gebouwen, gericht op zee</span></summary><p>Het complex is verdeeld over vier gebouwen met een draagconstructie van gewapend beton en niet-geventileerde bakstenen gevels, met thermische en akoestische isolatie en decoratieve bekleding op specifieke punten van de gevels en pergola's.</p><p>De keukens worden volledig uitgerust geleverd met een kwartsen werkblad en geïntegreerde apparatuur van Siemens. De badkamers combineren grootformaat keramische tegels met thermostatische douches. Warm tapwater wordt geproduceerd via aerothermie, met kanaalklimaatregeling en thermostaat in de woonkamer van elke woning.</p><ul><li>Buiten gemeenschappelijk zwembad met avondverlichting, aangelegde tuinen en sportschool.</li><li>Volledig uitgeruste keukens met kwartsen werkblad en geïntegreerde apparatuur.</li><li>Warm water via aerothermie en kanaalklimaatregeling in de hele woning.</li><li>Garage en berging voor elke woning, met voorbereiding voor het opladen van elektrische voertuigen.</li></ul></details>
+    <dl class="kfacts"><div><dt>Prijs</dt><dd><span>€ 350.000 – € 1.100.000</span><small>Excl. btw</small></dd></div><div><dt>Beschikbaar</dt><dd><span>15 van 25 woningen</span><small>Gecontroleerd op augustus 2026</small></dd></div><div><dt>Woningen</dt><dd><span>Appartement</span></dd></div><div><dt>Oppervlakten</dt><dd><span>55 – 137 m²</span><small>Bebouwde oppervlakte</small></dd></div><div><dt>Oplevering</dt><dd><span>Verwacht K4 2028</span></dd></div><div><dt>Vergunning</dt><dd><span><span class="ok">Bouwvergunning</span></span><small>Verleend</small></dd></div><div><dt>Aanbetalingen</dt><dd><span>Bankgarantie</span><small>Wettelijk verplicht in Spanje</small></dd></div><div><dt>Parkeren</dt><dd><span>Ondergrondse parkeergarage en berging</span></dd></div></dl>
+  </section>
+
+  <section class="sec" id="availability" aria-labelledby="v2-h-avail">
+    <h2 id="v2-h-avail">Woningen en prijzen</h2>
+    <p class="sec-sub">De ontwikkelaar heeft tot nu toe 15 van de 25 woningen vrijgegeven met bevestigde prijs, verdeeld over de vier gebouwen. Nueva Living bevestigt de actuele prijs en beschikbaarheid opnieuw vóór elke bezichtiging of reservering. Selecteer een woning om het betalingsschema en de totale kosten te zien.</p>
+    <div class="scarcity" role="img" aria-label="15 van 25 nog te koop"><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>15 van 25 nog te koop</span></div>
+    <div class="ufilter" role="group" aria-label="Filteren op slaapkamers"><button type="button" aria-pressed="true" data-beds="">Alle <span>15</span></button><button type="button" aria-pressed="false" data-beds="1">1 slk. <span>9</span></button><button type="button" aria-pressed="false" data-beds="2">2 slk. <span>4</span></button><button type="button" aria-pressed="false" data-beds="3">3 slk. <span>2</span></button></div>
+    <div class="units-wrap">
+      <table class="units" id="units">
+        <caption class="sr">Woningen te koop, met oppervlakte en prijs. Selecteer een rij voor het betalingsschema.</caption>
+        <thead><tr>
+          <th scope="col" data-sort="ref">Woning</th>
+          <th scope="col" data-sort="beds">Slaapkamers</th>
+          <th scope="col" data-sort="size">Oppervlakte</th>
+          <th scope="col" data-sort="price" aria-sort="ascending">Prijs</th>
+          <th scope="col" data-sort="ppm">Per m²</th>
+          <th scope="col">Plattegrond</th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="u0" data-beds="2" data-price="615000" data-size="113.52" data-ppm="5418" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">10A</span><span class="u-loc">Begane grond, blok 1</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">114 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 615.000</td>
+            <td data-label="Per m²" class="num">€ 5.418</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 10A">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u1" data-beds="2" data-price="490000" data-size="111.87" data-ppm="4380" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">10C</span><span class="u-loc">Begane grond, blok 1</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">112 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 490.000</td>
+            <td data-label="Per m²" class="num">€ 4.380</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-10c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 10C">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u2" data-beds="3" data-price="1100000" data-size="136.6" data-ppm="8053" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">12A</span><span class="u-loc">Tweede verdieping en solarium, blok 1</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">137 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 1.100.000</td>
+            <td data-label="Per m²" class="num">€ 8.053</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-12a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 12A">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u3" data-beds="2" data-price="550000" data-size="111.84" data-ppm="4918" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20A</span><span class="u-loc">Begane grond, blok 2</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">112 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 550.000</td>
+            <td data-label="Per m²" class="num">€ 4.918</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 20A">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u4" data-beds="1" data-price="350000" data-size="72.1" data-ppm="4854" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20B</span><span class="u-loc">Begane grond, blok 2</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">72 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 350.000</td>
+            <td data-label="Per m²" class="num">€ 4.854</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 20B">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u5" data-beds="2" data-price="595000" data-size="113.39" data-ppm="5247" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">20C</span><span class="u-loc">Begane grond, blok 2</span></th>
+            <td data-label="Slaapkamers">2 slk.</td>
+            <td data-label="Oppervlakte" class="num">113 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 595.000</td>
+            <td data-label="Per m²" class="num">€ 5.247</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-20c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 20C">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u6" data-beds="3" data-price="815000" data-size="130.75" data-ppm="6233" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">21C</span><span class="u-loc">Eerste verdieping, blok 2</span></th>
+            <td data-label="Slaapkamers">3 slk.</td>
+            <td data-label="Oppervlakte" class="num">131 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 815.000</td>
+            <td data-label="Per m²" class="num">€ 6.233</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-21c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 21C">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u7" data-beds="1" data-price="390000" data-size="65.75" data-ppm="5932" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">30A</span><span class="u-loc">Begane grond, blok 3</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">66 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 390.000</td>
+            <td data-label="Per m²" class="num">€ 5.932</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 30A">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u8" data-beds="1" data-price="390000" data-size="58.99" data-ppm="6611" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">30B</span><span class="u-loc">Begane grond, blok 3</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">59 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 390.000</td>
+            <td data-label="Per m²" class="num">€ 6.611</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 30B">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u9" data-beds="1" data-price="435000" data-size="55.46" data-ppm="7843" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">30C</span><span class="u-loc">Begane grond, blok 3</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">55 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 435.000</td>
+            <td data-label="Per m²" class="num">€ 7.843</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-30c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 30C">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u10" data-beds="1" data-price="440000" data-size="68.09" data-ppm="6462" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">31C</span><span class="u-loc">Eerste verdieping, blok 3</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">68 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 440.000</td>
+            <td data-label="Per m²" class="num">€ 6.462</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-31c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 31C">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u11" data-beds="1" data-price="390000" data-size="92.72" data-ppm="4206" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">40B</span><span class="u-loc">Begane grond, blok 4</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">93 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 390.000</td>
+            <td data-label="Per m²" class="num">€ 4.206</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 40B">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u12" data-beds="1" data-price="390000" data-size="70.49" data-ppm="5533" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">40E</span><span class="u-loc">Begane grond, blok 4</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">70 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 390.000</td>
+            <td data-label="Per m²" class="num">€ 5.533</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-40e-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 40E">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u13" data-beds="1" data-price="550000" data-size="67.51" data-ppm="8147" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">41A</span><span class="u-loc">Eerste verdieping, blok 4</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">68 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 550.000</td>
+            <td data-label="Per m²" class="num">€ 8.147</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 41A">Plattegrond</a></td>
+          </tr>
+          <tr data-id="u14" data-beds="1" data-price="440000" data-size="63.49" data-ppm="6930" tabindex="0" aria-selected="false">
+            <th scope="row"><span class="u-name">41B</span><span class="u-loc">Eerste verdieping, blok 4</span></th>
+            <td data-label="Slaapkamers">1 slk.</td>
+            <td data-label="Oppervlakte" class="num">63 m²</td>
+            <td data-label="Prijs" class="u-price num">€ 440.000</td>
+            <td data-label="Per m²" class="num">€ 6.930</td>
+            <td class="u-plan"><a href="assets/liora/projects/bahia-serena-residences/floorplans/unit-41b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Plattegrond van 41B">Plattegrond</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <details class="fold" id="residences"><summary>Woningen · <span>Van appartementen met 1 slaapkamer tot dubbele penthouses</span></summary><p>De 25 woningen variëren van 1 tot 3 slaapkamers in vier gebouwen. De ontwikkelaar heeft tot nu toe 15 woningen vrijgegeven met bevestigde prijs; de twee voorbeelden hieronder tonen de instapprijs voor een appartement en voor de dubbele penthouse.</p><div class="res-types"><div class="res-type"><h3>Appartement</h3><dl class="res-meta"><div><dt>Slaapkamers</dt><dd>1-2 slaapkamers</dd></div><div><dt>Bebouwde oppervlakte</dt><dd>55,46 - 113,52 m²</dd></div><div><dt>Vanaf</dt><dd>€ 350.000</dd></div></dl><ul><li>Open woon-eetkamer en keuken die uitkomt op een terras.</li><li>Sommige woningen op de begane grond hebben een privétuin.</li><li>Toegang tot het gemeenschappelijk zwembad, de tuinen en de sportschool.</li></ul></div><div class="res-type"><h3>Dubbele Penthouse</h3><dl class="res-meta"><div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div><div><dt>Bebouwde oppervlakte</dt><dd>136,60 m²</dd></div><div><dt>Vanaf</dt><dd>€ 1.100.000</dd></div></dl><ul><li>Duplex op de bovenste verdieping met twee terrassen van samen 90,74 m² plus een privé solarium.</li><li>Open woon-eetkamer met keuken op de onderste verdieping.</li><li>Toegang tot het gemeenschappelijk zwembad, de tuinen en de sportschool.</li></ul></div></div></details>
+    <div class="plan" id="plan" aria-live="polite">
+      <div class="plan-head"><h3 id="v2-p-title"></h3><p id="v2-p-sub"></p></div>
+      <div class="plan-pay"><p class="caption">Het betalingsschema van de ontwikkelaar is op aanvraag; wij sturen het mee met de prijslijst.</p>
+      </div>
+      <div class="cost-wrap"><p class="cap">Wat het in totaal kost</p>
+      <dl class="cost-lines num">
+        <div><dt>Prijs</dt><dd id="v2-c-price"></dd></div>
+        <div><dt>btw, 10%</dt><dd id="v2-c-vat"></dd></div>
+        <div><dt>Zegelbelasting (AJD), 1,2%</dt><dd id="v2-c-ajd"></dd></div>
+        <div class="total"><dt>Totaal vóór notaris, kadaster en advocaat</dt><dd id="v2-c-total"></dd></div>
+      </dl></div>
+      <div class="plan-actions">
+        <a class="btn btn-primary" id="v2-c-enquire" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Vraag naar deze woning</a>
+        <span class="plan-links" id="v2-c-plans" data-label="Plattegrond"></span>
+      </div>
+      <details class="fold calc-fold" id="calculator"><summary>Financiering? Hypotheekcalculator</summary>        <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
               <div class="calculator-field-label"><span id="calc-price-label">Aankoopprijs</span><em data-calc-price-readout>&euro;0</em></div>
@@ -965,413 +669,199 @@
               <div class="calculator-result"><span>Belastingen & aankoopkosten</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div></details>
+    </div>
+    
+  </section>
 
-    <section class="project-section" id="amenities">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">Voorzieningen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat het project <em>u biedt</em></h2>
-        </div>
-        <ul class="amenity-grid">
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">01 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk buitenzwembad met nachtverlichting</h3>
+  
+
+  <section class="sec" id="gallery" aria-labelledby="v2-h-gal">
+    <h2 id="v2-h-gal">Galerij</h2>
+    <div class="mosaic">
+      <button class="m-item m-lg" type="button" data-open-gallery="0" aria-label="Luchtfoto van het complex"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp 1920w" sizes="(max-width: 760px) 84vw, 520px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg" alt="Luchtfoto van het boetiekcomplex met uitzicht op de bergen" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="4" aria-label="Overdekte lounge op terras met zeezicht"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg" alt="Overdekte loungeterras met panoramisch zeezicht" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="3" aria-label="Dakterras met panoramisch zeezicht"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg" alt="Dakterras met panoramisch zeezicht" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="6" aria-label="Situatieplan van de vier gebouwen en het gemeenschappelijk zwembad"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/site-plan-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/site-plan-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/site-plan.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/site-plan.jpg" alt="Situatieplan met de vier gebouwen, toegangspunten en het gemeenschappelijk zwembad" loading="lazy" decoding="async">
+      </picture></button><button class="m-item" type="button" data-open-gallery="1" aria-label="Luchtfoto naast de kustweg"><picture>
+        <source type="image/webp" srcset="assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road-640.webp 640w, assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road-960.webp 960w, assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.webp 1920w" sizes="(max-width: 760px) 84vw, 260px">
+        <img src="assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.jpg" alt="Luchtfoto van het complex naast de kustweg met zeezicht" loading="lazy" decoding="async">
+      </picture><span class="m-all"><svg width="18" height="18"><use href="#v2-photo"/></svg>Alle 7 foto's bekijken</span></button>
+    </div>
+    <div class="gal-cats"><button type="button" data-open-cat="Exteriors">Exterieur (3)</button><button type="button" data-open-cat="Amenities">Voorzieningen (1)</button><button type="button" data-open-cat="Interiors">Interieur (2)</button><button type="button" data-open-cat="Location">Locatie (1)</button></div>
+    
+    <p class="caption">De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn. Het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken; meubilair is niet inbegrepen.</p>
+  </section>
+
+  <section class="sec" id="location" aria-labelledby="v2-h-loc">
+    <h2 id="v2-h-loc">Locatie</h2>
+    <p class="sec-sub">Bahía Serena Residences ligt in Bahía Dorada, aan de westelijke rand van Estepona, op ongeveer 10 minuten lopen van het strand van Arroyo Vaquero.</p>
+    <div class="v2-loc">
+        <div class="locmap" lang="nl">
+          <div class="locmap-map" id="locmap-bahia-serena-residences" data-locmap='{&quot;site&quot;:[36.406263,-5.1943179],&quot;sea&quot;:[36.37926,-5.1943179],&quot;seaLabel&quot;:&quot;Middellandse Zee&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centrum Estepona&quot;,&quot;sub&quot;:&quot;6,4 km · 10 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;5,0 km · 6 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golfbaan Estepona&quot;,&quot;sub&quot;:&quot;2,1 km · 5 min&quot;},{&quot;ll&quot;:[36.40154,-5.19125],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Strand&quot;,&quot;sub&quot;:&quot;1.000 m · 2 min&quot;}]}' role="img" aria-label="Indicatieve locatiekaart voor Bahía Serena Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Indicatieve locatie</span>
+            <h3 class="locmap-name">Bahía Serena Residences</h3>
+            <p class="locmap-place">Estepona, Costa del Sol</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Strand</span>
+              <span class="locmap-row-figure"><bdi>1.000 m</bdi> <em><bdi>2 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9v6"/><path d="M20 9v6"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">02 &middot; Wellness</span>
-              <h3 class="amenity-name">Fitnessruimte</h3>
-              <p class="amenity-note">Binnen het project</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>5,0 km</bdi> <em><bdi>6 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">03 &middot; Wellness</span>
-              <h3 class="amenity-name">Gemeenschappelijk zwembad</h3>
-              <p class="amenity-note">Gedeeld door de bewoners</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centrum Estepona</span>
+              <span class="locmap-row-figure"><bdi>6,4 km</bdi> <em><bdi>10 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">04 &middot; Buiten</span>
-              <h3 class="amenity-name">Aangelegde tuinen met inheemse, waterzuinige beplanting</h3>
-              <p class="amenity-note">Beplante gemeenschappelijke grond</p>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Estepona</span>
+              <span class="locmap-row-figure"><bdi>2,1 km</bdi> <em><bdi>5 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21v-6"/><path d="M12 15c-3.3 0-6-2.2-6-5 0-1.8 1.1-3.4 2.7-4.2C9.1 3.7 10.4 3 12 3s2.9.7 3.3 2.8C16.9 6.6 18 8.2 18 10c0 2.8-2.7 5-6 5Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">05 &middot; Buiten</span>
-              <h3 class="amenity-name">Sommige benedenwoningen met privétuin</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golfbaan Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>6,1 km</bdi> <em><bdi>8 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">06 &middot; Buiten</span>
-              <h3 class="amenity-name">Alle bovenwoningen met dakterras</h3>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Luchthaven Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>38 km</bdi> <em><bdi>40 min</bdi></em></span>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M17.7 17.7l1.4 1.4"/><path d="M19.1 4.9l-1.4 1.4"/><path d="M6.3 17.7l-1.4 1.4"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">07 &middot; Buiten</span>
-              <h3 class="amenity-name">Solarium</h3>
-              <p class="amenity-note">Open dakterras voor de zon</p>
             </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19h18L14 7l-3.5 6L8 10l-5 9Z"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">08 &middot; Buiten</span>
-              <h3 class="amenity-name">Zeezicht</h3>
-              <p class="amenity-note">Richting de Middellandse Zee</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">09 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Ondergrondse parkeergarage en berging</h3>
-              <p class="amenity-note">Onder het gebouw</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 15h14"/><path d="M6.5 15l1.2-4.6A2 2 0 0 1 9.6 9h4.8a2 2 0 0 1 1.9 1.4L17.5 15"/><path d="M4 15v3h3v-3"/><path d="M17 15v3h3v-3"/><path d="M4 15h16"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">10 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Voorbereiding voor het laden van elektrische voertuigen</h3>
-              <p class="amenity-note">Een punt voor de auto</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 14V5a2 2 0 1 0-4 0v9a4 4 0 1 0 4 0Z"/><path d="M12 17.5v.01"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">11 &middot; Dagelijks</span>
-              <h3 class="amenity-name">Lucht-waterwarmtepomp</h3>
-              <p class="amenity-note">Verwarming, koeling en warm water</p>
-            </div>
-          </li>
-          <li class="amenity-card reveal-soft">
-            <span class="amenity-mark"><svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.4-2.9 8.3-7 10-4.1-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-            <div class="amenity-body">
-              <span class="amenity-index">12 &middot; Diensten</span>
-              <h3 class="amenity-name">Besloten complex met camerabewaking</h3>
-              <p class="amenity-note">Gecontroleerde toegang</p>
-            </div>
-          </li>
+            <p class="locmap-note">Afstanden gemeten over de weg vanaf de perceelgrens. Kaart uitsluitend ter oriëntatie; grenzen indicatief.</p>
+          </aside>
+        </div><table class="dist"><tbody><tr><th scope="row">Azata Golf</th><td>Ca. 3 minuten</td></tr><tr><th scope="row">Jachthaven van Estepona</th><td>Ca. 6 minuten</td></tr><tr><th scope="row">Centrum van Estepona</th><td>Ca. 10 minuten</td></tr><tr><th scope="row">Jachthaven van La Duquesa</th><td>Ca. 10 minuten</td></tr><tr><th scope="row">Puerto Banús</th><td>Ca. 24 minuten</td></tr><tr><th scope="row">Luchthaven Málaga</th><td>Ca. 71 minuten</td></tr></tbody></table></div>
+  </section>
+
+  <section class="sec" id="onsite" aria-labelledby="v2-h-site">
+    <h2 id="v2-h-site">Op het terrein</h2>
+    <p class="sec-sub">Naast het eigen terras of de tuin van elke woning delen de bewoners van Bahía Serena een compact en verzorgd geheel van voorzieningen.</p>
+    <div class="life-panels"><div><h3>Buitenleven</h3><p>Een buiten gemeenschappelijk zwembad met avondverlichting en groene zones, binnen aangelegde tuinen.</p></div><div><h3>Wellness</h3><p>Een sportschool op locatie.</p></div><div><h3>Elke woning</h3><p>Garage en berging inbegrepen, met voorbereiding voor het opladen van elektrische voertuigen.</p></div></div>
+    <ul class="amen-top"><li>Gemeenschappelijk buitenzwembad met nachtverlichting</li><li>Fitnessruimte</li><li>Aangelegde tuinen met inheemse, waterzuinige beplanting</li><li>Sommige benedenwoningen met privétuin</li><li>Alle bovenwoningen met dakterras</li><li>Ondergrondse parkeergarage en berging</li></ul>
+    <details class="amen-all"><summary>Alle 12 tonen</summary><div class="amen-groups"><div><h3>Wellness<span class="count">3</span></h3><ul><li>Gemeenschappelijk buitenzwembad met nachtverlichting</li><li>Fitnessruimte</li><li>Gemeenschappelijk zwembad</li></ul></div><div><h3>Buiten<span class="count">5</span></h3><ul><li>Aangelegde tuinen met inheemse, waterzuinige beplanting</li><li>Sommige benedenwoningen met privétuin</li><li>Alle bovenwoningen met dakterras</li><li>Solarium</li><li>Zeezicht</li></ul></div><div><h3>Dagelijks<span class="count">3</span></h3><ul><li>Ondergrondse parkeergarage en berging</li><li>Voorbereiding voor het laden van elektrische voertuigen</li><li>Lucht-waterwarmtepomp</li></ul></div><div><h3>Diensten<span class="count">1</span></h3><ul><li>Besloten complex met camerabewaking</li></ul></div></div></details>
+  </section>
+
+  <section class="sec" id="view" aria-labelledby="v2-h-view">
+    <h2 id="v2-h-view">Onze kijk</h2>
+    <p class="sec-sub">Wat wij zouden afwegen voordat u hier reserveert, en wat wij voor u controleren.</p>
+    <div class="view3" data-view3>
+      <div class="view3-tabs" role="tablist" aria-label="Onze kijk">
+        <button role="tab" type="button" aria-selected="true" data-v="v2-why">Sterk</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-plan">Rekening mee houden</button>
+        <button role="tab" type="button" aria-selected="false" data-v="v2-checks">Controles</button>
+      </div>
+      <div class="view3-col" id="v2-why"><h3>Waarom het opvalt</h3><ul class="points"><li><b>Voor wie</b><span>Kopers die een kleinschaliger gebouw zoeken, op korte afstand van het strand, met de optie van een privétuin of dakterras.</span></li><li><b>Wat het anders maakt</b><span>Slechts 25 woningen in vier gebouwen, in plaats van een grootschalig complex, op een kavel op ongeveer 10 minuten lopen van het strand van Arroyo Vaquero.</span></li><li><b>Waarom de locatie ertoe doet</b><span>Bahía Serena ligt in Bahía Dorada, aan de westelijke rand van Estepona, op korte afstand van het centrum van Estepona, de jachthaven en de AP-7 snelweg.</span></li><li><b>Waarom beschikbaarheid checken</b><span>15 van de 25 woningen zijn momenteel vrijgegeven met bevestigde prijs; Nueva Living bevestigt de actuele vrijgave opnieuw vóór elke bezichtiging.</span></li></ul></div>
+      <div class="view3-col" id="v2-plan"><h3>Waar u rekening mee houdt</h3><ul class="points"><li><b>Waarom timing belangrijk is</b><span>15 van de 25 woningen zijn momenteel vrijgegeven met bevestigde prijs; de combinatie van beschikbare indelingen zal veranderen naarmate nieuwe fasen worden vrijgegeven.</span></li><li><b>Actuele informatie</b><span>Nueva Living bevestigt prijs, beschikbaarheid en specificatie rechtstreeks bij de ontwikkelaar vóór elke bezichtiging of reservering.</span></li><li><b>Aantrekkingskracht op lange termijn</b><span>Een boetiekschaal van 25 woningen dicht bij het strand is ongebruikelijk in dit deel van de Costa del Sol, waar de meeste nieuwe projecten aanzienlijk groter zijn.</span></li><li><b>Persoonlijk gebruik en verhuur</b><span>Kopers dienen de huidige verhuurregels voor dit project rechtstreeks bij de ontwikkelaar te bevestigen voordat zij uitgaan van een verhuurplan.</span></li></ul></div>
+      <div class="view3-col" id="v2-checks"><h3>Controles voordat er geld wordt overgemaakt</h3><ul class="checks"><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Informatie over de ontwikkelaar</b><span>Nueva Living beschikt over de identiteit en vergunningsinformatie van de ontwikkelaar en verstrekt deze schriftelijk voorafgaand aan elke reservering.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Hoe de aankoop werkt</b><span>Een privé, Engelstalig aankoopproces met een Spaanse advocaat naar keuze van de koper; Nueva Living coördineert bezichtigingen en documentatie.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Oplevering en garantie</b><span>Bouwvergunning verleend; de bouw zal naar verwachting starten in het tweede kwartaal van 2026, met verwachte voltooiing in het vierde kwartaal van 2028, en de verwachte eerste-bewoningsvergunning in het vierde kwartaal van 2027. De betalingsvoorwaarden verschillen voor ingezetenen en niet-ingezetenen, waarbij betaalde bedragen worden gegarandeerd via een bankgarantie.</span></div></li><li class="pending"><svg><use href="#v2-eye"/></svg><div><b>Andere opties</b><span>Nueva Living kan Bahía Serena op aanvraag vergelijken met andere projecten in Estepona.</span></div></li></ul></div>
+    </div>
+    <div class="steps-docs">
+      <ol class="steps"><li><h3>Vraag projectinformatie aan</h3><p>Vraag de prijslijst en actuele plattegronden van de indeling die u interesseert aan.</p></li><li><h3>Vergelijk de indelingen</h3><p>Bekijk de appartement- en penthouse-indelingen naast uw budget en ruimtebehoeften.</p></li><li><h3>Privébezichtiging</h3><p>Bezoek persoonlijk de omgeving van Bahía Dorada en het gemeenschappelijk zwembad voordat u beslist.</p></li><li><h3>Controle vóór reservering</h3><p>Bevestig de actuele prijs, beschikbaarheid en betalingsstructuur schriftelijk vóór elke reservering.</p></li></ol>
+      <div class="docs card"><h3>Documenten die u ontvangt</h3><ul class="doclist"><li class=""><svg><use href="#v2-check"/></svg><span>Prijslijst</span></li><li class=""><svg><use href="#v2-check"/></svg><span>Plattegronden<small>15 van 15 woningen</small></span></li><li class="later"><svg><use href="#v2-dot"/></svg><span>Betalingsschema<small>Nog niet verstrekt</small><small>In afwachting</small></span></li><li class=""><svg><use href="#v2-check"/></svg><span>Documento Informativo Abreviado (DIA)<small>De officiële samenvatting waar elke koper in Andalusië recht op heeft</small></span></li></ul><a class="btn btn-primary" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Projectdossier ontvangen</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="v2-h-faq">
+    <h2 id="v2-h-faq">Vragen over Bahía Serena</h2>
+    <div class="faq2"><details class="segment-faq-item"><summary>Hoeveel woningen zijn er in totaal?</summary><p>25 appartementen in vier gebouwen.</p></details><details class="segment-faq-item"><summary>Hoeveel zijn er momenteel beschikbaar?</summary><p>De ontwikkelaar heeft tot nu toe 15 van de 25 woningen vrijgegeven met bevestigde prijs, verdeeld over de vier gebouwen. Nueva Living bevestigt de actuele beschikbaarheid opnieuw vóór elke bezichtiging.</p></details><details class="segment-faq-item"><summary>Hebben alle woningen zeezicht?</summary><p>Niet allemaal -- sommige naar het binnenland gerichte woningen hebben gedeeltelijk of geen zeezicht. Nueva Living bevestigt het uitzicht van een specifieke woning vóór elke bezichtiging.</p></details><details class="segment-faq-item"><summary>Is meubilair inbegrepen?</summary><p>Nee. De getoonde afbeeldingen zijn computerbeelden; meubilair, styling en beplanting zijn indicatief en niet inbegrepen in de verkoop.</p></details><details class="segment-faq-item"><summary>Welke voorzieningen worden gedeeld?</summary><p>Een buiten gemeenschappelijk zwembad met avondverlichting, aangelegde tuinen en een sportschool.</p></details></div>
+    <details class="faq2-more"><summary>Alle vragen tonen (6)</summary><div class="faq2"><details class="segment-faq-item"><summary>Wanneer is de oplevering?</summary><p>De bouwvergunning is verleend. De bouw zal naar verwachting starten in het tweede kwartaal van 2026, met verwachte voltooiing in het vierde kwartaal van 2028.</p></details></div></details>
+    <p class="faq2-guide">Meer over het kopen van nieuwbouw in Spanje → <a class="textlink" href="nl/guide-how-buying-works.html">Koopgids</a></p>
+  </section>
+
+  </div>
+  <aside class="rail" aria-label="Privébezichtiging boeken">
+    <div class="card">
+      <p class="rail-price-label">Prijs vanaf</p>
+      <p class="rail-price num">€ 350.000</p>
+      <p class="rail-note">Excl. btw. Nog 15 van 25 woningen · Gecontroleerd op augustus 2026</p>
+      <div class="rail-actions"><a class="btn btn-primary" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Privébezichtiging boeken</a><a class="btn btn-ghost" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>Stuur ons een bericht via WhatsApp</a></div>
+      <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
+      <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="56" height="56" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+    </div>
+  </aside>
+  </div>
+
+  <section class="contact" id="enquire" aria-labelledby="v2-h-contact">
+    <div class="contact-in">
+      <div class="contact-copy">
+        <h2 id="v2-h-contact">Privébezichtiging boeken</h2>
+        <p>Laat ons weten welke woning u interesseert. Wij sturen het projectdossier en lopen daarna met u over het terrein.</p>
+        <div class="person"><img src="assets/liora/team/sasan-raftari-founder-compact.jpg" alt="Sasan Raftari" width="72" height="72" loading="lazy" decoding="async"><p><strong>Sasan Raftari, oprichter van Nueva Living</strong>Wij beantwoorden elke aanvraag zelf.</p></div>
+        <ul class="channels">
+          <li><a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp<span>Stuur ons een bericht</span></a></li>
+          <li><a href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen<span dir="ltr">+34 645 44 66 24</span></a></li>
+          <li><a href="mailto:contact@nuevaliving.com"><svg><use href="#v2-mail"/></svg>E-mail<span>contact@nuevaliving.com</span></a></li>
         </ul>
+        <div class="visit"><h3>Tijdens de bezichtiging controleren we samen</h3><ul><li><b>Architectuur.</b> 4 gebouwen rond een gemeenschappelijk zwembad, op korte afstand van het strand van Arroyo Vaquero.</li><li><b>Woningtypes.</b> Appartementen en een dubbele penthouse van 1 tot 3 slaapkamers, met tuin of dakterras.</li><li><b>Levensstijl.</b> Buiten gemeenschappelijk zwembad, aangelegde tuinen en sportschool op locatie.</li><li><b>Volgende stap.</b> Vraag de prijslijst en actuele plattegronden van de indeling die u interesseert aan.</li></ul></div>
       </div>
-    </section>
+      <form class="enquiry" id="projectForm" name="project-material-request" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead novalidate data-submitting-label="Verzenden…" data-success-label="Privébezichtiging boeken ✓" data-submitting-message="Verzenden…" data-success-message="Aanvraag ontvangen. Wij sturen het projectdossier en stellen tijden voor een bezichtiging voor." data-error-message="Dat is niet gelukt. Probeer het opnieuw of stuur ons een bericht via WhatsApp."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Bahía Serena Residences">
+        <input type="hidden" id="f-project" name="project" value="Bahía Serena Residences">
+        <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
+        <input type="hidden" name="property_type_interest" value="Appartement">
+        <input type="hidden" name="budget_range" value="Vanaf € 350.000">
+        <input type="hidden" name="consent_text" value="Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden.">
+        <input type="hidden" name="message" id="v2-f-message" value="Ik ontvang graag de nieuwste projectinformatie voor Bahía Serena Residences." data-base="Ik ontvang graag de nieuwste projectinformatie voor Bahía Serena Residences.">
+        <h3>Uw gegevens</h3>
+        <div class="row2">
+          <div class="field"><label for="f-first-name">Voornaam</label><input id="f-first-name" name="first_name" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last-name">Achternaam</label><input id="f-last-name" name="last_name" autocomplete="family-name" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="v2-f-email">E-mail</label><input id="v2-f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v2-f-phone">Telefoon (optioneel, voor WhatsApp)</label><input id="v2-f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr"></div>
+        </div>
+        <div class="field"><label for="v2-f-unit">Welke woning?</label><select id="v2-f-unit" name="unit_interest"><option value="">Nog niet zeker, stuur me alles</option><option value="10A">10A: € 615.000</option><option value="10C">10C: € 490.000</option><option value="12A">12A: € 1.100.000</option><option value="20A">20A: € 550.000</option><option value="20B">20B: € 350.000</option><option value="20C">20C: € 595.000</option><option value="21C">21C: € 815.000</option><option value="30A">30A: € 390.000</option><option value="30B">30B: € 390.000</option><option value="30C">30C: € 435.000</option><option value="31C">31C: € 440.000</option><option value="40B">40B: € 390.000</option><option value="40E">40E: € 390.000</option><option value="41A">41A: € 550.000</option><option value="41B">41B: € 440.000</option></select></div>
+        <fieldset class="field"><legend>De woning wordt</legend><div class="pref">
+          <label><input type="radio" name="purchase_purpose" value="live">Om in te wonen</label>
+          <label><input type="radio" name="purchase_purpose" value="holiday">Een vakantiewoning</label>
+          <label><input type="radio" name="purchase_purpose" value="investment">Een belegging</label>
+        </div></fieldset>
+        <fieldset class="field"><legend>Hoe zullen we antwoorden?</legend><div class="pref">
+          <label><input type="radio" name="preferred_contact" value="whatsapp" checked>WhatsApp</label>
+          <label><input type="radio" name="preferred_contact" value="call">Telefoongesprek</label>
+          <label><input type="radio" name="preferred_contact" value="email">E-mail</label>
+        </div></fieldset>
+        <label class="consent"><input type="checkbox" name="consent" value="true" required>Ik ga ermee akkoord dat Nueva Living deze gegevens bewaart om mijn aanvraag te beantwoorden. <a href="nl/privacy-policy.html">Privacybeleid</a></label>
+        <label class="consent"><input type="checkbox" name="marketing_opt_in" value="true" id="v2-f-alert">Laat het me ook weten als de beschikbaarheid of de prijzen bij Bahía Serena veranderen.</label>
+        <button class="btn btn-primary btn-block" type="submit">Privébezichtiging boeken</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Waarom dit project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Waarom dit project <em>ertoe doet</em></h2>
-          <p class="project-lead">Een boetiekcollectie appartementen voor kopers die gemakkelijke toegang tot het strand willen zonder een groot, hotelachtig project.</p>
-        </div>
-        <div class="why-groups">
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Waarom het past</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Voor wie</h3><p>Kopers die een kleinschaliger gebouw zoeken, op korte afstand van het strand, met de optie van een privétuin of dakterras.</p></article>
-              <article class="why-point reveal-soft"><h3>Wat het anders maakt</h3><p>Slechts 25 woningen in vier gebouwen, in plaats van een grootschalig complex, op een kavel op ongeveer 10 minuten lopen van het strand van Arroyo Vaquero.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom de locatie ertoe doet</h3><p>Bahía Serena ligt in Bahía Dorada, aan de westelijke rand van Estepona, op korte afstand van het centrum van Estepona, de jachthaven en de AP-7 snelweg.</p></article>
-              <article class="why-point reveal-soft"><h3>Waarom beschikbaarheid checken</h3><p>15 van de 25 woningen zijn momenteel vrijgegeven met bevestigde prijs; Nueva Living bevestigt de actuele vrijgave opnieuw vóór elke bezichtiging.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investeringscase</h3></div>
-            <p class="why-group-note">Een feitelijke opmerking over timing en eigendom; Nueva Living belooft geen huurrendement of prijsstijging.</p>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Waarom timing belangrijk is</h3><p>15 van de 25 woningen zijn momenteel vrijgegeven met bevestigde prijs; de combinatie van beschikbare indelingen zal veranderen naarmate nieuwe fasen worden vrijgegeven.</p></article>
-              <article class="why-point reveal-soft"><h3>Actuele informatie</h3><p>Nueva Living bevestigt prijs, beschikbaarheid en specificatie rechtstreeks bij de ontwikkelaar vóór elke bezichtiging of reservering.</p></article>
-              <article class="why-point reveal-soft"><h3>Aantrekkingskracht op lange termijn</h3><p>Een boetiekschaal van 25 woningen dicht bij het strand is ongebruikelijk in dit deel van de Costa del Sol, waar de meeste nieuwe projecten aanzienlijk groter zijn.</p></article>
-              <article class="why-point reveal-soft"><h3>Persoonlijk gebruik en verhuur</h3><p>Kopers dienen de huidige verhuurregels voor dit project rechtstreeks bij de ontwikkelaar te bevestigen voordat zij uitgaan van een verhuurplan.</p></article>
-            </div>
-          </div>
-          <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Vertrouwen & zorgvuldigheid</h3></div>
-            <div class="why-point-grid">
-              <article class="why-point reveal-soft"><h3>Informatie over de ontwikkelaar</h3><p>Nueva Living beschikt over de identiteit en vergunningsinformatie van de ontwikkelaar en verstrekt deze schriftelijk voorafgaand aan elke reservering.</p></article>
-              <article class="why-point reveal-soft"><h3>Hoe de aankoop werkt</h3><p>Een privé, Engelstalig aankoopproces met een Spaanse advocaat naar keuze van de koper; Nueva Living coördineert bezichtigingen en documentatie.</p></article>
-              <article class="why-point reveal-soft"><h3>Oplevering en garantie</h3><p>Bouwvergunning verleend; de bouw zal naar verwachting starten in het tweede kwartaal van 2026, met verwachte voltooiing in het vierde kwartaal van 2028, en de verwachte eerste-bewoningsvergunning in het vierde kwartaal van 2027. De betalingsvoorwaarden verschillen voor ingezetenen en niet-ingezetenen, waarbij betaalde bedragen worden gegarandeerd via een bankgarantie.</p></article>
-              <article class="why-point reveal-soft"><h3>Andere opties</h3><p>Nueva Living kan Bahía Serena op aanvraag vergelijken met andere projecten in Estepona.</p></article>
-            </div>
-            <p class="why-group-note">Voor het eerst off-plan kopen in Spanje? <a href="nl/guide-how-buying-works.html">Hoe een nieuwbouwaankoop verloopt</a> zet de zeven stappen op een rij, en <a href="nl/guide-off-plan-vs-resale.html">off-plan versus bestaande bouw</a> behandelt aanbetalingen, garanties en doorlooptijden.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="fine" aria-label="De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn">
+    <p>De beelden zijn aangeleverd door de ontwikkelaar en kunnen computergegenereerd zijn; het definitieve ontwerp, de afwerking, de tuinaanleg en het uitzicht kunnen afwijken. U hebt recht op een exemplaar van het Documento Informativo Abreviado (DIA) voor elke woning op deze pagina; Nueva Living stuurt het op aanvraag.</p>
+    <p>Beschikbaarheid op augustus 2026 bij de verkoper gecontroleerd; wij bevestigen die opnieuw vóór elke reservering.</p>
+    <p>Woningreferenties, oppervlaktes en prijzen overgenomen uit de door de ontwikkelaar gepubliceerde prijslijst van augustus 2026. Prijzen zijn exclusief btw en overige toepasselijke aankoopkosten en kunnen zonder voorafgaande kennisgeving wijzigen of bij verkoop van een woning vervallen. Nueva Living bevestigt prijs, status en reserveringsvoorwaarden opnieuw voordat u verdergaat.</p>
+    <p>De informatie op deze pagina dient algemene marketingdoeleinden en is geen juridisch, financieel of beleggingsadvies. Prijzen, beschikbaarheid en opleverdata kunnen zonder aankondiging wijzigen.</p>
+  </section>
 
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          <img src="assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden.jpg" alt="Ground-floor home exterior with terrace, garden and sea views" width="1387" height="1194" loading="lazy" decoding="async">
-          <figcaption class="image-caption">Een woning op de begane grond met privétuin</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architectuur</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Vier gebouwen, <em>gericht op zee</em></h2>
-          <p>Het complex is verdeeld over vier gebouwen met een draagconstructie van gewapend beton en niet-geventileerde bakstenen gevels, met thermische en akoestische isolatie en decoratieve bekleding op specifieke punten van de gevels en pergola's.</p>
-<p>De keukens worden volledig uitgerust geleverd met een kwartsen werkblad en geïntegreerde apparatuur van Siemens. De badkamers combineren grootformaat keramische tegels met thermostatische douches. Warm tapwater wordt geproduceerd via aerothermie, met kanaalklimaatregeling en thermostaat in de woonkamer van elke woning.</p>
-          <ul class="feature-list">
-            <li>Buiten gemeenschappelijk zwembad met avondverlichting, aangelegde tuinen en sportschool.</li>
-            <li>Volledig uitgeruste keukens met kwartsen werkblad en geïntegreerde apparatuur.</li>
-            <li>Warm water via aerothermie en kanaalklimaatregeling in de hele woning.</li>
-            <li>Garage en berging voor elke woning, met voorbereiding voor het opladen van elektrische voertuigen.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <nav class="actionbar" id="v2-actionbar" aria-label="Projectaanvraagacties">
+    <a class="ab-btn" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>WhatsApp</a>
+    <a class="ab-btn" href="tel:+34645446624"><svg><use href="#v2-phone"/></svg>Bellen</a>
+    <a class="ab-btn ab-primary" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Bezichtiging boeken</a>
+  </nav>
 
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg" alt="Covered terrace lounge with panoramic sea views" width="1292" height="1188" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Filmische presentatie</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Bekijk <em>Bahía Serena</em> van dichtbij</h2>
-            <p>Ontdek de omgeving van Bahía Dorada, het gemeenschappelijk zwembad en de appartementsindelingen voordat u de volledige projectinformatie aanvraagt.</p>
-            <div class="viewing-insights">
-              <div><span>Architectuur</span><p>4 gebouwen rond een gemeenschappelijk zwembad, op korte afstand van het strand van Arroyo Vaquero.</p></div>
-              <div><span>Woningtypes</span><p>Appartementen en een dubbele penthouse van 1 tot 3 slaapkamers, met tuin of dakterras.</p></div>
-              <div><span>Levensstijl</span><p>Buiten gemeenschappelijk zwembad, aangelegde tuinen en sportschool op locatie.</p></div>
-              <div><span>Volgende stap</span><p>Vraag de prijslijst en actuele plattegronden van de indeling die u interesseert aan.</p></div>
-            </div>
-            <div class="cinema-actions">
-              <a class="btn project-btn" href="nl/index.html#private-viewing=1&amp;project=bahia-serena-residences">Filmische presentatie</a>
-              <a class="btn project-btn ghost" href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Projectmateriaal aanvragen</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="lb" id="v2-lb" role="dialog" aria-modal="true" aria-label="Galerij" hidden>
+    <button class="lb-btn lb-close" type="button" aria-label="Sluiten">×</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Vorige afbeelding">‹</button>
+    <figure><img id="v2-lb-img" alt=""><figcaption><span id="v2-lb-cap"></span><span id="v2-lb-count"></span></figcaption></figure>
+    <button class="lb-btn lb-next" type="button" aria-label="Volgende afbeelding">›</button>
+    <div class="lb-cats" role="group" aria-label="Galerij"><button type="button" data-cat="Exteriors">Exterieur</button><button type="button" data-cat="Amenities">Voorzieningen</button><button type="button" data-cat="Interiors">Interieur</button><button type="button" data-cat="Location">Locatie</button></div>
+  </div>
 
-    <section class="project-section dark" id="lifestyle">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          <img src="assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg" alt="Roof terrace with panoramic sea views" width="1920" height="974" loading="lazy" decoding="async">
-          <div class="cinema-copy">
-            <span class="section-kicker">Levensstijl</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">Een <em>boetiek</em> voorzieningenaanbod</h2>
-            <p>Naast het eigen terras of de tuin van elke woning delen de bewoners van Bahía Serena een compact en verzorgd geheel van voorzieningen.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section timeline-section" id="timeline">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Volgende stappen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Wat er <em>hierna</em> gebeurt</h2>
-        </div>
-        <div class="project-timeline">
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-            <span class="timeline-num">01</span>
-            <h3>Vraag projectinformatie aan</h3>
-            <p>Vraag de prijslijst en actuele plattegronden van de indeling die u interesseert aan.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg></span>
-            <span class="timeline-num">02</span>
-            <h3>Vergelijk de indelingen</h3>
-            <p>Bekijk de appartement- en penthouse-indelingen naast uw budget en ruimtebehoeften.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span>
-            <span class="timeline-num">03</span>
-            <h3>Privébezichtiging</h3>
-            <p>Bezoek persoonlijk de omgeving van Bahía Dorada en het gemeenschappelijk zwembad voordat u beslist.</p>
-          </article>
-          <article class="timeline-item reveal-soft">
-            <span class="timeline-hex"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></span>
-            <span class="timeline-num">04</span>
-            <h3>Controle vóór reservering</h3>
-            <p>Bevestig de actuele prijs, beschikbaarheid en betalingsstructuur schriftelijk vóór elke reservering.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section faq-section" id="faq">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="section-kicker">Veelgestelde vragen</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">Veelgestelde <em>vragen van kopers</em></h2>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item reveal-soft" open>
-            <summary>Kunnen buitenlanders onroerend goed kopen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is een NIE-nummer en heb ik er een nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaanse onderdaan. Nueva Living begeleidt u bij het aanvragen ervan voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Met welke kosten moet ik rekening houden bovenop de aankoopprijs?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kadasterkosten en advocaatkosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, meestal ter financiering van een deel van de aankoopprijs. De exacte voorwaarden hangen af van de bank en uw persoonlijke financiële profiel.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wat is het verschil tussen woningen in aanbouw op plan en opgeleverde woningen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoe werkt het reserverings- en betalingsproces?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Reserverings- en betalingsstructuren verschillen per project en worden volledig uiteengezet voordat u reserveert. Nueva Living bevestigt bij elke stap het actuele schema voor uw gekozen woning opnieuw.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Kan ik de woning na aankoop verhuren?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Heb ik een advocaat nodig?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Ja, wij raden ten zeerste onafhankelijke juridische vertegenwoordiging aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel woningen zijn er in totaal?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>25 appartementen in vier gebouwen.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hoeveel zijn er momenteel beschikbaar?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De ontwikkelaar heeft tot nu toe 15 van de 25 woningen vrijgegeven met bevestigde prijs, verdeeld over de vier gebouwen. Nueva Living bevestigt de actuele beschikbaarheid opnieuw vóór elke bezichtiging.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Hebben alle woningen zeezicht?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Niet allemaal -- sommige naar het binnenland gerichte woningen hebben gedeeltelijk of geen zeezicht. Nueva Living bevestigt het uitzicht van een specifieke woning vóór elke bezichtiging.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Is meubilair inbegrepen?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Nee. De getoonde afbeeldingen zijn computerbeelden; meubilair, styling en beplanting zijn indicatief en niet inbegrepen in de verkoop.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Welke voorzieningen worden gedeeld?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>Een buiten gemeenschappelijk zwembad met avondverlichting, aangelegde tuinen en een sportschool.</p>
-          </details>
-          <details class="faq-item reveal-soft">
-            <summary>Wanneer is de oplevering?<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
-            <p>De bouwvergunning is verleend. De bouw zal naar verwachting starten in het tweede kwartaal van 2026, met verwachte voltooiing in het vierde kwartaal van 2028.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="enquire">
-      <div class="project-inner">
-        <div class="section-head center reveal-soft">
-          <span class="label">Vraag aan</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Vraag naar <em>Bahía Serena Residences</em></h2>
-          <p class="body-copy">Vertel ons welke appartementsindeling u interesseert en wij sturen u de actuele prijslijst en specificatie.</p>
-        </div>
-        <aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
-          <img class="advisor-photo" src="assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="Sasan Raftari, oprichter van Nueva Living" loading="lazy" decoding="async">
-          <div class="advisor-body">
-            <p class="advisor-role">Sasan Raftari &middot; Oprichter, Nueva Living</p>
-            <h3 id="advisor-heading">Liever het gesprek aangaan?</h3>
-            <p class="advisor-copy">Kies wat past en stuur mij een bericht via WhatsApp. Daar begin ik dan mee.</p>
-            <div class="advisor-group" role="group" aria-label="Ik zoek">
-              <span class="advisor-group-label">Ik zoek</span>
-              <button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="live" aria-pressed="false">Een woning om in te wonen</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="holiday" aria-pressed="false">Een vakantiewoning</button><button type="button" class="advisor-chip" data-advisor-group="purpose" data-advisor-key="invest" aria-pressed="false">Een investering</button>
-            </div>
-            <div class="advisor-group" role="group" aria-label="Budget">
-              <span class="advisor-group-label">Budget</span>
-              <button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="1" aria-pressed="false">Onder € 500.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="2" aria-pressed="false">€ 500.000 – € 1.000.000</button><button type="button" class="advisor-chip" data-advisor-group="budget" data-advisor-key="3" aria-pressed="false">Boven € 1.000.000</button>
-            </div>
-            <a class="btn project-btn advisor-cta" href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor">Stuur mij een WhatsApp-bericht</a>
-          </div>
-        </aside>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - Bahía Serena Residences">
-
-          <input type="hidden" id="f-project" name="project" value="Bahía Serena Residences">
-          <input type="hidden" name="preferred_area" value="Estepona, Costa del Sol">
-          <input type="hidden" name="property_type_interest" value="Appartement">
-          <input type="hidden" name="budget_range" value="Vanaf € 350.000">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">Voornaam</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Voornaam" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">Achternaam</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Achternaam" required>
-            </div>
-            <div class="field">
-              <label for="f-email">E-mail</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Telefoon</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 of internationaal">
-            </div>
-            <div class="field full">
-              <label for="f-msg">Bericht</label>
-              <textarea id="f-msg" name="message">Ik ontvang graag de nieuwste projectinformatie voor Bahía Serena Residences.</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>Ik ontvang ook graag af en toe projectupdates van Nueva Living.</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Aanvraag verzenden</button>
-            <span class="form-note">Projectcontext: Bahía Serena Residences.</span>
-          </div>
-        </form>
-      </div>
-    </section>
+  <script>window.NUEVA_V2 = {"units":[{"id":"u0","ref":"10A","title":"10A · Begane grond, blok 1","sub":"2 slk. · 114 m²","price":615000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-10a-floorplans.pdf","label":""}]},{"id":"u1","ref":"10C","title":"10C · Begane grond, blok 1","sub":"2 slk. · 112 m²","price":490000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-10c-floorplans.pdf","label":""}]},{"id":"u2","ref":"12A","title":"12A · Tweede verdieping en solarium, blok 1","sub":"3 slk. · 137 m²","price":1100000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-12a-floorplans.pdf","label":""}]},{"id":"u3","ref":"20A","title":"20A · Begane grond, blok 2","sub":"2 slk. · 112 m²","price":550000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-20a-floorplans.pdf","label":""}]},{"id":"u4","ref":"20B","title":"20B · Begane grond, blok 2","sub":"1 slk. · 72 m²","price":350000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-20b-floorplans.pdf","label":""}]},{"id":"u5","ref":"20C","title":"20C · Begane grond, blok 2","sub":"2 slk. · 113 m²","price":595000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-20c-floorplans.pdf","label":""}]},{"id":"u6","ref":"21C","title":"21C · Eerste verdieping, blok 2","sub":"3 slk. · 131 m²","price":815000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-21c-floorplans.pdf","label":""}]},{"id":"u7","ref":"30A","title":"30A · Begane grond, blok 3","sub":"1 slk. · 66 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-30a-floorplans.pdf","label":""}]},{"id":"u8","ref":"30B","title":"30B · Begane grond, blok 3","sub":"1 slk. · 59 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-30b-floorplans.pdf","label":""}]},{"id":"u9","ref":"30C","title":"30C · Begane grond, blok 3","sub":"1 slk. · 55 m²","price":435000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-30c-floorplans.pdf","label":""}]},{"id":"u10","ref":"31C","title":"31C · Eerste verdieping, blok 3","sub":"1 slk. · 68 m²","price":440000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-31c-floorplans.pdf","label":""}]},{"id":"u11","ref":"40B","title":"40B · Begane grond, blok 4","sub":"1 slk. · 93 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-40b-floorplans.pdf","label":""}]},{"id":"u12","ref":"40E","title":"40E · Begane grond, blok 4","sub":"1 slk. · 70 m²","price":390000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-40e-floorplans.pdf","label":""}]},{"id":"u13","ref":"41A","title":"41A · Eerste verdieping, blok 4","sub":"1 slk. · 68 m²","price":550000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-41a-floorplans.pdf","label":""}]},{"id":"u14","ref":"41B","title":"41B · Eerste verdieping, blok 4","sub":"1 slk. · 63 m²","price":440000,"plans":[{"src":"assets/liora/projects/bahia-serena-residences/floorplans/unit-41b-floorplans.pdf","label":""}]}],"stages":null,"stageLabels":null,"gallery":[{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.webp","alt":"Luchtfoto van het boetiekcomplex met uitzicht op de bergen","caption":"Luchtfoto van het complex","cat":"Exteriors"},{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.webp","alt":"Luchtfoto van het complex naast de kustweg met zeezicht","caption":"Luchtfoto naast de kustweg","cat":"Exteriors"},{"src":"assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden.webp","alt":"Buitenaanzicht van een woning op de begane grond met terras, tuin en zeezicht","caption":"Woning op de begane grond met terras en tuin","cat":"Exteriors"},{"src":"assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.webp","alt":"Dakterras met panoramisch zeezicht","caption":"Dakterras met panoramisch zeezicht","cat":"Amenities"},{"src":"assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.webp","alt":"Overdekte loungeterras met panoramisch zeezicht","caption":"Overdekte lounge op terras met zeezicht","cat":"Interiors"},{"src":"assets/liora/projects/bahia-serena-residences/media/bedroom-sea-view.webp","alt":"Slaapkamer met zeezicht door raampartijen van vloer tot plafond","caption":"Slaapkamer met zeezicht","cat":"Interiors"},{"src":"assets/liora/projects/bahia-serena-residences/media/site-plan.webp","alt":"Situatieplan met de vier gebouwen, toegangspunten en het gemeenschappelijk zwembad","caption":"Situatieplan van de vier gebouwen en het gemeenschappelijk zwembad","cat":"Location"}],"vat":0.1,"ajd":0.012,"price":{"pre":"€ ","sep":".","post":""},"i18n":{"askAbout":"Vraag naar {ref}","plusVat":"Excl. btw","totalPrice":"Totaalprijs","vatOnStages":"Plus btw op elke termijn","onRequest":"Op aanvraag","imageOf":"{i} van {n}","floorPlan":"Plattegrond"}};</script>
   </main>
 
-  <dialog class="project-media-dialog" id="projectMediaDialog" aria-label="Bahía Serena Residences media viewer">
-      <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Sluiten">Sluiten</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Vorige afbeelding">&#8592;</button>
-        <figure class="media-dialog-figure">
-          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
-          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
-        </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Volgende afbeelding">&#8594;</button>
-        <div class="media-dialog-stack" data-media-dialog-stack hidden>
-          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
-        </div>
-      </div>
-    </dialog>
-    <script type="application/json" id="projectMediaData">[{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside-960.webp","alt":"Luchtfoto van het boetiekcomplex met uitzicht op de bergen","width":1350,"height":869,"caption":"Luchtfoto van het complex","category":"Exterieur"},{"src":"assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/aerial-view-coastal-road-960.webp","alt":"Luchtfoto van het complex naast de kustweg met zeezicht","width":1555,"height":1190,"caption":"Luchtfoto naast de kustweg","category":"Exterieur"},{"src":"assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/villa-exterior-terrace-garden-960.webp","alt":"Buitenaanzicht van een woning op de begane grond met terras, tuin en zeezicht","width":1387,"height":1194,"caption":"Woning op de begane grond met terras en tuin","category":"Exterieur"},{"src":"assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/rooftop-terrace-sea-view-960.webp","alt":"Dakterras met panoramisch zeezicht","width":1920,"height":974,"caption":"Dakterras met panoramisch zeezicht","category":"Voorzieningen"},{"src":"assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/living-room-terrace-sea-view-960.webp","alt":"Overdekte loungeterras met panoramisch zeezicht","width":1292,"height":1188,"caption":"Overdekte lounge op terras met zeezicht","category":"Interieur"},{"src":"assets/liora/projects/bahia-serena-residences/media/bedroom-sea-view.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/bedroom-sea-view-960.webp","alt":"Slaapkamer met zeezicht door raampartijen van vloer tot plafond","width":1535,"height":1189,"caption":"Slaapkamer met zeezicht","category":"Interieur"},{"src":"assets/liora/projects/bahia-serena-residences/media/site-plan.jpg","webp":"assets/liora/projects/bahia-serena-residences/media/site-plan-960.webp","alt":"Situatieplan met de vier gebouwen, toegangspunten en het gemeenschappelijk zwembad","width":2382,"height":1684,"caption":"Situatieplan van de vier gebouwen en het gemeenschappelijk zwembad","category":"Locatie"}]</script>
 
-  <div class="sticky-mobile-cta" aria-label="Projectaanvraagacties">
-    <a href="nl/property-bahia-serena-residences.html#enquire" data-prefill>Vraag naar een woning</a>
-    <a href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20ask%20about%20Bah%C3%ADa%20Serena%20Residences." target="_blank" rel="noopener" data-whatsapp-advisor data-project="Bahía Serena Residences" data-intent="speak with an advisor">Spreek met een adviseur</a>
-  </div>
 
   <footer>
     <div class="footer-grid">
