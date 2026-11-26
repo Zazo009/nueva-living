@@ -5,8 +5,8 @@
 // root to preserve existing URLs; other locales are emitted under
 // /<locale>/...). There is no client-side language switch -- switching
 // language is a normal navigation to the equivalent page in that locale's
-// directory, which keeps the cinematic presentation, animations and
-// hydration-free architecture completely unaffected.
+// directory, which keeps the animations and hydration-free architecture
+// completely unaffected.
 import { readFileSync } from 'node:fs';
 import { organizationSchema, organizationId } from './brand.mjs';
 import path from 'node:path';
@@ -60,8 +60,7 @@ function isPlainObject(value) {
 // objects (e.g. overlay.availability = {headlineHtml, copy, sourceNote} onto
 // English availability = {..., units: [...]}), so a translator can override
 // just the prose fields of a section without having to also restate
-// factual/structural data like `availability.units`, `privateViewing.href`
-// or image dimensions -- those silently keep falling back to English.
+// factual/structural data like `availability.units` or image dimensions -- those silently keep falling back to English.
 // Arrays (quickFacts, media.items, why.points, ...) and primitives are
 // replaced wholesale when present, since a translated array must stand on
 // its own (partial-array merging has no sane semantics here).

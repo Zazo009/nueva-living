@@ -1,17 +1,15 @@
 // Generates locale variants of the homepage (nueva-living-home.html -> a
 // real, functioning es/index.html, fr/index.html, de/index.html,
-// ru/index.html, ar/index.html) so the language switcher and the property
-// pages' "Cinematic Presentation" links -- which already point at
-// "<locale>/index.html" -- resolve to a real page instead of 404ing.
+// ru/index.html, ar/index.html) so the language switcher and every link
+// that points at "<locale>/index.html" resolve to a real page instead of
+// 404ing.
 //
 // Scope (documented, not silently partial): this script fully localizes
 // the homepage's shared chrome -- nav, mobile menu, footer, language
 // switcher, <html lang/dir>, hreflang, and (for Arabic) the RTL stylesheet
 // and self-hosted Arabic font -- for every locale, plus the homepage's own
 // hero copy, repeating content blocks (Why/Areas/Journey/About/Referral),
-// the contact form, and the embedded cinematic-presentation viewer's
-// UI-chrome strings ("Guided", "Project Details", field labels), for every
-// locale (see HOMEPAGE_CONTENT_ENTRIES / homepageContentReplacements below
+// and the contact form, for every locale (see HOMEPAGE_CONTENT_ENTRIES / homepageContentReplacements below
 // -- any entry missing a translation for a given locale keeps the
 // documented English fallback for that string rather than crashing).
 // Per-project card taglines on the "Selected
@@ -26,36 +24,8 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 
 import path from 'node:path';
 import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema, LANG_SWITCHER_SCRIPT, LANG_CHECK_ICON, LANG_CHECK_SPACER, qualifyFragmentLinks } from './lib/i18n.mjs';
 import { localizeCardPrices } from './lib/prices.mjs';
-import { loadProjects, renderViewingBlocks } from './lib/viewing.mjs';
-import { BESPOKE_SCENE_ENTRIES } from './lib/bespoke_scene_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 import { FILTER_OPTION_ENTRIES } from './lib/developments_page_translations.mjs';
-
-// Regenerates the cinematic-presentation viewer's VIEWING_PROJECTS /
-// PROJECT_VIEWING_SCENE_SETS blocks for a given locale. Without this, the
-// English-baked blocks written by build_property_pages.mjs (which only
-// ever runs once, in English) would simply be cloned unchanged into every
-// locale homepage below -- the viewer's per-project scene captions/labels
-// silently staying English on every translated page.
-function applyViewingBlocks(html, locale) {
-  if (locale === DEFAULT_LOCALE) return html;
-  const projects = loadProjects();
-  const { projectsBlock, scenesBlock } = renderViewingBlocks(projects, locale);
-
-  const replaceBlock = (source, startMarker, endMarker, block) => {
-    const start = source.indexOf(startMarker);
-    const end = source.indexOf(endMarker);
-    if (start === -1 || end === -1 || end < start) {
-      throw new Error(`nueva-living-home.html is missing the ${startMarker} / ${endMarker} markers.`);
-    }
-    return source.slice(0, start) + block + source.slice(end + endMarker.length);
-  };
-
-  let next = html;
-  next = replaceBlock(next, '/* NUEVA GENERATED VIEWING PROJECTS START */', '/* NUEVA GENERATED VIEWING PROJECTS END */', projectsBlock);
-  next = replaceBlock(next, '/* NUEVA GENERATED VIEWING SCENES START */', '/* NUEVA GENERATED VIEWING SCENES END */', scenesBlock);
-  return next;
-}
 
 const root = process.cwd();
 const sourcePath = path.join(root, 'nueva-living-home.html');
@@ -128,7 +98,7 @@ function navFooterReplacements(locale) {
   ];
 }
 
-// Homepage-specific marketing copy and cinematic-viewer chrome. These are
+// Homepage-specific marketing copy. These are
 // one-off, page-specific strings (not reused elsewhere), so -- like
 // navFooterReplacements above -- they are literal [find, replace] pairs
 // rather than content/i18n/strings.json keys. Translations are defined once
@@ -278,51 +248,6 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   { find: 'Prefer email? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', es: '¿Prefiere el correo? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', fr: "Vous préférez l'e-mail ? <a href=\"mailto:contact@nuevaliving.com\">contact@nuevaliving.com</a>", de: 'Lieber per E-Mail? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', ru: 'Предпочитаете почту? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', ar: 'تفضل البريد الإلكتروني؟ <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', nl: 'Liever per e-mail? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', pl: 'Wolą Państwo e-mail? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', sv: 'Föredrar ni e-post? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>', no: 'Foretrekker du e-post? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a>' },
   // "Show more" (why / areas / journey grids)
   { find: 'data-expand-grid>Show More</button>', es: 'data-expand-grid>Ver más</button>', fr: 'data-expand-grid>Voir Plus</button>', de: 'data-expand-grid>Mehr anzeigen</button>', ru: 'data-expand-grid>Показать больше</button>', ar: 'data-expand-grid>عرض المزيد</button>', nl: 'data-expand-grid>Meer tonen</button>', pl: 'data-expand-grid>Pokaż więcej</button>', sv: 'data-expand-grid>Visa mer</button>', no: 'data-expand-grid>Vis mer</button>' },
-  // Cinematic-presentation viewer chrome
-  { find: 'aria-label="Cinematic Presentation — Nueva Living"', es: 'aria-label="Presentación cinemática — Nueva Living"', fr: 'aria-label="Présentation cinématique — Nueva Living"', de: 'aria-label="Cinematische Präsentation — Nueva Living"', ru: 'aria-label="Кинематографичная презентация — Nueva Living"', ar: 'aria-label="عرض سينمائي — Nueva Living"', nl: 'aria-label="Cinematische presentatie — Nueva Living"', pl: 'aria-label="Prezentacja filmowa — Nueva Living"', sv: 'aria-label="Filmisk presentation — Nueva Living"', no: 'aria-label="Filmatisk presentasjon — Nueva Living"' },
-  { find: '<div class="vbrand">Nueva Living · Cinematic Presentation</div>', es: '<div class="vbrand">Nueva Living · Presentación cinemática</div>', fr: '<div class="vbrand">Nueva Living · Présentation cinématique</div>', de: '<div class="vbrand">Nueva Living · Cinematische Präsentation</div>', ru: '<div class="vbrand">Nueva Living · Кинематографичная презентация</div>', ar: '<div class="vbrand">Nueva Living · عرض سينمائي</div>', nl: '<div class="vbrand">Nueva Living · Cinematische presentatie</div>', pl: '<div class="vbrand">Nueva Living · Prezentacja filmowa</div>', sv: '<div class="vbrand">Nueva Living · Filmisk presentation</div>', no: '<div class="vbrand">Nueva Living · Filmatisk presentasjon</div>' },
-  { find: 'aria-label="Pause guided viewing"', es: 'aria-label="Pausar recorrido guiado"', fr: 'aria-label="Mettre en pause la visite guidée"', de: 'aria-label="Geführte Ansicht pausieren"', ru: 'aria-label="Приостановить показ с гидом"', ar: 'aria-label="إيقاف الجولة الموجهة مؤقتًا"', nl: 'aria-label="Begeleide weergave pauzeren"', pl: 'aria-label="Wstrzymaj prezentację z przewodnikiem"', sv: 'aria-label="Pausa guidad visning"', no: 'aria-label="Sett guidet visning på pause"' },
-  { find: '<span class="mode-label">Guided</span>', es: '<span class="mode-label">Guiado</span>', fr: '<span class="mode-label">Guidé</span>', de: '<span class="mode-label">Geführt</span>', ru: '<span class="mode-label">С гидом</span>', ar: '<span class="mode-label">موجّه</span>', nl: '<span class="mode-label">Begeleid</span>', pl: '<span class="mode-label">Z przewodnikiem</span>', sv: '<span class="mode-label">Guidad</span>', no: '<span class="mode-label">Guidet</span>' },
-  { find: 'aria-label="Project details" aria-controls="vinfoPanel"', es: 'aria-label="Detalles del proyecto" aria-controls="vinfoPanel"', fr: 'aria-label="Détails du projet" aria-controls="vinfoPanel"', de: 'aria-label="Projektdetails" aria-controls="vinfoPanel"', ru: 'aria-label="Информация о проекте" aria-controls="vinfoPanel"', ar: 'aria-label="تفاصيل المشروع" aria-controls="vinfoPanel"', nl: 'aria-label="Projectdetails" aria-controls="vinfoPanel"', pl: 'aria-label="Szczegóły projektu" aria-controls="vinfoPanel"', sv: 'aria-label="Projektdetaljer" aria-controls="vinfoPanel"', no: 'aria-label="Prosjektdetaljer" aria-controls="vinfoPanel"' },
-  { find: '<span class="info-label">Project Details</span>', es: '<span class="info-label">Detalles del proyecto</span>', fr: '<span class="info-label">Détails du Projet</span>', de: '<span class="info-label">Projektdetails</span>', ru: '<span class="info-label">Информация о проекте</span>', ar: '<span class="info-label">تفاصيل المشروع</span>', nl: '<span class="info-label">Projectdetails</span>', pl: '<span class="info-label">Szczegóły projektu</span>', sv: '<span class="info-label">Projektdetaljer</span>', no: '<span class="info-label">Prosjektdetaljer</span>' },
-  { find: 'aria-label="Exit viewing">', es: 'aria-label="Salir de la presentación">', fr: 'aria-label="Quitter la visite">', de: 'aria-label="Ansicht verlassen">', ru: 'aria-label="Выйти из просмотра">', ar: 'aria-label="الخروج من العرض">', nl: 'aria-label="Weergave verlaten">', pl: 'aria-label="Zakończ prezentację">', sv: 'aria-label="Avsluta visning">', no: 'aria-label="Avslutt visning">' },
-  { find: '</svg>\n          Exit\n        </button>', es: '</svg>\n          Salir\n        </button>', fr: '</svg>\n          Quitter\n        </button>', de: '</svg>\n          Verlassen\n        </button>', ru: '</svg>\n          Выход\n        </button>', ar: '</svg>\n          خروج\n        </button>', nl: '</svg>\n          Verlaten\n        </button>', pl: '</svg>\n          Zakończ\n        </button>', sv: '</svg>\n          Avsluta\n        </button>', no: '</svg>\n          Avslutt\n        </button>' },
-  { find: '<span class="vclt">Scroll</span>', es: '<span class="vclt">Desplácese</span>', fr: '<span class="vclt">Défiler</span>', de: '<span class="vclt">Scrollen</span>', ru: '<span class="vclt">Прокрутите</span>', ar: '<span class="vclt">مرر للأسفل</span>', nl: '<span class="vclt">Scroll</span>', pl: '<span class="vclt">Przewiń</span>', sv: '<span class="vclt">Scrolla</span>', no: '<span class="vclt">Scroll</span>' },
-  { find: 'aria-label="Project details" aria-hidden="true">', es: 'aria-label="Detalles del proyecto" aria-hidden="true">', fr: 'aria-label="Détails du projet" aria-hidden="true">', de: 'aria-label="Projektdetails" aria-hidden="true">', ru: 'aria-label="Информация о проекте" aria-hidden="true">', ar: 'aria-label="تفاصيل المشروع" aria-hidden="true">', nl: 'aria-label="Projectdetails" aria-hidden="true">', pl: 'aria-label="Szczegóły projektu" aria-hidden="true">', sv: 'aria-label="Projektdetaljer" aria-hidden="true">', no: 'aria-label="Prosjektdetaljer" aria-hidden="true">' },
-  { find: '<span class="vinfo-kicker" id="vinfoKicker">Project Details</span>', es: '<span class="vinfo-kicker" id="vinfoKicker">Detalles del proyecto</span>', fr: '<span class="vinfo-kicker" id="vinfoKicker">Détails du Projet</span>', de: '<span class="vinfo-kicker" id="vinfoKicker">Projektdetails</span>', ru: '<span class="vinfo-kicker" id="vinfoKicker">Информация о проекте</span>', ar: '<span class="vinfo-kicker" id="vinfoKicker">تفاصيل المشروع</span>', nl: '<span class="vinfo-kicker" id="vinfoKicker">Projectdetails</span>', pl: '<span class="vinfo-kicker" id="vinfoKicker">Szczegóły projektu</span>', sv: '<span class="vinfo-kicker" id="vinfoKicker">Projektdetaljer</span>', no: '<span class="vinfo-kicker" id="vinfoKicker">Prosjektdetaljer</span>' },
-  { find: 'aria-label="Close project details"', es: 'aria-label="Cerrar detalles del proyecto"', fr: 'aria-label="Fermer les détails du projet"', de: 'aria-label="Projektdetails schließen"', ru: 'aria-label="Закрыть информацию о проекте"', ar: 'aria-label="إغلاق تفاصيل المشروع"', nl: 'aria-label="Projectdetails sluiten"', pl: 'aria-label="Zamknij szczegóły projektu"', sv: 'aria-label="Stäng projektdetaljer"', no: 'aria-label="Lukk prosjektdetaljer"' },
-  { find: '<span class="vt-label" id="vtlbl">01 — Private Preview</span>', es: '<span class="vt-label" id="vtlbl">01 — Vista privada</span>', fr: '<span class="vt-label" id="vtlbl">01 — Aperçu privé</span>', de: '<span class="vt-label" id="vtlbl">01 — Private Vorschau</span>', ru: '<span class="vt-label" id="vtlbl">01 — Закрытый показ</span>', ar: '<span class="vt-label" id="vtlbl">01 — معاينة خاصة</span>', nl: '<span class="vt-label" id="vtlbl">01 — Privévoorvertoning</span>', pl: '<span class="vt-label" id="vtlbl">01 — Prywatny pokaz</span>', sv: '<span class="vt-label" id="vtlbl">01 — Privat förhandsvisning</span>', no: '<span class="vt-label" id="vtlbl">01 — Privat forhåndsvisning</span>' },
-  { find: '<h2 class="vt-headline" id="vthl">Take a closer look,<br>one space at a time.</h2>', es: '<h2 class="vt-headline" id="vthl">Descúbralo de cerca,<br>espacio a espacio.</h2>', fr: '<h2 class="vt-headline" id="vthl">Découvrez chaque espace,<br>un à la fois.</h2>', de: '<h2 class="vt-headline" id="vthl">Werfen Sie einen genaueren Blick,<br>Raum für Raum.</h2>', ru: '<h2 class="vt-headline" id="vthl">Загляните ближе,<br>пространство за пространством.</h2>', ar: '<h2 class="vt-headline" id="vthl">اكتشف كل تفصيل عن قرب،<br>مساحة تلو الأخرى.</h2>', nl: '<h2 class="vt-headline" id="vthl">Bekijk het van dichtbij,<br>ruimte voor ruimte.</h2>', pl: '<h2 class="vt-headline" id="vthl">Przyjrzyj się bliżej,<br>pomieszczenie po pomieszczeniu.</h2>', sv: '<h2 class="vt-headline" id="vthl">Ta en närmare titt,<br>utrymme för utrymme.</h2>', no: '<h2 class="vt-headline" id="vthl">Ta en nærmere titt,<br>rom for rom.</h2>' },
-  { find: '<span class="vt-sub" id="vtsub">See the setting, architecture and everyday spaces before asking for the full project pack.</span>', es: '<span class="vt-sub" id="vtsub">Conozca el entorno, la arquitectura y los espacios cotidianos antes de solicitar el dosier completo del proyecto.</span>', fr: "<span class=\"vt-sub\" id=\"vtsub\">Découvrez le cadre, l'architecture et les espaces du quotidien avant de demander le dossier complet du projet.</span>", de: '<span class="vt-sub" id="vtsub">Entdecken Sie die Umgebung, die Architektur und die Alltagsräume, bevor Sie die vollständigen Projektunterlagen anfordern.</span>', ru: '<span class="vt-sub" id="vtsub">Познакомьтесь с окружением, архитектурой и повседневными пространствами перед тем, как запросить полный пакет материалов по проекту.</span>', ar: '<span class="vt-sub" id="vtsub">تعرّف على الموقع والعمارة والمساحات اليومية قبل طلب الملف الكامل للمشروع.</span>', nl: '<span class="vt-sub" id="vtsub">Bekijk de omgeving, architectuur en dagelijkse ruimtes voordat u het volledige projectpakket aanvraagt.</span>', pl: '<span class="vt-sub" id="vtsub">Warto poznać otoczenie, architekturę i codzienne przestrzenie, zanim poproszą Państwo o pełny pakiet informacji o projekcie.</span>', sv: '<span class="vt-sub" id="vtsub">Se omgivningen, arkitekturen och vardagsutrymmena innan ni begär det fullständiga projektpaketet.</span>', no: '<span class="vt-sub" id="vtsub">Se omgivelsene, arkitekturen og hverdagsrommene før du ber om den fullstendige prosjektpakken.</span>' },
-  // The viewing script rewrites .v7proj and the #vox aria-label per project,
-  // so these two declarations carry the same wording as the markup above.
-  { find: "const V_CINEMATIC_LABEL = 'Cinematic Presentation';", es: "const V_CINEMATIC_LABEL = 'Presentación cinemática';", fr: "const V_CINEMATIC_LABEL = 'Présentation cinématique';", de: "const V_CINEMATIC_LABEL = 'Cinematische Präsentation';", ru: "const V_CINEMATIC_LABEL = 'Кинематографичная презентация';", ar: "const V_CINEMATIC_LABEL = 'عرض سينمائي';", nl: "const V_CINEMATIC_LABEL = 'Cinematische presentatie';", pl: "const V_CINEMATIC_LABEL = 'Prezentacja filmowa';", sv: "const V_CINEMATIC_LABEL = 'Filmisk presentation';", no: "const V_CINEMATIC_LABEL = 'Filmatisk presentasjon';" },
-  { find: "const V_PREVIEW_LABEL = 'New Development Preview';", es: "const V_PREVIEW_LABEL = 'Vista previa de nueva promoción';", fr: "const V_PREVIEW_LABEL = 'Aperçu du programme neuf';", de: "const V_PREVIEW_LABEL = 'Vorschau des Neubauprojekts';", ru: "const V_PREVIEW_LABEL = 'Превью новостройки';", ar: "const V_PREVIEW_LABEL = 'معاينة المشروع الجديد';", nl: "const V_PREVIEW_LABEL = 'Voorvertoning nieuwbouwproject';", pl: "const V_PREVIEW_LABEL = 'Podgląd nowej inwestycji';", sv: "const V_PREVIEW_LABEL = 'Förhandsvisning av nybygge';", no: "const V_PREVIEW_LABEL = 'Forhåndsvisning av nybygg';" },
-  { find: '<div class="v7proj">Nueva Living · New Development Preview</div>', es: '<div class="v7proj">Nueva Living · Vista previa de nueva promoción</div>', fr: '<div class="v7proj">Nueva Living · Aperçu du programme neuf</div>', de: '<div class="v7proj">Nueva Living · Vorschau des Neubauprojekts</div>', ru: '<div class="v7proj">Nueva Living · Превью новостройки</div>', ar: '<div class="v7proj">Nueva Living · معاينة المشروع الجديد</div>', nl: '<div class="v7proj">Nueva Living · Voorvertoning nieuwbouwproject</div>', pl: '<div class="v7proj">Nueva Living · Podgląd nowej inwestycji</div>', sv: '<div class="v7proj">Nueva Living · Förhandsvisning av nybygge</div>', no: '<div class="v7proj">Nueva Living · Forhåndsvisning av nybygg</div>' },
-  { find: '>Get Project Information<', es: '>Solicitar información del proyecto<', fr: '>Recevoir les informations du projet<', de: '>Projektinformationen anfordern<', ru: '>Получить информацию о проекте<', ar: '>طلب معلومات المشروع<', nl: '>Projectinformatie aanvragen<', pl: '>Poproś o informacje o projekcie<', sv: '>Få projektinformation<', no: '>Få prosjektinformasjon<' },
-  { find: '>Exit Viewing<', es: '>Salir de la presentación<', fr: '>Quitter la Visite<', de: '>Ansicht verlassen<', ru: '>Выйти из просмотра<', ar: '>الخروج من العرض<', nl: '>Weergave verlaten<', pl: '>Zakończ prezentację<', sv: '>Avsluta visning<', no: '>Avslutt visning<' },
-  { find: "vmodeBtn.setAttribute('aria-label', on ? 'Pause guided viewing' : 'Resume guided viewing');", es: "vmodeBtn.setAttribute('aria-label', on ? 'Pausar recorrido guiado' : 'Reanudar recorrido guiado');", fr: "vmodeBtn.setAttribute('aria-label', on ? 'Mettre en pause la visite guidée' : 'Reprendre la visite guidée');", de: "vmodeBtn.setAttribute('aria-label', on ? 'Geführte Ansicht pausieren' : 'Geführte Ansicht fortsetzen');", ru: "vmodeBtn.setAttribute('aria-label', on ? 'Приостановить показ с гидом' : 'Продолжить показ с гидом');", ar: "vmodeBtn.setAttribute('aria-label', on ? 'إيقاف الجولة الموجهة مؤقتًا' : 'استئناف الجولة الموجهة');", nl: "vmodeBtn.setAttribute('aria-label', on ? 'Begeleide weergave pauzeren' : 'Begeleide weergave hervatten');", pl: "vmodeBtn.setAttribute('aria-label', on ? 'Wstrzymaj prezentację z przewodnikiem' : 'Wznów prezentację z przewodnikiem');", sv: "vmodeBtn.setAttribute('aria-label', on ? 'Pausa guidad visning' : 'Återuppta guidad visning');", no: "vmodeBtn.setAttribute('aria-label', on ? 'Sett guidet visning på pause' : 'Gjenoppta guidet visning');" },
-  { find: "vSetGuidedUI(true, 'Guided');", es: "vSetGuidedUI(true, 'Guiado');", fr: "vSetGuidedUI(true, 'Guidé');", de: "vSetGuidedUI(true, 'Geführt');", ru: "vSetGuidedUI(true, 'С гидом');", ar: "vSetGuidedUI(true, 'موجّه');", nl: "vSetGuidedUI(true, 'Begeleid');", pl: "vSetGuidedUI(true, 'Z przewodnikiem');", sv: "vSetGuidedUI(true, 'Guidad');", no: "vSetGuidedUI(true, 'Guidet');" },
-  { find: "vSetGuidedUI(false, 'Replay');", es: "vSetGuidedUI(false, 'Repetir');", fr: "vSetGuidedUI(false, 'Revoir');", de: "vSetGuidedUI(false, 'Wiederholen');", ru: "vSetGuidedUI(false, 'Повторить');", ar: "vSetGuidedUI(false, 'إعادة التشغيل');", nl: "vSetGuidedUI(false, 'Opnieuw');", pl: "vSetGuidedUI(false, 'Powtórz');", sv: "vSetGuidedUI(false, 'Spela igen');", no: "vSetGuidedUI(false, 'Spill igjen');" },
-  { find: "d.setAttribute('aria-label', 'Scene ' + (i + 1));", es: "d.setAttribute('aria-label', 'Escena ' + (i + 1));", fr: "d.setAttribute('aria-label', 'Scène ' + (i + 1));", de: "d.setAttribute('aria-label', 'Szene ' + (i + 1));", ru: "d.setAttribute('aria-label', 'Сцена ' + (i + 1));", ar: "d.setAttribute('aria-label', 'مشهد ' + (i + 1));", nl: "d.setAttribute('aria-label', 'Scène ' + (i + 1));", pl: "d.setAttribute('aria-label', 'Scena ' + (i + 1));", sv: "d.setAttribute('aria-label', 'Scen ' + (i + 1));", no: "d.setAttribute('aria-label', 'Scene ' + (i + 1));" },
-  { find: "vmodeLabel.textContent = label || (on ? 'Guided' : 'Manual');", es: "vmodeLabel.textContent = label || (on ? 'Guiado' : 'Manual');", fr: "vmodeLabel.textContent = label || (on ? 'Guidé' : 'Manuel');", de: "vmodeLabel.textContent = label || (on ? 'Geführt' : 'Manuell');", ru: "vmodeLabel.textContent = label || (on ? 'С гидом' : 'Вручную');", ar: "vmodeLabel.textContent = label || (on ? 'موجّه' : 'يدوي');", nl: "vmodeLabel.textContent = label || (on ? 'Begeleid' : 'Handmatig');", pl: "vmodeLabel.textContent = label || (on ? 'Z przewodnikiem' : 'Ręcznie');", sv: "vmodeLabel.textContent = label || (on ? 'Guidad' : 'Manuell');", no: "vmodeLabel.textContent = label || (on ? 'Guidet' : 'Manuell');" },
-  { find: "function vStopGuided(label = 'Manual') {", es: "function vStopGuided(label = 'Manual') {", fr: "function vStopGuided(label = 'Manuel') {", de: "function vStopGuided(label = 'Manuell') {", ru: "function vStopGuided(label = 'Вручную') {", ar: "function vStopGuided(label = 'يدوي') {", nl: "function vStopGuided(label = 'Handmatig') {", pl: "function vStopGuided(label = 'Ręcznie') {", sv: "function vStopGuided(label = 'Manuell') {", no: "function vStopGuided(label = 'Manuell') {" },
-  { find: "['Starting Price', project.price],", es: "['Precio desde', project.price],", fr: "['Prix de Départ', project.price],", de: "['Startpreis', project.price],", ru: "['Цена от', project.price],", ar: "['السعر ابتداءً من', project.price],", nl: "['Startprijs', project.price],", pl: "['Cena od', project.price],", sv: "['Pris från', project.price],", no: "['Pris Fra', project.price]," },
-  { find: "['Bedrooms', project.bedrooms],", es: "['Dormitorios', project.bedrooms],", fr: "['Chambres', project.bedrooms],", de: "['Schlafzimmer', project.bedrooms],", ru: "['Спальни', project.bedrooms],", ar: "['غرف النوم', project.bedrooms],", nl: "['Slaapkamers', project.bedrooms],", pl: "['Sypialnie', project.bedrooms],", sv: "['Sovrum', project.bedrooms],", no: "['Soverom', project.bedrooms]," },
-  { find: "['Built Size', project.builtSize],", es: "['Superficie Construida', project.builtSize],", fr: "['Surface Habitable', project.builtSize],", de: "['Wohnfläche', project.builtSize],", ru: "['Площадь', project.builtSize],", ar: "['المساحة المبنية', project.builtSize],", nl: "['Bebouwde oppervlakte', project.builtSize],", pl: "['Powierzchnia użytkowa', project.builtSize],", sv: "['Boarea', project.builtSize],", no: "['Bruksareal', project.builtSize]," },
-  { find: "['Terrace Size', project.terraceSize],", es: "['Superficie de Terraza', project.terraceSize],", fr: "['Surface de la Terrasse', project.terraceSize],", de: "['Terrassenfläche', project.terraceSize],", ru: "['Площадь террасы', project.terraceSize],", ar: "['مساحة الشرفة', project.terraceSize],", nl: "['Terrasoppervlakte', project.terraceSize],", pl: "['Powierzchnia tarasu', project.terraceSize],", sv: "['Terrassyta', project.terraceSize],", no: "['Terrassestørrelse', project.terraceSize]," },
-  { find: "['Completion', project.completion],", es: "['Entrega', project.completion],", fr: "['Livraison', project.completion],", de: "['Übergabe', project.completion],", ru: "['Сдача', project.completion],", ar: "['التسليم', project.completion],", nl: "['Oplevering', project.completion],", pl: "['Termin odbioru', project.completion],", sv: "['Tillträde', project.completion],", no: "['Overtakelse', project.completion]," },
-  { find: "['Positioning', project.status]", es: "['Estado', project.status]", fr: "['Statut', project.status]", de: "['Status', project.status]", ru: "['Статус', project.status]", ar: "['الحالة', project.status]", nl: "['Status', project.status]", pl: "['Status', project.status]", sv: "['Status', project.status]", no: "['Status', project.status]" },
-  { find: '<span class="vinfo-pill">New Development</span>', es: '<span class="vinfo-pill">Nueva promoción</span>', fr: '<span class="vinfo-pill">Programme Neuf</span>', de: '<span class="vinfo-pill">Neubauprojekt</span>', ru: '<span class="vinfo-pill">Новостройка</span>', ar: '<span class="vinfo-pill">مشروع جديد</span>', nl: '<span class="vinfo-pill">Nieuwbouwproject</span>', pl: '<span class="vinfo-pill">Nowa inwestycja</span>', sv: '<span class="vinfo-pill">Nybygge</span>', no: '<span class="vinfo-pill">Nybygg</span>' },
-  { find: '<span class="vinfo-pill">Private Preview</span>', es: '<span class="vinfo-pill">Vista privada</span>', fr: '<span class="vinfo-pill">Aperçu Privé</span>', de: '<span class="vinfo-pill">Private Vorschau</span>', ru: '<span class="vinfo-pill">Закрытый показ</span>', ar: '<span class="vinfo-pill">معاينة خاصة</span>', nl: '<span class="vinfo-pill">Privévoorvertoning</span>', pl: '<span class="vinfo-pill">Prywatny pokaz</span>', sv: '<span class="vinfo-pill">Privat förhandsvisning</span>', no: '<span class="vinfo-pill">Privat forhåndsvisning</span>' },
-  { find: "vInfoSection('Overview', project.overview)", es: "vInfoSection('Visión General', project.overview)", fr: "vInfoSection('Aperçu', project.overview)", de: "vInfoSection('Überblick', project.overview)", ru: "vInfoSection('Обзор', project.overview)", ar: "vInfoSection('نظرة عامة', project.overview)", nl: "vInfoSection('Overzicht', project.overview)", pl: "vInfoSection('Podsumowanie', project.overview)", sv: "vInfoSection('Översikt', project.overview)", no: "vInfoSection('Oversikt', project.overview)" },
-  { find: "vInfoSection('Architecture', project.highlights)", es: "vInfoSection('Arquitectura', project.highlights)", fr: "vInfoSection('Architecture', project.highlights)", de: "vInfoSection('Architektur', project.highlights)", ru: "vInfoSection('Архитектура', project.highlights)", ar: "vInfoSection('العمارة', project.highlights)", nl: "vInfoSection('Architectuur', project.highlights)", pl: "vInfoSection('Architektura', project.highlights)", sv: "vInfoSection('Arkitektur', project.highlights)", no: "vInfoSection('Arkitektur', project.highlights)" },
-  { find: "vInfoSection('Lifestyle', project.lifestyle)", es: "vInfoSection('Estilo de Vida', project.lifestyle)", fr: "vInfoSection('Art de Vivre', project.lifestyle)", de: "vInfoSection('Lifestyle', project.lifestyle)", ru: "vInfoSection('Образ жизни', project.lifestyle)", ar: "vInfoSection('نمط الحياة', project.lifestyle)", nl: "vInfoSection('Levensstijl', project.lifestyle)", pl: "vInfoSection('Styl życia', project.lifestyle)", sv: "vInfoSection('Livsstil', project.lifestyle)", no: "vInfoSection('Livsstil', project.lifestyle)" },
-  { find: "vInfoSection('Investment', project.investmentNotes)", es: "vInfoSection('Inversión', project.investmentNotes)", fr: "vInfoSection('Investissement', project.investmentNotes)", de: "vInfoSection('Investition', project.investmentNotes)", ru: "vInfoSection('Инвестиции', project.investmentNotes)", ar: "vInfoSection('الاستثمار', project.investmentNotes)", nl: "vInfoSection('Investering', project.investmentNotes)", pl: "vInfoSection('Inwestycja', project.investmentNotes)", sv: "vInfoSection('Investering', project.investmentNotes)", no: "vInfoSection('Investering', project.investmentNotes)" },
-  { find: "vInfoSection('Availability', (project.availability || [])", es: "vInfoSection('Disponibilidad', (project.availability || [])", fr: "vInfoSection('Disponibilité', (project.availability || [])", de: "vInfoSection('Verfügbarkeit', (project.availability || [])", ru: "vInfoSection('Наличие', (project.availability || [])", ar: "vInfoSection('التوفر', (project.availability || [])", nl: "vInfoSection('Beschikbaarheid', (project.availability || [])", pl: "vInfoSection('Dostępność', (project.availability || [])", sv: "vInfoSection('Tillgänglighet', (project.availability || [])", no: "vInfoSection('Tilgjengelighet', (project.availability || [])" },
-  { find: '<h3>Get Project Information</h3>', es: '<h3>Solicitar información del proyecto</h3>', fr: '<h3>Recevoir les informations du projet</h3>', de: '<h3>Projektinformationen anfordern</h3>', ru: '<h3>Получить информацию о проекте</h3>', ar: '<h3>طلب معلومات المشروع</h3>', nl: '<h3>Projectinformatie aanvragen</h3>', pl: '<h3>Poproś o informacje o projekcie</h3>', sv: '<h3>Få projektinformation</h3>', no: '<h3>Få prosjektinformasjon</h3>' },
-  { find: "project.ctaLabel || 'Get Project Information'", es: "project.ctaLabel || 'Solicitar Información del Proyecto'", fr: "project.ctaLabel || 'Recevoir les Informations du Projet'", de: "project.ctaLabel || 'Projektinformationen anfordern'", ru: "project.ctaLabel || 'Получить информацию о проекте'", ar: "project.ctaLabel || 'طلب معلومات المشروع'", nl: "project.ctaLabel || 'Projectinformatie aanvragen'", pl: "project.ctaLabel || 'Poproś o informacje o projekcie'", sv: "project.ctaLabel || 'Få projektinformation'", no: "project.ctaLabel || 'Få Prosjektinformasjon'" },
-  { find: '<p>Get the latest brochure, master plan, floorplans, availability and prices.</p>', es: '<p>Reciba el último dosier, master plan, planos, disponibilidad y precios.</p>', fr: '<p>Recevez la brochure la plus récente, le plan de masse, les plans, la disponibilité et les prix.</p>', de: '<p>Erhalten Sie die aktuelle Broschüre, den Masterplan, Grundrisse, Verfügbarkeit und Preise.</p>', ru: '<p>Получите актуальную брошюру, генеральный план, планировки, информацию о наличии и цены.</p>', ar: '<p>احصل على أحدث كتيب، والمخطط الرئيسي، ومخططات الوحدات، والتوفر، والأسعار.</p>', nl: '<p>Ontvang de nieuwste brochure, het masterplan, plattegronden, beschikbaarheid en prijzen.</p>', pl: '<p>Otrzymaj najnowszą broszurę, plan generalny, rzuty mieszkań, informacje o dostępności i cenach.</p>', sv: '<p>Få den senaste broschyren, generalplanen, planlösningar, tillgänglighet och priser.</p>', no: '<p>Få den nyeste brosjyren, reguleringsplanen, plantegninger, tilgjengelighet og priser.</p>' },
   // Selected Residences card extras: price overlay prefix and the two
   // non-place-name type tags.
   // Head: page title + meta description
@@ -332,24 +257,11 @@ const HOMEPAGE_CONTENT_ENTRIES = [
 
 // Longest find first, so a short entry can never fire inside a longer
 // string before that string's own entry has matched.
-// The scene entries are the one set that lands inside JavaScript rather than
-// HTML: all 96 occurrences of their find strings sit in a <script> block, in
-// single-quoted object literals. So their replacements are escaped for that
-// context, and the others are not -- escaping an HTML replacement would print
-// the backslash.
-//
-// Polish pluralises a borrowed noun with an apostrophe. "Dwupoziomowe
-// penthouse'y" closed the string literal it was substituted into, and the
-// Polish homepage went black: a syntax error kills the whole script, so the
-// reveal animations never ran and nothing after it was drawn. It was live.
-const forJsString = (value) => value.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-
 function homepageContentReplacements(locale) {
-  const scene = new Set(BESPOKE_SCENE_ENTRIES);
-  return [...HOMEPAGE_CONTENT_ENTRIES, ...BESPOKE_SCENE_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
+  return [...HOMEPAGE_CONTENT_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
     .filter((entry) => entry[locale])
     .sort((a, b) => b.find.length - a.find.length)
-    .map((entry) => [entry.find, scene.has(entry) ? forJsString(entry[locale]) : entry[locale]]);
+    .map((entry) => [entry.find, entry[locale]]);
 }
 
 // Per-project homepage card taglines (the <p class="dev-tagline"> text on
@@ -599,7 +511,7 @@ for (const meta of LOCALES) {
     html = html.split(find).join(replace);
   }
 
-  // Hero, marketing sections and cinematic-viewer chrome
+  // Hero and marketing sections
   for (const [find, replace] of homepageContentReplacements(locale)) {
     html = html.split(find).join(replace);
   }
@@ -608,9 +520,6 @@ for (const meta of LOCALES) {
   for (const [find, replace] of projectCardTaglineReplacements(locale)) {
     html = html.split(find).join(replace);
   }
-
-  // Cinematic-presentation viewer's per-project scene captions/labels
-  html = applyViewingBlocks(html, locale);
 
   // Reciprocal hreflang + this locale's own canonical and social tags,
   // right after <title> (a stable, unique anchor). Locale homepages

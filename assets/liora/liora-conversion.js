@@ -613,11 +613,6 @@
       return;
     }
 
-    if (href.includes('private-viewing') || target.classList.contains('dev-viewing-btn')) {
-      track('private_viewing_request', { cta_label: label, lead_context: context, href });
-      return;
-    }
-
     if (href.includes('property-')) {
       track('project_click', { cta_label: label, lead_context: context, href });
       return;

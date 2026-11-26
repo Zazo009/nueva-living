@@ -243,7 +243,6 @@ d = {
     'privateViewing': {
         'headlineHtml': 'See the <em>site and the area</em>',
         'copy': 'The pack includes photographs of a finished pilot villa, Villa 10. We ask the developer whether it can be visited and how far the other homes have got, so a visit is about the location, the plans and the stage of the work.',
-        'href': f'index.html#private-viewing=1&project={SLUG}',
         'insights': [
             ['On site', 'Walk the community, the access road and the views, and see the pilot villa if the developer allows it.'],
             ['In the area', 'We drive to Puerto Banús, the golf courses and the motorway with you and time it.'],

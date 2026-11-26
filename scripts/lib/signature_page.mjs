@@ -46,7 +46,7 @@ const armaniMark = fs.readFileSync(new URL('../../assets/liora/signature-logos/a
   .replace('<svg ', '<svg class="sig-mark" aria-hidden="true" focusable="false" ')
   .trim();
 
-export function renderSignatureMain({ project, sourceProject, locale, faqs, projectMedia, privateHref, helpers }) {
+export function renderSignatureMain({ project, sourceProject, locale, faqs, projectMedia, helpers }) {
   const {
     esc, t, pictureTag, actionLink, ghostAction, whatsappHref,
     renderLocationCard, renderEnquiryForm, liveLocationMap

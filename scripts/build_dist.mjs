@@ -781,8 +781,6 @@ const assetFiles = [
   // revert path.
   'assets/liora/video/hero-mobile-v5.mp4',
   'assets/liora/video/hero-mobile-v5-hevc.mp4',
-  'assets/vendor/gsap/gsap.min.js',
-  'assets/vendor/gsap/ScrollTrigger.min.js',
 ];
 
 const assetDirectories = [

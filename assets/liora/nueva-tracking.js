@@ -181,8 +181,8 @@ window.addEventListener('resize', readViewport, { passive: true });
   // GA4 receives the same events.
   //
   // Every business event on the site -- project_click, form_submit_success,
-  // whatsapp_click, private_viewing_request, shortlist_send -- was posted to
-  // our own endpoint and nowhere else. GA4 was loaded and configured, so it
+  // whatsapp_click, shortlist_send -- was posted to our own endpoint and
+  // nowhere else. GA4 was loaded and configured, so it
   // recorded page views and enhanced measurement, but not one of the events
   // that actually says whether the site is working. Nothing to mark as a key
   // event, nothing to build an audience on.
@@ -252,7 +252,6 @@ window.addEventListener('resize', readViewport, { passive: true });
   const META_EVENTS = {
     form_submit_success: 'Lead',
     newsletter_signup_success: 'Subscribe',
-    private_viewing_request: 'Schedule',
     whatsapp_click: 'Contact',
     project_click: 'ViewContent',
     shortlist_add: 'AddToWishlist',
@@ -264,7 +263,6 @@ window.addEventListener('resize', readViewport, { passive: true });
   // An event with no label here is left to be imported from GA4 instead.
   const ADS_CONVERSIONS = {
     form_submit_success: '',
-    private_viewing_request: '',
     whatsapp_click: ''
   };
 
@@ -434,7 +432,6 @@ window.addEventListener('resize', readViewport, { passive: true });
     if (element.matches('[data-shortlist-id], .nueva-shortlist-trigger, [data-shortlist-close]')) {
       return `Shortlist: ${label}`;
     }
-    if (element.closest('#vox, #vveil, [data-private-viewing]')) return `Private Viewing: ${label}`;
     return label;
   }
 
@@ -554,7 +551,7 @@ window.addEventListener('resize', readViewport, { passive: true });
     };
   }
 
-  // Capture-phase listeners include media inserted later by cinematic experiences.
+  // Capture-phase listeners include media inserted after the page loads.
   document.addEventListener('play', (event) => {
     const media = event.target;
     if (!(media instanceof HTMLMediaElement)) return;

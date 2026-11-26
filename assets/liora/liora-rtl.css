@@ -229,34 +229,6 @@
   transform: scaleX(-1);
 }
 
-/* ---------- Cinematic presentation chrome ----------
-   Slide progress ("01 / 12"), guided/manual toggle, exit control and the
-   project-details drawer all mirror as a unit; the underlying photography
-   and video layers are never mirrored. */
-[dir="rtl"] #vox {
-  direction: rtl;
-}
-
-[dir="rtl"] .v-details-panel {
-  right: auto;
-  left: 0;
-}
-
-[dir="rtl"] .v-details-close {
-  right: auto;
-  left: 24px;
-}
-
-[dir="rtl"] .v-controls {
-  direction: rtl;
-}
-
-/* Horizontal scene entrance motion is direction-aware: scenes advance
-   toward the reading direction instead of always sliding leftward. */
-[dir="rtl"] .v-scene-layer {
-  --viewing-motion-sign: -1;
-}
-
 /* ---------- Forms ----------
    Text/email/tel inputs stay LTR-typed for addresses and numbers even
    inside an RTL form, per the bidi requirements; the fields themselves

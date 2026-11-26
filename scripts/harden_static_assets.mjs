@@ -23,14 +23,6 @@ let homeHtml = fs.readFileSync(homepage, 'utf8');
 
 const replacements = new Map([
   [
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
-    'assets/vendor/gsap/gsap.min.js',
-  ],
-  [
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
-    'assets/vendor/gsap/ScrollTrigger.min.js',
-  ],
-  [
     'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1800&auto=format&fit=crop&q=85',
     'assets/liora/viewing/scene-06.jpg',
   ],

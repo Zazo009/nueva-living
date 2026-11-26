@@ -26,10 +26,6 @@ import { projectAreaRule } from './lib/project_area.mjs';
 import { localizeMonthDate } from './lib/dates.mjs';
 import { renderFooter } from './lib/site_footer.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
-// One renderer for the cinematic viewer's data. This file used to carry its
-// own copy, and the two had already drifted: lib/viewing.mjs localises the
-// status and bedroom count, this copy still emitted them in English.
-import { renderViewingBlocks } from './lib/viewing.mjs';
 import { FLOOR_PARTS, FLOOR_PREFIXES } from './lib/unit_floor_parts.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { PRICE_FORMAT } from './lib/prices.mjs';
@@ -2168,18 +2164,11 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const isV2 = !isSignature;
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
-  const privateImage = image(project, 'privateViewing');
   const lifestyleImage = image(project, 'lifestyle');
-  const privateHrefRaw = project.privateViewing?.href || 'index.html#private-viewing=1';
-  const privateHref = locale === DEFAULT_LOCALE
-    ? privateHrefRaw
-    : privateHrefRaw.replace(/^index\.html/, localizedPath('index.html', locale));
   // A project only gets the real map once its plot coordinate has been routed
   // by build_location_maps.mjs. Until then it keeps the stylised SVG map, so
   // this cannot blank out the location section on a project without geo data.
   const liveLocationMap = hasLiveLocationMap(project.slug);
-  const privateHeroCta = project.privateViewing?.heroCta || t('cta.cinematicPresentation', locale);
-  const privateCta = project.privateViewing?.ctaLabel || t('cta.cinematicPresentation', locale);
   // The signature template shows the film in its own section, so the gallery
   // must not carry a second copy of it (two players would also fight over the
   // one [data-project-video] hook the page script binds).
@@ -2396,7 +2385,6 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
       p,
       faqs,
       projectMedia,
-      privateHref,
       helpers: {
         esc, t, pictureTag, imageTag, actionLink, ghostAction,
         whatsappHref, renderLocationCard, renderEnquiryForm, liveLocationMap
@@ -2434,7 +2422,6 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     ...(project.crm?.amenities?.length ? [{ href: '#amenities', label: t('navInPage.amenities', locale) }] : []),
     { href: '#why-this-project', label: t('navInPage.why', locale) },
     { href: '#architecture', label: t('navInPage.architecture', locale) },
-    { href: '#private-viewing', label: t('cta.cinematicPresentation', locale) },
     { href: '#lifestyle', label: t('navInPage.lifestyle', locale) },
     { href: '#faq', label: t('navInPage.faq', locale) },
     { href: '#enquire', label: t('navInPage.enquire', locale) }
@@ -2469,7 +2456,6 @@ ${projectNavItems.filter((item) => !item.primary).map((item) => `          ${nav
           <p class="hero-positioning">${esc(project.description)}</p>
           <div class="hero-actions">
             ${availabilityBrowseAction}
-            ${ghostAction(privateHeroCta, privateHref)}
             ${project.media?.items?.length ? ghostAction(t('cta.allImages', locale), '#media') : ''}
           </div>
         </div>
@@ -2638,27 +2624,6 @@ ${renderAmenities(project, locale)}
           <h2 class="section-headline">${project.architecture.headlineHtml}</h2>
           ${paragraphs(project.architecture.copy)}
           ${featureList(project.architecture.highlights)}
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section dark" id="private-viewing">
-      <div class="project-inner">
-        <div class="cinema-cta reveal-soft">
-          ${imageTag(privateImage)}
-          <div class="cinema-copy">
-            <span class="section-kicker">${t('cta.cinematicPresentation', locale)}</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">${project.privateViewing.headlineHtml}</h2>
-            <p>${esc(project.privateViewing.copy)}</p>
-            <div class="viewing-insights">
-              ${(project.privateViewing.insights || []).map(([title, body]) => `<div><span>${esc(title)}</span><p>${esc(body)}</p></div>`).join('\n              ')}
-            </div>
-            <div class="cinema-actions">
-              ${actionLink(privateCta, privateHref)}
-              ${ghostAction(t('cta.requestProjectMaterial', locale))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -3624,32 +3589,6 @@ function renderHomeCard(project, index) {
 
 
 
-function updateHomepageViewingData(projects) {
-  if (!existsSync(homepagePage)) return false;
-
-  let html = readFileSync(homepagePage, 'utf8');
-  const { projectsBlock, scenesBlock } = renderViewingBlocks(projects, DEFAULT_LOCALE);
-
-  const projectsStart = html.indexOf('/* NUEVA GENERATED VIEWING PROJECTS START */');
-  const projectsEnd = html.indexOf('/* NUEVA GENERATED VIEWING PROJECTS END */');
-  const scenesStart = html.indexOf('/* NUEVA GENERATED VIEWING SCENES START */');
-  const scenesEnd = html.indexOf('/* NUEVA GENERATED VIEWING SCENES END */');
-
-  if (projectsStart === -1 || projectsEnd === -1 || scenesStart === -1 || scenesEnd === -1) {
-    throw new Error('nueva-living-home.html is missing NUEVA GENERATED VIEWING markers.');
-  }
-
-  const projectsEndTag = '/* NUEVA GENERATED VIEWING PROJECTS END */';
-  const scenesEndTag = '/* NUEVA GENERATED VIEWING SCENES END */';
-
-  html = scenesStart < projectsStart
-    ? html.slice(0, scenesStart) + scenesBlock + html.slice(scenesEnd + scenesEndTag.length, projectsStart) + projectsBlock + html.slice(projectsEnd + projectsEndTag.length)
-    : html.slice(0, projectsStart) + projectsBlock + html.slice(projectsEnd + projectsEndTag.length, scenesStart) + scenesBlock + html.slice(scenesEnd + scenesEndTag.length);
-
-  writeFileSync(homepagePage, html);
-  return true;
-}
-
 const HOME_CARD_LIMIT = 6;
 
 function updateHomepageProjectCards(projects) {
@@ -3949,19 +3888,6 @@ function validateProject(project) {
   if (mapArea !== undefined && !Object.prototype.hasOwnProperty.call(MAP_LANDMARKS, mapArea)) {
     throw new Error(`${label}: "location.mapArea" is "${mapArea}", which is not a MAP_LANDMARKS key -- the marker would fall back to marbellaCentre. Use one of: ${Object.keys(MAP_LANDMARKS).join(', ')}.`);
   }
-  // privateViewing.href is the destination of both "Cinematic Presentation"
-  // buttons (the hero ghost action and the section CTA). It must launch the
-  // cinematic player on the homepage; pointing it at an in-page anchor sends a
-  // visitor who asked for the presentation to the enquiry form instead.
-  const privateHref = project.privateViewing?.href;
-  if (privateHref !== undefined) {
-    // Fragment, not query string: a query string makes every project a
-    // separate crawlable URL for the same homepage document.
-    const expected = `index.html#private-viewing=1&project=${project.slug}`;
-    if (privateHref !== expected) {
-      throw new Error(`${label}: "privateViewing.href" is "${privateHref}" but the Cinematic Presentation buttons must open the player: "${expected}".`);
-    }
-  }
   if (project.media?.items?.length) {
     if (typeof project.media.headlineHtml !== 'string' || !project.media.headlineHtml.trim()) {
       throw new Error(`${label}: "media.headlineHtml" is missing -- required whenever media.items is set.`);
@@ -4003,7 +3929,6 @@ for (const project of projects) {
 
 const developmentsUpdated = updateDevelopmentsPage(projects);
 const homepageUpdated = updateHomepageProjectCards(projects);
-const viewingUpdated = updateHomepageViewingData(projects);
 const crmSync = await syncProjectsToCrm(projects);
 
 const searchCatalogDir = path.resolve('netlify/functions/data');
@@ -4016,4 +3941,4 @@ const compareCatalogDir = path.resolve('assets/liora/data');
 mkdirSync(compareCatalogDir, { recursive: true });
 writeFileSync(path.join(compareCatalogDir, 'projects-catalog.json'), JSON.stringify(buildCompareCatalog(projects), null, 2));
 
-console.log(JSON.stringify({ written, developmentsUpdated, homepageUpdated, viewingUpdated, crmSync }, null, 2));
+console.log(JSON.stringify({ written, developmentsUpdated, homepageUpdated, crmSync }, null, 2));

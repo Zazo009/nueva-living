@@ -196,16 +196,16 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   { find: 'Good to know: do I need to be in Spain to start?', es: '¿Lo sabía? ¿Necesito estar en España para empezar?', fr: 'Bon à savoir : dois-je être en Espagne pour commencer ?', de: 'Gut zu wissen: Muss ich für den Start in Spanien sein?', ru: 'Полезно знать: нужно ли быть в Испании, чтобы начать?', ar: 'من المفيد معرفته: هل يجب أن أكون في إسبانيا للبدء؟', nl: 'Goed om te weten: moet ik in Spanje zijn om te beginnen?', pl: 'Warto wiedzieć: czy muszę być w Hiszpanii, aby zacząć?', sv: 'Bra att veta: måste jag vara i Spanien för att komma igång?', no: 'Greit å vite: må jeg være i Spania for å starte?' },
   {
-    find: 'No. Most of this stage -- comparing projects, reviewing floorplans and pricing, even a private cinematic presentation of a project -- can be done remotely before you commit to a viewing trip.',
-    es: 'No. La mayor parte de esta etapa -- comparar proyectos, revisar planos y precios, incluso una presentación cinematográfica privada de un proyecto -- puede hacerse a distancia antes de comprometerse a un viaje de visita.',
-    fr: 'Non. La majeure partie de cette étape -- comparer les projets, examiner les plans et les prix, voire assister à une présentation cinématographique privée d’un projet -- peut se faire à distance avant de vous engager pour un voyage de visite.',
-    de: 'Nein. Der größte Teil dieser Phase -- Projekte vergleichen, Grundrisse und Preise prüfen, sogar eine private, filmische Projektpräsentation -- kann aus der Ferne erfolgen, bevor Sie sich auf eine Besichtigungsreise festlegen.',
-    ru: 'Нет. Большую часть этого этапа -- сравнение проектов, изучение планировок и цен, даже частную кинематографичную презентацию проекта -- можно провести удалённо, прежде чем решиться на поездку для осмотра.',
-    ar: 'لا. يمكن إتمام معظم هذه المرحلة -- مقارنة المشاريع، ومراجعة المخططات والأسعار، بل وحتى حضور عرض تقديمي سينمائي خاص لأحد المشاريع -- عن بُعد قبل الالتزام برحلة معاينة.',
-    nl: 'Nee. Het grootste deel van deze fase -- projecten vergelijken, plattegronden en prijzen bekijken, zelfs een privé filmische presentatie van een project -- kan op afstand worden gedaan voordat u zich vastlegt op een bezichtigingsreis.',
-    pl: 'Nie. Większość tego etapu -- porównywanie projektów, przeglądanie rzutów i cen, a nawet prywatna filmowa prezentacja projektu -- można zrobić zdalnie, zanim zdecydują się Państwo na wyjazd na oględziny.',
-    sv: 'Nej. Större delen av det här steget -- att jämföra projekt, granska planlösningar och priser, till och med en privat filmisk presentation av ett projekt -- kan göras på distans innan ni binder er för en visningsresa.',
-    no: 'Nei. Det meste av denne fasen -- å sammenligne prosjekter, gjennomgå planløsninger og priser, til og med en privat filmatisk presentasjon av et prosjekt -- kan gjøres eksternt før du forplikter deg til en visningstur.'
+    find: 'No. Most of this stage -- comparing projects, reviewing floorplans and pricing -- can be done remotely before you commit to a viewing trip.',
+    es: 'No. La mayor parte de esta etapa -- comparar proyectos, revisar planos y precios -- puede hacerse a distancia antes de comprometerse a un viaje de visita.',
+    fr: 'Non. La majeure partie de cette étape -- comparer les projets, examiner les plans et les prix -- peut se faire à distance avant de vous engager pour un voyage de visite.',
+    de: 'Nein. Der größte Teil dieser Phase -- Projekte vergleichen, Grundrisse und Preise prüfen -- kann aus der Ferne erfolgen, bevor Sie sich auf eine Besichtigungsreise festlegen.',
+    ru: 'Нет. Большую часть этого этапа -- сравнение проектов, изучение планировок и цен -- можно провести удалённо, прежде чем решиться на поездку для осмотра.',
+    ar: 'لا. يمكن إتمام معظم هذه المرحلة -- مقارنة المشاريع ومراجعة المخططات والأسعار -- عن بُعد قبل الالتزام برحلة معاينة.',
+    nl: 'Nee. Het grootste deel van deze fase -- projecten vergelijken, plattegronden en prijzen bekijken -- kan op afstand worden gedaan voordat u zich vastlegt op een bezichtigingsreis.',
+    pl: 'Nie. Większość tego etapu -- porównywanie projektów, przeglądanie rzutów i cen -- można zrobić zdalnie, zanim zdecydują się Państwo na wyjazd na oględziny.',
+    sv: 'Nej. Större delen av det här steget -- att jämföra projekt, granska planlösningar och priser -- kan göras på distans innan ni binder er för en visningsresa.',
+    no: 'Nei. Det meste av denne fasen -- å sammenligne prosjekter, gjennomgå planløsninger og priser -- kan gjøres eksternt før du forplikter deg til en visningstur.'
   },
 
   // --- Step 3 ---

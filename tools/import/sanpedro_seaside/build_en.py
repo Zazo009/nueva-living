@@ -370,7 +370,6 @@ d = {
  'privateViewing': {
   'headlineHtml': 'See the <em>site and the area</em>',
   'copy': 'The documents do not say how far the build has gone, so a visit is about the location, the plans and the stage of the work.',
-  'href': f'index.html#private-viewing=1&project={SLUG}',
   'insights': [
    ['On site', 'Walk the plot and the street, and the way to the beach.'],
    ['On foot', 'We walk to the beach and the restaurants with you and time it.'],

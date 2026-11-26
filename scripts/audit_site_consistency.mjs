@@ -512,10 +512,10 @@ for (const file of countPlaceholderPages) {
   }
 }
 
-// Enquiry context and the cinematic-player link travel in the fragment, not a
+// Enquiry context travels in the fragment, not a
 // query string. Each distinct ?intent=<project> - <unit> was a separate
 // crawlable URL serving the byte-identical contact page, and the site rendered
-// 1,987 of them; ?private-viewing=1&project=<slug> added 600 more. Google
+// 1,987 of them; the retired ?private-viewing=1&project=<slug> added 600 more. Google
 // consolidated them correctly via canonical, so nothing was mis-indexed -- it
 // was simply a thousand duplicate URLs offered to the crawler for no gain.
 //
@@ -1016,7 +1016,7 @@ const ENTRY_MODULES = [
   'guide_abroad_translations', 'guide_habeno_translations', 'guide_netherlands_translations', 'guide_sweden_translations', 'guide_norway_translations', 'guide_prices_translations', 'guide_card_translations', 'segment_page_translations',
   'segment_page_translations_clusters', 'segment_page_translations_villas', 'developments_page_translations',
   'card_chrome_translations', 'static_page_translations', 'editorial_alt_translations',
-  'image_alt_translations', 'unit_floor_translations', 'bespoke_scene_translations',
+  'image_alt_translations', 'unit_floor_translations',
 ];
 const allEntries = [];
 for (const name of ENTRY_MODULES) {
@@ -1584,11 +1584,11 @@ let runtimeLabelChecked = 0;
 // A string the script writes into the page, still in English in a locale build.
 //
 // Every guard above reads the markup, and the markup is right until the browser
-// touches it. Two labels lived in that blind spot in all nine languages: the
-// scene dots' aria-label, built as 'Scene ' + (i + 1), which was the only
-// accessible name those buttons had; and 'Replay', the viewing pill's third
-// state, passed as an argument while its siblings 'Guided' and 'Manual' two
-// lines away were translated properly.
+// touches it. Two labels lived in that blind spot in all nine languages, both
+// in the since-retired cinematic viewer: the scene dots' aria-label, built as
+// 'Scene ' + (i + 1), which was the only accessible name those buttons had;
+// and 'Replay', the viewing pill's third state, passed as an argument while
+// its siblings 'Guided' and 'Manual' two lines away were translated properly.
 //
 // The first version of this check tried to recognise a label by its shape --
 // at least ten letters, at least two words -- andfiltered away all four
@@ -1599,16 +1599,14 @@ let runtimeLabelChecked = 0;
 // literal that is byte-identical to the English one was never translated.
 //
 // Taking only quoted literals is what makes this work without heuristics --
-// project.name and vPad(n) are expressions, not literals, and never enter the
-// list. LABEL_CALLS is this page's own label-setting functions, and is the one
-// part that needs extending when another is added.
+// project.name is an expression, not a literal, and never enters the list.
+// If the page gains a function of its own that sets a label from an argument,
+// add its call pattern to WRITES.
 {
-  const LABEL_CALLS = ['vSetGuidedUI'];
   const WRITES = new RegExp(
     '(?:'
     + '\\.(?:textContent|innerText|innerHTML)\\s*=\\s*'
     + '|setAttribute\\(\\s*[\'"](?:aria-label|aria-valuetext|title|placeholder|alt)[\'"]\\s*,\\s*'
-    + `|(?:${LABEL_CALLS.join('|')})\\([^)'"]*,\\s*`
     + ')(`(?:[^`\\\\]|\\\\.)*`|\'(?:[^\'\\\\\\n]|\\\\.)*\'|"(?:[^"\\\\\\n]|\\\\.)*")',
     'g');
 
@@ -3520,8 +3518,9 @@ let discoveryStatusChecked = 0;
 
 // A status with no entry in the string table renders as nothing at all.
 //
-// viewing.mjs localises discovery.status by looking up
-// `discoveryStatus.${discovery.status}`, so the project's own value is the key.
+// The status is localised by looking up `discoveryStatus.${discovery.status}`
+// (first in the since-retired viewer's lib/viewing.mjs), so the project's own
+// value is the key.
 // Seven projects wrote "Off-Plan" where the table has "Off-plan", and the only
 // consequence was a blank status on those projects in all ten languages,
 // including English. The build said so -- seventy lines of
@@ -4432,10 +4431,10 @@ let titleCaseChecked = 0;
       // the whole string -- otherwise "¿Lo sabías? Financiación" reads as a
       // violation when it is simply a second sentence.
       for (const sentence of value.split(/[.?!:¿¡]+/)) {
-        // A viewing-scene label is numbered -- "03 — Trädgårdsgård". The
-        // ordinal is not the sentence's first word, so without dropping it
-        // every one of those labels reads as a violation of its own first
-        // letter. 144 of them did.
+        // A numbered label -- "03 — Trädgårdsgård", as the retired viewer's
+        // scene labels were -- does not start its sentence with the ordinal,
+        // so without dropping it every such label reads as a violation of its
+        // own first letter. 144 of them did.
         const words = sentence.replace(/^\s*\d+\s*[—–-]\s*/, '').split(/\s+/).filter(Boolean);
         if (words.length < 2) continue;
         const tail = words.slice(1).filter((w) => !PROPER.test(w.replace(/[.,:;?!/'’]/g, '')));
@@ -5395,7 +5394,7 @@ let areaDisplayNameChecked = 0;
 
 // Every area the discovery filter can name has a display name.
 //
-// The viewing panel labels each project with its area, out of a table that
+// The (since retired) viewing panel labelled each project with its area, out of a table that
 // had five of the seven filter slugs in it. The two it was missing fell
 // through to the project's own card label, so the five San Pedro schemes
 // introduced themselves as "Guadalmina Golf, Marbella", "Cortijo Blanco",
@@ -5406,7 +5405,8 @@ let areaDisplayNameChecked = 0;
 // the table rather than against a list written out here.
 //
 // The table also existed twice, dead in build_property_pages.mjs and live in
-// lib/viewing.mjs, which is how it came to be short in the first place.
+// the since-deleted lib/viewing.mjs, which is how it came to be short in the
+// first place.
 {
   const dir = path.join(root, 'content', 'liora-projects');
   if (fs.existsSync(dir)) {
@@ -5431,7 +5431,7 @@ let areaDisplayNameChecked = 0;
   }
 
   // And no builder keeps its own copy of the names.
-  for (const file of ['scripts/build_property_pages.mjs', 'scripts/lib/viewing.mjs']) {
+  for (const file of ['scripts/build_property_pages.mjs']) {
     const full = path.join(root, file);
     if (!fs.existsSync(full)) continue;
     const source = fs.readFileSync(full, 'utf8');
@@ -6232,7 +6232,7 @@ if (warnings.length) {
 }
 
 // A script that works out the visitor's locale from the URL must know all nine.
-// The viewing-exit fallback on the homepage listed five (es fr de ru ar), so a
+// The (since retired) viewing-exit fallback on the homepage listed five (es fr de ru ar), so a
 // Dutch, Polish, Norwegian or Swedish visitor was sent to the English page; the
 // hero search had no locale handling at all and always went to the English
 // Developments page. Any regular expression in page scripts that lists several

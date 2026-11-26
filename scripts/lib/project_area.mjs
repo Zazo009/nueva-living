@@ -61,7 +61,10 @@ export function projectAreaRule(project) {
   return PROJECT_AREA_RULES.find((rule) => rule.match(text, mapArea)) || DEFAULT_PROJECT_AREA;
 }
 
-// What the viewing panel calls an area, keyed by the discovery filter slug.
+// The display name of an area, keyed by the discovery filter slug. Its first
+// reader was the cinematic viewing panel, retired in November 2026; no builder
+// reads it today, but the audit still holds it to every filter slug so it is
+// complete when something does.
 //
 // This lived in scripts/lib/viewing.mjs with five of the seven slugs in it,
 // and there was a second, unreferenced copy in build_property_pages.mjs. The
