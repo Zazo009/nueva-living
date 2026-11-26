@@ -750,10 +750,12 @@
   }
 
   // The property pages pin a booking bar to the bottom on phones; the launcher sits above it.
+  // The current template's bar is #v2-actionbar; it slides away over the enquiry form, and the
+  // launcher follows it down when it does.
   function liftAboveBars() {
-    const bar = document.querySelector('.sticky-mobile-cta');
+    const bar = document.querySelector('.sticky-mobile-cta, #v2-actionbar');
     let lift = 0;
-    if (bar) {
+    if (bar && !bar.classList.contains('is-hidden')) {
       const style = getComputedStyle(bar);
       if (style.position === 'fixed' && style.display !== 'none' && style.visibility !== 'hidden') lift = bar.getBoundingClientRect().height;
     }
@@ -813,6 +815,8 @@
     tuckOnScroll();
     liftAboveBars();
     window.addEventListener('resize', liftAboveBars, { passive: true });
+    const v2bar = document.getElementById('v2-actionbar');
+    if (v2bar && 'MutationObserver' in window) new MutationObserver(liftAboveBars).observe(v2bar, { attributes: true, attributeFilter: ['class'] });
     // Anything on the site can open the chat: a link or button with data-solea-open.
     document.addEventListener('click', (event) => {
       const trigger = event.target.closest('[data-solea-open]');

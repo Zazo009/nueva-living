@@ -290,9 +290,16 @@ html.js-motion .mosaic img.ld,html.js-motion .swipe img.ld{opacity:1}
 .hero-media picture,.m-item picture,.swipe picture{display:contents}
 .cost-wrap{align-self:start;min-width:0}.cost-wrap p.cap{font-weight:500;font-size:15px;padding-bottom:6px}
 @media (max-width:760px){html.js-motion .hero-img{animation:none}}
-/* floor-plan thumbnails: a text link on phones, so the lazy image is never fetched there */
+/* floor-plan thumbnails: the plan itself, on phones too (the owner wants to see the layout, not
+   the word "Plan"); contain rather than cover, so the whole plan shows and nothing is cropped */
 .u-plan-txt{display:none}
-@media (max-width:760px){.units tbody td.u-plan img{display:none!important}.u-plan-txt{display:inline;font-size:13px;color:var(--primary);text-decoration:underline;text-underline-offset:2px}}
+.units .u-plan img{object-fit:contain;background:#fff}
+@media (max-width:760px){
+  .units tbody tr{grid-template-columns:auto auto minmax(0,1fr) auto 64px}
+  .units tbody td.u-plan{grid-column:5;grid-row:1/span 2;align-self:center}
+  .units tbody td.u-plan a{width:64px}
+  .units tbody td.u-plan img{display:block!important;width:64px!important;height:45px!important;max-width:none}
+}
 
 /* ---------------- production additions ---------------- */
 /* the site's own enquiry form, inside the contact band */
@@ -370,3 +377,48 @@ html.js-motion .mosaic img.ld,html.js-motion .swipe img.ld{opacity:1}
 .faq2-more > summary::-webkit-details-marker{display:none}
 .faq2-more > .faq2{margin-top:0;border-top:0}
 .faq2-guide{margin-top:18px;font-size:14.5px;color:var(--muted)}
+
+/* ---- the site's own button and label rules reach into v2 (nueva-system.css :is(.btn,...) at
+   (0,4,0), liora-pages.css .btn with an !important font-family, uppercase labels). v2 keeps its
+   own case, spacing and colours; these selectors outrank them without renaming the classes. */
+.btn,.field label,.field legend,.pref label,.ab-btn{letter-spacing:normal!important;text-transform:none!important}
+.btn,.ab-btn{font-family:var(--sans)!important}
+.v2-page main.v2 .btn.btn-primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.v2-page main.v2 .btn.btn-primary:hover{background:var(--primary-deep);border-color:var(--primary-deep);color:#fff}
+.v2-page main.v2 .btn.btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink)}
+.v2-page main.v2 .btn.btn-ghost:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
+.v2-page main.v2 .btn.btn-ghost-light{background:transparent;border-color:rgba(255,255,255,.55);color:#fff}
+.v2-page main.v2 .btn.btn-ghost-light:hover{background:transparent;border-color:#fff;color:#fff}
+.rail-actions{grid-template-columns:minmax(0,1fr)}
+.rail-actions .btn,.btn-block{white-space:normal;text-align:center;line-height:1.25;padding-block:10px}
+
+/* the gallery sits above the site nav (30000), the section bar and the chat launcher */
+.lb{z-index:30100}
+.v2-page.v2-lb-open .solea{display:none}
+
+/* "Book a viewing" and the plan link land below the nav and the section bar */
+#enquire,#plan{scroll-margin-top:calc(var(--nueva-header-h,64px) + 52px + 12px)}
+
+/* phone bar: the page ends above it, and three buttons fit in every language */
+@media (max-width:760px){
+  .v2-page{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+  .actionbar{grid-template-columns:auto auto minmax(0,1fr);gap:6px;padding-inline:10px}
+  .ab-btn{padding:0 10px;gap:6px;font-size:14px;min-width:0;white-space:nowrap}
+  .ab-btn svg{width:18px;height:18px}
+  .ab-primary{padding:0 8px;text-align:center;white-space:normal;line-height:1.15}
+  .view3-tabs button{min-width:0;overflow-wrap:anywhere}
+}
+
+/* Arabic: the template was drawn left to right */
+html[dir=rtl] .kfacts dt,html[dir=rtl] .view3-col h3{letter-spacing:0}
+html[dir=rtl] .strip-facts > div{border-left:0;padding-left:0;border-right:1px solid rgba(255,255,255,.18);padding-right:18px}
+html[dir=rtl] .strip-facts > div:first-child{border-right:0;padding-right:0}
+html[dir=rtl] .units thead th,html[dir=rtl] .sched caption,html[dir=rtl] .sched th,html[dir=rtl] .dist th{text-align:right}
+html[dir=rtl] .dist td,html[dir=rtl] .sched td{text-align:left}
+html[dir=rtl] .dist td b{margin-left:0;margin-right:10px}
+html[dir=rtl] .sec > h2::before{left:auto;right:0}
+html[dir=rtl] .units th[data-sort]::after{margin-left:0;margin-right:6px}
+html[dir=rtl] .units .u-loc{margin-left:0;margin-right:6px}
+html[dir=rtl] .units .u-name,html[dir=rtl] .sched td{unicode-bidi:isolate}
+@media (max-width:760px){html[dir=rtl] .pbar .hdr-proj{-webkit-mask-image:linear-gradient(270deg,#000 85%,transparent);mask-image:linear-gradient(270deg,#000 85%,transparent)}}
+html[dir=rtl] .units tbody tr[aria-selected="true"]{box-shadow:inset -3px 0 0 var(--primary)}

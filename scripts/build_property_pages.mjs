@@ -434,6 +434,11 @@ function localizedUnitBedrooms(value, locale = DEFAULT_LOCALE) {
   const bedroomsBath = /^(\d+)\s*bedrooms?\s*\/\s*(\d+)\s*bathrooms?$/i.exec(raw);
   if (bedroomsBath) return t('unit.bedroomsBathrooms', locale, { n: bedroomsBath[1], m: bedroomsBath[2] });
 
+  // A study the developer's price list counts as a bedroom: the plans name it
+  // STUDIO and it is the size of a box room, so the page says what it is.
+  const study = /^(\d+)\s*bedrooms?\s*\+\s*study$/i.exec(raw);
+  if (study) return t('unit.bedroomsStudy', locale, { n: study[1] });
+
   const plain = /^(\d+)\s*bedrooms?$/i.exec(raw);
   if (plain) {
     return Number(plain[1]) === 1

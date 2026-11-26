@@ -100,10 +100,13 @@ function groupNumber(n, sep) { return Math.round(n).toLocaleString('en-GB').repl
 
 // "Completion Q4 2027 - Q1 2028" -> "Q4 2027 – Q1 2028" in the page's own language: the label word
 // the hero line starts with is dropped when the English source starts with one.
-function completionText(project, sourceProject) {
+function completionText(project, sourceProject, s) {
   const en = String(sourceProject.hero?.delivery || '');
   const local = String(project.hero?.delivery || en);
   const dropsWord = /^(Completion|Delivery|Delivered|Handover)\s/i.test(en);
+  // "Completion to be confirmed": the label is two words in some languages ("Срок сдачи",
+  // "Termin odbioru"), so dropping one leaves a fragment; the strip already names it
+  if (dropsWord && !/\d/.test(en)) return s('v2.completionTbc');
   return (dropsWord ? local.replace(/^\S+\s+/, '') : local).replace(/\s-\s/g, ' – ');
 }
 
@@ -136,6 +139,17 @@ export function renderV2Main(ctx) {
     amenityCategory, localizedCategory, image, PRICE_FORMAT, calculatorPanel = ''
   } = helpers;
   const s = (key, vars) => v2t(key, locale, vars, t);
+  // a date with no day ("October 2026") cannot take the day preposition ("le", "am", "el", "op")
+  const MONTH_ONLY = {
+    en: (x) => x.replace(/\bon \{date\}/, 'in {date}'), es: (x) => x.replace(/\bel \{date\}/, 'en {date}'),
+    fr: (x) => x.replace(/\ble \{date\}/, 'en {date}'), de: (x) => x.replace(/\bam \{date\}/, 'im {date}'),
+    nl: (x) => x.replace(/\bop \{date\}/, 'in {date}'), ru: (x) => x.replace('{date}', '({date})'), pl: (x) => x.replace('{date}', '({date})'),
+  };
+  const sDate = (key, date) => {
+    if (/^\s*\d{1,2}(?!\d)/.test(date) || !MONTH_ONLY[locale]) return s(key, { date });
+    const entry = V2_STRINGS[key];
+    return MONTH_ONLY[locale](entry[locale] ?? entry.en).replaceAll('{date}', date);
+  };
   const { fmt: eur, spec: priceSpec } = priceFormatter(locale, PRICE_FORMAT);
   const areaUnit = AREA_UNIT[locale] || 'm²';
   const link = (file) => localizedPath(file, locale);
@@ -150,7 +164,7 @@ export function renderV2Main(ctx) {
   const srcUnits = sourceProject.availability?.units || [];
   const locUnits = project.availability?.units || [];
   const units = srcUnits.map((u, i) => ({ src: u, loc: locUnits[i] || u, i }))
-    .filter(({ src }) => src.status !== 'sold')
+    .filter(({ src }) => src.status !== 'sold' && src.status !== 'sold_by_us')
     .map(({ src, loc, i }) => {
       const price = money(src.price);
       const bedsRaw = String(src.bedrooms || '');
@@ -220,7 +234,7 @@ export function renderV2Main(ctx) {
   const bedMin = sourceProject.crm?.bedroomsMin;
   const bedMax = sourceProject.crm?.bedroomsMax;
   const checked = localizeMonthDate(sourceProject.availability?.checkedDate || '', locale) || '';
-  const completion = done ? s('v2.keyReady') : completionText(project, sourceProject);
+  const completion = done ? s('v2.keyReady') : completionText(project, sourceProject, s);
   const left = Number.isFinite(avail) && total ? s('v2.ofTotal', { n: avail, total }) : Number.isFinite(avail) ? s('v2.homesListed', { n: avail }) : '';
   const wa = whatsappHref(project);
   const name = project.name;
@@ -237,7 +251,7 @@ export function renderV2Main(ctx) {
 
   const facts = [
     [s('v2.price'), priceMin ? `${eur(priceMin)}${priceMax && priceMax !== priceMin ? ` – ${eur(priceMax)}` : ''}` : onRequest, s('v2.plusVat')],
-    [s('v2.f.available'), Number.isFinite(avail) && total ? s('v2.homesCount', { n: avail, total }) : (left || onRequest), checked ? s('v2.checkedOn', { date: checked }) : ''],
+    [s('v2.f.available'), Number.isFinite(avail) && total ? s('v2.homesCount', { n: avail, total }) : (left || onRequest), checked ? sDate('v2.checkedOn', checked) : ''],
     [s('v2.f.homes'), esc(project.hero?.type || ''), ''],
     sizes.length ? [s('v2.f.sizes'), `${groupNumber(Math.min(...sizes), priceSpec.sep)}${Math.max(...sizes) !== Math.min(...sizes) ? ` – ${groupNumber(Math.max(...sizes), priceSpec.sep)}` : ''} ${areaUnit}`, sizeSub] : null,
     plot ? [s('v2.f.plot'), esc(plot), ''] : null,
@@ -252,7 +266,7 @@ export function renderV2Main(ctx) {
     `<div data-nl-price><dt>${s('v2.price')}</dt><dd class="num">${priceMin ? esc(s('v2.priceFrom', { price: eur(priceMin) })) : onRequest}</dd><dd class="sub">${s('v2.plusVat')}</dd></div>`,
     bedMin != null && bedMax != null ? `<div><dt>${s('v2.bedrooms')}</dt><dd>${bedMin === bedMax ? bedMin : esc(s('v2.range', { min: bedMin, max: bedMax }))}</dd><dd class="sub"><span>${esc(project.hero?.type || '')}</span></dd></div>` : '',
     `<div><dt>${s('v2.completion')}</dt><dd>${esc(completion || onRequest)}</dd><dd class="sub">${esc(s(`v2.lic.${licenceStatus}.line`))}</dd></div>`,
-    left ? `<div><dt>${s('v2.homesLeft')}</dt><dd>${esc(left)}</dd><dd class="sub">${checked ? esc(s('v2.checkedOn', { date: checked })) : ''}</dd></div>` : '',
+    left ? `<div><dt>${s('v2.homesLeft')}</dt><dd>${esc(left)}</dd><dd class="sub">${checked ? esc(sDate('v2.checkedOn', checked)) : ''}</dd></div>` : '',
     finalStage ? `<div><dt>${s('v2.payments')}</dt><dd>${esc(finalStage.amountLabel)} · ${esc(finalStage.label)}</dd><dd class="sub">${reserve ? esc(s('v2.reserves', { amount: eur(reserve.fixed) })) : ''}</dd></div>` : ''
   ].filter(Boolean);
 
@@ -577,7 +591,7 @@ export function renderV2Main(ctx) {
     <h2 id="v2-h-faq">${esc(s('v2.faqTitle', { name: short }))}</h2>
     ${faqs.length ? `<div class="faq2">${faqs.slice(0, 5).map(faqRow).join('')}</div>` : ''}
     ${faqs.length > 5 ? `<details class="faq2-more"><summary>${esc(s('v2.showAllQuestions', { n: faqs.length }))}</summary><div class="faq2">${faqs.slice(5).map(faqRow).join('')}</div></details>` : ''}
-    <p class="faq2-guide">${esc(s('v2.moreOnBuying'))} → <a class="textlink" href="${esc(link('guide-how-buying-works.html'))}">${esc(s('v2.buyingGuide'))}</a></p>
+    <p class="faq2-guide">${esc(s('v2.moreOnBuying'))} ${locale === 'ar' ? '←' : '→'} <a class="textlink" href="${esc(link('guide-how-buying-works.html'))}">${esc(s('v2.buyingGuide'))}</a></p>
   </section>
 
   </div>
@@ -585,7 +599,7 @@ export function renderV2Main(ctx) {
     <div class="card">
       <p class="rail-price-label">${esc(s('v2.priceFromLabel'))}</p>
       <p class="rail-price num">${priceMin ? esc(eur(priceMin)) : onRequest}</p>
-      <p class="rail-note">${esc(s('v2.plusVat'))}.${Number.isFinite(avail) && total ? ` ${esc(s('v2.homesLeftLine', { n: avail, total }))}` : ''}${checked ? ` · ${esc(s('v2.checkedOn', { date: checked }))}` : ''}</p>
+      <p class="rail-note">${esc(s('v2.plusVat').replace(/\.?$/, '.'))}${[Number.isFinite(avail) && total ? s('v2.homesLeftLine', { n: avail, total }) : '', checked ? sDate('v2.checkedOn', checked) : ''].filter(Boolean).map((x) => ` ${esc(x)}`).join(' ·')}</p>
       <div class="rail-actions"><a class="btn btn-primary" href="#enquire" data-prefill>${esc(s('v2.bookViewing'))}</a><a class="btn btn-ghost" href="${esc(wa)}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(name)}" data-intent="speak with an advisor"><svg><use href="#v2-chat"/></svg>${esc(s('v2.messageUsWhatsapp'))}</a></div>
       <div class="rail-direct"><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></div>
       ${person(56)}
@@ -643,7 +657,7 @@ export function renderV2Main(ctx) {
 
   <section class="fine" aria-label="${esc(s('v2.fineRenders').split(';')[0])}">
     <p>${esc(s('v2.fineRenders'))} ${esc(s('v2.fineDia'))}</p>
-    ${checked ? `<p>${esc(s('v2.fineChecked', { date: checked }))}</p>` : ''}
+    ${checked ? `<p>${esc(sDate('v2.fineChecked', checked))}</p>` : ''}
     ${project.availability?.sourceNote ? `<p>${esc(project.availability.sourceNote)}</p>` : ''}
     <p>${esc(s('v2.fineAdvice'))}</p>
   </section>
