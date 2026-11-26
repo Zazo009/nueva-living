@@ -190,7 +190,8 @@ export function renderV2Main(ctx) {
           localizedUnitFloor(loc.floor || src.floor || '', locale)
         ].filter(Boolean).join(' · '),
         beds: Number.isFinite(beds) ? beds : null,
-        bedsLabel: Number.isFinite(beds) ? (beds === 0 ? s('v2.studio') : t('availability.bedChip', locale, { count: beds })) : '',
+        // "3 bedrooms + study": the developer's list counts the study as a bedroom, the plan does not
+        bedsLabel: Number.isFinite(beds) ? (beds === 0 ? s('v2.studio') : t('availability.bedChip', locale, { count: beds }) + (/\+\s*study/i.test(bedsRaw) ? ` + ${s('v2.study')}` : '')) : '',
         size: Number.isFinite(size) ? size : null,
         sizeLabel: Number.isFinite(size) ? `${groupNumber(size, priceSpec.sep)} ${areaUnit}` : '',
         price: Number.isFinite(price) ? price : null,
