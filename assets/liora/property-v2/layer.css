@@ -426,3 +426,7 @@ html[dir=rtl] .units .u-name,html[dir=rtl] .sched td{unicode-bidi:isolate}
 html[dir=rtl] .units tbody tr[aria-selected="true"]{box-shadow:inset -3px 0 0 var(--primary)}
 html[dir=rtl] .sched td:not(:last-child){padding-left:14px}
 html[dir=rtl] .fold > summary::after{float:left}
+
+/* phones: the site's own header and breadcrumb sit above the hero in the flow, so the room the
+   template once kept for a header of its own is an empty dark band */
+@media (max-width:760px){.hero{padding-top:0}}

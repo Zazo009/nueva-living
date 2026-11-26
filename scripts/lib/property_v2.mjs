@@ -112,20 +112,23 @@ function completionText(project, sourceProject, s) {
 
 // ---------------------------------------------------------------- the questions
 
-// The project's own questions, less the ones whose whole answer is a fact the page already shows in
-// its key facts or price panel (price, VAT, delivery, what is available). A question stays when its
-// answer says more than the fact: a caveat, a breakdown, a source, a conflict. Decided on the English
+// The project's own questions, less the ones that ask for a fact the page already shows in its key
+// facts, price panel or homes table (price, VAT, delivery, what is available, the payment schedule).
+// The table, the schedule and the dated price list carry the detail those answers used to repeat, so
+// a question stays only when its answer flags something the facts cannot: a conflict between
+// documents, a figure no document gives. (Until 26 November 2026 any answer over 120 characters
+// stayed, and the visible list opened with "How many homes are available?" and "What do they cost?".) Decided on the English
 // record and applied by position, so every language keeps and drops the same questions; the FAQPage
 // schema is built from this same list, so it carries exactly what the page shows.
-const FACT_QUESTION = /^(is vat included|is iva included|is the price inclusive of vat|when (will it|will they|is it|are they|will the homes?) (be )?(finished|completed|ready|delivered)|when is (delivery|completion|it finished)|what (do|does) (the homes|it|they|a home) cost|how much (do|does|are)|what (is|are) the (starting )?prices?|how many homes are (available|left|for sale)|what is (available|for sale))\??$/i;
-const SAYS_MORE = /\b(no document|none of|not (stated|given|say|said|published|issued)|does not|do not|conflict|differ|disagree|unclear|depend|however|but|except|only|reserved|parking|storage|furniture|come with|phase|block|stage|portal|listing|under way|started|licen[cs]e)\b/i;
+const FACT_QUESTION = /^(is vat included|is iva included|is the price inclusive of vat|when (will it|will they|is it|are they|will the homes?) (be )?(finished|completed|ready|delivered)|when is (delivery|completion|it finished)|what (do|does) (the homes|it|they|a home) cost|how much (do|does|are)|what (is|are) the (starting )?prices?|how many (homes |apartments |villas |units )?are (currently |still )?(available|left|for sale)|what is (available|for sale)|what is the payment (schedule|plan)|how (is|are) (the )?payments? (structured|made|staged))\??$/i;
+const SAYS_MORE = /\b(no document|none of the|not (stated|given|published|issued)|does not (say|state|give)|do not (say|state|give)|conflict|differs?|disagrees?|unclear|two figures)\b/i;
 
 export function v2Faqs(sourceProject, project) {
   const src = sourceProject.faq || [];
   const loc = project.faq || src;
   return loc.filter((_, i) => {
     const [q, a] = src[i] || [];
-    return !(q && FACT_QUESTION.test(String(q).trim()) && String(a).length <= 120 && !SAYS_MORE.test(String(a)));
+    return !(q && FACT_QUESTION.test(String(q).trim()) && !SAYS_MORE.test(String(a)));
   });
 }
 
@@ -658,7 +661,7 @@ export function renderV2Main(ctx) {
 
   <section class="fine" aria-label="${esc(s('v2.fineRenders').split(';')[0])}">
     <p>${esc(s('v2.fineRenders'))} ${esc(s('v2.fineDia'))}</p>
-    ${checked ? `<p>${esc(sDate('v2.fineChecked', checked))}</p>` : ''}
+    ${checked && !project.availability?.sourceNote ? `<p>${esc(sDate('v2.fineChecked', checked))}</p>` : ''}
     ${project.availability?.sourceNote ? `<p>${esc(project.availability.sourceNote)}</p>` : ''}
     <p>${esc(s('v2.fineAdvice'))}</p>
   </section>
