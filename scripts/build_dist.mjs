@@ -2558,6 +2558,13 @@ const legacyRedirects = [
   // An early placeholder slug Google still holds as a 404: gone, not renamed.
   '/property-solenne-benahavis.html /404.html 410',
   '/property-solenne-benahavis /404.html 410',
+  // Search Console (Nov 2026) found /nb/privacy-policy.html: "nb" is Norwegian Bokmål, which this site
+  // publishes under /no/. Any /nb/ address goes to the same page under /no/.
+  '/nb/* /no/:splat 301',
+  // Guadalobon plans of three homes that were sold (6f2ce6ad9): gone on purpose, not moved.
+  '/assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-12a-floorplans.pdf /404.html 410',
+  '/assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-13c-floorplans.pdf /404.html 410',
+  '/assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-22a-floorplans.pdf /404.html 410',
 ];
 
 
