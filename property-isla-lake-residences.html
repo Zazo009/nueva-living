@@ -34,14 +34,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=e544336ed8fe">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=d3312dfdc30e">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
-  <script src="assets/liora/nueva-property-v2.js?v=5804ffbbf0bb" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=a61c9b6bce43" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -437,10 +437,13 @@
 
   <section class="sec" id="overview" aria-labelledby="v2-h-overview">
     <h2 id="v2-h-overview">The development</h2>
+    <div class="ov-text" id="v2-ov-text">
     <p class="lede">Isla Lake Residences is a complex of 63 apartments with two or three bedrooms and two bathrooms, at Atalaya, in Estepona. Two homes are currently available: a two-bedroom ground-floor apartment with a private garden facing the pool, and a three-bedroom first-floor apartment with a long terrace over the gardens.</p>
     <p class="lede-2">Both are sold finished, with furniture, equipment and decoration included in the price list. Every home has underfloor heating and aerothermal energy, a fitted kitchen with appliances, and a parking space and storeroom in the basement. The shared grounds cover more than 6,700 sqm.</p>
+    </div>
+    <button class="ov-more" type="button" aria-controls="v2-ov-text" aria-expanded="false">Read more</button>
     <details class="fold" id="architecture"><summary>Architecture · <span>Three kinds of home, one complex</span></summary><p>The catalogue describes three types of home. Ground-floor homes have a large garden with direct access to the shared grounds. Middle-floor homes have a large covered terrace, part porch and part open to the sun. Top-floor homes have a private solarium with a barbecue, a sink, a shower and pre-installation for a jacuzzi.</p><p>Homes face south, east, south-east or west, and the catalogue says the layout allows cross ventilation. The shared areas are designed without architectural barriers, so that every space can be used by everyone.</p><ul><li>Ground floor: A large garden with direct access to the shared grounds, as in Home 21, which has a private garden of 81 sqm.</li><li>Middle floor: A large covered terrace, part porch and part open, as in Home 50, which has a 27.95 sqm covered terrace.</li><li>Top floor: A private solarium with a barbecue, a sink, a shower and pre-installation for a jacuzzi. Neither home listed as available is a top-floor home.</li><li>Orientation: Homes face south, east, south-east or west, with views of the natural surroundings or of the shared grounds.</li></ul></details>
-    <dl class="kfacts"><div><dt>Price</dt><dd><span>€720,000 – €767,000</span><small>Plus VAT</small></dd></div><div><dt>Available</dt><dd><span>2 of 63 homes</span><small>Checked October 2026</small></dd></div><div><dt>Homes</dt><dd><span>Apartments</span></dd></div><div><dt>Sizes</dt><dd><span>92 – 121 m²</span><small>Inside</small></dd></div><div><dt>Completion</dt><dd><span>Key-ready</span></dd></div><div><dt>Licence</dt><dd><span><span class="ok">Building licence</span></span><small>Granted</small></dd></div><div><dt>Deposits</dt><dd><span>Not applicable</span><small>Finished building</small></dd></div><div><dt>Parking</dt><dd><span>Parking Space And Storage With Every Home</span></dd></div></dl>
+    <dl class="kfacts"><div class="kf-strip"><dt>Price</dt><dd><span>€720,000 – €767,000</span><small>Plus VAT</small></dd></div><div class="kf-strip"><dt>Available</dt><dd><span>2 of 63 homes</span><small>Checked October 2026</small></dd></div><div><dt>Homes</dt><dd><span>Apartments</span></dd></div><div><dt>Sizes</dt><dd><span>92 – 121 m²</span><small>Inside</small></dd></div><div class="kf-strip"><dt>Completion</dt><dd><span>Key-ready</span></dd></div><div><dt>Licence</dt><dd><span><span class="ok">Building licence</span></span><small>Granted</small></dd></div><div><dt>Deposits</dt><dd><span>Not applicable</span><small>Finished building</small></dd></div><div><dt>Parking</dt><dd><span>Parking Space And Storage With Every Home</span></dd></div></dl>
   </section>
 
   <section class="sec" id="availability" aria-labelledby="v2-h-avail">
@@ -460,21 +463,21 @@
           <th scope="col">Plan</th>
         </tr></thead>
         <tbody>
-          <tr data-id="u0" data-beds="2" data-price="720000" data-size="92" data-ppm="7826" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/isla-lake-residences/floorplans/home-21-640.webp">
+          <tr data-id="u0" data-beds="2" data-price="720000" data-size="92" data-ppm="7826" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/isla-lake-residences/floorplans/home-21-640.webp?v=b9446566">
             <th scope="row"><span class="u-name">Home 21</span><span class="u-loc">Block 3, Ground floor</span></th>
             <td data-label="Bedrooms">2 bed</td>
             <td data-label="Size" class="num">92 m²</td>
             <td data-label="Price" class="u-price num">€720,000</td>
             <td data-label="Per m²" class="num">€7,826</td>
-            <td class="u-plan"><a href="assets/liora/projects/isla-lake-residences/floorplans/home-21.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Home 21"><img src="assets/liora/projects/isla-lake-residences/floorplans/home-21-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/isla-lake-residences/floorplans/home-21.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Home 21"><img src="assets/liora/projects/isla-lake-residences/floorplans/home-21-640.webp?v=b9446566" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u1" data-beds="3" data-price="767000" data-size="121" data-ppm="6339" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/isla-lake-residences/floorplans/home-50-640.webp">
+          <tr data-id="u1" data-beds="3" data-price="767000" data-size="121" data-ppm="6339" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/isla-lake-residences/floorplans/home-50-640.webp?v=6ca79b4a">
             <th scope="row"><span class="u-name">Home 50</span><span class="u-loc">Block 5, First floor</span></th>
             <td data-label="Bedrooms">3 bed</td>
             <td data-label="Size" class="num">121 m²</td>
             <td data-label="Price" class="u-price num">€767,000</td>
             <td data-label="Per m²" class="num">€6,339</td>
-            <td class="u-plan"><a href="assets/liora/projects/isla-lake-residences/floorplans/home-50.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Home 50"><img src="assets/liora/projects/isla-lake-residences/floorplans/home-50-640.webp" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/isla-lake-residences/floorplans/home-50.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Home 50"><img src="assets/liora/projects/isla-lake-residences/floorplans/home-50-640.webp?v=6ca79b4a" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
         </tbody>
       </table>

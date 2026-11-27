@@ -35,14 +35,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=e544336ed8fe">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=d3312dfdc30e">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
-  <script src="assets/liora/nueva-property-v2.js?v=5804ffbbf0bb" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=a61c9b6bce43" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -391,10 +391,13 @@
 
   <section class="sec" id="overview" aria-labelledby="v2-h-overview">
     <h2 id="v2-h-overview">Le programme</h2>
+    <div class="ov-text" id="v2-ov-text">
     <p class="lede">Alisios Residences est une collection de 34 appartements et penthouses situés dans le secteur d'Alta de Guadalmina à Marbella, l'une des adresses les plus établies de la Costa del Sol, à proximité de San Pedro Alcántara et de Puerto Banús.</p>
     <p class="lede-2">De larges baies vitrées et de généreuses terrasses sont conçues autour des vues sur le golf de Guadalmina et sur la mer, associées à une offre d'équipements sécurisés de type resort comprenant piscine, salle de sport et espace de coworking.</p>
+    </div>
+    <button class="ov-more" type="button" aria-controls="v2-ov-text" aria-expanded="false">Lire la suite</button>
     <details class="fold" id="architecture"><summary>Architecture · <span>Structure solide, confort moderne</span></summary><p>Le bâtiment utilise une ossature en béton armé avec des façades en brique perforée isolée, choisies autant pour leur performance thermique et acoustique que pour leur esthétique.</p><p>Les résidences sont climatisées par un système d'aérothermie assurant chauffage, refroidissement et eau chaude, associé à un chauffage au sol et à des finitions intérieures haut de gamme dans l'ensemble du programme.</p><ul><li>Fondations et ossature en béton armé pour durabilité et stabilité.</li><li>Façades en brique perforée isolée pour une performance thermique et acoustique optimale.</li><li>Système de climatisation par aérothermie intégrant chauffage, refroidissement et eau chaude.</li><li>Chauffage au sol dans l'ensemble du programme, avec finitions intérieures haut de gamme en standard.</li><li>Cuisines entièrement équipées avec électroménager premium et finitions personnalisables.</li></ul></details>
-    <dl class="kfacts"><div><dt>Prix</dt><dd><span>690 000 € – 1 490 000 €</span><small>Hors TVA</small></dd></div><div><dt>Disponibles</dt><dd><span>4 biens sur 34</span><small>Vérifié le 3 août 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartements et penthouses</span></dd></div><div><dt>Surfaces</dt><dd><span>103 – 201 m²</span></dd></div><div><dt>Livraison</dt><dd><span>T4 2026</span></dd></div><div><dt>Permis</dt><dd><span>Non précisé</span><small>Nous le vérifions avant votre réservation</small></dd></div><div><dt>Acomptes</dt><dd><span>Garantie bancaire</span><small>Exigée par la loi espagnole</small></dd></div></dl>
+    <dl class="kfacts"><div class="kf-strip"><dt>Prix</dt><dd><span>690 000 € – 1 490 000 €</span><small>Hors TVA</small></dd></div><div class="kf-strip"><dt>Disponibles</dt><dd><span>4 biens sur 34</span><small>Vérifié le 3 août 2026</small></dd></div><div><dt>Biens</dt><dd><span>Appartements et penthouses</span></dd></div><div><dt>Surfaces</dt><dd><span>103 – 201 m²</span></dd></div><div class="kf-strip"><dt>Livraison</dt><dd><span>T4 2026</span></dd></div><div><dt>Permis</dt><dd><span>Non précisé</span><small>Nous le vérifions avant votre réservation</small></dd></div><div><dt>Acomptes</dt><dd><span>Garantie bancaire</span><small>Exigée par la loi espagnole</small></dd></div></dl>
   </section>
 
   <section class="sec" id="availability" aria-labelledby="v2-h-avail">
@@ -414,37 +417,37 @@
           <th scope="col">Plan</th>
         </tr></thead>
         <tbody>
-          <tr data-id="u0" data-beds="2" data-price="690000" data-size="103" data-ppm="6699" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-421-thumb.jpg">
+          <tr data-id="u0" data-beds="2" data-price="690000" data-size="103" data-ppm="6699" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-421-thumb.jpg?v=849fc158">
             <th scope="row"><span class="u-name">421</span><span class="u-loc">Bloc 4</span></th>
             <td data-label="Chambres">2 ch.</td>
             <td data-label="Surface" class="num">103 m²</td>
             <td data-label="Prix" class="u-price num">690 000 €</td>
             <td data-label="Par m²" class="num">6 699 €</td>
-            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-421.pdf" target="_blank" rel="noopener" aria-label="Plan de 421"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-421-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-421.pdf" target="_blank" rel="noopener" aria-label="Plan de 421"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-421-thumb.jpg?v=849fc158" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u1" data-beds="3" data-price="890000" data-size="201" data-ppm="4428" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-203-thumb.jpg">
+          <tr data-id="u1" data-beds="3" data-price="890000" data-size="201" data-ppm="4428" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-203-thumb.jpg?v=d13267e6">
             <th scope="row"><span class="u-name">203 Duplex</span><span class="u-loc">Bloc 2</span></th>
             <td data-label="Chambres">3 ch.</td>
             <td data-label="Surface" class="num">201 m²</td>
             <td data-label="Prix" class="u-price num">890 000 €</td>
             <td data-label="Par m²" class="num">4 428 €</td>
-            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-203.pdf" target="_blank" rel="noopener" aria-label="Plan de 203 Duplex"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-203-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-203.pdf" target="_blank" rel="noopener" aria-label="Plan de 203 Duplex"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-203-thumb.jpg?v=d13267e6" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u2" data-beds="3" data-price="890000" data-size="195" data-ppm="4564" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-301-thumb.jpg">
+          <tr data-id="u2" data-beds="3" data-price="890000" data-size="195" data-ppm="4564" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-301-thumb.jpg?v=cf4d92cc">
             <th scope="row"><span class="u-name">301 Duplex</span><span class="u-loc">Bloc 3</span></th>
             <td data-label="Chambres">3 ch.</td>
             <td data-label="Surface" class="num">195 m²</td>
             <td data-label="Prix" class="u-price num">890 000 €</td>
             <td data-label="Par m²" class="num">4 564 €</td>
-            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-301.pdf" target="_blank" rel="noopener" aria-label="Plan de 301 Duplex"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-301-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-301.pdf" target="_blank" rel="noopener" aria-label="Plan de 301 Duplex"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-301-thumb.jpg?v=cf4d92cc" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u3" data-beds="3" data-price="1490000" data-size="156" data-ppm="9551" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-341-thumb.jpg">
+          <tr data-id="u3" data-beds="3" data-price="1490000" data-size="156" data-ppm="9551" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/alisios-residences/floorplans/vivienda-341-thumb.jpg?v=24df35c3">
             <th scope="row"><span class="u-name">341 Penthouse</span><span class="u-loc">Bloc 3</span></th>
             <td data-label="Chambres">3 ch.</td>
             <td data-label="Surface" class="num">156 m²</td>
             <td data-label="Prix" class="u-price num">1 490 000 €</td>
             <td data-label="Par m²" class="num">9 551 €</td>
-            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-341.pdf" target="_blank" rel="noopener" aria-label="Plan de 341 Penthouse"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-341-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/alisios-residences/floorplans/vivienda-341.pdf" target="_blank" rel="noopener" aria-label="Plan de 341 Penthouse"><img src="assets/liora/projects/alisios-residences/floorplans/vivienda-341-thumb.jpg?v=24df35c3" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
         </tbody>
       </table>

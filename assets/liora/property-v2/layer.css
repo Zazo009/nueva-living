@@ -430,3 +430,17 @@ html[dir=rtl] .fold > summary::after{float:left}
 /* phones: the site's own header and breadcrumb sit above the hero in the flow, so the room the
    template once kept for a header of its own is an empty dark band */
 @media (max-width:760px){.hero{padding-top:0}}
+/* phones: homes and prices straight after the hero, a three-line introduction, and no key fact the
+   hero strip already shows */
+.ov-more{display:none}
+@media (max-width:760px){
+  .main{display:flex;flex-direction:column}
+  .main > #availability{order:-1}
+  .ov-text{margin-top:18px}
+  .ov-text > .lede{margin-top:0}
+  .ov-text:not(.is-open){max-height:81px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 50%,transparent);mask-image:linear-gradient(#000 50%,transparent)}
+  .ov-more{display:inline-block;margin-top:4px;padding:12px 0;min-height:44px;background:none;border:0;font:500 14.5px/1.4 var(--sans);color:var(--primary);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .ov-text.fits,.ov-text.is-open{max-height:none;-webkit-mask-image:none;mask-image:none}
+  .ov-text.fits + .ov-more,.ov-text.is-open + .ov-more{display:none}
+  .kfacts > .kf-strip{display:none}
+}

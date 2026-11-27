@@ -16,6 +16,16 @@
   var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
   document.documentElement.classList.add('js-motion');
 
+  // phones show three lines of the introduction with "Read more"; the button goes when the text fits
+  var ovText = $('v2-ov-text'), ovMore = document.querySelector('.v2 .ov-more');
+  if (ovText && ovMore) {
+    var ovFit = function () { if (!ovText.classList.contains('is-open')) ovText.classList.toggle('fits', ovText.scrollHeight <= ovText.clientHeight + 2); };
+    ovFit();
+    addEventListener('resize', ovFit);
+    addEventListener('load', ovFit);
+    ovMore.addEventListener('click', function () { ovText.classList.add('is-open'); ovMore.setAttribute('aria-expanded', 'true'); });
+  }
+
   function countTo(el, to) {
     if (!el) return;
     var from = parse(el.textContent);

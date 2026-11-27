@@ -11,6 +11,7 @@
 // chrome (top bar, breadcrumb, footer, newsletter) keeps its own styles.
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { V2_STRINGS } from './property_v2_strings.mjs';
 
 const AREA_UNIT = { ru: 'м²', ar: 'م²' };
@@ -182,6 +183,8 @@ export function renderV2Main(ctx) {
       const thumb = !plan ? '' : /\.(jpe?g|png)$/i.test(plan)
         ? [plan.replace(/\.(jpe?g|png)$/i, '-640.webp'), plan].find((f) => existsSync(f))
         : [plan.replace(/\.pdf$/i, '-thumb.jpg')].find((f) => existsSync(f)) || '';
+      // images are served immutable for a year, so a re-cropped thumbnail needs a new URL to be seen
+      const thumbUrl = thumb ? `${thumb}?v=${createHash('md5').update(readFileSync(thumb)).digest('hex').slice(0, 8)}` : '';
       return {
         id: `u${i}`,
         ref: src.reference || `${i + 1}`,
@@ -201,7 +204,7 @@ export function renderV2Main(ctx) {
         priceLabel: Number.isFinite(price) ? eur(price) : localizedUnitPrice(loc.price || src.price || t('common.onRequest', locale), locale),
         plan,
         plans,
-        thumb
+        thumb: thumbUrl
       };
     });
   const plans = units.filter((u) => u.plan);
@@ -254,12 +257,12 @@ export function renderV2Main(ctx) {
   const onRequest = t('common.onRequest', locale);
 
   const facts = [
-    [s('v2.price'), priceMin ? `${eur(priceMin)}${priceMax && priceMax !== priceMin ? ` – ${eur(priceMax)}` : ''}` : onRequest, s('v2.plusVat')],
-    [s('v2.f.available'), Number.isFinite(avail) && total ? s('v2.homesCount', { n: avail, total }) : (left || onRequest), checked ? sDate('v2.checkedOn', checked) : ''],
+    [s('v2.price'), priceMin ? `${eur(priceMin)}${priceMax && priceMax !== priceMin ? ` – ${eur(priceMax)}` : ''}` : onRequest, s('v2.plusVat'), true],
+    [s('v2.f.available'), Number.isFinite(avail) && total ? s('v2.homesCount', { n: avail, total }) : (left || onRequest), checked ? sDate('v2.checkedOn', checked) : '', Boolean(left)],
     [s('v2.f.homes'), esc(project.hero?.type || ''), ''],
     sizes.length ? [s('v2.f.sizes'), `${groupNumber(Math.min(...sizes), priceSpec.sep)}${Math.max(...sizes) !== Math.min(...sizes) ? ` – ${groupNumber(Math.max(...sizes), priceSpec.sep)}` : ''} ${areaUnit}`, sizeSub] : null,
     plot ? [s('v2.f.plot'), esc(plot), ''] : null,
-    [s('v2.completion'), esc(completion || onRequest), ''],
+    [s('v2.completion'), esc(completion || onRequest), '', true],
     [s('v2.f.licence'), licenceOk ? `<span class="ok">${esc(s(`v2.lic.${licenceStatus}.value`))}</span>` : esc(s(`v2.lic.${licenceStatus}.value`)), esc(s(`v2.lic.${licenceStatus}.sub`))],
     stages ? [s('v2.payments'), esc(s('v2.stages', { n: stages.length })), finalStage ? `${esc(finalStage.amountLabel)} · ${esc(finalStage.label)}${computable && units.length ? ` · <a href="#plan">${esc(s('v2.schedule'))}</a>` : ''}` : ''] : null,
     [s('v2.f.deposits'), done ? s('v2.notApplicable') : s('v2.bankGuarantee'), done ? s('v2.finishedBuilding') : s('v2.requiredByLaw')],
@@ -492,15 +495,18 @@ export function renderV2Main(ctx) {
 
   <section class="sec" id="overview" aria-labelledby="v2-h-overview">
     <h2 id="v2-h-overview">${esc(s('v2.development'))}</h2>
+    <div class="ov-text" id="v2-ov-text">
     <p class="lede">${esc((project.overview?.copy || [])[0] || project.description)}</p>
     ${(project.overview?.copy || []).slice(1).map((x) => `<p class="lede-2">${esc(x)}</p>`).join('')}
+    </div>
+    <button class="ov-more" type="button" aria-controls="v2-ov-text" aria-expanded="false">${esc(s('v2.readMore'))}</button>
     ${(() => {
       const arch = project.architecture || {};
       const paras = Array.isArray(arch.copy) ? arch.copy : (arch.copy ? [arch.copy] : []);
       const highlights = arch.highlights || [];
       return paras.length || highlights.length ? `<details class="fold" id="architecture"><summary>${t('section.architecture', locale)}${arch.headlineHtml ? ` · <span>${esc(String(arch.headlineHtml).replace(/<[^>]+>/g, ''))}</span>` : ''}</summary>${paras.map((x) => `<p>${esc(x)}</p>`).join('')}${highlights.length ? `<ul>${highlights.map((h) => `<li>${esc(Array.isArray(h) ? h.join(': ') : h)}</li>`).join('')}</ul>` : ''}</details>` : '';
     })()}
-    <dl class="kfacts">${facts.map(([k, v, sub]) => `<div><dt>${esc(k)}</dt><dd><span>${v}</span>${sub ? `<small>${sub}</small>` : ''}</dd></div>`).join('')}</dl>
+    <dl class="kfacts">${facts.map(([k, v, sub, inStrip]) => `<div${inStrip ? ' class="kf-strip"' : ''}><dt>${esc(k)}</dt><dd><span>${v}</span>${sub ? `<small>${sub}</small>` : ''}</dd></div>`).join('')}</dl>
   </section>
 
   <section class="sec" id="availability" aria-labelledby="v2-h-avail">

@@ -34,14 +34,14 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=e544336ed8fe">
+  <link rel="stylesheet" href="assets/liora/nueva-property-v2.css?v=d3312dfdc30e">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=399c3e4bd2e6" defer></script>
-  <script src="assets/liora/nueva-property-v2.js?v=5804ffbbf0bb" defer></script>
+  <script src="assets/liora/nueva-property-v2.js?v=a61c9b6bce43" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -437,10 +437,13 @@
 
   <section class="sec" id="overview" aria-labelledby="v2-h-overview">
     <h2 id="v2-h-overview">The development</h2>
+    <div class="ov-text" id="v2-ov-text">
     <p class="lede">Retama Residences is a gated development of 120 homes in low blocks on a plot of 31,000 sqm in Mijas Costa, close to the Cerrado del Águila golf course. The brochure arranges the buildings around a large garden, with paths linking them to the communal areas and to a viewpoint, and leaves part of the plot as natural land.</p>
     <p class="lede-2">The developer’s price list of 14 September 2026 shows ten homes, all available: apartments with one to three bedrooms on the ground, first and second floors from EUR 341,000, and three penthouses with large terraces from EUR 780,000 to EUR 885,000, all before VAT. The developer’s portal gives the building licence as granted, the start of works as 11 November 2025 and completion as September 2028.</p>
+    </div>
+    <button class="ov-more" type="button" aria-controls="v2-ov-text" aria-expanded="false">Read more</button>
     <details class="fold" id="architecture"><summary>Architecture · <span>Low blocks around a garden</span></summary><p>The brochure describes low buildings arranged around a large green space, with the garden as the main feature and paths running through it to the communal areas and a viewpoint. In the renders the blocks have deep terraces with glass balustrades, slatted pergolas and stone-coloured walls, set among olive trees, lavender and grasses.</p><p>The site plan numbers nine portals, and the price list names four levels: ground floor, first floor, second floor and penthouse. Two of the listed penthouses add a solarium above the home, reached by a spiral stair on the plans.</p><ul><li>A fenced and enclosed complex with access control for pedestrians and vehicles and closed-circuit television.</li><li>Electric lifts for eight people to every floor, with automatic stainless-steel doors, suitable for people with reduced mobility.</li><li>An automated garage door with remote control, and a pre-installation for charging an electric vehicle from the home’s own meter.</li><li>Aluminium windows with a thermal break and low-emissive glazing, and photovoltaic panels on the roofs of the parking area for the communal areas.</li></ul></details>
-    <dl class="kfacts"><div><dt>Price</dt><dd><span>€341,000 – €885,000</span><small>Plus VAT</small></dd></div><div><dt>Available</dt><dd><span>10 of 120 homes</span><small>Checked 14 September 2026</small></dd></div><div><dt>Homes</dt><dd><span>Apartments and penthouses</span></dd></div><div><dt>Sizes</dt><dd><span>47 – 102 m²</span><small>Built area</small></dd></div><div><dt>Completion</dt><dd><span>September 2028</span></dd></div><div><dt>Licence</dt><dd><span><span class="ok">Building licence</span></span><small>Granted</small></dd></div><div><dt>Payments</dt><dd><span>4 stages</span><small>60% · On Completion · <a href="#plan">schedule</a></small></dd></div><div><dt>Deposits</dt><dd><span>Bank guarantee</span><small>Required by Spanish law</small></dd></div><div><dt>Parking</dt><dd><span>Garage Space</span></dd></div></dl>
+    <dl class="kfacts"><div class="kf-strip"><dt>Price</dt><dd><span>€341,000 – €885,000</span><small>Plus VAT</small></dd></div><div class="kf-strip"><dt>Available</dt><dd><span>10 of 120 homes</span><small>Checked 14 September 2026</small></dd></div><div><dt>Homes</dt><dd><span>Apartments and penthouses</span></dd></div><div><dt>Sizes</dt><dd><span>47 – 102 m²</span><small>Built area</small></dd></div><div class="kf-strip"><dt>Completion</dt><dd><span>September 2028</span></dd></div><div><dt>Licence</dt><dd><span><span class="ok">Building licence</span></span><small>Granted</small></dd></div><div><dt>Payments</dt><dd><span>4 stages</span><small>60% · On Completion · <a href="#plan">schedule</a></small></dd></div><div><dt>Deposits</dt><dd><span>Bank guarantee</span><small>Required by Spanish law</small></dd></div><div><dt>Parking</dt><dd><span>Garage Space</span></dd></div></dl>
   </section>
 
   <section class="sec" id="availability" aria-labelledby="v2-h-avail">
@@ -460,85 +463,85 @@
           <th scope="col">Plan</th>
         </tr></thead>
         <tbody>
-          <tr data-id="u0" data-beds="3" data-price="595000" data-size="96.76" data-ppm="6149" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg">
+          <tr data-id="u0" data-beds="3" data-price="595000" data-size="96.76" data-ppm="6149" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg?v=9cfe05ed">
             <th scope="row"><span class="u-name">101</span><span class="u-loc">Apartment · Portal 1, Ground Floor</span></th>
             <td data-label="Bedrooms">3 bed</td>
             <td data-label="Size" class="num">97 m²</td>
             <td data-label="Price" class="u-price num">€595,000</td>
             <td data-label="Per m²" class="num">€6,149</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 101"><img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-101-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 101"><img src="assets/liora/projects/retama-residences/floorplans/home-101-floorplan-thumb.jpg?v=9cfe05ed" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u1" data-beds="2" data-price="490000" data-size="72.41" data-ppm="6767" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg">
+          <tr data-id="u1" data-beds="2" data-price="490000" data-size="72.41" data-ppm="6767" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg?v=17ef5d5d">
             <th scope="row"><span class="u-name">222</span><span class="u-loc">Apartment · Portal 2, Second Floor</span></th>
             <td data-label="Bedrooms">2 bed</td>
             <td data-label="Size" class="num">72 m²</td>
             <td data-label="Price" class="u-price num">€490,000</td>
             <td data-label="Per m²" class="num">€6,767</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 222"><img src="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-222-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 222"><img src="assets/liora/projects/retama-residences/floorplans/home-222-floorplan-thumb.jpg?v=17ef5d5d" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u2" data-beds="3" data-price="885000" data-size="99.51" data-ppm="8894" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg">
+          <tr data-id="u2" data-beds="3" data-price="885000" data-size="99.51" data-ppm="8894" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg?v=ed139091">
             <th scope="row"><span class="u-name">231</span><span class="u-loc">Penthouse · Portal 2, Penthouse</span></th>
             <td data-label="Bedrooms">3 bed</td>
             <td data-label="Size" class="num">100 m²</td>
             <td data-label="Price" class="u-price num">€885,000</td>
             <td data-label="Per m²" class="num">€8,894</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 231"><img src="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-231-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 231"><img src="assets/liora/projects/retama-residences/floorplans/home-231-floorplan-thumb.jpg?v=ed139091" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u3" data-beds="2" data-price="780000" data-size="80" data-ppm="9750" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg">
+          <tr data-id="u3" data-beds="2" data-price="780000" data-size="80" data-ppm="9750" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg?v=3689e355">
             <th scope="row"><span class="u-name">232</span><span class="u-loc">Penthouse · Portal 2, Penthouse</span></th>
             <td data-label="Bedrooms">2 bed</td>
             <td data-label="Size" class="num">80 m²</td>
             <td data-label="Price" class="u-price num">€780,000</td>
             <td data-label="Per m²" class="num">€9,750</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 232"><img src="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-232-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 232"><img src="assets/liora/projects/retama-residences/floorplans/home-232-floorplan-thumb.jpg?v=3689e355" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u4" data-beds="2" data-price="480000" data-size="72.28" data-ppm="6641" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg">
+          <tr data-id="u4" data-beds="2" data-price="480000" data-size="72.28" data-ppm="6641" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg?v=e3bc4630">
             <th scope="row"><span class="u-name">303</span><span class="u-loc">Apartment · Portal 3, Ground Floor</span></th>
             <td data-label="Bedrooms">2 bed</td>
             <td data-label="Size" class="num">72 m²</td>
             <td data-label="Price" class="u-price num">€480,000</td>
             <td data-label="Per m²" class="num">€6,641</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 303"><img src="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-303-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 303"><img src="assets/liora/projects/retama-residences/floorplans/home-303-floorplan-thumb.jpg?v=e3bc4630" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u5" data-beds="2" data-price="451000" data-size="72.41" data-ppm="6228" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg">
+          <tr data-id="u5" data-beds="2" data-price="451000" data-size="72.41" data-ppm="6228" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg?v=e0cd7303">
             <th scope="row"><span class="u-name">403</span><span class="u-loc">Apartment · Portal 4, Ground Floor</span></th>
             <td data-label="Bedrooms">2 bed</td>
             <td data-label="Size" class="num">72 m²</td>
             <td data-label="Price" class="u-price num">€451,000</td>
             <td data-label="Per m²" class="num">€6,228</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 403"><img src="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-403-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 403"><img src="assets/liora/projects/retama-residences/floorplans/home-403-floorplan-thumb.jpg?v=e0cd7303" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u6" data-beds="3" data-price="795000" data-size="99.51" data-ppm="7989" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg">
+          <tr data-id="u6" data-beds="3" data-price="795000" data-size="99.51" data-ppm="7989" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg?v=907811d6">
             <th scope="row"><span class="u-name">531</span><span class="u-loc">Penthouse · Portal 5, Penthouse</span></th>
             <td data-label="Bedrooms">3 bed</td>
             <td data-label="Size" class="num">100 m²</td>
             <td data-label="Price" class="u-price num">€795,000</td>
             <td data-label="Per m²" class="num">€7,989</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 531"><img src="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-531-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 531"><img src="assets/liora/projects/retama-residences/floorplans/home-531-floorplan-thumb.jpg?v=907811d6" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u7" data-beds="2" data-price="485000" data-size="80.26" data-ppm="6043" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg">
+          <tr data-id="u7" data-beds="2" data-price="485000" data-size="80.26" data-ppm="6043" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg?v=b28fd1fa">
             <th scope="row"><span class="u-name">624</span><span class="u-loc">Apartment · Portal 6, Second Floor</span></th>
             <td data-label="Bedrooms">2 bed</td>
             <td data-label="Size" class="num">80 m²</td>
             <td data-label="Price" class="u-price num">€485,000</td>
             <td data-label="Per m²" class="num">€6,043</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 624"><img src="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-624-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 624"><img src="assets/liora/projects/retama-residences/floorplans/home-624-floorplan-thumb.jpg?v=b28fd1fa" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u8" data-beds="1" data-price="341000" data-size="46.78" data-ppm="7289" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg">
+          <tr data-id="u8" data-beds="1" data-price="341000" data-size="46.78" data-ppm="7289" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg?v=885f60a7">
             <th scope="row"><span class="u-name">912</span><span class="u-loc">Apartment · Portal 9, First Floor</span></th>
             <td data-label="Bedrooms">1 bed</td>
             <td data-label="Size" class="num">47 m²</td>
             <td data-label="Price" class="u-price num">€341,000</td>
             <td data-label="Per m²" class="num">€7,289</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 912"><img src="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-912-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 912"><img src="assets/liora/projects/retama-residences/floorplans/home-912-floorplan-thumb.jpg?v=885f60a7" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
-          <tr data-id="u9" data-beds="3" data-price="581000" data-size="101.62" data-ppm="5717" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg">
+          <tr data-id="u9" data-beds="3" data-price="581000" data-size="101.62" data-ppm="5717" tabindex="0" aria-selected="false" data-thumb="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg?v=23c3f977">
             <th scope="row"><span class="u-name">914</span><span class="u-loc">Apartment · Portal 9, First Floor</span></th>
             <td data-label="Bedrooms">3 bed</td>
             <td data-label="Size" class="num">102 m²</td>
             <td data-label="Price" class="u-price num">€581,000</td>
             <td data-label="Per m²" class="num">€5,717</td>
-            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 914"><img src="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
+            <td class="u-plan"><a href="assets/liora/projects/retama-residences/floorplans/home-914-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 914"><img src="assets/liora/projects/retama-residences/floorplans/home-914-floorplan-thumb.jpg?v=23c3f977" alt="" width="64" height="45" loading="lazy" decoding="async" fetchpriority="low"><span class="u-plan-txt">Plan</span></a></td>
           </tr>
         </tbody>
       </table>
