@@ -70,6 +70,7 @@ export function renderFooter(locale, prefix = '') {
       <div>
         <img class="footer-logo" src="${prefix}assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340" loading="lazy" decoding="async">
         <p class="footer-about">${t('footer.about.text', locale)}</p>
+        <a class="footer-badge" href="https://costabridge.co.uk/directory/nueva-living-kr2i" target="_blank" rel="noopener" title="${t('footer.costaBridge', locale)}"><img src="https://costabridge.co.uk/badge/listing/nueva-living-kr2i.svg?theme=dark" alt="${t('footer.costaBridge', locale)}" width="238" height="64" loading="lazy" decoding="async"></a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">${t('footer.companyTitle', locale)}</div>

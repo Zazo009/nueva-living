@@ -3539,3 +3539,13 @@ input[type="range"] {
 [dir="rtl"] .nv-select-group {
   padding: 12px 36px 6px 18px;
 }
+
+/* Directory badge (Costa Bridge). It must not make the footer any taller, so it takes no space of its
+   own: on wide screens it sits in the empty foot of the brand column, which the link columns already
+   hold open; where the columns stack (980px and below) there is no such space and it is not shown. */
+.footer-badge{display:none}
+@media (min-width:981px){
+  footer .footer-grid > div:first-child{position:relative}
+  footer .footer-badge{display:block;position:absolute;left:0;bottom:0;line-height:0}
+  footer .footer-badge img{display:block;width:200px;height:auto;border:0}
+}
