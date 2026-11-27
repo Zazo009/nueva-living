@@ -55,17 +55,16 @@ function toolMeta(invoking, invoked) {
   };
 }
 
+// What the server is, its tools and the caveats on its data. Facts only: the Claude directory review
+// (November 2026) asked for no directives aimed at the assistant and no contact channels here.
 const INSTRUCTIONS = [
-  'Nueva Living is an independent advisory for new-build homes on the Costa del Sol, Spain (Marbella, Estepona, Benahavís, Casares, Mijas and nearby).',
-  'search_developments returns up to six developments that fit a brief, plus suggestions that narrow it. Present those; do not call again just to collect more. When the person wants other options, narrow or change the criteria with them and search again.',
-  'Every fact, price, date and figure must come from tool output. Never invent a development, a unit, an amenity, a distance or a delivery date, and never estimate how many developments or homes Nueva Living has.',
-  'Prices are the developer\'s list prices before Spanish VAT (IVA) and purchase costs unless the price note says otherwise. Say so when you quote one. Availability and prices are reconfirmed by Nueva Living before any reservation; do not describe a home as reserved for the person or as the last one.',
+  'Nueva Living is an independent advisory for new-build and off-plan homes on the Costa del Sol, Spain, from Torremolinos to Casares.',
+  'Tools: search_developments returns up to six developments that fit a brief, with suggestions that narrow it; get_development returns one development\'s details and the homes on its price list; request_details returns Nueva Living\'s enquiry form for chosen developments, which the person fills in and sends themselves. No tool sends personal details.',
+  'Prices are the developers\' list prices in EUR before Spanish VAT (IVA) and purchase costs unless the price note says otherwise, and are reconfirmed by Nueva Living before any reservation.',
   'Images are mostly computer-generated renders from the developer, not photographs of the finished building. Map positions are approximate.',
-  'Sizes are the developer\'s own figures: built area where the developer gives it, otherwise interior (each result\'s size.basis says which, "mixed" when the price list uses both). Developers measure differently, so a size search allows 10% either side; say so when sizes are close to the limit, and say when a development gives only interior area.',
-  'To put the person in touch with an advisor, use request_details, only after they have asked to be contacted and agreed to share their name and e-mail for that purpose. Otherwise link to the development page, where they can enquire themselves.',
-  'Answer in the person\'s language; pass it as `language` so names, prices and dates come back in it. Put requirements such as sea views, a private pool, golf or walking to the beach in `features`; anything else goes in `wishes`, in any language.',
-  `A person can also reach a Nueva Living advisor directly at ${ADVISOR.email}, on WhatsApp ${ADVISOR.whatsapp}, or through ${ADVISOR.contact}.`,
-  'The results are also shown as cards in the conversation where the assistant supports it; do not repeat every figure from them, summarise and help the person choose.',
+  'Sizes are the developer\'s own figures: built area where given, otherwise interior; each result\'s size.basis says which ("mixed" when the price list uses both). Size searches allow 10% either side, as developers measure differently.',
+  'The language parameter returns names, prices and dates in English, Spanish, French, German, Russian, Arabic, Dutch, Polish, Swedish or Norwegian. features takes requirements such as sea_view or private_pool; wishes takes free text in any language.',
+  'Where the client supports MCP Apps, results are also shown as cards with photos, a map and the enquiry form.',
 ].join(' ');
 
 // --- small helpers ---------------------------------------------------------------------------
@@ -299,25 +298,22 @@ const TOOLS = [
   {
     name: 'request_details',
     title: 'Ask a Nueva Living advisor to get in touch',
-    description: 'Sends the person\'s enquiry to a Nueva Living advisor, who replies by e-mail (or phone, if given) with current availability, prices and plans. It is for a person who has asked to be contacted and agreed to share their name and e-mail for that; the enquiry is not sent unless consent is true.',
+    // Sends nothing. It opens Nueva Living's enquiry form for the chosen developments; the person
+    // types their own name and e-mail and presses Send, which posts straight to this server's
+    // enquiry route without passing through the model (Claude directory review, November 2026:
+    // a confirmation the model cannot set). Without MCP Apps the person gets the page link instead.
+    description: 'Opens Nueva Living\'s enquiry form for the developments the person chose. The person types their own name and e-mail and sends the form themselves; this tool sends no personal details. Returns the form for the host to show and the development page where the same form is available.',
     inputSchema: {
       type: 'object',
       properties: {
-        first_name: { type: 'string', minLength: 1, maxLength: 60 },
-        last_name: { type: 'string', minLength: 1, maxLength: 60 },
-        email: { type: 'string', format: 'email', maxLength: 120 },
-        phone: { type: 'string', maxLength: 30 },
-        slugs: { type: 'array', maxItems: 6, items: { type: 'string' }, description: 'Developments the person is asking about.' },
-        message: { type: 'string', maxLength: 1000, description: 'What the person wants to know, in their words.' },
-        budget_max: { type: 'integer', minimum: 0 },
-        consent: { type: 'boolean', description: 'Whether the person agreed to be contacted and to have these details stored for that.' },
+        slugs: { type: 'array', minItems: 1, maxItems: 6, items: { type: 'string' }, description: 'Developments the person is asking about, as slugs from search_developments.' },
         language: { type: 'string', enum: LANGUAGES },
       },
-      required: ['first_name', 'last_name', 'email', 'consent'],
+      required: ['slugs'],
       additionalProperties: false,
     },
     annotations: { title: 'Ask a Nueva Living advisor to get in touch', readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: true },
-    _meta: toolMeta('Sending your request to Nueva Living…', 'Request sent to a Nueva Living advisor'),
+    _meta: toolMeta('Opening the enquiry form…', 'Enquiry form ready'),
   },
 ];
 
@@ -400,6 +396,28 @@ function getDevelopment(args) {
     documents: l.documents,
     tags: project.tags,
     enquire: l.url,
+    contact: { enquiry_form: l.url, email: ADVISOR.email },
+  };
+}
+
+// The tool the model can call: no personal details in, none sent. The form it opens is sent by the
+// person, through the route in the handler below.
+function enquiryForm(args) {
+  const language = lang(args.language);
+  const projects = (Array.isArray(args.slugs) ? args.slugs : []).map((slug) => catalog.projects.find((p) => p.slug === slug)).filter(Boolean);
+  if (!projects.length) return { error: 'No development with those slugs. Use search_developments first.' };
+  const first = projects[0];
+  const l = first.locales[language] || first.locales.en;
+  console.log('mcp form');
+  return {
+    kind: 'enquiry_form',
+    language,
+    sent: false,
+    slug: first.slug,
+    slugs: projects.map((p) => p.slug),
+    name: l.name,
+    developments: projects.map((p) => (p.locales[language] || p.locales.en).name),
+    enquire: l.url,
   };
 }
 
@@ -417,6 +435,7 @@ function tooMany(key) {
 
 // Where an enquiry came from, as the CRM records it. The chat on the site (nueva-chat.js) passes its own.
 const MCP_CHANNEL = { label: 'an AI assistant (MCP connector)', page: '/mcp', consentPlace: 'an AI assistant conversation', utm: 'ai-assistant' };
+const WIDGET_CHANNEL = { label: 'the enquiry form in an AI assistant (MCP connector)', page: '/mcp', consentPlace: 'the Nueva Living enquiry form shown in an AI assistant', utm: 'ai-assistant' };
 
 async function requestDetails(args, event, channel = MCP_CHANNEL) {
   if (args.consent !== true) {
@@ -508,6 +527,12 @@ exports.handler = async (event) => {
   } catch {
     return rpcError(null, -32700, 'Parse error');
   }
+  // The enquiry form's Send button, pressed by the person in the card view. It is not JSON-RPC and
+  // not a tool: a model calling tools cannot reach it, so an enquiry needs the person's own click.
+  if (message && message.kind === 'enquiry' && message.jsonrpc === undefined) {
+    const result = await requestDetails(message, event, WIDGET_CHANNEL);
+    return reply(result.sent ? 200 : 400, result);
+  }
   if (Array.isArray(message)) return rpcError(null, -32600, 'Batches are not supported');
   if (!message || message.jsonrpc !== '2.0' || typeof message.method !== 'string') return rpcError(message?.id, -32600, 'Invalid request');
 
@@ -543,7 +568,7 @@ exports.handler = async (event) => {
         const args = params.arguments || {};
         if (params.name === 'search_developments') return rpcResult(id, toolResult(searchDevelopments(args)));
         if (params.name === 'get_development') return rpcResult(id, toolResult(getDevelopment(args)));
-        if (params.name === 'request_details') return rpcResult(id, toolResult(await requestDetails(args, event)));
+        if (params.name === 'request_details') return rpcResult(id, toolResult(enquiryForm(args)));
         return rpcError(id, -32602, `Unknown tool: ${params.name}`);
       }
       default:

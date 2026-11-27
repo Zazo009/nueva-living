@@ -185,6 +185,7 @@ const SCRIPT = String.raw`
     document.documentElement.lang = state.lang;
     document.documentElement.dir = state.lang === 'ar' ? 'rtl' : 'ltr';
     if (data.kind === 'development') renderDetail(data);
+    else if (data.kind === 'enquiry_form') renderForm(data);
     else if (data.kind === 'request' || data.sent !== undefined) renderSent(data);
     else renderSearch(data);
     window.scrollTo(0, 0);
@@ -303,7 +304,7 @@ const SCRIPT = String.raw`
   }
 
   function renderForm(d) {
-    state.stack.push(state.data);
+    if (state.data && state.data !== d) state.stack.push(state.data);
     state.data = { kind: 'form' };
     root.innerHTML = '<button class="back" data-back>‹ ' + esc(t('back')) + '</button>'
       + '<div class="eyebrow">' + esc(d.name) + '</div><h2>' + esc(t('formTitle')) + '</h2><p class="p">' + esc(t('formLead')) + '</p>'
@@ -325,8 +326,11 @@ const SCRIPT = String.raw`
         out.innerHTML = '<div class="msg">' + esc(t('required')) + '</div>'; setTimeout(reportSize, 30); return;
       }
       var btn = form.querySelector('[data-send]'); btn.disabled = true; btn.textContent = t('sending');
-      callTool('request_details', { first_name: v('first_name'), last_name: v('last_name'), email: v('email'), phone: v('phone') || undefined,
-        message: v('message') || undefined, slugs: [d.slug], consent: true, language: state.lang })
+      // Straight to the server's enquiry route, not through a tool: only this click sends it.
+      fetch('https://nuevaliving.com/mcp', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'enquiry', first_name: v('first_name'), last_name: v('last_name'), email: v('email'), phone: v('phone') || undefined,
+          message: v('message') || undefined, slugs: d.slugs || [d.slug], consent: true, language: state.lang }) })
+        .then(function (res) { return res.json(); })
         .then(function (r) {
           if (r && r.sent) { form.innerHTML = '<div class="msg">' + esc(t('sent')) + '</div>'; }
           else { out.innerHTML = '<div class="msg">' + esc(t('failed')) + '</div>'; btn.disabled = false; btn.textContent = t('send'); }
