@@ -527,7 +527,9 @@ for (const file of countPlaceholderPages) {
   const html = fs.readFileSync(file, 'utf8');
   for (const match of html.matchAll(/href="([^"]+)"/g)) {
     const href = match[1];
-    if (/^(?:https?:)?\/\//.test(href) && !href.includes('nuevaliving.com')) continue;
+    // a link is internal when its host is ours -- not when our address merely appears in its query,
+    // as it does in the "Ask an AI" links, which carry the page's own URL inside the question
+    if (/^(?:https?:)?\/\//.test(href) && !/^(?:https?:)?\/\/(?:www\.)?nuevaliving\.com(?:[/?#]|$)/.test(href)) continue;
     if (/^(?:mailto|tel):/.test(href)) continue;
     const query = href.split('#')[0].split('?')[1];
     if (!query) continue;

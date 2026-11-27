@@ -442,6 +442,19 @@ export function renderV2Main(ctx) {
   const focus = heroImg.focus || '50% 50%';
   const titleParts = (() => { const m = String(name).match(/^(.*?)\s+(Residences|Villas|Homes|Townhouses|Collection|Suites|Apartments|Estates)$/i); return m ? [m[1], m[2]] : [name, '']; })();
 
+  // "Ask an AI about this development": each assistant opens with a question about this page, in the
+  // page's language, and the page's own address so the answer is drawn from what we publish
+  const pageUrl = `https://nuevaliving.com/${link(`property-${sourceProject.slug}.html`)}`;
+  const aiQuestion = encodeURIComponent(s('v2.aiPrompt', { name, url: pageUrl }));
+  const AI_TARGETS = [
+    ['ChatGPT', 'https://chatgpt.com/?q='],
+    ['Claude', 'https://claude.ai/new?q='],
+    ['Perplexity', 'https://www.perplexity.ai/search?q='],
+    ['Google AI Mode', 'https://www.google.com/search?udm=50&q='],
+    ['Copilot', 'https://copilot.microsoft.com/?q='],
+    ['Grok', 'https://grok.com/?q=']
+  ];
+  const askAi = `<div class="ask-ai"><h3>${esc(s('v2.askAi', { name }))}</h3><ul>${AI_TARGETS.map(([label, base]) => `<li><a href="${esc(base + aiQuestion)}" target="_blank" rel="noopener nofollow" data-ask-ai="${esc(label)}"><svg aria-hidden="true"><use href="#v2-spark"/></svg>${esc(label)}</a></li>`).join('')}</ul></div>`;
   return `
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="v2-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M4 19.5l1.4-3.8A8 8 0 1 1 8.5 19z"/></symbol>
@@ -453,6 +466,7 @@ export function renderV2Main(ctx) {
     <symbol id="v2-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></g></symbol>
     <symbol id="v2-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="v2-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="v2-spark" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M10 3.5l1.6 4.9 4.9 1.6-4.9 1.6L10 16.5l-1.6-4.9L3.5 10l4.9-1.6zM17.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
     <symbol id="v2-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
   </svg>
 
@@ -597,6 +611,7 @@ export function renderV2Main(ctx) {
       <ol class="steps">${(project.timeline?.items || []).map(([, ti, b]) => `<li><h3>${esc(ti)}</h3><p>${esc(b)}</p></li>`).join('')}</ol>
       <div class="docs card"><h3>${esc(s('v2.docsTitle'))}</h3><ul class="doclist">${docs.map(([ti, ready, note]) => `<li class="${ready ? '' : 'later'}"><svg><use href="#v2-${ready ? 'check' : 'dot'}"/></svg><span>${esc(ti)}${note ? `<small>${esc(note)}</small>` : ''}${ready ? '' : `<small>${esc(s('v2.pending'))}</small>`}</span></li>`).join('')}</ul><a class="btn btn-primary" href="#enquire" data-prefill>${esc(s('v2.getFile'))}</a></div>
     </div>
+    ${askAi}
   </section>
 
   <section class="sec" id="faq" aria-labelledby="v2-h-faq">
