@@ -452,3 +452,23 @@ html[dir=rtl] .fold > summary::after{float:left}
   .u-showall.is-gone{display:none}
   .pbar .hdr-proj a[href$="#availability"]{order:-1}
 }
+/* motion, second pass: staggered reveals, the heading rule drawn in, the lightbox fading up, a swipe
+   that follows the finger, and the phone bar tucking in while the page scrolls down. All of it is off
+   for visitors who ask for reduced motion. */
+html.js-motion .rv{transition-delay:var(--rv-d,0ms)}
+html.js-motion .sec > h2.rv::before{transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .15s}
+html[dir=rtl].js-motion .sec > h2.rv::before{transform-origin:right}
+html.js-motion .sec > h2.rv.rv-in::before{transform:none}
+.lb:not([hidden]){animation:fadeIn .22s var(--ease)}
+#v2-lb-img{transition:opacity .25s,transform .25s var(--ease)}
+#v2-lb-img.drag{transition:none}
+.units tbody tr{transition:background-color .2s,box-shadow .2s}
+@media (max-width:760px){
+  .actionbar{transition:transform .25s ease,padding .25s ease}
+  .actionbar.is-compact{padding-top:6px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){
+  html.js-motion .sec > h2.rv::before{transform:none;transition:none}
+  .lb:not([hidden]){animation:none}
+  #v2-lb-img,.actionbar{transition:none}
+}

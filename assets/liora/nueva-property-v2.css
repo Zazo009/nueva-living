@@ -751,3 +751,18 @@ html[dir=rtl] .v2 .fold > summary::after{float:left}
 .v2 .u-showall.is-gone{display:none}
 .v2 .pbar .hdr-proj a[href$="#availability"]{order:-1}
 }
+html.js-motion .v2 .rv{transition-delay:var(--rv-d,0ms)}
+html.js-motion .v2 .sec > h2.rv::before{transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .15s}
+html[dir=rtl].js-motion .v2 .sec > h2.rv::before{transform-origin:right}
+html.js-motion .v2 .sec > h2.rv.rv-in::before{transform:none}
+.v2 .lb:not([hidden]){animation:fadeIn .22s var(--ease)}
+.v2 #v2-lb-img{transition:opacity .25s,transform .25s var(--ease)}
+.v2 #v2-lb-img.drag{transition:none}
+.v2 .units tbody tr{transition:background-color .2s,box-shadow .2s}
+@media (max-width:760px){.v2 .actionbar{transition:transform .25s ease,padding .25s ease}
+.v2 .actionbar.is-compact{padding-top:6px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){html.js-motion .v2 .sec > h2.rv::before{transform:none;transition:none}
+.v2 .lb:not([hidden]){animation:none}
+.v2 #v2-lb-img,.v2 .actionbar{transition:none}
+}
