@@ -365,7 +365,7 @@ function searchDevelopments(args) {
   if (!results.length) {
     out.message = !locationFound
       ? `Nueva Living does not currently advise on a development in "${args.location}". Areas covered: ${catalog.areas.map((a) => a.names[language] || a.names.en).join(', ')}.`
-      : 'No development fits every criterion. Suggest relaxing one of them (budget, bedrooms, type, stage or a feature).';
+      : 'No development fits every criterion together; each of budget, bedrooms, type, stage and features narrows the results.';
   }
   // No record of what was asked: the Claude directory policy (1E) rules out keeping conversation
   // data even for logging, so only the fact of a call is counted.
@@ -376,7 +376,8 @@ function searchDevelopments(args) {
 function getDevelopment(args) {
   const language = lang(args.language);
   const project = catalog.projects.find((p) => p.slug === String(args.slug || '').trim());
-  if (!project) return { error: `No development with slug "${args.slug}". Use search_developments first.` };
+  if (!args.slug) return { error: 'slug is required: the slug of a development as given in search_developments results.' };
+  if (!project) return { error: `No development has the slug "${args.slug}". Slugs are the ones given in search_developments results.` };
   const l = project.locales[language] || project.locales.en;
   console.log('mcp details');
   return {
@@ -405,7 +406,7 @@ function getDevelopment(args) {
 function enquiryForm(args) {
   const language = lang(args.language);
   const projects = (Array.isArray(args.slugs) ? args.slugs : []).map((slug) => catalog.projects.find((p) => p.slug === slug)).filter(Boolean);
-  if (!projects.length) return { error: 'No development with those slugs. Use search_developments first.' };
+  if (!projects.length) return { error: 'No development has those slugs. Slugs are the ones given in search_developments results.' };
   const first = projects[0];
   const l = first.locales[language] || first.locales.en;
   console.log('mcp form');
@@ -439,12 +440,12 @@ const WIDGET_CHANNEL = { label: 'the enquiry form in an AI assistant (MCP connec
 
 async function requestDetails(args, event, channel = MCP_CHANNEL) {
   if (args.consent !== true) {
-    return { sent: false, error: 'The person has not agreed to be contacted. Ask them first, or give them the development link to enquire themselves.' };
+    return { sent: false, error: 'Not sent: the consent box was not ticked.' };
   }
   const email = String(args.email || '').trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { sent: false, error: 'That e-mail address is not valid.' };
   const ip = event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || 'unknown';
-  if (tooMany(`${ip}|${email.toLowerCase()}`)) return { sent: false, error: 'Several enquiries were just sent from here. A Nueva Living advisor will reply to those first.' };
+  if (tooMany(`${ip}|${email.toLowerCase()}`)) return { sent: false, error: 'Not sent: several enquiries were sent from here in the last hour.' };
 
   const projects = (args.slugs || [])
     .map((slug) => catalog.projects.find((p) => p.slug === slug))
@@ -477,7 +478,7 @@ async function requestDetails(args, event, channel = MCP_CHANNEL) {
   });
   if (result.statusCode >= 400) {
     console.error('MCP lead not accepted', { status: result.statusCode, body: String(result.body).slice(0, 200) });
-    return { sent: false, error: 'The enquiry could not be sent just now. Give the person the development page link to enquire there.' };
+    return { sent: false, error: 'Not sent: the enquiry could not be delivered just now. The same form is on the development page.' };
   }
   console.log('mcp lead');
   return { kind: 'request', sent: true, message: 'Sent. A Nueva Living advisor will reply by e-mail, normally within one working day.' };

@@ -3935,7 +3935,15 @@ const searchCatalogDir = path.resolve('netlify/functions/data');
 mkdirSync(searchCatalogDir, { recursive: true });
 writeFileSync(path.join(searchCatalogDir, 'projects-catalog.json'), JSON.stringify(buildSearchCatalog(projects), null, 2));
 // The assistant connector's catalogue: public page fields only, in all ten languages.
-writeFileSync(path.join(searchCatalogDir, 'mcp-catalog.json'), JSON.stringify(buildMcpCatalog(projects)));
+// English copy writes some amounts as "EUR 740,000" and others as "€740,000"; the connector shows them
+// side by side on one card, so its English entries use the euro sign throughout. The other nine
+// languages already spell amounts their own way.
+const euroSign = (value) => (typeof value === 'string' ? value.replace(/\bEUR\s?(?=\d)/g, '€')
+  : Array.isArray(value) ? value.map(euroSign)
+    : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).map(([k, v]) => [k, euroSign(v)])) : value);
+const mcpCatalog = buildMcpCatalog(projects);
+for (const project of mcpCatalog.projects) if (project.locales?.en) project.locales.en = euroSign(project.locales.en);
+writeFileSync(path.join(searchCatalogDir, 'mcp-catalog.json'), JSON.stringify(mcpCatalog));
 
 const compareCatalogDir = path.resolve('assets/liora/data');
 mkdirSync(compareCatalogDir, { recursive: true });

@@ -306,7 +306,8 @@ const SCRIPT = String.raw`
   function renderForm(d) {
     if (state.data && state.data !== d) state.stack.push(state.data);
     state.data = { kind: 'form' };
-    root.innerHTML = '<button class="back" data-back>‹ ' + esc(t('back')) + '</button>'
+    // Opened straight from request_details there is nothing to go back to, so no Back button.
+    root.innerHTML = (state.stack.length ? '<button class="back" data-back>‹ ' + esc(t('back')) + '</button>' : '')
       + '<div class="eyebrow">' + esc(d.name) + '</div><h2>' + esc(t('formTitle')) + '</h2><p class="p">' + esc(t('formLead')) + '</p>'
       + '<div class="form"><div class="row"><label class="f">' + esc(t('first')) + '<input type="text" name="first_name" autocomplete="given-name" maxlength="60"></label>'
       + '<label class="f">' + esc(t('last')) + '<input type="text" name="last_name" autocomplete="family-name" maxlength="60"></label></div>'
@@ -315,7 +316,7 @@ const SCRIPT = String.raw`
       + '<label class="f">' + esc(t('message')) + '<textarea name="message" maxlength="1000"></textarea></label>'
       + '<label class="consent"><input type="checkbox" name="consent"><span>' + esc(t('consent')) + '</span></label>'
       + '<div class="actions"><button class="btn" type="button" data-send>' + esc(t('send')) + '</button></div><div data-out></div></div>';
-    root.querySelector('[data-back]').onclick = back;
+    if (root.querySelector('[data-back]')) root.querySelector('[data-back]').onclick = back;
     // Not a <form>: hosts sandbox the view without allow-forms, which drops a submit event silently.
     var form = root.querySelector('.form');
     var field = function (n) { return form.querySelector('[name=' + n + ']'); };
