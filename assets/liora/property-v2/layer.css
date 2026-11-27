@@ -444,3 +444,11 @@ html[dir=rtl] .fold > summary::after{float:left}
   .ov-text.fits + .ov-more,.ov-text.is-open + .ov-more{display:none}
   .kfacts > .kf-strip{display:none}
 }
+/* phones: the first eight homes, then "Show all"; the project bar lists prices first, as the page does */
+.u-showall{display:none}
+@media (max-width:760px){
+  .units tbody tr.u-more{display:none!important}
+  .u-showall{display:block;width:100%;margin-top:12px;min-height:46px}
+  .u-showall.is-gone{display:none}
+  .pbar .hdr-proj a[href$="#availability"]{order:-1}
+}

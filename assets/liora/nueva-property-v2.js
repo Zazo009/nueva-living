@@ -143,6 +143,22 @@
         r.animate([{ transform: 'translateY(' + dy + 'px)' }, { transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.22,.61,.36,1)' });
       });
     });
+    // phones list the first eight homes of the current filter and sort; "Show all" opens the rest
+    var showAll = document.querySelector('.v2 .u-showall'), allOpen = false;
+    var clip = function () {
+      if (!showAll) return;
+      var n = 0;
+      Array.prototype.forEach.call(tbody.rows, function (r) {
+        var out = r.classList.contains('is-out');
+        if (!out) n++;
+        r.classList.toggle('u-more', !allOpen && !out && n > 8 && r.getAttribute('aria-selected') !== 'true');
+      });
+      showAll.textContent = String(L.showAll || '').replace('{n}', n);
+      showAll.classList.toggle('is-gone', allOpen || n <= 8);
+    };
+    if (showAll) showAll.addEventListener('click', function () { allOpen = true; clip(); });
+    clip();
+    table.tHead.addEventListener('click', clip);
     var uf = document.querySelector('.v2 .ufilter');
     if (uf) uf.addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b) return;
@@ -151,6 +167,7 @@
       Array.prototype.forEach.call(tbody.rows, function (r) { r.classList.toggle('is-out', want !== '' && r.dataset.beds !== want); });
       var sel = tbody.querySelector('tr[aria-selected="true"]');
       if (sel && sel.classList.contains('is-out')) { var vis = tbody.querySelector('tr:not(.is-out)'); if (vis) select(vis.dataset.id, true); }
+      clip();
     });
     if (fine) {
       var tip = document.createElement('div'); tip.className = 'uthumb'; tip.setAttribute('aria-hidden', 'true'); tip.innerHTML = '<img alt="">';

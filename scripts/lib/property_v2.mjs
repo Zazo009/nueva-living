@@ -431,7 +431,8 @@ export function renderV2Main(ctx) {
       vatOnStages: s('v2.vatOnStages'),
       onRequest,
       imageOf: s('v2.imageOf', { i: '{i}', n: '{n}' }),
-      floorPlan: s('v2.floorPlan')
+      floorPlan: s('v2.floorPlan'),
+      showAll: s('v2.showAll', { n: '{n}' })
     }
   };
   // < keeps the script from being closed early; ' and ` are escaped so that every language's copy of
@@ -528,7 +529,8 @@ export function renderV2Main(ctx) {
         <tbody>${unitRows}
         </tbody>
       </table>
-    </div>` : ''}
+    </div>${units.length > 8 ? `
+    <button class="btn btn-ghost u-showall" type="button" aria-controls="units">${esc(s('v2.showAll', { n: units.length }))}</button>` : ''}` : ''}
     ${layouts}
     ${(project.residences?.items || []).length ? `<details class="fold" id="residences"><summary>${t('section.residences', locale)}${project.residences.headlineHtml ? ` · <span>${esc(String(project.residences.headlineHtml).replace(/<[^>]+>/g, ''))}</span>` : ''}</summary>${project.residences.copy ? `<p>${esc(project.residences.copy)}</p>` : ''}<div class="res-types">${project.residences.items.map((it) => `<div class="res-type"><h3>${esc(it.name || '')}</h3>${(it.meta || []).length ? `<dl class="res-meta">${it.meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}${[...(it.points || []), ...(it.features || [])].length ? `<ul>${[...(it.points || []), ...(it.features || [])].map((x) => `<li>${esc(Array.isArray(x) ? x.join(': ') : x)}</li>`).join('')}</ul>` : ''}</div>`).join('')}</div></details>` : ''}
     ${units.length ? `<div class="plan" id="plan" aria-live="polite">
