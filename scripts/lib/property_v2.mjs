@@ -15,7 +15,9 @@ import { createHash } from 'node:crypto';
 import { V2_STRINGS } from './property_v2_strings.mjs';
 
 const AREA_UNIT = { ru: 'м²', ar: 'م²' };
-const LICENCE_OK = new Set(['first_occupation', 'granted']);
+// "works": no licence document seen, but dated evidence of works under way, which Spanish law does
+// not allow without a building licence (licence research, 27 November 2026; evidence in crm.licenceEvidence).
+const LICENCE_OK = new Set(['first_occupation', 'granted', 'works']);
 const VAT = 0.10;
 const AJD = 0.012;
 
