@@ -18,6 +18,7 @@
 // artifacts and are gitignored; edit pages/ instead.
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { replaceFooter } from './lib/site_footer.mjs';
 
 const root = process.cwd();
 const source = path.join(root, 'pages');
@@ -42,6 +43,9 @@ if (!staged.length) {
 const banner = (file) => `<!-- Generated from pages/${file} on every build. `
   + `Edit that file, not this one: changes here are overwritten. -->\n`;
 for (const file of staged) {
-  const html = readFileSync(path.join(source, file), 'utf8');
+  // The English copies carried their own hand-written footer, so a footer change reached every
+  // generated page and missed these five (the Costa Bridge badge did, November 2026). They take
+  // the one footer from scripts/lib/site_footer.mjs, as the translated copies already do.
+  const html = replaceFooter(readFileSync(path.join(source, file), 'utf8'), 'en');
   writeFileSync(path.join(root, file), banner(file) + html);
 }

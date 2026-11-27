@@ -8,7 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { FLOOR_PARTS } from './lib/unit_floor_parts.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { localizeProject } from './lib/i18n.mjs';
-import { FOOTER_COMPANY_LINKS, FOOTER_PROJECT_LINKS, FOOTER_CONTACT } from './lib/site_footer.mjs';
+import { FOOTER_COMPANY_LINKS, FOOTER_EXPLORE_LINKS, FOOTER_LEGAL_LINKS, FOOTER_ASSISTANTS, FOOTER_CONTACT, COSTA_BRIDGE } from './lib/site_footer.mjs';
 import { imageHash, readManifest, projectImagePaths } from './lib/image_review.mjs';
 import { realNameIsPublic } from './lib/real_name.mjs';
 import { projectSizes } from './lib/unit_size.mjs';
@@ -2754,9 +2754,6 @@ let footerShapeChecked = 0;
 {
   const dist = path.join(root, 'dist');
   const offenders = [];
-  const expectedCompany = FOOTER_COMPANY_LINKS.length;
-  const expectedProjects = FOOTER_PROJECT_LINKS.length;
-
   const walk = (dir) => {
     if (!fs.existsSync(dir)) return [];
     return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -2766,24 +2763,28 @@ let footerShapeChecked = 0;
     });
   };
 
+  // The old check skipped any footer without its column class, so a footer in a new shape would
+  // have passed unread. Now a page still carrying the old footer fails, and the new one is read
+  // against site_footer.mjs link by link.
   for (const file of walk(dist)) {
     const html = fs.readFileSync(file, 'utf8');
     const matches = [...html.matchAll(/<footer(?:\s[^>]*)?>[\s\S]*?<\/footer>/gi)];
     const footer = matches.at(-1);
     if (!footer) continue;
     const block = footer[0];
-    if (!block.includes('footer-col-title')) continue;
-    footerShapeChecked += 1;
     const rel = path.relative(dist, file);
-
-    const columns = block.split(/class="footer-col-title"[^>]*>/).slice(1);
-    const counts = columns.map((column) => (column.split('</ul>')[0].match(/<a /g) || []).length);
-    // Company, Projects, then the contact list beneath Projects.
-    if (counts.length !== 3) {
-      offenders.push(`${rel}: ${counts.length} footer columns, expected 3`);
-    } else if (counts[0] !== expectedCompany || counts[1] !== expectedProjects) {
-      offenders.push(`${rel}: Company ${counts[0]}/${expectedCompany}, Projects ${counts[1]}/${expectedProjects}`);
+    if (/class="footer-(grid|col-title)"/.test(block)) { offenders.push(`${rel}: still carries the old footer`); continue; }
+    if (!block.startsWith('<footer class="nf"')) continue;
+    footerShapeChecked += 1;
+    const cols = [...block.matchAll(/<nav class="nf-col"[\s\S]*?<\/nav>/g)].map((m) => (m[0].match(/<a /g) || []).length);
+    if (cols.length !== 2 || cols[0] !== FOOTER_EXPLORE_LINKS.length || cols[1] !== FOOTER_COMPANY_LINKS.length) {
+      offenders.push(`${rel}: Explore/Company links ${cols.join('/')}, expected ${FOOTER_EXPLORE_LINKS.length}/${FOOTER_COMPANY_LINKS.length}`);
     }
+    const legal = (block.match(/<ul class="nf-legal"[\s\S]*?<\/ul>/) || [''])[0];
+    if ((legal.match(/<a /g) || []).length !== FOOTER_LEGAL_LINKS.length) offenders.push(`${rel}: legal links are not the ${FOOTER_LEGAL_LINKS.length} in site_footer.mjs`);
+    if (!legal.includes('data-consent-reopen')) offenders.push(`${rel}: the footer has no Cookie settings control`);
+    if ((block.match(/data-ask-ai="/g) || []).length !== FOOTER_ASSISTANTS.length) offenders.push(`${rel}: the footer is missing an assistant link`);
+    if (!block.includes(COSTA_BRIDGE.href)) offenders.push(`${rel}: the footer is missing the Costa Bridge badge`);
     // The contact details are a fact about the business, not decoration.
     for (const [label, value] of [['phone', FOOTER_CONTACT.phone], ['email', FOOTER_CONTACT.email]]) {
       if (!block.includes(value)) offenders.push(`${rel}: footer is missing the ${label} ${value}`);
